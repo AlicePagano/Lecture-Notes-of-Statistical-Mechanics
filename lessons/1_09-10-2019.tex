@@ -1,0 +1,118 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{9}{10}{2019}
+
+\begin{document}
+
+\paragraph{Lecture 1}  \displaydate{date}. Compiled:  \today.
+
+\section{}
+
+When the particles interact one to other, we will see strong correlation, that corresponds to singularity. The exam is divided into two parts: first, common oral exam (same exercise and question for everyone, it is a written part), second part, oral. 
+
+We will treat classical statistical mechanics and system at equilibrium. 
+
+For the termodinamic part the book is the Cullen (termodinamics and and thermostatic).
+
+Thermodinamic is a rigorous theory at equilibrium. 
+One of the first important concept is the one of \textit{extensive variables}. For instance, if we consider a fluid, an extensive variable is the size of the system.
+The extensive variables that caracterize the system at equilibrium are: $V$, the volume, $N$ the number of particles, $Fluid$. If we use a magnetic systems, the equivalent of $V$ is the magnetization $\vec{M}$ and $N$ is still the number of the elementary components of the system.
+In general, the extensive variable are additive. 
+In thermodinamic, it is important the concept of constrain for computing something (thermodinamic wall). The typical wall of constrain are the Adiabatic walls. This constrains are the tool for changing the system by changing this constrains.
+An example of Adiabatic walls is no heat flux. Another example is diathermic walls that means $J_Q \neq 0$, there is a heat flux. 
+Or we can have rigid walls, or impermeable walls (the number of particles remain constants, when you remove this constrain particles can be move). 
+We move from a system in equilibrium to another. We ask what is the next equilibrium of a system after the constrains are changed. How we can characterize the new system? This is a fundamental problem thermodinamcs. 
+
+Now define what it is an equilibrium state. It is a state that does not change in time. It is not the general definition, because we can have also stationary state that are state that does not change in time but that are non equilibrium state.
+We describe a system by characterizing all the extesnive variables at equilibrium. 
+
+The system goes from one point to another, the transformation is so slow that in each $\Delta t$ the system is in equilibrium, these are the quasistatic transformation.  In that case we have a variation of the internal energy of the system of $\d U = \delta Q - \delta W$, this is do by two factor, the absorbing of heat and the work the system done. We write $\d U$ because it is a differential, the other quantities with $\delta$ are only small quantities. So $\d U$ is a function of state, the other are not
+For example: $\delta W = P \d V$. We have a pressure and we change the volume, this is the work done by the system. We can have $\delta W = -\vec{H} \cdot \d \vec{M}$, we change the magnetization as spin. 
+Suppose a system as , the system in the left is characterized by $V_1,N_1,U_1$, the one of the right by $V_2,N_2,U_2$. There are many ways for solving this. We can use the maximum entropy principle, that is the most general principle that you can think of when you want to describe system. 
+If exist a function of an extensive variable that is called $S$ and that it is defined for each equilibrium state, the entropy is defined as $S = S (U,V,N_1,N_2,\dots)$, is a function of $U$ etc...where the $N_i$ are the numbers of moles for example. 
+The values taken by the extensive variables after constrains removed, these values are the one that maximized the entropy. That is the maximum entropy principle, it is a postulate.
+If you know $S$, you know everything. 
+$\d S = 0 \quad \d^2 S < 0 $ 
+Then another postulate is that:
+\begin{itemize}
+\item $S$ is an additive function, therefore $S= \sum_\alpha S^{(\alpha)} =  \sum_\alpha S(V_\alpha,N_\alpha,U_\alpha ) $
+\item $S$ is differentiable and monotonically increasing with respect to $U$
+$\left( \pdev{S}{U} \right)_{V,N} > 0$
+\item $S$ is an homogeneus function of $1^{st}$ order.
+$S(\lambda U, \lambda V, \lambda N) = \lambda S (U,V,N)$
+\end{itemize}
+
+The dual system is that can exist a function $U = U (S,V,N)$, therefore you can do the same or by looking $S$ or $U$, when you know all of this you know everything about the system. 
+
+Now we define another set of variables that are called \textit{intensive variables}. We can take  $U = U (U,V,N_1,N_2,\dots)$ and differenciate it
+$\d U = \underset{T}{\left( \pdev{U}{S} \right)_{V,N,\dots}} \d S + \underset{-P}{\left( \pdev{U}{V} \right)_{S,N}} \d V + \sum_{k=1}^r \underset{\mu_k}{\left( \pdev{U}{N_k} \right)_{S,V,N_{j\neq k} }} \d N_k $ 
+
+It is clear that 
+$$T= T(S,V,N_k, \dots), P= P(S,V,N_k, \dots), \mu_k= \mu_k(S,V,N_k, \dots)$$
+These are the equations of state. If you know this you know the coefficient of the differential previusly written. 
+We haven't seen the equation of state written in this state, but written as $P V = k_b N T $. This derive from the equation of $T$ and of $P$. The van der walls equation of state is
+$$ \left( P + a (\frac{N}{V})^2 \right) ( V-N b) = k_b N T $$
+Another equation of state is the Curie Law for paramagnetic system
+$$ M = \frac{C H }{T} $$ 
+We have: 
+$ ( \pdev{U}{M} )_{S,N} = H $ 
+If we rescale the system as $T(\lambda S, \lambda V, \lambda N_k) \overset{0}{=} \lambda T (S,V,N_k)$
+
+Now, we keep $S$ separate, and $V,N_1,N_2,\dots,N_r \rightarrow r+1$ external variable, we called $X_{j=1,n+1}$. If we take the
+$ ( \pdev{U}{X_j} ) \equiv P_j $.
+We consider $\d U = T \d S + \sum_{j=1}^{r+1} P_j \d X_j $. In the case in which $j=1$ we have
+$ P_1 = ( \pdev{U}{V} ) = -P $.
+
+For the fluid case we write again (fare un sistema della due successive) $\d U = T \d S - p \d V + \mu \d N $, so $\d U = T \d S + \vec{H} \cdot \d \vec{M} + \mu \d N $.
+
+You have to use the differential of $U$ then put $\d U = 0 $. 
+If we put $U=0$ we obtain the relation 
+$ S \d T + \sum_{j=1}^{r+1} X_j \d P_j$
+This is the Gibbs-Duhem relation. 
+
+Therefore, $ S \d T - V \d P + N \d \mu = 0$, this is the relation for a typical fluid system. Now we divide everything by $N$, for looking for the density and we obtain ( $s= S/N$, $v=V/N$ )
+$$ \d \mu = - s \d T + v \d P $$
+This is important because it is for a mole, the volume of a single molecule. 
+
+Consider the Legendre transforms: we have a function that is strictly convess and the derivative strictly positive, $f(x)$ and we do the derivative $\ndev{f}{x}{2} > 0 $. The legendre transform is $f ( \pdev{f}{x} ) $. We express the function in function of the derivative of the function respect to $x$. 
+Now we look $U$ that is a function of entropy, the derivative of $U$ respect to $S$ is the temperature. You need to write differential equation by using other function. That is the story of the legendre transform. 
+
+ Suppose we want to get the read of $S$. We usually have $Y=Y (X_0,X_1,\dots,X_{r+1}) $, we want to replace $X_k$ with the derivative of the function respect  $X_k$:
+ $$ X_k \rightarrow \pdev{Y}{X_k} \equiv P_k $$ 
+ Now suppose we want to replace
+ $$ S \rightarrow \pdev{U}{S} \underset{V,N} {\equiv } T $$ 
+Now we write:
+$$ A \equiv U - S \pdev{U}{S} = U - T S $$ 
+This is the helmontz free energy. 
+For the moment it is difficult to figure out what are the dipendencies of $A$ in function of the parameter. Let us do it. ( let us consider the $\d U = T \d S + \sum_{j=1}^{r+1} P_j \d X_j $ written yet before in the second step)
+
+$\d A = \d U - \d S \cdot T - S \d T  \underset{!}{=} \cancel{T \d S} + \sum_{j=1}^{r+1} P_j \d X_j - \cancel{\d S \, T } - S \d T $.  
+
+For a magnetic system, we have 
+$$ \d A = - p \d V - S \d T + \mu \d N $$
+this is just
+$$ \d A = \vec{H} \cdot \d \vec{M} - S \d T + \mu \d V $$
+
+The Hentalpy:
+you have to define a
+$$ H = U + P V $$ (the plus is just because the minus of the $P$). 
+
+Therefore $H = H ( S, P, N , \dots ) $.
+We do not use hentalpy, we can start or from $S$ and $U$ or we can start by $H$ and doing the legendre transform: we define the Gibbs potential obtained as a legendre transform of entalpy
+
+$$ G = U - T S + P V $$ 
+Therefore $ G = G ( T, P, N ) $, so $\d G = - S \d T + V \d P + \sum_{j=2}^{r+1} \mu_j \d N_j $
+
+$ \d G = - S \d T - \vec{M} \cdot \d \vec{H} $
+
+Sometimes is much easier not to change $N$ but the chemical potential.
+$\Omega = \underbrace{U - T S} - \mu N = A - \mu N $ 
+This is the gran canonical ensamble. 
+
+
+
+
+
+
+
+\end{document}
