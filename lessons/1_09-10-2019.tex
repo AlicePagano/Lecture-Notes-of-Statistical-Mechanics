@@ -4,112 +4,349 @@
 
 \begin{document}
 
-\paragraph{Lecture 1}  \displaydate{date}. Compiled:  \today.
+\chapter{Recall of Thermodynamics}
 
-\section{}
+\marginpar{ \textbf{Lecture 1.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-When the particles interact one to other, we will see strong correlation, that corresponds to singularity. The exam is divided into two parts: first, common oral exam (same exercise and question for everyone, it is a written part), second part, oral. 
+\section{A short recap of thermodynamics definitions}
 
-We will treat classical statistical mechanics and system at equilibrium. 
+\noindent The systems we consider are
 
-For the termodinamic part the book is the Cullen (termodinamics and and thermostatic).
+\begin{enumerate}
+\item In equilibrium with an external bath at fixed temperature \emph{T}.
+\item Made by a (large) number \emph{N} of degrees of dreedom. For instance, we remind that \( \SI{1}{\mole} \approx N_A \sim 10^{23}\) elementary units.
+\end{enumerate}
 
-Thermodinamic is a rigorous theory at equilibrium. 
-One of the first important concept is the one of \textit{extensive variables}. For instance, if we consider a fluid, an extensive variable is the size of the system.
-The extensive variables that caracterize the system at equilibrium are: $V$, the volume, $N$ the number of particles, $Fluid$. If we use a magnetic systems, the equivalent of $V$ is the magnetization $\vec{M}$ and $N$ is still the number of the elementary components of the system.
-In general, the extensive variable are additive. 
-In thermodinamic, it is important the concept of constrain for computing something (thermodinamic wall). The typical wall of constrain are the Adiabatic walls. This constrains are the tool for changing the system by changing this constrains.
-An example of Adiabatic walls is no heat flux. Another example is diathermic walls that means $J_Q \neq 0$, there is a heat flux. 
-Or we can have rigid walls, or impermeable walls (the number of particles remain constants, when you remove this constrain particles can be move). 
-We move from a system in equilibrium to another. We ask what is the next equilibrium of a system after the constrains are changed. How we can characterize the new system? This is a fundamental problem thermodinamcs. 
+\noindent Thermodynamic is a macroscopic theory of matter at equilibrium.
+It starts either from experimental observations or from \emph{assiomatic assumptions} and establishes rigorous relations between macroscopic variables (\textbf{observables}) to describe systems at equilibrium.
 
-Now define what it is an equilibrium state. It is a state that does not change in time. It is not the general definition, because we can have also stationary state that are state that does not change in time but that are non equilibrium state.
-We describe a system by characterizing all the extesnive variables at equilibrium. 
+One of the first important concept is the one of \textbf{extensive variables}. For instance, the extensive variables that caracterize the system at equilibrium are the internal energy \emph{U}, volume V \emph{V}, number of particles \emph{N} and magnetization \( \va{M} \) that "scale with the system".
+In general, the extensive variable are additive.
 
-The system goes from one point to another, the transformation is so slow that in each $\Delta t$ the system is in equilibrium, these are the quasistatic transformation.  In that case we have a variation of the internal energy of the system of $\d U = \delta Q - \delta W$, this is do by two factor, the absorbing of heat and the work the system done. We write $\d U$ because it is a differential, the other quantities with $\delta$ are only small quantities. So $\d U$ is a function of state, the other are not
-For example: $\delta W = P \d V$. We have a pressure and we change the volume, this is the work done by the system. We can have $\delta W = -\vec{H} \cdot \d \vec{M}$, we change the magnetization as spin. 
-Suppose a system as , the system in the left is characterized by $V_1,N_1,U_1$, the one of the right by $V_2,N_2,U_2$. There are many ways for solving this. We can use the maximum entropy principle, that is the most general principle that you can think of when you want to describe system. 
-If exist a function of an extensive variable that is called $S$ and that it is defined for each equilibrium state, the entropy is defined as $S = S (U,V,N_1,N_2,\dots)$, is a function of $U$ etc...where the $N_i$ are the numbers of moles for example. 
-The values taken by the extensive variables after constrains removed, these values are the one that maximized the entropy. That is the maximum entropy principle, it is a postulate.
-If you know $S$, you know everything. 
-$\d S = 0 \quad \d^2 S < 0 $ 
-Then another postulate is that:
+In thermodynamic, it is important the concept of walls and thermodynamic constrains that are necessary for a complete definition of a thermodynamic system. With their presence or absence it is possible to control and redistribute the thermodynamic variables for changing the system.
+The typical walls are:
 \begin{itemize}
-\item $S$ is an additive function, therefore $S= \sum_\alpha S^{(\alpha)} =  \sum_\alpha S(V_\alpha,N_\alpha,U_\alpha ) $
-\item $S$ is differentiable and monotonically increasing with respect to $U$
-$\left( \pdev{S}{U} \right)_{V,N} > 0$
-\item $S$ is an homogeneus function of $1^{st}$ order.
-$S(\lambda U, \lambda V, \lambda N) = \lambda S (U,V,N)$
+\item \textbf{Adiabatic walls}: no heat flux. If it is removed we obtain a \textbf{diathermic walls}.
+\item \textbf{Rigid walls}: no mechanical work. If it is removed we obtain a \textbf{flexible or mobile walls}.
+\item \textbf{Impermeable walls}: no flux of particles (the number of particles remain constraints). If it is removed we obtain a \textbf{permeable walls}.
 \end{itemize}
 
-The dual system is that can exist a function $U = U (S,V,N)$, therefore you can do the same or by looking $S$ or $U$, when you know all of this you know everything about the system. 
+\section{Equilibrium states}
 
-Now we define another set of variables that are called \textit{intensive variables}. We can take  $U = U (U,V,N_1,N_2,\dots)$ and differenciate it
-$\d U = \underset{T}{\left( \pdev{U}{S} \right)_{V,N,\dots}} \d S + \underset{-P}{\left( \pdev{U}{V} \right)_{S,N}} \d V + \sum_{k=1}^r \underset{\mu_k}{\left( \pdev{U}{N_k} \right)_{S,V,N_{j\neq k} }} \d N_k $ 
+Consider a system in an equilibrium state, if the system changes our aim is to study the next equilibrium state of the system. Therefore we move from a system in equilibrium to another. The fundamental problem of thermodynamcs is how to characterize the new system.
 
-It is clear that 
-$$T= T(S,V,N_k, \dots), P= P(S,V,N_k, \dots), \mu_k= \mu_k(S,V,N_k, \dots)$$
-These are the equations of state. If you know this you know the coefficient of the differential previusly written. 
-We haven't seen the equation of state written in this state, but written as $P V = k_b N T $. This derive from the equation of $T$ and of $P$. The van der walls equation of state is
-$$ \left( P + a (\frac{N}{V})^2 \right) ( V-N b) = k_b N T $$
-Another equation of state is the Curie Law for paramagnetic system
-$$ M = \frac{C H }{T} $$ 
-We have: 
-$ ( \pdev{U}{M} )_{S,N} = H $ 
-If we rescale the system as $T(\lambda S, \lambda V, \lambda N_k) \overset{0}{=} \lambda T (S,V,N_k)$
+Now, we define the concept of \textbf{equilibrium states}. Consider macroscopic states that are fully described by \emph{extensive} variables such as the internal energy \emph{U}, the volume \emph{V}, the number of particles \emph{N}, the magnetization \( \va{M} \), etc \( \dots \).
+If these variables are time indipendent, the system is in a \textit{steady state}.
+If moreover there are no macroscopic currents, the system is at \textit{equilibrium}.
+Therefore, we describe a system by characterizing all the extesnive variables at equilibrium.
 
-Now, we keep $S$ separate, and $V,N_1,N_2,\dots,N_r \rightarrow r+1$ external variable, we called $X_{j=1,n+1}$. If we take the
-$ ( \pdev{U}{X_j} ) \equiv P_j $.
-We consider $\d U = T \d S + \sum_{j=1}^{r+1} P_j \d X_j $. In the case in which $j=1$ we have
-$ P_1 = ( \pdev{U}{V} ) = -P $.
+Suppose that the system changes slow in time, it goes from an equilibrium state to another one and the transformation is so slow that in each $\Delta t$ the system is at equilibrium. Therefore, consider a sequence of equilibrium states, the \textbf{quasi-static transormation} are described by the  \textit{\( 1^{st} \) Law of thermodynamic}:
 
-For the fluid case we write again (fare un sistema della due successive) $\d U = T \d S - p \d V + \mu \d N $, so $\d U = T \d S + \vec{H} \cdot \d \vec{M} + \mu \d N $.
+\begin{equation}
+  \dd[]{U} = \delta Q - \delta W
+  \label{eq:}
+\end{equation}
+The variation of the internal energy of the systems depends by two factors, \( \delta w \) that is the work done by the system during a \emph{quasi-static process} (infinitively slow), and \( \delta Q \) that is the heat absorbed by the system during the process. Remember that we write \( \dd[]{U}  \) because it is a differential quantity, while the other quantities with the \( \delta  \) are only small quanties. Therefore, \( \dd[]{U}  \) is a function of state, the other are not.
+For example, for a simple fluid with a given pressure if we change the volume, the work done by the systems is \( \delta W = P \dd[]{V}  \). For a magnetized system, we can have \( \delta W = -\va{H} \vdot  \dd[]{\va{M} }  \).
 
-You have to use the differential of $U$ then put $\d U = 0 $. 
-If we put $U=0$ we obtain the relation 
-$ S \d T + \sum_{j=1}^{r+1} X_j \d P_j$
-This is the Gibbs-Duhem relation. 
+In conclusion, starting from an equilibrium state and removing some constraints (i.e. wall properties), we want to find the new equilibrium state compatible with the new constrains.
 
-Therefore, $ S \d T - V \d P + N \d \mu = 0$, this is the relation for a typical fluid system. Now we divide everything by $N$, for looking for the density and we obtain ( $s= S/N$, $v=V/N$ )
-$$ \d \mu = - s \d T + v \d P $$
-This is important because it is for a mole, the volume of a single molecule. 
+Suppose a system with adiabatic rigid impermeable constraints. The system on the left is characterized by \( V_1,N_1,U_1 \), the one on the right by \( V_2,N_2,U_2 \). There are many ways for solving this problem.
+We use the most general way, that is by using the \textit{maxium entropy principle}.
+If exists a function \emph{S} of the extensive variables of the system that is defined for all equilibrium states, we call it \textbf{entropy} and the fundamental relation is
 
-Consider the Legendre transforms: we have a function that is strictly convess and the derivative strictly positive, $f(x)$ and we do the derivative $\ndev{f}{x}{2} > 0 $. The legendre transform is $f ( \pdev{f}{x} ) $. We express the function in function of the derivative of the function respect to $x$. 
-Now we look $U$ that is a function of entropy, the derivative of $U$ respect to $S$ is the temperature. You need to write differential equation by using other function. That is the story of the legendre transform. 
+\begin{equation}
+  S = S (U,V,N)
+  \label{eq:}
+\end{equation}
+The new values taken by the extensive parameters when a constraint has been removed are the ones that \emph{maximize} S. It means that \( \dd[]{S} = 0 \) and \( \dd[2]{S} < 0  \), given the remaining constraint.
 
- Suppose we want to get the read of $S$. We usually have $Y=Y (X_0,X_1,\dots,X_{r+1}) $, we want to replace $X_k$ with the derivative of the function respect  $X_k$:
- $$ X_k \rightarrow \pdev{Y}{X_k} \equiv P_k $$ 
- Now suppose we want to replace
- $$ S \rightarrow \pdev{U}{S} \underset{V,N} {\equiv } T $$ 
-Now we write:
-$$ A \equiv U - S \pdev{U}{S} = U - T S $$ 
-This is the helmontz free energy. 
-For the moment it is difficult to figure out what are the dipendencies of $A$ in function of the parameter. Let us do it. ( let us consider the $\d U = T \d S + \sum_{j=1}^{r+1} P_j \d X_j $ written yet before in the second step)
+The properties of \emph{S} are:
+\begin{itemize}
+\item \emph{S} is an additive function with respect to the subsystems in which the system is partitioned:
+\begin{equation}
+  S = \sum_{\alpha }^{} S ^{(\alpha )}
+  \label{eq:}
+\end{equation}
+\item \emph{S} is sidderentiable and \emph{monotonically increasing} with respect to the internal energy \emph{U}. It means that \( \pdv{S}{U}_{V,N} > 0 \)
+\item For each subsystem \( (\alpha ) \) we have:
+\begin{equation}
+  S ^{(\alpha )} = S ^{(\alpha) } ( U ^{(\alpha) }, V ^{(\alpha) }, N ^{(\alpha) }   )
+  \label{eq:}
+\end{equation}
+This fundamental relation holds for each subsystem.
+\item \emph{S} is an \emph{homogeneous function} of \( 1^{st} \) order with respect to the extensive parameters, namely:
+\begin{equation}
+  S ( \lambda  U, \lambda V, \lambda N) = \lambda S (U,V,N), \quad \forall \lambda > 0
+  \label{eq:}
+\end{equation}
+It means that \emph{S} is an extensive quantity.
+\end{itemize}
 
-$\d A = \d U - \d S \cdot T - S \d T  \underset{!}{=} \cancel{T \d S} + \sum_{j=1}^{r+1} P_j \d X_j - \cancel{\d S \, T } - S \d T $.  
+Since \emph{S} is monotonically increasing in \emph{U}, the following inequality holds:
+\begin{equation}
+  \qty(\pdv{S}{U})_{V,N} > 0
+  \label{eq:}
+\end{equation}
+Therefore, we have \( \qty(\pdv{S}{U})_{V,N} \neq 0 \) and it can be inverted locally. Afterwards, \( S=S(U,V,N) \) inverted in \emph{U} gives the second fundamental relation
+\begin{equation}
+  U=U(S,V,N)
+  \label{eq:}
+\end{equation}
+It means that, we can look or \emph{S} or \emph{U} and when this quantities are known, all the informations about the system can be obtained.
 
-For a magnetic system, we have 
-$$ \d A = - p \d V - S \d T + \mu \d N $$
-this is just
-$$ \d A = \vec{H} \cdot \d \vec{M} - S \d T + \mu \d V $$
+By taking the differential of the fundamental relation
+\begin{equation}
+  U=U(S,V,N_1,\dots , N_r)
+  \label{eq:}
+\end{equation}
+one gets
+\begin{equation}
+  \dd[]{U} = \underbrace{ \qty(\pdv{U}{S})_{V,N_j}}_{\underset{ \substack{ \text{absolute} \\ \text{temperature}} }{T} } \dd[]{S} +
+\underbrace{   \qty(\pdv{U}{V})_{S,N_j} }_{\underset{\text{pressure}}{-P} }\dd[]{V} + \sum_{j=1}^{r} \underbrace{ \qty(\pdv{U}{N_j} )}_{\underset{ \substack{ \text{elettrochemical} \\ \text{potential}} }{\mu _j} } \dd[]{N_j} +
+  \label{eq:1_1}
+\end{equation}
 
-The Hentalpy:
-you have to define a
-$$ H = U + P V $$ (the plus is just because the minus of the $P$). 
+\section{Equations of states}
+Now, we define another set of variables that are called \textit{intensive variables}. The intensive variables are themselves functions of \emph{S,V,N}. The \textbf{equations of state} are defined as:
+\begin{subequations}
+\begin{align}
+  T &= T (S,V,N_1,\dots,N_r) \\
+  P &= P (S,V,N_1,\dots,N_r) \\
+  \mu _j &= \mu _j (S,V,N_1,\dots,N_r)
+\end{align}
+\label{}
+\end{subequations}
+\begin{observation}
+If all the equations of state are known, the fundamental relation is determined a part from a constant. It means that the coefficients of the differential \eqref{eq:1_1}are known.
+\end{observation}
+\begin{example}
+Suppose an \emph{ideal} gas, for which is valid the relation
+\begin{equation*}
+  P V = N K_b T
+\end{equation*}
+The \emph{Van-Der Walls equation} of the state is
+\begin{equation*}
+  \qty(P+\frac{\alpha N^2}{V^2})\qty(V-Nb) = N k_b T
+\end{equation*}
+Another equation of state for magnetic systems is the \emph{Curie Law}: \( M=\frac{C H}{T} \). We compute \( \qty(\pdv{U}{M} )_{S,N}=H  \).
+\end{example}
 
-Therefore $H = H ( S, P, N , \dots ) $.
-We do not use hentalpy, we can start or from $S$ and $U$ or we can start by $H$ and doing the legendre transform: we define the Gibbs potential obtained as a legendre transform of entalpy
+The equations of state are homogenous functions of \emph{zero} degree:
+\begin{equation}
+  T (\lambda S, \lambda V, \lambda N) \overset{0}{=}  \lambda T (S,V,N)
+  \label{eq:}
+\end{equation}
+At equilibrium the temperature of a subsystem is equal to the one of the whole system.
+Similarly
+\begin{equation}
+  P (\lambda S, \lambda V, \lambda N) = \lambda P (S,V,N)
+  \label{eq:}
+\end{equation}
 
-$$ G = U - T S + P V $$ 
-Therefore $ G = G ( T, P, N ) $, so $\d G = - S \d T + V \d P + \sum_{j=2}^{r+1} \mu_j \d N_j $
+We keep \emph{S} parameter separetes from the other that are substituted by \emph{generalised displacements} as \( V,N_1,\dots,N_r) \rightarrow X_j \). The fundamental relation is
+\begin{equation}
+  U=U(S,X_1,\dots,X_{r+1})
+\end{equation}
+ We define:
+\begin{subequations}
+\begin{align}
+  \qty(\pdv{U}{S}) & \equiv   T  \\
+  \qty(\pdv{U}{X_j}) & \equiv  P_j
+\end{align}
+\end{subequations}
+The differential is written as the following:
+\begin{equation}
+  \dd[]{U} = T \dd[]{S} + \sum_{j=1}^{r+1} P_j \dd[]{X_j}
+  \label{eq:}
+\end{equation}
+where \( P_1 = -P \) is the \emph{pressure} and \( X_1 = V \) is the volume. From the equilibrium condition \( \dd[]{U} = 0 \) one can get a relation between intensive variables in differential form as the \textbf{Gibbo-Duhem relation}:
+\begin{equation}
+  S \dd[]{T} + \sum_{j=1}^{r+1} X_j \dd[]{P_j} = 0
+  \label{eq:1_2}
+\end{equation}
+For a one-component simple fluid system, the equation \eqref{eq:1_2} simplifies into
+\begin{equation}
+  S \dd[]{T} - V \dd[]{P} + N \dd[]{\mu } = 0
+  \label{eq:}
+\end{equation}
+and dividing by the number of moles \emph{N}
+\begin{equation}
+  \dd[]{\mu } = - s \dd[]{T} + v \dd[]{P}
+  \label{eq:}
+\end{equation}
+that is the Gibbs-Duhem relation in \emph{molar form}.
+\begin{remark}
+Note that \( \mu = \mu (T,P) \) is a relation between extensive variables.
+\end{remark}
+\noindent For a magnetic system we have  \( \dd[]{U}  = T \dd[]{S}  + \va{H}  \vdot \dd[]{\va{M} }+ \mu \dd[]{N}  \).
+\section{Legendre transform and thermodynamic potentials}
+To summirise, the fundamental relations are \( S=S(U,V,N_1,\dots,N_r) \) or \( S=S(U,\va{M},N_1,\dots,N_r ) \) for magnetic systems.
+In the energy representation we have \( U=U(S,V,N_1,\dots,N_r) \) or \( U=U(S,\va{M},N_1,\dots,N_r ) \).
 
-$ \d G = - S \d T - \vec{M} \cdot \d \vec{H} $
+In many situations it is convenient to change same extensive variables with their conjiugate intensive ones that became indipendent and free to vary. We have new thermodynamic potentials.
+It works as following. Suppose we have the following function
+\begin{equation*}
+  Y=Y(X_0,X_1,\dots,X_k,\dots,X_{r+1})
+\end{equation*}
+such that \emph{Y} is \emph{strictly convex} in say, \( X_k \). We have \( \pdv[2]{Y}{X_k} > 0 \) and smooth.
+The idea is to find a transformation such that \( Y=Y(X_0,X_1,\dots,P_k,\dots,X_{r+1}) \), where
+\begin{equation}
+  X_k \rightarrow P_k \equiv \pdv{Y}{X_k}
+  \label{eq:}
+\end{equation}
+i.e. \( P_k \) substitutes \( X_k \) as a new indipendent variable.
+In mathematic this is called \textbf{Legendre transform}.
+\begin{example}
+Suppose we want to replace the entropy \emph{S} with its conjiugate derivative
+\begin{equation*}
+  T = \pdv{U}{S}
+\end{equation*}
+One starts form the fundamental relation
+\begin{equation*}
+  U=U(S,V,N_1,\dots)
+\end{equation*}
+and transforms \emph{U} such that \emph{S} is replaced by \emph{T} as new indipendent variable. Let us consider the transformation
+\begin{equation*}
+  A \equiv U - S \pdv{U}{S} = U- T S
+\end{equation*}
+By differentiating \emph{A} we get
+\begin{equation*}
+  \dd[]{A} = \dd[]{U} - T \dd[]{S}  - S \dd[]{T}
+\end{equation*}
+On the other hand
+\begin{equation*}
+  \dd[]{U} = T \dd[]{S} + \sum_{j}^{} P_j \dd[]{X_j}
+\end{equation*}
+It implies that
+\begin{equation*}
+  \dd[]{A} = - S \dd[]{T} + \sum_{j}^{} P_j \dd[]{X_j}
+\end{equation*}
+For such a system we have \( A=A(T,V,N_1,\dots,N_r) \). Similarly for a magnetic system \( A=A(T,\va{M},N_1,\dots,N_r ) \).
+\end{example}
+The \textbf{Helmoltz free energy} is defined as:
+\begin{equation}
+  A \equiv U-T S
+  \label{eq:}
+\end{equation}
+In terms of heat and mechanical work, since
+\begin{subequations}
+\begin{align}
+  \dd[]{U} &= \delta Q - \delta W \\
+  \dd[]{A} = \dd[]{U} - \dd[]{(TS)} &= \delta Q - T \dd[]{S} - S \dd[]{T} - \delta W
+\end{align}
+\label{}
+\end{subequations}
+Hence
+\begin{equation}
+  \delta W = (\delta Q - T \dd[]{S} ) - S \dd[]{T} - \dd[]{A}
+  \label{eq:}
+\end{equation}
+On the other hand, for a \emph{reversible transformation} we have:
+\begin{subequations}
+\begin{align}
+  \delta Q &=  T \dd[]{S} \\
+  \delta W &= - S \dd[]{T} - \dd[]{A}
+\end{align}
+\label{}
+\end{subequations}
+If the reversible transformation is also \emph{isothermal}, \( \dd[]{T} = 0  \) and \( \dd[]{A} = \dd[]{W}  \). It is reminiscent of a potential energy.
+\begin{observation}
+For an isothermal but \emph{not reversible} (spontaneous) process we know the \(II\) \emph{law of thermodynamics}
+\begin{equation*}
+  \delta Q \le T \dd[]{S}
+\end{equation*}
+which implies
+\begin{equation*}
+  (\delta W)_{\text{IRR}} = \delta Q - T \dd[]{S} - \dd[]{A} \le - \dd[]{A}.
+\end{equation*}
+Hence, if \( \delta W = 0 \) and \( \dd[]{T}=0  \), we have \( \dd[]{A} \le 0  \).
+\end{observation}
+In a spontaneous (irreversible) process, the thermodynamc system, as a function of \emph{T,V,N} etc, evolves towards a \emph{minimum} of the Helmoltz free energy \( A=A(T,V,N_1,\dots,N_r) \).
+In the case of a system with \( (P,V,T) \)  we have:
+\begin{equation}
+  \dd[]{A} = -S \dd[]{T} - P \dd[]{V} + \sum_{j}^{} \mu _j \dd[]{N_j}
+  \label{eq:}
+\end{equation}
+where
+\begin{subequations}
+\begin{align}
+  -S &= \qty(\pdv{A}{T} )_{V,N_j}  \\
+  -P &= \qty(\pdv{A}{V} )_{T,N_j}  \\
+  \mu _j &= \qty(\pdv{A}{N_j} )_{T,V}
+\end{align}
+\label{}
+\end{subequations}
+For a magnetic system \( (\va{H} , \va{M} , T) \) we have:
+\begin{equation}
+  \dd[]{A} = - S \dd[]{T} + \va{H} \vdot \dd[]{\va{M} } + \sum_{j}^{} \mu _j \dd[]{N_j}
+  \label{eq:}
+\end{equation}
+where \( H_\alpha = (\pdv{A}{M_\alpha} )_{T,{N_j}} \).
 
-Sometimes is much easier not to change $N$ but the chemical potential.
-$\Omega = \underbrace{U - T S} - \mu N = A - \mu N $ 
-This is the gran canonical ensamble. 
+\section{Heltalpy}
 
+The Hentalpy is the partial Legendre transform of \emph{U} that replaces the volume \emph{V} with the pressure \emph{P} as indipendent variable. Therefore, consider \( U=U(S,V,N_1,dots,N_r) \) and \( -P = \pdv{U}{V}  \), we define the hentalpy as
+\begin{equation}
+  H = U + P V
+  \label{eq:}
+\end{equation}
+Note that the plus sign in the definition of the hentalpy is just because the minus of the \emph{P}.
+Therefore:
 
+\begin{equation}
+  \begin{split}
+    \dd[]{H} & = \mathcolorbox{yellow}{\dd[]{U}} + P \dd[]{V} + \dd[]{P} V \\
+    & = \mathcolorbox{yellow}{T \dd[]{S} - P \dd[]{V} + \sum_{j}^{} \mu _j \dd[]{N_j}} + P \dd[]{V} + V \dd[]{P} \\
+    & = T \dd[]{S} + V \dd[]{P} + \sum_{j}^{} \mu _j \dd[]{N_j}
+  \end{split}
+\end{equation}
+
+Finally, we obtain the relation \( H = H ( S, P, N_1 , \dots, N_r ) \).
+
+\section{Gibbs potential}
+The \textbf{Gibss potential} is obtained by performing the Legendre transform of \emph{U} to replace \emph{S} and \emph{V} with \emph{T} and \emph{P}.
+Therefore, we consider again \( U=U(S,V,N_1,\dots,N_r) \) and \( T=\pdv{U}{S}, -P = \pdv{U}{V}  \), then we have:
+\begin{equation}
+  G = U - T S + P V = A + P V
+  \label{eq:}
+\end{equation}
+For a simple fluid system
+\begin{equation}
+\begin{split}
+\dd[]{G}   &= \mathcolorbox{yellow}{\dd[]{U}} - T \dd[]{S} - S \dd[]{T} + P \dd[]{V} + V \dd[]{P}    \\
+& = \mathcolorbox{yellow}{T \dd[]{S} - P \dd[]{V} + \sum_{j}^{} \mu _j \dd[]{N_j}  } \\
+& = - S \dd[]{T} + V \dd[]{P} + \sum_{j}^{} \mu _j \dd[]{N_j}
+\end{split}
+  \label{eq:}
+\end{equation}
+Hence, \( G = G (T,P,N_1,\dots,N_r) \).
+
+For a magnetic system, the Gibbs potential is defined as
+\begin{equation}
+  G = A - \va{M} \vdot \va{H}
+  \label{eq:}
+\end{equation}
+and
+\begin{equation}
+\begin{split}
+\dd[]{G} &= \dd[]{A} - \dd[]{\va{M} \vdot \va{H}  }  = \dd[]{(U-T S)} - \dd[]{-\va{M} \vdot \va{H}  } \\
+  & = \mathcolorbox{yellow}{\dd[]{U} } - T \dd[]{S} - S \dd[]{T} - \dd[]{\va{M} } \vdot \va{H} - \va{M} \vdot \dd[]{\va{H} }  \\
+& = \mathcolorbox{yellow}{T \dd[]{S} + \va{H} \vdot \dd[]{\va{H} }} - T \dd[]{S} - S \dd[]{T} - \dd[]{\va{M} } \vdot \va{H} - \va{M} \vdot \dd[]{\va{H} } \\
+ & = - S \dd[]{T} - \va{H}\vdot \dd[]{\va{H} }
+\end{split}
+  \label{eq:}
+\end{equation}
+and finally \( G=G(T,\va{H} ) \) and
+\begin{subequations}
+\begin{align}
+  S &= - \qty(\pdv{G}{T} )_{\va{H} } \\
+  \va{M}  &= - \qty(\pdv{G}{ \va{H} } )_{T}
+\end{align}
+\label{}
+\end{subequations}
+
+\section{Grancanonical potential}
 
 
 

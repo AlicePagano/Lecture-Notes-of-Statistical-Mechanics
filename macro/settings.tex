@@ -1,4 +1,24 @@
+%Geometry
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
 
+%Atom Latex
+\pgfplotsset{compat=1.15}
+
+%%
 \captionsetup[table]{font=small,labelfont={bf},skip=10pt}
 \captionsetup[figure]{font=small,labelfont={bf},skip=10pt}
 
@@ -15,10 +35,10 @@
 	colorlinks=false,
 	linkcolor=black,
 	filecolor=blue,
-	citecolor = blue,      
+	citecolor = blue,
 	urlcolor=blue,
 	}
-	
+
 %%%%%indent%%%
 \setlength{\parindent}{15pt}
 \setlength{\parskip}{0pt}
@@ -29,8 +49,8 @@
  \markboth{\MakeUppercase{%
  \chaptername}\ \thechapter.%
  \ #1}{}}
- 
- 
+
+
  %Python in latex
  \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -44,22 +64,22 @@
 \definecolor{violet}{rgb}{0.55, 0.0, 0.55}
 
 \lstdefinestyle{mystyle}{ %Stile python code
-    backgroundcolor=\color{shadecolor},   
+    backgroundcolor=\color{shadecolor},
     commentstyle=\color{commentcolour},
     keywordstyle=\color{darkgreen},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{darkred},
     basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2
 }
- 
+
 \lstset{style=mystyle}

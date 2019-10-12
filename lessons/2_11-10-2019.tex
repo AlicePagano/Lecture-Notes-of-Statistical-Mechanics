@@ -1,0 +1,199 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{11}{10}{2019}
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 2.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+Internal energy $U$ and entropy $S$ are of the 1st order homogeneus function.
+We can write the internal energy with the \textbf{Euler Equation} :
+\begin{equation}
+  U = T S - P V + \sum_{j=1}^{r} \mu_j N_j
+  \label{eq:}
+\end{equation}
+
+By using the Maxwell relations ...
+If there are $t+1$ variables, the second order derivative $\frac{t(t+1)}{2}$.
+
+The differential is
+
+\begin{equation}
+  \d{U} = T \d{S} - P \d{V} + \mu \d{N}
+  \label{eq:}
+\end{equation}
+
+And we defined:
+
+\begin{subequations}
+\begin{align}
+  T & = (\pdev{U}{S} )_{V,N} \\
+  -P & = (\pdev{U}{V} )_{S,N}
+\end{align}
+\label{}
+\end{subequations}
+
+
+By applying this relations we obtain :
+
+\begin{equation}
+  \frac{\partial{U}^2 }{\partial V \partial S} = \pdev{T}{V}_{S,N}
+  \label{eq:}
+\end{equation}
+
+\begin{equation}
+  \frac{\partial{U}^2 }{\partial s \partial V} = -\pdev{P}{S}_{V,N}
+  \label{eq:}
+\end{equation}
+
+It implies that
+
+\begin{equation}
+  (\pdev{T}{V} )_{S,N} = - (\pdev{P}{S} )_{V,N}
+\end{equation}
+
+1
+
+These are all maxwell relations.
+
+Let us consider the Helmonds free energy, that it is obtained by a Legendre transformation
+
+\begin{equation}
+  \d{A} = -S \d{T} - P \d{V} + \mu \d{N}
+  \label{eq:}
+\end{equation}
+
+Let's consider \( (T,V) \), where T is conjucate with S while V with -P. From this, we obtain:
+\( -(\pdev{P}{T})_{V,N} = - (\pdev{S}{V} )_{T,N}  \) .
+
+Another important concept is the
+\section{Response functions}
+Any osservation is just the pertubation of a system and looking for the response.
+We consider \emph{fluid} system , \emph{thermal expansion} at $P = const$ that means \( \d{p} = \frac{1}{V}(\pdev{V}{T} )_{P,N} \) , and the other one is the \emph{heat capacity} at constant pressure that means \( c_P = (\frac{\delta Q}{\d{T}})_P \overset{reversible}{=} T (\pdev{S}{T} )_P \) .
+
+Remember that Gibb's potential is a function of pression
+\[ -S = (\pdev{G}{T} )_{P,N} \]
+We insert the last formula in the previous
+
+\[  c_P = -T (\npdev{G}{T}{2} )_{P,N} \]
+
+Now, we define the \emph{adiabatic}  pressibility
+
+\[ k_S = - \frac{1}{V}(\pdev{V}{P} )_{S,N} \overset{homework}{=} - \frac{1}{V} (\npdev{H}{P}{2} )_{S,N} \]
+
+The isothermal one is :
+
+\[ k_T = - \frac{1}{V} = ( \pdev{V}{P} )_{T,N} = - \frac{1}{V} (\npdev{G}{P}{2} )_{T,N}  \]
+
+If we use the maxwell relation \( (\pdev{S}{P} )_{T,N} = - (\pdev{V}{T} )_{P,N} \)
+we obtain:
+\begin{equation}
+  \d{G} = - S \d{T} + V \d{P}
+  \label{eq:}
+\end{equation}
+
+And:
+
+\begin{equation}
+  V \alpha p = (\pdev{V}{T} )_{P,N} = - (\pdev{S}{P} )_{T,N}
+  \label{eq:}
+\end{equation}
+
+And
+\begin{equation}
+  (\pdev{P}{T} )_{V,N} = \frac{\alpha p}{k_T}
+  \label{eq:}
+\end{equation}
+
+Therefore for quasistatic transformations
+
+\begin{equation}
+  c_V = ( \frac{ \delta Q }{ \d{T}})_V = T (\pdev{Q}{T} )_V = ( \frac{ \partial ( -\partial A / \partial T )_{V,N}}{\partial^2 T})
+  \label{eq:}
+\end{equation}
+
+Consider \( (M,H) \), a magnetic field
+
+\[ \chi_T = (\pdev{M}{H} )_T \overset{M = - (\pdev{G}{H} )_T}{=} - (\npdev{G}{H}{2} )_T  \]
+
+Consider \( \vec{M}, \vec{H}   \) :
+
+\[ \chi_{\alpha \beta} = \pdev{M_ \alpha}{H_ \beta} = \frac{\partial^2 G}{\partial H_ \alpha \partial H_ \beta} \]
+
+we have
+
+\[ c_V \equiv ( \frac{\delta Q}{\d{T}})_V \ge 0 \]
+\[ c_P \equiv ( \frac{\delta Q}{\d{T}})_P \ge 0 \]
+
+This means thermal stability.
+
+The isothermal compressibility:
+
+\[ k_T = - \frac{1}{V} (\pdev{V}{P} ) \ge 0 \]
+
+Just for the case of the magnetic field in which we have: \( c_H \ge 0 , c_M \ge 0 \) and \( \chi_M \ge 0 \).
+
+If we take the difference
+
+\[ c_P - c_V = \frac{T V \d{P}^2}{k_T} = \frac{1}{V k_T} T (\pdev{V}{T} )^2 \]
+\[ c_H - c_M = \frac{T}{\chi_T} (\pdev{M}{T} )^2 \]
+
+Finally
+
+\begin{equation}
+  \begin{cases}
+  c_P \ge c_V \ge 0 \\
+  c_H \ge c_M \ge 0
+  \end{cases}
+\label{eq:}
+\end{equation}
+
+We have seen the thermodinamics of a phase, the equilibrium state can be described for instance by the maximum of the entropy. We have a given phase and we look for the gibbs function. We want to describe equilibrium system in a given phase. If we have more phases, we want to change between these phases.
+
+Consider a liquid system and we consider the \( \frac{G}{N} \equiv g = g (T,P) \). The little g is not anymore a function of $N$ because wehave divided for $N$.
+We consider $\alpha$ in a given phase that can be \emph{liquid}, \emph{gas}, \emph{solid}. Therefore \( g_ \alpha (T,P) \).
+The new value of T and P corresponds to the minimum of \( g_ \alpha \)
+
+2
+
+We have the \( g_ \alpha and g_\beta \) and we are looking for the lower one. There is a moment in which they coesist, the coexistence line is the projection
+\[ g_ \alpha(T,P) = g_ \beta(T,P) \]
+
+Now, we fix \( P = P^* \), we have \( g_ \alpha (T,P^*) \) :
+3
+Remember \( c_P = - T ( \npdev{G}{T}{2} ) \ge 0 \) , it is a concave function.
+4
+
+At the triple point we have \( g_{\text{solid}}(T_ \alpha, P^*) = g_{\text{liquid}}(T_a) \) and \( g_{\text{liquid}}(T_b) = g_{\text{gas}}(T_b , P^*) \).
+We see that
+5
+
+There are other cases in which we do not have this effect. For example:
+6
+This is different from the previous situation in which we had a jump.
+If we look for example at the specific heat:
+7
+It represent the transition from superconduction.
+
+The critical point is special beacause there is not a jump, so we can go continueosly from gas to liquid. The response function when we plot this point shows that the specific heat diverges.
+The transitions are classified in the first order transition and continuous transition. The superfluid transition is a transition where the second derivative of the thermodinamic potential diverges. There are many phase trnasitions that can be classified in different ways.
+
+\[ k_T = - \frac{1}{V} ( \pdev{V}{P} ) = \frac{1}{V} (\npdev{A}{V}{2} ) \]
+8
+We note that at the coexistence lime we increase V, but the pression remains constant. At the coexistence line we see bubbles. It is the density that is changing locally, the bubbles becames bigger and bigger and at the $V_G$, becames a liquid.
+Usually critical points are end point of first order transition phases. Why there is no critical point between solid and liquid? Landau point. There is a break of symmetry, for instance the bravais lattice.
+From gas to liquid you are not breaking any symmetry.
+
+We can have a magnetization different from 0 even when the is no magnetic field.
+Supposing \( P \leftrightarrow H, V \leftrightarrow M \) we have \( (P,T) \leftrightarrow (H,T) \) .
+9
+We have two equilibrium states that are connected continuosly, this is a first order transition.
+For instance:
+10
+At the critical point the magnetization passes through zero.
+11
+
+
+
+
+\end{document}
