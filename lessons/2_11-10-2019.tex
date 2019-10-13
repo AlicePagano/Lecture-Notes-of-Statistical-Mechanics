@@ -4,155 +4,219 @@
 
 \begin{document}
 
+\section{Grancanonical potential}
 \marginpar{ \textbf{Lecture 2.} \\  \displaydate{date}. \\ Compiled:  \today.}
-
-Internal energy $U$ and entropy $S$ are of the 1st order homogeneus function.
-We can write the internal energy with the \textbf{Euler Equation} :
+The two intensive variables to became indipendent are \emph{T} and \( \mu  \). The corresponding Legendre transform is
 \begin{equation}
-  U = T S - P V + \sum_{j=1}^{r} \mu_j N_j
+  \Omega = U -T S - \sum_{i=1}^{r} \mu _i N _i = A - \sum_{i=1}^{r}  \mu _i N _ i
   \label{eq:}
 \end{equation}
-
-By using the Maxwell relations ...
-If there are $t+1$ variables, the second order derivative $\frac{t(t+1)}{2}$.
-
-The differential is
-
+Differentiating this relation we obtain:
 \begin{equation}
-  \d{U} = T \d{S} - P \d{V} + \mu \d{N}
+\begin{split}
+\dd[]{\Omega }   &=  \dd[]{U} - S \dd[]{T} - T \dd[]{S} - \sum_{ij}^{} \dd[]{\mu _j} N_j - \sum_{i=1}^{r} \mu _i \dd[]{N_i}           \\
+& = (\delta Q - T \dd[]{S}) - \delta W - S \dd[]{T} - \sum_{j=1}^{r} \dd[]{\mu _j} N_j - \sum_{j=1}^{r} \mu _j \dd[]{N_j}
+\end{split}
   \label{eq:}
 \end{equation}
-
-And we defined:
+Hence, \( \Omega = \Omega (T,P,{\mu _j}) \).
+Internal energy $U$ and entropy $S$ are homogeneus function of the first order. A consequence of this fact is the relation called \textbf{Euler equation}:
+\begin{equation}
+  U = T S - P V + \sum_{j}^{} \mu _j N_j
+  \label{eq:}
+\end{equation}
+Instead, the \textbf{Maxwell relations} are relations between the mixed derivatives of the thermodynamic potentials. They can be obtained from the expressions of \( \dd[]{U},\dd[]{H} ,\dd[]{A}, \dd[]{G}    \)  and \( \dd[]{\Omega }  \) and from the Schwarz theorem on mixed partial derivatives.
+Due to Schwarz theorem, if a thermodynamic potential depends on \( t+1 \) variables there will be \( \frac{t(t+1)}{2} \)  indipendent mixed derivatives.
+\begin{example}[Internal energy]
+\begin{equation}
+  \dd[]{U} = T \dd[]{S} - P \dd[]{V} + \mu \dd[]{N}
+  \label{eq:2_1}
+\end{equation}
+where \( T = \qty(\pdv{U}{S} )_{V,N}  \) and  \( -P = \qty(\pdv{U}{V} )_{S,N}  \). It implies that
+\begin{equation*}
+        \pdv{U}{V}{S} = \qty(\pdv{T}{V} )_{S,N} \underset{\substack{ \text{from } \\  \text{Schwarz inequality} } }{=} -\qty(\pdv{P}{S} )_{V,N}
+\end{equation*}
+therefore, we have the \emph{1° Maxwell relation} :
+\begin{equation*}
+  \qty(\pdv{T}{V} )_{S,N} = -\qty(\pdv{P}{S} )_{V,N}
+\end{equation*}
+All the \emph{3 Maxweel relations} obtained by the differential \eqref{eq:2_1}
+with \( t=2 \), for which we have \( t+1=3 \) and \( \frac{t(t+1)}{2}=3 \) (\( [S,V,N] \) ), are
 
 \begin{subequations}
 \begin{align}
-  T & = (\pdev{U}{S} )_{V,N} \\
-  -P & = (\pdev{U}{V} )_{S,N}
+  (S,V) &:& \qty(\pdv{T}{V} )_{S,N} =& - \qty(\pdv{P}{S} )_{V,N} & \\
+  (S,N) &:& \qty(\pdv{T}{N} )_{V,S} =& \qty(\pdv{\mu }{S} )_{V,N} &\\
+  (V,N) &:& -\qty(\pdv{P}{N} )_{S,V} =& \qty(\pdv{\mu }{V} )_{S,N} &
+ \end{align}
+\label{}
+\end{subequations}
+\end{example}
+
+\begin{example}[Helmholz \( A=A(T,V,N) \)]
+\begin{equation}
+  \dd[]{A} = - S \dd[]{T} - P \dd[]{V} + \mu \dd[]{N}
+\end{equation}
+In this case the \emph{3 Maxweel relations} (\( [T,V,N] \) ) are
+\begin{subequations}
+\begin{align}
+  (T,V) &:& \qty(\pdv{S}{V} )_{T,N} =&  \qty(\pdv{P}{T} )_{V,N} & \\
+  (T,N) &:& -\qty(\pdv{S}{N} )_{T,V} =& \qty(\pdv{\mu }{T} )_{V,N} &\\
+  (V,N) &:& -\qty(\pdv{P}{N} )_{V,T} =& \qty(\pdv{\mu }{V} )_{T,N} &
+ \end{align}
+\label{}
+\end{subequations}
+\end{example}
+\begin{example}[Gibbs \( G=G(T,P,N) \) ]
+  \begin{equation}
+    \dd[]{G} = - S \dd[]{T} - V \dd[]{P} + \mu \dd[]{N}
+  \end{equation}
+  In this case the \emph{3 Maxweel relations} (\( [T,P,N] \) ) are
+  \begin{subequations}
+  \begin{align}
+    (T,P) &:& -\qty(\pdv{S}{P} )_{T,N} =&  \qty(\pdv{V}{T} )_{P,N} & \\
+    (T,N) &:& -\qty(\pdv{S}{N} )_{T,P} =& \qty(\pdv{\mu }{T} )_{P,N} &\\
+    (P,N) &:& \qty(\pdv{V}{N} )_{P,T} =& \qty(\pdv{\mu }{P} )_{T,N} &
+   \end{align}
+  \label{}
+  \end{subequations}
+\end{example}
+
+\section{Response functions}
+Aim of most experiments is to measure the response of a thermodynamic system write respect to controlled variatious of thermodynamic variables. In fact, any osservation is just the pertubation of a system and looking for the response.
+A list of the commonly used response functions is the following:
+\begin{itemize}
+\item \emph{Thermal expansion coefficient at constant pressure}.
+\begin{equation}
+  \alpha _P \equiv \frac{1}{V} \qty(\pdv{V}{T} )_{P,N}
+  \label{eq:}
+\end{equation}
+\item \emph{Molar heat capacity at constant pressure}.
+\begin{equation}
+  c_P = \qty(\frac{\delta Q}{\dd[]{T} } )_P = T \qty(\pdv{S}{T} )_P \underset{-S=\qty(\pdv{G}{T} )_P }{=}  - T \qty(\pdv[2]{G}{T} )_P
+  \label{eq:}
+\end{equation}
+\item \emph{Adiabatic compressibility}.
+\begin{equation}
+  k_S = -\frac{1}{V} \qty(\pdv{V}{P} )_{S,N} \underset{V=\qty(\pdv{H}{P} )_{S,N} }{=} - \frac{1}{V} \qty(\pdv[2]{H}{P} )_{S,N}
+    \label{eq:}
+\end{equation}
+\item \emph{Isothermal compressibility} .
+\begin{equation}
+  k_T = -\frac{1}{V} \qty(\pdv{V}{P} )_{T,N} \underset{V=\qty(\pdv{G}{P} )_{T,N} }{=} - \frac{1}{V} \qty(\pdv[2]{G}{P} )_{T,N}
+  \label{eq:}
+\end{equation}
+\begin{remark}
+Remember that \( k_T \) it is the second derivative of the Gibbs potential write respect to pressure.
+\end{remark}
+\item \emph{Specific heat at constant volume}. Consider a quasi static transformation.
+\begin{equation}
+  c_V =  \qty(\frac{\delta Q}{\dd[]{T} } )_{V,N} = T \qty(\pdv{S}{T} )_{V,N}
+      = \qty( \frac{\partial{(-\partial{A}/\partial{T} )_{V,N}} }{\partial{T} })_{V,N}
+      = - T \qty(\pdv[2]{A}{T} )_{V,N}
+  \label{eq:}
+\end{equation}
+\item \emph{Magnetic suscettibility (d=1)} for a magnetic system \( (\va{M},\va{H},T  ) \).
+\begin{equation}
+  \chi_T = \qty(\pdv{M}{H} )_T \underset{M = -\eval{\pdv{G}{H}}_T }{=}  - \qty(\pdv[2]{G}{H} )_T
+  \label{eq:}
+\end{equation}
+More generals, \( \va{M},\va{H}   \) we have
+\begin{equation}
+  \chi _{\alpha \beta } = \qty(\pdv{M_ \alpha }{H_ \beta } )_T , M_ \alpha = -\eval{\pdv{G}{H_ \alpha }}_T \Rightarrow \chi _{\alpha \beta } = \eval{\pdv{G}{H_ \beta }{H_ \alpha }}_T
+  \label{eq:}
+\end{equation}
+
+\end{itemize}
+Note that the response functions, when used with the Maxwell relations, allow to express observables usually inaccessible to experiments with measurable quantitities.
+\begin{example}[The Maxwell relation]
+  \begin{equation*}
+    \qty(\pdv{S}{P} )_{T,N} = - \qty(\pdv{V}{T} )_{P,N}
+  \end{equation*}
+  obtained from
+  \begin{equation*}
+\dd[]{G} = - S \dd[]{T} + V \dd[]{P}
+  \end{equation*}
+and the response function \( \alpha _P \) permit to write
+\begin{equation}
+  \underbrace{\qty(\pdv{S}{P} )_{T,N}}_{\substack{ \text{inaccessible} \\  \text{to experiments} } }  = \underbrace{- V \alpha _P}_{\text{measurable}}
+  \label{eq:}
+\end{equation}
+\end{example}
+\begin{example}
+Let us start with the Maxwell relation
+\begin{equation*}
+  \qty(\pdv{S}{V} )_{T,N} =  \qty(\pdv{P}{T} )_{V,N}
+\end{equation*}
+obtained from
+\begin{equation*}
+    \dd[]{A} = - S \dd[]{T} - P \dd[]{V} + \mu \dd[]{N}
+\end{equation*}
+From some property of multi-variable differential calculus one has the \textbf{triple product rule}:
+\begin{equation}
+    \qty(\pdv{P}{T} )_{V,N}  \qty(\pdv{V}{P} )_{T,N}   \qty(\pdv{T}{V} )_{P,N} =-1
+  \label{eq:}
+\end{equation}
+Hence
+\begin{equation}
+\begin{split}
+    \qty(\pdv{P}{T} )_{V,N} &= \frac{-1}{ \qty(\pdv{V}{P} )_{T,N}   \qty(\pdv{T}{V} )_{P,N} }  = - \frac{  \qty(\pdv{V}{T} )_{P,N} }{   \qty(\pdv{V}{P} )_{T,N} } \\
+    &= \frac{-V \alpha _P}{-V k_T} = \frac{\alpha _P}{k _T}
+\end{split}
+  \label{eq:}
+\end{equation}
+\end{example}
+
+\section{Response functions and thermodynamic stability}
+Now, we analyze the concept of \textbf{thermal stability}. If one injects heat in a system either at constant volume or at constant pressure, its temperature will inevitably increase
+\begin{equation}
+  \begin{cases}
+   c_V \equiv \qty(\frac{\delta Q}{\dd[]{T} })_V \ge 0  \\
+   c_P \equiv \qty(\frac{\delta Q}{\dd[]{T} })_P \ge 0
+  \end{cases}
+\label{eq:}
+\end{equation}
+\begin{remark}
+The thermal capacities are \emph{non-negative functions}!
+\end{remark}
+It is useful also the concept of \textbf{mechanical stability}. If one compress a system by keeping \emph{T} constant, we would expect that it shrinks
+\begin{equation}
+  k_T = - \frac{1}{V} \qty(\pdv{V}{P} )_T \ge 0
+  \label{eq:}
+\end{equation}
+Similar considerations for a magnetic system, gives
+\begin{equation}
+  c_H \ge 0, \quad c_M \ge 0, \quad \chi_M \ge 0
+  \label{eq:}
+\end{equation}
+\begin{remark}
+In diamangetic systems \( \chi_M \) can also be negative.
+\end{remark}
+
+\begin{exercise}
+By using Maxwell relations show that
+\begin{subequations}
+\begin{align}
+  c_P - c_V &= \frac{T V \alpha ^2}{k_T} = \frac{1}{V k_T} T \qty(\pdv{V}{T} )_P^2 \\
+  c_H - c_M &= \frac{T}{\chi _T} \qty(\pdv{M}{T} )_H^2
 \end{align}
 \label{}
 \end{subequations}
-
-
-By applying this relations we obtain :
-
-\begin{equation}
-  \frac{\partial{U}^2 }{\partial V \partial S} = \pdev{T}{V}_{S,N}
-  \label{eq:}
-\end{equation}
-
-\begin{equation}
-  \frac{\partial{U}^2 }{\partial s \partial V} = -\pdev{P}{S}_{V,N}
-  \label{eq:}
-\end{equation}
-
-It implies that
-
-\begin{equation}
-  (\pdev{T}{V} )_{S,N} = - (\pdev{P}{S} )_{V,N}
-\end{equation}
-
-1
-
-These are all maxwell relations.
-
-Let us consider the Helmonds free energy, that it is obtained by a Legendre transformation
-
-\begin{equation}
-  \d{A} = -S \d{T} - P \d{V} + \mu \d{N}
-  \label{eq:}
-\end{equation}
-
-Let's consider \( (T,V) \), where T is conjucate with S while V with -P. From this, we obtain:
-\( -(\pdev{P}{T})_{V,N} = - (\pdev{S}{V} )_{T,N}  \) .
-
-Another important concept is the
-\section{Response functions}
-Any osservation is just the pertubation of a system and looking for the response.
-We consider \emph{fluid} system , \emph{thermal expansion} at $P = const$ that means \( \d{p} = \frac{1}{V}(\pdev{V}{T} )_{P,N} \) , and the other one is the \emph{heat capacity} at constant pressure that means \( c_P = (\frac{\delta Q}{\d{T}})_P \overset{reversible}{=} T (\pdev{S}{T} )_P \) .
-
-Remember that Gibb's potential is a function of pression
-\[ -S = (\pdev{G}{T} )_{P,N} \]
-We insert the last formula in the previous
-
-\[  c_P = -T (\npdev{G}{T}{2} )_{P,N} \]
-
-Now, we define the \emph{adiabatic}  pressibility
-
-\[ k_S = - \frac{1}{V}(\pdev{V}{P} )_{S,N} \overset{homework}{=} - \frac{1}{V} (\npdev{H}{P}{2} )_{S,N} \]
-
-The isothermal one is :
-
-\[ k_T = - \frac{1}{V} = ( \pdev{V}{P} )_{T,N} = - \frac{1}{V} (\npdev{G}{P}{2} )_{T,N}  \]
-
-If we use the maxwell relation \( (\pdev{S}{P} )_{T,N} = - (\pdev{V}{T} )_{P,N} \)
-we obtain:
-\begin{equation}
-  \d{G} = - S \d{T} + V \d{P}
-  \label{eq:}
-\end{equation}
-
-And:
-
-\begin{equation}
-  V \alpha p = (\pdev{V}{T} )_{P,N} = - (\pdev{S}{P} )_{T,N}
-  \label{eq:}
-\end{equation}
-
-And
-\begin{equation}
-  (\pdev{P}{T} )_{V,N} = \frac{\alpha p}{k_T}
-  \label{eq:}
-\end{equation}
-
-Therefore for quasistatic transformations
-
-\begin{equation}
-  c_V = ( \frac{ \delta Q }{ \d{T}})_V = T (\pdev{Q}{T} )_V = ( \frac{ \partial ( -\partial A / \partial T )_{V,N}}{\partial^2 T})
-  \label{eq:}
-\end{equation}
-
-Consider \( (M,H) \), a magnetic field
-
-\[ \chi_T = (\pdev{M}{H} )_T \overset{M = - (\pdev{G}{H} )_T}{=} - (\npdev{G}{H}{2} )_T  \]
-
-Consider \( \vec{M}, \vec{H}   \) :
-
-\[ \chi_{\alpha \beta} = \pdev{M_ \alpha}{H_ \beta} = \frac{\partial^2 G}{\partial H_ \alpha \partial H_ \beta} \]
-
-we have
-
-\[ c_V \equiv ( \frac{\delta Q}{\d{T}})_V \ge 0 \]
-\[ c_P \equiv ( \frac{\delta Q}{\d{T}})_P \ge 0 \]
-
-This means thermal stability.
-
-The isothermal compressibility:
-
-\[ k_T = - \frac{1}{V} (\pdev{V}{P} ) \ge 0 \]
-
-Just for the case of the magnetic field in which we have: \( c_H \ge 0 , c_M \ge 0 \) and \( \chi_M \ge 0 \).
-
-If we take the difference
-
-\[ c_P - c_V = \frac{T V \d{P}^2}{k_T} = \frac{1}{V k_T} T (\pdev{V}{T} )^2 \]
-\[ c_H - c_M = \frac{T}{\chi_T} (\pdev{M}{T} )^2 \]
-
-Finally
-
+\end{exercise}
+\noindent A consequence is that since the right hand terms are non negative it follows that
 \begin{equation}
   \begin{cases}
-  c_P \ge c_V \ge 0 \\
-  c_H \ge c_M \ge 0
+   c_P \ge c_V \ge 0  \\
+   c_H \ge c_M \ge 0
   \end{cases}
 \label{eq:}
 \end{equation}
 
-We have seen the thermodinamics of a phase, the equilibrium state can be described for instance by the maximum of the entropy. We have a given phase and we look for the gibbs function. We want to describe equilibrium system in a given phase. If we have more phases, we want to change between these phases.
+For reasuming, we have seen the thermodynamic of a phase, where the equilibrium state can be described by the maximum of the entropy. If we have a given phase, we can look for the Gibbs function. If we have more phases, we want to change between these phases.
 
-Consider a liquid system and we consider the \( \frac{G}{N} \equiv g = g (T,P) \). The little g is not anymore a function of $N$ because wehave divided for $N$.
-We consider $\alpha$ in a given phase that can be \emph{liquid}, \emph{gas}, \emph{solid}. Therefore \( g_ \alpha (T,P) \).
-The new value of T and P corresponds to the minimum of \( g_ \alpha \)
+\section{}
+
+Consider a fluid system and the variable \( \frac{G}{N} \equiv g = g (T,P) \), where \( g \) is not anymore a function of \emph{N}  because we have divided for \emph{N} . Suppose that \( \alpha  \) is in a given phase that can be \emph{liquid}, \emph{gas}, \emph{solid}. Therefore \( g_ \alpha  \)  is a function of \emph{T,P}, where new value of \emph{T}  and \emph{P}  corresponds to the minimum of \( g_ \alpha \).
 
 2
 
