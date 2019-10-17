@@ -6,11 +6,11 @@
 
 \marginpar{ \textbf{Lecture 3} \\  \displaydate{date}. \\ Compiled:  \today.}
 
+
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-%\begin{tikzpicture}[scale=1, transform shape]
-
+\subfloat[][Coexistence plot.]{
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
@@ -51,16 +51,11 @@
 
 
 \end{tikzpicture}
-
-
-%\end{tikzpicture}
+    \label{fig:} }
 \end{minipage}
-\hspace{0.4cm}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-%\begin{tikzpicture}[scale=1, transform shape]
-
-
+\subfloat[][Zoom of the coexistence line.]{
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
@@ -105,13 +100,13 @@
 
 
 \end{tikzpicture}
-
-%\end{tikzpicture}
+    \label{fig:3_1} }
 \end{minipage}
-\caption{\label{fig:3_1} Description.}
+\caption{\label{fig:} }
 \end{figure}
 
-We know that because they are on the cohexistence line
+
+\noindent We know that because they are on the cohexistence line
 \begin{equation}
   \begin{cases}
    g_1^{(a)} = g_2^{(a)}\\
@@ -119,7 +114,7 @@ We know that because they are on the cohexistence line
   \end{cases}
 \label{eq:}
 \end{equation}
-If close enough
+and, if they are close enough:
 \begin{equation}
   \begin{cases}
   \dd[]{g_1} = g_1^{(b)} - g_1^{(a)} \\
@@ -127,12 +122,12 @@ If close enough
   \end{cases}
 \label{eq:}
 \end{equation}
-Therefore the \emph{starting point} for \emph{Clausius-Clapeyron} is
+Therefore, the \emph{starting point} for \emph{Clausius-Clapeyron} is
 \begin{equation}
-  \dd[]{g_1} =\dd[]{g_2}
+  \Rightarrow \dd[]{g_1} =\dd[]{g_2}
   \label{eq:}
 \end{equation}
-We have also:
+Consider also
 \begin{equation}
   \begin{cases}
    \dd[]{g_1} = -s_1 \dd[]{T} + v_1 \dd[]{P}   \\
@@ -140,49 +135,48 @@ We have also:
   \end{cases}
 \label{eq:}
 \end{equation}
-Taking the difference
+taking the difference, one obtains
 \begin{equation}
   -(s_2 - s_1) \dd[]{T} + (v_2 - v_1) \dd[]{P} = 0
   \label{eq:}
 \end{equation}
-The splope is:
+The splope is called \textbf{Clausius-Clapeyron equation}:
 \begin{equation}
   \qty(\dv{P}{T} )_{coex} = \frac{(s_2-s_1)}{(v_2-v_1)} = \frac{\Delta s}{\Delta v}
   \label{eq:}
 \end{equation}
-Consider \( L_{12} = \Delta s T \) the \emph{latent heat}.
-Now, we go from gas to liquid (respectively region 1 and 2 in Figure \ref{fig:3_1} on the right), we have:
+
+ Now, we go from gas to liquid (respectively region 1 and 2 in Figure \ref{fig:3_1}), we have:
 \begin{equation}
   \qty(\dv{P}{T} )_{coex} = \frac{s_2 - s_1}{v_2 - v_1} \qquad \substack{ s_2 > s_1 \\ v_2 > v_1} \Rightarrow \qty(\dv{P}{T} )_{coex} > 0
   \label{eq:}
 \end{equation}
-
 Melt:
 \begin{equation}
   \qty(\dv{P}{T} )_{coex} = \frac{\delta Q_{melt}}{T_{melt}\Delta v_{melt}} \qquad \delta Q_{melt} = Q_{liq} - Q_{solid} > 0
   \label{eq:}
 \end{equation}
-In general, \( v_{liq} > v_{solid} \) which implies \( \qty(\dv{P}{T} )_{coex} > 0  \), but there are cases when \( v_{liq} < v_{solid} \) and \( \rho_{liq} > \rho _{solid} \) (for instance the \( H_2 0 \), or also Silicon and Germanium).
+In general, \( v_{liq} > v_{solid} \) which implies \( \qty( \dd[]{P}/\dd[]{T}   )_{coex} > 0  \), but there are cases when \( v_{liq} < v_{solid} \) and \( \rho_{liq} > \rho _{solid} \) (for instance the \( H_2 0 \), or also Silicon and Germanium).
 
 \section{Order parameter}
-Macroscopic observable that is equal to zero abote the critical temperature, and different from zero below:
+The \emph{order parameters} are macroscopic observable that are equal to zero above the critical temperature, and different from zero below:
 \begin{equation}
 O_p
   \begin{cases}
   \neq 0 & T<T_c \\
-  = 0 & T \rightarrow T_c
+  = 0 & T \rightarrow T_c^-
   \end{cases}
 \label{eq:}
 \end{equation}
-It reflects the symmetry of the system. Recall that, at \( T_c \) the system has a symmetry broken.
-For instance, for \emph{ferromagnetic system} we have the conjugate \( \va{M} \rightarrow \va{H}   \), while for \emph{ferro electric} we have \( \va{P} \rightarrow \va{E}   \). For \emph{liquid crystals} \( Q_{\alpha \beta } \rightarrow \va{E},\va{H}   \).
-Consider the density of liquid and gas, their difference is \( \Delta \rho = \rho _{l} - \rho _{g} \), that is \( \neq 0 \) for \( T \neq T_c \) but \( \rightarrow 0 \) when \( T \rightarrow T_c \).
+It reflects the symmetry of the system. Recall that, at \( T_c \) the system has a symmetry broken. Consider \emph{ferromagnetic system}, we have \( \va{M} \rightarrow \va{H}   \), while for \emph{ferro electric} we have \( \va{P} \rightarrow \va{E}   \). For \emph{liquid crystals} \( Q_{\alpha \beta } \rightarrow \va{E},\va{H}   \).
+
+Consider the densities of liquid and gas, their difference is \( \Delta \rho = \rho _{l} - \rho _{g} \), that is \( \neq 0 \) for \( T \neq T_c \) but \( \rightarrow 0 \) when \( T \rightarrow T_c \).
+
 
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-
-
+\subfloat[][Description]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -224,12 +218,11 @@ Consider the density of liquid and gas, their difference is \( \Delta \rho = \rh
 
 
 \end{tikzpicture}
-
+    \label{fig:} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-
-
+\subfloat[][Description]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -283,10 +276,15 @@ Consider the density of liquid and gas, their difference is \( \Delta \rho = \rh
 
 
 \end{tikzpicture}
-
+    \label{fig:} }
 \end{minipage}
-\caption{\label{fig:} Description.}
+\caption{\label{fig:} Description}
 \end{figure}
+
+
+
+
+
 
 For a ferromagnetic system:
 \begin{figure}[h!]
@@ -336,11 +334,12 @@ For a ferromagnetic system:
 \caption{\label{fig:} Description.}
 \end{figure}
 
+
+
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-
-
+\subfloat[][Description]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -373,12 +372,11 @@ For a ferromagnetic system:
 \draw (490,185) node [scale=1]  {$diverges$};
 
 \end{tikzpicture}
-
+    \label{fig:} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-
-
+\subfloat[][Description]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -408,12 +406,12 @@ For a ferromagnetic system:
 
 
 \end{tikzpicture}
-
+    \label{fig:} }
 \end{minipage}
-\newline
+\\
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-
+\subfloat[][Description]{
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
@@ -446,12 +444,11 @@ For a ferromagnetic system:
 
 
 \end{tikzpicture}
-
+    \label{fig:} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-
-
+\subfloat[][Description]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -481,12 +478,10 @@ For a ferromagnetic system:
 \draw (490,185) node [scale=1]  {$diverges$};
 
 \end{tikzpicture}
-
+    \label{fig:} }
 \end{minipage}
-\caption{\label{fig:} Description.}
-
+\caption{\label{fig:} Description}
 \end{figure}
-
 
 In general, when you are close to \( T_c \), there are singolarities.
 How the curve diverges? What is the behaviour close to the critical point? Power Law, so which are the values of these critical exponents?
@@ -518,131 +513,6 @@ We have \( M \overset{t \rightarrow  0^-}{\sim} (-t)^{\beta }  \). No sense in g
 \end{itemize}
 \end{definition}
 
-
-\begin{figure}[h!]
-\begin{minipage}[c]{0.5\linewidth}
-\centering
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
-%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
-
-%Shape: Axis 2D [id:dp5951100625553807]
-\draw  (12.61,425) -- (658.18,425)(77.17,2) -- (77.17,472) (651.18,420) -- (658.18,425) -- (651.18,430) (72.17,9) -- (77.17,2) -- (82.17,9)  ;
-%Curve Lines [id:da7750908509461275]
-\draw    (470.5,424) .. controls (463.5,331) and (450.5,257) .. (365.5,194) .. controls (280.5,131) and (253.5,117) .. (77.5,92) ;
-
-
-
-% Text Node
-\draw (644.64,453.88) node [scale=1]  {$T$};
-% Text Node
-\draw (471.49,448.88) node [scale=1]  {$T_{c}$};
-% Text Node
-\draw (41,36) node [scale=1]  {$M$};
-% Text Node
-\draw (306,102) node   {$H=0$};
-
-
-\end{tikzpicture}
-
-\end{minipage}
-\begin{minipage}[]{0.5\linewidth}
-\centering
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
-%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
-
-%Shape: Axis 2D [id:dp5951100625553807]
-\draw  (12.61,425) -- (658.18,425)(77.17,2) -- (77.17,472) (651.18,420) -- (658.18,425) -- (651.18,430) (72.17,9) -- (77.17,2) -- (82.17,9)  ;
-%Straight Lines [id:da5293875835625754]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (330.5,19) -- (331.5,425) ;
-
-
-%Curve Lines [id:da44190238222280653]
-\draw    (103.5,410) .. controls (240.5,390) and (303.5,244) .. (311.5,83) ;
-
-
-%Curve Lines [id:da7750908509461275]
-\draw    (619.5,411) .. controls (484.5,402) and (378.5,253) .. (354.5,84) ;
-
-
-
-% Text Node
-\draw (644.64,453.88) node [scale=1]  {$T$};
-% Text Node
-\draw (348.49,453.88) node [scale=1]  {$T_{c}$};
-% Text Node
-\draw (30,36) node [scale=1]  {$\chi$};
-\draw (490,185) node [scale=1]  {$H=0$};
-
-\end{tikzpicture}
-\end{minipage}
-\newline
-\begin{minipage}[c]{0.5\linewidth}
-\centering
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
-%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
-
-%Shape: Axis 2D [id:dp5951100625553807]
-\draw  (12.61,425) -- (658.18,425)(77.17,2) -- (77.17,472) (651.18,420) -- (658.18,425) -- (651.18,430) (72.17,9) -- (77.17,2) -- (82.17,9)  ;
-%Straight Lines [id:da5293875835625754]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (330.5,19) -- (331.5,425) ;
-
-
-%Curve Lines [id:da44190238222280653]
-\draw    (103.5,410) .. controls (240.5,390) and (303.5,244) .. (311.5,83) ;
-
-
-%Curve Lines [id:da7750908509461275]
-\draw    (619.5,411) .. controls (484.5,402) and (378.5,253) .. (354.5,84) ;
-
-
-
-% Text Node
-\draw (644.64,453.88) node [scale=1]  {$T$};
-% Text Node
-\draw (348.49,453.88) node [scale=1]  {$T_{c}$};
-% Text Node
-\draw (30,36) node [scale=1]  {$c_{H}$};
-\draw (490,185) node [scale=1]  {$H=0$};
-
-\end{tikzpicture}
-\end{minipage}
-\begin{minipage}[]{0.5\linewidth}
-\centering
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
-%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
-
-%Shape: Axis 2D [id:dp5951100625553807]
-\draw  (12.61,242) -- (658.18,242)(329.5,2) -- (329.5,472) (651.18,237) -- (658.18,242) -- (651.18,247) (324.5,9) -- (329.5,2) -- (334.5,9)  ;
-%Curve Lines [id:da0018844471566330512]
-\draw    (100.5,400) .. controls (207.5,400) and (243.5,430) .. (329.5,242) .. controls (415.5,54) and (537.5,101) .. (571.5,94) ;
-
-
-
-% Text Node
-\draw (623.64,276.88) node [scale=1]  {$H$};
-% Text Node
-\draw (497.49,60.88) node [scale=1]  {$T=T_{c}$};
-% Text Node
-\draw (291,22) node [scale=1]  {$M$};
-
-
-\end{tikzpicture}
-
-\end{minipage}
-\caption{\label{fig:} Description.}
-\end{figure}
 
 The system displays correlation at very long distance, this one laught goes to the size of the system when \( T \rightarrow T_c \). We are talking about long range correlation. The \emph{correlation function} is \( \xi \sim t^{-\nu } \).
 \begin{example}
@@ -682,10 +552,152 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 \end{equation}
 
 
-
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
+\subfloat[][Description]{
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Shape: Axis 2D [id:dp5951100625553807]
+\draw  (12.61,425) -- (658.18,425)(77.17,2) -- (77.17,472) (651.18,420) -- (658.18,425) -- (651.18,430) (72.17,9) -- (77.17,2) -- (82.17,9)  ;
+%Curve Lines [id:da7750908509461275]
+\draw    (470.5,424) .. controls (463.5,331) and (450.5,257) .. (365.5,194) .. controls (280.5,131) and (253.5,117) .. (77.5,92) ;
+
+
+
+% Text Node
+\draw (644.64,453.88) node [scale=1]  {$T$};
+% Text Node
+\draw (471.49,448.88) node [scale=1]  {$T_{c}$};
+% Text Node
+\draw (41,36) node [scale=1]  {$M$};
+% Text Node
+\draw (306,102) node   {$H=0$};
+
+
+\end{tikzpicture}
+    \label{fig:} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][Description]{
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Shape: Axis 2D [id:dp5951100625553807]
+\draw  (12.61,425) -- (658.18,425)(77.17,2) -- (77.17,472) (651.18,420) -- (658.18,425) -- (651.18,430) (72.17,9) -- (77.17,2) -- (82.17,9)  ;
+%Straight Lines [id:da5293875835625754]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (330.5,19) -- (331.5,425) ;
+
+
+%Curve Lines [id:da44190238222280653]
+\draw    (103.5,410) .. controls (240.5,390) and (303.5,244) .. (311.5,83) ;
+
+
+%Curve Lines [id:da7750908509461275]
+\draw    (619.5,411) .. controls (484.5,402) and (378.5,253) .. (354.5,84) ;
+
+
+
+% Text Node
+\draw (644.64,453.88) node [scale=1]  {$T$};
+% Text Node
+\draw (348.49,453.88) node [scale=1]  {$T_{c}$};
+% Text Node
+\draw (30,36) node [scale=1]  {$\chi$};
+\draw (490,185) node [scale=1]  {$H=0$};
+
+\end{tikzpicture}
+    \label{fig:} }
+\end{minipage}
+\\
+\begin{minipage}[c]{0.5\linewidth}
+\centering
+\subfloat[][Description]{
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Shape: Axis 2D [id:dp5951100625553807]
+\draw  (12.61,425) -- (658.18,425)(77.17,2) -- (77.17,472) (651.18,420) -- (658.18,425) -- (651.18,430) (72.17,9) -- (77.17,2) -- (82.17,9)  ;
+%Straight Lines [id:da5293875835625754]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (330.5,19) -- (331.5,425) ;
+
+
+%Curve Lines [id:da44190238222280653]
+\draw    (103.5,410) .. controls (240.5,390) and (303.5,244) .. (311.5,83) ;
+
+
+%Curve Lines [id:da7750908509461275]
+\draw    (619.5,411) .. controls (484.5,402) and (378.5,253) .. (354.5,84) ;
+
+
+
+% Text Node
+\draw (644.64,453.88) node [scale=1]  {$T$};
+% Text Node
+\draw (348.49,453.88) node [scale=1]  {$T_{c}$};
+% Text Node
+\draw (30,36) node [scale=1]  {$c_{H}$};
+\draw (490,185) node [scale=1]  {$H=0$};
+
+\end{tikzpicture}
+    \label{fig:} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][Description]{
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
+%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+
+%Shape: Axis 2D [id:dp5951100625553807]
+\draw  (12.61,242) -- (658.18,242)(329.5,2) -- (329.5,472) (651.18,237) -- (658.18,242) -- (651.18,247) (324.5,9) -- (329.5,2) -- (334.5,9)  ;
+%Curve Lines [id:da0018844471566330512]
+\draw    (100.5,400) .. controls (207.5,400) and (243.5,430) .. (329.5,242) .. controls (415.5,54) and (537.5,101) .. (571.5,94) ;
+
+
+
+% Text Node
+\draw (623.64,276.88) node [scale=1]  {$H$};
+% Text Node
+\draw (497.49,60.88) node [scale=1]  {$T=T_{c}$};
+% Text Node
+\draw (291,22) node [scale=1]  {$M$};
+
+
+\end{tikzpicture}
+    \label{fig:} }
+\end{minipage}
+\caption{\label{fig:} Description}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+
+\subfloat[][Description]{   \centering
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -717,11 +729,11 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 
 
 \end{tikzpicture}
+    \label{fig:} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-
-
+\subfloat[][Description]{   \centering
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -786,8 +798,28 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 \draw (355.64,451.88) node [scale=1]  {$1=T_{c} /T_{c}$};
 
 \end{tikzpicture}
-
+    \label{fig:} }
 \end{minipage}
-\caption{\label{fig:} Description.}
+\caption{\label{fig:} Description}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
