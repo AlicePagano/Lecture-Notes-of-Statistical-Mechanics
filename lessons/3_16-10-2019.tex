@@ -140,11 +140,11 @@ taking the difference, one obtains
   -(s_2 - s_1) \dd[]{T} + (v_2 - v_1) \dd[]{P} = 0
   \label{eq:}
 \end{equation}
-The splope is called \textbf{Clausius-Clapeyron equation}:
-\begin{equation}
+The splope is called \textcolor{blue}{\textbf{Clausius-Clapeyron equation}}:
+\begin{empheq}[box=\myyellowbox]{equation}
   \qty(\dv{P}{T} )_{coex} = \frac{(s_2-s_1)}{(v_2-v_1)} = \frac{\Delta s}{\Delta v}
   \label{eq:}
-\end{equation}
+\end{empheq}
 
  Now, we go from gas to liquid (respectively region 1 and 2 in Figure \ref{fig:3_1}), we have:
 \begin{equation}
@@ -170,13 +170,13 @@ O_p
 \end{equation}
 It reflects the symmetry of the system. Recall that, at \( T_c \) the system has a symmetry broken. Consider \emph{ferromagnetic system}, we have \( \va{M} \rightarrow \va{H}   \), while for \emph{ferro electric} we have \( \va{P} \rightarrow \va{E}   \). For \emph{liquid crystals} \( Q_{\alpha \beta } \rightarrow \va{E},\va{H}   \).
 
-Consider the densities of liquid and gas, their difference is \( \Delta \rho = \rho _{l} - \rho _{g} \), that is \( \neq 0 \) for \( T \neq T_c \) but \( \rightarrow 0 \) when \( T \rightarrow T_c \).
+Consider the densities of liquid and gas, their difference is \( \Delta \rho = \rho _{l} - \rho _{g} \), that is \( \neq 0 \) for \( T \neq T_c \) but \( \rightarrow 0 \) when \( T \rightarrow T_c \) (see Figure \ref{fig:3_2}).
 
 
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -204,17 +204,17 @@ Consider the densities of liquid and gas, their difference is \( \Delta \rho = \
 \draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (328.89,209) .. controls (328.89,207.18) and (330.51,205.71) .. (332.5,205.71) .. controls (334.49,205.71) and (336.11,207.18) .. (336.11,209) .. controls (336.11,210.82) and (334.49,212.29) .. (332.5,212.29) .. controls (330.51,212.29) and (328.89,210.82) .. (328.89,209) -- cycle ;
 
 % Text Node
-\draw (47.5,27.32) node [scale=1.5]  {$\rho $};
+\draw (47.5,27.32) node [scale=1]  {$\rho $};
 % Text Node
-\draw (644.64,453.88) node [scale=1.5]  {$T$};
+\draw (644.64,453.88) node [scale=1]  {$T$};
 % Text Node
-\draw (47,211.78) node [scale=1.5]  {$\rho _{c}$};
+\draw (47,211.78) node [scale=1]  {$\rho _{c}$};
 % Text Node
-\draw (348.49,453.88) node [scale=1.5]  {$T_{c}$};
+\draw (348.49,453.88) node [scale=1]  {$T_{c}$};
 % Text Node
-\draw (48,139.78) node [scale=1.5]  {$\rho _{l}$};
+\draw (48,139.78) node [scale=1]  {$\rho _{l}$};
 % Text Node
-\draw (47,299.78) node [scale=1.5]  {$\rho _{g}$};
+\draw (47,299.78) node [scale=1]  {$\rho _{g}$};
 
 
 \end{tikzpicture}
@@ -222,7 +222,7 @@ Consider the densities of liquid and gas, their difference is \( \Delta \rho = \
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -264,9 +264,9 @@ Consider the densities of liquid and gas, their difference is \( \Delta \rho = \
 
 
 % Text Node
-\draw (47.5,27.32) node [scale=1.5]  {$P$};
+\draw (47.5,27.32) node [scale=1]  {$P$};
 % Text Node
-\draw (644.64,453.88) node [scale=1.5]  {$V$};
+\draw (644.64,453.88) node [scale=1]  {$V$};
 % Text Node
 \draw (601.49,385.88) node [scale=1]  {$T< T_{c}$};
 % Text Node
@@ -278,24 +278,16 @@ Consider the densities of liquid and gas, their difference is \( \Delta \rho = \
 \end{tikzpicture}
     \label{fig:} }
 \end{minipage}
-\caption{\label{fig:} Description}
+\caption{\label{fig:3_2} Description}
 \end{figure}
-
-
-
-
-
-
-For a ferromagnetic system:
+In Figure \ref{fig:3_3} is shown the behaviour for a ferromagnetic system.
 \begin{figure}[h!]
 \centering
 
 
-
-
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.7,xscale=0.7]
 %uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
 
 %Shape: Axis 2D [id:dp5951100625553807]
@@ -331,7 +323,7 @@ For a ferromagnetic system:
 \end{tikzpicture}
 
 
-\caption{\label{fig:} Description.}
+\caption{\label{fig:3_3} Description.}
 \end{figure}
 
 
@@ -339,7 +331,7 @@ For a ferromagnetic system:
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -376,7 +368,7 @@ For a ferromagnetic system:
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][Liquid gas \( k_T = - \frac{1}{V} \pdv{V}{P}  \) ]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -411,7 +403,7 @@ For a ferromagnetic system:
 \\
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][2° order phase transition]{
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
@@ -448,7 +440,7 @@ For a ferromagnetic system:
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][Superfluid in \( \lambda\)-transition ]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -482,80 +474,51 @@ For a ferromagnetic system:
 \end{minipage}
 \caption{\label{fig:} Description}
 \end{figure}
+In general, when you are close to \( T_c \), there are singolarities. Now, we can ask, how the curve diverges? What is the behaviour close to the critical point? Power law, so which are the values of these critical exponents?
+In order to answer to these questions, let us define:
 
-In general, when you are close to \( T_c \), there are singolarities.
-How the curve diverges? What is the behaviour close to the critical point? Power Law, so which are the values of these critical exponents?
-
-Define the adimensional parameter \( t \equiv \frac{T-T_c}{T_c} \): \begin{definition}[\textbf{Critical Exponent} (or \emph{Scale Exponent})]
+\begin{bluebox}
+\begin{definition}[\textbf{Critical Exponent} (or \emph{Scale Exponent})] \
+Define the adimensional parameter \( t \equiv \frac{T-T_c}{T_c} \), the \emph{Critical Exponent} is defined as:
 \begin{equation}
   \lambda _{\pm} = \lim_{t \rightarrow 0^{\pm}} \frac{\ln{\abs{F(t)} } }{\ln{\abs{t} } }
   \label{eq:}
 \end{equation}
 \end{definition}
+\end{bluebox}
 We note that it behaves like a power low and that
 \begin{equation}
   F(t) \overset{t \rightarrow  0^{\pm}}{\sim } \abs{t}^{\lambda _{\pm}}
   \label{eq:}
 \end{equation}
-We can write:
+Therefore, we can write:
 \begin{equation}
   F(t) = A \abs{t}^{\lambda _{\pm}} ( 1 + bt^{\lambda _1}+ \dots) \quad \lambda _1 > 0
   \label{eq:}
 \end{equation}
-all other terms are less important.
+where all other terms are less important.
+\begin{bluebox}
 \begin{definition}[Exponent]\
 \begin{itemize}
 \item \textbf{Exponent \( \beta \) }: tells how the order parameter goes to zero.
-We have \( M \overset{t \rightarrow  0^-}{\sim} (-t)^{\beta }  \). No sense in going from above where it stays 0.
-\item \textbf{Exponent \( \gamma _{\pm}  \) }: related to the response function. We have \( \chi _T \overset{t \rightarrow 0^{\pm}}{\sim} \abs{t}^{-\gamma _{\pm} }   \). In principle \( \gamma ^+ \neq \gamma ^-  \), but they are the same in reality and we have \( \gamma ^+ = \gamma ^- = \gamma     \).
-\item \textbf{Exponent \( \alpha _{\pm} \) }: how specific heat diverges (second order derivative in respect of \emph{T} ), we have \( c_H \sim \abs{t}^{-\alpha _{\pm}}  \).
-\item \textbf{Exponent \( \gamma   \)}. We have \( H \sim \abs{M}^{\delta } sign(M)  \). At the critical point how \( \va{M}  \) behaves when \( \va{H} \rightarrow 0  \) ? I fix \( T=T_c \) and ask \( \va{M}(\va{H} ) = ?  \)  The result is \( M \sim H^{1/\delta } \)
+Consider Figure \ref{fig:3_4_1}, we have \( M \overset{t \rightarrow  0^-}{\sim} (-t)^{\beta }  \). No sense in going from above where it stays 0.
+
+\item \textbf{Exponent \( \gamma _{\pm}  \) }: related to the response function. Consider Figure \ref{fig:3_4_2}, we have \( \chi _T \overset{t \rightarrow 0^{\pm}}{\sim} \abs{t}^{-\gamma _{\pm} }   \). In principle \( \gamma ^+ \neq \gamma ^-  \), but they are the same in reality and we have \( \gamma ^+ = \gamma ^- = \gamma     \).
+
+\item \textbf{Exponent \( \alpha _{\pm} \) }: how specific heat diverges (second order derivative in respect of \emph{T} ). For instance see Figure \ref{fig:3_4_3}, we have \( c_H \sim \abs{t}^{-\alpha _{\pm}}  \).
+
+\item \textbf{Exponent \( \gamma   \)}. In Figure \ref{fig:3_4_4}, \( H \sim \abs{M}^{\delta } \text{sign} (M)  \). Let us ask, how behaves \( \va{M}  \) at the critical point when \( \va{H} \rightarrow 0  \) ?
+First of all, we fix \( T=T_c \) and ask what is the value of \( \va{M}(\va{H} ) \). The result is \( M \sim H^{1/\delta } \).
 \end{itemize}
 \end{definition}
+\end{bluebox}
 
-
-The system displays correlation at very long distance, this one laught goes to the size of the system when \( T \rightarrow T_c \). We are talking about long range correlation. The \emph{correlation function} is \( \xi \sim t^{-\nu } \).
-\begin{example}
-Consider a polymer done by \emph{N} nanomer:
-????
-
-
-\end{example}
-
-
-Consider the \emph{Guggheneim experiment}, in which we have a liquid-gas. Different sets of data fit the  same function if you rescale \( T/T_c \)
-We have
-\begin{equation}
-  (\rho _l - \rho _c) \sim (-t)^{\beta}
-  \label{eq:}
-\end{equation}
-We have \( \beta \sim 1/3 \approx 0.335 \). If you do the same for a string ferromagnetic is 1/3 too.
-\begin{equation}
-  \begin{cases}
-   k_T (c_p-c_v)=T v \alpha ^2 = T v \frac{1}{v^2} \qty(\pdv{v}{T} )^2_P = t \frac{1}{v} \qty(\pdv{v}{T} )^2_P  \\
-   \chi _T (c_H-c_M) = T \qty(\pdv{M}{T} )^2
-  \end{cases}
-\label{eq:}
-\end{equation}
-We have \( c_M \geq 0, \chi _T \geq 0  \) and  \(  c_H \geq \frac{T}{\chi _T} \qty(\pdv{M}{T} )^2 \) because \( c_H = T \). If \( T \rightarrow T_c^-, H=0 \) we have:
-\begin{equation}
-  \begin{cases}
-   c_H \sim (-t)^{-\alpha }\\
-   \chi _T \sim (-t)^{-\gamma  }
-  \end{cases}
-\label{eq:}
-\end{equation}
-Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\beta -1} \). Finally we obtain the \textbf{RushBrook inequality}:
-\begin{equation}
-  \alpha + 2 \beta  + \gamma \geq 2
-  \label{eq:}
-\end{equation}
 
 
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][Exponent \( \beta  \) ]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -579,11 +542,11 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 
 
 \end{tikzpicture}
-    \label{fig:} }
+    \label{fig:3_4_1} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][Exponent \( \gamma_{\pm}  \) ]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -613,12 +576,12 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 \draw (490,185) node [scale=1]  {$H=0$};
 
 \end{tikzpicture}
-    \label{fig:} }
+    \label{fig:3_4_2} }
 \end{minipage}
 \\
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][Exponent \( \alpha _{\pm} \) ]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -648,11 +611,11 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 \draw (490,185) node [scale=1]  {$H=0$};
 
 \end{tikzpicture}
-    \label{fig:} }
+    \label{fig:3_4_3} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
+\subfloat[][Exponent \( \gamma   \) ]{
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
@@ -674,7 +637,7 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 
 
 \end{tikzpicture}
-    \label{fig:} }
+    \label{fig:3_4_4} }
 \end{minipage}
 \caption{\label{fig:} Description}
 \end{figure}
@@ -682,8 +645,37 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 
 
 
+The system displays correlation at very long distance, these goes to the size of the system when \( T \rightarrow T_c \). We are talking about long range correlation. The \emph{correlation function} is \( \xi \sim t^{-\nu } \).
+For instance, consider a polymer as in Figure \ref{fig:3_5}.
 
 
+Consider the \emph{Guggheneim experiment} (see Figure \ref{fig:3_6}), in which we have a liquid-gas. Different sets of data fit the  same function if you rescale \( T/T_c \)
+We have
+\begin{equation}
+  (\rho _l - \rho _c) \sim (-t)^{\beta}
+  \label{eq:}
+\end{equation}
+and \( \beta \sim 1/3 \approx 0.335 \). If you do the same for a string ferromagnetic is 1/3 too. Let us compute:
+\begin{equation}
+  \begin{cases}
+   k_T (c_p-c_v)=T v \alpha ^2 = T v \frac{1}{v^2} \qty(\pdv{v}{T} )^2_P = T \frac{1}{v} \qty(\pdv{v}{T} )^2_P  \\
+   \chi _T (c_H-c_M) = T \qty(\pdv{M}{T} )^2
+  \end{cases}
+\label{eq:}
+\end{equation}
+with \( c_M \geq 0, \chi _T \geq 0  \) and  \(  c_H \geq \frac{T}{\chi _T} \qty(\pdv{M}{T} )^2 \) because \( c_H = T \). If \( T \rightarrow T_c^-, H=0 \) we have:
+\begin{equation}
+  \begin{cases}
+   c_H \sim (-t)^{-\alpha }\\
+   \chi _T \sim (-t)^{-\gamma  }
+  \end{cases}
+\label{eq:}
+\end{equation}
+Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\beta -1} \). Finally we obtain the \textcolor{blue}{\textbf{RushBrook inequality}}:
+
+\begin{empheq}[box=\myyellowbox]{equation}
+\alpha + 2 \beta  + \gamma \geq 2
+\end{empheq}
 
 
 
@@ -729,7 +721,7 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 
 
 \end{tikzpicture}
-    \label{fig:} }
+    \label{fig:3_5} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
@@ -798,9 +790,9 @@ Therefore \( M \sim (-t)^{\beta } \), which implies \( \pdv{M}{T} \sim (-t)^{\be
 \draw (355.64,451.88) node [scale=1]  {$1=T_{c} /T_{c}$};
 
 \end{tikzpicture}
-    \label{fig:} }
+    \label{fig:3_6} }
 \end{minipage}
-\caption{\label{fig:} Description}
+\caption{\label{fig:} }
 \end{figure}
 
 
