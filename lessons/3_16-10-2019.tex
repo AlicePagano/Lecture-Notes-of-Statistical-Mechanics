@@ -4,109 +4,235 @@
 
 \begin{document}
 
+
+
 \marginpar{ \textbf{Lecture 3.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
 
+\section{Lever Rule}
+Consider the Figure \ref{fig:3_0}, at all points between \emph{A} and \emph{B} the system is a mixsture of gas and liquid. Points \emph{D} has global density \( P_D = P_A + P_B \)  and therefore \( v_D = \frac{1}{P_D}, v_A = \frac{1}{P_A}, v_B = \frac{1}{P_B} \) which implies:
+\begin{equation}
+  v_D = \frac{N_A}{N} v_A + \frac{N_B}{N} v_B = x_A v_A + x_B v_B
+  \label{eq:}
+\end{equation}
+Since \( x_A + x_B = 1 \) we have \( (x_A + x_B)v_D = x_A v_A + x_B v_B \) and finally the \textbf{Lever Rule}:
+\begin{equation}
+  \frac{x_A}{x_B} = \frac{v_B - v_D}{v_D - v_A}
+  \label{eq:}
+\end{equation}
 \begin{figure}[h!]
-\begin{minipage}[c]{0.5\linewidth}
 \centering
-\subfloat[][Coexistence plot.]{
+
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
-%uncomment if require: \path (0,476); %set diagram left start at 0, and has height of 476
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
+%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
 
-%Shape: Axis 2D [id:dp5951100625553807]
-\draw  (12.61,425) -- (658.18,425)(77.17,2) -- (77.17,472) (651.18,420) -- (658.18,425) -- (651.18,430) (72.17,9) -- (77.17,2) -- (82.17,9)  ;
-%Curve Lines [id:da6195327642832696]
-\draw    (113.36,368.24) .. controls (230.74,358.36) and (344.5,208.49) .. (396.87,108.02) ;
-
-
-%Curve Lines [id:da2126694468363458]
-\draw    (292.51,257.9) .. controls (366.17,271.07) and (460.07,213.43) .. (532.3,164.02) ;
+%Shape: Axis 2D [id:dp34042133393206886]
+\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
+%Straight Lines [id:da6702336744569144]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (264.39,226.81) -- (266,391) ;
 
 
-%Straight Lines [id:da7069592692010301]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (77.25,226.6) -- (320.4,228.21) ;
+%Straight Lines [id:da35901728946704126]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (263.39,226.81) -- (392.39,227.81) ;
 
 
-%Straight Lines [id:da5293875835625754]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (320.4,228.21) -- (318.6,424.19) ;
+%Curve Lines [id:da9451173727045867]
+\draw [color={rgb, 255:red, 0; green, 196; blue, 21 }  ,draw opacity=1 ][line width=1.5]    (161,74) .. controls (181,159) and (173,511) .. (255,254) .. controls (337,-3) and (347,213) .. (485,353) ;
 
 
-%Shape: Ellipse [id:dp08220348613655248]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (313.19,228.21) .. controls (313.19,226.39) and (314.81,224.92) .. (316.8,224.92) .. controls (318.79,224.92) and (320.4,226.39) .. (320.4,228.21) .. controls (320.4,230.02) and (318.79,231.49) .. (316.8,231.49) .. controls (314.81,231.49) and (313.19,230.02) .. (313.19,228.21) -- cycle ;
-%Shape: Ellipse [id:dp6417973207439449]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (288.92,258.18) .. controls (288.74,256.37) and (290.21,254.78) .. (292.2,254.62) .. controls (294.18,254.46) and (295.93,255.8) .. (296.1,257.61) .. controls (296.27,259.42) and (294.8,261.02) .. (292.82,261.17) .. controls (290.83,261.33) and (289.09,259.99) .. (288.92,258.18) -- cycle ;
+%Straight Lines [id:da08613827611481972]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (392.39,227.81) -- (394,392) ;
+
+
+%Straight Lines [id:da1041450850592075]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (281.55,184.35) -- (367.55,183.35) ;
+
+
+%Straight Lines [id:da726756834820412]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (253.39,261.81) -- (413.01,260.71) ;
+
+
+%Straight Lines [id:da36415288687545777]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (328.89,227.31) -- (330.5,391.5) ;
+
+
+%Curve Lines [id:da6577640934100049]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (193.31,18.33) .. controls (210.31,105.33) and (217.31,154.33) .. (281.55,184.35) ;
+
+
+%Curve Lines [id:da5326240116615772]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (176.31,88.33) .. controls (193.31,175.33) and (189.15,231.78) .. (253.39,261.81) ;
+
+
+%Curve Lines [id:da7998397977403133]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (185.31,56.33) .. controls (196.31,148.33) and (230.31,212.33) .. (264.39,226.81) ;
+
+
+%Straight Lines [id:da9411455399902455]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (367.55,183.35) -- (537.13,240.99) ;
+
+
+%Straight Lines [id:da28743856092342424]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (392.39,227.81) -- (561.97,285.45) ;
+
+
+%Straight Lines [id:da2729807224373272]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (413.01,260.71) -- (582.59,318.35) ;
+
+
+%Curve Lines [id:da846663436815342]
+\draw [color={rgb, 255:red, 0; green, 196; blue, 21 }  ,draw opacity=1 ][line width=1.5]    (140.13,74.99) .. controls (151.13,285.99) and (149.13,368.99) .. (198.13,390.99) ;
+
+
+%Curve Lines [id:da687077505482324]
+\draw [color={rgb, 255:red, 43; green, 0; blue, 255 }  ,draw opacity=1 ][line width=2.25]    (228.79,23.31) .. controls (232.09,56.31) and (263.8,129.35) .. (321.29,133.33) .. controls (378.79,137.31) and (499.79,202.31) .. (548.79,217.31) ;
+
+
+%Shape: Circle [id:dp9253191380995789]
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (323.94,227.31) .. controls (323.94,224.57) and (326.15,222.35) .. (328.89,222.35) .. controls (331.63,222.35) and (333.84,224.57) .. (333.84,227.31) .. controls (333.84,230.04) and (331.63,232.26) .. (328.89,232.26) .. controls (326.15,232.26) and (323.94,230.04) .. (323.94,227.31) -- cycle ;
+%Shape: Circle [id:dp4312182648745586]
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (259.44,226.81) .. controls (259.44,224.07) and (261.65,221.85) .. (264.39,221.85) .. controls (267.13,221.85) and (269.34,224.07) .. (269.34,226.81) .. controls (269.34,229.54) and (267.13,231.76) .. (264.39,231.76) .. controls (261.65,231.76) and (259.44,229.54) .. (259.44,226.81) -- cycle ;
+%Shape: Circle [id:dp9164322895828938]
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (387.44,227.81) .. controls (387.44,225.07) and (389.65,222.85) .. (392.39,222.85) .. controls (395.13,222.85) and (397.34,225.07) .. (397.34,227.81) .. controls (397.34,230.54) and (395.13,232.76) .. (392.39,232.76) .. controls (389.65,232.76) and (387.44,230.54) .. (387.44,227.81) -- cycle ;
+%Curve Lines [id:da7173087694815479]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (316,20) .. controls (313,43) and (454,150) .. (530,162) ;
+
+
+%Curve Lines [id:da07422455776903614]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ]   (382,25) .. controls (379,48) and (466,112) .. (542,124) ;
+
+
 
 % Text Node
-\draw (41.5,27.32) node [scale=1.5]  {$P$};
+\draw (93,23) node   {$P$};
 % Text Node
-\draw (644.64,453.88) node [scale=1.5]  {$T$};
+\draw (524,409) node   {$V$};
 % Text Node
-\draw (39.7,211.78) node [scale=1.5]  {$P_{o}$};
+\draw (256,411) node   {$V_{B}$};
 % Text Node
-\draw (348.49,453.88) node [scale=1.5]  {$T_{n}$};
+\draw (398,413) node   {$V_{A}$};
+% Text Node
+\draw (333,411) node   {$V_{D}$};
+% Text Node
+\draw (239,227) node   {$B$};
+% Text Node
+\draw (410,211) node   {$A$};
+% Text Node
+\draw (330,208) node   {$D$};
+% Text Node
+\draw (344,99) node [color={rgb, 255:red, 0; green, 79; blue, 255 }  ,opacity=1 ]  {$T\ =\ T_{c}$};
+% Text Node
+\draw (488,55) node   {$T\  >\ T_{c}$};
+% Text Node
+\draw (536,337) node   {$T\ < \ T_{c}$};
 
 
 \end{tikzpicture}
-    \label{fig:} }
-\end{minipage}
-\begin{minipage}[]{0.5\linewidth}
-\centering
-\subfloat[][Zoom of the coexistence line.]{
 
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.37,xscale=0.37]
-%uncomment if require: \path (0,459); %set diagram left start at 0, and has height of 459
-
-%Shape: Axis 2D [id:dp5951100625553807]
-\draw  (-0.5,413.21) -- (655.73,413.21)(65.12,2.77) -- (65.12,458.81) (648.73,408.21) -- (655.73,413.21) -- (648.73,418.21) (60.12,9.77) -- (65.12,2.77) -- (70.12,9.77)  ;
-%Curve Lines [id:da6195327642832696]
-\draw    (101.92,356.57) .. controls (221.23,346.83) and (336.87,199.14) .. (390.11,100.15) ;
-
-
-%Straight Lines [id:da7069592692010301]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (65.2,217) -- (312.37,218.58) ;
-
-
-%Straight Lines [id:da5293875835625754]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (312.37,218.58) -- (310.54,411.71) ;
-
-
-%Shape: Ellipse [id:dp08220348613655248]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (305.04,218.58) .. controls (305.04,216.79) and (306.68,215.34) .. (308.71,215.34) .. controls (310.73,215.34) and (312.37,216.79) .. (312.37,218.58) .. controls (312.37,220.37) and (310.73,221.82) .. (308.71,221.82) .. controls (306.68,221.82) and (305.04,220.37) .. (305.04,218.58) -- cycle ;
-%Shape: Ellipse [id:dp6417973207439449]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (344.61,168.59) .. controls (344.44,166.8) and (345.93,165.23) .. (347.95,165.08) .. controls (349.97,164.93) and (351.74,166.25) .. (351.92,168.03) .. controls (352.09,169.81) and (350.6,171.38) .. (348.58,171.54) .. controls (346.56,171.69) and (344.79,170.37) .. (344.61,168.59) -- cycle ;
-
-% Text Node
-\draw (28.87,20.62) node [scale=1.5]  {$P$};
-% Text Node
-\draw (641.96,439.96) node [scale=1.5]  {$T$};
-% Text Node
-\draw (27.03,202.39) node [scale=1.5]  {$P_{o}$};
-% Text Node
-\draw (340.92,440.96) node [scale=1.5]  {$T_{n}$};
-% Text Node
-\draw (302.38,197.52) node   {$a$};
-% Text Node
-\draw (333.58,148.83) node   {$b$};
-% Text Node
-\draw (184.9,130.98) node   {$1$};
-% Text Node
-\draw (425.36,255.95) node   {$2$};
-
-
-\end{tikzpicture}
-    \label{fig:3_1} }
-\end{minipage}
-\caption{\label{fig:} }
+\caption{\label{fig:3_0} Description.}
 \end{figure}
 
+\section{Thermodynamic of phase coexistence (one component system)}
+Consider a \( (P,V,T) \) system as a mixture of two species \( (1,2) \) at temperature \( T_1, T_2 \), pressure \( P_1, P_2 \) and chemical potentials \( \mu _1,\mu _2 \). The equilibrium condition is given by the maximum of the total entropy \( S = S_1 + S_2 \) and gives the conditions
+\begin{equation}
+  T_1 = T_2, \quad P_1 = P_2, \quad \mu _1 = \mu _2
+  \label{eq:}
+\end{equation}
+this is the \emph{coexistence condition} of the two phases.
+In terms of the Gibbs potential \( G = U- TS+PV \), where \emph{U} is given by  the Euler equation \( U = TS-PV+ \mu _1 N_1 + \mu _2 N_2 \), the Gibbs per mole is
+\begin{subequations}
+\begin{align}
+  g_1 (T,P) &\equiv \frac{G_1}{N_1} = \mu _1 \\
+  g_2 (T,P) &\equiv \frac{G_2}{N_2} = \mu _2
+\end{align}
+\label{}
+\end{subequations}
+Therefore, on the coexistence line it should hold the relation
+\begin{equation}
+  g_1 (T,P) = g_2 (T,P)
+  \label{eq:}
+\end{equation}
 
-\noindent We know that because they are on the cohexistence line
+\section{Clausius-Clapeyron equation}
+Suppose to know the position an the coexistence line (for example the melt temperature \( T_m \) at the atmospheric pressure \( P_0 \), as in Figure \ref{fig:3_1}  ). Is it possible to find other points on the curve? For example \( T_m \) at lower or higher pressure ?
+
+
+\begin{figure}[h!]
+\centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
+%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
+
+%Shape: Axis 2D [id:dp34042133393206886]
+\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
+%Straight Lines [id:da6702336744569144]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (327,244) -- (326,389) ;
+
+
+%Straight Lines [id:da7053989083670136]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (382,207) -- (382,390) ;
+
+
+%Curve Lines [id:da6886563534922254]
+\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (165,305) .. controls (239,295) and (429,227) .. (483,68) ;
+
+
+%Straight Lines [id:da01620685432223168]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (119,243) -- (327,244) ;
+
+
+%Straight Lines [id:da6787352217788557]
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (119,207) -- (382,207) ;
+
+
+%Straight Lines [id:da3303084254473059]
+\draw [color={rgb, 255:red, 0; green, 196; blue, 36 }  ,draw opacity=1 ][line width=1.5]    (188,335) -- (525,120) ;
+
+
+%Shape: Circle [id:dp23372095277787042]
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (377.05,207) .. controls (377.05,204.26) and (379.26,202.05) .. (382,202.05) .. controls (384.74,202.05) and (386.95,204.26) .. (386.95,207) .. controls (386.95,209.74) and (384.74,211.95) .. (382,211.95) .. controls (379.26,211.95) and (377.05,209.74) .. (377.05,207) -- cycle ;
+%Shape: Circle [id:dp06058395143705542]
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (322.05,244) .. controls (322.05,241.26) and (324.26,239.05) .. (327,239.05) .. controls (329.74,239.05) and (331.95,241.26) .. (331.95,244) .. controls (331.95,246.74) and (329.74,248.95) .. (327,248.95) .. controls (324.26,248.95) and (322.05,246.74) .. (322.05,244) -- cycle ;
+%Straight Lines [id:da4596906688697088]
+\draw    (173.28,353.97) -- (173.96,315.12) ;
+\draw [shift={(174,313.12)}, rotate = 451] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+
+% Text Node
+\draw (92,23) node   {$P$};
+% Text Node
+\draw (524,409) node   {$T$};
+% Text Node
+\draw (323,411) node   {$T_{melt}$};
+% Text Node
+\draw (408,412) node   {$T_{m} \ +dT$};
+% Text Node
+\draw (153,266) node   {$P_{o}$};
+% Text Node
+\draw (171,177) node   {$P_{o} +dP$};
+% Text Node
+\draw (308,284) node   {$a$};
+% Text Node
+\draw (408,220) node   {$b$};
+% Text Node
+\draw (494,204) node   {$slope$};
+% Text Node
+\draw (176,366.2) node   {$g_{1} \ =\ g_{2}$};
+
+
+\end{tikzpicture}
+
+\caption{\label{fig:3_1} Description.}
+\end{figure}
+
+The answer is yes for small deviations of \emph{T} and \emph{P} from \emph{a}. Rhe idea is to compute the slope of the tangent of the coexistence curve, i.e. \( (\dd[]{P}/\dd[]{T}  )  \). This is given by the Clausius-Clapeyron equation.
+Both at \emph{a} and \emph{b} the two phases 1 and 2 coexist. This means  that at the coexistence line
 \begin{equation}
   \begin{cases}
    g_1^{(a)} = g_2^{(a)}\\
@@ -114,7 +240,7 @@
   \end{cases}
 \label{eq:}
 \end{equation}
-and, if they are close enough:
+Hence, if \emph{a} and \emph{b} are very close:
 \begin{equation}
   \begin{cases}
   \dd[]{g_1} = g_1^{(b)} - g_1^{(a)} \\
@@ -127,11 +253,11 @@ Therefore, the \emph{starting point} for \emph{Clausius-Clapeyron} is
   \Rightarrow \dd[]{g_1} =\dd[]{g_2}
   \label{eq:}
 \end{equation}
-Consider also
+From the molar version of the Gibbs-Duhem relation we have
 \begin{equation}
   \begin{cases}
-   \dd[]{g_1} = -s_1 \dd[]{T} + v_1 \dd[]{P}   \\
-   \dd[]{g_2} = -s_2 \dd[]{T} + v_2 \dd[]{P}
+   \dd[]{g_1} = -s_1 \dd[]{T} + v_1 \dd[]{P} = \dd[]{\mu _1}    \\
+   \dd[]{g_2} = -s_2 \dd[]{T} + v_2 \dd[]{P} = \dd[]{\mu _2}
   \end{cases}
 \label{eq:}
 \end{equation}
@@ -145,18 +271,43 @@ The splope is called \textcolor{blue}{\textbf{Clausius-Clapeyron equation}}:
   \qty(\dv{P}{T} )_{coex} = \frac{(s_2-s_1)}{(v_2-v_1)} = \frac{\Delta s}{\Delta v}
   \label{eq:}
 \end{empheq}
-
- Now, we go from gas to liquid (respectively region 1 and 2 in Figure \ref{fig:3_1}), we have:
+\begin{remark}
+Since \( (\dd[]{P}/\dd[]{T})_{coex}   \) is finite, the equation explains why a first order transition is characterised by discontinuous changes in entropy and volume (or density). \( \Delta S \)  gives the heat \( L_{12} \) that is exchanged with the environment:
 \begin{equation}
-  \qty(\dv{P}{T} )_{coex} = \frac{s_2 - s_1}{v_2 - v_1} \qquad \substack{ s_2 > s_1 \\ v_2 > v_1} \Rightarrow \qty(\dv{P}{T} )_{coex} > 0
+  L_{12} = \Delta S T
   \label{eq:}
 \end{equation}
-Melt:
+\end{remark}
+
+\subsection{Application of C-C equation to the liquid-gas coexistence line}
+ Now, we go from gas to liquid (we call it respectively region 2 and 1), we have:
+
+\begin{equation}
+  \qty(\dv{P}{T} )_{coex} = \frac{s_2 - s_1}{v_2 - v_1}
+  \label{eq:}
+\end{equation}
+Since for liquid-gas :
+\begin{equation}
+  \qty(\dv{P}{T} )_{coex} > 0 \Rightarrow \frac{s_2 - s_1}{v_2 - v_1} > 0
+  \label{eq:}
+\end{equation}
+and since \( v_2 > v_1 \), we have \( s_2 > s_1 \). The gas has more entropy as it should be. When going from a low-temperature phase to a high-temperature phase entropy always increases \( \Delta S > 0 \), because \( c_P \equiv T (\partial{S}/\partial{T}  )_P > 0 \).
+
+The sign of \( \Delta V \) is more uncertain though. To see this point let us consider the C-C equation at the solid-liquid (now solid is region 1 and liquid region 2) coexistence curve.
+At the melt temperature:
 \begin{equation}
   \qty(\dv{P}{T} )_{coex} = \frac{\delta Q_{melt}}{T_{melt}\Delta v_{melt}} \qquad \delta Q_{melt} = Q_{liq} - Q_{solid} > 0
   \label{eq:}
 \end{equation}
-In general, \( v_{liq} > v_{solid} \) which implies \( \qty( \dd[]{P}/\dd[]{T}   )_{coex} > 0  \), but there are cases when \( v_{liq} < v_{solid} \) and \( \rho_{liq} > \rho _{solid} \) (for instance the \( H_2 0 \), or also Silicon and Germanium).
+In general, \( \Delta v_m = v_{liq} - v_{solid} > 0 \) which implies \( \qty( \dd[]{P}/\dd[]{T}   )_{coex} > 0  \). There are cases, however, where \( \Delta v_m = v_{liq} - v_{solid} < 0 \) because \( \rho_{liq} > \rho _{solid} \) (for instance the \( H_2 0 \), or also Silicon and Germanium). The paradigmatic example is the freezing of water where \( v_{ice} > v_{liq} \) since ice is less dense than liquid water at the coxistence (\( 0 < T° < 4 \) ). This implies that \( \dd[]{P}/\dd[]{T} < 0   \).
+
+\begin{example}
+
+\end{example}
+
+\begin{example}
+
+\end{example}
 
 \section{Order parameter}
 The \emph{order parameters} are macroscopic observable that are equal to zero above the critical temperature, and different from zero below:
