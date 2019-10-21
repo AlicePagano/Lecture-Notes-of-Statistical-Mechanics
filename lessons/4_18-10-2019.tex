@@ -4,236 +4,350 @@
 
 \begin{document}
 
+\chapter{Recall of statistical mechanics and theory of ensambles}
 \marginpar{ \textbf{Lecture 4.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-\section{Statistical mechanics of ensambles}
+\section{Statistical ensambles}
+Statistical mechanics roughly speaking was born as a sort of theory from microscopic and try to compute the macroscopic lenght using thermodynamics. The problem is going from the countinuous problems to the macroscopic problems. In origin was statistical mechanics of equilibrium system. Each microstate with a given energy fixed, will have the same probability, this is the equal probability statement.
 
-Statistical mechanics roughly speaking was born as a sort of theory from microscopic and try to compute the macroscopic lenght using thermodynamics. Problems: go from the counting problem to the macroscopic problem.
-In origin was statistical mechanics of equilibrium system.
-Each microstate with a given energy fixed, will have the same probability, this is the equal probability statement.
+In general, if we consider a system with \emph{N,V} (number of particles and volume) fixed and also the total energy \emph{E} fixed, we call \( \Omega (E,V,N) \)  the number of microstate with total energy \emph{E} , volume \emph{V} and number of particles \emph{N}.
 
-In general, if we consider a system with \emph{N,V} fixed and also \emph{E} fixed, we call \( \Omega (E,V,N) \)  the number of microstate with given energy \emph{E} , volume \emph{V} and number of particles \emph{N}.
-We call  a single configuration of a given microstate \emph{C}. A configuration is just when you have the spatial part, because momentum can be obtained by integrating.
-Suppose you want to compute the probability of a given configuration \emph{C}, \( P_C \), because there is equal probability:
+If the system is \emph{isolated} and in \emph{equilibrium} the rule of \textbf{equal probability} of the microstates holds:
+\begin{orangebox}
+If the system is isolated and in equilibirum with energy \emph{E} it visits each microstate consistent with energy \emph{E} with equal probability.
+\end{orangebox}
+Another way to say is: the system spends the same amount of time in each of the \( \Omega (E,V,N) \) microstates.
+
+Therefore, we call  a single configuration of a given microstate \( \mathcal{C}  \). A configuration is just when you have the spatial part, because momentum can be obtained by integrating.
+Suppose you want to compute the probability of a given configuration \( \mathcal{C}  \), \( P_{\mathcal{C}} \), because there is equal probability:
 \begin{equation}
-  P_C = \frac{1}{\Omega (E,V,N)}
+  P_{\mathcal{C}} = \frac{1}{\Omega (E,V,N)}
   \label{eq:}
 \end{equation}
+
 
 \begin{figure}[h!]
 \centering
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
-%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-
-%Shape: Rectangle [id:dp19586351230379806]
-\draw   (80,20) -- (538,20) -- (538,259.48) -- (80,259.48) -- cycle ;
-%Shape: Polygon Curved [id:ds7033458632402881]
-\draw   (172,104) .. controls (204,81) and (256.25,39.63) .. (311,46) .. controls (365.75,52.37) and (461,85) .. (468,112) .. controls (475,139) and (479,141) .. (424,202) .. controls (369,263) and (326,214) .. (306,184) .. controls (286,154) and (233,230) .. (180,208) .. controls (127,186) and (140,127) .. (172,104) -- cycle ;
-%Shape: Circle [id:dp6951665056576987]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (144.51,55.24) .. controls (144.51,52.35) and (146.86,50) .. (149.76,50) .. controls (152.65,50) and (155,52.35) .. (155,55.24) .. controls (155,58.14) and (152.65,60.49) .. (149.76,60.49) .. controls (146.86,60.49) and (144.51,58.14) .. (144.51,55.24) -- cycle ;
-%Shape: Circle [id:dp09237665476213075]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (144.51,240.24) .. controls (144.51,237.35) and (146.86,235) .. (149.76,235) .. controls (152.65,235) and (155,237.35) .. (155,240.24) .. controls (155,243.14) and (152.65,245.49) .. (149.76,245.49) .. controls (146.86,245.49) and (144.51,243.14) .. (144.51,240.24) -- cycle ;
-%Shape: Circle [id:dp9815932756793359]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (99.51,101.24) .. controls (99.51,98.35) and (101.86,96) .. (104.76,96) .. controls (107.65,96) and (110,98.35) .. (110,101.24) .. controls (110,104.14) and (107.65,106.49) .. (104.76,106.49) .. controls (101.86,106.49) and (99.51,104.14) .. (99.51,101.24) -- cycle ;
-%Shape: Circle [id:dp4306114970629712]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (104.51,196.24) .. controls (104.51,193.35) and (106.86,191) .. (109.76,191) .. controls (112.65,191) and (115,193.35) .. (115,196.24) .. controls (115,199.14) and (112.65,201.49) .. (109.76,201.49) .. controls (106.86,201.49) and (104.51,199.14) .. (104.51,196.24) -- cycle ;
-%Shape: Circle [id:dp2460866722278987]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (470.51,227.24) .. controls (470.51,224.35) and (472.86,222) .. (475.76,222) .. controls (478.65,222) and (481,224.35) .. (481,227.24) .. controls (481,230.14) and (478.65,232.49) .. (475.76,232.49) .. controls (472.86,232.49) and (470.51,230.14) .. (470.51,227.24) -- cycle ;
-%Shape: Circle [id:dp5988893118600079]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (437.51,46.24) .. controls (437.51,43.35) and (439.86,41) .. (442.76,41) .. controls (445.65,41) and (448,43.35) .. (448,46.24) .. controls (448,49.14) and (445.65,51.49) .. (442.76,51.49) .. controls (439.86,51.49) and (437.51,49.14) .. (437.51,46.24) -- cycle ;
-%Shape: Circle [id:dp7955065754248104]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (202.51,44.24) .. controls (202.51,41.35) and (204.86,39) .. (207.76,39) .. controls (210.65,39) and (213,41.35) .. (213,44.24) .. controls (213,47.14) and (210.65,49.49) .. (207.76,49.49) .. controls (204.86,49.49) and (202.51,47.14) .. (202.51,44.24) -- cycle ;
-%Shape: Circle [id:dp5320368700231608]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (195.51,233.24) .. controls (195.51,230.35) and (197.86,228) .. (200.76,228) .. controls (203.65,228) and (206,230.35) .. (206,233.24) .. controls (206,236.14) and (203.65,238.49) .. (200.76,238.49) .. controls (197.86,238.49) and (195.51,236.14) .. (195.51,233.24) -- cycle ;
-%Shape: Circle [id:dp8626471670475084]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (162.51,76.24) .. controls (162.51,73.35) and (164.86,71) .. (167.76,71) .. controls (170.65,71) and (173,73.35) .. (173,76.24) .. controls (173,79.14) and (170.65,81.49) .. (167.76,81.49) .. controls (164.86,81.49) and (162.51,79.14) .. (162.51,76.24) -- cycle ;
-%Shape: Circle [id:dp6749591223713287]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (109.51,143.24) .. controls (109.51,140.35) and (111.86,138) .. (114.76,138) .. controls (117.65,138) and (120,140.35) .. (120,143.24) .. controls (120,146.14) and (117.65,148.49) .. (114.76,148.49) .. controls (111.86,148.49) and (109.51,146.14) .. (109.51,143.24) -- cycle ;
-%Shape: Circle [id:dp8405392694619106]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (496.51,166.24) .. controls (496.51,163.35) and (498.86,161) .. (501.76,161) .. controls (504.65,161) and (507,163.35) .. (507,166.24) .. controls (507,169.14) and (504.65,171.49) .. (501.76,171.49) .. controls (498.86,171.49) and (496.51,169.14) .. (496.51,166.24) -- cycle ;
-%Shape: Circle [id:dp48499325988120323]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (504.51,115.24) .. controls (504.51,112.35) and (506.86,110) .. (509.76,110) .. controls (512.65,110) and (515,112.35) .. (515,115.24) .. controls (515,118.14) and (512.65,120.49) .. (509.76,120.49) .. controls (506.86,120.49) and (504.51,118.14) .. (504.51,115.24) -- cycle ;
-%Shape: Circle [id:dp8719681773533126]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (505.51,60.24) .. controls (505.51,57.35) and (507.86,55) .. (510.76,55) .. controls (513.65,55) and (516,57.35) .. (516,60.24) .. controls (516,63.14) and (513.65,65.49) .. (510.76,65.49) .. controls (507.86,65.49) and (505.51,63.14) .. (505.51,60.24) -- cycle ;
-%Shape: Circle [id:dp11963221191379259]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (362.51,36.24) .. controls (362.51,33.35) and (364.86,31) .. (367.76,31) .. controls (370.65,31) and (373,33.35) .. (373,36.24) .. controls (373,39.14) and (370.65,41.49) .. (367.76,41.49) .. controls (364.86,41.49) and (362.51,39.14) .. (362.51,36.24) -- cycle ;
-%Shape: Circle [id:dp570138793315528]
-\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (281.51,222.24) .. controls (281.51,219.35) and (283.86,217) .. (286.76,217) .. controls (289.65,217) and (292,219.35) .. (292,222.24) .. controls (292,225.14) and (289.65,227.49) .. (286.76,227.49) .. controls (283.86,227.49) and (281.51,225.14) .. (281.51,222.24) -- cycle ;
-%Shape: Circle [id:dp24035863807399427]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (193.51,115.24) .. controls (193.51,112.35) and (195.86,110) .. (198.76,110) .. controls (201.65,110) and (204,112.35) .. (204,115.24) .. controls (204,118.14) and (201.65,120.49) .. (198.76,120.49) .. controls (195.86,120.49) and (193.51,118.14) .. (193.51,115.24) -- cycle ;
-%Shape: Circle [id:dp7619219144290053]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (228.51,137.24) .. controls (228.51,134.35) and (230.86,132) .. (233.76,132) .. controls (236.65,132) and (239,134.35) .. (239,137.24) .. controls (239,140.14) and (236.65,142.49) .. (233.76,142.49) .. controls (230.86,142.49) and (228.51,140.14) .. (228.51,137.24) -- cycle ;
-%Shape: Circle [id:dp7874306930139311]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (279.51,137.24) .. controls (279.51,134.35) and (281.86,132) .. (284.76,132) .. controls (287.65,132) and (290,134.35) .. (290,137.24) .. controls (290,140.14) and (287.65,142.49) .. (284.76,142.49) .. controls (281.86,142.49) and (279.51,140.14) .. (279.51,137.24) -- cycle ;
-%Shape: Circle [id:dp5183165977477909]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (297.51,70.24) .. controls (297.51,67.35) and (299.86,65) .. (302.76,65) .. controls (305.65,65) and (308,67.35) .. (308,70.24) .. controls (308,73.14) and (305.65,75.49) .. (302.76,75.49) .. controls (299.86,75.49) and (297.51,73.14) .. (297.51,70.24) -- cycle ;
-%Shape: Circle [id:dp04931338047052314]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (228.51,175.24) .. controls (228.51,172.35) and (230.86,170) .. (233.76,170) .. controls (236.65,170) and (239,172.35) .. (239,175.24) .. controls (239,178.14) and (236.65,180.49) .. (233.76,180.49) .. controls (230.86,180.49) and (228.51,178.14) .. (228.51,175.24) -- cycle ;
-%Shape: Circle [id:dp5166146475242405]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (180.51,167.24) .. controls (180.51,164.35) and (182.86,162) .. (185.76,162) .. controls (188.65,162) and (191,164.35) .. (191,167.24) .. controls (191,170.14) and (188.65,172.49) .. (185.76,172.49) .. controls (182.86,172.49) and (180.51,170.14) .. (180.51,167.24) -- cycle ;
-%Shape: Circle [id:dp16978559359507306]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (240.51,94.24) .. controls (240.51,91.35) and (242.86,89) .. (245.76,89) .. controls (248.65,89) and (251,91.35) .. (251,94.24) .. controls (251,97.14) and (248.65,99.49) .. (245.76,99.49) .. controls (242.86,99.49) and (240.51,97.14) .. (240.51,94.24) -- cycle ;
-%Shape: Circle [id:dp09749012716990513]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (320.51,157.24) .. controls (320.51,154.35) and (322.86,152) .. (325.76,152) .. controls (328.65,152) and (331,154.35) .. (331,157.24) .. controls (331,160.14) and (328.65,162.49) .. (325.76,162.49) .. controls (322.86,162.49) and (320.51,160.14) .. (320.51,157.24) -- cycle ;
-%Shape: Circle [id:dp2926788337161852]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (373.51,193.24) .. controls (373.51,190.35) and (375.86,188) .. (378.76,188) .. controls (381.65,188) and (384,190.35) .. (384,193.24) .. controls (384,196.14) and (381.65,198.49) .. (378.76,198.49) .. controls (375.86,198.49) and (373.51,196.14) .. (373.51,193.24) -- cycle ;
-%Shape: Circle [id:dp30765547737569066]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (392.51,101.24) .. controls (392.51,98.35) and (394.86,96) .. (397.76,96) .. controls (400.65,96) and (403,98.35) .. (403,101.24) .. controls (403,104.14) and (400.65,106.49) .. (397.76,106.49) .. controls (394.86,106.49) and (392.51,104.14) .. (392.51,101.24) -- cycle ;
-%Shape: Circle [id:dp50894886678449]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (329.51,100.24) .. controls (329.51,97.35) and (331.86,95) .. (334.76,95) .. controls (337.65,95) and (340,97.35) .. (340,100.24) .. controls (340,103.14) and (337.65,105.49) .. (334.76,105.49) .. controls (331.86,105.49) and (329.51,103.14) .. (329.51,100.24) -- cycle ;
-%Shape: Circle [id:dp5452005701967416]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (409.51,149.24) .. controls (409.51,146.35) and (411.86,144) .. (414.76,144) .. controls (417.65,144) and (420,146.35) .. (420,149.24) .. controls (420,152.14) and (417.65,154.49) .. (414.76,154.49) .. controls (411.86,154.49) and (409.51,152.14) .. (409.51,149.24) -- cycle ;
-%Shape: Circle [id:dp23905151588747897]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (356.51,141.24) .. controls (356.51,138.35) and (358.86,136) .. (361.76,136) .. controls (364.65,136) and (367,138.35) .. (367,141.24) .. controls (367,144.14) and (364.65,146.49) .. (361.76,146.49) .. controls (358.86,146.49) and (356.51,144.14) .. (356.51,141.24) -- cycle ;
-
-
-
-
-\end{tikzpicture}
+\includegraphics[width=0.6\textwidth]{../lessons/4_image/1.pdf}
 \caption{\label{fig:4_1} Description.}
 \end{figure}
-Now, let the energy to be free to fluctuate in time at fixed temperature (isotherma ensambles). For doing that, consider a system and insert it in a thermal bath (Figure \ref{fig:4_1}), where \( N_T = N_B + N\)  with \( N_B \gg N \), where \( N_B \) are the particles in the thermal bath and \( N \) the particle of the system. We have also \( V_B \gg V \) and a fixed \( T_B \).
-What is fixed now is the temperature of the bath \( T_B \) , the number of the total number of the system \( N_T \), and also the total volume is fixed.
 
-Suppose to consider a \emph{weak} interaction between the particles of the bath and of the system (IMPORTANT): since the total system as total energy \( E_T = E_B + E_C\), where \( E_C \) is the energy of a given configuration. For the system we consider \( E_T \) is fixed, so we are in the microcanonical ensamble for the whole system: \( \Omega (E_T,V_T,N_T) \). We see that the probability of a given configuration is related to the number of microstate of the bath:
+Let us now consider two subsystem 1 and 2 that can exchange energy,volume and/or particles.
+The number of microstates of the combined system of total energy \( E_T = E_1 + E_2 \), total volume \( V_T = V_1 + V_2 \) and \( N_T = N_1 + N_2 \) is given by:
 \begin{equation}
-  P_C \propto \Omega _B (E_T - E_C) \sim k_B \ln{\Omega _B (E_T - E_C)} = S_B (E_T - E_C)
-  \label{eq:}
+  \Omega (E_T,V_T,N_T) = \sum_{E_1,V_1,N_1}^{} \Omega _1 (E_1,V_1,N_1) \Omega _2 (E_T - E_1,V_T-V_1,N_T-N_1)
 \end{equation}
-what we get by expanding considering the huge number of particles
+One can shot that in the thermodynamic limit at equal \(  \Omega (E_T,V_T,N_T) \) is strongly peaked around a given point \( (E_1^*,V_1^*,N_1^*) \) and the fluctuations around this value are rare and small. Writing \( \Omega (E_T,V_T,N_T)  \) as
 \begin{equation}
-    P_C \propto e^{-\frac{E_C}{k_B T_{\cancel{B} }}} = e^{- \beta E_C}   \qquad \beta \equiv \frac{1}{k_B T}
-  \label{eq:}
+  \Omega (E_T,V_T,N_T) \propto e^{\frac{S(E_T,V_T,N_T) }{k_B}} = \sum_{E_1,V_1,N_1}^{} \exp[ \frac{1}{k_B} (S_1 (E_1,V_1, N_1) + S_2 (E_2,V_2, N_2) ) ]
 \end{equation}
-Note that we can consider a general \( T \), because the temperature is fixed.
-This is the canonical ensamble, this probability has to be normilized. Therefore we divide by the normalization factor that consists on the sum of all configurations:
+The values \( (E_1^*,V_1^*,N_1^*) \) are obtained by the max entropy condition that can be written as
+\begin{subequations}
+\begin{align}
+  \dv{\ln{\Omega _1} }{E_1}  &= \dv{\ln{\Omega _2} }{E_2} \Rightarrow  T_1 = T_2 \\
+  \dv{\ln{\Omega _1} }{V_1}  &= \dv{\ln{\Omega _2} }{V_2} \Rightarrow  P_1 = P_2 \\
+  \dv{\ln{\Omega _1} }{N_1}  &= \dv{\ln{\Omega _2} }{N_2} \Rightarrow  \mu _1 = \mu _2
+\end{align}
+\end{subequations}
+We next consider these properties to the case in which 1 is the system we want to study and 2 is a much larger system than 1 (a bath). This setup will bring us to the \emph{canonical ensemble}.
+
+\section{The canonical ensemble}
+Let us consider an isolate system made by two subsystems, one \emph{S} and one much larger, \emph{B}, that we call \emph{thermal bath} (Figure \ref{fig:4_1}). The total number of particles is given by \( N_T = N_B + N_S\)  with \( N_B \gg N_S \gg 1 \) (they are both large but \emph{B} is much larger than \emph{S}), where \( N_B \) are the particles in the thermal bath and \( N_S \) the particle of the system.
+Let \( E_T \) be the energy of the composite system. The two subsystems can exchange energy but the whole system has constant energy  \( E_T \). Therefore, let the energy to be free to fluctuate in time at fixed temperature  \( T_B \) (isotherma ensambles).
+Note that \( V_S,N_S,V_B,N_B \) are fixed (no exchange of volume and particles). For reasuming, other quantitites fixed are the temperature of the bath \( T_B \) , the number of the total particles of the system \( N_T \), and also the total volume \( V_T \) .
+ We have also \( V_T = V_B + V \), with   \( V_B \gg V \).
+
+If one assumes that the system and the bath are \emph{ weakly coupled} (neglet interaction energy):
 \begin{equation}
-  P_C = \frac{e^{-\beta E_C} }{\sum_{C}^{} e^{-\beta E_C}   }
-  \label{eq:}
+  E_T = E_S + E_B = const \qquad E_B \gg E_S
 \end{equation}
-Now, we called \( Q (T,V,N) \) the isothermal canonical partition function:
+
+Let \( \mathcal{C}  \) by the microstate of the system, and \( \mathcal{G}  \) the microstate of the heat bath.
+A given microstate of the isolated composite system \emph{B-S} is given from a pair \( (\mathcal{C},\mathcal{G}  ) \) of microstate \( \mathcal{C} \in S  \) and   \( \mathcal{G} \in B  \).
+The number of microstates of the isolated system with total energy \( E_T \) and system energy \( E_S \)  is given by:
 \begin{equation}
-  Q (T,V,N) \equiv \sum_{C}^{} e^{-\beta E_C}
-  \label{eq:}
+  \Omega _T (E_T,E_S) = \Omega (E_S) \Omega _B (E_T - E_S)
 \end{equation}
-this is the sum over all configuration with given \( \{V,N\} \) fixed.
-We define the Heldmonds free energy as:
+\begin{remark}
+In this analysis \emph{V} and \emph{N} are fixed. Since \( E_T \) is fixed
 \begin{equation}
-  A(T,V,N) = -k_B T \ln{Q(T,V,N)}
-  \label{eq:}
+  \Omega _T (E_T) = \sum_{E_S}^{} \Omega (E_S) \Omega _B (E_T - E_S)
 \end{equation}
-This is actually in not to thermodynamic  limit, remember that thermodynamic assume that the number of number of freedom is related to the number of avogadro.
-Now, we do a \emph{foliation} in energy of the space, that is a sum over the energy (keeping \( \{V,N\} \) fixed):
+\end{remark}
+From the principle of equal probability for microstates at equilibrium, the probability of a composed microstate \( (\mathcal{C} \circ \mathcal{G}  ) \) is given by:
+\begin{equation}
+P_{\mathcal{C} \circ \mathcal{G}} =
+  \begin{cases}
+   \frac{1}{\Omega _T (E_T)} & E_{\mathcal{C} } + E_{\mathcal{G} } = E_T \\
+  0 & \text{otherwise}
+  \end{cases}
+\end{equation}
+Since we are not interested to the microstates of the heat bath
+\begin{equation}
+  P_{\mathcal{C} } = \sum_{\substack{ \text{all } \mathcal{G}  \\  \text{such that}  \\ g (E_T -E_{\mathcal{C} } - E_{\mathcal{G} }) } }^{} P_{\mathcal{C} \circ \mathcal{G}}   = \sum_{\mathcal{G} }^{} \frac{1}{\Omega _T (E_T)} = \frac{1}{\Omega _T} \sum_{\mathcal{G} }^{}   1
+\end{equation}
+The number of microstates \( \mathcal{G}  \) with energy \( E_{\mathcal{G} }= E_T - E_{\mathcal{C} } \) is given by:
+\begin{equation}
+  \Omega _B (E_{\mathcal{G} }) = \Omega_B (E_T - E_{\mathcal{C} })
+\end{equation}
+This implies that the probability of a given configuration is related to the number of microstate of the bath:
+\begin{equation}
+  \Rightarrow   P_{\mathcal{C} }= \frac{\Omega _B (E_T - E_{\mathcal{C} })}{\Omega _T (E_T)} \propto \Omega _B (E_T - E_{\mathcal{C} })
+\end{equation}
+It is more convenient to deal with the logarithmic of \( P_{\mathcal{C} } \) that is smoother
+\begin{equation}
+  \Rightarrow  \ln{\Omega _B (E_T - E_{\mathcal{C} })}
+\end{equation}
+This is the entropy of \emph{B} and is a function of \( N_B \). Since \( E_{\mathcal{C}} \ll E_B \simeq E_T \) we can expand \( S_B (E_T - E_{\mathcal{C} }) \) around \( E_T \) by the small amount
+\begin{equation}
+  \Delta \equiv x-x_0 = - E_{\mathcal{C} }
+\end{equation}
+\begin{equation}
+  f(E_B) = f(E_T) +  \eval{\dv{f}{E_B}}_{E_B = E_T} (E_B-E_T) + \dots
+\end{equation}
+Therefore:
+\begin{equation}
+  k_B \ln{\Omega _B (E_B) } = S_B (E_B) = S_B (E_T) - E_{\mathcal{C} } \qty(\pdv{S_B}{E_B} )_{E_B = E_T} + \frac{E^2_{\mathcal{C} }}{2} \qty( \pdv[2]{S_B}{E_B} )_{E_B =E_T} + \dots
+\end{equation}
+To make explicit the \( N_B \) dependence let us consider the molar version
+\begin{equation}
+  S_B \rightarrow N_B s_B \qquad
+  E_B \rightarrow N_B e_B
+\end{equation}
+\begin{equation}
+  s_B N_B = N_B s_B (E_T) - E_{\mathcal{C}} \qty(\pdv{s_B}{e_B} )_{e_B=e_T} + \frac{E_{\mathcal{C}}^2}{2 N_B}  \qty(\pdv[2]{s_B}{e_B} )
+\end{equation}
+Let us consider the limit in ehich the system size is fixed while the one of the heat bath is going to \( \infty  \):
+\begin{subequations}
+\begin{align}
+  \lim_{N_B \rightarrow \infty } & \frac{E_T}{N_B} = \frac{E+N_B e_B}{N_B} \rightarrow e_B \\
+  \lim_{N_B \rightarrow \infty } & k_B \ln{\Omega _B (E_T - E_{\mathcal{C}})} \rightarrow N_B s_B - E_{\mathcal{C}} \dv{s_B}{e_B}
+\end{align}
+\end{subequations}
+On the other hand
+\begin{equation}
+  \dv{s_B}{e_B} \equiv \frac{1}{T_B} = \frac{1}{T}
+\end{equation}
+which implies
+\begin{equation}
+  P_{\mathcal{C}} \propto \Omega _B (E_T - E_{\mathcal{C}}) = \exp (\frac{N_B s_B}{k_B}- \frac{E_{\mathcal{C}}}{k_B T})
+\end{equation}
+Since the first therm does not depend on \( \mathcal{C} \), it can be absorbed in the constant and what we get by expanding considering the huge number of particles
+\begin{equation}
+  P_{\mathcal{C}} \propto \exp (-E_{\mathcal{C}}/k_B T)
+  \label{eq:4_1}
+\end{equation}
+\begin{observation}
+Since the energy of the system fluctuates, its microstates are not anywhere equiprobable but are visited with probability given by \eqref{eq:4_1}.
+\end{observation}
+\begin{remark}
+Since the bath is very large \emph{T} is the only property of the bath that affects the system. The \textbf{Boltzmann factor} is defined as:
+\begin{equation}
+  \beta \equiv \frac{1}{k_B T}
+\end{equation}
+\end{remark}
+The normalization consists in dividing by the normalization factor that is the sum of all microstates
+\begin{equation}
+  P_{\mathcal{C}} = \frac{e^{-\beta E_ \mathcal{C}}}{\sum_{\mathcal{C}}^{} e^{-\beta E_ \mathcal{C}} }
+\end{equation}
+Finally, the \textbf{canconical partition function} is defined as
+\begin{equation}
+  Q(T,V,N) \equiv \sum_{\substack{ \text{all } \mathcal{C} \\  \text{with } V,N \\ \text{fixed}} }^{}  \exp (-\beta E_{\mathcal{C}})
+\end{equation}
+Given \( Q(T,V,N) \) one gets the \emph{Helhmoltz free energy}
+\begin{equation}
+  A(T,V,N) = - k_B T \ln{Q(T,V,N)}
+\end{equation}
+that is the free energy describing the isothermal (or canonical) ensemble at fixed \emph{T}, volume \emph{V} and number of particles \emph{N}.
+\begin{remark}
+\begin{equation}
+  Q(T,V,N) = \sum_{\substack{ \mathcal{C} \\ V,N \text{fixed} }} e^{(-\beta E (\mathcal{C}))} = \sum_{E}^{} e^{-\beta E} \Omega (E,V,N)
+\end{equation}
+What we have done is a \emph{foliation} in energy of the space, that is a sum over the energy (keeping \( \{V,N\} \) fixed):
 \begin{equation}
   Q(T,V,N) = \sum_{E}^{} e^{-\beta E} \Omega (E,V,N) = \sum_{E}^{} e^{-\beta E} e^{S/k_B} = \sum_{E}^{} e^{-\beta (E-T S)}
   \label{eq:}
 \end{equation}
-This is the Legendre transform in thermodynamic theory. The idea is now: consider the same system with the bath. Now the system can exchange energy but also volume (we continue to keep the temperature of the bath fixed). At this point the ensamble is \emph{isothermal} and \emph{isobaric}. All the assumputions done before are valid and we have also \( V_T = V_B + V \):
+\end{remark}
+
+
+
+\subsection{Energy fluctuations in the canonical ensemble}
+Despite energy in the canonical ensemble fluctuates while in the microcanonical one is constant this does not contradict the equivalence principle of the ensemble (in the thermodynamic limit). The reason is that the relative size of the energy fluctuation decreases in the large system limit. Remember that thermodynamic assume that the number of number of freedom is related to the number of Avogadro.
+To see it let us compute the average square fluctuations of \emph{E}.
 \begin{equation}
-  P_C \propto \Omega _B (E_T-E_C, V_T-V_C) \sim k_B \ln{\Omega _B (E_T-E_C, V_T-V_C)}
-  \label{eq:}
+\expval{(\delta E)^2} = \expval{(E- \expval{E} )^2} = \expval{E^2} - \expval{E}^2
 \end{equation}
-At this point the only quantity fixed is \emph{N}:
+On the other hand
 \begin{equation}
-  P_C = \frac{e^{-\frac{1}{k_B T} (E_C + P V_C)} }{\sum_{\substack{ C \\  \text{\emph{N} fixed } } }^{} e^{-\beta (E_C + P V_C)}   } \qquad \substack{T_B \equiv T \\ P_B \equiv P}
-  \label{eq:}
-\end{equation}
-This partition function is calle the \emph{Gibbs partition function}:
-\begin{equation}
-  \begin{cases}
-   \Delta (T,P,N) \equiv \sum_{C}^{} e^{-\beta (E(C) + P V(C))}   \\
-   G(T,P,N) = -k_B T \ln{\Delta (T,P,N)}
-  \end{cases}
-\label{eq:}
-\end{equation}
-We have the laplace transform
-\begin{equation}
-  \Delta (T,P,N) = \sum_{V}^{} e^{-\beta P V} (\sum_{\substack{ C \\  \text{\emph{V} fixed } } }^{} e^{-\beta E(C)}  )  = \sum_{V}^{} e^{-\beta P V} Q(T,V,N)
-  \label{eq:}
-\end{equation}
-We can rewrite and view that the entropy of the two partition function is the same. Therefore:
-\begin{equation}
-  \Delta (T,P,N) = \int_{0}^{\infty } \dd[]{V}  e^{-\beta V P \qty[\frac{1}{h^{3N} N!} e^{-\beta \mathcal{H} (p,n)} ] \dd{\va{r_1} } \dots \dd{\va{r_N} } \dd{\va{p_1} } \dots \dd{\va{p_N} } }
-  \label{eq:}
+\begin{split}
+  \expval{E} &= \sum_{\mathcal{C}}^{} P_{\mathcal{C}} E_{\mathcal{C}} = \sum_{\mathcal{C}}^{} E_{\mathcal{C}} \frac{e^{-\beta E_{\mathcal{C}}} }{\sum_{\mathcal{C}}^{} e^{-\beta E_{\mathcal{C}}}  } \\
+  & = - \qty( \pdv{Q (T,V,N)}{\beta }/Q ) = - (\partial{\ln{Q} }/\partial{\beta }  )_{N,V}
+\end{split}
 \end{equation}
 \begin{equation}
-  P_C = \frac{e^{-\beta E_C + \beta \mu N} }{ \sum_{C}^{} e^{-\beta E_C + \beta \mu N} }
-  \label{eq:}
+  \expval{E^2} = \sum_{\mathcal{C}}^{} P_{\mathcal{C}} E_{\mathcal{C}}^2 = (\partial^2 Q/ \partial{\beta ^2} ) / Q
+\end{equation}
+\begin{equation}
+\begin{split}
+  \expval{(\delta E)^2} &= \expval{(E- \expval{E} )^2}  = Q^{-1} \qty(\pdv[2]{Q}{\beta } )_{N,V} - Q^{-2} \qty(\pdv{Q}{\beta } )^2_{N,V}\\
+  & =  \qty( \pdv[2]{\ln{Q} }{\beta} )_{N,V} = - \qty(\pdv{\expval{E} }{\beta } )_{N,V}
+\end{split}
+\end{equation}
+Since
+\begin{equation}
+  c_v = \qty(\pdv{E}{T} )_{N,V}
+\end{equation}
+we have
+\begin{equation}
+  \expval{(\delta E)^2} = k_B T^2 c_v
+\end{equation}
+Both \( c_V \) and \( \expval{E}  \) are extensive
+\begin{equation}
+  \frac{\sqrt{\expval{(\delta E)^2} } }{\expval{E} } = \frac{\sqrt{k_B T^2 c_v} }{\expval{E} } \sim O \qty(\frac{1}{\sqrt{N} }) \Rightarrow 0
+\end{equation}
+because \( N \sim 10^{23} \).
+
+
+
+\section{Isothermal and isobaric ensemble}
+Now the system is coupled both to a thermal and a volumic bath at temperature \( T_B \) and pressure \( P_B \).
+The idea is now: consider the same system with the bath. Now the system can exchange energy but also volume (we continue to keep the temperature of the bath fixed). At this point the ensamble is \emph{isothermal} and \emph{isobaric}. All the assumputions done before are valid, in particular assuming as before \emph{weak coupling} between the degrees of freedom of the bath and those of the system
+\begin{subequations}
+\begin{align}
+  E_T &= E + E_B \\
+  V_T &= V + V_B
+\end{align}
+\end{subequations}
+we look for the partition function that describes this isothermal and isobaric ensamble.
+Similarly to the previous case one can write
+\begin{equation}
+  P_{\mathcal{C}} \propto  \Omega _B (E_B,V_B) \propto \Omega _B (E_T-E_{\mathcal{C}}, V_T - V_{\mathcal{C}}) \propto \exp [S_B (E_T - E_{\mathcal{C}},V_T - V_{\mathcal{C}})/k_B]
 \end{equation}
 
+\begin{remark}
+Now \( \mathcal{C} \) is specified both by its volume \emph{V} and energy \emph{E}. As before one can expand \( \log \Omega _B   \)   both in \( E_B \) and in \( V_B \) (around \( E_T \) and \( V_T \)  ) and take the limit \( N_B \rightarrow \infty  \).
+\end{remark}
+\begin{equation}
+  P_{\mathcal{C}} \propto \exp[ \frac{S_B (E_T,V_T)}{k_B}- \frac{E_{\mathcal{C}}}{k_B} \eval{\pdv{S_B}{E_B}}_{E_T,V_T} - \frac{V_{\mathcal{C}}}{k_B} \eval{\pdv{S_B}{V_B}}_{V_T,E_T} + (term \simeq \frac{1}{N_B})]
+\end{equation}
+Recalling that
+\begin{equation}
+  \eval{\dv{S}{V} }_E = \frac{P}{T} \qquad \begin{cases}
+    P_B \rightarrow P \\ T_B \rightarrow T
+\end{cases}
+\end{equation}
+\begin{equation}
+  \Rightarrow P_{\mathcal{C}} \propto \exp [-\frac{E_{\mathcal{C}}}{k_B T} - \frac{P V_{\mathcal{C}}}{k_B T}]
+\end{equation}
+If we normalize, at this point the only quantity fixed is \emph{N}:
+\begin{equation}
+  P_{\mathcal{C}} = \frac{e^{-\beta (E_{\mathcal{C}}+P V_{\mathcal{C}})}}{\Delta (T,P,N)} \quad \text{where} \quad \Delta (T,P,N) = \sum_{\mathcal{C}}^{} e^{-\beta (E (\mathcal{C})+P V (\mathcal{C}))}
+\end{equation}
+Note that \( \Delta (T,P,N) \) is called the \emph{Gibbs partition function}:
+\begin{equation}
+\begin{split}
+\Delta (T,P,N)  &=  \sum_{V}^{} e^{-\beta PV } (\sum_{\substack{ \mathcal{C} \\ V,N \text{fixed}} }^{} e^{-\beta E_{\mathcal{C}}}  ) \underset{\substack{Laplace \\ transform } }{=}  \sum_{V}^{} e^{-\beta PV} Q (T,V,N)       \\
+& = \underbrace{\sum_{V}^{} \sum_{E}^{}}_{\substack{ \text{fluctuating} \\  \text{variables} } }  e^{-\beta (E+PV)} \Omega (E,V,N)
+\end{split}
+\end{equation}
+By summing over all the microstates compatible with \emph{E} and \emph{V}:
+\begin{equation}
+  P (E,V) = \frac{\Omega (E,V,N)}{\Delta (T,P,N)} e^{-\beta (E+PV)}
+\end{equation}
+\begin{remark}
+\begin{equation}
+  \Delta (T,P,N) = \underbrace{ \sum_{E}^{} \sum_{V}^{} e^{-\beta E - \beta PV}}_{\text{Laplace transform}} \Omega (E,V,N) = \sum_{E,V}^{} e^{-\beta E- \beta PV + S(E,V,N)/k_B}
+\end{equation}
+\end{remark}
+\subsection{Saddle point approximation}
+The sum can be approximated by the maximum of the integrand (this is fair for highly peaked functions):
+\begin{equation}
+  \sum_{E,V}^{} \exp [-\beta E- \beta PV + S(E,V,N)/k_B] \approx e^{-\beta E^* - \beta PV^* + S(E^*,V^*,N)/k_B}
+\end{equation}
+where
+\begin{equation}
+  \qty(\dv{S(E^*,V^*,N)}{E} )_{V,N} = \frac{1}{T} \qquad \qty(\dv{S(E^*,V^*,N)}{V} )_{E,N} = \frac{P}{T}
+\end{equation}
+this implies
+\begin{equation}
+  -k_B T \ln{\Delta (T,P,N)} \simeq E^* + PV^* - TS
+\end{equation}
+We define the \emph{Gibbs free energy}:
+\begin{equation}
+  G(T,P,N) = - k_B T \ln{\Delta (T,P,N)}
+\end{equation}
+For classical systems (fluids)
+\begin{equation}
+  \Delta (T,P,N) = \int_{0}^{\infty } \dd[]{V} e^{-\beta PV} [ \frac{1}{h^{3N}N!} \int_{}^{} \dd[]{\va{p_1}} \dots \dd[]{\va{p_N}} e^{-\beta \mathcal{H}(p^N,r^N)} ]
+\end{equation}
+which implies
+\begin{equation}
+  \Delta (T,P,N) = \int_{0}^{\infty } \dd[]{V} e^{-\beta PV} Q(T,V,N)
+\end{equation}
+that is the Laplace transform of the canonical partition function \emph{Q}.
+\begin{equation}
+  \beta P \equiv \frac{P}{T} = \pdv{S}{V}
+\end{equation}
+\section{Magnetic system}
+Ensamble in which both \emph{E} and \emph{M} can fluctuate \( \Omega (E,M) \) (both with \( T_B \) and \( H_B \)).
+\begin{equation}
+  P_{\mathcal{C}} \propto e^{S_B (E_T,M_T)/k_B - \frac{E_{\mathcal{C}}}{k_B}\dv{S_B}{E_B} - \frac{M_{\mathcal{C}}}{k_B} \dv{S_B}{M_B}  }
+\end{equation}
+Since \( \dv{S_B}{M_B} = -\frac{H_B}{T_B}   \) and \( \dv{S_B}{E_B} = \frac{1}{T_B}  \):
+\begin{equation}
+  \Rightarrow P_{\mathcal{C}} \propto \exp [-\beta (E_{\mathcal{C}}-H M_{\mathcal{C}})] \qquad T_B \rightarrow T, H_B \rightarrow H
+\end{equation}
+Normalization function:
+\begin{equation}
+  \Delta (T,H,N) = \sum_{\mathcal{C}}^{} e^{-\beta (E_{\mathcal{C}}-H M_{\mathcal{C}})} = \sum_{E,M}^{} e^{-\beta E + \beta M H} \Omega (E,M)
+\end{equation}
+that is the \emph{Gibbs partition function} for magnetic systems.
+
+\section{Gran canonical ensemble}
+In this case \emph{N} varies instead than \emph{V}.
+\begin{equation}
+\begin{split}
+P_{\mathcal{C}}  &= \exp [\frac{S_B (E_T - E_{\mathcal{C}},N_T - N_{\mathcal{C}})}{k_B}] \\
+& \sim \exp [\frac{S_B(E_T,N_T)}{k_B}- \frac{E_{\mathcal{C}}}{k_B} \dv{S_B}{E_B}- \frac{N_{\mathcal{C}}}{k_B} \dv{S_B}{N_B} + (\text{terms of order} \le \frac{1}{V_B}) ] \\
+& = \frac{\exp [-\beta E_{\mathcal{C}}+ \beta \mu N_{\mathcal{C}}] }{\Theta (T,V,\mu )}
+\end{split}
+\end{equation}
+where the \emph{grancanonical partition function} is:
+\begin{equation}
+  \Theta (T,V,\mu ) = \sum_{N}^{} \sum_{\substack{\mathcal{C} \\ V,N \text{fixed}} }^{} e^{-\beta (E_{\mathcal{C}}- \mu N)} = \sum_{N=0}^{\infty } z^N (\sum_{\substack{\mathcal{C} \\ V,N \text{fixed}} }^{} e^{-\beta E_{\mathcal{C}}}  )
+\end{equation}
+with the \emph{fugacity}: \( z \equiv e^{\beta \mu }  \).
+
+
+In principle, if one is able to compute the partition function is able to compute the thermodynamic quantitites.
 
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
 \subfloat[][Description]{
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
-%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-
-%Shape: Polygon Curved [id:ds3289187586816732]
-\draw   (275,69) .. controls (299,67) and (343,29) .. (398,44) .. controls (453,59) and (489,69) .. (506,91) .. controls (523,113) and (560,153) .. (505,214) .. controls (450,275) and (384,246) .. (364,216) .. controls (344,186) and (258,262) .. (205,240) .. controls (152,218) and (215.38,174.38) .. (216,154) .. controls (216.63,133.63) and (130,117) .. (141,84) .. controls (152,51) and (251,71) .. (275,69) -- cycle ;
-
-% Text Node
-\draw (283,139) node [scale=1.44]  {$\Omega $};
-% Text Node
-\draw (521,244) node [scale=1.44]  {$\partial \Omega $};
-
-
-\end{tikzpicture}
+\includegraphics[width=0.8\textwidth]{../lessons/4_image/2.pdf}
     \label{fig:4_2} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
 \subfloat[][Description]{
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
-%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-
-%Shape: Grid [id:dp25208931655405464]
-\draw  [draw opacity=0] (191,85) -- (351,85) -- (351,205) -- (191,205) -- cycle ; \draw   (231,85) -- (231,205)(271,85) -- (271,205)(311,85) -- (311,205) ; \draw   (191,125) -- (351,125)(191,165) -- (351,165) ; \draw   (191,85) -- (351,85) -- (351,205) -- (191,205) -- cycle ;
-%Straight Lines [id:da5962653576884264]
-\draw [line width=1.5]    (231,125) -- (251.81,102.24) ;
-\draw [shift={(253.83,100.03)}, rotate = 492.44] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
-
-%Straight Lines [id:da1028407094136734]
-\draw [line width=1.5]    (311,165) -- (331.81,142.24) ;
-\draw [shift={(333.83,140.03)}, rotate = 492.44] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
-
-%Straight Lines [id:da1171571691861637]
-\draw [line width=1.5]    (271,165) -- (255.24,139.55) ;
-\draw [shift={(253.66,137)}, rotate = 418.23] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
-
-%Shape: Brace [id:dp6670021980689129]
-\draw   (191,219) .. controls (190.98,223.67) and (193.3,226.01) .. (197.97,226.03) -- (260.06,226.3) .. controls (266.73,226.33) and (270.05,228.68) .. (270.03,233.34) .. controls (270.05,228.68) and (273.39,226.36) .. (280.06,226.39)(277.06,226.38) -- (342.15,226.66) .. controls (346.82,226.68) and (349.16,224.36) .. (349.18,219.69) ;
-
-% Text Node
-\draw (271,245) node [scale=1.2]  {$L$};
-
-
-\end{tikzpicture}
-
+\includegraphics[width=0.5\textwidth]{../lessons/4_image/3.pdf}
     \label{fig:4_3} }
 \end{minipage}
 \caption{\label{fig:} Description}
 \end{figure}
 
+\section{Lezione...da sistemare}
 
-In principle, if one is able to compute the partition function is able to compute the thermodynamic quantitites.
+
 Suppose a system \( \Omega  \) carachterzied by \( V(\Omega ) \) and that have a boundary \( \partial{\Omega }  \) carachterized by \( S(\Omega ) \) (Figure \ref{fig:4_2}).
 \emph{L} is the characteristic lenght, and we have \( V(\Omega ) \propto L^d \) and \( S(\Omega) \propto L^{d-1} \)  in \emph{d} dimension:
 \begin{equation}
   \mathcal{H}_{\Omega } (C) = - \sum_{n}^{} \underbrace{ k_n \Theta _n (C)}_{\text{must satisfy symmetry}}
   \label{eq:}
 \end{equation}
-it is important that in principle the term satisfies the symmetry of the system.
+It is important that in principle the term satisfies the symmetry of the system.
 This is a master rule!
 
 For instance, consider the magnetic system. In a bravais lattice we put a spin up (+1) or down (-1). We can define the vector \( \va{S_i}  \) as the \emph{spin at i-esim site} (Figure \ref{fig:4_3}) with \( 1 \le i \le N(\Omega ) \).
@@ -267,7 +381,7 @@ we have:
 \end{equation}
 We have:
 \begin{equation}
-  \Tr \equiv \sum_{\{C\}}^{} = \sum_{N=0}^{\infty } \frac{1}{N!} \int_{}^{} product_{i=1}^{N} \frac{\dd[]{\va{r_i} \dd[]{\va{p_i} } } }{h^{3N}}
+  \Tr \equiv \sum_{\{C\}}^{} = \sum_{N=0}^{\infty } \frac{1}{N!} \int_{}^{} \prod_{i=1}^{N} \frac{\dd[]{\va{r_i} \dd[]{\va{p_i} } } }{h^{3N}}
   \label{eq:}
 \end{equation}
 \begin{equation}
