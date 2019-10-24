@@ -1,0 +1,110 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{23}{10}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 5.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+If there any hope to find divergence it will be in the thermodynamic limit. Fluctuations with respect to the order parameter. Remind that:
+
+% \begin{equation}
+%     Z_{\text{Gibbs}} [T, \{ k_n \}, H] = \Tr(\exp [-\beta (H(\mathcal{C})-HM(\mathcal{C}))] = \sum_{M,E}^{} \exp (-\beta E + \beta H M) \Omega (E,M)
+% \end{equation}
+
+We can see that:
+
+\begin{empheq}[box=\myyellowbox]{equation}
+  \chi _T = \frac{1}{k_B T} \qty[\expval{M^2} -\expval{M}^2  ]
+\end{empheq}
+
+Idea: replace the M with an integral.
+\begin{equation}
+  M(\mathcal{C}) = \int_{}^{} \dd[3]{\va{r} }  m(\va{r} )
+\end{equation}
+\begin{equation}
+  \chi _T k_B T = \int_{}^{} \dd[]{\va{r} }  \dd[]{\va{r'} } \qty[\expval{m(\va{r} ) m(\va{r'} )}- \expval{m(\va{r} )} \expval{m(\va{r'} )}   ]
+\end{equation}
+Translational symmetry implies:
+\begin{equation}
+  \expval{m(\va{r} )} = m
+\end{equation}
+and the 2-points correlation function
+\begin{equation}
+  \expval{m(\va{r} ) m(\va{r'} )} \equiv G (\va{r}-\va{r'}  )
+\end{equation}
+I could see:
+\begin{equation}
+  G_c (\va{r}-\va{r'}  ) = \expval{ \underbrace{(m(\va{r} )-\expval{m(\va{r'} )} )}_{\substack{ \delta m (\va{r'} ) \\ \text{fluctuations}} }  (m(\va{r'} )-\expval{m(\va{r'} )} )}
+\end{equation}
+
+\begin{equation}
+  \chi _T k_B T = \int_{}^{} \dd[]{\va{r} } \dd[]{\va{r'} } \qty[G(\va{r} -\va{r'} )- \expval{m(\va{r} )}\expval{m(\va{r'} )}  ]
+\end{equation}
+
+it means that \( \va{r'}  \) i not no more a parameter. You can put it tends to zero. If in the last equation we put \( \va{r'}  \)  0, we obtain:
+\begin{equation}
+  \Rightarrow   \chi _T k_B T = V (\Omega ) \int_{}^{} \dd[]{\va{r} } G_c (\va{r} -\va{r_0} )
+\end{equation}
+that is the \emph{fluctuations and dissipation relation}.
+In general the correlation function \( G_c (\va{r} ) \) what gives? Usually it behaves in a exponential way. In principle we expect that:
+\begin{equation}
+  G_c (\va{r} )\simeq e^{-\abs{\va{r} }/\xi  }
+\end{equation}
+where \( \xi  \) is called the \emph{correlation length}. It is related to the correlation function. In general is finite but if you approach \( T_c \) diverges. In fact, at the critical point this correlation will expand in the whole space and reaches the size of all the system, it goes to infinity. When \( \xi  \) will diverge, there is not anymore the exponential and the integrall cannote be keeped finite. From the thermodynamic divergence you obtain that the quantity \( \xi  \) goes to infinity. You are looking a critical phenomena.
+
+Therefore, as \( T \rightarrow T_c^{\pm} \) we have
+\begin{equation}
+  \xi \overset{t \rightarrow 0^\pm}{\sim } t^{-\nu _\pm}
+\end{equation}
+Supposing \( T = T_c \) :
+\begin{equation}
+  G_c (r) \sim \frac{1}{r^{d-2- \eta }}
+\end{equation}
+
+%second part
+
+
+If we have a system with finite size \emph{L}, the temperature is not \( T=T_c \), because we are in a finite system.
+
+Consider a finite system \emph{L}, for sure we have \( \xi \le L \).
+We have also a small scale as \emph{a}, the lenght of the Bravais lattice.
+For instance, suppose \( L = \SI{1}{\cm}  \) and \( T \equiv \frac{T-T_c}{T_c} \), we can see that in general
+\begin{equation}
+  \xi =\xi _0 t^{-\nu } \rightarrow t = \qty(\frac{\xi }{\xi_0})^{-1/\nu } \simeq \qty(\frac{L}{\xi _0})^{-1/\nu } = \qty(\frac{10^{-2} m }{10^{-9}m})^{-1/\nu } \sim (10^7)^{-2} \sim 10^{-14}
+\end{equation}
+this explain why at the critical point we do not see this effect.
+
+We can find the critical point by doing Montecarlo simulation. Supposing a Montecarlo simulation of a Ising model, for which there is no an analitic solution and compute the energy
+
+1 fig
+
+Try to estrapolate for example the position of the peak as N increases. If you start to see this behaviour it shown that something is happening.
+
+Nevertheless, there are two approaches:
+ I want to study the system by looking for all the details: example a protein, that interact with other proteins. I can look at all the electrons (or atoms). Even if you think at the simple protein that exist there are a lot of degree of freedom. For doing a simulation, if you are interested in long time behaviour and in large scale behaviur, in that case details are not important. What it is important are symmetry, range of interaction, therefore you can forget about all the details. You introduce the effective potentials as wander-walls or Lenard Jones potential. You study collective effect. This is the second approach.
+
+\section{Ising Model D=1}
+This model has a critical point that is \( T_c = 0 \), it means that there is no phase transition. Therefore, Lenz (?) thought that the ising model was unuselles for studing the paramagnetic system. This is not true, because at dimension 2, the critical temperature is
+\( T_c \neq 0 \). This is the result of Onsager,
+Remember
+
+2fig
+
+Think a square lattice, in which in each point you have a spin \( s_i = \pm 1 \). Given \( N(\Omega ) \) sites in your lattice. The number of configuration is \( \# \{\mathcal{C} \}=2^N \). Remember that a term as \( \sum_{i}^{} S_i  \) is not correlated. We need an interaction. The simpler one is putting the interaction
+\begin{equation}
+   \sum_{i}^{} S_i H_i +  \frac{1}{2}\sum_{i \neq j}^{}  J_{ij} S_i S_j
+\end{equation}
+\begin{equation}
+  J_{ij} = \frac{J}{\abs{\va{r_i} -\va{r_j  } } }
+\end{equation}
+
+
+
+
+
+
+
+
+\end{document}
