@@ -231,11 +231,22 @@ It means that
 \end{equation}
 \begin{equation}
   = (\cosh K)^{N-1} \sum_{\{S\}}^{}  \prod_{i=1}^{N-1} ( 1 + S_i S_{i+1} \tanh K )
+  \label{eq:3}
 \end{equation}
-
-
-
-
+In principle there will be a generic term written as this
+\begin{equation}
+  \sum_{ \substack{ S_{i_e} = \pm 1\\ e= 1, \dots, M} }^{}  (\tanh K )^M S_{i_1} S_{i_{1+1}} S_{i_2} S_{i_{2+1}} \dots S_{i_M} S_{i_{M+1}} = 0
+\end{equation}
+The sum is zero and there is something we can do, except \( M=0 \).
+Therefore:
+\begin{equation}
+  \eqref{eq:3} = 2^N (\cosh K)^{N-1}
+\end{equation}
+If I want to compute the average \( \expval{S_i}  \) we have a term \( S_i \) inside the equation shown prevously, this is the  only difference.
+\begin{equation}
+  (\tanh K)^M S_{i_1} S_{i_{1+1}} S_{i_2} S_{i_{2+1}} \dots S_{i_M} S_{i_{M+1}} \mathcolorbox{yellow}{S_j}
+\end{equation}
+In that way it depends on \( S_j \) which sum is also zero, therefore we have prove that there is no magnetization.
 
 
 
