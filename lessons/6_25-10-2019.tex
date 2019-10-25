@@ -1,0 +1,254 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{25}{10}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 6.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\section{Ising Model}
+Consider a Bravais lattice, the spin is chosen as \( S_i = \pm 1 \). The minimal model that can try to capture the interaction between the spin is the following. Remember that we have our set of \( \{ \mathcal{C} \} = \{ S_1,\dots,S_{N(\Omega )} \} \)  and that \( \# \{ \mathcal{C} \} = 2^N \). Given that, supposing a magnetic filed that at the moment depends on the site \( H_{i=1,\dots,N} \) and that there is a coupling that derives from electrons coupling \( J_{ij} = f ( \abs{\va{r_i}- \va{r_j}  } ) \).
+Therefore, the Hamiltonian in the simplest way is :
+\begin{equation}
+  -H (\mathcal{C}) = \sum_{i=1}^{N} H_i S_i  + \frac{1}{2} \sum_{i\neq j}^{N}  J_{ij} S_i S_j
+\end{equation}
+where the first term is a one body interaction, in the second term we consider the two body interaction that is a quadratic term.We have put the minues because we want to minimize the energy, looking for the minimum. It dipends on the sign of  \emph{J}.  Our problem is to find the partition function with \emph{N} sites, which depends on \emph{T} and in principle depends in the configuration given (it is fixed both for \emph{H} and \emph{J}  !):
+\begin{equation}
+   Z_N (T, \{ H_i \}, \{ J_{ij} \} ) = \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N=\pm 1}^{}  \exp [-\beta H(\{S\})]
+\end{equation}
+The spin glasses comes from the random Ising model.
+\begin{equation}
+  F_N (T, \{ H_i \}, \{ J_{ij} \} ) = - k_B T \ln{Z_N}
+\end{equation}
+this is what we called the bulk free energy. The bulk free energy density is:
+\begin{equation}
+  f_b (T, \{ H_i \}, \{ J_{ij} \} ) = \ln_{N \rightarrow \infty } {\frac{1}{N} F_N }
+\end{equation}
+The questions is: does this limit exist? The surface is not important in the bulk limit. Note that we are assuming that the interaction between the spin is a short range force, it is not as the size of the system.
+A condition needed to proof the existence of the limit is
+\begin{equation}
+  \sum_{i \neq j}^{}  \abs{J_{ij}} < \infty
+\end{equation}
+with
+\begin{equation}
+  \quad J_{ij} = A \abs{\va{r_i}-\va{r_j}  }^{-\sigma}  \qquad \text{if} \quad \sigma > D
+\end{equation}
+In that way the limit exists. Suppose for example a system that is made by dipolar interaction, this interaction goes to infinity as the power of six. We have to ask in each case if when we take the thermodynamic limit, the limit exists.
+
+When we assume \( S_i = \pm 1 \), it is a light lattice model.
+Now we assume also the semplification:
+\begin{equation}
+J_{ij} =
+  \begin{cases}
+  J & \text{if } i \text{ and } j \text{ are neirest neighbours} \\
+  0 & \text{otherwise}
+  \end{cases}
+\end{equation}
+For the moment we assume also homogeneity (uniform magnetic field, as a solenoid):
+\begin{equation}
+  H_i = H \qquad \forall i
+\end{equation}
+The model is nowe very simple:
+\begin{equation}
+  -H^{\text{Ising}} (\mathcal{C}) = H\sum_{i=1}^{N} S_i  + \frac{J}{2} \sum_{\expval{ij} }^{}   S_i S_j
+\end{equation}
+We have to figure out that if we look at the magnetization per site:
+\begin{equation}
+  \expval{m}_N = \frac{1}{N} \sum_{i=1}^{N} \expval{S_i} = - \frac{1}{N} \pdv{F_N}{H}
+\end{equation}
+with
+\begin{equation}
+  \sum_i \expval{S_i} = \frac{1}{Z} \Tr[(\sum_{i}^{} S_i  )e^{-\beta H} ]
+\end{equation}
+We have again a connection between the free energy and the magnetization (?).
+Now, suppose that \( f_b < 0 \), and \( f_b \) is continuous function of \emph{T,J,H}.
+\begin{equation}
+  s = - \pdv{f_b}{T} \ge 0
+\end{equation}
+with \( \pdv{f_b}{T} \) monotone non increasing function of \emph{T}, that means \( \pdv[2]{f_b}{T} \le 0 \) and therefore
+\begin{equation}
+  \Rightarrow c = - T \qty(\pdv[2]{f_b}{T}) \ge 0
+\end{equation}
+\begin{theorem}[] \
+\( f_b (T,H,J) \) is a concave function of \emph{H}.
+\end{theorem}
+\begin{proof}
+To proof this we use the \emph{Holden inequality}. If \( \{g_k\},\{f_k\} \ge 0 \quad \forall k\)  and \( \alpha _1, \alpha _2 \in \mathbb{R}^+ \) with \( \alpha _1 + \alpha _2 = 1 \) .
+\begin{equation}
+  \sum_{k}^{} (g_k)^{\alpha _1} (f_k)^{\alpha _2} \le \qty(\sum_{k}^{} g_k  )^{\alpha _1} \qty(\sum_{k}^{} f_k  )^{\alpha _2}
+\end{equation}
+
+\end{proof}
+The partiction function is:
+\begin{equation}
+  Z_N (H) = \Tr[\exp (\beta H \sum_{i}^{} S_i ) \underbrace{\exp (\beta J \sum_{\expval{ij} }^{} S_i S_j ) }_{\psi (S)}  ]
+\end{equation}
+Since \( \psi (S) = \psi (S)^{\alpha _1} \psi (S)^{\alpha _2} \)
+\begin{equation}
+  Z_N (H_1 \alpha _1 + H_2 \alpha _2) = \Tr(\exp {\beta \alpha _1 H_1 \sum_{i}^{} S_i + \beta \alpha _2 H_2 \sum_{i}^{} S_i} \psi (S)^{\alpha _1} \psi (S)^{\alpha _2})
+\end{equation}
+
+\begin{equation}
+  \Rightarrow = \Tr[ (e^{\beta H_1 \sum_{i}^{} S_i } \psi (S))^{\alpha _1} (e^{\beta H_2 \sum_{i}^{} S_i } \psi (S))^{\alpha _2}]
+\end{equation}
+\begin{equation}
+  \le \qty(\Tr (e^{\beta H_1 \sum_{i}^{} S_i } \psi (S))^{\alpha _1}  ) \qty(\Tr (e^{\beta H_2 \sum_{i}^{} S_i } \psi (S))^{\alpha _2}  ) = Z(H_1)^{\alpha _1} Z(H_2)^{\alpha _2}
+\end{equation}
+So:
+\begin{equation}
+  \lim_{N \rightarrow \infty } - \frac{1}{N} k_B T \ln{Z_N (H_1 \alpha _1 + H_2 \alpha _2)} \ge - \lim_{N \rightarrow \infty } \frac{\alpha _1}{N} \ln{Z_N (H_1 \alpha _1)} -
+  \lim_{N \rightarrow \infty } \frac{\alpha _2}{N} \ln{Z_N (H_2 \alpha _2)}
+\end{equation}
+\begin{equation}
+  f_b (H_1 \alpha _1 + H_2 \alpha _2) \ge \alpha _1 f_b (H_1 \alpha _1) +  \alpha _2 f_b (H_2 \alpha _2)
+\end{equation}
+The symmetry of the system in sense of the Hamiltonian is: you can invert the value of the \emph{S} and the Hamiltonian does not change. It is valid when \( H=0 \) (? or T is at the critical point booh). Otherwise is not true. Let us see this Z symmetry.
+Another interesting relation is the following:
+\begin{equation}
+  \sum_{ \{S_i\}}^{}  \Phi  (\{S_i\} ) =   \sum_{ \{S_i\}}^{}  \Phi  (\{-S_i\} )
+    \label{eq:1}
+\end{equation}
+this is true for all function of the spin.
+\begin{equation}
+  - \mathcal{H} = J \sum_{\expval{ij} }^{} S_i S_j + H \sum_{}^{} S_i
+\end{equation}
+\begin{equation}
+  \mathcal{H}(H,J, \{S_i\}) =   \mathcal{H}(-H,J, \{-S_i\})
+\end{equation}
+This is a spontaneous broken symmetry.
+\begin{equation}
+Z_N (-H,J,T) = \sum_{ \{S_i\}}^{} \exp [-\beta \mathcal{H} (-H,J, \{S_i\})]  =   \sum_{ \{S_i\}}^{} \exp [-\beta \mathcal{H} (-H,J,\{-S_i\})]
+\end{equation}
+using equation \eqref{eq:1}
+\begin{equation}
+  = \sum_{ \{S_i\}}^{} \exp [-\beta \mathcal{H} (-H,J, \{S_i\}) ] = Z_N (H,J,T)
+\end{equation}
+It implies also that:
+\begin{equation}
+  F_N (T,J,H) = F_N (T,J,-H) \Rightarrow f_b (T,J,H) = f_b (T,J,-H)
+  \label{eq:2}
+\end{equation}
+We have:
+\begin{equation}
+  N m (H) = - \pdv{F_N (H)}{H} \underset{\eqref{eq:2}}{=}  - \pdv{F_N (-H)}{(H)} = \pdv{F_N(-H)}{(-H)}  = - N m (-H)
+\end{equation}
+\begin{equation}
+  m(H) = -m (-H) \quad \forall H \Rightarrow m(0)=-m(0) \Rightarrow m=0,H=0 \quad  \forall N \text{finite}
+\end{equation}
+Even if you haven't seen any transition, it is an interesting model because we can use this model to solve other problems that seems different.
+Consider for example the \emph{Lattice gas model}, where a gas is put in a lattice. Another is the \emph{Fluid lattice model}.
+
+\subsection{Lattice gas model}
+What is a lattice gas model?
+Consider a system divided into cell (Fig 1) with only one particle in each cell, where the distance from neighbour cell is the constant lattice \emph{a}. The \( n_i \) is the i-esim cell and it is
+\begin{equation}
+n_i =
+  \begin{cases}
+   0 & \text{if empty} \\
+   1 & \text{if occupied}
+  \end{cases}
+\end{equation}
+and \( N = \sum_{i=1}^{N_c} n_i  \). Let us consider the Hamiltonian
+\begin{equation}
+  \mathcal{H} = \sum_{i=1}^{N_c} U_1 (i) n_i + \frac{1}{2} \sum_{ij}^{} U_2 (i,j) n_i n_j +   \dots
+\end{equation}
+where \( U_1 \) is an external field for instance, while \( U_2 \) is a many body interaction.
+\begin{equation}
+  \mathcal{H} - \mu N = \sum_{i=1}^{N_c} ( \cancel{ U_1 (i)} - \mu) n_i + \frac{1}{2} \sum_{ij}^{} U_2 (i,j) n_i n_j +   \dots
+\end{equation}
+we put \( U_1=0 \) for convenience.
+We can write
+\begin{equation}
+  n_i = \frac{1}{2} (1+S_i)
+\end{equation}
+What we get finally is:
+\begin{equation}
+    \mathcal{H} - \mu N  =  E_0 - H \sum_{i=1}^{N} S_i - J \sum_{\expval{ij} }^{} S_i S_j
+\end{equation}
+\begin{subequations}
+\begin{align}
+     E_0 & = - \frac{1}{2} \mu N_c + \frac{z}{8} U_2 N_c \\
+       H &= - \frac{1}{2} \mu + \frac{z}{4} U_2 \\
+         -J & = \frac{U_2}{4}
+\end{align}
+\end{subequations}
+where \emph{z} is the coordination number of neighbours.
+\begin{equation}
+  \mathcal{Z}_{LG} = \Tr_{\{n\}}(e^{-\beta (\mathcal{H}-\mu N)} ) = e^{-\beta E_0} Z_{N_c}^{\text{Ising}} (H,J)
+\end{equation}
+We have seen that the Ising model is something more general than the magnetization transition.
+
+\section{Ising d=1}
+The Bravais lattice is just a one dimensional lattice (Figure 2) and the partition function is ( we solve it in the case \( H=0 \) ):
+\begin{equation}
+  Z_N (T) = \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{} \dots  \sum_{S_N = \pm 1}^{} \exp [
+  \overbrace{ \beta J}^{K}  \sum_{i=1}^{N-1} S_i S_{i+1}  ]
+\end{equation}
+the two body interaction is the sum in all the neighbours that in that case are \emph{i-1} and \emph{i+1}, but you have only to consider the one after, because the one behind is yet taken by the behind site. Solve now this partition function.
+Consider \emph{free boundary} condition, therefore the \emph{N} does not have a \emph{N+1}, almost for the moment. We have
+\begin{equation}
+   K \equiv \beta J,  \quad h \equiv \beta H
+\end{equation}
+What if we just add another spin at the end \( S_{N+1} \) ? Which is the partition function with that spin ?
+\begin{equation}
+  Z_{N+1} (T) =   \sum_{S_{N+1} = \pm 1}^{} \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{} \dots  \sum_{S_N = \pm 1}^{} e^{K (S_1 S_2 + S_2 S_3 + \dots + S_{N-1}S_N)} e^{K S_N S_{N+1}}
+\end{equation}
+This sum is just involve this term:
+\begin{equation}
+   \sum_{S_{N+1} = \pm 1}^{} e^{K S_N S_{N+1}}  = e^{K S_N} + e^{-K S_N} = 2 \cosh (K S_N) = 2 \cosh(K)
+\end{equation}
+\begin{equation}
+  Z_{N+1} (T) = (2 \cosh (K) ) Z_N (T)
+\end{equation}
+\begin{equation}
+  Z_{N} (T) = (2 \cosh (K)) Z_{N-1} (T)
+\end{equation}
+In general, we get:
+\begin{equation}
+  \Rightarrow Z_N (T) = Z_1 (2 \cos(K) )^{N-1} \quad \text{with} \quad Z_1 = \sum_{S_1=\pm1}^{} 1 = 2
+\end{equation}
+therefore
+\begin{empheq}[box=\myyellowbox]{equation}
+  Z_N (T) = 2 ( 2 \cosh (K) )^{N-1}
+\end{empheq}
+\begin{equation}
+  F_N (T) = - k_B T \ln{Z_N (T)} = - k_B T \ln{2} - k_B T (N-1) \ln{2 \cosh (K)}
+\end{equation}
+\begin{equation}
+  f_b \equiv \lim_{N \rightarrow \infty } \frac{1}{N} F_N = -k_B T \ln{ 2 \cosh (\frac{J}{k_B T})}
+\end{equation}
+The function goes as Figure 3.
+
+Now introduce another way to introduce the same story: compute the magnetization analitic again. Magnetization is the average over spin. Assume \( S_i = \pm 1 \) :
+\begin{equation}
+  \exp [ k S_i S_{i+1}] = \cosh ( K) + S_i S_{i+1} \sinh (K) = \cosh (K) [1+ S_i S_{i+1} \tanh (K)]
+\end{equation}
+It means that
+\begin{equation}
+  Z_N (T) = \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{} \dots  \sum_{S_N = \pm 1}^{} \exp [
+  K  \sum_{i=1}^{N-1} S_i S_{i+1}  ]  \Rightarrow  \sum_{S_1 = \pm 1}^{} \dots  \sum_{S_N = \pm 1}^{} \prod_{i=1}^{N-1} [ \cosh (K) (1+ S_i S_{i+1} \tanh (K))]
+\end{equation}
+\begin{equation}
+  = (\cosh K)^{N-1} \sum_{\{S\}}^{}  \prod_{i=1}^{N-1} ( 1 + S_i S_{i+1} \tanh K )
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
