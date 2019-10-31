@@ -5,39 +5,88 @@
 
 \begin{document}
 
+
+\chapter{Role of the models in statistical mechanics}
 \marginpar{ \textbf{Lecture 6.} \\  \displaydate{date}. \\ Compiled:  \today.}
+\section{Role of the models}
+Which is the role of models in statistical mechanics? There are two possible approaches:
+\begin{enumerate}
+  \item The model must describe the real system in a very detailed way. The maximum number of details and parameters to be tuned are included. The \emph{pro} is the closer to the real specific system (faithfull description). The \emph{drawback} is that the model is so complicated that no analytical solution is possible. Moreover, even numerically, these models can be studied for very short times and small sizes.
+  An example is the simulation of the folding dynamics that can be performed for few nanoseconds. On the other hand the introduction of many details are often not crucial if one is interested in large scale properties.
+  \item Try to introduce the most simple model that satisfies few essential properties of the real system such as its symmetries, dimensionality, range of interactions etc.
+  Since most of the microscopic details are integrated, these models cannote describe the full physics of a specific system but they can reproduce its main features. Moreover these models can be studied numerically and, to some extent also analitically (exact solution).
+\end{enumerate}
+  Let us start by introducing what is, perhaps, the most paradigmatic model in the statistical mechanics of p hase transition, the \emph{Ising model}.
 
-\section{Ising Model}
-Consider a Bravais lattice, the spin is chosen as \( S_i = \pm 1 \). The minimal model that can try to capture the interaction between the spin is the following. Remember that we have our set of \( \{ \mathcal{C} \} = \{ S_1,\dots,S_{N(\Omega )} \} \)  and that \( \# \{ \mathcal{C} \} = 2^N \). Given that, supposing a magnetic filed that at the moment depends on the site \( H_{i=1,\dots,N} \) and that there is a coupling that derives from electrons coupling \( J_{ij} = f ( \abs{\va{r_i}- \va{r_j}  } ) \).
-Therefore, the Hamiltonian in the simplest way is :
-\begin{equation}
-  -H (\mathcal{C}) = \sum_{i=1}^{N} H_i S_i  + \frac{1}{2} \sum_{i\neq j}^{N}  J_{ij} S_i S_j
-\end{equation}
-where the first term is a one body interaction, in the second term we consider the two body interaction that is a quadratic term.We have put the minues because we want to minimize the energy, looking for the minimum. It dipends on the sign of  \emph{J}.  Our problem is to find the partition function with \emph{N} sites, which depends on \emph{T} and in principle depends in the configuration given (it is fixed both for \emph{H} and \emph{J}  !):
-\begin{equation}
-   Z_N (T, \{ H_i \}, \{ J_{ij} \} ) = \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N=\pm 1}^{}  \exp [-\beta H(\{S\})]
-\end{equation}
-The spin glasses comes from the random Ising model.
-\begin{equation}
-  F_N (T, \{ H_i \}, \{ J_{ij} \} ) = - k_B T \ln{Z_N}
-\end{equation}
-this is what we called the bulk free energy. The bulk free energy density is:
-\begin{equation}
-  f_b (T, \{ H_i \}, \{ J_{ij} \} ) = \ln_{N \rightarrow \infty } {\frac{1}{N} F_N }
-\end{equation}
-The questions is: does this limit exist? The surface is not important in the bulk limit. Note that we are assuming that the interaction between the spin is a short range force, it is not as the size of the system.
-A condition needed to proof the existence of the limit is
-\begin{equation}
-  \sum_{i \neq j}^{}  \abs{J_{ij}} < \infty
-\end{equation}
-with
-\begin{equation}
-  \quad J_{ij} = A \abs{\va{r_i}-\va{r_j}  }^{-\sigma}  \qquad \text{if} \quad \sigma > D
-\end{equation}
-In that way the limit exists. Suppose for example a system that is made by dipolar interaction, this interaction goes to infinity as the power of six. We have to ask in each case if when we take the thermodynamic limit, the limit exists.
+  \section{Ising model (1925)}
+  Suggested by Lenz to Ising for his Phd thesis, it is supposed to describe a magnetic system that undergoes a transition between a pramagnetic and a ferromagnetic phase.
+  In \( d=1 \) the model was solved exactly by Ising. Unfortunately, he found that for \( T>0 \) the model does not display a phase transition. The wrong conclusion was that this model is not able to describe a phase transition. In fact, it turns out that, for \( d>1 \), the model does display a paramagnetic-ferromagnetic phase transition.  Let us first discuss some general feature of the model for any dimension \( d \).
 
-When we assume \( S_i = \pm 1 \), it is a light lattice model.
-Now we assume also the semplification:
+\subsection{D-dimensional Ising model}
+For hypercubic lattice with  given \( N(\Omega ) \) sites \( \{ i \}_{i=1,\dots,N(\Omega )}   \) and linear size \( L(\Omega ) \) , we have \( N (\Omega ) = L^D \). The microscopic degrees of freedom are the spins \( S_i \) defined at each i-esim lattice site. Each spin can assume the values  \( S_i = \pm 1 \), that means that at each site the possible values are the spin up or down. The minimal model that can try to capture the interaction between the spin is the following.
+
+For a lattice with \( N(\Omega ) \) spins, there are \( 2^{N(\Omega )} \)  possible configurations.
+\begin{remark}
+Since we do not consider the spin as a vector, this is a model for a strongly anysotropic ferromagnet (along a given direction).
+\end{remark}
+Suppose to have also an external magnetic field \( H_i \) (it values depends on the site \emph{i}). One can consider interactions between spins whose strength are described by functions \( J_{ij},k_{ijk}, \dots \). For instance, there is a coupling that derives from electrons coupling \( J_{ij} = f ( \abs{\va{r_i}- \va{r_j}  } ) \)
+
+The physical origin is the overlap between the electronic orbitals of the neighbouring atoms forming the Bravais lattice.
+Remember that a term as \( \sum_{i}^{} S_i  \) is not correlated, while we need an interaction.
+
+A general Hamiltonian of the model can be written as
+\begin{equation}
+  \mathcal{H}_ \Omega ( \{ S_i \}  ) = \sum_{ij}^{} J_{ij} S_i S_j - \sum_{i}^{} H_i S_i - \sum_{ijk}^{} S_i S_j S_k + \dots
+\end{equation}
+Standard Ising model one keeps only the two-body interactions:
+\begin{equation}
+  \mathcal{H}_ \Omega ( \{ S_i \}  ) = -\frac{1}{2}\sum_{i\neq j}^{N} J_{ij} S_i S_j - \sum_{i=1}^{N} H_i S_i
+\end{equation}
+where the first second is a one body interaction, while in the first term we consider the two body interaction that is a quadratic term. We have put the minus because we want to minimize the energy, but it dipends on the sign of  \emph{J}.
+
+For this model the sum over all configurations on trace is given by
+\begin{equation}
+  \Tr \equiv \sum_{S_1 = \pm }^{}  \sum_{S_2 = \pm }^{}  \dots \sum_{S_N = \pm }^{} \equiv \sum_{\{ S \}  }^{}
+\end{equation}
+ Our problem is to find the partition function with \emph{N} sites, which depends on \emph{T} and in principle depends in the configuration given (it is fixed both for \emph{H} and \emph{J}!).
+Hence the canonical partition function is given by
+\begin{equation}
+  Z_{\Omega } (T, \{ H_i \}, \{ J_{ij} \}    ) = \Tr e^{-\beta \mathcal{H}_ \Omega ( \{ S \}  )}
+\end{equation}
+and the corresponding free-energy
+\begin{equation}
+  F_ \Omega  (T, \{ H_i \}, \{ J_{ij} \} ) = - k_B T \ln{Z_ \Omega }
+\end{equation}
+The bulk limiting free energy is
+\begin{equation}
+  f_b (T, \{ H_i \}, \{ J_{ij} \} ) = \lim_{N \rightarrow \infty } \ln {\frac{1}{N} F_ \Omega  }
+\end{equation}
+How do we know that the above limit does exist? It must be proven. The surface is not important in the bulk limit.
+ Note that we are assuming that the interaction between the spin is a short range force, it is not as the size of the system.
+
+For this model it is possible to show that the limit exists if
+\begin{equation}
+  \sum_{j \neq i}^{} \abs{J_{ij}} < \infty
+\end{equation}
+\begin{remark}
+In general what determines the existence of the limit of these spin models are the dimension \emph{D} and the range of the spins interactions.
+\end{remark}
+For example it is possible to show that, if
+\begin{equation}
+  J_{ij} = A \abs{\va{r_i}-\va{r_j}  }^{-\sigma}
+\end{equation}
+(so it is a long range interaction)
+the limit exists when
+\begin{equation}
+  \sigma > D
+\end{equation}
+\begin{remark}
+If the interaction is \emph{dipolar} since it decades as \( 1/r^3 \), for the case \( d=3 \) the limit does not exists. However it is still possible to prove the existence of the limit for this case if one assumes that not all dipoles are fully aligned.
+\end{remark}
+Assuming that the thermodynamic limit exists we now look at some additional rigorous results on the limiting free energy and its derivatives.
+
+\subsection{Mathematical properties of the Ising model with neirest neighbours interactions}
+For simplicity let us consider the case in which the external magnetic field is homogeneous i.e. \( H_i \equiv H \) and the spin-spin interaction is only between spins that are nearest-neighbours on the lattice:
 \begin{equation}
 J_{ij} =
   \begin{cases}
@@ -45,18 +94,40 @@ J_{ij} =
   0 & \text{otherwise}
   \end{cases}
 \end{equation}
-For the moment we assume also homogeneity (uniform magnetic field, as a solenoid):
-\begin{equation}
-  H_i = H \qquad \forall i
-\end{equation}
+
 The model is nowe very simple:
 \begin{equation}
-  -H^{\text{Ising}} (\mathcal{C}) = H\sum_{i=1}^{N} S_i  + \frac{J}{2} \sum_{\expval{ij} }^{}   S_i S_j
+  - \mathcal{H}_ \Omega ( \{ S \}  ) = J \sum_{\expval{ij} }^{N (\Omega )} S_i S_j + H \sum_{i}^{N(\Omega )} S_i
 \end{equation}
-We have to figure out that if we look at the magnetization per site:
+where the notation \( \expval{ij}  \) means a double sum over \emph{i} and \emph{j}, with the constraint that \emph{i} and \emph{j} are nearest-neighboyrs.
+Since \emph{H} is uniform, the average magnetization per spin is
 \begin{equation}
-  \expval{m}_N = \frac{1}{N} \sum_{i=1}^{N} \expval{S_i} = - \frac{1}{N} \pdv{F_N}{H}
+  \expval{m} = \frac{1}{N (\Omega )} \sum_{i=1}^{N (\Omega )} \expval{S_i}
 \end{equation}
+where \( \expval{\dots}  \)  means average over the chosen ensemble.
+Since
+\begin{equation}
+  \sum_{i=1}^{N} \expval{S_i} = \frac{1}{Z} \Tr \qty[(\sum_{i}^{} S_i ) e^{-\beta \mathcal{H}_ \Omega (\{ S_i \}  )} ]  = \frac{1}{Z} \Tr \qty[\sum_{i}^{} S_i \exp (\beta  J \sum_{\expval{ij} }^{} S_i S_j + \beta H \sum_{i}^{} S_i  )  ]
+\end{equation}
+it is easy to show that:
+\begin{equation}
+  \expval{m} = - \frac{1}{N} \pdv{F_ \Omega }{H}
+\end{equation}
+where
+\begin{equation}
+  F_ \Omega (T,J,H) = - k_B T \ln{Z_N (T,J,H)} 
+\end{equation}
+
+
+
+%%%%%%%%%%%%%%
+\clearpage
+
+
+\section{Ising Model}
+
+We have to figure out that if we look at the magnetization per site:
+
 with
 \begin{equation}
   \sum_i \expval{S_i} = \frac{1}{Z} \Tr[(\sum_{i}^{} S_i  )e^{-\beta H} ]
@@ -246,7 +317,10 @@ If I want to compute the average \( \expval{S_i}  \) we have a term \( S_i \) in
 \begin{equation}
   (\tanh K)^M S_{i_1} S_{i_{1+1}} S_{i_2} S_{i_{2+1}} \dots S_{i_M} S_{i_{M+1}} \mathcolorbox{yellow}{S_j}
 \end{equation}
-In that way it depends on \( S_j \) which sum is also zero, therefore we have prove that there is no magnetization.
+In that way it depends on \( S_j \) which sum is also zero, therefore we have prove that even if \( M=0 \)  there is no magnetization and
+\begin{equation}
+  \expval{S_j} = 0
+\end{equation}
 
 
 

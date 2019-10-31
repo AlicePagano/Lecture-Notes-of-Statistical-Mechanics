@@ -1,0 +1,215 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{30}{10}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 7.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\section{Transfer Matrix}
+
+Today we introduce a general tecnique used in many fields as graph theory: the transfer matrix. If you are able to diagonalize the transfer matrix, you can use trick as eigenvalues and eigenvectors.
+
+Consider the Ising model in a circle, as in Figure 1.
+We are introducing the bulk
+\begin{equation}
+  S_{N+1} = S_1
+\end{equation}
+\begin{equation}
+  \beta \mathcal{H} = k \sum_{i=1}^{N} S_i S_{i+1} + h \sum_{i=1}^{N} S_i \quad \text{with} \quad k \equiv \beta J, h \equiv H \beta
+\end{equation}
+\begin{equation}
+  Z_N (k,h) = \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{}  \dots \sum_{S_N = \pm 1}^{}
+  \qty[e^{k S_1 S_2 + \frac{h}{2}(S_1+S_2)} ]\dots \qty[e^{k S_N S_1 + \frac{h}{2}(S_N+S_1)} ]
+\end{equation}
+Suppose you have a sort of \( \sum_{j}^{}  M_{ij} P_{jk} \), what we have done is doing something like that. We can rewrite this formally:
+\begin{equation}
+  \rightarrow Z_N = \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N = \pm 1}^{} \bra{S_1} \mathbb{T} \ket{S_2} \bra{S_2}  \mathbb{T} \ket{S_3} \dots \bra{S_N}  \mathbb{T} \ket{S_1}
+\end{equation}
+where \( \mathbb{T} \) is a 2x2 matrix and
+\begin{equation}
+  \bra{S} \mathbb{T} \ket{S'} = \exp [k S S' + \frac{h}{2} (S+S')]
+\end{equation}
+For example:
+\begin{equation}
+  \bra{+1} \mathbb{T} \ket{+1} = \exp [k+h]
+\end{equation}
+\begin{equation}
+  \bra{+1} \mathbb{T} \ket{-1} = \exp [-k]
+\end{equation}
+The matrix has the form:
+\begin{equation}
+  \mathbb{T} =
+\begin{pmatrix}
+e^{k+h}    & e^{-k}  \\
+  e^{-k}  & e^{k-h}
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+  \ket{S_i^{(+)}} = \begin{pmatrix}
+  1 \\
+  0
+  \end{pmatrix}
+\end{equation}
+\begin{equation}
+  \ket{S_i^{(-)}} = \begin{pmatrix}
+  0 \\
+  1
+  \end{pmatrix}
+\end{equation}
+Therefore the bra is:
+\begin{equation}
+  \bra{S_i^{(+)}} = (1^*,0)
+\end{equation}
+\begin{equation}
+  \bra{S_i^{(-)}} = (0,1^*)
+\end{equation}
+Now:
+\begin{equation}
+  \sum_{S_i = \pm 1}^{}  \ket{S_i} \bra{S_i} = \mathbb{1} = \begin{pmatrix}
+  1   & 0 \\
+  0   & 1
+  \end{pmatrix}
+\end{equation}
+Therefore:
+\begin{equation}
+  \rightarrow Z_N = \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N = \pm 1}^{} \bra{S_1} \mathbb{T} \ket{S_2} \bra{S_2}  \mathbb{T} \ket{S_3} \dots \ket{S_i} \bra{S_i}  \mathbb{T} \ket{S_{i+1}} \dots
+\end{equation}
+\begin{equation}
+  \rightarrow Z_N(k,h) = \sum_{S_1 = \pm 1}^{}  \bra{S_1}  \mathbb{T}^N \ket{S_1} = \Tr[\mathbb{T}^N]
+\end{equation}
+this is exactly the trace of the matrix.
+We can find a unitary transformation:
+\begin{equation}
+   \mathbb{T}_D = \mathbb{P} \mathbb{T} \mathbb{P}^{-1}
+\end{equation}
+with \( \mathbb{P} \mathbb{P}^{-1} = \mathbb{1} \).
+
+\begin{equation}
+  \rightarrow Z = \Tr [ \mathbb{P}^{-1} \mathbb{P} \mathbb{T}  \mathbb{P}^{-1} \mathbb{P} \mathbb{T}  \dots \mathbb{P}^{-1} \mathbb{P} \mathbb{T} \mathbb{P}^{-1} \mathbb{P} ]
+\end{equation}
+\begin{equation}
+  \rightarrow  = \Tr[ \mathbb{P}^{-1}  \mathbb{T_D^N} \mathbb{P}] = \Tr[ \mathbb{P} \mathbb{P}^{-1} \mathbb{T_D^N} ] = \Tr[\mathbb{T_D^N}]
+\end{equation}
+Now:
+\begin{equation}
+  Z_N (k,h) = \Tr[\mathbb{T_D^N}] = \lambda _+^N  + \lambda _-^N, \quad \lambda _+ \ge \lambda_-
+\end{equation}
+We have \( S_i = +1,0,-1 \), therefore it can assume three different values.
+This is a \emph{deluted} ising model.
+
+ Let us suppose there are \( (n+2) \)  possible values:
+ \begin{equation}
+   \bra{S_i^{(3)}} = (0,0,1^*,0,\dots)
+ \end{equation}
+\begin{equation}
+  \ket{S_i^{(3)}} = \begin{pmatrix}
+  0 \\
+  0 \\
+  1 \\
+  \vdots \\
+  0
+  \end{pmatrix}
+\end{equation}
+\begin{equation}
+  \sum_{S_i}^{} \ket{S_i} \bra{S_i} = \mathbb{1}, \quad \mathbb{1} \in (n+2)\times(n+2)
+\end{equation}
+\begin{equation}
+  \mathbb{S}_i = \sum_{S_i}^{} \ket{S_i} S_i \bra{S_i}
+\end{equation}
+Now \( \{ \lambda _+,\lambda _-,\lambda _1,\dots,\lambda _n  \}   \) , with \( \lambda _+ > \lambda _- \ge \lambda _1 \ge \dots \ge \lambda _n \).
+\begin{equation}
+  Z_N ( \{ k \},h  ) = \lambda _+^N +\lambda _-^N + \sum_{i=1}^{n} \lambda _i^N
+\end{equation}
+\begin{equation}
+  \mathbb{T} = \mathbb{P} \mathbb{T}_D \mathbb{P}^{-1} = \sum_{i}^{} \ket{t_i} \lambda _i \bra{t_i}
+\end{equation}
+Now we are interested in the limit of the bulk free energy:
+\begin{equation}
+  F_N () =-k_B T \log{Z_N ()}
+\end{equation}
+In general, looking at the thermodynamic limit:
+\begin{equation}
+  f_b ( \{ k \},h  ) = \lim_{N \rightarrow \infty } \frac{1}{N} F_N = \lim_{N \rightarrow \infty } \frac{1}{N} (-k_B T) \log{\qty[\lambda _+^N + \lambda _-^N + \sum_{i=1}^{n} \lambda _i ^N  ] }
+\end{equation}
+\begin{equation}
+  \rightarrow = \lim_{N \rightarrow \infty } \frac{-k_B T}{N} \log{\qty[\lambda _+^N \qty(1+\frac{\lambda _-^N}{\lambda _+^N}+ \sum_{i}^{} \qty(\frac{\lambda _i}{\lambda _+})^N    ) ] }  = -k_B T \log{\lambda _+}
+\end{equation}
+So we have obtained
+\begin{empheq}[box=\myyellowbox]{equation}
+f_b = -k_B T \log{\lambda _+}
+\end{empheq}
+% \begin{empheq}[box=\myyellowbox]{equation}
+% Z_N = \lambda _+^N +\lambda _-^N + \sum_{i=1}^{n} \lambda _i^N
+% \end{empheq}
+This is simply because \( \lambda _+ \) is the largest.
+
+\begin{theorem}[Perron-Frobenius] \
+Let \( A \) be a \( m \times m \) matrix. If \emph{A} is finite (\( m < \infty  \)) and \( A_{ij} > 0 , \forall i,j \), \( (A_{ij}=A_{ij} (\va{x})) \) therefore \( \lambda _+ \) has the following properties:
+\begin{enumerate}
+\item \( \lambda _+ \in \R^+  \)
+\item \( \lambda _+ \neq \text{ from } \{ \lambda _i \}_{i=1,\dots, m-1 }   \)
+\item \( \lambda _+ \) is a analytic function of its arguments
+\end{enumerate}
+\end{theorem}
+
+Try to change \( A_{ij} > 0 \) or the hypothesis that \emph{A} is \emph{finite} and see what is obtained.
+
+\section{Correlation function}
+
+Now we calculate the two points correlation function. We want the fluctuation respect to the average:
+\begin{equation}
+  \Gamma _R = \expval{S_1 S_R} - \expval{S_1}\expval{S_R}
+\end{equation}
+we expect from physics that
+\begin{equation}
+  \Gamma _R \underset{R \rightarrow \infty }{\sim } \exp [-R/\xi ]
+\end{equation}
+\begin{equation}
+  \xi^{-1} = \lim_{R \rightarrow \infty } \qty[ - \frac{1}{R} \log{ \qty[ \expval{S_1 S_R} - \expval{S_1}\expval{S_R}] } ]
+\end{equation}
+\begin{equation}
+  \expval{S_1 S_R}_N = \frac{1}{Z_N} \sum_{\{ S \}  }^{} S_1 S_R \exp [-\beta \mathcal{H}]
+\end{equation}
+\begin{equation}
+  = \frac{1}{Z_N} \sum_{\{ S \}  }^{} S_1 \bra{S_1} \mathbb{T} \ket{S_2} \dots  \bra{S_{R-1}} \mathbb{T} \ket{S_R} S_R \bra{S_R} \mathbb{T} \ket{S_{R+1}} \dots \bra{S_N} \mathbb{T} \ket{S_1}
+\end{equation}
+\begin{equation}
+  = \frac{1}{Z_N} \sum_{S_1,S_R}^{} S_1 \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} S_R \bra{S_R} \mathbb{T}^{N-R+1} \ket{S_1}
+\end{equation}
+\begin{equation}
+  \mathbb{T}^{R-1} = \sum_{i=1}^{n+2} \ket{t_i} \lambda _i^{R-1}  \bra{t_i}
+\end{equation}
+\begin{equation}
+  \mathbb{T}^{N-R+1} = \sum_{i=1}^{n+2} \ket{t_i} \lambda _i^{N-R+1}  \bra{t_i}
+\end{equation}
+\begin{equation}
+  \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} = \sum_{i=1}^{n+2} \braket{S_i}{t_i} \lambda ^{R-1} \braket{t_i}{S_R}
+\end{equation}
+\begin{equation}
+  \sum_{\{ S \}  }^{}  S_1 S_R e^{-\beta \mathcal{H}} = \sum_{S_1 S_R}^{} S_1 \sum_{i=1}^{n+2} \braket{S_1}{t_i} \lambda _i^{R-1} \braket{t_i}{S_R} S_R \sum_{j=1}^{n+2} \braket{S_R}{t_j} \lambda_j ^{N-R+1} \braket{t_j}{S_1}
+\end{equation}
+Define:
+\begin{equation}
+  \mathbb{S}_1 = \sum_{S_1}^{} \ket{S_1} S_1 \bra{S_1}
+\end{equation}
+\begin{equation}
+\mathbb{S}_R = \sum_{S_R}^{} \ket{S_R} S_R \bra{S_R}
+\end{equation}
+\begin{equation}
+  \rightarrow = \sum_{ij}^{} \bra{t_j } \mathbb{S}_1 \ket{t_i} \lambda _i^{R-1} \bra{t_i} \mathbb{S}_R \ket{t_j} \lambda _j ^{N-R+1}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
