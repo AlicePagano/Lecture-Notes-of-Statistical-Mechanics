@@ -1,0 +1,169 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{06}{11}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 8.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+Last time we computed the lamnbda function, the fluctuation of the transfer matrix:
+\begin{equation}
+  \expval{s_1 s_R}_N = \frac{\sum_{ij}^{} \bra{t_j} S_1 \ket{t_i} \lambda _i^{R-1} \bra{t_i}S_R \ket{T_j} \lambda _j^{N-R+1}      }{\sum_{k=1}^{n} \lambda _k^N  }
+\end{equation}
+\begin{equation}
+  \mathbb{s}_i = \sum_{s_i}^{} \ket{s_i}S_i \bra{s_i}
+\end{equation}
+\begin{equation}
+  \mathbb{T} \ket{t_i} = \lambda _i \ket{t_i}
+\end{equation}
+For the Ising model:
+\begin{equation}
+  \sigma _z \equiv
+  \begin{pmatrix}
+    1 & 0 \\
+    0  &-1
+  \end{pmatrix}
+\end{equation}
+\begin{equation}
+  \expval{s_1 s_R}_N = \frac{\sum_{ij}^{} \bra{t_j} S_1 \ket{t_i} \lambda _i^{R-1} / \lambda _+ \bra{t_i}S_R \ket{T_j} \lambda _j^{N-R+1}  / \lambda _T^{N-R+1}    }{\sum_{k=1}^{n} \lambda _k^N  / \lambda _+^{N} }
+\end{equation}
+You keep the sum and the one that survives are \( j=+,k=+ \):
+\begin{equation}
+  \lim_{N \rightarrow \infty } \expval{s_1 s_R}_N = \sum_{i= \pm}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} s_1 \ket{t_i} \bra{t_i} s_R \ket{t_+}
+\end{equation}
+rembember that \( \lambda _+ > \lambda _T \ge \lambda _1 \dots \lambda _n \)
+\begin{equation}
+  \Rightarrow = \bra{t_+} \mathbb{s_1} \ket{t_+} \bra{t_+} s_R \ket{t_+} +   \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} s_1 \ket{t_i} \bra{t_i} s_R \ket{t_+}
+\end{equation}
+\begin{equation}
+  \Gamma _R = \expval{s_1 s_R} - \expval{s_1}\expval{s_R}
+\end{equation}
+\begin{equation}
+  \lim_{N \rightarrow \infty } \expval{\mathbb{s}_i}_N = \bra{t_+} \mathbb{s_1} \ket{t_+}
+  \label{eq:8_1}
+\end{equation}
+Because of \eqref{eq:8_1}:
+\begin{equation}
+\Gamma _R =  \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} s_1 \ket{t_i} \bra{t_i} s_R \ket{t_+}
+\end{equation}
+\begin{equation}
+  \xi ^{-1} = \lim_{N \rightarrow \infty } \qty{-\frac{1}{R-1} \log{\qty|\expval{s_1s_R} \expval{s_1} \expval{s_R}   |} }  = -\log{\qty(\frac{\lambda _-}{\lambda _+}) } - \lim_{R \rightarrow \infty } \frac{1}{R-1} \log{\expval{s_1 s_R} - \expval{s_1}\expval{s_R}  }
+\end{equation}
+\begin{equation}
+  \xi ^{-1} = - \log{\qty(\frac{\lambda _-}{\lambda_+}) }
+\end{equation}
+
+Let us try to apply this general result to the classical Ising model.
+\begin{equation}
+  \mathbb{T} =
+  \begin{pmatrix}
+  \exp (k+h)     & \exp (-k)  \\
+  \exp (-k)    & \exp (k-h)
+  \end{pmatrix}
+\end{equation}
+Calculate the eigenvalues:
+\begin{equation}
+  \abs{\mathbb{T}-\lambda \mathbb{1}} = 0 = (e^{k+h}- \lambda  )(e^{k-h}-\lambda  )-e^{-2k}=0
+\end{equation}
+Calculate the two eigenvalues:
+\begin{equation}
+  \lambda _{\pm} = e^{k} \cosh(h) \pm \sqrt{e^{2k}\sinh^2 (h)+e^{-2k} }
+\end{equation}
+\begin{equation}
+  f_b = -k_B T \log{\lambda _+} = -k k_B T - k_B T \log{\qty( \cosh(h)+\sqrt{\sinh^2(h)+e^{-4k}  } )}
+\end{equation}
+rembember \( k \equiv \beta J, h \equiv \beta H\).
+
+Suppose we are looking for the \( T \rightarrow 0 \) limit, with \emph{H fixed} and \emph{J fixed}, in that case we have
+\( k \rightarrow \infty , h \rightarrow \infty  \).
+\begin{equation}
+  e^{-4k} \overset{k \rightarrow \infty }{\longrightarrow} 0
+\end{equation}
+\( \sqrt{\sinh^2 h } \approx \sinh h  \) and \( \cosh(h) + \sinh h \approx \frac{2 e^{h} }{2} e^{h}  \):
+\begin{equation}
+  f \overset{\substack{h \rightarrow \infty  \\ k \rightarrow \infty  } }{\approx } - k k_B T - k_B T \log{e^{h} } \approx -J -H \quad const
+\end{equation}
+So if \( T \rightarrow \infty, h \rightarrow 0, k \rightarrow 0  \):
+\begin{equation}
+  f_B \approx -J -k_B T \ln{2}
+\end{equation}
+The important is that it goes linearly as in Figure 1.
+\begin{equation}
+  m = - \pdv{f_b}{H} = - \frac{1}{k_B T } \pdv{f_b}{h} = \frac{\sinh h + \frac{2 \sinh h \cosh h}{\sqrt{\sinh^2 h + e^{-4k} }} }{\cosh h + \sqrt{\sinh^2 h + e^{-4k} } }
+\end{equation}
+\begin{equation}
+  \chi  = \pdv{m}{H} = \frac{1}{k_B T} \pdv{m}{h}
+\end{equation}
+Just look for \( h=0 \) (\( \rightarrow \sinh h = 0 \)  and \( \cosh h = 1 \) ):
+\begin{equation}
+  \xi ^{-1} = - \log{\qty[\frac{1- e^{-2k} }{1+ e^{-2k} }] } =  - \log{\qty[\frac{1 }{\coth k }] }
+\end{equation}
+Suppose to study something different from the Ising model, we do not anymore assume spin that can assume values as -1 or +1, but spin that can assume a continuous value. This is the classical Heisenberg model.
+\section{Classica Heisenberg model}
+The spin are vector or modulus one, so they are versor.
+Figure 2
+\( \va{s_i} \in \R^3 \)  with the contraint \( \abs{\va{s_i}}  = 1\) \(   \rightarrow \vu{s_i} \).
+
+At \( H=0 \):
+\begin{equation}
+  - \beta \mathcal{H} ( \{ \va{S}_i \}  ) = k \sum_{i=1}^{N} \va{S}_i \vdot \va{S}_{i+1} (\longrightarrow \sum_{i}^{} \va{h} \vdot \va{S}_i  )
+\end{equation}
+this is a \( O(3) \) symmetric.
+Compute:
+\begin{equation}
+  Z_N (k) = \sum_{\{ \va{S} \}  }^{} e^{-\beta \mathcal{H}}  = \Tr(\mathbb{T}^N)
+\end{equation}
+\begin{equation}
+  \bra{\va{S}_i} \mathbb{T} \ket{\va{S}_{i+1}} = e^{k \va{S}_i \vdot \va{S}_{i+1}}
+\end{equation}
+\begin{equation}
+  \mathbb{T}_D = \mathbb{P}^{-1} \mathbb{T}\mathbb{P}
+\end{equation}
+\begin{equation}
+  \mathbb{T} \ket{t_i} = \lambda _i \ket{t_i}
+\end{equation}
+\begin{equation}
+  \mathbb{T} = \sum_{i}^{} \ket{t_i} \lambda _i \bra{t_i}
+\end{equation}
+\begin{equation}
+  \exp [k \va{S}_1\vdot \va{S}_{2}] = \bra{\va{S}_1} \mathbb{T} \ket{\va{S}_2} = \sum_{i \in eigenval}^{} \lambda _i \braket{\va{S}_1}{t_i}  \braket{t_i}{\va{S}_2}
+  = \sum_{i}^{} \lambda _i f_i ( \va{S}_1) f^* (\va{S}_2)
+\end{equation}
+\begin{equation}
+  e^{k \va{S}_1\vdot \va{S}_2 } \iff e^{i \va{q}\vdot \va{r}}
+\end{equation}
+\begin{equation}
+  e^{i \va{q}\vdot \va{r}} = 4 \pi \sum_{l=0}^{\infty } \sum_{m=-l}^{l} (i)^l j_l (qr) Y_{lm} (\vu{q}) Y^*_{lm} (\vu{r})
+\end{equation}
+\begin{equation}
+  j_l (qr) = - \frac{(i)^l}{2} \int_{0}^{\pi} \sin(\theta ) e^{i q r \cos(\theta ) } P_l (\cos(\theta ) ) \dd[]{\theta }
+\end{equation}
+where \( P_l (\cos(\theta ) ) \)  are the Legendre polynomial of order \emph{l}.
+\begin{equation}
+  qr = -ik \abs{\va{S}_1} \abs{\va{S}_2} = -ik
+\end{equation}
+In our case we have
+\( \vu{q} = \va{S}_1, \vu{r} = \va{S}_2 \)
+Moreover,
+\begin{equation}
+  \lambda _i = \lambda _{lm} (k) = 4 \pi (i)^l j_l (-ik)
+\end{equation}
+note that there is not \emph{m} dependence
+If \( l=0 \):
+\begin{equation}
+  \lambda _+ = \lambda _0 (k) = 4 \pi j_0 (-ik) = 4 \pi \frac{\sin k }{k}
+\end{equation}
+\begin{equation}
+  \lambda _- = \lambda _1 (k) = 4 \pi i j_1 (-ik) = 4 \pi \qty[\frac{\cosh k }{k}-\frac{\sinh k }{k^2}]
+\end{equation}
+
+\section{Zipper model}
+Enea denaturation transition (?). You do not allow to have bubbles in the system as in figure 3, but we want as in figure 4.  This is because it is called zipper.
+
+
+
+
+
+
+\end{document}
