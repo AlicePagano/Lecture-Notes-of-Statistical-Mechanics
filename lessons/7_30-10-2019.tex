@@ -8,44 +8,33 @@
 \marginpar{ \textbf{Lecture 7.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
 \subsection{Transfer Matrix method}
-
-
-
-
-
-
-\section{Lesson}
-
-Today we introduce a general tecnique used in many fields as graph theory: the transfer matrix. If you are able to diagonalize the transfer matrix, you can use trick as eigenvalues and eigenvectors.
-
-Consider the Ising model in a circle, as in Figure 1.
-We are introducing the bulk
-\begin{equation}
-  S_{N+1} = S_1
-\end{equation}
-\begin{equation}
-  \beta \mathcal{H} = k \sum_{i=1}^{N} S_i S_{i+1} + h \sum_{i=1}^{N} S_i \quad \text{with} \quad k \equiv \beta J, h \equiv H \beta
-\end{equation}
+Given the Hamiltonian above we can write the corresponding partition function in the following symmetric form:
 \begin{equation}
   Z_N (k,h) = \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{}  \dots \sum_{S_N = \pm 1}^{}
-  \qty[e^{k S_1 S_2 + \frac{h}{2}(S_1+S_2)} ]\dots \qty[e^{k S_N S_1 + \frac{h}{2}(S_N+S_1)} ]
+  \qty[e^{k S_1 S_2 + \frac{h}{2}(S_1+S_2)} ] \qty[e^{k S_2 S_3 + \frac{h}{2}(S_2+S_3)} ] \dots \qty[e^{k S_N S_1 + \frac{h}{2}(S_N+S_1)} ]
 \end{equation}
-Suppose you have a sort of \( \sum_{j}^{}  M_{ij} P_{jk} \), what we have done is doing something like that. We can rewrite this formally:
+Suppose you have a sort of \( \sum_{j}^{}  M_{ij} P_{jk} \), what we have done is doing something like that.
+In the previous form \( Z_N \) can be written as a product of matrices
 \begin{equation}
-  \rightarrow Z_N = \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N = \pm 1}^{} \bra{S_1} \mathbb{T} \ket{S_2} \bra{S_2}  \mathbb{T} \ket{S_3} \dots \bra{S_N}  \mathbb{T} \ket{S_1}
+\begin{split}
+Z_N (h,k)  &= \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N = \pm 1}^{} \prod_{i=1}^{N} \exp [k S_i S_{i+1} + \frac{h}{2} (S_i + S_{i+1})] \\
+& =  \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N = \pm 1}^{} \bra{S_1} \mathbb{T} \ket{S_2} \bra{S_2}  \mathbb{T} \ket{S_3} \dots \bra{S_N}  \mathbb{T} \ket{S_1}
+\end{split}
 \end{equation}
-where \( \mathbb{T} \) is a 2x2 matrix and
+where \( \mathbb{T} \) is a \( 2 \times 2 \)  matrix defined as
 \begin{equation}
   \bra{S} \mathbb{T} \ket{S'} = \exp [k S S' + \frac{h}{2} (S+S')]
 \end{equation}
-For example:
-\begin{equation}
-  \bra{+1} \mathbb{T} \ket{+1} = \exp [k+h]
-\end{equation}
-\begin{equation}
-  \bra{+1} \mathbb{T} \ket{-1} = \exp [-k]
-\end{equation}
-The matrix has the form:
+Note that the labels of the matrix corresponds to the values of \( S_i \). Hence its dimension depdens on the number of possible values a spin \( S_i \) can assume.
+It can also depends on how many spins are involved in the interacting terms that are present in the hamiltonian (\( k_{LL} \sum_{}^{} S_i S_{i+1} S_{i+2} S_{i+3}  \)). For Ising \( S_i = \pm 1 \) and neirest neighbour interaction implies that we have 2 values and that \( \mathbb{T} \) is a \( 2 \times 2 \) matrix whose components are
+\begin{subequations}
+\begin{align}
+  \bra{+1} \mathbb{T} \ket{+1} &= \exp [k+h]  \\
+    \bra{+1} \mathbb{T} \ket{-1} &=   \bra{-1} \mathbb{T} \ket{+1} = \exp [k-h] \\
+      \bra{-1} \mathbb{T} \ket{-1} &= \exp [-k]
+\end{align}
+\end{subequations}
+The explicit representation is
 \begin{equation}
   \mathbb{T} =
 \begin{pmatrix}
@@ -53,56 +42,89 @@ e^{k+h}    & e^{-k}  \\
   e^{-k}  & e^{k-h}
 \end{pmatrix}
 \end{equation}
+Let us now introduce some useful notations and relations using the bra-ket formalism:
+subequations
 \begin{equation}
   \ket{S_i^{(+)}} = \begin{pmatrix}
   1 \\
   0
-  \end{pmatrix}
-\end{equation}
-\begin{equation}
+  \end{pmatrix}_i
+  \quad
   \ket{S_i^{(-)}} = \begin{pmatrix}
   0 \\
   1
-  \end{pmatrix}
-\end{equation}
-Therefore the bra is:
-\begin{equation}
-  \bra{S_i^{(+)}} = (1^*,0)
+  \end{pmatrix}_i
 \end{equation}
 \begin{equation}
-  \bra{S_i^{(-)}} = (0,1^*)
+  \bra{S_i^{(+)}} = (1^*,0)_i \quad   \bra{S_i^{(-)}} = (0,1^*)_i
 \end{equation}
-Now:
+The identity relation is:
 \begin{equation}
-  \sum_{S_i = \pm 1}^{}  \ket{S_i} \bra{S_i} = \mathbb{1} = \begin{pmatrix}
+  \sum_{S_i = \pm 1}^{}  \ket{S_i} \bra{S_i} =
+  \ketbra{S_i^{(+)}}{S_i^{(+)}} + \ketbra{S_i^{(-)}}{S_i^{(-)}}
+  =\mathbb{1} = \begin{pmatrix}
   1   & 0 \\
   0   & 1
   \end{pmatrix}
 \end{equation}
-Therefore:
+By using the last property we can write
 \begin{equation}
-  \rightarrow Z_N = \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N = \pm 1}^{} \bra{S_1} \mathbb{T} \ket{S_2} \bra{S_2}  \mathbb{T} \ket{S_3} \dots \ket{S_i} \bra{S_i}  \mathbb{T} \ket{S_{i+1}} \dots
+  \begin{split}
+   Z_N (K,h) &= \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N = \pm 1}^{} \bra{S_1} \mathbb{T} \ket{S_2} \bra{S_2}  \mathbb{T} \ket{S_3} \dots \ket{S_i} \bra{S_i}  \mathbb{T} \ket{S_{i+1}} \dots \\
+   & = \sum_{S_1 = \pm 1}^{}  \bra{S_1}  \mathbb{T}^N \ket{S_1} = \Tr[\mathbb{T}^N]
+     \end{split}
 \end{equation}
+this is exactly the trace of the matrix. Being \( \mathbb{T} \) symmetric, we can diagonalize it by an unitary transformation
 \begin{equation}
-  \rightarrow Z_N(k,h) = \sum_{S_1 = \pm 1}^{}  \bra{S_1}  \mathbb{T}^N \ket{S_1} = \Tr[\mathbb{T}^N]
-\end{equation}
-this is exactly the trace of the matrix.
-We can find a unitary transformation:
-\begin{equation}
-   \mathbb{T}_D = \mathbb{P} \mathbb{T} \mathbb{P}^{-1}
+   \mathbb{T}_D = \mathbb{P}^{-1} \mathbb{T} \mathbb{P}
 \end{equation}
 with \( \mathbb{P} \mathbb{P}^{-1} = \mathbb{1} \).
+\begin{equation}
+\begin{split}
+  \Tr[\mathbb{T}^N] &= \Tr[\underbrace{\mathbb{T} \mathbb{T} \mathbb{T} \dots \mathbb{T}}_{N} ] = \Tr[ \mathbb{P} \mathbb{P}^{-1} \mathbb{T} \mathbb{P} \mathbb{P}^{-1} \mathbb{T} \mathbb{P} \dots \mathbb{P}^{-1}  \mathbb{T} \mathbb{P} \mathbb{P}^{-1} ]    \\
+  & = \Tr[ \mathbb{P} \mathbb{T}_D^N \mathbb{P}^{-1}] \underset{\substack{ \text{ciclyc property} \\  \text{of the trace} } }{=} \Tr[ \mathbb{T}_D^N \mathbb{P}^{-1} \mathbb{P} ]\\
+  & = \Tr[ \mathbb{T}_D^N]
+\end{split}
+\end{equation}
+where
+\begin{equation}
+\mathbb{T}_D =  \begin{pmatrix}
+  \lambda _+   & 0 \\
+  0   & \lambda _-
+  \end{pmatrix}
+  \quad
+  \mathbb{T}_D^N =  \begin{pmatrix}
+    \lambda _+^N   & 0 \\
+    0   & \lambda _-^N
+    \end{pmatrix}
+\end{equation}
+with \( \lambda _{\pm} \) are the eigenvalues with \( \lambda _+ > \lambda _- \).
+\begin{remark}
+\( \mathbb{P} \) is the similitude matrix whose colums are given by the eigenvectors of \(   \lambda _{\pm} \).
+\end{remark}
+We finally have:
+\begin{equation}
+  Z_N (K,h) = \Tr[\mathbb{T_D^N}] = \lambda _+^N  + \lambda _-^N
+\end{equation}
+\begin{remark}
+As mentioned previously the dimension of the transfer matrix \( \mathbb{T} \) and hence the number of eigenvalues \( \{ \lambda  \}   \) depend both on the possible values of \( S_i \) and on the number of sites involved in terms of the Hamiltonian (range of interaction).
+\end{remark}
+\begin{example}
+For example consider the Ising (\( S_i = \pm 1\)) with neirest neighbour and next neirest neighbour interactions. The hamiltonian is:
+\begin{equation}
+  \mathcal{H} = k_1 \sum_{i}^{} S_i S_{i+1} + k_2 \sum_{i}^{} S_i S_{i+1} S_{i+2} S_{i+3}
+\end{equation}
+Because of the second term now there are \( 2^4 = 16 \) possible configurations that can be described by using a \( 4 \times 4 \) transfer matrix that we can write formally as   
+\end{example}
 
-\begin{equation}
-  \rightarrow Z = \Tr [ \mathbb{P}^{-1} \mathbb{P} \mathbb{T}  \mathbb{P}^{-1} \mathbb{P} \mathbb{T}  \dots \mathbb{P}^{-1} \mathbb{P} \mathbb{T} \mathbb{P}^{-1} \mathbb{P} ]
-\end{equation}
-\begin{equation}
-  \rightarrow  = \Tr[ \mathbb{P}^{-1}  \mathbb{T_D^N} \mathbb{P}] = \Tr[ \mathbb{P} \mathbb{P}^{-1} \mathbb{T_D^N} ] = \Tr[\mathbb{T_D^N}]
-\end{equation}
-Now:
-\begin{equation}
-  Z_N (k,h) = \Tr[\mathbb{T_D^N}] = \lambda _+^N  + \lambda _-^N, \quad \lambda _+ \ge \lambda_-
-\end{equation}
+
+
+
+
+\section{Lesson}
+
+
+
 We have \( S_i = +1,0,-1 \), therefore it can assume three different values.
 This is a \emph{deluted} ising model.
 
