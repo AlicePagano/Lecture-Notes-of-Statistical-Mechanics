@@ -114,108 +114,176 @@ For example consider the Ising (\( S_i = \pm 1\)) with neirest neighbour and nex
 \begin{equation}
   \mathcal{H} = k_1 \sum_{i}^{} S_i S_{i+1} + k_2 \sum_{i}^{} S_i S_{i+1} S_{i+2} S_{i+3}
 \end{equation}
-Because of the second term now there are \( 2^4 = 16 \) possible configurations that can be described by using a \( 4 \times 4 \) transfer matrix that we can write formally as   
+Because of the second term now there are \( 2^4 = 16 \) possible configurations that can be described by using a \( 4 \times 4 \) transfer matrix that we can write formally as
+\begin{equation}
+  \bra{S_i S_{i+1}} \mathbb{T} \ket{S_{i+2} S_{i+3}}
+\end{equation}
 \end{example}
+Let us now consider the transfer matrix formalism in a more general setting.
 
+\subsubsection{General transfer matrix method}
+Let \( \mathbb{T} \) be a square matrix \( (n+2) \times (n+2) \) that, for example, it is built if the spin variables mary assume \( (n+2) \) possible values. The \emph{k}-esim value can be defined by the bra-ket notation where the two vectors are given by a sequence of "0" and a single "1" at the k-esim position.
+\begin{example}
+  For example, suppose \( S_i = +1,0,-1 \), therefore it can assume three different values.
+  This is a \emph{deluted} ising model.
 
+  If \( k=3 \) and there are \( (n+2) \)  possible values:
+
+  \begin{equation}
+    \bra{S_i^{(3)}} = (0,0,1^*,0,\dots,0) \qquad   \ket{S_i^{(3)}} = \begin{pmatrix}
+      0 \\
+      0 \\
+      1 \\
+      \vdots \\
+      0
+      \end{pmatrix}
+  \end{equation}
+\end{example}
+Similarly to the \( 2 \times 2 \) (Ising) case it is easy to show that
+\begin{equation}
+  \sum_{S_i}^{} \ket{S_i} \bra{S_i} = \mathbb{1}, \quad \mathbb{1} \in (n+2)\times(n+2)
+\end{equation}
+where now the sum is over \( (n+2) \) values.
+
+Let us now consider  the \emph{diagonal matrix} \( \mathbb{S}_i \) where the elements along the diagonal are all the  \( (n+2) \) possible values of the \emph{i}-esim spin (or of some of their combination if longer interaction terms are considered)
+\begin{equation}
+  \mathbb{S}_i \equiv  \sum_{S_i}^{} \ket{S_i} S_i \bra{S_i}
+\end{equation}
+\begin{example}
+Ising model \( n+2=2 \)
+\begin{equation}
+  \begin{pmatrix}
+  1 \\
+  0
+  \end{pmatrix} S^{(1)} (1^*,0) +
+  \begin{pmatrix}
+  0 \\
+  1
+  \end{pmatrix} S^{(2)} (0,1^*) =
+  \begin{pmatrix}
+  S^{(1)}   & 0 \\
+  0   & 0
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+  0   & 0 \\
+  0   & S^{(2)}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  S^{(1)}  & 0 \\
+  0   & S^{(2)}
+  \end{pmatrix}
+\end{equation}
+Ising: \( S^{(1)} =+1,S^{(2)}=-1 \).
+\end{example}
+Note that in this case the matrix \( \mathbb{S}_i \) is equal to the Pauli matrix \( \sigma _z \).
+\begin{remark}
+By constrution \( \bra{S_i}  \) and \( \ket{S_i}  \) are the eigenvectors related to the eigenvalues \( S_i = S^{(1)},S^{(2)}, \dots,S^{(n+2)} \).
+\end{remark}
+Similarly let \( \bra{t_i}  \) and \( \ket{t_i}  \) be the eigenvectors related to the \( (n+2) \) eigenvalues of the transfer matrix \( \mathbb{T} \):
+   \( \{ \lambda _+,\lambda _-,\lambda _1,\dots,\lambda _n  \}   \) , with \( \lambda _+ > \lambda _- \ge \lambda _1 \ge \dots \ge \lambda _n \).
+Clearly
+\begin{equation}
+  \mathbb{T} = \mathbb{P} \mathbb{T}_D \mathbb{P}^{-1} = \sum_{i}^{} \ket{t_i} \lambda _i \bra{t_i}
+\end{equation}
+Indeed
+\begin{equation}
+  \mathbb{T} \ket{t_j} = \sum_{i}^{} \ket{t_i} \lambda _i \braket{t_i}{t_j} = \sum_{i}^{}  \ket{t_i} \lambda _i \delta _{ij} = \lambda _j \ket{t_j}
+\end{equation}
+Given the set of lambda described above, the \emph{N} particle partition function is given by
+\begin{equation}
+  Z_N ( \{ k \},h  ) = \lambda _+^N +\lambda _-^N + \sum_{i=1}^{n} \lambda _i^{\mathcolorbox{red}{N} }
+\end{equation}
+Now, we are interested in the limit of the bulk free energy:
+\begin{equation}
+  F_N () =-k_B T \log{Z_N ()}
+\end{equation}
+In general, looking at the thermodynamic limit, by factorizing \( \lambda _+ \)
+\begin{equation}
+  f_b ( \{ k \},h  ) = \lim_{N \rightarrow \infty } \frac{1}{N} F_N = \lim_{N \rightarrow \infty } \frac{1}{N} (-k_B T) \log{\qty[\lambda _+^N + \lambda _-^N + \sum_{i=1}^{n} \lambda _i ^N  ] }
+\end{equation}
+by rearringing
+\begin{equation}
+  f_b = \lim_{N \rightarrow \infty } \frac{-k_B T}{N} \log{\qty[\lambda _+^N \qty(1+\frac{\lambda _-^N}{\lambda _+^N}+ \sum_{i=1}^{n} \qty(\frac{\lambda _i}{\lambda _+})^N    ) ] }
+\end{equation}
+Since \( \lambda _+ > \lambda _- > \lambda _1 > \dots \lambda _n \)
+\begin{equation}
+\qty(\frac{\lambda _-}{\lambda _+})^N \overset{N \rightarrow \infty }{\longrightarrow} 0,
+\quad
+\qty(\frac{\lambda _i}{\lambda _+})^N \overset{N \rightarrow \infty }{\longrightarrow} 0
+\quad \forall i
+\end{equation}
+we obtain
+\begin{empheq}[box=\myyellowbox]{equation}
+f_b = -k_B T \log{\lambda _+}
+\end{empheq}
+The limiting free-energy depends only on the largest eigenvalue of the transfer matrix \( \mathbb{T} \)! This is important since sometime it is much simpler to computer only the largest eigenvalue than the whole spectrum of \( \mathbb{T} \). This is also an important theorem about \( \lambda _+ \).
+\begin{theorem}[Perron-Frobenius] \
+Let \( \mathbb{A} \) be a \( n \times n \) matrix. If \( \mathbb{A} \) is finite (\( n < \infty  \)) and \( \mathbb{A}_{ij} > 0 , \forall i,j \), \( (\mathbb{A}_{ij}=\mathbb{A}_{ij} (\va{x})) \), therefore its largest eigenvalue \( \lambda _+ \) has the following properties:
+\begin{enumerate}
+\item \( \lambda _+ \in \R^+  \)
+\item \( \lambda _+ \neq \text{ from } \{ \lambda _i \}_{i=1,\dots, n-1 }   \). It means there is no degeneracy.
+\item \( \lambda _+ \) is a analytic function of the parameters of \( \mathbb{A} \).
+\end{enumerate}
+\end{theorem}
+\begin{remark}
+Since in our case \( \mathbb{A} \leftrightarrow  \mathbb{T} \), \( \lambda _+ \) is related to \( f_b \) from the theorem. This means that \( f_b \) is an analytic function!
+\end{remark}
+If the conditions of the Perron-Frobenius theorem are satisfied by \( \mathbb{T} \), the model described by  \( \mathbb{T} \) cannot display a phase transition!
+\begin{remark}
+This is trye for \( T>0 \) since for \( T=0 \) some \( T_{ij} \) can be either 0 or \( \infty  \) violating the hypothesis of the theorem.
+
+If \( \mathbb{T} \) has infinite dimension (see \( D>1 \) ) the hypothesis of the theorem are not valid any more and \( f_b \) can be non-analytic.
+\end{remark}
+
+\subsubsection{Two point correlation function}
+Let us consider the correlation between two spins at distance \emph{R} to another. The fluctuation respect to the average is:
+\begin{equation}
+  \Gamma _R \equiv  \expval{S_1 S_R} - \expval{S_1}\expval{S_R}
+\end{equation}
+Since
+\begin{equation}
+  \Gamma _R \underset{R \rightarrow \infty }{\sim } \exp [-R/\xi ]
+\end{equation}
+we can define the correlation length \( \xi  \) as
+\begin{equation}
+  \xi^{-1} \equiv  \lim_{R \rightarrow \infty } \qty[ - \frac{1}{R} \log{ \qty| \expval{S_1 S_R} - \expval{S_1}\expval{S_R}| } ]
+\end{equation}
+We have to compute the terms \( \expval{S_1 S_R}_N  \) and \( \expval{S_1}_N\expval{S_R}_N \).
+From the definition
+\begin{equation}
+  \expval{S_1 S_R}_N = \frac{1}{Z_N} \sum_{\{ S \}  }^{} S_1 S_R \exp [-\beta \mathcal{H}]
+\end{equation}
+Let us now write this expression by using the transfer matrix formalism.
+\begin{equation}
+\expval{S_1 S_R}_N  = \frac{1}{Z_N} \sum_{\{ S \}  }^{} S_1 \bra{S_1} \mathbb{T} \ket{S_2} \dots  \bra{S_{R-1}} \mathbb{T} \ket{S_R} S_R \bra{S_R} \mathbb{T} \ket{S_{R+1}} \dots \bra{S_N} \mathbb{T} \ket{S_1}
+\end{equation}
+Summing over the free spins
+\begin{equation}
+  \expval{S_1 S_R}_N = \frac{1}{Z_N} \sum_{S_1,S_R}^{} S_1 \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} S_R \bra{S_R} \mathbb{T}^{N-R+1} \ket{S_1}
+\end{equation}
+On the other hand since
+\begin{equation}
+  \mathbb{T} = \sum_{i=1}^{n+2} \ket{t_i} \lambda _i  \bra{t_i}
+\end{equation}
+we have
+\begin{subequations}
+\begin{align}
+  \mathbb{T}^{R-1} &= \sum_{i=1}^{n+2} \ket{t_i} \lambda _i^{R-1}  \bra{t_i} \\
+    \mathbb{T}^{N-R+1} &= \sum_{i=1}^{n+2} \ket{t_i} \lambda _i^{N-R+1}  \bra{t_i}
+\end{align}
+\end{subequations}
+Hence
+\begin{equation}
+  \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} = \sum_{i=1}^{n+2} \braket{S_i}{t_i} \lambda ^{R-1} \braket{t_i}{S_R}
+\end{equation}
 
 
 
 \section{Lesson}
 
 
-
-We have \( S_i = +1,0,-1 \), therefore it can assume three different values.
-This is a \emph{deluted} ising model.
-
- Let us suppose there are \( (n+2) \)  possible values:
- \begin{equation}
-   \bra{S_i^{(3)}} = (0,0,1^*,0,\dots)
- \end{equation}
-\begin{equation}
-  \ket{S_i^{(3)}} = \begin{pmatrix}
-  0 \\
-  0 \\
-  1 \\
-  \vdots \\
-  0
-  \end{pmatrix}
-\end{equation}
-\begin{equation}
-  \sum_{S_i}^{} \ket{S_i} \bra{S_i} = \mathbb{1}, \quad \mathbb{1} \in (n+2)\times(n+2)
-\end{equation}
-\begin{equation}
-  \mathbb{S}_i = \sum_{S_i}^{} \ket{S_i} S_i \bra{S_i}
-\end{equation}
-Now \( \{ \lambda _+,\lambda _-,\lambda _1,\dots,\lambda _n  \}   \) , with \( \lambda _+ > \lambda _- \ge \lambda _1 \ge \dots \ge \lambda _n \).
-\begin{equation}
-  Z_N ( \{ k \},h  ) = \lambda _+^N +\lambda _-^N + \sum_{i=1}^{n} \lambda _i^N
-\end{equation}
-\begin{equation}
-  \mathbb{T} = \mathbb{P} \mathbb{T}_D \mathbb{P}^{-1} = \sum_{i}^{} \ket{t_i} \lambda _i \bra{t_i}
-\end{equation}
-Now we are interested in the limit of the bulk free energy:
-\begin{equation}
-  F_N () =-k_B T \log{Z_N ()}
-\end{equation}
-In general, looking at the thermodynamic limit:
-\begin{equation}
-  f_b ( \{ k \},h  ) = \lim_{N \rightarrow \infty } \frac{1}{N} F_N = \lim_{N \rightarrow \infty } \frac{1}{N} (-k_B T) \log{\qty[\lambda _+^N + \lambda _-^N + \sum_{i=1}^{n} \lambda _i ^N  ] }
-\end{equation}
-\begin{equation}
-  \rightarrow = \lim_{N \rightarrow \infty } \frac{-k_B T}{N} \log{\qty[\lambda _+^N \qty(1+\frac{\lambda _-^N}{\lambda _+^N}+ \sum_{i}^{} \qty(\frac{\lambda _i}{\lambda _+})^N    ) ] }  = -k_B T \log{\lambda _+}
-\end{equation}
-So we have obtained
-\begin{empheq}[box=\myyellowbox]{equation}
-f_b = -k_B T \log{\lambda _+}
-\end{empheq}
-% \begin{empheq}[box=\myyellowbox]{equation}
-% Z_N = \lambda _+^N +\lambda _-^N + \sum_{i=1}^{n} \lambda _i^N
-% \end{empheq}
-This is simply because \( \lambda _+ \) is the largest.
-
-\begin{theorem}[Perron-Frobenius] \
-Let \( A \) be a \( m \times m \) matrix. If \emph{A} is finite (\( m < \infty  \)) and \( A_{ij} > 0 , \forall i,j \), \( (A_{ij}=A_{ij} (\va{x})) \) therefore \( \lambda _+ \) has the following properties:
-\begin{enumerate}
-\item \( \lambda _+ \in \R^+  \)
-\item \( \lambda _+ \neq \text{ from } \{ \lambda _i \}_{i=1,\dots, m-1 }   \)
-\item \( \lambda _+ \) is a analytic function of its arguments
-\end{enumerate}
-\end{theorem}
-
-Try to change \( A_{ij} > 0 \) or the hypothesis that \emph{A} is \emph{finite} and see what is obtained.
-
-\section{Correlation function}
-
-Now we calculate the two points correlation function. We want the fluctuation respect to the average:
-\begin{equation}
-  \Gamma _R = \expval{S_1 S_R} - \expval{S_1}\expval{S_R}
-\end{equation}
-we expect from physics that
-\begin{equation}
-  \Gamma _R \underset{R \rightarrow \infty }{\sim } \exp [-R/\xi ]
-\end{equation}
-\begin{equation}
-  \xi^{-1} = \lim_{R \rightarrow \infty } \qty[ - \frac{1}{R} \log{ \qty[ \expval{S_1 S_R} - \expval{S_1}\expval{S_R}] } ]
-\end{equation}
-\begin{equation}
-  \expval{S_1 S_R}_N = \frac{1}{Z_N} \sum_{\{ S \}  }^{} S_1 S_R \exp [-\beta \mathcal{H}]
-\end{equation}
-\begin{equation}
-  = \frac{1}{Z_N} \sum_{\{ S \}  }^{} S_1 \bra{S_1} \mathbb{T} \ket{S_2} \dots  \bra{S_{R-1}} \mathbb{T} \ket{S_R} S_R \bra{S_R} \mathbb{T} \ket{S_{R+1}} \dots \bra{S_N} \mathbb{T} \ket{S_1}
-\end{equation}
-\begin{equation}
-  = \frac{1}{Z_N} \sum_{S_1,S_R}^{} S_1 \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} S_R \bra{S_R} \mathbb{T}^{N-R+1} \ket{S_1}
-\end{equation}
-\begin{equation}
-  \mathbb{T}^{R-1} = \sum_{i=1}^{n+2} \ket{t_i} \lambda _i^{R-1}  \bra{t_i}
-\end{equation}
-\begin{equation}
-  \mathbb{T}^{N-R+1} = \sum_{i=1}^{n+2} \ket{t_i} \lambda _i^{N-R+1}  \bra{t_i}
-\end{equation}
-\begin{equation}
-  \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} = \sum_{i=1}^{n+2} \braket{S_i}{t_i} \lambda ^{R-1} \braket{t_i}{S_R}
-\end{equation}
 \begin{equation}
   \sum_{\{ S \}  }^{}  S_1 S_R e^{-\beta \mathcal{H}} = \sum_{S_1 S_R}^{} S_1 \sum_{i=1}^{n+2} \braket{S_1}{t_i} \lambda _i^{R-1} \braket{t_i}{S_R} S_R \sum_{j=1}^{n+2} \braket{S_R}{t_j} \lambda_j ^{N-R+1} \braket{t_j}{S_1}
 \end{equation}
