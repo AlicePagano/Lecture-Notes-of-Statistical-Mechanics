@@ -262,6 +262,7 @@ Let us now write this expression by using the transfer matrix formalism.
 Summing over the free spins
 \begin{equation}
   \expval{S_1 S_R}_N = \frac{1}{Z_N} \sum_{S_1,S_R}^{} S_1 \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} S_R \bra{S_R} \mathbb{T}^{N-R+1} \ket{S_1}
+  \label{eq:7_1}
 \end{equation}
 On the other hand since
 \begin{equation}
@@ -276,27 +277,26 @@ we have
 \end{subequations}
 Hence
 \begin{equation}
-  \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} = \sum_{i=1}^{n+2} \braket{S_i}{t_i} \lambda ^{R-1} \braket{t_i}{S_R}
+  \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} = \sum_{i=1}^{n+2} \braket{S_1}{t_i} \lambda_i ^{R-1} \braket{t_i}{S_R}
 \end{equation}
-
-
-
-\section{Lesson}
-
-
+and plugging this expression in  \eqref{eq:7_1} one gets
 \begin{equation}
   \sum_{\{ S \}  }^{}  S_1 S_R e^{-\beta \mathcal{H}} = \sum_{S_1 S_R}^{} S_1 \sum_{i=1}^{n+2} \braket{S_1}{t_i} \lambda _i^{R-1} \braket{t_i}{S_R} S_R \sum_{j=1}^{n+2} \braket{S_R}{t_j} \lambda_j ^{N-R+1} \braket{t_j}{S_1}
 \end{equation}
-Define:
+Since the term \( \braket{t_j}{S_1}  \) is a scalar it can be moved at the beginning of the product. Remembering the notations
+\begin{subequations}
+\begin{align}
+  \mathbb{S}_1 &= \sum_{S_1}^{} \ket{S_1} S_1 \bra{S_1} \\
+  \mathbb{S}_R &= \sum_{S_R}^{} \ket{S_R} S_R \bra{S_R}
+\end{align}
+\end{subequations}
+one gets
 \begin{equation}
-  \mathbb{S}_1 = \sum_{S_1}^{} \ket{S_1} S_1 \bra{S_1}
+  \sum_{\{ S \}  }^{}  S_1 S_R e^{-\beta \mathcal{H}}= \sum_{ij}^{} \bra{t_j } \mathbb{S}_1 \ket{t_i} \lambda _i^{R-1} \bra{t_i} \mathbb{S}_R \ket{t_j} \lambda _j ^{N-R+1}
 \end{equation}
-\begin{equation}
-\mathbb{S}_R = \sum_{S_R}^{} \ket{S_R} S_R \bra{S_R}
-\end{equation}
-\begin{equation}
-  \rightarrow = \sum_{ij}^{} \bra{t_j } \mathbb{S}_1 \ket{t_i} \lambda _i^{R-1} \bra{t_i} \mathbb{S}_R \ket{t_j} \lambda _j ^{N-R+1}
-\end{equation}
+
+
+
 
 
 
