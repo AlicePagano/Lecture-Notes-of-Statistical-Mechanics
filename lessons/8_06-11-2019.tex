@@ -6,163 +6,307 @@
 \begin{document}
 
 \marginpar{ \textbf{Lecture 8.} \\  \displaydate{date}. \\ Compiled:  \today.}
+Since \( \sum_{k}^{} \lambda _k^N = Z_N \) for \( k=+,-,1,\dots,n \):
+\begin{equation}
+  \expval{S_1 S_R}_N = \frac{\sum_{ij}^{} \bra{t_j} \mathbb{S}_1 \ket{t_i} \lambda _i^{R-1} \bra{t_i} \mathbb{S}_R \ket{t_j} \lambda _j^{N-R+1}      }{\sum_{k=1}^{n} \lambda _k^N  }
+\end{equation}
+If we now multiply and divide by \( \lambda _+^N \), we get
+\begin{equation}
+  \expval{S_1 S_R}_N = \frac{\sum_{ij}^{} \bra{t_j} \mathbb{S}_1 \ket{t_i} (\lambda _i/ \lambda _+)^{R-1}  \bra{t_i} \mathbb{S}_R \ket{T_j} (\lambda _j / \lambda _T)^{N-R+1}    }{\sum_{k=1}^{n} (\lambda _k  / \lambda _+)^{N} }
+\end{equation}
+\begin{remark}
+In the thermodynamic limit \( N \rightarrow \infty  \), only the terms with \( j=+ \) and \( k=+ \) survive in the sum. Remind that \( R \) is fixed.
+\end{remark}
+\begin{equation}
+\expval{S_1 S_R} =   \lim_{N \rightarrow \infty } \expval{S_1 S_R}_N = \sum_{i= \pm,1 \dots n}^{} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
+\end{equation}
+rembember that \( \lambda _+ > \lambda _T \ge \lambda _1 \dots \lambda _n \):
+\begin{equation}
+  \expval{S_1 S_R} = \bra{t_+} \mathbb{S}_1 \ket{t_+} \bra{t_+} \mathbb{S}_R \ket{t_+} +   \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
+\end{equation}
+Since one can show that
+\begin{equation}
+  \lim_{N \rightarrow \infty } \expval{S_R}_N = \bra{t_+} \mathbb{S}_R \ket{t_+}
+\end{equation}
+we obtain
+\begin{equation}
+  \expval{S_1 S_R} = \expval{S_1} \expval{S_R} + \sum_{i \neq +}^{}  \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
+\end{equation}
+Hence
+\begin{equation}
+\Gamma _R =   \expval{S_1 S_R} - \expval{S_1}\expval{S_R} = \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
+\end{equation}
+\begin{remark}
+\( \Gamma_R \) depends only on the eigenvalues and eigenvectors of the transfer matrix \( \mathbb{T} \) and by the values of the spins \( S_1 \) and \( S_R \).
+\end{remark}
+In the limit \( R \gg 1\) dominates the ratio \( (\lambda _-/ \lambda _+) \):
+\begin{equation}
+\begin{split}
+\xi ^{-1} &=  \lim_{N \rightarrow \infty } \qty{-\frac{1}{R-1} \log{\qty|\expval{S_1S_R} \expval{S_1} \expval{S_R}   |} } \\
+& = \lim_{N \rightarrow \infty }  \qty{-\frac{1}{R-1} \log{\qty[  \qty(\frac{\lambda _-}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ketbra{t_-}{t_-} \mathbb{S}_R \ket{t_+}  ]  } } \\
+& = -\log{\qty[\qty(\frac{\lambda _-}{\lambda _+}) ] } - \lim_{R \rightarrow \infty } \frac{1}{R-1} \log{ \bra{t_+} \mathbb{S}_1 \ketbra{t_-}{t_+} \mathbb{S}_R \ket{t_+}    }  \\
+& = - \log{\qty(\frac{\lambda _-}{\lambda _+}) }
+\end{split}
+\end{equation}
+The important results is
+\begin{empheq}[box=\myyellowbox]{equation}
+  \xi ^{-1} = -  \log{\qty(\frac{\lambda _-}{\lambda _+}) }
+\end{empheq}
+The correlation length does depend only on the ratio between the two largest eigenvalues of the transfer matrix \( \mathbb{T} \).
 
-Last time we computed the lamnbda function, the fluctuation of the transfer matrix:
-\begin{equation}
-  \expval{s_1 s_R}_N = \frac{\sum_{ij}^{} \bra{t_j} S_1 \ket{t_i} \lambda _i^{R-1} \bra{t_i}S_R \ket{T_j} \lambda _j^{N-R+1}      }{\sum_{k=1}^{n} \lambda _k^N  }
-\end{equation}
-\begin{equation}
-  \mathbb{s}_i = \sum_{s_i}^{} \ket{s_i}S_i \bra{s_i}
-\end{equation}
-\begin{equation}
-  \mathbb{T} \ket{t_i} = \lambda _i \ket{t_i}
-\end{equation}
-For the Ising model:
-\begin{equation}
-  \sigma _z \equiv
-  \begin{pmatrix}
-    1 & 0 \\
-    0  &-1
-  \end{pmatrix}
-\end{equation}
-\begin{equation}
-  \expval{s_1 s_R}_N = \frac{\sum_{ij}^{} \bra{t_j} S_1 \ket{t_i} \lambda _i^{R-1} / \lambda _+ \bra{t_i}S_R \ket{T_j} \lambda _j^{N-R+1}  / \lambda _T^{N-R+1}    }{\sum_{k=1}^{n} \lambda _k^N  / \lambda _+^{N} }
-\end{equation}
-You keep the sum and the one that survives are \( j=+,k=+ \):
-\begin{equation}
-  \lim_{N \rightarrow \infty } \expval{s_1 s_R}_N = \sum_{i= \pm}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} s_1 \ket{t_i} \bra{t_i} s_R \ket{t_+}
-\end{equation}
-rembember that \( \lambda _+ > \lambda _T \ge \lambda _1 \dots \lambda _n \)
-\begin{equation}
-  \Rightarrow = \bra{t_+} \mathbb{s_1} \ket{t_+} \bra{t_+} s_R \ket{t_+} +   \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} s_1 \ket{t_i} \bra{t_i} s_R \ket{t_+}
-\end{equation}
-\begin{equation}
-  \Gamma _R = \expval{s_1 s_R} - \expval{s_1}\expval{s_R}
-\end{equation}
-\begin{equation}
-  \lim_{N \rightarrow \infty } \expval{\mathbb{s}_i}_N = \bra{t_+} \mathbb{s_1} \ket{t_+}
-  \label{eq:8_1}
-\end{equation}
-Because of \eqref{eq:8_1}:
-\begin{equation}
-\Gamma _R =  \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} s_1 \ket{t_i} \bra{t_i} s_R \ket{t_+}
-\end{equation}
-\begin{equation}
-  \xi ^{-1} = \lim_{N \rightarrow \infty } \qty{-\frac{1}{R-1} \log{\qty|\expval{s_1s_R} \expval{s_1} \expval{s_R}   |} }  = -\log{\qty(\frac{\lambda _-}{\lambda _+}) } - \lim_{R \rightarrow \infty } \frac{1}{R-1} \log{\expval{s_1 s_R} - \expval{s_1}\expval{s_R}  }
-\end{equation}
-\begin{equation}
-  \xi ^{-1} = - \log{\qty(\frac{\lambda _-}{\lambda_+}) }
-\end{equation}
-
-Let us try to apply this general result to the classical Ising model.
+\subsubsection{Explicit computation for the \( D=1 \) Ising model}
+The transfer matrix is given by
 \begin{equation}
   \mathbb{T} =
   \begin{pmatrix}
-  \exp (k+h)     & \exp (-k)  \\
-  \exp (-k)    & \exp (k-h)
+  \exp (K+h)     & \exp (-K)  \\
+  \exp (-K)    & \exp (K-h)
   \end{pmatrix}
 \end{equation}
 Calculate the eigenvalues:
 \begin{equation}
-  \abs{\mathbb{T}-\lambda \mathbb{1}} = 0 = (e^{k+h}- \lambda  )(e^{k-h}-\lambda  )-e^{-2k}=0
+  \abs{\mathbb{T}-\lambda \mathbb{1}} =  (e^{K+h}- \lambda  )(e^{K-h}-\lambda  )-e^{-2K}=0
 \end{equation}
-Calculate the two eigenvalues:
+The solutions are
 \begin{equation}
-  \lambda _{\pm} = e^{k} \cosh(h) \pm \sqrt{e^{2k}\sinh^2 (h)+e^{-2k} }
+  \lambda _{\pm} = e^{K} \cosh(h) \pm \sqrt{e^{2K}\sinh^2 (h)+e^{-2K} }
 \end{equation}
+The free energy is
 \begin{equation}
-  f_b = -k_B T \log{\lambda _+} = -k k_B T - k_B T \log{\qty( \cosh(h)+\sqrt{\sinh^2(h)+e^{-4k}  } )}
+\begin{split}
+    f_b & \equiv \lim_{N \rightarrow \infty } \frac{-k_B T}{N} \log{Z_N (K,h)}   \\
+    & = -k_B T \lim_{N \rightarrow \infty } \frac{1}{N}  \log{\qty[\lambda _+^N \qty(1+\qty(\frac{\lambda _-}{\lambda _+})^N ) ] } \\
+    & = -k_B T \log{\lambda _+}
+\end{split}
 \end{equation}
-rembember \( k \equiv \beta J, h \equiv \beta H\).
+and inserting the explicit expression of \( \lambda _+ \) for the Ising model we get
+\begin{equation}
+\begin{split}
+f_b  &=  -k_B T \log{e^{K} \cosh h + \sqrt{e^{2K} \sinh^2 (h) + e^{-2K}  }  } \\
+& = -K k_B T - k_B T \log{\qty( \cosh(h)+\sqrt{\sinh^2(h)+e^{-4K}  } )}
+\end{split}
+\end{equation}
+rembember \( K \equiv \beta J, h \equiv \beta H\).
+\begin{exercise}
+Check that if \( h=0 \) we get back the expression found previously with the iterative method (what is the important of boundary conditions?).
+\end{exercise}
+Let us now consider the limits \( T \rightarrow 0 \) and \( T \rightarrow \infty  \) by keeping \emph{H} fixed and \emph{J} fixed.
+\begin{itemize}
+\item Case: \( T \rightarrow 0  \Rightarrow K \rightarrow \infty , h \rightarrow \infty  \).
+\begin{subequations}
+\begin{align}
+  e^{-4K} & \overset{K \rightarrow \infty }{\longrightarrow} 0  \\
+  \sqrt{\sinh^2 h} & \overset{h \rightarrow \infty }{\sim } \sinh (h)
+\end{align}
+\end{subequations}
+This implies that
+\begin{equation}
+\cosh(h) + \sinh h \sim \frac{2 e^{h} }{2} \simeq e^{h}
+\end{equation}
+and
+\begin{equation}
+  f \overset{\substack{h \rightarrow \infty  \\ K \rightarrow \infty  } }{\sim } - K k_B T - k_B T \log{e^{h} } \sim -J -H \quad const
+\end{equation}
+Therefore, as \( T \rightarrow 0^+ \), \emph{f} goes to a constant that depends on \emph{J} and \emph{H}.
 
-Suppose we are looking for the \( T \rightarrow 0 \) limit, with \emph{H fixed} and \emph{J fixed}, in that case we have
-\( k \rightarrow \infty , h \rightarrow \infty  \).
+\item  Case: \( T \rightarrow \infty   \Rightarrow K \rightarrow 0 , h \rightarrow 0  \).
+In this case we suppose also that \emph{H} and \emph{J} that are fixed, are also finite.
+\begin{subequations}
+\begin{align}
+  e^{-4K} & \simeq 1  \\
+  \sqrt{\sinh^2 h + e^{-4K} } & \sim \sqrt{1}
+\end{align}
+\end{subequations}
+Since \( \cosh h \overset{h \rightarrow 0}{\sim } 1  \):
 \begin{equation}
-  e^{-4k} \overset{k \rightarrow \infty }{\longrightarrow} 0
+  f_B \sim  -K k_B T - k_B T \log{(1+1)} \sim  -J -k_B T \ln{2}
 \end{equation}
-\( \sqrt{\sinh^2 h } \approx \sinh h  \) and \( \cosh(h) + \sinh h \approx \frac{2 e^{h} }{2} e^{h}  \):
+Therefore, as \( T \rightarrow \infty  \), the free energy goes linearly to zero, as in figure \ref{fig:8_1}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{../lessons/8_image/1.pdf}
+\caption{\label{fig:8_1} Description.}
+\end{figure}
+\end{itemize}
+
+\subsubsection{Magnetization}
 \begin{equation}
-  f \overset{\substack{h \rightarrow \infty  \\ k \rightarrow \infty  } }{\approx } - k k_B T - k_B T \log{e^{h} } \approx -J -H \quad const
+  m = - \pdv{f_b}{H} = - \frac{1}{k_B T } \pdv{f_b}{h} = \pdv{}{h} \qty[  \log{\qty( \cosh(h)+\sqrt{\sinh^2(h)+e^{-4K}  } )} ]
 \end{equation}
-So if \( T \rightarrow \infty, h \rightarrow 0, k \rightarrow 0  \):
+The result is
 \begin{equation}
-  f_B \approx -J -k_B T \ln{2}
+  m =   \frac{\sinh h + \frac{ \sinh h \cosh h}{\sqrt{\sinh^2 h + e^{-4k} }} }{\cosh h + \sqrt{\sinh^2 h + e^{-4k} } }
+  \label{eq:8_1}
 \end{equation}
-The important is that it goes linearly as in Figure 1.
+\begin{itemize}
+\item Case: \( T>0 \) fixed, \( H \rightarrow 0 \leftrightarrow h \rightarrow 0\).
+\begin{subequations}
+\begin{align}
+  \sinh h & \sim h \sim 0, \\ \cosh h &\sim 1
+\end{align}
+\end{subequations}
+When \( h \rightarrow 0, m \rightarrow 0 \quad \forall T>0 \). It means that there is no spontaneous magnetization!
+\end{itemize}
+
+
+\subsubsection{Magnetic suscettibility}
 \begin{equation}
-  m = - \pdv{f_b}{H} = - \frac{1}{k_B T } \pdv{f_b}{h} = \frac{\sinh h + \frac{2 \sinh h \cosh h}{\sqrt{\sinh^2 h + e^{-4k} }} }{\cosh h + \sqrt{\sinh^2 h + e^{-4k} } }
+  \chi_T  \equiv  \pdv{m}{H} = \frac{1}{k_B T} \pdv{m}{h}
+\end{equation}
+If we consider the case \( h \ll 1 \) it is convenient first expand the  \eqref{eq:8_1} for \( h \rightarrow 0 \) and take the derivative to get \( \chi _T \). Since \( \sinh (h) \sim h+h^3 \) and \( \cosh (h) \sim 1 + h^2 \), we have
+\begin{equation}
+  m \overset{h \ll 1}{\sim } \frac{h (1+e^{2K} )}{1+e^{-2K} }
+\end{equation}
+If we now derive with respect to \emph{h}
+\begin{equation}
+  \chi _T = \frac{1}{k_B T} \pdv{m}{h} \overset{h \ll 1}{\approx } \frac{1}{k_B T} \frac{(1+e^{2K} )}{(1+e^{-2K} )}
+\end{equation}
+\begin{itemize}
+\item Case: \( T \rightarrow \infty  \Leftrightarrow k \rightarrow 0\).
+\begin{equation}
+  e^{2K} \simeq e^{-2K} \simeq 1
+\end{equation}
+The \textbf{Curie's Law} for paramagnetic systems is:
+\begin{equation}
+  \chi _T \sim \frac{1}{k_B T}
+\end{equation}
+\item Case: \( T \rightarrow 0 \Leftrightarrow k \rightarrow \infty  \).
+\begin{equation}
+  e^{-2K} \simeq 0
+\end{equation}
+The \textbf{Curie's Law} for paramagnetic systems is:
+\begin{equation}
+  \chi _T \sim \frac{1}{k_B T} e^{2K} \sim  \frac{1}{k_B T} e^{2J/k_B T}
+\end{equation}
+\end{itemize}
+
+\subsubsection{Correlation length}
+\begin{equation}
+  \xi ^{-1} = -\log{\qty(\frac{\lambda _-}{\lambda _+}) } = - \log{\qty[ \frac{\cosh h - \sqrt{\sinh^2 h + e^{-4K} } }{\cosh h + \sqrt{\sinh^2 h + e^{-4K} }}] }
+\end{equation}
+For  for \( h=0 \), we have \( \cosh h \rightarrow 1, \sinh h \rightarrow 0 \):
+\begin{equation}
+  \xi ^{-1} = - \log{\qty[\frac{1- e^{-2K} }{1+ e^{-2K} }] } =  - \log{\qty[\frac{1 }{\coth K }] }
+\end{equation}
+Therefore:
+\begin{equation}
+  \xi = \frac{1}{\log{ (\coth K )} }
+\end{equation}
+\begin{itemize}
+\item Case: \( T \rightarrow 0 \Leftrightarrow K \rightarrow \infty  \).
+\begin{equation}
+  \coth K = \frac{e^{K} + e^{-K}  }{e^{K} - e^{-K}  } \overset{K \rightarrow \infty }{\simeq} 1 + 2 e^{-2K} + \dots \quad \overset{K \rightarrow \infty }{ \longrightarrow  } 1
+\end{equation}
+It implies
+\begin{equation}
+  \xi \overset{K \gg 1}{\sim } \frac{1}{\ln{(1+ 2 e^{-2K} )} } \sim \frac{e^{2K} }{2}
+\end{equation}
+Hence
+\begin{equation}
+  \xi \overset{T \rightarrow 0}{\sim } \frac{1}{2} e^{J/k_B T}
+\end{equation}
+It diverges exponentially as \( T \rightarrow 0 \).
+\item Case: \( T \rightarrow \infty \Leftrightarrow K \rightarrow 0 \).
+\begin{equation}
+  \coth K = \frac{e^{K} + e^{-K}  }{e^{K} - e^{-K}  } \overset{K \rightarrow 0 }{\simeq}
+  \frac{1+K+\frac{K^2}{2}+1-K+\frac{K^2}{2}}{1+K+\frac{K^2}{2}-1+K-\frac{K^2}{2}}
+  \sim \frac{2+2 \frac{K^2}{2}}{2K} \sim \frac{1+K^2}{K}
 \end{equation}
 \begin{equation}
-  \chi  = \pdv{m}{H} = \frac{1}{k_B T} \pdv{m}{h}
+  \xi ^{-1} = \log{(\coth K)} \overset{K \rightarrow 0}{\sim } \ln{\frac{1}{K}} + \ln{(1+K^2)} \sim + \infty
 \end{equation}
-Just look for \( h=0 \) (\( \rightarrow \sinh h = 0 \)  and \( \cosh h = 1 \) ):
+Therefore:
 \begin{equation}
-  \xi ^{-1} = - \log{\qty[\frac{1- e^{-2k} }{1+ e^{-2k} }] } =  - \log{\qty[\frac{1 }{\coth k }] }
+  \xi  \overset{K \rightarrow 0}{\longrightarrow} 0
 \end{equation}
+More precisely
+\begin{equation}
+  \xi \overset{K \rightarrow 0}{\sim } \frac{1}{\ln{(1/K)} + \ln{(1+K^2)}  } \overset{K \rightarrow 0}{\sim } - \frac{1}{\ln{K} }
+\end{equation}
+
+\end{itemize}
+\section{Classical Heisenberg model: \( D=1 \)}
+
 Suppose to study something different from the Ising model, we do not anymore assume spin that can assume values as -1 or +1, but spin that can assume a continuous value. This is the classical Heisenberg model.
-\section{Classica Heisenberg model}
-The spin are vector or modulus one, so they are versor.
-Figure 2
-\( \va{s_i} \in \R^3 \)  with the contraint \( \abs{\va{s_i}}  = 1\) \(   \rightarrow \vu{s_i} \).
 
-At \( H=0 \):
+In this case the spins are unit length vectors \( \va{S}_i \), i.e. \( \va{S}_i \in \R^3 \), \( \abs{\va{S}_i}^2 = 1 \) (continuous values on the unit sphere):
 \begin{equation}
-  - \beta \mathcal{H} ( \{ \va{S}_i \}  ) = k \sum_{i=1}^{N} \va{S}_i \vdot \va{S}_{i+1} (\longrightarrow \sum_{i}^{} \va{h} \vdot \va{S}_i  )
+  \va{S}_i = ( S_i^x,S_i^y,S_i^z)
 \end{equation}
-this is a \( O(3) \) symmetric.
-Compute:
+(\( 1D \)  lattice) with periodic boundary condition: \( \va{S}_{N+1} = \va{S}_1 \).
+
+Assuming \( H=0 \):
 \begin{equation}
-  Z_N (k) = \sum_{\{ \va{S} \}  }^{} e^{-\beta \mathcal{H}}  = \Tr(\mathbb{T}^N)
+  - \beta \mathcal{H} ( \{ \va{S} \}  ) = K \sum_{i=1}^{N} \va{S}_i \vdot \va{S}_{i+1} \quad  (\longrightarrow \sum_{i}^{} \va{h} \vdot \va{S}_i  )
 \end{equation}
+The model satisfies \( O(3) \) symmetry. In the transfer matrix formalism:
 \begin{equation}
-  \bra{\va{S}_i} \mathbb{T} \ket{\va{S}_{i+1}} = e^{k \va{S}_i \vdot \va{S}_{i+1}}
+  Z_N (K) = \sum_{\{ \va{S} \}  }^{} e^{-\beta \mathcal{H}}  = \Tr(\mathbb{T}^N)
 \end{equation}
-\begin{equation}
-  \mathbb{T}_D = \mathbb{P}^{-1} \mathbb{T}\mathbb{P}
-\end{equation}
-\begin{equation}
-  \mathbb{T} \ket{t_i} = \lambda _i \ket{t_i}
-\end{equation}
+where \( \bra{\va{S}_i} \mathbb{T} \ket{\va{S}_{i+1}} = e^{K \va{S}_i \vdot \va{S}_{i+1}} \).
+Similarly to the Ising case:
 \begin{equation}
   \mathbb{T} = \sum_{i}^{} \ket{t_i} \lambda _i \bra{t_i}
 \end{equation}
+and
 \begin{equation}
-  \exp [k \va{S}_1\vdot \va{S}_{2}] = \bra{\va{S}_1} \mathbb{T} \ket{\va{S}_2} = \sum_{i \in eigenval}^{} \lambda _i \braket{\va{S}_1}{t_i}  \braket{t_i}{\va{S}_2}
+  \mathbb{T}_D = \mathbb{P}^{-1} \mathbb{T}\mathbb{P}
+\end{equation}
+Problem: compute the eigenvalues \( \lambda _i \) of \( \mathbb{T} \).
+Formally we should find
+\begin{equation}
+  \exp [K \va{S}_1\vdot \va{S}_{2}] = \bra{\va{S}_1} \mathbb{T} \ket{\va{S}_2} = \sum_{i \in \text{\tiny eigenvalues}}^{} \lambda _i \braket{\va{S}_1}{t_i}  \braket{t_i}{\va{S}_2}
   = \sum_{i}^{} \lambda _i f_i ( \va{S}_1) f^* (\va{S}_2)
 \end{equation}
+We start by noticing that the term \( e^{K \va{S}_1 \cdot \va{S}_2}  \) is similar to the plane wave \(e^{i \va{q}\vdot \va{r}}  \), that in scattering problems is usually expanded in spherical coordinates. Plane wave can be expanded as a sum of spherical harmonics
 \begin{equation}
-  e^{k \va{S}_1\vdot \va{S}_2 } \iff e^{i \va{q}\vdot \va{r}}
+  e^{i \va{q}\vdot \va{r}} = 4 \pi \sum_{l=0}^{\infty } \sum_{m=-l}^{l} (i)^l j_l (qr) Y_{lm}^* (\vu{q}) Y_{lm} (\vu{r})
 \end{equation}
-\begin{equation}
-  e^{i \va{q}\vdot \va{r}} = 4 \pi \sum_{l=0}^{\infty } \sum_{m=-l}^{l} (i)^l j_l (qr) Y_{lm} (\vu{q}) Y^*_{lm} (\vu{r})
-\end{equation}
+where
 \begin{equation}
   j_l (qr) = - \frac{(i)^l}{2} \int_{0}^{\pi} \sin(\theta ) e^{i q r \cos(\theta ) } P_l (\cos(\theta ) ) \dd[]{\theta }
 \end{equation}
-where \( P_l (\cos(\theta ) ) \)  are the Legendre polynomial of order \emph{l}.
+are the \emph{spherical Bessel functions} and  \( P_l (\cos(\theta ) ) \) the \emph{Legendre polynomial} of order \emph{l}.
+
+From a formal comparison we have
+  \begin{equation}
+    \va{S}_1 \leftrightarrow \vu{S}_1 \qquad
+      \begin{cases}
+           i \va{q}\cdot \va{r} = iqr \\
+           K \va{S}_1 \cdot \va{S}_2 = K \abs{\va{S}_1} \abs{\va{S}_2} = K
+      \end{cases}
+  \end{equation}
+  multiplying by \emph{i} we can write
+  \begin{equation}
+    qr = -iK \abs{\va{S}_1} \abs{\va{S}_2} = -iK
+  \end{equation}
+  In our case we have
+  \( \vu{q} = \va{S}_1, \vu{r} = \va{S}_2 \). Hence
+  \begin{equation}
+    e^{K \va{S}_1 \cdot \va{S}_2} = 4 \pi  \sum_{l=0}^{\infty } \sum_{m=-l}^{l} (i)^l j_l (-iK) Y_{lm}^* (\va{S}_1) Y_{lm} (\va{S}_2) = \sum_{i}^{} \lambda _i f_i (\va{S}_1) f^* (\va{S}_2)
+  \end{equation}
+where
 \begin{equation}
-  qr = -ik \abs{\va{S}_1} \abs{\va{S}_2} = -ik
+  \lambda _i = \lambda _{lm} (K) = 4 \pi (i)^l j_l (-iK)
 \end{equation}
-In our case we have
-\( \vu{q} = \va{S}_1, \vu{r} = \va{S}_2 \)
-Moreover,
+note that \( \lambda _i \) does not depend on \emph{m}!
+
+If \( l=0 \), the largest eigenvalue is:
 \begin{equation}
-  \lambda _i = \lambda _{lm} (k) = 4 \pi (i)^l j_l (-ik)
+  \lambda _+ = \lambda _0 (K) = 4 \pi j_0 (-iK) = 4 \pi \frac{\sin K }{K}
 \end{equation}
-note that there is not \emph{m} dependence
-If \( l=0 \):
+and
 \begin{equation}
-  \lambda _+ = \lambda _0 (k) = 4 \pi j_0 (-ik) = 4 \pi \frac{\sin k }{k}
-\end{equation}
-\begin{equation}
-  \lambda _- = \lambda _1 (k) = 4 \pi i j_1 (-ik) = 4 \pi \qty[\frac{\cosh k }{k}-\frac{\sinh k }{k^2}]
+  \lambda _- = \lambda _1 (K) = 4 \pi i j_1 (-iK) = 4 \pi \qty[\frac{\cosh K }{K}-\frac{\sinh K }{K^2}]
 \end{equation}
 
-\section{Zipper model}
-Enea denaturation transition (?). You do not allow to have bubbles in the system as in figure 3, but we want as in figure 4.  This is because it is called zipper.
-
-
-
+\begin{exercise}
+Given the largest eigenvalue \( \lambda _+ \):
+\begin{equation}
+  \lambda _+ = 4 \pi \frac{\sin(K) }{K}
+\end{equation}
+find the bulk free energy density of the model and discuss its behaviour in the limits of low (\( T \rightarrow 0 \)) and high (\( T \rightarrow \infty  \)) temperatures.
+\end{exercise}
 
 
 
