@@ -178,9 +178,24 @@ Ordered \( \theta (\va{r}) = \theta _0 \). Now suppose to introduce the domain w
 \end{equation}
 therefore i just doing over one dimension. Consider only the term called \emph{E}
 \begin{equation}
-  E = \frac{J}{2} L^{D-1} \int_{0}^{L} \dd[]{x} \qty(\dv{}{x} \qty(\frac{2 \pi n x}{L})  )^2 = \frac{J}{2} L^{D-1} \int_{0}^{L} \dd[]{x} \qty(\frac{2 \pi n}{L})^2 \approx 2 \pi ^2 n^2 J L^{D-2}      
+  E = \frac{J}{2} L^{D-1} \int_{0}^{L} \dd[]{x} \qty(\dv{}{x} \qty(\frac{2 \pi n x}{L})  )^2 = \frac{J}{2} L^{D-1} \int_{0}^{L} \dd[]{x} \qty(\frac{2 \pi n}{L})^2 \approx 2 \pi ^2 n^2 J L^{D-2}
 \end{equation}
+\begin{theorem}[Mermin-Wagner]
+  For continuous global symmetries the \( d_c =2 \).
+\end{theorem}
+Kosterlitz-thouless transition.
 
-
+How the symmetry broken depend on the range of interaction?
+\begin{equation}
+  J_i = \frac{J}{\abs{\va{r}_i - \va{r}_j}^\alpha  }
+\end{equation}
+with \( 1 \le \alpha \le 2 \). So you have a long range order with \( T_c \neq 0 \), even for \( d=1 \)!
+There is an alternative model, called infinite range model, that we can solve exactly and we'll senn why. The definition of \emph{J} of before is a metric.
+The Hamiltonian is the following (hamiltonian for the infinite range Ising model):
+\begin{equation}
+  \mathcal{H} = \frac{J_0}{2} \sum_{i,j}^{} S_i S_j + H \sum_{i}^{}  S_i
+\end{equation}
+with \( S_i \in [-1,+1] \). The problem is the double sum over \emph{i,j}. We called \( J_0 = \frac{J}{N} \), this is the \emph{kac} approximation.
+In this Hamiltonian since you have no metric you have no dimension.
 
 \end{document}
