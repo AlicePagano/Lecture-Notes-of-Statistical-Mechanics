@@ -1,0 +1,186 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{13}{11}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 10.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+These model are impossible always to solve analitically. We need an argument that can tell you which kind of system give you a phase transition.
+Entropy energy argument. Idea: our systems are ruled by a free energy, the previous states are found by making derivative. We have energy and entropy: low energy state can be stable respect thermal fluctuations. Fluctuations will destroy the long range order. This can be generalized.
+
+Wchich is the role of dimensionality in phase transition? \emph{D} is the dimension of the system.
+\section{Energy-entropy argument}
+\begin{equation}
+  \dd[]{F} = \dd[]{U} - T \dd[]{S}
+\end{equation}
+We expect that, when \( T \gg 1\) entropy should dominates. If \( T \ll 1 \), energy should dominates. Question: there is a temperature different to zero in which this is compatible?
+
+\subsection{Ising \( D=1 \) }
+\emph{N} is the size of the system.
+Stability of the states at minima energy with respect to thermal fluctuations. We now that for \( T=0 \), for the Ising model, there are \emph{2 ground states}.
+
+For instance, suppose that you have the ground state with all the spin up, we have the ground state as \( E_G = -JN \). We can compute immediately the entropy of the ground state, this is zero because is the logarithm of the number of configurations, but in this case we have only one configuration so the log is 0 (\( S_G = 0 \)).
+What happens if we swap one of the spin? This is a defect respect the ground state (or a \emph{domain walls}). This is in one dimentional, but is valid also in many dimensional. Which is the variation in energy \( \Delta E \) respect the ground state?
+\begin{equation}
+  E_G = -JN \qquad E^* = -J(N-1) +J \qquad \Rightarrow \Delta E = 2J
+\end{equation}
+Here we have supposed that we have only one swap. Now, we have \emph{x} such that there are
+\(   M = Nx \) domain walls.
+Therefore:
+\begin{equation}
+  \Delta E_M = 2MJ
+\end{equation}
+The different of the entropy is just the entropy of the last state (because the ground entropy is zero): how many configurations do you have in a one dimensional Ising and in a domain walls? The number of configuration is
+\begin{equation}
+  \# = \begin{pmatrix}
+  N \\
+  M
+  \end{pmatrix} = \begin{pmatrix}
+  N \\
+  xN
+  \end{pmatrix}
+\end{equation}
+\begin{equation}
+  \Delta S = S_M -S_G = S_M = -k_B \ln{\begin{pmatrix}
+  N \\
+  xN
+  \end{pmatrix} }
+\end{equation}
+\begin{equation}
+  \Delta F = 2xNJ - k_B T \ln{\begin{pmatrix}
+  N \\
+  xN
+  \end{pmatrix} }
+\end{equation}
+now we use Stirling approximation: \( \ln{N!} = N \ln{N} - N   \)
+\begin{equation}
+  \Delta F = N \qty{ 2xJ +k_B T \qty[x \ln{x} + (1-x)\ln{(1-x)}  ] }
+\end{equation}
+We are interested in the free energy in the bulk:
+\begin{equation}
+  \Delta f_{b_N} = \frac{\Delta F_N}{N} \pdv{\Delta f_b}{x} = 0
+\end{equation}
+this gives you
+\begin{equation}
+  \Rightarrow 2J + k_B T \qty[\ln{x}- \ln{(1-x)}  ] = 0
+\end{equation}
+\begin{equation}
+  \ln{\frac{x}{1-x}} = -\frac{2J}{k_B T}
+\end{equation}
+\begin{equation}
+  \frac{x}{1-x} = e^{-2J/k_BT} \quad \Rightarrow \quad x = \frac{1}{1+e^{2J/k_BT} }
+\end{equation}
+If you have a finite density of \emph{x} it means you have no long range order. It tells you that at \( T=0 \), \( x=0 \). When \( T > 0 \), we have a finite density.
+
+Let us try to do the same for \emph{D} dimension.
+
+\subsection{\( D \) dimension}
+What is a \emph{domain wall} in \emph{D} dimension? Think the case of two dimension. Suppose just to count the walls in which there are plane (these are note the only walls).
+\begin{equation}
+  \Delta E \propto 2JL^{D-1}
+\end{equation}
+Computing the entropy it is a very difficult problem. How many plice I can put this line in two dimension? We can put the plane in \emph{L} position as the size of the system. The delta S is just S because the entropy of the ground state is again zero.
+\begin{equation}
+  S^* \ge k_B \ln{L}
+\end{equation}
+\begin{equation}
+  \Delta F = 2JL^{D-1}-k_B T \ln{L}
+\end{equation}
+it means that now energy can win if the temperature is different from zero. So for \emph{D=2} or grater that long range order can survive  thermal fluctuations.
+
+\subsection{Peierls argument}
+Idea: try to perturbe the system using an external magnetic field as perturbation (it is very small \emph{h}). You are breaking explicity the symmetry, but then you take the limit \( h \rightarrow 0 \) and swich of the magnetic field. This is the typical way to see this stability.
+\begin{equation}
+  \expval{m}_N = 0
+\end{equation}
+Taking \( N \rightarrow \infty  \), if exist symmetry we have \( \expval{m}_{\infty } \neq 0  \) for \( H=0 \).
+\begin{equation}
+  \expval{m}_{\infty } = \lim_{h \rightarrow 0^+} \lim_{N \rightarrow \infty } \expval{m}_N^h
+\end{equation}
+That is to see the staibility.  Another way to do that is instead using a small \emph{h}, using periodic boundary condition. Suppose a surface and put all the spin in the surface as in Figure 1. It is equivalent, because on the border we have a very high field, by it is at the border so it do not really count for the surface internal. This is a very smart way to do this perturbation.  The idea is therefore to perturbe the surface.
+This particular configuration with all the spin up will give you a particular shape, you can do this also in higher dimensional. From this you can also exstimate the temperature.
+
+\begin{definition}[Lower critical dimension]
+  The lower critical dimension \( d_c \), is the dimension such that for \( d \le d_c \) there is no long range order.
+\end{definition}
+\begin{remark}
+It depends on the symmetries! We'll come back to this definition again in the course.
+\end{remark}
+
+\begin{equation}
+  \mathcal{H}_{\text{Ising}} = - \sum_{i<j}^{} J_{ij} S_i S_j
+\end{equation}
+with \( S_i \in \{ -1,+1 \}   \). The \( \mathbb{Z}^2 \) symmetry group \( \{ \mathbb{1}, \mu  \}   \) with \( \mu S_i = - S_i \) (\( \mu ^2 = \mathbb{1} \)).
+
+
+The \emph{q-states} Potts model \( \sigma _i = \{ 1,2, \dots,q \}   \).
+\begin{equation}
+  \mathcal{H}^{\text{Potts}}_q ( \{ \sigma  \}  ) = - \sum_{i<j}^{} J_{ij} \delta _{\sigma _i,\sigma _j}
+\end{equation}
+it is inviarian under permutation \( \{ 1,2,3 \dots \} \rightarrow \{ 2,1,3 \dots \}    \).
+
+Now, we jump into the case in which we consider \emph{continuous} symmetries.
+\section{XY model}
+It is a continuous symmetric model. Suppose that you have spins that are sitting in hyper dimensional. Rotate along a circle this spins. They can assume all the value as in Figure 2. The Hamiltonian is the same. If \( \abs{\va{S}_i} =1  \), the Hamiltonian is:
+\begin{equation}
+  \mathcal{H}_{XY} = - \sum_{i<j}^{} J_{ij} \va{S}_i \vdot \va{S}_j
+\end{equation}
+The simplest way to parametrize the Hamiltonian is by the angle
+\begin{equation}
+  \va{S}_i = (S_{x_i}, S_{y_i})
+\end{equation}
+therefore
+\begin{equation}
+  \mathcal{H}_{XY} = - \sum_{i<j}^{} J_{ij} \cos(\theta _i - \theta _j)
+\end{equation}
+with \( \theta _i \in [0,2 \pi ] \).
+This is invariant under a global rotation, \( O(2) \) symmetry.
+\begin{equation}
+  Z_j = \exp (i \theta _j)
+\end{equation}
+\begin{equation}
+J_i  \frac{1}{2} \qty(Z_i^* Z_j + Z_i Z_j^*)
+\end{equation}
+The Hamiltonian is invariant under a global rotation that in this case is
+\begin{equation}
+  Z_i \rightarrow e^{i \alpha } Z_i
+\end{equation}
+therefore
+\begin{equation}
+  U(1) \leftrightarrow O(2)
+\end{equation}
+\begin{equation}
+  \vu{\Omega }_i \vdot \vu{\Omega }_j
+\end{equation}
+with \( \vu{\Omega }_i = ( \cos \theta _i, \sin \theta _i) \).
+We can write \( \vu{\Omega }_i = ( \Omega ^1, \dots, \Omega ^n) \), there is a symmetry that is called \( O(n) \). This is for \emph{n} dimension.
+
+The statistic of the correlation function is similar to the statistic of polymeras.
+
+This is our continuous group. The questions is: when it is not continuous which is the boundary?  Figure 3. We can go smoothly from the second situation to the first. Now you can diluite the energy, weak the energy term. Maybe the upper critical  dimension moves to the higher dimension (?).
+
+Suppose neirest neighbour interaction \( (\theta _i - \theta _j) \ll 1 \). The Hamiltonian can be written as
+\begin{equation}
+  \mathcal{H} \simeq - J \sum_{\expval{ij} }^{} \qty(1- \frac{1}{2}(\theta _i - \theta _j)^2)
+\end{equation}
+Therefore
+\begin{equation}
+  \theta _i - \theta _j \sim \partial_x{\theta }
+\end{equation}
+\begin{equation}
+  \mathcal{H} = E_0 + \underbrace{\frac{J}{2} \int_{}^{} \dd[]{\va{r}} \qty(\grad \theta )^2 }_{E \equiv \text{Stifness energy}}
+\end{equation}
+Ordered \( \theta (\va{r}) = \theta _0 \). Now suppose to introduce the domain walls. Consider again Figure 3 (with size \emph{L}). You see that the profile in which you are interested in is
+\begin{equation}
+  \theta (\va{r}) = \frac{2 \pi n x}{L}
+\end{equation}
+therefore i just doing over one dimension. Consider only the term called \emph{E}
+\begin{equation}
+  E = \frac{J}{2} L^{D-1} \int_{0}^{L} \dd[]{x} \qty(\dv{}{x} \qty(\frac{2 \pi n x}{L})  )^2 = \frac{J}{2} L^{D-1} \int_{0}^{L} \dd[]{x} \qty(\frac{2 \pi n}{L})^2 \approx 2 \pi ^2 n^2 J L^{D-2}      
+\end{equation}
+
+
+
+\end{document}
