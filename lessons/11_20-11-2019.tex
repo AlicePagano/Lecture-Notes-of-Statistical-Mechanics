@@ -1,0 +1,107 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{20}{11}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 11.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+The Hamiltonian is:
+\begin{equation}
+  - \mathcal{H} ( \{ S \}  ) = \frac{J}{2N} \sum_{ij}^{} S_i S_j + H \sum_{i}^{} S_i
+\end{equation}
+where the second term is associated to an external magnetic field. We have a function:
+\begin{equation}
+Z_N (T,J,H) = \sum_{\{ S \}  }^{} \exp [\frac{\beta J}{2N} \sum_{ij}^{} S_i S_j + \beta H \sum_{i}^{} S_i    ]
+\end{equation}
+where the term \( \sum_{ij}^{} S_i S_j  = \qty( \sum_{i}^{} S_i )^2 \). Rerite the partition function:
+\begin{equation}
+  Z_N (T,J,H)  =   \sum_{\{ S \}  }^{} \exp  [\frac{K}{2N} \qty( \sum_{i}^{} S_i )^2 + h \sum_{i}^{} S_i    ]
+\end{equation}
+This is the Hubbard-stratonovitch transformation (you can do it in any dimension). The idea is to rewrite something as a square. Let us define:
+\begin{equation}
+  x \equiv \sum_{i}^{} S_i
+\end{equation}
+The identity is the following
+\begin{equation}
+  e^{\frac{K x^2}{2N}} =  \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } e^{-\frac{N K}{2}y^2+Kxy} \dd[]{y}
+\end{equation}
+The real part of \emph{K} \( \Re(K) >0  \). y is a random field that follows a random distribution. We want to do:
+\begin{proof}
+  \begin{equation}
+    - \frac{N K}{2} y^2 + K x y = - \frac{N K}{2} \qty(y - \frac{x}{N})^2 + \frac{K x^2}{2N}
+  \end{equation}
+  Then we integrate:
+  \begin{equation}
+    e^{\frac{K x^2}{2N}} \int_{- \infty }^{+ \infty } e^{- \frac{N K}{2} \qty(y - \frac{x}{N})^2 } \dd[]{y}
+  \end{equation}
+  if \( z \equiv y - \frac{x}{N} \) , \( \dd[]{z} = \dd[]{y}   \) :
+  \begin{equation}
+    \rightarrow \int_{-\infty }^{+\infty } e^{- \alpha z^2} \dd[]{z} = \sqrt{\frac{\pi }{\alpha }}
+  \end{equation}
+  with \( \alpha \equiv \frac{N K}{2} \), therefore
+  \begin{equation}
+    = e^{\frac{K x^2}{2N}} \sqrt{\frac{2 \pi }{N K}}
+  \end{equation}
+\end{proof}
+We have:
+\begin{equation}
+  Z_N = \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \underbrace{\qty[\sum_{\{ S \}  }^{}  e^{(h+Ky) \sum_{i}^{} S_i  }  ]}_{Q_y}
+\end{equation}
+Sometimes the \emph{y} is called \emph{auxiliary field}.
+\begin{equation}
+  Q_y = \prod_{i}^{N} \qty(\sum_{S_i = \pm 1}^{} \exp [ (h+Ky) S_i]  )  = \qty( 2 \cosh (h+Ky))^N
+\end{equation}
+it becomes:
+\begin{equation}
+  = \sqrt{\frac{N K}{2 \pi }} \int_{- \infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \qty(2 \cosh(h+Ky))^N = \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } \dd[]{y} e^{N \alpha (K,h,y)}
+\end{equation}
+where
+\begin{equation}
+  \alpha (K,h,y) = \ln{\qty[2 \cosh(h+Ky)] } - \frac{K}{2}y^2
+\end{equation}
+Maybe we can replace the medium of the integral with the maximum of the integrand, we say that all the information is coming only from a bit of information. Replace the all integral with the integrand computed where it is maximum. That is an approximation and we are loosing information, it depends on the form of the function. For example, for a delta function it works better. This is the Saddle point approximation. In general:
+\begin{equation}
+  \int_{-\infty }^{+ \infty } f(x) \dd[]{y} \rightarrow f(\bar{x} )
+\end{equation}
+where \( \bar{x} = \max_{x} f(x)  \)
+\begin{equation}
+  Z_N \approx \sqrt{\frac{N K}{2 \pi }} \max_y \qty[\exp [N \alpha ] ]
+\end{equation}
+We call \( y_s \) be the value of \( y \) at which \( \alpha (K,h,y_s) = \max_y \alpha  \).
+Therefore:
+\begin{equation}
+  \Rightarrow Z_N^S (K,h) \sim \sqrt{\frac{N K}{2 \pi }} e^{N \alpha (K,h,y_s)}
+\end{equation}
+Therefore when we are ample to compute the \( y_s \) we can do this approximation.
+\begin{equation}
+  f_b = \lim_{N \rightarrow \infty } \frac{1}{N} \qty(- k_B T \log{Z_N}) = -k_B T \alpha (h,K,y_s)
+\end{equation}
+Consider the condition \( \pdv{\alpha }{y} = 0  \):
+\begin{equation}
+  \pdv{\alpha }{y} = \frac{\sinh (h+Ky)K}{\cosh (h+Ky)} - Ky = 0
+\end{equation}
+\begin{equation}
+  \Rightarrow y_s = \tanh (h+Ky_s)
+\end{equation}
+
+The magnetization is
+\begin{equation}
+  m = - \pdv{f}{H} \underset{\text{to do!}}{=}  \pdv{\alpha }{h}  + \frac{O ( \log{N} )}{N}
+  = \tanh (K y_s +h)
+\end{equation}
+So at the end
+\begin{equation}
+  m = \tanh (h+Km)
+\end{equation}
+this will give us the equilibrium value of \emph{m}! We have solve analitically this one. 
+
+
+
+
+
+
+
+
+\end{document}
