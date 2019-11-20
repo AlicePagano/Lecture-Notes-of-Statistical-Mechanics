@@ -95,10 +95,90 @@ So at the end
 \begin{equation}
   m = \tanh (h+Km)
 \end{equation}
-this will give us the equilibrium value of \emph{m}! We have solve analitically this one. 
+this will give us the equilibrium value of \emph{m}! We have solved analitically this one.
 
 
+The most important approximation is the \emph{mean field approximation}. Try to simplify the problem by negletic the correlation between the fluctuations.
+\begin{equation}
+  Z_N = \sum_{\{ S \}  }^{} e^{\beta \qty[\frac{1}{2} \sum_{\expval{ij} }^{} J_{ij} S_i S_j + \sum_{i}^{} H_i S_i   ] }
+\end{equation}
+The magnetization per spin is \( m \equiv \expval{S_i}  \). Let us consider \( H_i = H \) uniform. The simplest approximation is:
+we have our nasty term, let us rewrite it in this way
+\begin{equation}
+  S_i S_j = (S_i - m + m) (S_j - m + m) = \underbrace{(S_i - m ) (S_j - m)}_{S_i - \expval{S_i} }  + m^2 + m (S_j-m) + m (S_i-m)
+\end{equation}
+where \( S_i - \expval{S_i}  \) are the fluctuations, so the mean field neglets correlations of the fluctuations:
 
+\begin{equation}
+  S_i S_j = (S_i - m + m) (S_j - m + m) = \cancel{ (S_i - m ) (S_j - m) }  + m^2 + m (S_j-m) + m (S_i-m)
+\end{equation}
+\begin{equation}
+  \Rightarrow \approx m^2 + m(S_i-m) + m(S_j-m)
+\end{equation}
+We have:
+\begin{equation}
+  \frac{1}{2} \sum_{\expval{ij} }^{} S_i S_j \overset{MF}{\approx } \frac{1}{2} \sum_{\expval{ij} }^{} J_{ij} \qty[-m^2+m(S_i+S_j)]
+\end{equation}
+\begin{equation}
+  \frac{1}{2} \sum_{\expval{ij} }^{} J_{ij} m(S_i+S_j) = \frac{2}{2} \sum_{\expval{ij} }^{} J_{ij} m S_i
+  \label{eq:11_1}
+\end{equation}
+Let us write in this way: (n.n. = neirest neighbour)
+\begin{equation}
+  \sum_{j \text{ n.n. of } i}^{} J_{ij} = z \hat{J}_i \simeq  z \hat{J}
+\end{equation}
+Therefore \eqref{eq:11_1} became
+\begin{equation}
+  = m \hat{J} z \sum_{i}^{} S_i
+\end{equation}
+If you do the same story over j for the sum over i:
+\begin{equation}
+  Z_N \approx e^{-\frac{\beta m^2 N}{2} z \hat{J} } \sum_{\{ S \}  }^{}  e^{\beta (\hat{J}zm + H ) \sum_{i}^{} S_i }
+\end{equation}
+\begin{equation}
+  \approx e^{-\frac{\beta m^2 N}{2} z \hat{J} } \qty(2 \cosh [\beta (\hat{J}zm+H )])^N
+\end{equation}
+The free energy mean field is:
+\begin{equation}
+  f_b^{MF} = - \frac{1}{N}k_B T \log{Z_N} = \frac{1}{2}\hat{J} z m^2 -k_B T \log{[2\cosh(\beta (\hat{J} z m + H))]} - k_B T \ln{2}
+\end{equation}
+We are replacing the interaction of the J with a field close to the \( S_i \). We called \( \hat{J} z m = H_{eff}  \), the mean field!
+
+Self consistency  must satisfy the thermodynamic relation:
+\begin{equation}
+  m = - \qty( \pdv{f}{H})_T
+\end{equation}
+this is the \emph{self-consistent constraint}. The self consistent relation is therefore:
+\begin{equation}
+  m = \tanh (\beta (\hat{J}z m + H  ))
+\end{equation}
+The iperbolic function (insert Figure in cellulare (copiare da qualcuno)). \( H=0 \). For the value of the parameter \( \beta \hat{J} z > 1  \), we find solution \( m_0 \neq 0 \).  Two solution are symmetric because they are related by the z symmetry.
+
+If we look for the csase \( \beta \hat{J} z < 1  \), we have just one solution that is equal to zero \( m_0 = 0 \).
+
+The condition \( \beta_c \hat{J} z = 1  \), define the critical point
+\begin{equation}
+  \frac{z \hat{J} }{k_B T_c} = 1 \Rightarrow T_c = \frac{z \hat{J} }{k_B} \neq 0
+\end{equation}
+
+The critical point is characterized by the order parameter that is zero. Now we want to expand the free energy around the critical point. Let us put \( H=0 \).
+\begin{equation}
+  \cosh (x) = 1 + \underbrace{\frac{x^2}{2} + \frac{x^4}{4!}}_{t}  + \dots
+\end{equation}
+\begin{equation}
+  \log{(1+t)}
+\end{equation}
+\begin{equation}
+  f(m,T) = cost + \frac{A}{2} m^2 + \frac{B}{4} m^4 + O (m^6)
+\end{equation}
+\begin{equation}
+  A = \hat{J} z \qty(1- \beta \hat{J} z)
+\end{equation}
+\begin{equation}
+  B = \beta ^2 \frac{(\hat{J}z )^4}{3} > 0
+\end{equation}
+
+Figure in cellulare 2. 
 
 
 
