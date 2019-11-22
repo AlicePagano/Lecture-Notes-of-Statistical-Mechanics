@@ -1,0 +1,169 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{22}{11}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 12.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\begin{equation}
+  f (m,t) \approx const + \frac{A}{2} m^2 + \frac{B}{4} m^4 + O(m^6)
+\end{equation}
+we have \( B>0 \), so we do not need more term to find the minima of the solution. This is called stabilization. What is most important is that the coefficient \( A = \hat{J} z (1- \beta \hat{J} z )  \). This means that \emph{A} can change sign. See Figure 1.
+If \( A > 0 \), we have \( \beta \hat{J} z < 1  \). This is the parametric phase. We have only \( m=0 \)
+
+If \( A < 0 \), we have \( m_0 \neq 0 \). See Figure 2. Wee se that the two states possible have the same minima. Therefore there is a transformation that cannot change the energy. Two states coexists, this is the coexistence. Indeed, in this part we have Figure 3.
+The case in Figure 4   is when \( m_0 = 0 \) and \( T = T_c \) implies
+\begin{equation}
+  \frac{\hat{J}z }{k_B T_c} = 1
+\end{equation}
+The \( \beta  \) exponential observe the order parameter.  We have \( H=0, t \equiv \frac{T-T_c}{T_c} \).
+We have \( m \overset{t \rightarrow 0^-}{\sim } -t^ \beta  \)
+
+\begin{equation}
+  \eval{\pdv{f}{m} }_{m=m_0} = A m_0 + B m_0^3 = \qty[ \hat{J} z ( 1- \beta \hat{J} z ) + B m_0^2]m_0 = 0
+\end{equation}
+we have \( m_0=0 \), \( T_c = \frac{\hat{J}z }{k_B } \). We rewrite the term in the quad parentesis as:
+\begin{equation}
+  \qty(\frac{k_B T_c}{T} (T-T_c) + \beta m_0^2)m_0 \Rightarrow m_0 \sim \qty(T_c-T)^{1/2}
+\end{equation}
+we have found our critical exponent \( \beta = 1/2 \).
+
+Now, let us concentrate in the \( \delta  \) exponent. We are in the only case in which we are in \( T = T_c \) and we want to see how the magnetization decrease.
+\begin{equation}
+  \Rightarrow H \sim m^ \delta
+\end{equation}
+We start from the solution
+\begin{equation}
+  m = \tanh (\beta (\hat{J}zm+H ))
+  \label{eq:12_1}
+\end{equation}
+we invert
+\begin{equation}
+  \beta (\hat{J}zm+H ) = \tanh^{-1} m
+\end{equation}
+consider
+\begin{equation}
+  \tanh^{-1} m \simeq m + \frac{m^3}{3} + \frac{m^5}{5}
+\end{equation}
+therefore by substituting
+\begin{equation}
+  H = k_B T \qty(m+ \frac{m^3}{3} + \dots) - \hat{J} z m
+    = \qty(k_B T - \hat{J}z) m + k_B T \frac{m^3}{3} + \dots
+\end{equation}
+at \( T=T_c= \frac{\hat{J}z }{k_B} \)
+we have
+\begin{equation}
+  H \sim k_B T_c \frac{m^3}{3}
+\end{equation}
+therefore \( \delta =3 \).
+
+
+Now we consider the \( \gamma   \) exponent. We have to derive twice starting again from equation \eqref{eq:12_1}.We obtain \( \gamma =1  \) and \( \alpha =0 \). These are the critical exponent for this sort of model.
+
+The \( \nu  \) exponent define the divergence of the correlation lengths. In order to do that in principle we should compute the correlation function, but which are the correlation we are talking about? The correlation or the fluctuation with to respect the average? In the ferromagnetic we have infinite correlation lengths, but it is not true because instead of that we consider the variation correlated!
+Which is the problem here? In meanfield we were neglecting correlation between fluctuation.
+We thought: let us compute negleting correlation.
+How we can computer the correlation function within the meanfield theory with thermal fluctuations? We look at the response of the system. Esperimentally what we can do? It is a magnetic field, but we cannot use homogeneous magnetic field. Another way to compute the correlation function without looking at thermal fluctuation it is by considering a non homogeneous magnetic field.
+
+If I make a variation in \( H_i \) in the system, what happend in the \( H_j \)? This is an important point!
+
+\section{Mean field: variational approach}
+In quantum mechanics you have an energy:
+\begin{equation}
+  E_{\alpha } = \bra{\psi _ \alpha } \hat{H} \ket{\psi _ \alpha } \ge E_0
+\end{equation}
+where \( \psi _ \alpha  \) it is a trial function. We find the closest function. First of all let us call \( \Phi  \)  a raondm variable and a function of it \( f(\Phi ) \). We can look at the expect value with repsect to the distribution function:
+\begin{equation}
+  \expval{f(\Phi )}_{p } = \Tr(p(\Phi )f(\Phi ))
+\end{equation}
+Suppose \( f(\Phi ) = \exp [-\lambda \Phi ]  \), we have
+\begin{equation}
+  \expval{e^{-\lambda \Phi } }_p \ge e^{- \lambda \expval{\Phi }_p } \quad \forall p
+\end{equation}
+\begin{equation}
+ e^{\Phi } \ge 1+\Phi
+\end{equation}
+we have
+\begin{equation}
+  e^{-\lambda \Phi } = e^{- \lambda \expval{\Phi } } e^{- \lambda [\Phi - \expval{\Phi } ]}
+  \ge e^{-\lambda \expval{\Phi }  } (1- \lambda (\Phi - \expval{\Phi} ))
+\end{equation}
+we have
+\begin{equation}
+ \rightarrow   \expval{e^{-\lambda \Phi }}  \ge e^{-\lambda \expval{\Phi } }
+\end{equation}
+If \( \rho (\Phi ) \) is the probability distribution:
+\begin{equation}
+  \Tr(\rho (\Phi )) = 1 \quad \rho (\Phi ) \ge 0 \quad \forall \Phi
+   \label{eq:12_2}
+\end{equation}
+\begin{equation}
+  e^{-\beta F_N} = Z_N = \Tr_{\{ \Phi  \}  } e^{-\beta \mathcal{H}[\{ \Phi \}  ]}
+                = \Tr_{\{ \Phi  \}  } \rho e^{-\beta \mathcal{H}-\ln{\rho } }
+                = \expval{e^{-\beta \mathcal{H}- \ln{\rho } } }_\rho
+\end{equation}
+therefore
+\begin{equation}
+  e^{-\beta F_N} \ge e^{-\beta \expval{\mathcal{H}}_\rho - \expval{\ln{\rho } }_\rho  }
+\end{equation}
+\begin{equation}
+  F \le \expval{\mathcal{H}}_\rho + k_B T \expval{\ln{\rho } }_\rho
+  \label{eq:12_3}
+\end{equation}
+whenever I'm able to write the last equation by using a \( \rho  \), then I minimize. This is the variational approach of statistical mechanics. The question is: which is the \( \rho  \) that minimize?
+The constrain that the \( \rho  \) has to satisfty is the \eqref{eq:12_2}.
+The minimum is:
+\begin{equation}
+  \bar{\rho } = \rho _{eq} = \frac{1}{Z} e^{-\beta \mathcal{H}}
+\end{equation}
+Up to now everithing is exact. Let us now try to compute the \emph{Z} by starting to the inequality \eqref{eq:12_3}.
+In general the \( \rho  \) is a function of all the degree of freedom:
+\begin{equation}
+  \rho = \rho (\Phi _1, \dots, \Phi _N)
+\end{equation}
+that is a N body problem. This is equivalent exactly when you have:
+\begin{equation}
+  \psi _ \alpha (\va{r}_1, \va{P}_1, \dots, \va{r}_N, \va{P}_N )
+\end{equation}
+So:
+\begin{equation}
+  \rho \overset{MF}{\simeq } \prod_{\alpha =1}^{N} \rho^{(\alpha )}\qty(\Phi _ \alpha ) \equiv \prod_{\alpha =1}^{N} \rho_ \alpha
+\end{equation}
+we asusme that the degree of freedom are indipendent (very strong!). For our spin model what is the \( \Phi _ \alpha  \)? It is the \( S_i \).
+Now we have to compute the two averages in the \eqref{eq:12_3} given the field.
+Remember that \( \Tr(\rho _ \alpha ) = 1  \):
+\begin{equation}
+  \Tr_{\{ \Phi  \}  } ( \rho \ln{\rho } ) = \Tr(\prod_{\alpha }^{} \rho _ \alpha  \qty( \sum_{\alpha }^{} \ln{\rho _ \alpha }  ) ) \overset{\text{to do}}{=} \sum_{\alpha }^{}
+  \Tr(\rho _ \alpha  \ln{\rho _ \alpha } )
+\end{equation}
+we end up that
+\begin{equation}
+  F_{MF} = \expval{\mathcal{H}}_{\rho _{MF}} + k_B T \sum_{\alpha }^{} \Tr^{(\alpha )}(\rho _ \alpha  \ln{\rho _ \alpha } )
+\end{equation}
+now we have to reduce the problem from a single distribution function to ...
+How parametrize \( \rho _ \alpha  \)?
+The first approach is
+\begin{enumerate}
+\item \( \rho _ \alpha = \rho ^{(1)} ( \Phi _{\alpha })  \rightarrow  \expval{\Phi _ \alpha }_ {\rho _ \alpha } \)
+
+we have the normalization \( \Tr^{(\alpha )} \rho _ \alpha = 1  \) and the self consistence condition: \( \Tr^{(\alpha )}(\rho _ \alpha \Phi _ \alpha ) = \expval{\Phi _ \alpha }   \)
+
+\end{enumerate}
+Let us do it for the Ising model (Bragg-Williams): \( \Phi _ \alpha \rightarrow S_i = \pm 1 \) and \( \expval{\Phi _ \alpha } \equiv m_i \):
+\begin{equation}
+  \rho ^{(1)} \equiv \rho ^{(1)} (S_i) \rightarrow \begin{cases}
+    \Tr \rho _i ^{(1)} = 1 \\
+    \Tr \rho _i ^{1} S_i = m_i
+\end{cases}
+\end{equation}
+The simplest function form with two parameters is the linear function, so
+\begin{equation}
+  \rho^{(1)} (S_i) = a (1- \delta _{S_i,1}) + b \delta _{S_i,1}
+\end{equation}
+this is the simplest way we think to write something. This is the starting point. Given that since we have to satisfy we get an expression.
+
+
+
+\end{document}
