@@ -7,60 +7,118 @@
 
 \marginpar{ \textbf{Lecture 12.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
+\subsection{Mean field critical exponents}
+We have:
 \begin{equation}
-  f (m,t) \approx const + \frac{A}{2} m^2 + \frac{B}{4} m^4 + O(m^6)
+  f (m,T,0) \approx const + \frac{A}{2} m^2 + \frac{B}{4} m^4 + O(m^6)
 \end{equation}
-we have \( B>0 \), so we do not need more term to find the minima of the solution. This is called stabilization. What is most important is that the coefficient \( A = \hat{J} z (1- \beta \hat{J} z )  \). This means that \emph{A} can change sign. See Figure 1.
-If \( A > 0 \), we have \( \beta \hat{J} z < 1  \). This is the parametric phase. We have only \( m=0 \)
-
-If \( A < 0 \), we have \( m_0 \neq 0 \). See Figure 2. Wee se that the two states possible have the same minima. Therefore there is a transformation that cannot change the energy. Two states coexists, this is the coexistence. Indeed, in this part we have Figure 3.
-The case in Figure 4   is when \( m_0 = 0 \) and \( T = T_c \) implies
+with \( B>0 \), so we do not need more term to find the minima of the solution. This is called stabilization. What is most important is  the coefficient \( A = \hat{J} z (1- \beta \hat{J} z ) \), that means that  \emph{A} can change sign.
+\subsubsection{\( \beta  \) exponent}
+The \( \beta  \) exponential observe the order parameter. Consider \( H=0, t \equiv \frac{T-T_c}{T_c} \) and \( m \overset{t \rightarrow 0^-}{\sim } -t^ \beta  \). The condition of equilibrium is
 \begin{equation}
-  \frac{\hat{J}z }{k_B T_c} = 1
+  \pdv{f}{m}=0
 \end{equation}
-The \( \beta  \) exponential observe the order parameter.  We have \( H=0, t \equiv \frac{T-T_c}{T_c} \).
-We have \( m \overset{t \rightarrow 0^-}{\sim } -t^ \beta  \)
-
+which implies
 \begin{equation}
   \eval{\pdv{f}{m} }_{m=m_0} = A m_0 + B m_0^3 = \qty[ \hat{J} z ( 1- \beta \hat{J} z ) + B m_0^2]m_0 = 0
 \end{equation}
-we have \( m_0=0 \), \( T_c = \frac{\hat{J}z }{k_B } \). We rewrite the term in the quad parentesis as:
+Since \( T_c = \frac{\hat{J}z }{k_B } \) :
 \begin{equation}
-  \qty(\frac{k_B T_c}{T} (T-T_c) + \beta m_0^2)m_0 \Rightarrow m_0 \sim \qty(T_c-T)^{1/2}
+  0 = \frac{k_B T_c}{T} (T-T_c) m_0 + B m_0^3
 \end{equation}
-we have found our critical exponent \( \beta = 1/2 \).
+and \( m_0=0 \) implies
+\begin{equation}
+  m_0 \simeq (T_c-T)^{1/2}
+\end{equation}
+The mean field value is so \( \beta =1/2 \).
 
-Now, let us concentrate in the \( \delta  \) exponent. We are in the only case in which we are in \( T = T_c \) and we want to see how the magnetization decrease.
-\begin{equation}
-  \Rightarrow H \sim m^ \delta
-\end{equation}
-We start from the solution
+\subsubsection{\( \delta  \) exponent}
+Now, let us concentrate in the \( \delta  \) exponent. We are in the only case in which we are in \( T = T_c \) and we want to see how the magnetization decrease: \(  H \sim m^ \delta \).
+
+Starting from the self-consistent equation
 \begin{equation}
   m = \tanh (\beta (\hat{J}zm+H ))
   \label{eq:12_1}
 \end{equation}
-we invert
+inverting it
 \begin{equation}
   \beta (\hat{J}zm+H ) = \tanh^{-1} m
 \end{equation}
-consider
+on the other hand, for \( m \sim 0 \)
 \begin{equation}
-  \tanh^{-1} m \simeq m + \frac{m^3}{3} + \frac{m^5}{5}
+  \tanh^{-1} m \simeq m + \frac{m^3}{3} + \frac{m^5}{5} + \dots
 \end{equation}
-therefore by substituting
+Therefore, by substituting
 \begin{equation}
-  H = k_B T \qty(m+ \frac{m^3}{3} + \dots) - \hat{J} z m
-    = \qty(k_B T - \hat{J}z) m + k_B T \frac{m^3}{3} + \dots
+\begin{split}
+  H  = k_B T \qty(m+ \frac{m^3}{3} + \dots) - \hat{J} z m
+    &= \qty(k_B T - \hat{J}z) m + k_B T \frac{m^3}{3} + \dots \\
+    & \simeq k_B (T-T_c)m + \frac{k_B T}{3}m^3
+\end{split}
 \end{equation}
-at \( T=T_c= \frac{\hat{J}z }{k_B} \)
-we have
+At \( T=T_c= \frac{\hat{J}z }{k_B} \), we have
 \begin{equation}
   H \sim k_B T_c \frac{m^3}{3}
 \end{equation}
-therefore \( \delta =3 \).
+The mean field value is \( \delta =3 \).
+\subsubsection{\( \alpha  \) exponent}
+Consider the \( \alpha  \) exponent, for  \( H=0 \), \( c_H \sim t^{-\alpha } \) and we have \( t = (T-T_c)/T_c \).
+Compute the specific heat at \( H=0 \).
+Consider first \( T>T_c \), where \( m_0 =0 \)
+\begin{equation}
+  f(m,H) = \frac{\hat{J}zm^2 }{2} - \frac{1}{\beta } \ln{\qty(2\cosh(\beta (\hat{J}zm+H ))) }
+\end{equation}
+If \( m=0 \), \( \cosh 0 =1 \) and
+\begin{equation}
+  f = -k_B T \ln{2}
+\end{equation}
+therefore
+\begin{equation}
+  c_H = - T \qty(\pdv[2]{f}{T} ) = 0
+\end{equation}
+The mean field value is \( \alpha =0 \).
+\begin{remark}
+For \( T<T_c \), \( m=m_0 \neq 0 \). This implies that \( c_H \neq 0 \), but still \( f=-k_BT \ln{A}  \) with \( A= const \). We obtain \( \alpha =0 \) also in this case.
+\begin{equation}
+  m_0 = \pm \sqrt{- \frac{Jz}{2T_c}(T-T_c)}
+\end{equation}
+\end{remark}
 
 
-Now we consider the \( \gamma   \) exponent. We have to derive twice starting again from equation \eqref{eq:12_1}.We obtain \( \gamma =1  \) and \( \alpha =0 \). These are the critical exponent for this sort of model.
+
+\subsubsection{\( \gamma   \) exponent}
+Now we consider the \( \gamma   \) exponent, for \( H=0 \), \( \chi \sim t^{-\gamma  } \).   Starting again from equation \eqref{eq:12_1}:
+\begin{equation}
+  m = \tanh (\beta (\hat{J}zm+H ))
+\end{equation}
+and developing it around \( m \simeq 0 \), as shown before we get
+\begin{equation}
+  H = m k_B (T-T_c)+ \frac{k_B T}{3}m^3
+\end{equation}
+\begin{equation}
+  \Rightarrow \chi _T = \pdv{m}{H} = \frac{1}{\pdv{H}{m} }
+\end{equation}
+Since \( \pdv{H}{m} \simeq k_B (T-T_c) + K_B T m^2 \), as \( m \rightarrow 0 \)
+\begin{equation}
+  \chi \sim (T-T_c)^{-1}
+\end{equation}
+The mean field value is \( \gamma =1  \).
+
+\subsubsection{Summary}
+The mean field critical exponents are
+\begin{equation}
+  \beta = \frac{1}{2}, \quad \gamma =1, \quad \delta =3, \quad \alpha =0
+\end{equation}
+\begin{remark}
+In the mean field critical exponents the dimension \( D \) does not appear. \( T_c \) instead depends on the number of \emph{z} of neirest neighbours and hence on the embedding lattice!
+\end{remark}
+
+\section{Mean field variational method}
+
+
+
+\section{lesson}
+
 
 The \( \nu  \) exponent define the divergence of the correlation lengths. In order to do that in principle we should compute the correlation function, but which are the correlation we are talking about? The correlation or the fluctuation with to respect the average? In the ferromagnetic we have infinite correlation lengths, but it is not true because instead of that we consider the variation correlated!
 Which is the problem here? In meanfield we were neglecting correlation between fluctuation.

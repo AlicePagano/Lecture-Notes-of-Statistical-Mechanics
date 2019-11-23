@@ -7,179 +7,279 @@
 
 \marginpar{ \textbf{Lecture 11.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-The Hamiltonian is:
-\begin{equation}
-  - \mathcal{H} ( \{ S \}  ) = \frac{J}{2N} \sum_{ij}^{} S_i S_j + H \sum_{i}^{} S_i
-\end{equation}
-where the second term is associated to an external magnetic field. We have a function:
+The partition function is
+
 \begin{equation}
 Z_N (T,J,H) = \sum_{\{ S \}  }^{} \exp [\frac{\beta J}{2N} \sum_{ij}^{} S_i S_j + \beta H \sum_{i}^{} S_i    ]
 \end{equation}
-where the term \( \sum_{ij}^{} S_i S_j  = \qty( \sum_{i}^{} S_i )^2 \). Rerite the partition function:
+Since there are no restrictions on the double sum we can write
+\begin{equation}
+  \sum_{ij}^{} S_i S_j  = \qty(\sum_{i}^{} S_i ) \qty(\sum_{j}^{} S_j )= \qty( \sum_{i}^{} S_i )^2
+\end{equation}
+Rewriting the partition function:
 \begin{equation}
   Z_N (T,J,H)  =   \sum_{\{ S \}  }^{} \exp  [\frac{K}{2N} \qty( \sum_{i}^{} S_i )^2 + h \sum_{i}^{} S_i    ]
 \end{equation}
-This is the Hubbard-stratonovitch transformation (you can do it in any dimension). The idea is to rewrite something as a square. Let us define:
+In order to transform the quadratic term into al inear one we make use of the integral identity known as the \emph{Hubbard-stratonovitch transformation} (we can do it in any dimension). The idea is to rewrite something as a square.
+
+Let us define:
 \begin{equation}
-  x \equiv \sum_{i}^{} S_i
+ x \equiv \sum_{i}^{} S_i
 \end{equation}
-The identity is the following
+The following identity holds
 \begin{equation}
-  e^{\frac{K x^2}{2N}} =  \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } e^{-\frac{N K}{2}y^2+Kxy} \dd[]{y}
+  e^{\frac{K x^2}{2N}} =  \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } e^{-\frac{N K}{2}y^2+Kxy} \dd[]{y}, \quad \text{with} \quad \Re(K) >0
+  \label{eq:11_1}
 \end{equation}
-The real part of \emph{K} \( \Re(K) >0  \). y is a random field that follows a random distribution. We want to do:
-\begin{proof}
+where \emph{y} is a random field that follows a random distribution.
+To show the identity above it is sufficient to complete the square
+\begin{proof}(of \eqref{eq:11_1})
   \begin{equation}
     - \frac{N K}{2} y^2 + K x y = - \frac{N K}{2} \qty(y - \frac{x}{N})^2 + \frac{K x^2}{2N}
   \end{equation}
   Then we integrate:
   \begin{equation}
-    e^{\frac{K x^2}{2N}} \int_{- \infty }^{+ \infty } e^{- \frac{N K}{2} \qty(y - \frac{x}{N})^2 } \dd[]{y}
+    e^{\frac{K x^2}{2N}} \int_{- \infty }^{+ \infty } e^{- \frac{N K}{2} \qty(y - \frac{x}{N})^2 } \dd[]{y} \overset{(a)}{=}  e^{\frac{K x^2}{2N}} \sqrt{\frac{2 \pi }{N K}}
   \end{equation}
-  if \( z \equiv y - \frac{x}{N} \) , \( \dd[]{z} = \dd[]{y}   \) :
+  where in \( (a) \) we have considered \( z \equiv \qty( y - \frac{x}{N} )\) , \( \dd[]{z} = \dd[]{y}   \):
   \begin{equation}
     \rightarrow \int_{-\infty }^{+\infty } e^{- \alpha z^2} \dd[]{z} = \sqrt{\frac{\pi }{\alpha }}
   \end{equation}
-  with \( \alpha \equiv \frac{N K}{2} \), therefore
-  \begin{equation}
-    = e^{\frac{K x^2}{2N}} \sqrt{\frac{2 \pi }{N K}}
-  \end{equation}
+  with \( \alpha \equiv \frac{N K}{2} \).
 \end{proof}
-We have:
+By using \eqref{eq:11_1} we have
 \begin{equation}
-  Z_N = \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \underbrace{\qty[\sum_{\{ S \}  }^{}  e^{(h+Ky) \sum_{i}^{} S_i  }  ]}_{Q_y}
+  Z_N (K,h)= \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \underbrace{\qty[\sum_{\{ S \}  }^{}  e^{(h+Ky) \sum_{i}^{} S_i  }  ]}_{Q_y}
 \end{equation}
-Sometimes the \emph{y} is called \emph{auxiliary field}.
+Sometimes \emph{y} is called \emph{auxiliary field}. If \emph{y} is a fluctuating external field  with Gaussian distribution
 \begin{equation}
-  Q_y = \prod_{i}^{N} \qty(\sum_{S_i = \pm 1}^{} \exp [ (h+Ky) S_i]  )  = \qty( 2 \cosh (h+Ky))^N
+\begin{split}
+ Q_y  =  \sum_{\{ S \}  }^{}  e^{(h+Ky) \sum_{i}^{} S_i  }
+      &= \prod_{i}^{N} \qty(\sum_{S_i = \pm 1}^{} \exp [ (h+Ky) S_i]  )\\
+      &= \qty( 2 \cosh (h+Ky))^N
+\end{split}
 \end{equation}
-it becomes:
+The partition function becomes
 \begin{equation}
-  = \sqrt{\frac{N K}{2 \pi }} \int_{- \infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \qty(2 \cosh(h+Ky))^N = \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } \dd[]{y} e^{N \alpha (K,h,y)}
+Z_N (K,h) = \sqrt{\frac{N K}{2 \pi }} \int_{- \infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \qty(2 \cosh(h+Ky))^N = \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } \dd[]{y} e^{N \alpha (K,h,y)}
 \end{equation}
 where
 \begin{equation}
   \alpha (K,h,y) = \ln{\qty[2 \cosh(h+Ky)] } - \frac{K}{2}y^2
 \end{equation}
-Maybe we can replace the medium of the integral with the maximum of the integrand, we say that all the information is coming only from a bit of information. Replace the all integral with the integrand computed where it is maximum. That is an approximation and we are loosing information, it depends on the form of the function. For example, for a delta function it works better. This is the Saddle point approximation. In general:
+
+\begin{remark}
+In the limit \( N \rightarrow \infty  \) the integral can be computed exactly by the \emph{saddle point method}.
+We can replace the medium of the integral with the maximum of the integrand, we say that all the information is coming only from a bit of information. Replace the all integral with the integrand computed where it is maximum. That is an approximation and we are loosing information, it depends on the form of the function. For example, for a delta function it works better. In general:
 \begin{equation}
   \int_{-\infty }^{+ \infty } f(x) \dd[]{y} \rightarrow f(\bar{x} )
 \end{equation}
-where \( \bar{x} = \max_{x} f(x)  \)
-\begin{equation}
-  Z_N \approx \sqrt{\frac{N K}{2 \pi }} \max_y \qty[\exp [N \alpha ] ]
-\end{equation}
-We call \( y_s \) be the value of \( y \) at which \( \alpha (K,h,y_s) = \max_y \alpha  \).
-Therefore:
-\begin{equation}
-  \Rightarrow Z_N^S (K,h) \sim \sqrt{\frac{N K}{2 \pi }} e^{N \alpha (K,h,y_s)}
-\end{equation}
-Therefore when we are ample to compute the \( y_s \) we can do this approximation.
-\begin{equation}
-  f_b = \lim_{N \rightarrow \infty } \frac{1}{N} \qty(- k_B T \log{Z_N}) = -k_B T \alpha (h,K,y_s)
-\end{equation}
-Consider the condition \( \pdv{\alpha }{y} = 0  \):
-\begin{equation}
-  \pdv{\alpha }{y} = \frac{\sinh (h+Ky)K}{\cosh (h+Ky)} - Ky = 0
-\end{equation}
-\begin{equation}
-  \Rightarrow y_s = \tanh (h+Ky_s)
-\end{equation}
+where \( \bar{x} = \max_{x} f(x)  \).
+\end{remark}
 
-The magnetization is
+
+Indeed as \( N \rightarrow \infty  \), since the integrand is \( \exp (N \alpha (K,h,y))  \), the integral is dominated by the global maximum in \emph{y} of the function \( \alpha (K,h,y) \).
 \begin{equation}
-  m = - \pdv{f}{H} \underset{\text{to do!}}{=}  \pdv{\alpha }{h}  + \frac{O ( \log{N} )}{N}
-  = \tanh (K y_s +h)
+  Z_N (K,h) \overset{N \gg1 }{\approx}  \sqrt{\frac{N K}{2 \pi }} \max_y \qty[e ^{N \alpha(K,h,y) } ]
 \end{equation}
-So at the end
+Let \( y_s \) be the value of \( y \) at which
+\begin{equation}
+  \alpha (K,h,y_s) = \max_y \alpha (K,h,y)
+\end{equation}
+therefore
+\begin{equation}
+  Z_N (K,h) \overset{N \gg1 }{\approx} \sqrt{\frac{N K}{2 \pi }} e^{N \alpha (K,h,y_s)}
+\end{equation}
+When we are ample to compute the \( y_s \) we can do this approximation and
+\begin{equation}
+  f_b (K,h)= \lim_{N \rightarrow \infty } \frac{1}{N} \qty(- k_B T \log{Z_N}) = -k_B T \alpha (K,h,y_s)
+\end{equation}
+Looking for \( y_s \) we consider the condition \( \pdv{\alpha }{y} = 0  \):
+\begin{equation}
+  \pdv{\alpha }{y} = \frac{\sinh (h+Ky)K}{\cosh (h+Ky)} - Ky = 0 \quad   \Rightarrow y_s = \tanh (h+Ky_s)
+\end{equation}
+The last one is an implicit equation that can be solved graphically as a function of \emph{K} and \emph{h}.
+
+The magnetization in the \( N \rightarrow \infty  \) limit is given by
+\begin{equation}
+\begin{split}
+m  &= - \qty( \pdv{f}{H})_T = \lim_{N \rightarrow \infty } \frac{1}{\beta N} \pdv{\ln{Z_N(K,h)} }{H}   \\
+& =  \pdv{\alpha (K,h,y_s) }{h}  + \frac{O ( \log{N} )}{N} = \frac{2 \sinh(Ky_s+h)}{2 \cosh(ky_s+h)} \\
+& = \tanh (K y_s +h)
+\end{split}
+\end{equation}
+At the end \( m \equiv y_s \)
 \begin{equation}
   m = \tanh (h+Km)
 \end{equation}
-this will give us the equilibrium value of \emph{m}! We have solved analitically this one.
+that is a self consistent equation. We have solved analitically this problem.
 
 
-The most important approximation is the \emph{mean field approximation}. Try to simplify the problem by negletic the correlation between the fluctuations.
-\begin{equation}
-  Z_N = \sum_{\{ S \}  }^{} e^{\beta \qty[\frac{1}{2} \sum_{\expval{ij} }^{} J_{ij} S_i S_j + \sum_{i}^{} H_i S_i   ] }
-\end{equation}
-The magnetization per spin is \( m \equiv \expval{S_i}  \). Let us consider \( H_i = H \) uniform. The simplest approximation is:
-we have our nasty term, let us rewrite it in this way
-\begin{equation}
-  S_i S_j = (S_i - m + m) (S_j - m + m) = \underbrace{(S_i - m ) (S_j - m)}_{S_i - \expval{S_i} }  + m^2 + m (S_j-m) + m (S_i-m)
-\end{equation}
-where \( S_i - \expval{S_i}  \) are the fluctuations, so the mean field neglets correlations of the fluctuations:
+\chapter{Mean field theories of phase transitions adn variational mean field}
 
+\section{Mean field theories}
+
+Increasing the dimension of the systems the effort to solve analitically the problems increase , in fact we have seen that
+\begin{itemize}
+\item In \( D=1 \): many (simple) models can be solved exactly using techniques such as the transfer matrix method.
+\item In \( D=2 \): few models can still be solved exactly (often with a lot of effort).
+\item In \( D=3 \): almost no model can be exactly solved.
+\end{itemize}
+so, approximations are need.
+The most important and most used one is the \emph{mean field approximation}. The idea is to try to simplify the problem by negletic the correlation between the fluctuations of the order parameter. It is equivalent to a statistical indipendence of the microscopic degrees of freedom.
+
+The mean field approximation has different names depending on the system considered:
+\begin{itemize}
+\item Magnetic: Weiss theory.
+\item Fluids: Van der Walls.
+\item Polymers: Flory's theory.
+\end{itemize}
+
+\subsection{Mean field for Ising model}
 \begin{equation}
-  S_i S_j = (S_i - m + m) (S_j - m + m) = \cancel{ (S_i - m ) (S_j - m) }  + m^2 + m (S_j-m) + m (S_i-m)
+  Z_N (T,H,\{ J_{ij} \}  )= \sum_{\{ S \}  }^{} e^{\beta \qty[\frac{1}{2} \sum_{\expval{ij} }^{} J_{ij} S_i S_j + \sum_{i}^{} H_i S_i   ] } = \exp (-\beta F_N (T,H,\{ J_{ij} \}  ))
 \end{equation}
+The magnetization per spin is \( m \equiv \expval{S_i}  \) and let us consider \( H_i = H \) uniform. Consider the idenity
 \begin{equation}
-  \Rightarrow \approx m^2 + m(S_i-m) + m(S_j-m)
+\begin{split}
+  S_i S_j  &= (S_i - m + m) (S_j - m + m)  \\
+  & = (S_i - m ) (S_j - m)  + m^2 + m (S_j-m) + m (S_i-m)
+\end{split}
+\end{equation}
+\begin{remark}
+The term
+\begin{equation}
+  (S_i - m ) (S_j - m) = (S_i - \expval{S_i})(S_j - \expval{S_j})
+\end{equation}
+measures correlation between fluctuations.
+\end{remark}
+The mean field approximation consists in neglecting this term obtaining
+\begin{equation}
+  S_i S_j  \approx m^2 + m(S_i-m) + m(S_j-m)
 \end{equation}
 We have:
 \begin{equation}
-  \frac{1}{2} \sum_{\expval{ij} }^{} S_i S_j \overset{MF}{\approx } \frac{1}{2} \sum_{\expval{ij} }^{} J_{ij} \qty[-m^2+m(S_i+S_j)]
+  \frac{1}{2} \sum_{i,j}^{} J_{ij}S_i S_j \overset{MF}{\approx } \frac{1}{2} \sum_{i,j }^{} J_{ij} \qty[-m^2+m(S_i+S_j)]
+\end{equation}
+The term
+\begin{equation}
+  \frac{1}{2} \sum_{i,j }^{} J_{ij} m(S_i+S_j) = \frac{2}{2} \sum_{i,j }^{} J_{ij} m S_i
+  \label{eq:11_2}
+\end{equation}
+and assuming (\( n.n. \) = neirest neighbour)
+\begin{equation}
+  \sum_{j \, n.n.\text{ of } i}^{} J_{ij} = z \hat{J}_i \simeq  z \hat{J}
+\end{equation}
+where \emph{z} is the coordination number of the underlying lattice (hypercubic lattice \( z=2D \)). Therefore, \eqref{eq:11_2} became
+\begin{equation}
+  \frac{2}{2} \sum_{i,j }^{} J_{ij} m S_i = m \hat{J} z \sum_{i}^{} S_i
 \end{equation}
 \begin{equation}
-  \frac{1}{2} \sum_{\expval{ij} }^{} J_{ij} m(S_i+S_j) = \frac{2}{2} \sum_{\expval{ij} }^{} J_{ij} m S_i
-  \label{eq:11_1}
+  -\mathcal{H} = \frac{1}{2} \sum_{\expval{ij} }^{} J_{ij} S_i S_j + H \sum_{i}^{} S_i \simeq - \frac{1}{2} N \hat{J} z m^2 + (\hat{J} z m + H) \sum_{i=1}^{N} S_i
 \end{equation}
-Let us write in this way: (n.n. = neirest neighbour)
+Let us do the same story over j for the sum over i:
 \begin{equation}
-  \sum_{j \text{ n.n. of } i}^{} J_{ij} = z \hat{J}_i \simeq  z \hat{J}
+\begin{split}
+  Z_N (T,H,\hat{J} ) &= e^{-\frac{\beta m^2 N}{2} z \hat{J} } \sum_{\{ S \}  }^{}  e^{\beta (\hat{J}zm + H ) \sum_{i}^{} S_i } \\
+  & = e^{-\frac{\beta m^2 N}{2} z \hat{J} } \qty(\sum_{S=\pm 1}^{}  \exp (\beta (\hat{J}zm+H )S)  )^N \\
+  & = e^{-\frac{\beta m^2 N}{2} z \hat{J} } \qty(2 \cosh [\beta (\hat{J}zm+H )])^N
+\end{split}
 \end{equation}
-Therefore \eqref{eq:11_1} became
+The free energy per spin is
 \begin{equation}
-  = m \hat{J} z \sum_{i}^{} S_i
+\begin{split}
+  f_b (T,H,\hat{J} ) &=  - \frac{1}{N}k_B T \log{Z_N} (T,H,\hat{J} ) \\
+                    &= \frac{1}{2}\hat{J} z m^2 -k_B T \log{[\cosh(\beta (\hat{J} z m + H))]} - k_B T \ln{2}
+\end{split}
 \end{equation}
-If you do the same story over j for the sum over i:
-\begin{equation}
-  Z_N \approx e^{-\frac{\beta m^2 N}{2} z \hat{J} } \sum_{\{ S \}  }^{}  e^{\beta (\hat{J}zm + H ) \sum_{i}^{} S_i }
-\end{equation}
-\begin{equation}
-  \approx e^{-\frac{\beta m^2 N}{2} z \hat{J} } \qty(2 \cosh [\beta (\hat{J}zm+H )])^N
-\end{equation}
-The free energy mean field is:
-\begin{equation}
-  f_b^{MF} = - \frac{1}{N}k_B T \log{Z_N} = \frac{1}{2}\hat{J} z m^2 -k_B T \log{[2\cosh(\beta (\hat{J} z m + H))]} - k_B T \ln{2}
-\end{equation}
+
+\begin{remark}
 We are replacing the interaction of the J with a field close to the \( S_i \). We called \( \hat{J} z m = H_{eff}  \), the mean field!
+\end{remark}
 
-Self consistency  must satisfy the thermodynamic relation:
+In order to be a self-consistent equation has to satisfy the  thermodynamic relation:
 \begin{equation}
-  m = - \qty( \pdv{f}{H})_T
+  m = - \qty( \pdv{f}{H})_T \quad \Rightarrow   m = \tanh (\beta (\hat{J}z m + H  ))
 \end{equation}
-this is the \emph{self-consistent constraint}. The self consistent relation is therefore:
+\begin{remark}
+The results it is similar to the Ising with infinite range (\( \hat{J}z \leftrightarrow J  \)).
+\end{remark}
+If \( H=0 \), we have
 \begin{equation}
-  m = \tanh (\beta (\hat{J}z m + H  ))
+  m =  \tanh (\beta (\hat{J}z m ))
 \end{equation}
-The iperbolic function (insert Figure in cellulare (copiare da qualcuno)). \( H=0 \). For the value of the parameter \( \beta \hat{J} z > 1  \), we find solution \( m_0 \neq 0 \).  Two solution are symmetric because they are related by the z symmetry.
+and the graphical solution is shown in Figure \ref{fig:11_1} (hyperbolic function).
 
-If we look for the csase \( \beta \hat{J} z < 1  \), we have just one solution that is equal to zero \( m_0 = 0 \).
 
-The condition \( \beta_c \hat{J} z = 1  \), define the critical point
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\textwidth]{../lessons/11_image/1.pdf}
+\caption{\label{fig:11_1}}
+\end{figure}
+
+In particular:
+\begin{itemize}
+\item case \( \beta \hat{J} z > 1  \): there are three solutsions, one at \( m=0 \) and two symmetric at \( m=\pm m_0 \). Magnetization is \( \neq 0 (= \abs{m_0} )\) for \( H=0 \) (\emph{ordered phase}).  The two solution are symmetric because they are related by the \( \mathbb{Z}^2 \)  symmetry;
+\item case \( \beta \hat{J} z < 1  \): single solution at \( m=0 \) (\emph{disordered or paramagnetic phase});
+\item case \( \beta \hat{J} z = 1  \): the three solutions coincide at \( m=0 \).
+\end{itemize}
+The condition \( \beta_c \hat{J} z = 1  \), define the critical point. The critical temperature \( T_c \) is given by
 \begin{equation}
-  \frac{z \hat{J} }{k_B T_c} = 1 \Rightarrow T_c = \frac{z \hat{J} }{k_B} \neq 0
+  \frac{z \hat{J} }{k_B T_c} = 1 \Rightarrow T_c = \frac{z \hat{J} }{k_B} \neq 0!
 \end{equation}
+\begin{remark}
+\( T_c \) depends on \emph{z} and hence on \emph{D}.
+\end{remark}
 
+\subsection{Free-energy expansion for \( m \sim 0 \)}
 The critical point is characterized by the order parameter that is zero. Now we want to expand the free energy around the critical point. Let us put \( H=0 \).
 \begin{equation}
-  \cosh (x) = 1 + \underbrace{\frac{x^2}{2} + \frac{x^4}{4!}}_{t}  + \dots
+  f(m,0,T,\hat{J} ) = \frac{1}{2}\hat{J}zm^2 -k_BT \ln{\qty[\cosh(\beta \hat{J}zm )]}
+\end{equation}
+Define \( x \equiv \beta \hat{J} z m \simeq 0  \), so
+\begin{equation}
+  \cosh (x) = 1 + \underbrace{\frac{x^2}{2} + \frac{x^4}{4!}}_{t \simeq 0}  + \dots
 \end{equation}
 \begin{equation}
-  \log{(1+t)}
+  \log{(1+t)} \simeq t - \frac{1}{2}t^2
 \end{equation}
 \begin{equation}
-  f(m,T) = cost + \frac{A}{2} m^2 + \frac{B}{4} m^4 + O (m^6)
+  \log{(\cosh x)} \simeq \frac{x^2}{2} + \frac{x^4}{4!} - \frac{1}{2} \frac{x^4}{4}+O(x^6)
+  = \frac{x^2}{2} - \frac{x^4}{12}+O(x^6)
 \end{equation}
+This gives
 \begin{equation}
-  A = \hat{J} z \qty(1- \beta \hat{J} z)
+  f(m,0,T,\hat{J} ) = const + \frac{A}{2} m^2 + \frac{B}{4} m^4 + O (m^6)
 \end{equation}
-\begin{equation}
-  B = \beta ^2 \frac{(\hat{J}z )^4}{3} > 0
-\end{equation}
+with
+\begin{subequations}
+\begin{align}
+   A &= \hat{J} z \qty(1- \beta \hat{J} z) \\
+    B &= \beta ^3 \frac{(\hat{J}z )^4}{3} > 0
+\end{align}
+\end{subequations}
 
-Figure in cellulare 2. 
+\begin{itemize}
+\item case \( \beta \hat{J} z > 1 \Rightarrow A<0 \): two stable symmetric minima at \( m= \pm m_0 \). Coexistence between the two ordered phases.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.35\textwidth]{../lessons/11_image/2.pdf}
+\caption{\label{fig:11_2}}
+\end{figure}
+\item case \( \beta \hat{J} z < 1 \Rightarrow A>0 \): one minimum at \( m=0 \).
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.35\textwidth]{../lessons/11_image/3.pdf}
+\caption{\label{fig:11_3}}
+\end{figure}
+\item case \( \beta \hat{J} z = 1 \Rightarrow A=0 \): 3 minima coincide at \( m=0 \).
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.35\textwidth]{../lessons/11_image/4.pdf}
+\caption{\label{fig:11_4}}
+\end{figure}
+\end{itemize}
 
 
 
