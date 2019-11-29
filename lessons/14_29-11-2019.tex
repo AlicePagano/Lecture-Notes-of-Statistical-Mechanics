@@ -71,7 +71,7 @@ We have our configurational property, partition function of the fluids (so you a
 \end{equation}
 where \( \psi _{ext} \) is a one body potential, but we do not consider it because is not the aim of our problem.
 \begin{equation}
-  \Phi (\{ \va{r} \}  ) = \sum_{i,j>1}^{}  U_2 (\va{r}_i,\va{r}_j) + \sum_{i,j, \mu }^{} U_3 (\va{r}_i, \va{r}_j, \va{r}_ \mu )
+  \Phi (\{ \va{r} \}  ) = \sum_{i,j>i}^{}  U_2 (\va{r}_i,\va{r}_j) + \sum_{i,j, \mu }^{} U_3 (\va{r}_i, \va{r}_j, \va{r}_ \mu )
 \end{equation}
 but we forgot about \( U_3 \) that is the three body interaction. We consider
 \begin{equation}
@@ -79,7 +79,7 @@ but we forgot about \( U_3 \) that is the three body interaction. We consider
 \end{equation}
 Therefore,
 \begin{equation}
-  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \sum_{i,j > 1 }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) ]
+  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \sum_{i,j > i }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) ]
 \end{equation}
 We replace all this story with just a field, it is a sort of average of the interactions. Doing the mean field assumption for \( U_2 \) we obtain
 \begin{equation}
@@ -171,7 +171,7 @@ Try to do the expansion around the critical point, \( t = \tau -1 = \frac{T-T_c}
 
 
 \begin{equation}
-  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \sum_{i,j > 1 }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) ]
+  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \sum_{i,j > i }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) ]
 \end{equation}
 
 \begin{equation}
@@ -206,7 +206,37 @@ do an expansion, you will get the same structure of the virial expansion, findin
 \begin{equation}
   B_2 (T)^{VdW} = b - \frac{a}{k_B T} \qquad B_3^{VdW} = b^2
 \end{equation}
+The \emph{Boyle's temperature} is when the second coefficient is zero:
+\begin{equation}
+  B_2^{VdW} (T_B) = 0
+\end{equation}
+so you remove the most important coefficient.
+We have \( T_B \) versus \( T_c \). It is clear that the Boyle's temperature must be much greater than the critical one. Consider a polymer, the transition point called the \( \theta  \) point is when the second coefficient is zero, as the case described above, but it is interesting in polymer kind of system.
 
+Let us try to do some calculation of this virial coefficients, starting from the model microscopical
+\begin{equation}
+  Q_N = \int_{V}^{} \dd[]{\va{r}_1} \dots \int_{V}^{} \dd[]{\va{r}_N}  e^{-\beta \sum_{i,j > i}^{} \Phi _{ij} }
+\end{equation}
+with
+\begin{equation}
+  \Phi _{ij} = \Phi ( \abs{\va{r}_i - \va{r}_j} )
+\end{equation}
+The \emph{Mayer function}  is something that is smaller in that given point
+\begin{equation}
+  f (\abs{\va{r}} ) \equiv \exp [ - \beta \Phi ( \abs{\va{r}} )] -1
+\end{equation}
+If \( \beta \Phi \ll 1 \), we have \( f \ll 1 \). So
+\begin{equation}
+  \rightarrow  e^{-\beta \sum_{i,j > i}^{} \Phi _{ij} } = \prod_{i}^{} \qty(\prod_{j>i}^{} (1+ f_{ij})  )
+\end{equation}
+Expanding this object we obtain
+\begin{equation}
+  \rightarrow = \underbrace{(1+f_{12})(1+f_{13}) (1+ f_{14}) \dots ( 1 + f_{1N })}_{i=1}   \dots \underbrace{(1+f_{23}) (1+ f_{24}) \dots ( 1 + f_{2N })}_{i=2} \dots =
+\end{equation}
+\begin{equation}
+  = 1 + \sum_{i}^{} \sum_{j>i}^{} f_{ij} + \cancel{\sum_{i}^{} \sum_{k \ge i}^{} \sum_{j > i}^{} \sum_{e \ge j}^{} f_{ik} f_{je}       }  
+\end{equation}
+The solution is given by considering only the linear term. This is the cluster expansion.
 
 
 
