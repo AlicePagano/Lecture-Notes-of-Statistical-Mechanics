@@ -351,6 +351,7 @@ Note also that:
 \noindent
 How about its derivatives? Since \emph{P}  is fixed we can vary \emph{T}  and look for \( s=-\qty(\pdv{g}{T} )_P  \). As we cross different phases  we have discontinuities, where \( \Delta s T \)  is called the \emph{latent heat}. It is illustrated in Figure \ref{fig:2_4}.
 
+As we will later see in more detail, since in this transition the first derivatives of a thermodynamic potential have a jump discontinuity, we call it a \emph{first order transition.}
 
 
 \begin{figure}[h!]
@@ -374,6 +375,7 @@ Note that, we have  \( v= \qty(\pdv{g}{P} )_T > 0  \) :
   \qty(\pdv[2]{g}{P} ) = \qty(\pdv{U}{P} )_T = -v k_T < 0
   \label{eq:}
 \end{equation}
+so, also in this case we had a jump of the first order derivative of the thermodynamic potential \( g \).
 It is illustrated in Figure \ref{fig:2_6}.
 
 
@@ -384,16 +386,64 @@ It is illustrated in Figure \ref{fig:2_6}.
 \end{figure}
 
 
+\subsection{Critical points}
+At the critical point \( (P_c,T_c) \) the system can pass from the liquid to the gas phase (and viceversa) in a continuous way
+\begin{equation*}
+  \Delta s = \Delta v = 0
+\end{equation*}
+Usually critical points are end point of first order transition phases. Why there is no critical point between solid and liquid? The crossover between phases having the same symmetry define the Landau point. There is a break of symmetry, for instance we can think about the structure of the bravais lattice. Instead, from gas to liquid symmetries are not broken.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/2_image/10.pdf}
+\caption{\label{fig:} \( (T,P) \) projection.}
+\end{figure}
+
+
+\subsection{Ferromagnetic system}
+
+
+A similar behaviour can be encountered in magnetic systems.
+We can have a magnetization different from 0 even when the is no magnetic field.
+Supposing \( P \leftrightarrow H, V \leftrightarrow M \), we have \( (P,T) \leftrightarrow (H,T) \).
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{../lessons/2_image/11.pdf}
+\caption{\label{fig:2_10} Phase diagram for a magnetic system in \( (T,H) \) space.}
+\end{figure}
+
+The magnetization \( M \) has a jump at \( H=0 \) for temperatures lower that the critical one; in this case since \( M = - \pdv{F}{H}  \) we see that the first derivative of the free energy \emph{F} with respect to \emph{H} has a jump discontinuity.
+For instance, consider Figure \ref{fig:2_11}. At  the critical point the magnetization would pass through zero.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{../lessons/2_image/12.pdf}
+\caption{\label{fig:2_11} Plot of the Magnetization for \( T = T^* < T_c \).}
+\end{figure}
+
+
+
+
+
+
+
 
 \section{Second order phase transition}
-There are other cases in which we do not have these effects, as in Figure \ref{fig:2_7}. This is different from the previous situation in which we had a jump:
+The transitions are classified in the first order transition and continuous transition.
+In fact, there are other cases in which we do not have these effects. This is different from the previous situation in which we had a jump for the first order derivative of a thermodynamic potential. Some examples are illustrated in Figure \ref{fig:2_7}.
+
+Let us suppose that
 \begin{subequations}
 \begin{align}
   \qty(\pdv{g}{T} )_P &= -s \\
   \qty(\pdv{g}{P} )_T &= v
 \end{align}
 \end{subequations}
-they are continuous. However, this implies:
+are continuous. This implies:
 \begin{equation}
   \qty(\pdv{g}{T}{P}  ) = \qty(\pdv{v}{T} )_P = v_{\alpha p}
   \label{eq:}
@@ -405,493 +455,81 @@ An example is \emph{superconductivity}.
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.4,xscale=0.4]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
-
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
-%Straight Lines [id:da6702336744569144]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (301,106) -- (303,391) ;
-
-
-%Curve Lines [id:da832017125366147]
-\draw    (178,78) .. controls (309,90) and (446,145) .. (470,309) ;
-
-
-%Shape: Circle [id:dp6821519031317774]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (296.05,106) .. controls (296.05,103.26) and (298.26,101.05) .. (301,101.05) .. controls (303.74,101.05) and (305.95,103.26) .. (305.95,106) .. controls (305.95,108.74) and (303.74,110.95) .. (301,110.95) .. controls (298.26,110.95) and (296.05,108.74) .. (296.05,106) -- cycle ;
-
-% Text Node
-\draw (93,24) node   {$g$};
-% Text Node
-\draw (524,409) node   {$T$};
-% Text Node
-\draw (308,419) node   {$T_{a}$};
-
-
-\end{tikzpicture}
-
-    \label{fig:} }
+\subfloat[][Thermodynamic potential \( g \).]{ \centering
+\includegraphics[width=0.95\textwidth]{../lessons/2_image/7_1.pdf}
+\label{fig:} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.4,xscale=0.4]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
-
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
-%Straight Lines [id:da6702336744569144]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (301,169) -- (303,391) ;
-
-
-%Curve Lines [id:da832017125366147]
-\draw    (152,330) .. controls (234,314) and (270,266) .. (301,169) ;
-
-
-%Shape: Circle [id:dp6821519031317774]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (296.05,169) .. controls (296.05,166.26) and (298.26,164.05) .. (301,164.05) .. controls (303.74,164.05) and (305.95,166.26) .. (305.95,169) .. controls (305.95,171.74) and (303.74,173.95) .. (301,173.95) .. controls (298.26,173.95) and (296.05,171.74) .. (296.05,169) -- cycle ;
-%Straight Lines [id:da1662494918814228]
-\draw    (301,169) -- (451,88) ;
-
-
-
-% Text Node
-\draw (93,24) node   {$s$};
-% Text Node
-\draw (524,409) node   {$T$};
-% Text Node
-\draw (308,419) node   {$T_{a}$};
-
-
-\end{tikzpicture}
-
-    \label{fig:} }
+\subfloat[][Continuous \( s \).]{\centering
+\includegraphics[width=0.95\textwidth]{../lessons/2_image/7_2.pdf}
+\label{fig:} }
 \end{minipage}
 \\
 \begin{minipage}[c]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.4,xscale=0.4]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
-
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
-%Straight Lines [id:da6702336744569144]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (301,169) -- (303,391) ;
-
-
-%Shape: Circle [id:dp6821519031317774]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (296.05,169) .. controls (296.05,166.26) and (298.26,164.05) .. (301,164.05) .. controls (303.74,164.05) and (305.95,166.26) .. (305.95,169) .. controls (305.95,171.74) and (303.74,173.95) .. (301,173.95) .. controls (298.26,173.95) and (296.05,171.74) .. (296.05,169) -- cycle ;
-%Straight Lines [id:da1662494918814228]
-\draw    (301,169) -- (451,88) ;
-
-
-%Straight Lines [id:da8938048927675745]
-\draw    (301,169) -- (191,331) ;
-
-
-
-% Text Node
-\draw (93,24) node   {$v$};
-% Text Node
-\draw (524,409) node   {$P$};
-% Text Node
-\draw (308,419) node   {$T_{a}$};
-
-
-\end{tikzpicture}
-
-    \label{fig:} }
+\subfloat[][Continuous \( v \).]{\centering
+\includegraphics[width=0.95\textwidth]{../lessons/2_image/7_3.pdf}
+\label{fig:} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.4,xscale=0.4]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
-
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
-%Straight Lines [id:da6702336744569144]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (300,102) -- (303,391) ;
-
-
-%Shape: Circle [id:dp6821519031317774]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (295.05,106.95) .. controls (295.05,104.22) and (297.26,102) .. (300,102) .. controls (302.74,102) and (304.95,104.22) .. (304.95,106.95) .. controls (304.95,109.69) and (302.74,111.91) .. (300,111.91) .. controls (297.26,111.91) and (295.05,109.69) .. (295.05,106.95) -- cycle ;
-%Straight Lines [id:da1662494918814228]
-\draw    (303,293) -- (453,212) ;
-
-
-%Curve Lines [id:da3323852489584005]
-\draw    (153,262) .. controls (198,248) and (293,190) .. (300,102) ;
-
-
-
-% Text Node
-\draw (93,24) node   {$c_{P}$};
-% Text Node
-\draw (524,409) node   {$T$};
-% Text Node
-\draw (308,419) node   {$T_{a}$};
-
-
-\end{tikzpicture}
-
-    \label{fig:2_7_4} }
+\subfloat[][Discontinuous \( c_P \).]{\centering
+\includegraphics[width=0.95\textwidth]{../lessons/2_image/7_4.pdf}
+\label{fig:2_7_4}  }
 \end{minipage}
-\caption{\label{fig:2_7} Description}
+\caption{\label{fig:2_7} Example of a second order phase transition.}
 \end{figure}
 
-If we look for example at the specific heat in Figure \ref{fig:2_7_4}, it represent the transition from superconduction.
+If we look for example at the specific heat \( c_P \) in Figure \ref{fig:2_7_4}, it represent the transition from superconduction.
 
 The critical point is special beacause there is not a jump, so we can go continuously from gas to liquid. The response function when we plot this point shows that the specific heat diverges.
 
-The transitions are classified in the first order transition and continuous transition. The superfluid transition is a transition where the second derivative of the thermodynamic potential diverges. There are many phase transitions that can be classified in different ways.
-We note that at the coexistence line we increase V, but the pression remains constant. At the coexistence line we see bubbles. It is the density that is changing locally, the bubbles becames bigger and bigger and at the \( V_G \) , becames a liquid.
+ The superfluid transition is a transition where the second derivative of the thermodynamic potential diverges. There are many phase transitions that can be classified in different ways.
+
+ \begin{remark}
+Note that at the coexistence line we increase V, but the pression remains constant. At the coexistence line we see bubbles. It is the density that is changing locally, the bubbles becames bigger and bigger and at the \( V_G \) , becames a liquid.
+ \end{remark}
+
 
 
 \subsection{Helmholtz free-energy}
-Consider \( A = A (T,V,N) \), here \emph{P} is replaced by \emph{V} which is discontinuous at the first order transition. Moreover \( P > 0 \)  implies \( \partial{A}/\partial{V} < 0   \) and
+
+
+
+
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\centering
+\subfloat[][\( (V,A) \) projection for fixed \emph{T}.]{\centering
+\includegraphics[width=0.9\textwidth]{../lessons/2_image/8.pdf}
+\label{fig:2_8_1}}
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][\( (P,V) \) projection.]{\centering
+\includegraphics[width=0.9\textwidth]{../lessons/2_image/9.pdf}
+\label{fig:2_8_2}}
+\end{minipage}
+\caption{\label{fig:2_8} Helmholtz free-energy and phase transition.}
+\end{figure}
+
+
+Consider \( A = A (T,V,N) \), here the derivative with respect to \emph{P} is replaced by \emph{V} which is discontinuous at the first order transition. Moreover \( P > 0 \)  implies \( \partial{A}/\partial{V} < 0   \) and
 \begin{equation}
   k_T = -\frac{1}{V} \qty(\pdv{V}{P} )_T = -\frac{1}{V} \qty(\pdv{P}{V} )_T = \frac{1}{V} \qty(\pdv[2]{A}{V} )_T > 0
   \label{eq:}
 \end{equation}
-\emph{A} is an overall convex function of \emph{V}.
+so, \emph{A} is an overall convex function of \emph{V}.
 The behaviour of \emph{A} when there is a first order phase transition is as in Figure \ref{fig:2_8_1}. The linear sector becomes an horizontal one in the \( P = - (\partial{A}/\partial{V}  )_T = P (V) \) curve (Figure \ref{fig:2_8_2}).
 
 
 
 
-\begin{figure}[h!]
-\begin{minipage}[c]{0.5\linewidth}
-\centering
-\subfloat[][Description]{
 
 
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.4,xscale=0.4]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
 
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
-%Straight Lines [id:da6702336744569144]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (270,193) -- (272,390) ;
-
-
-%Shape: Circle [id:dp6821519031317774]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (265.05,193) .. controls (265.05,190.26) and (267.26,188.05) .. (270,188.05) .. controls (272.74,188.05) and (274.95,190.26) .. (274.95,193) .. controls (274.95,195.74) and (272.74,197.95) .. (270,197.95) .. controls (267.26,197.95) and (265.05,195.74) .. (265.05,193) -- cycle ;
-%Straight Lines [id:da1662494918814228]
-\draw    (270,193) -- (408,255) ;
-
-
-%Straight Lines [id:da7053989083670136]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (408,255) -- (408,391) ;
-
-
-%Curve Lines [id:da6886563534922254]
-\draw    (408,255) .. controls (445,299) and (463,315) .. (511,327) ;
-
-
-%Curve Lines [id:da48601947297403236]
-\draw    (163,84) .. controls (167,110) and (219,178) .. (270,193) ;
-
-
-%Shape: Circle [id:dp988494671197904]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (403.05,255) .. controls (403.05,252.26) and (405.26,250.05) .. (408,250.05) .. controls (410.74,250.05) and (412.95,252.26) .. (412.95,255) .. controls (412.95,257.74) and (410.74,259.95) .. (408,259.95) .. controls (405.26,259.95) and (403.05,257.74) .. (403.05,255) -- cycle ;
-%Curve Lines [id:da30431708024345916]
-\draw    (372,167) .. controls (372.99,187.69) and (380.76,188) .. (345.63,211.89) ;
-\draw [shift={(344,213)}, rotate = 325.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-
-
-% Text Node
-\draw (93,23) node   {$A$};
-% Text Node
-\draw (524,409) node   {$V$};
-% Text Node
-\draw (274,411) node   {$V_{L}$};
-% Text Node
-\draw (408,412) node   {$V_{G}$};
-% Text Node
-\draw (361,135) node   {$linear$};
-% Text Node
-\draw (236,60) node   {$fixed\ T$};
-
-
-\end{tikzpicture}
-
-    \label{fig:2_8_1} }
-\end{minipage}
-\begin{minipage}[]{0.5\linewidth}
-\centering
-\subfloat[][Description]{
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.4,xscale=0.4]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
-
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
-%Straight Lines [id:da6702336744569144]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (272,254) -- (272,390) ;
-
-
-%Shape: Circle [id:dp6821519031317774]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (267.05,254) .. controls (267.05,251.26) and (269.26,249.05) .. (272,249.05) .. controls (274.74,249.05) and (276.95,251.26) .. (276.95,254) .. controls (276.95,256.74) and (274.74,258.95) .. (272,258.95) .. controls (269.26,258.95) and (267.05,256.74) .. (267.05,254) -- cycle ;
-%Straight Lines [id:da1662494918814228]
-\draw    (272,254) -- (408,255) ;
-
-
-%Straight Lines [id:da7053989083670136]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (408,255) -- (408,391) ;
-
-
-%Curve Lines [id:da6886563534922254]
-\draw    (408,255) .. controls (445,299) and (463,315) .. (511,327) ;
-
-
-%Curve Lines [id:da48601947297403236]
-\draw    (165,145) .. controls (169,171) and (221,239) .. (272,254) ;
-
-
-%Shape: Circle [id:dp988494671197904]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (403.05,255) .. controls (403.05,252.26) and (405.26,250.05) .. (408,250.05) .. controls (410.74,250.05) and (412.95,252.26) .. (412.95,255) .. controls (412.95,257.74) and (410.74,259.95) .. (408,259.95) .. controls (405.26,259.95) and (403.05,257.74) .. (403.05,255) -- cycle ;
-
-% Text Node
-\draw (93,23) node   {$P$};
-% Text Node
-\draw (524,409) node   {$V$};
-% Text Node
-\draw (274,411) node   {$V_{L}$};
-% Text Node
-\draw (408,412) node   {$V_{G}$};
-
-
-\end{tikzpicture}
-
-    \label{fig:2_8_2} }
-\end{minipage}
-\caption{\label{fig:2_8} Description}
-\end{figure}
-
-
-
-\subsection{Critical points}
-At the critical point \( (P_c,T_c) \) the system can pass from the liquid to the gas phase (and viceversa) in a continuous way
-\begin{equation}
-  \Delta s = \Delta v = 0
-  \label{eq:}
-\end{equation}
-Usually critical points are end point of first order transition phases. Why there is no critical point between solid and liquid? The crossover between phases having the same symmetry define the Landau point. There is a break of symmetry, for instance we can think about the structure of the bravais lattice. Instead, from gas to liquid symmetries are not broken.
-
-\begin{figure}[h!]
-\centering
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
-
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,390.7) -- (543,390.7)(119.1,1) -- (119.1,434) (536,385.7) -- (543,390.7) -- (536,395.7) (114.1,8) -- (119.1,1) -- (124.1,8)  ;
-%Curve Lines [id:da2649058921866929]
-\draw    (184,318) .. controls (240,319) and (290,276) .. (301,242) .. controls (312,208) and (323,96) .. (371,81) ;
-
-
-%Curve Lines [id:da19336772925785306]
-\draw    (301,242) .. controls (351,247) and (437.06,217.73) .. (477.06,187.73) ;
-
-
-%Straight Lines [id:da1379576233427211]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (301,242) -- (301,390) ;
-
-
-%Straight Lines [id:da6702336744569144]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (460,199) -- (460.35,390.47) ;
-
-
-%Shape: Circle [id:dp768993062031393]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (389.6,227.98) .. controls (389.6,225.24) and (391.82,223.03) .. (394.55,223.03) .. controls (397.29,223.03) and (399.51,225.24) .. (399.51,227.98) .. controls (399.51,230.72) and (397.29,232.93) .. (394.55,232.93) .. controls (391.82,232.93) and (389.6,230.72) .. (389.6,227.98) -- cycle ;
-%Curve Lines [id:da897292552339868]
-\draw    (202.21,258.16) .. controls (241.81,228.46) and (246.13,273.25) .. (285.02,245.04) ;
-\draw [shift={(286.21,244.16)}, rotate = 503.13] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-
-%Curve Lines [id:da43687585409049334]
-\draw    (386.21,297.16) .. controls (426.01,267.31) and (318.3,287.95) .. (380.27,244.82) ;
-\draw [shift={(381.21,244.16)}, rotate = 505.49] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-
-%Shape: Circle [id:dp07400034471483774]
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (455.05,199) .. controls (455.05,196.26) and (457.26,194.05) .. (460,194.05) .. controls (462.74,194.05) and (464.95,196.26) .. (464.95,199) .. controls (464.95,201.74) and (462.74,203.95) .. (460,203.95) .. controls (457.26,203.95) and (455.05,201.74) .. (455.05,199) -- cycle ;
-%Straight Lines [id:da29969851398494274]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (119,200) -- (460,199) ;
-
-
-%Straight Lines [id:da602287698180992]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (119,229) -- (394.55,227.98) ;
-
-
-%Shape: Circle [id:dp4330038061237751]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (299.6,228.98) .. controls (299.6,226.24) and (301.82,224.03) .. (304.55,224.03) .. controls (307.29,224.03) and (309.51,226.24) .. (309.51,228.98) .. controls (309.51,231.72) and (307.29,233.93) .. (304.55,233.93) .. controls (301.82,233.93) and (299.6,231.72) .. (299.6,228.98) -- cycle ;
-%Straight Lines [id:da2746826747815124]
-\draw    (486,129) -- (465.74,180.14) ;
-\draw [shift={(465,182)}, rotate = 291.61] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-
-
-% Text Node
-\draw (196,116) node   {$solid$};
-% Text Node
-\draw (394,150) node   {$liquid$};
-% Text Node
-\draw (506,239) node   {$gas$};
-% Text Node
-\draw (187,266.16) node [scale=0.8] {$freezing\ point$};
-% Text Node
-\draw (360,311.16) node  [scale=0.8] {$boiling\ point$};
-% Text Node
-\draw (310,431.16) node   {$T_{ \begin{array}{l}
-triple\ \\
-point
-\end{array}}$};
-% Text Node
-\draw (461,405.16) node   {$T_{c}$};
-% Text Node
-\draw (90,14) node   {$P$};
-% Text Node
-\draw (524,409) node   {$T$};
-% Text Node
-\draw (497,103) node   {$critical\ point$};
-% Text Node
-\draw (88,228) node  [scale=0.8] {$1\ atm$};
-% Text Node
-\draw (85,183) node   {$P_{c}$};
-
-
-\end{tikzpicture}
-
-\caption{\label{fig:2_9} Description.}
-\end{figure}
-
-
-
-\subsection{Ferromagnetic system}
-
-
-
-\begin{figure}[h!]
-\centering
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
-
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,217) -- (543,217)(108,1) -- (108,434) (536,212) -- (543,217) -- (536,222) (103,8) -- (108,1) -- (113,8)  ;
-%Straight Lines [id:da9551803962585098]
-\draw [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][line width=2.25]    (108,217) -- (315,217) ;
-
-
-%Shape: Circle [id:dp40105900325823207]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (309.48,217) .. controls (309.48,213.95) and (311.95,211.48) .. (315,211.48) .. controls (318.05,211.48) and (320.52,213.95) .. (320.52,217) .. controls (320.52,220.05) and (318.05,222.52) .. (315,222.52) .. controls (311.95,222.52) and (309.48,220.05) .. (309.48,217) -- cycle ;
-%Curve Lines [id:da3888044898644526]
-\draw    (351.14,179.25) .. controls (420.32,188.05) and (421.38,243.07) .. (362.79,262.42) ;
-\draw [shift={(361,263)}, rotate = 342.7] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw [shift={(349,179)}, rotate = 6.34] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da7184186969465476]
-\draw  [dash pattern={on 4.5pt off 4.5pt}]  (211.5,166.5) -- (211.5,267.5) ;
-
-
-%Straight Lines [id:da6340484806973028]
-\draw    (453,286) -- (453,236) ;
-\draw [shift={(453,234)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-
-
-% Text Node
-\draw (83,20) node   {$H$};
-% Text Node
-\draw (527,236) node   {$T$};
-% Text Node
-\draw (319,241) node   {$T_{c}$};
-% Text Node
-\draw (463,173) node   {$continuous$};
-% Text Node
-\draw (237,239) node   {$T^{*}$};
-% Text Node
-\draw (213,96) node   {$phase\ positive\ M$};
-% Text Node
-\draw (217,327) node   {$phase\ negative\ M$};
-% Text Node
-\draw (465,331) node   {$ \begin{array}{l}
-paramagnetic\ \\
-phase
-\end{array}$};
-
-
-\end{tikzpicture}
-
-\caption{\label{fig:2_10} Description.}
-\end{figure}
-
-We can have a magnetization different from 0 even when the is no magnetic field.
-Supposing \( P \leftrightarrow H, V \leftrightarrow M \), we have \( (P,T) \leftrightarrow (H,T) \). We have two equilibrium states that are connected continuosly, this is a first order transition. For instance consider Figure \ref{fig:2_11}. At  the critical point the magnetization would pass through zero.
-
-
-\begin{figure}[h!]
-\centering
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
-%uncomment if require: \path (0,433); %set diagram left start at 0, and has height of 433
-
-%Shape: Axis 2D [id:dp34042133393206886]
-\draw  (72,216) -- (543,216)(308,1) -- (308,434) (536,211) -- (543,216) -- (536,221) (303,8) -- (308,1) -- (313,8)  ;
-%Curve Lines [id:da28812631348081497]
-\draw    (307.52,140) .. controls (347.52,110) and (387.52,80) .. (471.52,94) ;
-
-
-%Curve Lines [id:da9601274154107028]
-\draw    (141,361) .. controls (206,365) and (266,343) .. (307,295) ;
-
-
-%Shape: Circle [id:dp6424722409409431]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (301.48,295) .. controls (301.48,291.95) and (303.95,289.48) .. (307,289.48) .. controls (310.05,289.48) and (312.52,291.95) .. (312.52,295) .. controls (312.52,298.05) and (310.05,300.52) .. (307,300.52) .. controls (303.95,300.52) and (301.48,298.05) .. (301.48,295) -- cycle ;
-%Shape: Circle [id:dp3899266908502126]
-\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (302,140) .. controls (302,136.95) and (304.47,134.48) .. (307.52,134.48) .. controls (310.57,134.48) and (313.04,136.95) .. (313.04,140) .. controls (313.04,143.05) and (310.57,145.52) .. (307.52,145.52) .. controls (304.47,145.52) and (302,143.05) .. (302,140) -- cycle ;
-
-% Text Node
-\draw (260,21) node   {$< M >$};
-% Text Node
-\draw (528,237) node   {$H$};
-% Text Node
-\draw (167,86) node   {$T\ =\ T^{*} \ < \ Tc$};
-
-\end{tikzpicture}
-
-\caption{\label{fig:2_11} Description.}
-\end{figure}
 
 
 

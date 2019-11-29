@@ -1,0 +1,117 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{27}{11}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 13.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+Last time: variational mean field for the Ising model.
+
+Write the one point density distribution as (we assume \( S_i = \pm 1 \)):
+\begin{equation}
+  \rho _i = \rho (S_i) = a (1- \delta _{S_i,-1}) + b \delta _{S_i,-1}
+\end{equation}
+The trace is
+\begin{equation}
+  \begin{cases}
+    \Tr(\rho _i) = 1  &\rightarrow  a+b=1\\
+    \Tr(\rho _i S_i) = m_i  & \rightarrow a-b = m_i
+  \end{cases}
+\end{equation}
+\( a,b \) are the functions of the order parameter.
+In that case we have not to write the functions for all the \emph{i}. For \( S_i = 1 \) we have one value, for all the other values another one.
+The results or the previous equation is:
+\begin{equation}
+  \begin{cases}
+   a = \frac{1-m_i}{2} \\
+   b = \frac{1+m_i}{2}
+  \end{cases}
+\end{equation}
+So
+\begin{equation}
+  \rho _i =   \frac{1-m_i}{2}  (1- \delta _{S_i,-1}) + \frac{1+m_i}{2} \delta _{S_i,-1}
+\end{equation}
+Let us consider the Hamiltonian
+\begin{equation}
+  \expval{\mathcal{H}}_{\rho _{MF}} = \expval{-J \sum_{\expval{ij} }^{} S_i S_j - \sum_{i}^{} H_i S_i   }_{\rho _{MF}}
+  = - J   \sum_{\expval{ij} }^{} \expval{S_i} \expval{S_j} - \sum_{i}^{} H_i \expval{S_i}
+\end{equation}
+with
+\begin{equation}
+  \rho _{MF} = \prod_{i}^{} \rho _i
+\end{equation}
+the equation will trasform into
+\begin{equation}
+  \expval{\mathcal{H}_{MF}}_{\rho _{MF}} = -J \sum_{\expval{ij} }^{} m_i m_j - \sum_{i}^{} H_i m_i
+\end{equation}
+therefore
+\begin{equation}
+  \expval{\ln{\rho } }_{\rho _{MF}} = \sum_{i}^{} \Tr^{(i)} (\rho _i \ln{\rho _i} )
+  = \sum_{i}^{} \qty[ \frac{1+m_i}{2} \ln{\frac{1+m_i}{2}} + \frac{1-m_i}{2} \ln{\frac{1-m_i}{2}} ]
+\end{equation}
+The free energy mean field became
+\begin{equation}
+  F_{\rho _{MF}} = \expval{\mathcal{H}_{MF}} + k_B T \expval{\ln{\rho } }_{MF}
+\end{equation}
+so to obtain the minimal value
+\begin{equation}
+ \eval{ \pdv{F_{\rho _{MF}} }{m_i} }_{m_i = \bar{m_i} } = 0
+\end{equation}
+\begin{equation}
+  0 = - J \sum_{j \in \, n.n. \, i}^{} \bar{m_j} - H_i + \frac{k_B T}{2} \ln{\qty[\frac{1+\bar{m_i} }{1- \bar{m_i} }] }
+\end{equation}
+\begin{equation}
+  \tanh^{-1} (x) = \frac{1}{2} \ln{\frac{1+x}{1-x}}
+\end{equation}
+so
+\begin{equation}
+  k_B T \tanh^{-1} ( \bar{m_i} ) = J \sum_{j \in \, n.n. \, i}^{} \bar{m_j} + H_i
+\end{equation}
+\begin{equation}
+  \bar{m_i} = \tanh \qty[(k_B T)^{-1} \qty(J \sum_{j \in \, n.n. \, i}^{} \bar{m_j} + H_i ) ]
+\end{equation}
+now consider
+\begin{equation}
+  z \bar{m_i} = \sum_{j \in \, n.n. \, i}^{} \bar{m_j}
+\end{equation}
+and put it into the last equation, what we obtain is
+\begin{equation}
+  \bar{m_i} = \tanh \qty[\beta \qty(Jz \bar{m_i} +H_i) ]
+\end{equation}
+this is the as the Bragg William approximation.
+
+\section{second approach}
+We do not parameterize again the \( \rho _i \)  using simple parameter, but we calculate derivatives.
+
+This model is called the \emph{Blume-Emery-Griffith}. It is a spin model, is a deluter Ising model.
+
+Let us consider Helium \( He^4 \). It is bose Einstein condensation. It goes from flud to superfluid transition. At \( P = P_0 \) (atmosferic pressure), we have \( T_{\lambda } = 2,17 K \). It is also called \( \lambda  \)-transition because in the limit of \(T_{\lambda }  \) there is a critical point.
+Insert a figure 1
+If we do the usual \( (P,T) \) phase diagram we have
+Insert a figure 2
+Now we start to enject \( He^3 \). This statisfies the fermion statistic.
+
+Let us suppose for example \emph{x}, the concentration of \( He^3 \). We have:
+\begin{equation}
+  T_{\lambda}= T_ \lambda (x)
+\end{equation}
+The \( \cos(x) \) decrease but the increase again.
+
+Suppose a mixture like oil and water, during phase separation we saw small bubbles. At a given point there will be a phase separation. There is a phase rich of \( He^4 \) and another one rich of \( He^3 \).
+
+The critical \emph{x} is:
+\begin{equation}
+  x=x_t = \frac{n_3}{n_3+n_4} \sim 0.67
+\end{equation}
+where \( n_3 \) is the number of \( He^3 \), etc.
+
+So if \( x > x_t \) we have the first order transition.
+Insert figure.
+The point \( (x_t,T_t) \) is called \emph{tricritical point}. There are different critical points that are characterize by different parameter.
+Can we describe by using a sort of spin model that? Ising model with vacancy. The idea is to diluted the typical Ising model. What happens if the concentration of the dilution will superate this given value?  
+
+
+
+\end{document}
