@@ -187,7 +187,7 @@ The probability of a configuration can be written as \eqref{eq:4_4}, that is a v
 \end{equation}
 or
 \begin{equation}
-  U = -\dv{}{\beta } \ln{Q}
+  U =  -\pdv{}{\beta } \ln{Q}
 \end{equation}
 
 \subsection{Energy fluctuations in the canonical ensemble}
@@ -229,12 +229,12 @@ because \( N \sim 10^{23} \).
 
 \section{Isothermal and isobaric ensemble}
 Now the system is coupled both to a thermal and a volumic bath at temperature \( T_B \) and pressure \( P_B \).
-The idea is now: consider the same system with the bath. Now the system can exchange energy but also volume (we continue to keep the temperature of the bath fixed). At this point the ensamble is \emph{isothermal} and \emph{isobaric}. All the assumputions done before are valid, in particular assuming as before \emph{weak coupling} between the degrees of freedom of the bath and those of the system
+The idea is now: consider the same system with the bath; the difference is that in this case the system can exchange energy but also volume (we continue to keep the temperature of the bath fixed). At this point the ensamble is \emph{isothermal} and \emph{isobaric}. All the assumputions done before are valid, in particular assuming as before \emph{weak coupling} between the degrees of freedom of the bath and those of the system
 \begin{subequations}
-\begin{align}
+\begin{align*}
   E_T &= E + E_B \\
   V_T &= V + V_B
-\end{align}
+\end{align*}
 \end{subequations}
 we look for the partition function that describes this isothermal and isobaric ensamble.
 Similarly to the previous case one can write
@@ -243,25 +243,31 @@ Similarly to the previous case one can write
 \end{equation}
 
 \begin{remark}
-Now \( \mathcal{C} \) is specified both by its volume \emph{V} and energy \emph{E}. As before one can expand \( \log \Omega _B   \)   both in \( E_B \) and in \( V_B \) (around \( E_T \) and \( V_T \)  ) and take the limit \( N_B \rightarrow \infty  \).
+Now \( \mathcal{C} \) is specified both by its volume \emph{V} and energy \emph{E}. As before one can expand \( \log \Omega _B   \)   both in \( E_B \) and in \( V_B \) (around \( E_T \) and \( V_T \)) and take the limit \( N_B \rightarrow \infty  \).
 \end{remark}
 \begin{equation}
-  P_{\mathcal{C}} \propto \exp[ \frac{S_B (E_T,V_T)}{k_B}- \frac{E_{\mathcal{C}}}{k_B} \eval{\pdv{S_B}{E_B}}_{E_T,V_T} - \frac{V_{\mathcal{C}}}{k_B} \eval{\pdv{S_B}{V_B}}_{V_T,E_T} + (term \simeq \frac{1}{N_B})]
+  P_{\mathcal{C}} \propto \exp[ \frac{S_B (E_T,V_T)}{k_B}- \frac{E_{\mathcal{C}}}{k_B} \eval{\pdv{S_B}{E_B}}_{E_T,V_T} - \frac{V_{\mathcal{C}}}{k_B} \eval{\pdv{S_B}{V_B}}_{V_T,E_T} + \qty(term \simeq \frac{1}{N_B})]
 \end{equation}
 Recalling that
 \begin{equation}
-  \eval{\dv{S}{V} }_E = \frac{P}{T} \qquad \begin{cases}
+  \eval{\dv{S}{V} }_E = \frac{P}{T} \qquad \text{with } \begin{cases}
     P_B \rightarrow P \\ T_B \rightarrow T
 \end{cases}
 \end{equation}
 \begin{equation}
   \Rightarrow P_{\mathcal{C}} \propto \exp [-\frac{E_{\mathcal{C}}}{k_B T} - \frac{P V_{\mathcal{C}}}{k_B T}]
 \end{equation}
-If we normalize, at this point the only quantity fixed is \emph{N}:
+If we normalize:
 \begin{equation}
-  P_{\mathcal{C}} = \frac{e^{-\beta (E_{\mathcal{C}}+P V_{\mathcal{C}})}}{\Delta (T,P,N)} \quad \text{where} \quad \Delta (T,P,N) = \sum_{\mathcal{C}}^{} e^{-\beta (E (\mathcal{C})+P V (\mathcal{C}))}
+  P_{\mathcal{C}} = \frac{e^{-\beta (E_{\mathcal{C}}+P V_{\mathcal{C}})}}{\Delta (T,P,N)}
 \end{equation}
-Note that \( \Delta (T,P,N) \) is called the \emph{Gibbs partition function}:
+where
+\begin{empheq}[box=\myyellowbox]{equation}
+\Delta (T,P,N) = \sum_{\mathcal{C}}^{} e^{-\beta (E (\mathcal{C})+P V (\mathcal{C}))}
+\end{empheq}
+is called the \textbf{Gibbs partition function}.
+
+Note that
 \begin{equation}
 \begin{split}
 \Delta (T,P,N)  &=  \sum_{V}^{} e^{-\beta PV } (\sum_{\substack{ \mathcal{C} \\ V,N \text{fixed}} }^{} e^{-\beta E_{\mathcal{C}}}  ) \underset{\substack{Laplace \\ transform } }{=}  \sum_{V}^{} e^{-\beta PV} Q (T,V,N)       \\
@@ -275,28 +281,16 @@ By summing over all the microstates compatible with \emph{E} and \emph{V}:
 \begin{remark}
 \begin{equation}
   \Delta (T,P,N) = \underbrace{ \sum_{E}^{} \sum_{V}^{} e^{-\beta E - \beta PV}}_{\text{Laplace transform}} \Omega (E,V,N) = \sum_{E,V}^{} e^{-\beta E- \beta PV + S(E,V,N)/k_B}
+  \label{eq:4_5}
 \end{equation}
 \end{remark}
-\subsection{Saddle point approximation}
-The sum can be approximated by the maximum of the integrand (this is fair for highly peaked functions):
+
+
+
+
+\subsubsection{Classical systems (fluids)}
 \begin{equation}
-  \sum_{E,V}^{} \exp [-\beta E- \beta PV + S(E,V,N)/k_B] \approx e^{-\beta E^* - \beta PV^* + S(E^*,V^*,N)/k_B}
-\end{equation}
-where
-\begin{equation}
-  \qty(\dv{S(E^*,V^*,N)}{E} )_{V,N} = \frac{1}{T} \qquad \qty(\dv{S(E^*,V^*,N)}{V} )_{E,N} = \frac{P}{T}
-\end{equation}
-this implies
-\begin{equation}
-  -k_B T \ln{\Delta (T,P,N)} \simeq E^* + PV^* - TS
-\end{equation}
-We define the \emph{Gibbs free energy}:
-\begin{equation}
-  G(T,P,N) = - k_B T \ln{\Delta (T,P,N)}
-\end{equation}
-For classical systems (fluids)
-\begin{equation}
-  \Delta (T,P,N) = \int_{0}^{\infty } \dd[]{V} e^{-\beta PV} [ \frac{1}{h^{3N}N!} \int_{}^{} \dd[]{\va{p_1}} \dots \dd[]{\va{p_N}} e^{-\beta \mathcal{H}(p^N,r^N)} ]
+  \Delta (T,P,N) = \int_{0}^{\infty } \dd[]{V} e^{-\beta PV} \qty[ \frac{1}{h^{3N}N!} \int_{}^{} \dd[]{\va{p_1}} \dots \dd[]{\va{p_N}} e^{-\beta \mathcal{H}(p^N,r^N)} ]
 \end{equation}
 which implies
 \begin{equation}
@@ -306,14 +300,14 @@ that is the Laplace transform of the canonical partition function \emph{Q}.
 \begin{equation}
   \beta P \equiv \frac{P}{T} = \pdv{S}{V}
 \end{equation}
-\section{Magnetic system}
+\subsubsection{Magnetic system}
 Ensamble in which both \emph{E} and \emph{M} can fluctuate \( \Omega (E,M) \) (both with \( T_B \) and \( H_B \)).
 \begin{equation}
   P_{\mathcal{C}} \propto e^{S_B (E_T,M_T)/k_B - \frac{E_{\mathcal{C}}}{k_B}\dv{S_B}{E_B} - \frac{M_{\mathcal{C}}}{k_B} \dv{S_B}{M_B}  }
 \end{equation}
 Since \( \dv{S_B}{M_B} = -\frac{H_B}{T_B}   \) and \( \dv{S_B}{E_B} = \frac{1}{T_B}  \):
 \begin{equation}
-  \Rightarrow P_{\mathcal{C}} \propto \exp [-\beta (E_{\mathcal{C}}-H M_{\mathcal{C}})] \qquad T_B \rightarrow T, H_B \rightarrow H
+  \Rightarrow P_{\mathcal{C}} \propto \exp [-\beta (E_{\mathcal{C}}-H M_{\mathcal{C}})], \qquad T_B \rightarrow T, H_B \rightarrow H
 \end{equation}
 Normalization function:
 \begin{equation}
@@ -321,22 +315,55 @@ Normalization function:
 \end{equation}
 that is the \emph{Gibbs partition function} for magnetic systems.
 
+
+
+\subsection{Saddle point approximation}
+The sum \eqref{eq:4_5} can be approximated by the maximum of the integrand (this is fair for highly peaked functions):
+\begin{equation}
+  \sum_{E,V}^{} \exp [-\beta E- \beta PV + S(E,V,N)/k_B] \approx e^{-\beta E^* - \beta PV^* + S(E^*,V^*,N)/k_B}
+\end{equation}
+where
+\begin{equation}
+  \qty(\dv{S(E^*,V^*,N)}{E} )_{V,N} = \frac{1}{T}, \qquad \qty(\dv{S(E^*,V^*,N)}{V} )_{E,N} = \frac{P}{T}
+\end{equation}
+this implies
+\begin{equation}
+  -k_B T \ln{\Delta (T,P,N)} \simeq E^* + PV^* - TS
+\end{equation}
+We define the \textbf{Gibbs free energy}:
+\begin{empheq}[box=\myyellowbox]{equation}
+  G(T,P,N) = - k_B T \ln{\Delta (T,P,N)}
+\end{empheq}
+
+
 \section{Gran canonical ensemble}
 In this case \emph{N} varies instead than \emph{V}.
 \begin{equation}
 \begin{split}
 P_{\mathcal{C}}  &= \exp [\frac{S_B (E_T - E_{\mathcal{C}},N_T - N_{\mathcal{C}})}{k_B}] \\
-& \sim \exp [\frac{S_B(E_T,N_T)}{k_B}- \frac{E_{\mathcal{C}}}{k_B} \dv{S_B}{E_B}- \frac{N_{\mathcal{C}}}{k_B} \dv{S_B}{N_B} + (\text{terms of order} \le \frac{1}{V_B}) ] \\
+& \sim \exp [\frac{S_B(E_T,N_T)}{k_B}- \frac{E_{\mathcal{C}}}{k_B} \dv{S_B}{E_B}- \frac{N_{\mathcal{C}}}{k_B} \dv{S_B}{N_B} + \qty(\text{terms of order} \le \frac{1}{V_B}) ] \\
 & = \frac{\exp [-\beta E_{\mathcal{C}}+ \beta \mu N_{\mathcal{C}}] }{\Theta (T,V,\mu )}
 \end{split}
 \end{equation}
-where the \emph{grancanonical partition function} is:
+where
+\begin{empheq}[box=\myyellowbox]{equation}
+  \Theta (T,V,\mu ) = \sum_{N}^{} \sum_{\substack{\mathcal{C} \\ V,N \text{fixed}} }^{} e^{-\beta (E_{\mathcal{C}}- \mu N)}
+\end{empheq}
+is the \textbf{grancanonical partition function}.
+\begin{remark}
+Remember that
 \begin{equation}
-  \Theta (T,V,\mu ) = \sum_{N}^{} \sum_{\substack{\mathcal{C} \\ V,N \text{fixed}} }^{} e^{-\beta (E_{\mathcal{C}}- \mu N)} = \sum_{N=0}^{\infty } z^N (\sum_{\substack{\mathcal{C} \\ V,N \text{fixed}} }^{} e^{-\beta E_{\mathcal{C}}}  )
+  \dv{S}{E} = \frac{1}{T}, \qquad \dv{S}{N} = \frac{\mu }{T}
 \end{equation}
-with the \emph{fugacity}: \( z \equiv e^{\beta \mu }  \).
-
-
+\end{remark}
+The \emph{fugacity} is defined as:
+\begin{equation}
+  z \equiv e^{\beta \mu }
+\end{equation}
+and we rewrite
+\begin{equation}
+    \Theta (T,V,\mu ) = \sum_{N=0}^{\infty } z^N (\sum_{\substack{\mathcal{C} \\ V,N \text{fixed}} }^{} e^{-\beta E_{\mathcal{C}}}  )
+\end{equation}
 In principle, if one is able to compute the partition function is able to compute the thermodynamic quantitites.
 
 
