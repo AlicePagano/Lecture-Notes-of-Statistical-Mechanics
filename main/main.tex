@@ -26,9 +26,34 @@
 
 \chapter{Introduction}
 
-In this course, classical statistical mechanics of system at equilibrium is treated. The outline of the course is:
+The goal of statistical mechanics \cite{introduction} is to predict the macroscopic properties of bodies, most especially their thermodynamic properties, on the basis of their microscopic structure.
 
-\begin{itemize}
+The macroscopic properties of greatest interest to statistical mechanics are those relating to thermodynamic equilibrium. As a consequence, the concept of thermodynamic equilibrium occupies a central position in the field. 
+
+The microscopic structure of systems examined by statistical mechanics can be described by means of mechanical models: for example, gases can be represented as systems of particles that interact by means of a phenomenologically determined potential. Other examples of mechanical models are those that represent polymers as a chain of interconnected particles, or the classical model of crystalline systems, in which particles are arranged in space according to a regular pattern, and oscillate around the minimum of the potential energy due to their mutual interaction. The models to be examined can be, and recently increasingly are, more abstract, however, and exhibit only a faint resemblance to the basic mechanical description (more specifically, to the quantum nature of matter). The explanation of the success of such abstract models is itself the topic of one of the more interesting chapters of statistical mechanics: the theory of universality and its foundation in the renormalization group.
+
+The models of systems dealt with by statistical mechanics have some common characteristics. We are in any case dealing with systems with a large number of degrees of freedom:  the reason lies in the corpuscular (atomic) nature of matter.
+ The degrees of freedom that one considers should have more or less comparable effects on the global behavior of the system.  This state of affairs excludes the application of the methods of statistical mechanics to cases in which a restricted number of degrees of freedom “dominates” the others—for example, in celestial mechanics, although the number of degrees of freedom of the planetary system is immense, an approximation in which each planet is considered as a particle is a good start. In this case, we can state that the translational degrees of freedom (three per planet)—possibly with the addition of the rotational degrees of freedom, also a finite number—dominate all others.
+ These considerations also make attempts to apply statistical concepts to the human sciences problematic because, for instance, it is clear that, even if the behavior of a nation’s political system includes a very high number of degrees of freedom, it is possible to identify some degrees of freedom that are disproportionately important compared to the rest.
+  On the other hand, statistical methods can also be applied to systems that are not strictly speaking mechanical—for example, neural networks (understood as models of the brain’s components), urban thoroughfares (traffic models), or problems of a geometric nature (percolation).
+ 
+ The simplest statistical mechanical model is that of a large number of identical particles, free of mutual interaction, inside a container with impenetrable and perfectly elastic walls. This is the model of the ideal gas, which describes the behavior of real gases quite well at low densities, and more specifically allows one to derive the well-known equation of state.
+
+The introduction of pair interactions between the particles of the ideal gas allows us to obtain the standard model for simple fluids. Generally speaking, this model cannot be resolved exactly and is studied by means of perturbation or numerical techniques. It allows one to describe the behavior of real gases (especially noble gases), and the liquid–vapor transition (boiling and condensation).
+
+The preceding models are of a classical (nonquantum) nature and can be applied only when the temperatures are not too low. The quantum effects that follow from the inability to distinguish particles are very important for phenomenology, and they can be dealt with at the introductory level if one omits interactions between particles. 
+
+In many of the statistical models we will describe, however, the system’s fundamental elements will not be “particles,” and the fundamental degrees of freedom will not be mechanical (position and velocity or impulse). If we want to understand the origin of ferromagnetism, for example, we should isolate only those degrees of freedom that are relevant to the phenomenon being examined (the orientation of the electrons’ magnetic moment) from all those that are otherwise pertinent to the material in question.
+
+The simplest case is that in which there are only two values—in this fashion, we obtain a simple model of ferromagnetism, known as the Ising model, which is by far the most studied model in statistical mechanics. The ferromagnetic solid is therefore represented as a regular lattice in space, each point of which is associated with a degree of freedom, called spin, which can assume the values +1 and -1. This model allows one to describe the paramagnet-ferromagnet transition, as well as other similar transitions.
+
+In this course, classical statistical mechanics of system at equilibrium is treated. 
+The exam is divided into two parts: first, common oral exam (same exercise and question for everyone, it is a written part), second part, oral.
+
+\clearpage
+Outline of the course:
+
+\begin{enumerate}
 \item Brief recap of thermodinamics.
 \item Equilibrium phases and thermodynamics of the phase transitions.
 \item Statistical mechanics and theory of ensambles.
@@ -50,12 +75,12 @@ In this course, classical statistical mechanics of system at equilibrium is trea
 \item The theory of renormalisations group and the origin of \emph{universality} in critical phenomena.
 \item Spontaneous symmetry breaking.
 
-\end{itemize}
+\end{enumerate}
 
 
 
 
-The exam is divided into two parts: first, common oral exam (same exercise and question for everyone, it is a written part), second part, oral.
+
 
 \mainmatter
 \pagestyle{fancy}
@@ -66,6 +91,7 @@ The exam is divided into two parts: first, common oral exam (same exercise and q
 \subfile{../lessons/3_16-10-2019.tex}
 \subfile{../lessons/4_18-10-2019.tex}
 \subfile{../lessons/5_23-10-2019.tex}
+
 \subfile{../lessons/6_25-10-2019.tex}
 \subfile{../lessons/7_30-10-2019.tex}
 \subfile{../lessons/8_06-11-2019.tex}
