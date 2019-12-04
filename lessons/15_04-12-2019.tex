@@ -60,10 +60,74 @@ In principle, from the expansion I realized that for example in a generic expans
   (1-x)^{-1} = 1 + x + \dots
 \end{equation}
 so, the our expansion is something like this.
-
 \begin{equation}
-  \frac{PV}{N k_B T} \approx 1 + \rho b_2 \simeq \frac{1}{1-b_2 \rho }
+  \frac{PV}{N k_B T} \approx 1 + \rho b_2 \simeq \frac{1}{1-b_2 \rho } \approx 1 + b_2 \rho + \underbrace{(b_2)^2 \rho ^2}_{b_3 \approx b_2^2}  + \underbrace{(b_2)^3 \rho ^3}_{b_4 \approx b_2^3}
 \end{equation}
+\begin{example}
+Exam: let us compute virial expansion of a gas in a potential.
+\end{example}
+The simple one is the hardcore potential.
+\subsubsection{Gas of hard spheres}
+The particles are interacting (it is not ideal!) and there is a size that is the range of the potential.
+\begin{equation}
+  \Phi (r) = \begin{cases}
+    \infty & r < \sigma \\
+    0     & r \ge \sigma
+\end{cases}
+\end{equation}
+(insert plot of that potential!)
+
+Hence,
+\begin{equation}
+  e^{-\beta \Phi } = \begin{cases}
+    0 & r < \sigma\\
+    1 & r \ge \sigma
+  \end{cases}
+\end{equation}
+\begin{equation}
+  \Rightarrow b_2 = - \frac{1}{2} \int_{V}^{} \dd[]{\va{r}}  f \qty(\abs{\va{r}} )
+  = - \frac{1}{2} 4 \pi \int_{}^{} \dd[]{r} r^2 \qty[e^{-\beta \Phi }-1 ]
+  = 2 \pi \int_{0}^{\sigma } \dd[]{r} r^2 = \frac{2}{3} \pi  \sigma ^3
+\end{equation}
+There is no condensation in the gas spheres.
+The pressure is increased because of therm.
+It is very easy, but it is interesting for introducing attraction.
+Let us say, that the potential is not anymore zero but is \( - \varepsilon  \) when it is in the case \( r \ge \sigma \). Or consider a case in which it is \( - \varepsilon  \) between \( [\sigma ,2 \sigma ] \), then it goes to zero. (Insert graphics of these last potentials!!!!).
+
+We can consider a Lennard-Jones potential:
+\begin{equation}
+  \Phi = 4 \varepsilon \qty[\qty(\frac{\sigma }{r})^{12} - \qty(\frac{\sigma }{r})^6  ]
+\end{equation}
+(insert graphics of the Lennard-Jones potential!!!!). The minimum is in \( r_{min}=2^{1/\sigma } \). You can play with the change of attraction by changing \( \sigma  \) or by changin the   \( \varepsilon  \).
+What it is important is that for the Lennard-Jones we have
+\begin{equation}
+  b_2 \overset{LJ}{=} b_2 (T)
+\end{equation}
+
+We have pairs \( ij \) or \( kl \) (insert picture).   For instance, \( 12 \) and \( 34 \):
+\begin{equation}
+  \int_{V}^{} \dd[]{\va{r}_1}  \dd[]{\va{r}_2}   \dd[]{\va{r}_3}   \dd[]{\va{r}_4} f_{12} f_{34}
+  = V^2 \qty(  \int_{}^{} \dd[]{r} f(r)  )^2
+\end{equation}
+\begin{equation}
+  \frac{N(N-1)}{2} \qty[\frac{(N-2)(N-3)}{2}] \frac{1}{2}
+\end{equation}
+
+If we have \( 123 \)(insert picture) (three particles involved) the integral is:
+\begin{equation}
+  \int_{}^{} \dd[]{\va{r}_1}  \dd[]{\va{r}_2}   \dd[]{\va{r}_3}  f_{12} f_{23}
+  \simeq V  \qty(  \int_{}^{} \dd[]{r} f(r)  )^2
+\end{equation}
+
+In the case (insert picture) were \( 123 \) are all interacting we have
+\begin{equation}
+  \int_{}^{} \dd[]{\va{r}_1}  \dd[]{\va{r}_2}   \dd[]{\va{r}_3}  f_{12} f_{23} f_{31}
+  \simeq V  \qty( b_3 - 2 b_2^2  )
+\end{equation}
+
+
+
+
 
 
 
