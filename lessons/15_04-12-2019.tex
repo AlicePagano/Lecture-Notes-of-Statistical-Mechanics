@@ -1,0 +1,71 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{04}{12}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 15.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\begin{equation}
+  e^{-\beta \sum_{i,j>i}^{} \Phi _{ij}  } = \prod_{i}^{} \qty(\prod_{j>i}^{} \qty(1+f_{ij})   ) = 1 + \sum_{i,j>i}^{} f_{ij} + \sum_{\substack{i,j>i \\ k,l> k \\
+  k \ge i \\ (i,j) \neq (k,l) } }^{} f_{ij} f_{kl}   + O (f^3)
+\end{equation}
+where
+\begin{equation}
+  f_{ij} \equiv  e^{-\beta \Phi _{ij}} -1
+\end{equation}
+The \( f_{ij} \)  will be small enough when \( T \) is very large or \( \Phi _{ij} \) is small enough because you are in small density. What is important it is the ration between \( \beta  \)  and \( \Phi _{ij} \).
+
+In the case \( \Phi _{ij} \ll 1 \) you keep other terms contributions. In the other cases you can keep the linear term.
+
+The partition function is:
+\begin{equation}
+  Q_N (V,T) = \int_{V}^{} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_N} \qty(1+ \sum_{i,j>i}^{} f_{ij} + \dots ) = V^N + V^{N-2} \sum_{i,j>i}^{} \int_{}^{} \dd[]{\va{r}_i} \dd[]{\va{r}_j} f_{ij} + \dots
+\end{equation}
+We are summing up over all configurations \( ij \).
+Let us try to compute the term in the integral:
+\begin{equation}
+  \int_{}^{} \dd[]{\va{r}_i} \dd[]{\va{r}_j} f_{ij} = \int_{}^{} \dd[]{\va{r}_i} \dd[]{\va{r}_j} f \qty(\abs{\va{r}_i - \va{r}_j} )
+  = V \int_{V}^{} \dd[]{\va{r}}  f \qty(\abs{\va{r}} ) \equiv -2 b_2 V
+\end{equation}
+so, what is important it is the relative distance. \( \va{r} \) gives us the position from the center we have choosen.
+\begin{equation}
+  b_2 \equiv - \frac{1}{2} \int_{V}^{} \dd[]{\va{r}}  f \qty(\abs{\va{r}} )
+\end{equation}
+Rewrite again the partition function:
+\begin{equation}
+  Q_N (V,T) = V^N - V^{N-1} N (N-1) b_2
+\end{equation}
+\begin{equation}
+  Z_N (V,T) = \qty(\frac{V^N}{N! \Lambda ^{3N}}) \qty(1- \frac{N^2}{V}b_2 + \dots)
+\end{equation}
+\begin{remark}
+I do not care about the \( (N-1) \) term, because \( N \) is big enough!
+\end{remark}
+The free energy is:
+\begin{equation}
+  F_N = F_N^{il} - k_B T \ln{\qty[1-\frac{N^2}{V}b_2 + \dots] }
+\end{equation}
+\begin{equation}
+  P_N = - \qty(\pdv{F_N}{V} )_{T,N} = \frac{N k_B T}{V} \qty(1+ \frac{\frac{N}{V}b_2}{1- \frac{N}{V}b_2})
+  \approx \frac{N k_B T}{V} \qty(1+\frac{N}{V}b_2 + \dots)
+\end{equation}
+here you see the ideal gas and the correction to the ideal gas.
+
+Therefore, it is important computing \( b_2 \), because one time you have this ypu have the expansion. Or if you wish, by doing the fit of data at different temperature you obtain \( b_2 \) from the experiment and you see \( f_{ij} \). You can use macroscopic to obtain information about the potential in the microscopic.
+
+In principle, from the expansion I realized that for example in a generic expansion
+\begin{equation}
+  (1-x)^{-1} = 1 + x + \dots
+\end{equation}
+so, the our expansion is something like this.
+
+\begin{equation}
+  \frac{PV}{N k_B T} \approx 1 + \rho b_2 \simeq \frac{1}{1-b_2 \rho }
+\end{equation}
+
+
+
+
+\end{document}
