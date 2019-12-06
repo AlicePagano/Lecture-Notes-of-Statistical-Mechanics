@@ -1,0 +1,171 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{6}{12}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 16.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\subsection{\( O(n) \) model}
+
+
+The correct order parameter is a \emph{n}-dimensional vector \( \va{\eta } \). We consider \( \va{h} = \va{0} \):
+\begin{equation}
+  \mathcal{L} (\va{\eta }) = \frac{a}{2} \va{\eta } \vdot \va{\eta } + \frac{b}{4} \qty(\va{\eta } \vdot \va{\eta })^2 + O \qty(\qty(\va{\eta } \vdot \va{\eta })^3 )
+\end{equation}
+Generalize to include multicritical points, or phase transitions.
+
+The phase transitions can be obtained by introducing a cubic term in the landau expansion. Remember that in the Ising model we have phase transition derived by symmetry breaking. Now, we have another type of phase transition.
+
+The simplest Landau free energythat depends on a particular field is:
+\begin{equation}
+  \mathcal{L} = a t \eta ^2 - w \eta ^3 + \frac{b}{4} \eta ^4 - h \eta
+\end{equation}
+\begin{remark}
+The minus sign \( w \) is not important, in this case \( w>0 \).
+\end{remark}
+with \( t = \frac{T-T^*}{2} \).
+The equation of state is:
+\begin{equation}
+  \pdv{\mathcal{L}}{\eta } = 0 \quad \Rightarrow h = 2 a t \eta - 3 w \eta ^2 + b \eta ^3
+\end{equation}
+\begin{equation}
+  h = 0 \quad \Rightarrow 0 = \eta ( 2 a t - 3 w \eta  + \beta \eta ^2)
+\end{equation}
+The two solutions are:
+\begin{equation}
+  \bar{\eta } = 0, \quad  \bar{\eta } = \frac{1}{4b} \qty(3w \pm \sqrt{q w^2 - 16 abt} )
+\end{equation}
+\begin{equation}
+  \bar{\eta }_{\pm} = c \pm \sqrt{c^2 - \frac{at}{b}}, \quad c = \frac{3w}{4b}
+\end{equation}
+\begin{equation}
+  \bar{\eta }_{\pm} \in \R \iff c^2 > \frac{at}{b} \quad \Rightarrow \frac{T-T^*}{2} < \frac{c^2 b}{a} \equiv t^{**} \equiv  \frac{T^{**}-T^*}{2}
+\end{equation}
+\begin{equation}
+  T^{**} = T^* + \frac{2c^2b}{a}
+\end{equation}
+\begin{equation}
+  T > T^{**} \Rightarrow \bar{\eta }_{\pm} \notin \R \Rightarrow \bar{\eta } = 0
+\end{equation}
+\begin{equation}
+  T < T^{**} \Rightarrow \bar{\eta }_{\pm} = c \pm \sqrt{c^2 - \frac{at}{b}} \in \R
+\end{equation}
+\begin{equation}
+  T = T^{**} \Rightarrow \bar{\eta }_+ = \bar{\eta }_-
+\end{equation}
+(Insert figure 1)
+\begin{equation}
+  \mathcal{L} ( \va{\eta } = 0) = \mathcal{L} (\eta = \bar{\eta }_+ )
+\end{equation}
+In the last plot (the four) we see that there are two minima in the same line. That is a first order transition. Going under the \( T < T_t \) the second minima decrease.
+
+Another possibility is studying multicritical point.
+\begin{equation}
+  \mathcal{L}_h (T, \Delta, \eta ) = \frac{a (t,\Delta )}{2} \eta ^2 + \frac{b(t,\Delta )}{4} \eta ^4 + c \eta ^6 - h \eta
+\end{equation}
+Consider \( \Delta  \) (\( \Delta _c \) is a critical value):
+\begin{itemize}
+\item \( \Delta < \Delta _c \): as \( T \) decreases, it will reach a value, we have \( a \) that decreases.
+\begin{equation}
+  T = T_c (\Delta ) \Rightarrow \begin{cases}
+    a (T_c,\Delta ) = 0 \\
+    b (T_c,\Delta ) > 0
+\end{cases}
+\end{equation}
+\item \( \Delta > \Delta _c \): as \( T \) decreases, we will have \( a \) and \( b \) that will decrease too. At that point:
+\begin{equation}
+b (\bar{T},\Delta  ) = 0
+\end{equation}
+The free energy now is
+\begin{equation}
+  \mathcal{L} = \frac{a}{2} \eta ^2 + c \eta ^6
+\end{equation}
+The plot of the free energy is in figure 2. We have the coexistence of three lines.
+\end{itemize}
+Tricritical point:
+\begin{equation}
+  \Delta = \Delta _t, \quad T=T_t
+\end{equation}
+\begin{equation}
+  a (\Delta _t, T_t) = b (\Delta _t, T_t) = 0
+\end{equation}
+\begin{equation}
+  \mathcal{L}_t = c \eta ^6 - h \eta
+\end{equation}
+
+
+As we approach the critical point \( T \rightarrow T_c \), the correlation length
+\( \xi \sim \abs{T-T_c}^{-\nu }  \) diverges.
+
+Maybe mean field is not a very good approximation in proximity of the critical point. Question: how bad is the mean field approximation in proximity of the critical point?
+\begin{equation}
+  \expval{S_i S_j} \overset{MF}{\rightarrow } \expval{S_i} \expval{S_j}
+\end{equation}
+Calculate the error:
+\begin{equation}
+  E_{ij} = \frac{ \abs{\expval{S_i S_j}  - \expval{S_i} \expval{S_j}}   }{\expval{S_i}\expval{S_j}  }
+\end{equation}
+Define
+\begin{equation}
+  G_c (i,j) \equiv \expval{S_i S_j} - \expval{S_i} \expval{S_j} = \expval{(S_i -\expval{S_i} )(S_j - \expval{S_j} )}
+\end{equation}
+If we want to compute the error in the mean field, is always zero. So, if we want calculate the average with respect to fluctuations it does not work. We can either look at the variation in which the field is the internal one, or we can somehow try to make a variation not because of thermal fluctuations but because we control it. We do this by using an external field. This is the response theory with a variation of the field.
+
+In order to do that, instead using an \( H \) we use an \( H_i \).
+\begin{equation}
+  Z = \Tr_{\{ S \} } \qty(e^{-\beta \qty(-J \sum_{\expval{ij} }^{} S_i S_j   - \sum_{i}^{} H_i S_i ) } )
+\end{equation}
+The definition of the thermal average is
+\begin{equation}
+  \expval{S_i} = \frac{\Tr_{\{ S \} } \qty(S_i e^{-\beta \qty(-J \sum_{\expval{ij} }^{} S_i S_j   - \sum_{i}^{} H_i S_i ) } ) }{Z}
+  = \beta ^{-1} \pdv{\ln{Z} }{H_i} = - \pdv{F}{H_i}
+\end{equation}
+\begin{equation}
+  \expval{S_i S_j} = \frac{\beta ^{-1}}{Z} \frac{\partial^2{Z} }{\partial{H_i} \partial{H_j}  }
+\end{equation}
+\begin{equation}
+  G_c (i,j) = \beta ^{-1} \frac{\partial^2{\ln{Z} } }{\partial{H_i} \partial{H_j}  }
+  = - \frac{\partial^2{F(\{ H_i \}  )} }{\partial{H_i} \partial{H_j}  }
+\end{equation}
+\begin{equation}
+  \pdv{}{H_j} \expval{S_i} = \pdv{}{H_j} \qty[-\pdv{F}{H_i} ] = G_c (i,j)
+\end{equation}
+\begin{equation}
+  M = \sum_{i}^{} \expval{S_i}
+\end{equation}
+\begin{equation}
+  \pdv{M}{H_j} = \sum_{i}^{} \pdv{\expval{S_i} }{H_j} = \sum_{i}^{} G_c (i,j)
+\end{equation}
+\begin{equation}
+  H_j = H_j (H)
+\end{equation}
+\begin{equation}
+  \pdv{M}{H} = \sum_{j}^{} \pdv{M}{H_j} \pdv{H_j}{H}
+  =  \beta \sum_{ij}^{} G_c (i,j)
+\end{equation}
+the last one is the susceptibility \( \chi _T \).
+ Therefore,
+ \begin{equation}
+   \chi _T = \beta \sum_{i,j}^{} G_c (i,j)
+ \end{equation}
+ \begin{equation}
+   G_c (i,j) \rightarrow G_c (\abs{i-j} ) \sim G (\abs{\va{r}} )
+ \end{equation}
+More or less, we want to compute the total relative error
+\begin{equation}
+  E_{TT} = \frac{\int_{V_ \xi }^{ } \dd[D]{\va{r}}  G_c (r)}{ \int_{V_ \xi }^{} \dd[D]{\va{r}} \eta ^2 } \ll 1
+\end{equation}
+This quantity is related to \( \chi _T \). Because of the fluctutations we can say that the quantity above is
+\begin{equation}
+  \sim  \frac{\beta ^{-1} \chi _T }{ \int_{V_ \xi }^{} \dd[D]{\va{r}} \eta ^2 }
+\end{equation}
+where \( \chi _T \sim t^{-\gamma  } \) and  the denominator it is \(  \sim t^{2 \beta } \xi ^D\)
+
+
+
+
+
+
+\end{document}

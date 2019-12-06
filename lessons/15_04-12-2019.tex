@@ -125,11 +125,89 @@ In the case (insert picture) were \( 123 \) are all interacting we have
   \simeq V  \qty( b_3 - 2 b_2^2  )
 \end{equation}
 
+\section{Landau mean field of phase transition}
+Assumptions:
+\begin{enumerate}
+\item Existence of an order parameter \( \eta   \). Remember the definition of the order parameter:
+\begin{equation}
+  \eta   = \begin{cases}
+    0 & T \ge \bar{T} \text{ (disordered or symmetric phase)}\\
+    \neq 0 & T < \bar{T}  \text{ (ordered symmetry is broken)}
+\end{cases}
+\end{equation}
+\item The \emph{free energy} is an analytic function of the order parameter \( \eta   \). It is because you are doing the expansion close to...etc etc. Therefore, \( \mathcal{L} = \mathcal{L} (\eta ) \).
+\item Form of \( \mathcal{L} \) must satisfy the symmetries of the system.
+\item Equilibrium states are the ones that minimise \( \mathcal{L} \). Absolute minima.
+\end{enumerate}
+\begin{equation}
+  \mathcal{L} (\eta ) \approx a_0 + a_1 \eta + a_2 \eta ^2 + a_3 \eta ^3 + \dots
+\end{equation}
+In this case \( \eta  \) is scalar.
 
+If \( \mathbb{Z}^2 \) symmetry we have:
+\begin{equation}
+  \mathcal{L} (-\eta ) =   \mathcal{L} (\eta )
+\end{equation}
 
+We are interested in the minima.
+Since we want \( \eta = 0 \) to be a solution we want \( a_1 = 0,a_3= 0 \dots \).
+Therefore, in \( \mathbb{Z}^2 \) symmetry:
+\begin{equation}
+  \mathcal{L} (\eta ) \simeq a_0 + a_2 \eta  ^2 + a_4  \eta  ^4 + O(\eta ^6)
+\end{equation}
+\begin{subequations}
+\begin{align}
+  a_0 &= a_0 (J,T) \\
+  a_2 &= a_2 (J,T) \\
+  a_4 &= a_4 (J,T)
+\end{align}
+\end{subequations}
+if \( T > \bar{T}  \), \( \eta =0 \) it implies \( \mathcal{L} (\eta = 0) = a_0 \). Therefore,
+\begin{equation}
+    \mathcal{L} (\eta ) \simeq  a_2 \eta  ^2 + a_4  \eta  ^4
+\end{equation}
+The term \( a_4 \) it is positive and fixed.
 
+Expand in \( t \equiv \frac{T - \bar{T} }{\bar{T} } \), when \( T = \bar{T} \rightarrow a_2 = 0 \).
+The Landau free energy in the minimal form is:
+\begin{equation}
+  \mathcal{L} =  \mathcolorbox{green!20}{\frac{a}{2}} t \eta ^2 + \frac{b}{4} \eta ^4
+\end{equation}
+\begin{remark}
+does not matter the coefficient in green in front, so in the next part of the course we will change it. If it is written in this way we have always \( a>0 \). We have also \( b>0 \).
+\end{remark}
+For the Gibbs version (that can be useful):
+\begin{equation}
+  \mathcal{L} =  \mathcolorbox{green!20}{\frac{a}{2}} t \eta ^2 + \frac{b}{4} \eta ^4 - h \eta
+\end{equation}
+we insert a field coupled with the order parameter.
 
+Suppose to look for \( h=0 \), the equilibrium states are the minima
+\begin{equation}
+  \pdv{\mathcal{L}}{\eta } = 0 \quad \Rightarrow  a t \eta + b \eta ^3 = 0
+\end{equation}
+so
+\begin{equation}
+  \eta (at+b \eta ^2) ) 0 \quad \Rightarrow \eta =0, \eta = \pm \sqrt{\frac{-at}{b}}
+\end{equation}
+(insert plot of \( (\eta,\mathcal{L}) \) for \( t>0 \)  and \( t<0 \) ).
 
+The solutions in the case \( t<0 \) are correlated by the \( \mathbb{Z}^2 \) symmetry.
+The free energy is like the: (plot of \( x^4 \) ..... vedere da qualcuno, era un grafico già visto e fatto).
+
+We have \( h \sim \eta ^\delta  \) for \( T = \bar{T}  \).
+\begin{equation}
+  \pdv{\mathcal{L}}{\eta } = 0 \quad \Rightarrow  h=a t \eta + b \eta ^3
+\end{equation}
+that is an equation of state.
+\begin{equation}
+  \chi = \pdv{\eta }{h}
+\end{equation}
+it implies
+\begin{equation}
+  \chi = \frac{1}{at+3 b \eta ^2}
+\end{equation}
+You have to proceed in this way.
 
 
 \end{document}
