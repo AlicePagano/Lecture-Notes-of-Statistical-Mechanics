@@ -510,7 +510,7 @@ where
 The bibliography of the entire chapter is taken by \cite{9_lesson_1},\cite{9_lesson_2},\cite{9_lesson_3}.
 
 
-\section{\emph{1-d} Ising model}
+\section{\emph{1-dimensional} Ising model}
 In this section, we arrive at the exact solution of the one dimensional Ising model.
  There are two techniques for solving the model:
 \begin{enumerate}
@@ -583,7 +583,7 @@ As one can see \( f_b (T)  \) is an analytic function of \emph{T}, so we have no
 \includegraphics[width=0.45\textwidth]{../lessons/6_image/3.pdf}
 \caption{\label{fig:6_3} Free energy function in thermodynamic limit for the one dimension Ising model.}
 \end{figure}
-We can compute the magnetization (the average over the spin \( \expval{S_j}  \)) for a generic site \emph{j}. This can be done in many ways. Assume again that \( S_i = \pm 1 \). Here, we choose one that consider another way to compute \emph{Z} for the \( 1-d \) Ising model. This method can be useful for other calculations. It is based on the following identity:
+We can compute the magnetization (the average over the spin \( \expval{S_j}  \)) for a generic site \emph{j}. This can be done in many ways. Assume again that \( S_i = \pm 1 \). Here, we choose one that consider another way to compute \emph{Z} for the \( 1-dimensional \) Ising model. This method can be useful for other calculations. It is based on the following identity:
 \begin{equation}
   \exp [ K S_i S_{i+1}] \underset{to\,do}{=}  \cosh ( K) + S_i S_{i+1} \sinh (K) = \cosh (K) [1+ S_i S_{i+1} \tanh (K)]
 \end{equation}
@@ -622,6 +622,7 @@ The magnetization is always zero \( \forall j \neq \infty  \)!
 
 
 \subsubsection{Case with \( H\neq0 \) and periodic boundary conditions}
+\label{sec:6_1}
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{../lessons/6_image/4.pdf}
@@ -633,13 +634,13 @@ Consider the spins sitting on a 1D lattice ring as in Figure \ref{fig:6_4}. The 
 \end{equation}
 We have:
 \begin{equation}
-  -\beta \mathbb{H}_ \Omega  ( \{ S \}  ) = K \sum_{i=1}^{N} S_i S_{i+1} + h \sum_{i=1}^{N} S_i
+  -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) = K \sum_{i=1}^{N} S_i S_{i+1} + h \sum_{i=1}^{N} S_i
 \end{equation}
 where
 \begin{equation}
    K \equiv \beta J,  \quad h \equiv \beta H
 \end{equation}
-The 1d Ising model with this setup can be solved in several ways. Here we will use the method of the transfer matrix. This is a quite general technique that we will discuss within the Ising model.
+The \( 1-dimensional \) Ising model with this setup can be solved in several ways. Here we will use the method of the transfer matrix. This is a quite general technique that we will discuss within the Ising model.
 
 
 
