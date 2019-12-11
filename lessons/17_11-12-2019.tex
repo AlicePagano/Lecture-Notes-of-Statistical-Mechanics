@@ -103,7 +103,7 @@ Consider
 We can introduce keep track of the fluctuation.
 The usual partition function is therefore,
 \begin{equation}
-  Z_{GL} = \int_{}^{} \text{D} m(\va{r}) e^{  -\int_{}^{} \dd[D]{\va{r}} \qty[a t m^2 (\va{r}) + \frac{b}{2} m^4 (\va{r}) + \frac{k}{2} (\bar{\grad } m (\va{r}))^2] - h(\va{r})m(\va{r})  }
+  Z_{GL}^h = \int_{}^{} \text{D} m(\va{r}) e^{  -\int_{}^{} \dd[D]{\va{r}} \qty[a t m^2 (\va{r}) + \frac{b}{2} m^4 (\va{r}) + \frac{k}{2} (\bar{\grad } m (\va{r}))^2] - h(\va{r})m(\va{r})  }
 \end{equation}
 with
 \begin{equation}
@@ -142,9 +142,83 @@ The magnetic suscpetibility:
 The problem is again try to approximate this term as much as we can.
 Let us compute the approximation.
 
+\subsubsection{First approximation}
+\begin{equation}
+Z_{GL}^h = \int_{}^{} \text{D}[m] \exp (-F_{eff}[m])
+\end{equation}
+In the frist approximation, we replace this integral with just
+\begin{equation}
+  \simeq \exp [-\beta F_{eff} [\bar{m} ] ]
+\end{equation}
+where \( \bar{m}(\va{r})  \) is such that \( F_{eff} [\bar{m} ] \) is minimal.
+\begin{equation}
+  \bar{m} =  \min_{m} [F_{eff}[m]]
+\end{equation}
+Taking the variation of \( \delta F_{eff} \) when \( m \rightarrow m + \delta m \):
+\begin{equation}
+  \delta F_{eff} = F_{eff} [m+\delta m] - F_{eff} [m]
+\end{equation}
+\begin{equation}
+  h (\va{r}) = - \qty[\grad \qty(\pdv{ \mathcal{H}_{eff}}{(\grad m)} ) - \pdv{\mathcal{H}_{eff}}{m}  ]
+\end{equation}
+The equation of state in that approximation for the landau is
+\begin{equation}
+  h (\va{r}) = - k \grad ^2 m_0(\va{r}) + 2 a t m_0 (\va{r})+ 2 b m_0^3(\va{r})
+  \label{eq:17_1}
+\end{equation}
+It is the profile what at least make the function, the \( \delta F \) equal to zero.
 
+This is the mean field solution of the Gibbs-Landua. It is more general than the Landau we have used. It is just the Landau with the additional term \( \grad  \).
 
+\begin{equation}
+  h(\va{r}) \rightarrow h
+\end{equation}
 
+Let us now try to compute the correlation function. Starting from \eqref{eq:17_1}, we derive with respect to \( h \):
+\begin{equation}
+  \chi _T (\va{r},\va{r}') = \frac{\delta m(\va{r})}{\delta h (\va{r}')}
+\end{equation}
+Given that
+\begin{equation}
+  \frac{\delta h (\va{r})}{\delta h (\va{r}')} = \delta (\va{r}-\va{r}')
+\end{equation}
+we have
+\begin{equation}
+  \delta  (\va{r} - \va{r}')  = - k \grad ^2 \chi _T + 2 a t  \chi _T  + 6 b m_0^2 (\va{r}) \chi _T
+\end{equation}
+We know that
+\begin{equation}
+  G_c (\va{r}-\va{r}') = k_B T \chi _T
+\end{equation}
+The equation \eqref{eq:17_1} becomes
+\begin{equation}
+  \beta \qty[-k \grad ^2 + 2 a t + 6 b m_0 ^2 ] G_c (\va{r}-\va{r}') = \delta (\va{r}- \va{r}')
+\end{equation}
+the \( G_c \) is the kernel .... (?)
+\begin{itemize}
+\item For \( T > T_c \): the mean field solution is \( m_0 (\va{r}) = m_0 = 0 \).
+\begin{equation}
+  \qty(-k \grad ^2 + 2 a t ) G = k_B T \delta
+  \label{eq:17_2}
+\end{equation}
+\end{itemize}
+Let us call
+\begin{equation}
+  \xi_> (t) = \qty(\frac{k}{2 a t })^{1/2}
+\end{equation}
+For \( T > T_c \) the equation \eqref{eq:17_2} becomes
+\begin{equation}
+  \qty(-\grad ^2 + \xi _> ^{-2} (t)) G_c (\va{r}-\va{r}') = \frac{k_B T}{k} \delta (\va{r}-\va{r}')
+\end{equation}
+For \( T < T_c \) we have
+\begin{equation}
+  m_0 = \pm \qty(-\frac{at}{b})^{1/2}
+\end{equation}
+we have that the equation \eqref{eq:17_2} becomes
+\begin{equation}
+  \xi _{<} (t) = \qty(- \frac{k}{4at})^{1/2}  \rightarrow \qty(-\grad ^2 + \xi _<^{-2} (t))G_c = \frac{k_B T}{k} \delta
+\end{equation}
+So we have computed that \( \nu = 1/2 \)
 
 
 
