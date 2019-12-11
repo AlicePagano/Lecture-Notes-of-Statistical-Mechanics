@@ -1,0 +1,151 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{11}{12}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 17.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+We introduced the value of the critical exponents in the mean field.
+Idea: build up a continum theory to study critical phenomena.
+\section{Coarse graining}
+It means  that as we have seen in proximity of the critical point function diverges, there is no point in which we can see small scales. Let us to find some of effective theory.
+Consider the partition function
+\begin{equation}
+  Z = \Tr_{\{ S \}  } \exp [- \beta \mathcal{H} [ \{ S \}  ]]
+\end{equation}
+We partition the configuration according to the magnetization profile. For example, if we have a configuration with half spin up and half down, we obtain a profile with 1 and -1. (figure 1)
+\begin{equation}
+\Rightarrow Z = \sum_{m(\va{r})}^{}  \qty[\Tr_{\{ S \}  }  \exp [- \beta \mathcal{H} ]  ]
+\end{equation}
+\begin{remark}
+We trace over the configuration \( \{ S \}   \)  that give a profile \( m(\va{r}) \).
+\end{remark}
+Suppose to consider the two dimensional system, we have many spins, in each square there is a huge number of spins. (figure 2) We have \( l \gg a \) and \( l \ll \xi  \). Therefore,
+\begin{equation}
+  a \ll l \ll \xi < L
+\end{equation}
+Once we have \( l \), we replace what is inside with average.
+\begin{equation}
+   m_l (\va{r}) = \frac{1}{Nl} \sum_{i \in cell \, l}^{} S_i
+\end{equation}
+\begin{equation}
+  Nl = \qty(\frac{l}{a})^D
+\end{equation}
+if \( D \) is the dimension of the system.
+The little \( l \) cannot go to zero, because it is a physical quantity. Doing the fourier analysis, it gives a wave number \( \abs{\va{q}} > \Lambda = a^{-1} \). We do not have ultraviolet.
+We have
+\begin{equation}
+  \Rightarrow Z = \sum_{m(\va{r})}^{} e^{-\beta \mathcal{H}_{eff} [m(\va{r})]}
+\end{equation}
+in the continuous version
+\begin{equation}
+  \Rightarrow Z_{GL} = \int_{}^{} \text{D}  m e^{-\beta \mathcal{H}_{eff}[m]}
+\end{equation}
+we have a weigth that exactly weight the given profile.
+\begin{enumerate}
+\item Bulk contribution. We would expect that the hamiltonian will be very similar to the landau. It is quite reasonable to say that in this case, \emph{inside}  a given cell \( l \ll \xi  \):
+\begin{equation}
+  \beta \mathcal{H}_{eff}^b [m] = \bar{a} t m^2 + \frac{\bar{b} }{2} m^4
+\end{equation}
+The boltzmann weight it is related to the exponent.
+\item Surface term. Let us consider a cell (figure 3), we can thing about different interactions.
+\begin{equation}
+  - \beta \mathcal{H}_{eff}^s =   \sum_{\va{\mu }}^{}  \frac{\bar{K} }{2}\qty[ \qty(m_l (\va{r}+\va{\mu }) - m_l(\va{r}))^2] + O \qty[ \qty(m_l (\va{r}+\va{\mu }) - m_l(\va{r}))^4 ]
+ \end{equation}
+ If \( l \) is small enough respect to \( \xi  \), we have other terms in this expansion \( (O[\dots]) \).
+\end{enumerate}
+The total energy is just given by the sum of the two term. Now we have to sum over all the cell if we want to have the energy of the whole system.
+\begin{equation}
+  \sum_{\va{r}}^{}  \overset{\frac{l^D}{r} \ll 1}{\longrightarrow}   \frac{1}{l^D} \int_{}^{} \dd[D]{\va{r}}
+\end{equation}
+In order to do something that will come out nicely
+\begin{equation}
+\frac{\bar{k} }{2} \sum_{\va{\mu }}^{} \sum_{\va{r}}^{}   \qty(m_l (\va{r}+\va{\mu }) - m_l(\va{r}))^2 \overset{\frac{l^D}{r} \ll 1}{\longrightarrow} \frac{\bar{k} }{2l^{D-2}} \sum_{\va{\mu }}^{} \int_{}^{} \dd[D]{\va{r}} \qty(\frac{m_l (\va{r}+\va{\mu }) - m_l(\va{r})}{l})^2
+\end{equation}
+so
+\begin{equation}
+  \Rightarrow \int_{}^{} \dd[D]{\va{r}}  \frac{\bar{k} }{2l^{D-2}} \sum_{\mu }^{} \qty(\pdv{m_l}{\chi _ \mu } )^2 = \int_{}^{} \dd[D]{\va{r}} \frac{k}{2} \qty(\bar{\grad } m_l (\va{r}) )^2
+\end{equation}
+the term in the first integral is just the definition of derivative along a given direction that is the gradiant.
+we have
+\begin{equation}
+  k \equiv \frac{\bar{k} }{l^{D-2}}
+\end{equation}
+We have
+\begin{equation}
+  \sum_{\va{r}}^{} \bar{a}  t m^2 \rightarrow  \frac{1}{l^D} \int_{}^{} \dd[D]{\va{r}}  \bar{a}   t m^2 (\va{r}) = \int_{}^{} \dd[D]{\va{r}}  a t m^2 (\va{r})
+\end{equation}
+with
+\begin{equation}
+  a \equiv \frac{\bar{a} }{l^D}
+\end{equation}
+and
+\begin{equation}
+  \rightarrow b = \int_{}^{} \dd[D]{\va{r}} \frac{b}{2} m^4 (\va{r})
+\end{equation}
+with
+\begin{equation}
+  b \equiv \frac{\bar{b} }{l^D}
+\end{equation}
+Consider
+\begin{equation}
+  \beta \mathcal{H}_{eff} [m] = \int_{}^{} \dd[D]{\va{r}} \qty[a t m^2 (\va{r}) + \frac{b}{2} m^4 (\va{r}) + \frac{k}{2} (\bar{\grad } m (\va{r}))^2]
+\end{equation}
+\begin{equation}
+  Z_{GL} = \int_{}^{} \text{D} m(\va{r}) e^{-\beta \mathcal{H}_{eff}}
+\end{equation}
+
+\begin{equation}
+  (\grad \va{m})^2 = \sum_{i=1}^{n} \sum_{\alpha =1}^{D} \sum_{\beta =1}^{D} \partial_ \alpha {m_i} \partial_ \beta  {m_i}
+\end{equation}
+We can introduce keep track of the fluctuation.
+The usual partition function is therefore,
+\begin{equation}
+  Z_{GL} = \int_{}^{} \text{D} m(\va{r}) e^{  -\int_{}^{} \dd[D]{\va{r}} \qty[a t m^2 (\va{r}) + \frac{b}{2} m^4 (\va{r}) + \frac{k}{2} (\bar{\grad } m (\va{r}))^2] - h(\va{r})m(\va{r})  }
+\end{equation}
+with
+\begin{equation}
+  F_{eff}[m] = -\int_{}^{} \dd[D]{\va{r}} \qty[a t m^2 (\va{r}) + \frac{b}{2} m^4 (\va{r}) + \frac{k}{2} (\bar{\grad } m (\va{r}))^2] - h(\va{r})m(\va{r})
+\end{equation}
+\begin{equation}
+  \frac{\delta G(h)}{\delta h (\va{r})} = \lim_{\varepsilon \rightarrow 0} \frac{G(h[\va{r}+G])-h[\va{r}]}{G}
+\end{equation}
+What we need for the moment are just few relations:
+\begin{equation}
+  \frac{\delta f (\va{r}')}{\delta f (\va{r})} = \delta (\va{r}-\va{r}')
+\end{equation}
+We can take the functional derivative with respect to \( m(\va{r}) \):
+\begin{equation}
+  \frac{\delta }{\delta m(\va{r})} \qty[ \int_{}^{} \dd[D]{\va{r}'} \frac{k}{2} ( \grad m(\va{r}))^2  ]
+\end{equation}
+where
+\begin{equation}
+  \delta G [ \grad m] = \qty[ \int_{}^{} \dd[D]{\va{r}'} \frac{k}{2} ( \grad m(\va{r}))^2  ]
+\end{equation}
+\begin{equation}
+  \delta G = G \qty[ \grad [m+\delta m]] - G [\grad m]
+\end{equation}
+In this case, the result of the function derivative is
+\begin{equation}
+  \qty[ \int_{}^{} \dd[D]{\va{r}'} \frac{k}{2} ( \grad m(\va{r}))^2  ] = - k \grad ^2 m(\va{r})
+\end{equation}
+The average is:
+\begin{equation}
+  \expval{m(\va{r})} = \frac{\delta F}{\delta h} = - \frac{\delta \ln{Z} }{\delta h}
+\end{equation}
+The magnetic suscpetibility:
+\begin{equation}
+  \chi  (\va{r},\va{r}') = \frac{\delta ^2 F}{\delta h(\va{r}) \delta h(\va{r}')} = \beta ^{-1} G_c (\va{r},\va{r}')
+\end{equation}
+The problem is again try to approximate this term as much as we can.
+Let us compute the approximation.
+
+
+
+
+
+
+
+\end{document}
