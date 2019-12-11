@@ -7,110 +7,346 @@
 
 \marginpar{ \textbf{Lecture 13.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-Last time: variational mean field for the Ising model.
-
-Write the one point density distribution as (we assume \( S_i = \pm 1 \)):
-\begin{equation}
-  \rho _i = \rho (S_i) = a (1- \delta _{S_i,-1}) + b \delta _{S_i,-1}
-\end{equation}
-The trace is
+Using the constraints
 \begin{equation}
   \begin{cases}
-    \Tr(\rho _i) = 1  &\rightarrow  a+b=1\\
-    \Tr(\rho _i S_i) = m_i  & \rightarrow a-b = m_i
+    \Tr^{(i)}(\rho _i) = 1  &\rightarrow  a+b=1\\
+    \Tr^{(i)}((\rho _i S_i) = m_i  & \rightarrow a-b = m_i
   \end{cases}
 \end{equation}
-\( a,b \) are the functions of the order parameter.
+where \( a,b \) are the functions of the order parameter.
 In that case we have not to write the functions for all the \emph{i}. For \( S_i = 1 \) we have one value, for all the other values another one.
-The results or the previous equation is:
+
+The results of the previous equation are:
 \begin{equation}
   \begin{cases}
    a = \frac{1-m_i}{2} \\
    b = \frac{1+m_i}{2}
   \end{cases}
 \end{equation}
-So
+Hence,
 \begin{equation}
   \rho _i =   \frac{1-m_i}{2}  (1- \delta _{S_i,-1}) + \frac{1+m_i}{2} \delta _{S_i,-1}
 \end{equation}
+In matrix form
+\begin{equation}
+\begin{pmatrix}
+\frac{(m_i+1)}{2}   & 0 \\
+  0 &    \frac{(1-m_i)}{2}
+\end{pmatrix}
+\end{equation}
+\subsubsection{Mean-field energy term}
 Let us consider the Hamiltonian
 \begin{equation}
   \expval{\mathcal{H}}_{\rho _{MF}} = \expval{-J \sum_{\expval{ij} }^{} S_i S_j - \sum_{i}^{} H_i S_i   }_{\rho _{MF}}
-  = - J   \sum_{\expval{ij} }^{} \expval{S_i} \expval{S_j} - \sum_{i}^{} H_i \expval{S_i}
+  = - J   \sum_{\expval{ij} }^{} \expval{S_i S_j}_{\rho _{MF}} - \sum_{i}^{} H_i \expval{S_i}_{\rho _{MF}}
 \end{equation}
-with
+Since
 \begin{equation}
-  \rho _{MF} = \prod_{i}^{} \rho _i
+  \rho _{MF} = \prod_{i=1}^{N} \rho _i
 \end{equation}
-the equation will trasform into
+the term \( \expval{S_i S_j}_{\rho _{MF}}  \)  will trasform into
 \begin{equation}
-  \expval{\mathcal{H}_{MF}}_{\rho _{MF}} = -J \sum_{\expval{ij} }^{} m_i m_j - \sum_{i}^{} H_i m_i
+  \expval{S_i S_j}_{\rho _{MF}} = \expval{S_i}_{\rho _{MF}} \expval{S_j}_{\rho _{MF}}
 \end{equation}
-therefore
+Moreover, for all function \( g \) of \( S_i \) we can write
 \begin{equation}
-  \expval{\ln{\rho } }_{\rho _{MF}} = \sum_{i}^{} \Tr^{(i)} (\rho _i \ln{\rho _i} )
-  = \sum_{i}^{} \qty[ \frac{1+m_i}{2} \ln{\frac{1+m_i}{2}} + \frac{1-m_i}{2} \ln{\frac{1-m_i}{2}} ]
+\begin{split}
+  \expval{g(S_i)}_{\rho _{MF}} &= \Tr^{(i)}(g(S_i)\rho _i) = \sum_{S_i = \pm 1}^{} g(S_i) \rho _i    \\
+  &= \sum_{S_i = \pm 1}^{} g(S_i) \qty[\frac{1+m_i}{2} \delta _{S_i,1} + \frac{1-m_i}{2} (1- \delta _{S_i,1})  ] \\
+  & = \frac{1+m_i}{2}g(1) + \frac{1-m_i}{2} g(-1)
+\end{split}
 \end{equation}
-The free energy mean field became
+Note that, if \( g(S_i) = S_i \),
+\begin{equation*}
+  \expval{S_i}_{\rho _{MF}} = m_i
+\end{equation*}
+as expected.
+
+Hence,
 \begin{equation}
-  F_{\rho _{MF}} = \expval{\mathcal{H}_{MF}} + k_B T \expval{\ln{\rho } }_{MF}
+  \expval{\mathcal{H}}_{\rho _{MF}} = -J \sum_{\expval{ij} }^{} m_i m_j - \sum_{i}^{} H_i m_i
 \end{equation}
-so to obtain the minimal value
+\begin{remark}
+This has the form of the original Hamiltonian where \( S_i \) have been replaced by their statistical averages.
+\end{remark}
+The entropy term is:
+\begin{equation}
+\begin{split}
+  \expval{\ln{\rho } }_{\rho _{MF}} & = \Tr(\rho \ln{\rho } )  \overset{MF}{=} \sum_{i}^{} \Tr^{(i)} (\rho _i \ln{\rho _i} ) \\
+ &  = \sum_{i}^{} \qty[ \frac{1+m_i}{2} \ln{\frac{1+m_i}{2}} + \frac{1-m_i}{2} \ln{\frac{1-m_i}{2}} ]
+\end{split}
+\end{equation}
+The total free energy becames:
+\begin{equation}
+\begin{split}
+  F_{\rho _{MF}} &= \expval{\mathcal{H}}_{\rho _{MF}} + k_B T \expval{\ln{\rho } }_{\rho _{MF}} \\
+  & = - J \sum_{\expval{ij} }^{} m_i m_j - \sum_{i}^{} H_i m_i
+  + k_B T   \sum_{i}^{} \qty[ \frac{1+m_i}{2} \ln{\frac{1+m_i}{2}} + \frac{1-m_i}{2} \ln{\frac{1-m_i}{2}} ]
+\end{split}
+\end{equation}
+We now look for the values \( m_i = \bar{m_i}  \), that minimizes \( F_{\rho _{MF}} \) (equilibrium phases):
 \begin{equation}
  \eval{ \pdv{F_{\rho _{MF}} }{m_i} }_{m_i = \bar{m_i} } = 0
 \end{equation}
+This gives:
 \begin{equation}
-  0 = - J \sum_{j \in \, n.n. \, i}^{} \bar{m_j} - H_i + \frac{k_B T}{2} \ln{\qty[\frac{1+\bar{m_i} }{1- \bar{m_i} }] }
+  0 = - J \sum_{j \in \, n.n. \,\text{of}\, i}^{} \bar{m_j} - H_i + \frac{k_B T}{2} \ln{\qty[\frac{1+\bar{m_i} }{1- \bar{m_i} }] }
 \end{equation}
+To solve it, remember that
 \begin{equation}
-  \tanh^{-1} (x) = \frac{1}{2} \ln{\frac{1+x}{1-x}}
+  \tanh^{-1} (x) = \frac{1}{2} \ln{\frac{1+x}{1-x}} \quad (TO\, DO)
 \end{equation}
-so
+Hence,
 \begin{equation}
-  k_B T \tanh^{-1} ( \bar{m_i} ) = J \sum_{j \in \, n.n. \, i}^{} \bar{m_j} + H_i
+  k_B T \tanh^{-1} ( \bar{m_i} ) = J \sum_{j \in \, n.n. \,\text{of}\, i}^{} \bar{m_j} + H_i
 \end{equation}
+which implies
 \begin{equation}
-  \bar{m_i} = \tanh \qty[(k_B T)^{-1} \qty(J \sum_{j \in \, n.n. \, i}^{} \bar{m_j} + H_i ) ]
+  \bar{m_i} = \tanh \qty[(k_B T)^{-1} \qty(J \sum_{j \in \, n.n. \,\text{of}\, i}^{} \bar{m_j} + H_i ) ]
 \end{equation}
-now consider
+Defining
 \begin{equation}
-  z \bar{m_i} = \sum_{j \in \, n.n. \, i}^{} \bar{m_j}
+  z \bar{m_i} \equiv  \sum_{j \in \, n.n. \,\text{of}\, i}^{} \bar{m_j}
 \end{equation}
-and put it into the last equation, what we obtain is
+we get
 \begin{equation}
   \bar{m_i} = \tanh \qty[\beta \qty(Jz \bar{m_i} +H_i) ]
 \end{equation}
-this is the as the Bragg William approximation.
+this is the Bragg-William approximation.
 
-\section{second approach}
-We do not parameterize again the \( \rho _i \)  using simple parameter, but we calculate derivatives.
-
-This model is called the \emph{Blume-Emery-Griffith}. It is a spin model, is a deluter Ising model.
-
-Let us consider Helium \( He^4 \). It is bose Einstein condensation. It goes from flud to superfluid transition. At \( P = P_0 \) (atmosferic pressure), we have \( T_{\lambda } = 2,17 K \). It is also called \( \lambda  \)-transition because in the limit of \(T_{\lambda }  \) there is a critical point.
-Insert a figure 1
-If we do the usual \( (P,T) \) phase diagram we have
-Insert a figure 2
-Now we start to enject \( He^3 \). This statisfies the fermion statistic.
-
-Let us suppose for example \emph{x}, the concentration of \( He^3 \). We have:
+\begin{example}[Ising antiferromagnet in an external field]
+Consider the model
 \begin{equation}
-  T_{\lambda}= T_ \lambda (x)
+  \mathcal{H} = \mathcolorbox{green!20}{+} J \sum_{\expval{ij} }^{} S_i S_j - H \sum_{i}^{} S_i,
 \end{equation}
-The \( \cos(x) \) decrease but the increase again.
+\begin{remark}
+Note the \( + \) before \( J \). This means that the interactions are antiferromagnetic.
+\end{remark}
+\begin{itemize}
+\item  If \( H=0 \) ferromagnetic and antiferromagnetic behave similarly when the interactions are between nearest neighbours on a \emph{bipartite lattice}, i.e. a lattice that can be divided into two sublattices, say \( A \) and \( B \), such that a \( A \) site has only \( B \) neighbours and a \( B \) site only \( A \) ones.
+\begin{remark}
+FCC is not bipartite, while BCC it is. See Figure \ref{fig:13_1}.
+\end{remark}
 
-Suppose a mixture like oil and water, during phase separation we saw small bubbles. At a given point there will be a phase separation. There is a phase rich of \( He^4 \) and another one rich of \( He^3 \).
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][Square lattice is bipartite.]{ \includegraphics[width=0.8\textwidth]{../lessons/13_image/1.pdf}  \label{fig:} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][Triangular lattice is not bipartite.]{\includegraphics[width=0.8\textwidth]{../lessons/13_image/2.pdf}  \label{fig:} }
+\end{minipage}
+\caption{\label{fig:13_1} }
+\end{figure}
 
-The critical \emph{x} is:
+If the lattic is bipartite and \( J_{ij} \) is non zero only when \( i \) and \( j \) belong to different sublattices (they do not have to be only n.n.!), one can redefine the spins such that
 \begin{equation}
-  x=x_t = \frac{n_3}{n_3+n_4} \sim 0.67
+  S_j' \begin{cases}
+    + S_j & j \in A \\
+    - S_j & j \in B
+\end{cases}
 \end{equation}
-where \( n_3 \) is the number of \( He^3 \), etc.
+Clearly, \( S_i'S_j' = - S_i S_j \). It is like if the \( J_{ij} \) have changed sign and we are formally back to ferromagnetic model for the two sublattices:
+\begin{equation}
+  \mathcal{H}^{*} = - J \sum_{\expval{ij} }^{} S_i' S_j'
+\end{equation}
+i.e. a ferromagnetic Ising.
 
-So if \( x > x_t \) we have the first order transition.
-Insert figure.
-The point \( (x_t,T_t) \) is called \emph{tricritical point}. There are different critical points that are characterize by different parameter.
-Can we describe by using a sort of spin model that? Ising model with vacancy. The idea is to diluted the typical Ising model. What happens if the concentration of the dilution will superate this given value?  
+\item In presence of a magnetic field \( H \), we need to reverse its sign when applied to sites \( B \).
+
+The thermodynamic of a ferromagnetic Ising model on a bipartite lattice in a uniform magnetic field \( H \) is identical to the one of the Ising antiferromagnetic model in presence of the so called \emph{staggered field}, i.e. \( H_A = H \) and \( H_B = -H \).
+\begin{equation}
+  \mathcal{H}^* [S] = -J \sum_{\expval{r_A r_B} }^{} S(r_A) S(r_B) - H \sum_{r_A}^{} S(r_A) + H \sum_{r_B}^{} S(r_B), \quad J>0, H>0
+\end{equation}
+The average magnetization per spin is
+\begin{equation}
+  m \equiv \frac{1}{2}(m_A+m_B)
+\end{equation}
+  while
+  \begin{equation}
+    m_S = \frac{1}{2}(m_A-m_B)
+  \end{equation}
+  is the \emph{staggered magnetization}.
+
+In order to use the variational density matrix method for this problem we consider two independent variational parameters \( m_A \) and \( m_B \) for sublattice \( A \) and \( B \) respectively. On each sublattice, the model is like the standard Ising
+\begin{equation}
+  \begin{cases}
+   \rho _A^{(1)}(S) = \frac{1+m_A}{2} \delta _{S,1}+ \frac{1-m_A}{2}\delta _{S,-1}\\
+   \rho _B^{(1)}(S) = \frac{1+m_B}{2} \delta _{S,1}+ \frac{1-m_B}{2}\delta _{S,-1}
+  \end{cases}
+\end{equation}
+\begin{remark}
+Note that, being \( H \) uniform, \( \expval{S_i} = m \), i.e. does not depend on \( i \). Same for the \( 1- \)particle distribution functions \( \rho _A^{(1)}(S) \) and  \( \rho _B^{(1)}(S) \).
+\end{remark}
+By performing the calculation for the terms
+\begin{equation}
+  \expval{\mathcal{H}}_{\rho _{MF}} = - J \sum_{\expval{ij} }^{} \expval{S_i S_j}_{\rho _{MF}} - H \sum_{i}^{} \expval{S_i}_{\rho _{MF}}
+\end{equation}
+\begin{equation}
+  \expval{\ln{\rho } }_{\rho _{MF}} = \sum_{i}^{} \Tr^{(1)}(\rho _i \ln{\rho _i} )
+\end{equation}
+as before, but remembering to partition the procedure into the two sublattices \( A \) and \( B \), one can show (TO DO) that the variational free energy is given by
+\begin{equation}
+  \frac{F(m_A,m_B)}{N} = \frac{z \hat{J} }{2}m_A m_B - \frac{1}{2}H (m_A+m_B)
+  - \frac{1}{2} k_B T s(m_A) - \frac{1}{2}k_B T s(m_B)
+\end{equation}
+where the entropy is given by
+\begin{equation}
+  s(m) = \qty[\frac{1+m}{2} \ln{\qty(\frac{1+m}{2}) } + \frac{1-m}{2} \ln{\qty(\frac{1-m}{2}) }  ]
+\end{equation}
+By differentiating \( \frac{F}{N} \) with respect to \( m_A \) and \( m_B \), one gets
+\begin{subequations}
+\begin{align}
+   \pdv{(F/N)}{m_A} &= 0 & \Rightarrow m_B = \frac{H}{z \hat{J} } - \frac{k_B T}{z \hat{J} }\ln{\qty(\frac{1+m_A}{1-m_A}) } \\
+   \pdv{(F/N)}{m_B} &= 0 & \Rightarrow m_A = \frac{H}{z \hat{J} } - \frac{k_B T}{z \hat{J} }\ln{\qty(\frac{1+m_B}{1-m_B}) }
+\end{align}
+\end{subequations}
+As before, since
+\begin{equation}
+  \tanh^{-1} (x) = \frac{1}{2} \ln{\frac{1+x}{1-x}}
+\end{equation}
+these self-consisten equations can be written as
+\begin{equation}
+  \begin{cases}
+   m_A = \tanh ( \beta \qty(H - z \hat{J} m_B ) )\\
+   m_B = \tanh ( \beta \qty(H - z \hat{J} m_A ) )
+  \end{cases}
+\end{equation}
+The sites \( \in A \) experience an internal field \( H_{A,MF} = - z \hat{J} m_B \) from the \( B \) neighbours and viceversa for the sites \( \in B \).
+\end{itemize}
+\end{example}
+
+\subsection{Second approach: Blume-Emery-Griffith model}
+We apply this approach to the so called Blume-Emery-Griffith model.
+This is a spin model with vacancies that describes the phase diagram and the critical properties of an interacting system displaying a \emph{tricritical point}. Perhaps the most famous of these systems is the \( \text{He}^3-\text{He}^4 \) mixture undergoing a fluid-superfluid transition.
+
+\begin{remark}
+\( \text{He}^4 \)  is a non radiative isotope with two protons and two neutrons. Roughly \( 1/4 \) of the universe matter is \( \text{He}^4 \)!
+From a quantum statistical point of view \( \text{He}^4 \) is a \emph{boson}.
+
+\end{remark}
+ A gas of \( \text{He}^4 \) undergoes a fluid-superfluid transition at \( T_ \lambda =2.17 K \) and a \( P=P_0 \). It is known as \( \lambda - \)transition since at \( T \sim T_ \lambda  \)  the specific heat \( C(T) \) behaves as in Figure \ref{fig:13_2_1}.
+
+\begin{remark}
+The \( \lambda - \)transition is a genuine critical point (second order). For \( T < T_{\lambda } \), \( \text{He}^4 \)  is in the superfluid phase and it can be described by a two-fluids model in which one component has zero viscosity and zero entropy.
+\end{remark}
+
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][d]{ \includegraphics[width=0.9\textwidth]{../lessons/13_image/3.pdf}  \label{fig:13_2_1} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][\( (P,T) \) phase diagram.]{\includegraphics[width=0.9\textwidth]{../lessons/13_image/4.pdf}  \label{fig:13_2_2} }
+\end{minipage}
+\caption{\label{fig:13_2} }
+\end{figure}
+
+Now, the question is: what happens to the system if a given amount of \( \text{He}^3 \) is inserted to form a \( \text{He}^3- \text{He}^4  \) mixture?
+\( \text{He}^3 \) is a non-radiative isotope with 2 protons and 1 neutron. From a quantum statistical point of vieq is a \emph{fermion}.
+
+Hence, if inserted in a system of \( \text{He}^4 \) it will "dilute" its bosonic property. Then, one expects that \( T_ \lambda  \) decreases. Indeed, denoting by \( x \) the concentration of \( \text{He}^3 \)  one observes
+\begin{equation}
+  T_{\lambda} = T_ \lambda (x)
+\end{equation}
+with \( T_ \lambda (x) \)  that decreases as \( x \) increases.
+
+At the same time, at a given point the mixture undergoes a separation between a phase rich and a phase poor of \( \text{He}^3 \). In particular one observes that, for
+\begin{equation}
+  x > x_t = \frac{n_3}{n_3+n_4} \sim 0.67
+\end{equation}
+the fluid-superfluid transition becames first order! It is accompained by a phase separation. The point \( (x_T,T_t) \) is a \emph{tricritical point}, i.e. a critical point that separates a line of second order transition from a line of first order transition.
+\subsubsection{BEG Model}
+The BEG Model is the model of a diluited ferromagnetic system.
+The spins are \( S_i = \pm 1,0 \) (similar to a lattice gas model), we have \( S_i = \pm 1 \) for \( \text{He}^4 \) atom at site \( i \), \( S_i = 0 \) for \( \text{He}^3 \) atom at site \( i \).
+
+Let us consider:
+\begin{itemize}
+\item \( \expval{S_i} = m_i  \), order parameter.
+\item \( \expval{S_i^2}  \) is the density \( \text{He}^4 \) atoms.
+\end{itemize}
+Let us define the density of \( \text{He}^3 \) atoms as
+\begin{equation}
+  x \equiv 1 - \expval{S_i^2}
+\end{equation}
+The chemical potentials difference is
+\begin{equation}
+  \Delta \propto \mu _3 - \mu _4
+\end{equation}
+and controls the number of \( \text{He}^3 \) atoms.
+
+If:
+\begin{itemize}
+\item \( \Delta \rightarrow - \infty \quad \Rightarrow x \rightarrow 0  \).
+\item \( \Delta \rightarrow + \infty \quad \Rightarrow x \rightarrow 1  \).
+\end{itemize}
+and the order parameter for the \( \lambda - \)transition becomes
+\begin{equation}
+\expval{S_i} =
+  \begin{cases}
+   0 & T > T_{\lambda }\\
+   m & T < T_{\lambda }
+  \end{cases}
+\end{equation}
+The minimal version of the model is:
+\begin{equation}
+\mathcal{H} = - J \sum_{\expval{ij} }^{N} S_i S_j + \Delta \sum_{i=1}^{N} S_i^2 - \Delta N
+\end{equation}
+\begin{remark}
+The \( \Delta N \) term is a typical term for a gas in gran canonical ensemble.
+\end{remark}
+
+
+\subsubsection{Variational mean field approach to BEG}
+Since \( \rho _{MF} = \prod_{i}^{} \rho _i   \),
+\begin{equation}
+  G(T,J,\Delta ) = \expval{\mathcal{H}}_{\rho _{MF}} + k_B T \sum_{i}^{} \Tr(\rho _i \ln{\rho _i } )
+\end{equation}
+where the first term can be written as
+\begin{equation}
+\begin{split}
+\expval{\mathcal{H}}_{\rho _{MF}}   &= - J \sum_{\expval{ij} }^{} \expval{S_i S_j}  + \Delta \sum_{i}^{} \expval{S_i^2} - N \Delta      \\
+& \overset{MF}{\simeq } - J \sum_{\expval{ij} }^{} \expval{S_i} \expval{S_j} + \Delta \sum_{i}^{} \expval{S_i^2} - \Delta N
+\end{split}
+\end{equation}
+where
+\begin{equation}
+  \expval{S_i} = \expval{S_j} \equiv m
+\end{equation}
+Hence,
+\begin{equation}
+  G(T,J, \Delta )_{MF}  = - \frac{1}{2} N J z \qty( \Tr_{S_i}(\rho _i S_i) )^2
+  + N \Delta \Tr_{S_i}(\rho _i S_i^2) - N \Delta +
+  N k_B T \Tr_{S_i}(\rho _i \ln{\rho _i} )
+\end{equation}
+We noe minimize \( G(T,J,\Delta )_{MF} \) with respect to the function \( \rho _i \) with constraint \( \Tr_{S_i}(\rho _i) = 1  \):
+\begin{equation}
+  \dv{G}{\rho _i} = 0
+\end{equation}
+Let us consider each term
+\begin{subequations}
+\begin{align}
+  \dv{}{p_i} \qty(\Tr(\rho _i S_i) )^2& = 2 \qty(\Tr(\rho _i S_i) ) S_i = 2 \expval{S_i} S_i = 2 m S_i \\
+    \dv{}{p_i} \qty(\Tr(\rho _i S_i^2) ) &= S_i^2 \\
+      \dv{}{p_i} \qty(\Tr(\rho _i \ln{\rho _i} ) ) &=  \ln{\rho _i }  +1
+\end{align}
+\end{subequations}
+\begin{remark} Remind that
+\( \rho _i = \rho ^{(1)} (S_i) \).
+\end{remark}
+\begin{equation}
+  0 = - J N z m S_i + \Delta N S_i^2 + N k_B T \ln{\rho _i} + N k_B T
+\end{equation}
+Dividing by \( N k_B T \),
+\begin{equation}
+  \ln{\rho _i} \equiv \ln{\rho ^{(1)} (S_i)} =   
+\end{equation}
+
+
+
+
+
 
 
 
