@@ -120,6 +120,89 @@ write immediately
 \end{equation}
 that is the ultraviolet cut-off.
 
+Change now the notation:
+\begin{equation}
+  \delta m (\va{r}) \leftrightarrow \varphi (\va{r}), \quad k \leftrightarrow c
+\end{equation}
+and obtain
+\begin{equation}
+  \beta \mathcal{H}_{eff}^{G,>} = \int_{}^{} \dd[D]{\va{r}} \qty[\frac{c}{2} \qty(\grad \phi )^2 + a t \phi ^2 ]
+\end{equation}
+\begin{equation}
+\begin{split}
+  \int_{}^{} \dd[D]{r} \frac{c}{2} \qty(\grad \varphi )^2 & = \frac{c}{2} \frac{1}{V^2} \int_{}^{} \dd[D]{\va{r}} \qty(\grad \sum_{\va{k}}^{} e^{i \va{k} \vdot \va{r}} \varphi _{\va{k}}  ) \qty(\grad \sum_{\va{k}'}^{} e^{i \va{k}' \vdot \va{r} } \varphi _{\va{k}'}  )     \\
+  & = \frac{c}{2} \sum_{\va{k} \va{k}'}^{}  \qty(- \va{k} \va{k}') \varphi _{\va{k}} \varphi _{\va{k}'} \underbrace{\int_{}^{} \dd[D]{\va{r}}  e^{i (\va{k}+\va{k}')\vdot \va{r}}}_{(2 \pi )^2 \delta (\va{k}+ \va{k}')}   \\
+  & = \frac{c}{2V} \sum_{\va{k}}^{} \abs{\va{k}}^2 \varphi _{\va{k}} \varphi _{\va{-k}'}
+\end{split}
+\end{equation}
+\begin{equation}
+  \beta \mathcal{H}_{eff}^{G,>} \rightarrow \frac{1}{2V} \sum_{\va{k}}^{} \qty(2 a t + c k^2) \varphi _{\va{k}} \varphi _{-\va{k}'}
+\end{equation}
+\begin{equation}
+  \int_{}^{} \text{D} \qty[\varphi (\va{r})] \rightarrow \int_{- \infty }^{+ \infty } \prod_{\abs{\va{k}} < \Lambda  }^{}   \dd[]{(\Re{\varphi _{\va{k}}})}   \dd[]{(\Im{\varphi _{\va{k}}})}
+\end{equation}
+with \( \varphi _{\va{k}} \in \mathbb{C} \).
+\begin{equation}
+  \varphi _{\va{k}}^* = \varphi _{-\va{k}}
+\end{equation}
+\begin{equation}
+  \Re {\varphi _[\va{k}]} = \Re {\varphi _{-\va{k}}}, \quad   \Im{\varphi _[\va{k}]} = -\Im {\varphi _{-\va{k}}}
+\end{equation}
+\begin{equation}
+  \Tr = \int_{- \infty }^{+ \infty } \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_D > 0 } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
+\end{equation}
+\begin{equation}
+  \widetilde{Z}_{GC}^{G,>} = \frac{1}{2} \int_{- \infty }^{+ \infty } \prod_{\substack{ \va{k}   \\\abs{\va{k}} < \Lambda } }^{} \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
+  e^{- \beta \widetilde{\mathcal{H}}_{eff} [\varphi _{\va{k}}] }
+\end{equation}
+\begin{equation}
+  x = \Re \varphi _{\va{k}}, \quad   y = \Im \varphi _{\va{k}}
+\end{equation}
+\begin{equation}
+  \int_{-\infty }^{+\infty } \dd[]{x} \dd[]{y} e^{-A (x^2+y^2)} = \frac{\pi }{A}
+\end{equation}
+where \( A= \frac{1}{2V} \).
+\begin{equation}
+  e^{-\beta \widetilde{F}_{GL}^> } = \qty(\prod_{\substack{\va{k} \\ \abs{\va{k}} <\Lambda \\ k_D > 0  } }^{}  \frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 } )
+\end{equation}
+\begin{equation}
+  \widetilde{F}_{GL}^{G,>} = - \frac{1}{2} k_B T \sum_{\abs{\va{k}}> \Lambda  }^{}
+  \log{\qty(\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })}
+\end{equation}
+\begin{equation}
+  c_V = - T \pdv[2]{F}{T} = \frac{A}{V} \sum_{\abs{\va{k}} < \Lambda  }^{}
+  \frac{1}{2 a t + c \abs{\va{k}}^2 } - \frac{B}{V} \sum_{\abs{\va{k}}< \Lambda  }^{} \frac{1}{\qty(2 a t + c \abs{\va{k}}^2)^2 }
+\end{equation}
+Question: what happens if I introduce guassian fluctuations.
+
+It turns out that when we study the asimptotic behaviour of these integrals.
+
+For the first term it turns out that
+\begin{equation}
+1^{st} \propto
+  \begin{cases}
+   \xi ^{4-D} \sim t^{-\nu (4-D)}  & D < 4\\
+  < \infty & D > 4
+  \end{cases}
+\end{equation}
+\begin{equation}
+2^{nd} \propto
+  \begin{cases}
+   \xi ^{2-D} \sim t^{-\nu (2-D)}  & D < 2\\
+  < \infty & D > 2
+  \end{cases}
+\end{equation}
+At the end, the behaviour of the specific heat
+\begin{equation}
+  c_V \sim \begin{cases}
+    t^{-\nu (4-D)} & D < 4 \\
+    \infty & D > 4
+\end{cases}
+\end{equation}
+
+
+
+
 
 
 
