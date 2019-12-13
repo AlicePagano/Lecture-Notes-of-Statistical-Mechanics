@@ -5,75 +5,26 @@
 
 \begin{document}
 
+
+
+\chapter{Non ideal fluids: Mean field theory, Van der Walls, Virial expansion and Cluster expansion}
+
 \marginpar{ \textbf{Lecture 14.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-Start from the usual definition of the variation free energy.
+\section{Mean field theory for fluids}
+Fluid system of \( N \) particles with position vectors \( \{ \va{r}_i \}_{i=1,\dots,N}   \). The configurational (grancanonical) partition function is (we can do Gaussian integrals)
 \begin{equation}
-  F_{var} = \expval{\mathcal{H}}_{\rho _{TR}} + k_B T \expval{\ln{\rho _{TR}} }_{\rho _{TR}}
-\end{equation}
-We have to choose a family of distribution. We make a choice to have a \( \rho _{TR} \) (trail)  as a Boltzmann. Therefore, assume
-\begin{equation}
-  \rho _{TR} = \frac{e^{- \beta \mathcal{H}_{TR}} }{Z_{TR}}
-\end{equation}
-with
-\begin{equation}
-  Z_{TR} = \sum_{\{ \Phi _i \}  }^{}   e^{- \beta \mathcal{H}_{TR}}
-\end{equation}
-If you are able to choose hamiltonian trial as here, you can do this sum. This is the idea. In principle, if you are able to find an Hamiltonian that you can solve without choosing a mean filed it is ok.
-\begin{equation}
-  \ln{\rho _{TR}} = - \beta \mathcal{H}_{TR} - \ln{Z_{TR}}
-\end{equation}
-\begin{equation}
-  k_B T \expval{\ln{\rho _{TR}}}_{\rho _{TR}} = - \expval{\mathcal{H}_{TR}}_{\rho _{TR}} + F_{TR}
-\end{equation}
-This is exactly the free energy of the trial distribution. Therefore: (F variational)
-\begin{equation}
-  F_{VAR} = \expval{\mathcal{H}-\mathcal{H}_{TR}}_{\rho _{TR}} + F_{TR}
-\end{equation}
-The true free energy is
-\begin{equation}
-  F \le F_{VAR}
-\end{equation}
-If we use the general version in that way, we can try to use the mean field version.
-\subsection{Mean field}
-\begin{equation}
-  \rho _{TR} = \rho _{TR} ( \Phi _1, \dots, \Phi _N) \overset{MF}{=} \prod_{i=1}^{N} \rho _{TR}^{(1)} ( \Phi _i) = \frac{1}{Z_{TR}} e^{-\beta \sum_{i}^{}  \Phi _i w_i}
-\end{equation}
-where \( w_i \) is a parameter (to find the minimum of the variation).
-\begin{equation}
-  \mathcal{H}_{TR} = - \sum_{i=1}^{N} w_i \Phi _i
-\end{equation}
-Let us start with the usual Ising model:
-\begin{equation}
-  \mathcal{H} = - J \sum_{\expval{ij} }^{} S_i S_j - H \sum_{i=1}^{N} S_i
-\end{equation}
-\begin{equation}
-  \expval{\mathcal{H}- \mathcal{H}_{TR}}_{\rho _{TR}}  = \expval{- J \sum_{\expval{ij} }^{} S_i S_j - H \sum_{i=1}^{N} S_i  + \sum_{i}^{} w_i S_i }_{\rho _{TR}}
-\end{equation}
-this is equal
-\begin{equation}
-  \rightarrow = -J \sum_{\expval{ij} }^{}  \expval{S_i}  \expval{S_j} - H \sum_{i=1}^{N}   \expval{S_i} + \sum_{i}^{} w_i \expval{S_i}
-\end{equation}
-We have as the definition of average
-\begin{equation}
-  \expval{S_i}_{TR} = \frac{1}{Z_{TR}} \sum_{S}^{} S_i e^{-\beta \sum_{i}^{} S _i w_i }
-  = \frac{\sum_{S_i = \pm 1 S_i e^{-\beta S_i w_i } }^{}  }{\sum_{S_i = \pm 1 S_i e^{-\beta S_i } }^{} }
-\end{equation}
-The main step to understand is how to derive \( F_{VAR} \) from a \( \rho _{TR} \).
-This is nice to see a variation with respect to the real hamiltonian.
-
-Consider a bunch of data, for instance a milion of configuration, which is the distribution of the configuration? Usually, you build up a model with a distribution that depends on parameters and what you want to do is statistical inference. Starting from the model and the data you have to obatin the real distribution.
-
-\subsection{Mean field theory for fluids}
-We have our configurational property, partition function of the fluids (so you are in the grancanonical) and you can do Gaussian integral.
-\begin{equation}
-  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \Phi (\{ \va{r} \}  ) - \beta \sum_{i=1}^{N} \psi _{ext}  (\va{r}_i)]
+  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}_i}  \exp [-\beta \Phi (\{ \va{r} \}  ) - \beta \sum_{i=1}^{N} \psi _{ext}  (\va{r}_i)]
 \end{equation}
 where \( \psi _{ext} \) is a one body potential, but we do not consider it because is not the aim of our problem.
+
+In general,
 \begin{equation}
-  \Phi (\{ \va{r} \}  ) = \sum_{i,j>i}^{}  U_2 (\va{r}_i,\va{r}_j) + \sum_{i,j, \mu }^{} U_3 (\va{r}_i, \va{r}_j, \va{r}_ \mu )
+  \Phi (\{ \va{r}_i \}  ) = \sum_{i,j>i}^{}  U_2 (\va{r}_i,\va{r}_j) + \sum_{i,j, \mu }^{} U_3 (\va{r}_i, \va{r}_j, \va{r}_ \mu ) + \dots
 \end{equation}
-but we forgot about \( U_3 \) that is the three body interaction. We consider
+but we forgot about \( U_3 \) that is the three body interaction.
+
+ We consider
 \begin{equation}
    U_2 (\va{r}_i,\va{r}_j) \rightarrow U_2 ( \abs{\va{r}_i - \va{r}_j} )
 \end{equation}
@@ -81,92 +32,168 @@ Therefore,
 \begin{equation}
   Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \sum_{i,j > i }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) ]
 \end{equation}
-We replace all this story with just a field, it is a sort of average of the interactions. Doing the mean field assumption for \( U_2 \) we obtain
+Now, we replace all this story with just a field, it is a sort of average of the interactions. Doing the mean field assumption for \( U_2 \), we obtain
 \begin{equation}
   \sum_{i,j > 1 }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) \rightarrow \sum_{i}^{} \Phi _{MF} (\va{r}_i)
 \end{equation}
-The result is
-\begin{equation}
-    Q_N (T) \overset{MF}{=}  \qty[\int_{V}^{}  \dd[3]{\va{r}}  \exp [-\beta \Phi (\va{r}) ] ]^N
-\end{equation}
-We assum that there is spatial isotropy, so what it is important is not the vector but the distance, so what it is important it is just the integral over the modulus:
-\begin{equation}
-  \Phi _{MF} (\va{r}) \rightarrow \Phi _{MF} (\abs{\va{r}} )
-\end{equation}
 
+In particular, the \textbf{mean field approximation}  consists in substituting the multi-body interaction potential \(   \Phi (\{ \va{r}_i \}  ) \) with an effective one body potential \( \Phi (\va{r}) \) withing which all the particles move.
+\begin{equation}
+\Phi (\{ \va{r}_i \})   =\sum_{i}^{} \Phi _{MF} (\va{r}_i)
+\end{equation}
+As said, for simplicity consider \( \psi _{ext} = 0 \), hence
+\begin{equation}
+  Q_N (T) \simeq \qty[  \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \Phi _{MF} (\va{r})  ] ]^N
+\end{equation}
+\begin{remark}
+The integral depends on the form of \( \Phi _{MF} (\va{r})  \).
+\end{remark}
+If one assumes the \emph{spatial isotropy},
+what it is important is not anymore the vector but only the distance; hence, it is important just the integral over the modulus:
+\begin{equation}
+    \Phi _{MF} (\va{r}) = \Phi _{MF} (\abs{\va{r}} ) = \Phi _{MF} (r)
+\end{equation}
+In general
+\begin{equation}
+\Phi _{MF} (r) =
+  \begin{cases}
+   \infty & r < r_0 \quad  \text{repulsion}\\
+   u < 0 & r> r_0  \quad \text{attraction}
+  \end{cases}
+\end{equation}
+as plotted in Figure \ref{fig:14_1}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/14_image/1.pdf}
-\caption{\label{fig:} Description.}
+\caption{\label{fig:14_1} Plot of the potential \( \Phi _{MF} (r) \).}
 \end{figure}
-
- What could be more reasonable as a potential is the Lennard-Jones, but it is not it.
-Instead, we have
+Moreover,
 \begin{equation}
-\Phi _{MF} =
-  \begin{cases}
-   \infty & r < r_0\\
-   u < 0 & r> r_0
-  \end{cases}
+  Q_N^{MF} (T) = \qty[ V_{ex}e^{- \infty } + (V-V_{ex})e^{-\beta u} ]^N
 \end{equation}
+where \( V_{ex} \simeq r_0^3 \) is the volume not accessible by the particle.
 \begin{equation}
-  Q_N (T) = \qty[ (V-V_{ex})e^{-\beta u} ]^N
+  Q_N^{MF} (T) = \qty[ (V-V_{ex})e^{-\beta u} ]^N
 \end{equation}
-where \( V_{ex} \sim r_0^3 \), the volume not accessible by the particle. The free energy is
+The free energy is
 \begin{equation}
-  F_N = - N k_B T \qty[ \ln{(V-V_{ex})} - \beta u ]
+  F_N^{MF} (T) = - N k_B T \qty[ \ln{(V-V_{ex})} - \beta u ]
 \end{equation}
+The pressure is
 \begin{equation}
-  P_N^{MF} = - \eval{\pdv{F_N}{V} }_T = \frac{N k_B T}{V-V_{ex}} - N \qty(\pdv{u}{V} )_T
-  \label{eq:1}
+  P_N^{MF} = - \eval{\pdv{F_N^{MF}}{V} }_T = \frac{N k_B T}{V-V_{ex}} - N \qty(\pdv{u}{V} )_T
+  \label{eq:14_1}
 \end{equation}
-In general, the deep \( u \)  can go up and down depending on the \emph{V}: \( u = u (V) \). In principle, \( u \sim -N/V \). Where the density is very high you have more attraction.
-It is expected that the volume not accessible \( V_{ex} = b N \), so \( u = - a N / V \). Inserting that term in \eqref{eq:1}, we obtain the Van der Walls:
+\begin{remark}
+In general, the deep \( u \)  can go up and down depending on the \emph{V}: \( u = u (V) \). This is becous \( u \) is the attractive well of the mean field potential and, for \( r \ge r_0 \) must be proportional to the fluid density
+\begin{equation*}
+  u \sim -N/V
+\end{equation*}
+where the minus sign means attraction. On the other hand, also \( V_{ex} \), the volume not accessible, must be proportional to \( N \),
+\begin{equation*}
+  V_{ex} = b N  \quad  \Rightarrow u = - a \frac{N}{V}
+\end{equation*}
+where \( b \) is the volume of a single particle.
+\end{remark}
+Inserting the last term in \eqref{eq:14_1}, we obtain the \emph{Van der Walls equation of state}:
 \begin{equation}
-  P_N (V,T) = \frac{N k_B T}{V-bN} - a \qty(\frac{N}{V})^2
-  \label{eq:2}
+  P_N^{MF} (V,T) = \frac{N k_B T}{V-bN} - a \qty(\frac{N}{V})^2
+  \label{eq:14_2}
 \end{equation}
-this is the Van der Walls. We have this effect because it is a mean field, so the curve in Figure 2 it is replaced by the curve in Figure 3.
-
-
+\section{Equation of state and critical point}
+Let us define the specific volume
+\begin{equation}
+  v \equiv \frac{1}{\rho } = \frac{V}{N}
+\end{equation}
+Hence,
+\begin{equation}
+P = \frac{K_B T}{v - b} - \frac{a}{v^2}
+\end{equation}
+We have this effect because it is a mean field, so the curve in Figure \ref{fig:14_2_1} it is replaced by the curve in Figure \ref{fig:14_2_2}.
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
-\subfloat[][Description]{ \includegraphics[width=0.8\textwidth]{../lessons/14_image/2.pdf}  \label{fig:} }
+\subfloat[][Description]{ \includegraphics[width=0.9\textwidth]{../lessons/14_image/2.pdf}  \label{fig:14_2_1} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{\includegraphics[width=0.8\textwidth]{../lessons/14_image/3.pdf}  \label{fig:} }
+\subfloat[][Description]{\includegraphics[width=0.9\textwidth]{../lessons/14_image/3.pdf}  \label{fig:14_2_2} }
 \end{minipage}
-\caption{\label{fig:} Description}
+\caption{\label{fig:} }
 \end{figure}
 
+For \( T < T_c \) the equation \( P(v) = const \) has 3 distinct solutions. For \( T > T_c \) only one solution \( \in \R \).
 
-
-
-This two condition
+\begin{itemize}
+\item
+The \emph{inflection point condition} at \( T = T_c \) is
 \begin{equation}
-  \pdv{P}{v} = 0 \qquad \pdv[2]{P}{v} = 0
+  \pdv{P}{v} = \pdv[2]{P}{v} = 0
 \end{equation}
-are the equation for finding the critical points. The second in particular means that there is a flex point. Pay attention to it, it is a standard way. The way used in the notes is slightly different.
+and these are the critical point conditions. The second in particular means that there is a flex point. Let us pay attention to it, indeed it is a standard way to find critical points.
+We obtain  \( v_c = 3 b \):
+\begin{equation}
+  P_c = \frac{a}{27 b^2}, \quad k_B T_c = \frac{8a}{27b}
+\end{equation}
+and
+\begin{equation}
+  \frac{P_c v_c}{k_B T_c} = \frac{3}{8}  \approx 0.375
+\end{equation}
 
-We have  \( v_c = 3 b \):
+\item Another way to find the critical point consists in noticing that at \( T=T_c \), the 3 solutions coincide.
+Let us rewrite the equation of state
 \begin{equation}
-  p_c = \frac{a}{27 b^2} \qquad k_B T_c = \frac{8a}{27b}
+  P = \frac{v^2 k_B T - a (v-b)}{v^2 (v-b)}
 \end{equation}
-so
+as
 \begin{equation}
-  \frac{p_c v_c}{k_B T_C} \approx 0.375
+  v^3 - \qty(b + \frac{k_B T}{P})v^2 + \frac{a}{P} v - \frac{a b }{P} = 0
+  \label{eq:14_3}
 \end{equation}
-Nevetherless, if you compute the critical point and you compute this ratio you will obtain the same value.
+Since at \( T=T_c \) the 3 solutions coincide, equation  \eqref{eq:14_3} must be of the form
+\begin{equation}
+  (v-v_c)^3 = 0 \quad \Rightarrow v^3 - 3 v^2 v_c + 3 v v_c^2 - v_c^3 = 0
+\end{equation}
+and, by identifying its coefficients with the ones in \eqref{eq:14_3} one gets
+\begin{equation}
+  v_c^3 = \frac{a b}{P_c}, \quad 3 v_c^2 = \frac{a}{P_c}, \quad 3 v_c = b + \frac{k_B T_c}{P_c}
+\end{equation}
+Giving
+\begin{equation}
+  v_c = 3 b, \quad P_c = \frac{a}{27 b^2}, \quad k_B T_c = \frac{8 a }{27 b }
+  \label{eq:14_4}
+\end{equation}
+From the relations \eqref{eq:14_4}, it is clear that it is sufficient to estimate the \( a \) and \( b \) coefficients of a gas using the equation of state at \( T \) sufficiently high to estimate its critical values, \( v_c \), \( T_c \) and \( P_c \).
+Moreover, one can show that
+\begin{equation}
+    \frac{P_c v_c}{k_B T_c} = \frac{3}{8}  \approx 0.375
+\end{equation}
+It is an universal ratio whose value does not depends on either \( a \) or \( b \).
+\end{itemize}
 
-Another way to rewrite \eqref{eq:2} is choosing
+\subsection{Law of the correspondent states}
+The universal value of the ratio \( \frac{P_c v_c}{k_B T_c} \) suggests a deeper correspondence between different fluid systems.
+
+Let us rewrite the Van der Walls equation of state \eqref{eq:14_2} in adimensional form
 \begin{equation}
-  \pi \equiv \frac{p}{p_c}, \quad \nu  \equiv \frac{v}{v_c}, \quad \tau \equiv \frac{T}{T_c}
+  \pi \equiv \frac{P}{P_c}, \quad \nu  \equiv \frac{v}{v_c}, \quad \tau \equiv \frac{T}{T_c}
 \end{equation}
-so
+The result is
 \begin{equation}
   \qty(\pi + \frac{3}{\nu ^2}) \qty(3 \nu -1) = 8 \tau
 \end{equation}
+\begin{remark}
+When rescaled by \( P_c, v_c \) and \( T_c \), the thermodynamic variables \( P,v \) and \( T \) of the Van der Walls fluids, follow the same equation of state! The Van der Walls theory describes the law of correspondent states found experimentally.
+\end{remark}
+
+\section{Region of coexistence and Maxwell construction}
+In real fluids, for \( T < T_c \) \( (\tau < 1) \), there is a first order liquid-gas transition with coexistence between vapor and liquid phase and non analiticity of the thermodynamic potential. In particular, an isotherm for \( T < T_c \) is the one in Figure \ref{fig:14_2_2}. How this is described by the mean-field (i.e. Van der Walls) theory?   
+
+
+
+
+\section{lesson}
+
+
 Try to do the expansion around the critical point, \( t = \tau -1 = \frac{T-T_c}{T_c}\) and \( \Phi = \nu -1 = \frac{v-v_c}{v_c} \). You want the deviation from the critical point.
 
 
@@ -234,7 +261,7 @@ Expanding this object we obtain
   \rightarrow = \underbrace{(1+f_{12})(1+f_{13}) (1+ f_{14}) \dots ( 1 + f_{1N })}_{i=1}   \dots \underbrace{(1+f_{23}) (1+ f_{24}) \dots ( 1 + f_{2N })}_{i=2} \dots =
 \end{equation}
 \begin{equation}
-  = 1 + \sum_{i}^{} \sum_{j>i}^{} f_{ij} + \cancel{\sum_{i}^{} \sum_{k \ge i}^{} \sum_{j > i}^{} \sum_{e \ge j}^{} f_{ik} f_{je}       }  
+  = 1 + \sum_{i}^{} \sum_{j>i}^{} f_{ij} + \cancel{\sum_{i}^{} \sum_{k \ge i}^{} \sum_{j > i}^{} \sum_{e \ge j}^{} f_{ik} f_{je}       }
 \end{equation}
 The solution is given by considering only the linear term. This is the cluster expansion.
 

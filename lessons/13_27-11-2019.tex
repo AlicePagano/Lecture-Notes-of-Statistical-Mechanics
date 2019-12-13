@@ -491,6 +491,7 @@ Another way to introduce the variational approach and the mean field approximati
 \begin{equation}
   F_{var} = \expval{\mathcal{H}}_{\rho _{TR}} + k_B T \expval{\ln{\rho _{TR}} }_{\rho _{TR}}
 \end{equation}
+We have to choose a family of distribution.
 If one assumes that the family of trial distribution is of the Gibbs-Boltzmann form
 \begin{equation}
   \rho _{TR} = \frac{e^{- \beta \mathcal{H}_{TR}} }{Z_{TR}}
@@ -499,7 +500,9 @@ with
 \begin{equation}
   Z_{TR} = e^{-\beta F_{TR}} = \sum_{\{ \Phi _i \}  }^{} e^{-\beta \mathcal{H}_{TR} ( \{ \Phi _i \}  )}
 \end{equation}
-then, since
+If we are able to choose hamiltonian trial as here, we can do this sum, this is the idea. In principle, if we are able to find an Hamiltonian that we can solve without choosing a mean filed it is ok.
+
+Then, since
 \begin{equation}
   \ln{\rho _{TR}} = - \beta \mathcal{H}_{TR} - \ln{Z_{TR}}
 \end{equation}
@@ -563,13 +566,19 @@ or
 \begin{equation}
 \begin{split}
 \expval{S_i}_{\rho _{TR}}    &= \frac{1}{Z_{TR}} \sum_{\{ S \}  }^{} S_i e^{\beta \sum_{k}^{} S_k b_k } = \frac{\prod_{k}^{}  \sum_{S_k}^{} S_i e^{\beta S_k b_k}   }{\prod_{k}^{} \sum_{S_k}^{} e^{\beta S_k b_k}    }  \\
-& = \frac{\sum_{S_i}^{} S_i e^{\beta S_i b_i}  }{\sum_{S_i = \pm 1}^{} e^{\beta S_i b_i}   } = \frac{\cosh (\beta b_i)}{\sinh (\beta b_i)} \\
+& = \frac{\sum_{S_i = \pm 1}^{} S_i e^{\beta S_i b_i}  }{\sum_{S_i = \pm 1}^{} e^{\beta S_i b_i}   } = \frac{\cosh (\beta b_i)}{\sinh (\beta b_i)} \\
 &= \tanh (\beta b_i)
 \end{split}
 \end{equation}
 \begin{equation}
   b_i = J \sum_{j \, n.n. \, i}^{} \tanh (\beta b_j) + H
 \end{equation}
+\begin{remark}
+The main step to understand is how to derive \( F_{var} \) from a \( \rho _{TR} \).
+This is nice to see a variation with respect to the real hamiltonian.
+Consider a bunch of data, for instance a million of configuration, which is the distribution of the configuration? Usually, we build up a model with a distribution that depends on parameters and what we want to do is statistical inference. Starting from the model and the data we have to obtain the real distribution. (lesson)
+\end{remark}
+
 \begin{exercise}
 Consider again the antiferromagnetic Ising model
 \begin{equation}

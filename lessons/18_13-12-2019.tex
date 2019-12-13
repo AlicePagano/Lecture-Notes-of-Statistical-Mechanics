@@ -1,0 +1,62 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{13}{12}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 18.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\begin{equation}
+  \qty(- \grad ^2 + \xi ^{-2} (t)) G_c (\va{r}-\va{r}') = \frac{k_B T}{k} \delta (\va{r}-\va{r}')
+\end{equation}
+Let us try to do the Fourier transform.
+Let us define
+\begin{equation}
+  \va{x} \equiv \va{r} - \va{r}'
+\end{equation}
+e let us call \( \widetilde{G} (q)  \) the Fourier transform of the function \( G \)
+\begin{equation}
+  \widetilde{G} (q) = \int_{- \infty }^{+ \infty } \dd[]{\abs{\va{x}} } G_c ( \abs{\va{x}} ) e^{- i q \abs{\va{x}} }
+\end{equation}
+we get
+\begin{equation}
+  \widetilde{G} ( q ) = \frac{k_B T}{k} \frac{1}{q^2 + \xi ^{-2}}
+\end{equation}
+At \( T = T_c \), we have  \( \xi \rightarrow \infty  \)  and \( \widetilde{G} (q) \simeq \frac{1}{q^2}  \).
+We have
+\begin{equation}
+  G_c (\abs{\va{x}} ) = \abs{\va{x}}^{2-D}
+\end{equation}
+In this case we see immediately that \( \eta = 0 \). Go back and find why we have this.
+\begin{equation}
+  G (\va{x}) = \int_{}^{} \dd[D]{\va{q}}  \frac{1}{(2 \pi )^D} \frac{1}{q^2 + \xi ^{-2}} e^{i \va{q} \vdot \va{x}}
+\end{equation}
+Let us do it for \( D=3 \):
+\begin{equation}
+  \Rightarrow G(\abs{x} ) = \frac{4 \pi }{ (2 \pi )^3} \int_{0}^{\infty } \dd[]{q} \frac{q^2}{q^2+ \xi ^{-2}} \int_{-1}^{+1} \dd[]{(\cos \theta  )}    e^{i q \abs{\va{x}} \cos \theta  }
+\end{equation}
+we get
+\begin{equation}
+  = \frac{4 \pi }{ (2 \pi )^3} \abs{\va{x}} \int_{0}^{\infty } \dd[]{q} \frac{q \sin(q \abs{\va{x}} ) }{q^2 + \xi ^{-2}}
+\end{equation}
+At the end
+\begin{equation}
+  \Rightarrow G ( \abs{\va{x}} ) = \frac{1}{2 \pi } \frac{e^{- \frac{\abs{\va{x}} }{\xi }} }{\abs{\va{x}} }
+\end{equation}
+Can we rich the simple level of fluctuation? The simple level is the one that follow gaussian distribution.
+Let us introduce fluctuations at the Gaussian level.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
