@@ -11,7 +11,14 @@
 It is used whenever you have a collective behaviour. The length scale of the problem are \( a,L,\xi  \), but  \( \xi  \) is the only relevant length scale in the problem.
 
 Which are the experimental data which gives us this ideas? What you can see from experiment is
-figure 1
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/19_image/1.pdf}
+\caption{\label{fig:} Description.}
+\end{figure}
+
 
 Widom \( \rightarrow  \) static scaling theory \( \rightarrow  \) homogeneous functions.
 
@@ -110,6 +117,72 @@ From this you have a very simple relation
 \begin{equation}
   p_1 = \frac{1}{\beta (\delta +1)}, \quad p_2 = \frac{\delta }{\delta + 1}
 \end{equation}
+\begin{equation}
+  \frac{p_2}{p_1} = \Delta = \beta \delta
+\end{equation}
+
+Our relations are
+\begin{equation}
+  f_s (\lambda ^{p_1} t, \lambda ^{p_2} h) = \lambda f_s (t,h)
+\end{equation}
+\begin{equation}
+  M_s (t,h) = \lambda ^{p_2 - 1} M_s (\lambda ^{p_1} t, \lambda ^{p_2} h)
+\end{equation}
+We have \( \lambda = \abs{t}^{-1/p_1}  \)
+\begin{equation}
+  M_s (t,h) = \abs{t}^{\frac{1-p_2}{p_1}} M_s ( \frac{t}{\abs{t} }, \frac{h}{\abs{t}^{\Delta } })
+\end{equation}
+\begin{equation}
+  \frac{M_s (t,h)}{\abs{t}^{\beta } } = M_s ( \frac{t}{\abs{t} }, \frac{h}{\abs{t}^{\Delta } })
+\end{equation}
+
+By using these hypothesis you can get equalities. All the inequality that you have in thermodynamics becames equalities.
+In particular, we have the Griffit relation
+\begin{equation}
+  \alpha + \beta (\delta +1) = 2
+\end{equation}
+and the Rushbrooks relation
+\begin{equation}
+  \alpha + 2 \beta + \gamma = 2
+\end{equation}
+
+\section{Kadanoff 1966}
+How can we relate the coupling costant of the two hamiltonian. This is the idea of the renormalization group.
+\begin{equation}
+  - \beta \mathcal{H}_{\Omega } = k \sum_{\expval{ij} }^{} \sigma _i \sigma _j + h \sum_{i}^{} \sigma _i
+\end{equation}
+with
+\begin{equation}
+  \sigma _i = \pm 1, \quad k \equiv \frac{J}{k_B T}, \quad h \equiv \frac{H}{k_B T}
+\end{equation}
+we assume
+\begin{equation}
+  r \ll \xi  \quad \Rightarrow a \ll l a \ll \xi (t)
+\end{equation}
+We can build up many procedure.
+This is the \emph{Block spin transformation}, the idea is divide into cell of length \( la \) (figure 2) and we replace it with (figure 3).
+
+\begin{equation}
+  S_I \equiv \frac{1}{\abs{m_l} } \frac{1}{l^D} \sum_{i \in I}^{}  \sigma _i
+\end{equation}
+with the sum is over all the sites with a given cell.
+Define the magnetization
+\begin{equation}
+  m_l \equiv \frac{1}{l^D} \sum_{i \in I}^{} \sigma _i
+\end{equation}
+
+The frist assumption is that the Hamiltonian of the new system \( \mathcal{H}_l \) is equal in form to \( \mathcal{H}_ \Omega  \). It means that we can write
+\begin{equation}
+  - \beta \mathcal{H}_l = k_l \sum_{\expval{IJ} }^{} S_I S_J  + h_l \sum_{I}^{} S_I
+\end{equation}
+
+How you measure in the new system the lengths? the correlations lengths. Before we have changed the size of the system. We have increased the ruler, so the number is smaller now. It seems stupid but it is fundamental.
+
+
+
+
+
+
 
 
 
