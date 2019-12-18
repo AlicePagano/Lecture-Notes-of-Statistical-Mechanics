@@ -1,0 +1,123 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{18}{12}{2019}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 19.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\section{Scaling theory}
+It is used whenever you have a collective behaviour. The length scale of the problem are \( a,L,\xi  \), but  \( \xi  \) is the only relevant length scale in the problem.
+
+Which are the experimental data which gives us this ideas? What you can see from experiment is
+figure 1
+
+Widom \( \rightarrow  \) static scaling theory \( \rightarrow  \) homogeneous functions.
+
+\subsection{Single variable \( r \) }
+\( f(r) \) is homogeneous in \( r \), if \( \forall  \lambda  \in \R \) we have
+\( f( \lambda r) = \lambda f(r) \). More general,
+\begin{equation}
+  f( \lambda r) = g (\lambda) f(r)
+\end{equation}
+\begin{example}
+\begin{equation}
+  f(r) = B r^2
+\end{equation}
+\begin{equation}
+  f ( \lambda r) = B ( \lambda r)^2 = \lambda ^2 f (r) \quad \Rightarrow g ( \lambda ) = \lambda ^2
+\end{equation}
+\end{example}
+Sine it is valid for any \( \lambda  \), you can choose also a \( \lambda  \) in that way
+\begin{equation}
+  f(r) = f (\lambda r_0) = g (\lambda ) f (r_0)
+\end{equation}
+\begin{theorem}[]
+\begin{equation}
+  g(\lambda ) = \lambda ^p
+\end{equation}
+where \( p \) is the degree of the homogeneity of the function.
+\end{theorem}
+We can make it for any variable, not only for a single one.
+
+\subsection{Generalized homogeneous functions}
+We are discussing \( f(x,y) \), that is a generalized homogeneous function if \( f (\lambda ^a x, \lambda ^b y) = \lambda f(x,y)\). In general any polynomial is a generalized homogeneous function.
+If we choose \( \lambda ^p \equiv s \), we have
+\begin{equation}
+  f ( s^{a/p} x, s^{b/p} y) = s f(x,y)
+\end{equation}
+
+Consider \( t \equiv  \frac{T - T_c}{T_c}, h = \frac{H - H_c}{H_c} \)
+\begin{equation}
+  f (T,H) = f_{ANA} (T,H) + f_{SING} (t,h)
+\end{equation}
+where \( f_{ANA} \) is an analytic term and \( f_{SING} \) diverges, has a singularity.
+
+The singular part of the free energy
+\begin{equation}
+  f_s ( \lambda ^{p_1} t, \lambda ^{p_2} h) = \lambda f_s (t,h)
+\end{equation}
+where \( \forall \lambda \in \R \).
+
+Another important feature, choose \( \lambda  \) as
+\begin{equation}
+  \lambda = h^{-1/p_2} \quad \Rightarrow f_s (t,h) = h^{1/p_2} f_s (h^{-p_1/p_2} t , 1)
+\end{equation}
+\begin{equation}
+  \Delta  \equiv \frac{p_1}{p_2}
+\end{equation}
+is called the \emph{gap exponent}.
+
+\( M \) is the first derivative of \( f \) with respect to \( H \).
+\begin{equation}
+  \lambda ^{p_2} M_s ( \lambda ^{p_1} t, \lambda ^{p_2} h) = \lambda M_s (t,h)
+\end{equation}
+so you have the same story for the magnetization.
+Consider \( h=0 \) and \( t \rightarrow 0^- \), we have
+\begin{equation}
+  M_s (t) \sim (-t)^{\beta }
+\end{equation}
+starting from this one try to figure out what is happening at this level.
+\begin{equation}
+  M_s (t,0) = \lambda ^{p_2 -1} M_s ( \lambda ^{p_1} t,0)
+\end{equation}
+\begin{equation}
+  \lambda ^{p_1} t = -1 \quad \Rightarrow \lambda = (t)^{-1/p_1}
+\end{equation}
+so
+\begin{equation}
+  M_s (t,0) = - (t)^{\frac{1-p_2}{p_1}} M_s (-1,0)
+\end{equation}
+\begin{equation}
+  \beta = \frac{1-p_2}{p_1}
+\end{equation}
+For \( \delta  \), we have  \( T=T_c \) and \( h \rightarrow 0^+ \), so the magnetization goes like \( M_s \sim h^{1/\delta } \).
+\begin{equation}
+  M_s (0,h) = \lambda ^{p_2 - 1} M_s (0,\lambda ^{p_2} h)
+\end{equation}
+Now we want
+\begin{equation}
+  \lambda ^{p_1} h = 1 \quad \Rightarrow \lambda = h ^{-1/p_2}
+\end{equation}
+\begin{equation}
+  M_s (0,h) = h ^{\frac{1-p_2}{p_2}} M_s (0,+1)
+\end{equation}
+\begin{equation}
+  \delta = \frac{p_2}{ 1 - p_2 }
+\end{equation}
+From this you have a very simple relation
+\begin{equation}
+  p_1 = \frac{1}{\beta (\delta +1)}, \quad p_2 = \frac{\delta }{\delta + 1}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+\end{document}
