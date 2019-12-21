@@ -298,26 +298,147 @@ Let us now face the problem in a slightly different ways. Let us remind that
 \begin{equation}
   Q_N (V,T) = \sum_{diagrams}^{} \int_{}^{} \prod_{kl}^{} f_{kl} \dd[3N]{r}
 \end{equation}
-i.e. sum over all possible diagrams i.e. all possible ways in which a can draw edges between pairs of points \( (k,l) \). 
-\section{lesson}
+i.e. sum over all possible diagrams i.e. all possible ways in which a can draw edges between pairs of points \( (k,l) \).
+For each such diagrams I have to product between all edge and then integrate over the configurational space (\( N \)  points).
 
+ Let us now consider only \emph{connected} diagrams for \( i \) sites. In other words given \( i \) points (\( i \) particles)  from a system of \( N \) points and I consider all the possible ways I can connect these \( i  \) points (an example is shown in Figure \ref{fig:15_6}).
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.7\textwidth]{../lessons/15_image/9.pdf}
+   \caption{\label{fig:15_6} Example for \( i=4 \).}
+   \end{figure}
 
+For each diagram we take the product \( \prod_{kl}^{} f_{kl}   \) and then integrate over the position of the \( i \) points (\( i \) particles). For a fixed diagram:
+\begin{equation}
+  \int_{}^{} \prod_{lk \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_i}
+\end{equation}
+\begin{example}[\( i=4 \)]\
+  For example the diagram 1 in Figure \ref{fig:15_6} gives the contribution
+  \begin{equation}
+    \int_{}^{} f_{12} f_{13} f_{34} \dd[]{\va{r}_1}  \dd[]{\va{r}_2} \dd[]{\va{r}_3} \dd[]{\va{r}_4}
+  \end{equation}
+  The diagram 2 gives
+  \begin{equation}
+    \int_{}^{} f_{12} f_{13} f_{23} f_{34} \dd[]{\va{r}_1}  \dd[]{\va{r}_2} \dd[]{\va{r}_3} \dd[]{\va{r}_4}
+  \end{equation}
+  and so on.
+\end{example}
+Finally we sum over all these connected diagrams of \( i \) points.
+\begin{equation}
+  \sum_{\substack{ \text{connected} \\  \text{diagrams} } }^{}    \int_{}^{} \prod_{lk \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_i}
+\end{equation}
+This is what we call \( i! V B_i \) and defines \( B_i \).
+\begin{itemize}
+\item Case \( i=1 \): clearly  \( B_1 =1 \).
+\item Case \( i=2 \): just one edge, one connected diagram
+\begin{equation}
+  \int_{}^{} f_{12} \dd[]{\va{r}_1} \dd[]{\va{r}_2} = - 2 V B_2
+\end{equation}
+\item Case \( i=3 \): the connected diagrams are shown in Figure \ref{fig:15_7}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{../lessons/15_image/10.pdf}
+\caption{\label{fig:15_7} Description.}
+\end{figure}
+\begin{equation}
+\begin{split}
+   = & \underbrace{ \int_{}^{} f_{12} f_{23} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3}
+    + \int_{}^{} f_{12}f_{13} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3}
+    + \int_{}^{} f_{13}f_{23} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3} }_{3 V \qty(\int_{}^{} f (\va{r})\dd[]{\va{r}}  )^2 }   \\
+  & + \underbrace{\int_{}^{} f_{12} f_{23} f_{13} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3}}_{3! V (B_3 - 2 B_2^2)}
+\end{split}
+\end{equation}
+Hence,
+\begin{equation}
+\begin{split}
+  \sum_{\substack{ \text{connected diagrams } \\ \text{of \( i=3 \) points}} }^{} \int_{}^{} \prod_{kl \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1}   \dd[]{\va{r}_2}    \dd[]{\va{r}_3}
+  & = 3 V (-2B_2)^2 + 6V (B_3 - 2 B_2) \\
+  & = 6V B_3 = 3! V B_3
+\end{split}
+\end{equation}
 
-
-\section{Landau mean field of phase transition}
-Assumptions:
+\end{itemize}
+For the partition function we have to sum over all possible clusters.
+Possible procedure:
 \begin{enumerate}
-\item Existence of an order parameter \( \eta   \). Remember the definition of the order parameter:
+\item Given the \( N \) points we can partition the into connected clusters. For all \( i \) points we can make \( m_i \) clusters of that size \( i \).
+\begin{equation}
+  \sum_{i}^{} i m_i = N
+\end{equation}
+For each cluster of size \( i \) we have a term \( (i!VB_i) \). If there are \( m_i \) of them we have a weight \( (i! V B_i)^{m_i} \).
+\item Now we have to count in how many ways we can make the partition of \( N \) in a set of \( \{ m_i \}   \) clusters. Clearly if we permute the label of the \( N \) vertices we have possible different clusters. In principle this degenerancy is proportional to \( N \)!
+
+On the other hand, if one changes the order of the labels within a cluster (in \( i! \) ways) this does not change the cliuster and since there are \( m_i \) clusters of size \( i \) we have to divide by \( (i!)^{m_i} \).
+
+Moreover, since there are \( m_i \) clusters one can swap them (in \( m_i! \) ways). THe degenerancy is \( \frac{N!}{m_i! (i!)^{m_i}} \). Therefore,
+\begin{equation}
+  Q_N (V,T) = \sum_{\{ m_i \}  }^{} \prod_{i}^{}    \frac{N!}{m_i! (i!)^{m_i}} \qty(i! V B_i)^{m_i}
+\end{equation}
+\end{enumerate}
+\begin{example}[\( N=q \)] Consider the point in Figure \ref{fig:15_8}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{../lessons/15_image/11.pdf}
+\caption{\label{fig:15_8} Description.}
+\end{figure}
+  \begin{enumerate}
+  \item Parition these points into clusters.
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.3\textwidth]{../lessons/15_image/12.pdf}
+  \caption{\label{fig:15_9} Description.}
+  \end{figure}
+
+  \item For this partition \( \{ m_i \}   \) we have \( m_4=1,m_2=2,m_1=1 \). Now, the cluster of size 4 can be connected in a given different ways \( (4! V B_4)^1 \).
+  \end{enumerate}
+
+  \begin{exercise}
+  TO DO: compute the degenerancy of this case.
+  \end{exercise}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+\chapter{Landau theory of phase transition for homogeneous systems}
+
+\section{Landau theory of phase transition (uniform systems)}
+
+It is a phenomenological mean field theory of phase transitions for uniform systems (no spatial variation of the order parameter). It is based on the following assumptions:
+\begin{enumerate}
+\item Existence of an unfirom order parameter \( \eta   \). Remember the definition of the order parameter:
 \begin{equation}
   \eta   = \begin{cases}
     0 & T \ge \bar{T} \text{ (disordered or symmetric phase)}\\
     \neq 0 & T < \bar{T}  \text{ (ordered symmetry is broken)}
 \end{cases}
 \end{equation}
-\item The \emph{free energy} is an analytic function of the order parameter \( \eta   \). It is because you are doing the expansion close to...etc etc. Therefore, \( \mathcal{L} = \mathcal{L} (\eta ) \).
-\item Form of \( \mathcal{L} \) must satisfy the symmetries of the system.
-\item Equilibrium states are the ones that minimise \( \mathcal{L} \). Absolute minima.
+Well known examples are
+\begin{equation}
+  \begin{cases}
+   \eta \rightarrow m \\
+  \eta  \rightarrow \rho _L - \rho _G
+  \end{cases}
+\end{equation}
+\item The free energy is an \emph{analyc function}  of the order parameter \( \eta   \). It is because you are doing the expansion close to...etc etc. Therefore, \( \mathcal{L} = \mathcal{L} (\eta ) \).
+\item The form of \( \mathcal{L} \) must satisfy the underlying symmetry of the system.
+\item Equilibrium states correspond to the absolute minima of \( \mathcal{L} \).
 \end{enumerate}
+
+
+
+
+
+
+
+\section{lesson}
+
 \begin{equation}
   \mathcal{L} (\eta ) \approx a_0 + a_1 \eta + a_2 \eta ^2 + a_3 \eta ^3 + \dots
 \end{equation}
