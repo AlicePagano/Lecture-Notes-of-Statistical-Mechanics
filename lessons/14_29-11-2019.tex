@@ -186,84 +186,321 @@ When rescaled by \( P_c, v_c \) and \( T_c \), the thermodynamic variables \( P,
 \end{remark}
 
 \section{Region of coexistence and Maxwell construction}
-In real fluids, for \( T < T_c \) \( (\tau < 1) \), there is a first order liquid-gas transition with coexistence between vapor and liquid phase and non analiticity of the thermodynamic potential. In particular, an isotherm for \( T < T_c \) is the one in Figure \ref{fig:14_2_2}. How this is described by the mean-field (i.e. Van der Walls) theory?   
+In real fluids, for \( T < T_c \) \( (\tau < 1) \), there is a first order liquid-gas transition with coexistence between vapor and liquid phase and non analiticity of the thermodynamic potential. In particular, an isotherm for \( T < T_c \) is the one in Figure \ref{fig:14_2_2}. How this is described by the mean-field (i.e. Van der Walls) theory?
+
+The Van der Walls isotherm is given by the graphic in Figure \ref{fig:14_3}.
+The liquid phase goes into a phase region that is not thermodinamycally stable.
+
+How can we remove the non physical regions of the Van der Walls equation of state and describe coexistence? The solution is the Maxwell (or equal area) construction.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/14_image/4.pdf}
+\caption{\label{fig:14_3} Description.}
+\end{figure}
 
 
+\subsection{Equal area or Maxwell construction}
+\begin{remark}
+The coexistence regions are characterised by having the same pressure (mechanical equilibrium) and same temperature (thermal equilibrium).
+\end{remark}
 
-
-\section{lesson}
-
-
-Try to do the expansion around the critical point, \( t = \tau -1 = \frac{T-T_c}{T_c}\) and \( \Phi = \nu -1 = \frac{v-v_c}{v_c} \). You want the deviation from the critical point.
-
-
+Since
 \begin{equation}
-  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \sum_{i,j > i }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) ]
+  \mu \equiv \frac{G}{N} = \frac{F+PV}{N}
+\end{equation}
+we have
+\begin{equation}
+  \dd[]{\mu } = - \frac{S}{N} \dd[]{T} + \frac{V}{N} \dd[]{P}
 \end{equation}
 
+Along an isotherm (\( T=const \)), \( \dd[]{T} = 0  \), which implies
 \begin{equation}
-  Z_N = \frac{1}{N! \Lambda ^{3N} } Q_N
+  \dd[]{\mu } = \frac{V}{N} \dd[]{P}
 \end{equation}
-For an ideal gas we have: \( Q_N = V^N \)
+At the coexistence \( \dd[]{P}_{coex} = 0  \), hence
 \begin{equation}
-  \rightarrow Z_N^{ideal} = \frac{V^N}{N! \Lambda ^{3N}}
+  \dd[]{\mu } = 0
 \end{equation}
-Now, suppose that \( U_2 \neq 0  \) but small! We can say that we can assume that our \( Q_N (V,T) \) it would be the ideal version times a new function
+is the physical condition.
+
+Now, let us consider a Van der Walls isotherm at \( T < T_c \), as in Figure \ref{fig:14_4}.
+\begin{remark}
+For Van der Wall \( \dd[]{P} \neq 0  \)!
+\end{remark}
+The physical coexistence condition \( \dd[]{\mu }_{phy}  \) implies
 \begin{equation}
-  Q_N (V,T)=V^N \chi _N (V,T)
+  0 = \int_{1}^{2} \dd[]{\mu } = \mu (2) - \mu (1) \overset{Van\, der\, Walls}{=} \frac{1}{N} \int_{P_G}^{P_L} \dd[]{P} V
 \end{equation}
-so
+The integral can be partitioned in two parts
+\begin{equation}
+  0 = \int_{P_G}^{P_L} \dd[]{P}V \quad \Rightarrow \int_{P_G}^{P_x} \dd[]{P}V = - \int_{P_x}^{P_L} \dd[]{P} V
+\end{equation}
+\begin{remark}
+The equal area condition gives the value of \( P_x \) of the coexistence line!
+\end{remark}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/14_image/5.pdf}
+\caption{\label{fig:14_4} Description.}
+\end{figure}
+
+\section{Critical exponents of Van der Walls}
+
+\subsubsection{\( \beta  \) exponent}
+The equation of state is
+\begin{equation}
+  \qty(\pi + \frac{3}{\nu ^2}) \qty(3 \nu - 1) = 8 \tau
+\end{equation}
+where
+\begin{equation}
+  \pi = \frac{P}{P_c}, \quad \nu = \frac{v }{v_c}, \quad \tau = \frac{T}{T_c}
+\end{equation}
+Let us consider
+\begin{equation}
+  \begin{cases}
+   t \equiv \tau -1 = \frac{T-T_c}{T_c} \\
+   \Phi = \nu -1 = \frac{v-v_c}{v_c}
+  \end{cases}
+\end{equation}
+we want the deviation from the critical point.
+Close to the critical point \( \tau \sim \nu \sim 1 \) and \( t \sim \Phi \sim 0 \).
+
+We now expand the equation of state with respect to \( t \) and \( \Phi  \)
+\begin{equation}
+  \qty(\pi + \frac{3}{(1+\Phi )^2}) \qty(3 (\Phi -1) -1) = 8 (t+1)
+\end{equation}
+\begin{equation}
+  \Rightarrow \pi = \frac{8(t+1)}{2(\Phi +1)-1} - \frac{3}{(1+\Phi )^2}
+\end{equation}
+Expanding for \( \Phi \sim 0 \),
+\begin{equation}
+  (1+\Phi )^ \alpha \simeq 1 + \Phi
+\end{equation}
+To do:
+\begin{equation}
+  \pi \simeq 1 + 4 t - 6 t \Phi - \frac{3}{2} \Phi ^3 + O (t \Phi ^2,\Phi ^4)
+\end{equation}
+\begin{remark}
+Since we will get \( \Phi \sim t^{1/2} \) the truncation of the expansion is justified a posteriori.
+\end{remark}
+In order to get the values of \( v_G (P) \) and \( v_L (P) \) at coexistence, we use the Maxweel construction
+\begin{equation}
+  \int_{P_G}^{P_L} v\dd[]{P} = 0
+\end{equation}
+\begin{equation}
+  \int_{v_L}^{v_G} v\dd[]{P} = 0
+  \label{eq:14_5}
+\end{equation}
+Rewrite it with respect to the rescaled variables \( \pi = \frac{P}{P_c} \) and \( \nu = \frac{v}{v_c} \), if \( \Phi = \nu -1 \)  we have
+\begin{equation}
+  \dd[]{P} = P_c \dd[]{\pi }
+\end{equation}
+Let us consider \( T < T_c \) fixed, if and only if \( t<0 \) (but small)
+\begin{equation}
+  \pi = \pi (v) = \pi (\Phi )
+\end{equation}
+\begin{equation}
+  \pi \simeq 1 + 4 t - 6 t \Phi - \frac{3}{2} \Phi ^3 + O (t \Phi ^2, \Phi ^4)
+\end{equation}
+\begin{equation}
+  \Rightarrow \dd[]{\pi} \simeq - 6 t \dd[]{\Phi } - \frac{q}{2} \Phi ^2 \dd[]{\Phi }
+\end{equation}
+\begin{equation}
+  \Rightarrow \dd[]{P} = P_c \qty[-6t \dd[]{\Phi } - \frac{q}{2} \Phi ^2 \dd[]{\Phi }  ]
+\end{equation}
+The equation \eqref{eq:14_5} implies
+\begin{equation}
+  \int_{\Phi _c}^{\Phi _g} \Phi \qty(-6t - \frac{q}{2} \Phi ^2) \dd[]{\Phi }  = 0
+\end{equation}
+It must be true for all \( t \ll 1 \).
+\begin{remark}
+\begin{equation}
+  \int_{c}^{g} 1  \dd[]{P} = 0
+\end{equation}
+since we are at coexistence!
+\end{remark}
+\begin{equation}
+  \Rightarrow - 3 \Phi _g^2 \qty[t + \frac{\Phi_g ^2}{g}] + 3 \Phi _c^2 \qty[t + \frac{\Phi _c^2}{g}] = 0
+\end{equation}
+if and only if \( \Phi _g^2 = \Phi _c^2 \), hence if and only if
+\begin{equation}
+  \Phi _g = \pm \Phi _c
+\end{equation}
+On the other hand,
+\begin{equation}
+  \Phi _g = \frac{v_g - v_c}{v_c}, \quad \Phi _l = \frac{v_l - v_c}{v_c}
+\end{equation}
+\begin{equation}
+\Rightarrow   \Phi _g = - \Phi _l
+\end{equation}
+If we now insert \( \Phi _g \) and \( \Phi _l \) in the expression of \( \pi  \), we get
+\begin{subequations}
+\begin{align}
+  \Phi _g \rightarrow \pi  &= 1 + 4 t - 6 t \Phi _g - \frac{3}{2} \Phi _g^3  \\
+    \Phi _l \rightarrow \pi  &= 1 + 4 t + 6 t \Phi _g + \frac{3}{2} \Phi _g^3
+\end{align}
+\end{subequations}
+The two expression of \( \pi  \)  must be equal since we are at coexistence. Solving with respect to \( \Phi _g \) we get
+\begin{equation}
+  \Phi _g = 2 \sqrt{-t} \sim \qty(\frac{T_c-T}{T_c})^{1/2}
+\end{equation}
+which implies
+\begin{equation}
+  \beta = \frac{1}{2}
+\end{equation}
+
+\section{Theory of weakly interacting fluids}
+If the gas is not ideal but made by weakly interacting particles, it is possible to follow a \emph{perturbative approach}. Let us consider \( N \) particles in region \( \Omega  \) of volume \( V \). Particles interact by a two-body interacting potential
+\begin{equation}
+  U_2 ( \va{r}_i, \va{r}_j) = \Phi (\abs{\va{r}_i - \va{r}_j} )
+\end{equation}
+hence,
+\begin{equation}
+  \Rightarrow U ( \{ \va{r} \}  ) = \frac{1}{2} \sum_{i,j}^{} \Phi (\abs{\va{r}_i - \va{r}_j} )
+\end{equation}
+The Hamiltonian we are considering is
+\begin{equation}
+  \mathcal{H}_ \Omega (\{ \va{r} \}  ) = \sum_{i=1}^{N} \frac{\va{p}_i^2}{2m} + \sum_{i,j>i}^{} \Phi (\abs{\va{r}_i - \va{r}_j} )
+\end{equation}
+In the canonical ensemble
+\begin{equation}
+  Z_ \Omega (N,V,T) = \frac{1}{N! \Lambda ^{3N}} Q_N (V,T)
+\end{equation}
+where
+\begin{equation}
+  Q_N (V,T) = \int_{V}^{} \dd[]{\va{r}_1} \int_{V}^{} \dd[]{\va{r}_2} \dots \int_{V}^{} \dd[]{\va{r}_N} \exp [- \beta U (\{ \va{r} \}  )]
+\end{equation}
+\begin{remark}
+For ideal gases \( U = 0 \), so
+\begin{equation}
+  Q_N (V,T) = V^N \quad \rightarrow Z_N^{ideal} = \frac{V^N}{N! \Lambda ^{3N}}
+\end{equation}
+and the dependence on \( T \) is exclusively due to \( \Lambda = \Lambda (T) \) (i.e. kinetic energy).
+\end{remark}
+Now, suppose \( U \neq 0 \), but small! We can say that we can assume that our \( Q_N (V,T) \) it would be the ideal version times a new function
+\begin{equation}
+ Q_N (V,T) \simeq V^N \chi (N,V,T)
+\end{equation}
+\begin{remark}
+If \( \Phi  \) is only repulsive, \( \chi  \) does not depend on \( T \).
+\end{remark}
+In conclusion, we obtain
 \begin{equation}
   F_N = F_N^{ideal} - k_B T \ln{\chi _N}
 \end{equation}
-This also suggest, that you can formally expand the equation of state as a function of the density
+remaThe correction \( \chi  \) due to particle-particle interaction depends on the particle density \( \rho  \).
+\begin{equation}
+  \begin{cases}
+   \rho _{small} \Rightarrow  U = 0\\
+   \rho _{high} \Rightarrow  U \neq 0 \text{ and not negligible}
+  \end{cases}
+\end{equation}
+This suggests that the equation of state of a weakly interacting gas can be expanded formally in powers of \( \rho  \). This is known as \emph{virial expansion}.
+
+For the ideal gas:
 \begin{equation}
   \frac{P}{k_B T} = \rho
 \end{equation}
-this is the ideal gas, now start to add the other terms of the expansion
+This is the ideal gas, now start to add the other terms of the expansion
 \begin{equation}
   \rightarrow \frac{P}{k_B T} = \rho + B_2 (T) \rho ^2 + B_3 (T)\rho ^3+ \dots + O(\rho ^n)
+  \label{eq:14_6}
 \end{equation}
-this is a \emph{virial expansion}, it is one of the most used. The coefficient \( B \) are called the \emph{virial coefficients}.  Making a fit, you will obtain the virial coefficients. This is what physicist have done for years. Mapping the coefficient with the real world experiments, you can find some macroscopical parameters.
+this is a \emph{virial expansion} and it is one of the most used. The coefficient \( B \) are called the \emph{virial coefficients}.
+The equation \eqref{eq:14_6} was first introduced as a formula to fit experimental data. Indeed, making a fit, you will obtain the virial coefficients. This is what physicist have done for years.  Then, mapping the coefficient with the real world experiments, we can find some macroscopical parameters.
 
+The formula \eqref{eq:14_6} can be also obtained rigorously from a perturbation approach to the partition function (see later).
+
+Which is the virial expansion of a Van der Walls (i.e. mean field) gas?
+
+\section{Van der Walls and virial expansion}
+Consider the Van der Walls equation of state
 \begin{equation}
   \frac{P}{k_B T} = \frac{N}{V-bN} - \frac{a N^2}{k_B T V^2}
 \end{equation}
-do an expansion, you will get the same structure of the virial expansion, finding the virial coefficient of the Van der Walls. Therefore,
+Let us factorize \( N/V \),
+\begin{equation}
+  \frac{P}{k_B T} = \qty(\frac{N}{V}) \qty(1 - b \frac{N}{V})^{-1} - \frac{a}{k_B T}\qty(\frac{N}{V})^2
+\end{equation}
+Expanding in power of \( (N/V) \),
+\begin{equation}
+\begin{split}
+  \Rightarrow \frac{P}{k_B T}  &= \qty(\frac{N}{V}) + \qty(\frac{N}{V})^2 \qty(b - \frac{a}{k_B T}) + \qty(\frac{N}{V})^3 b^2 + \qty(\frac{N}{V})^4 b^3 + \dots \\
+  & = \rho + \qty(b - \frac{a}{k_B T})\rho ^2 + b^2 \rho ^3 + b^3 \rho ^4 + \dots
+\end{split}
+\end{equation}
+Therefore,
 \begin{equation}
   B_2 (T)^{VdW} = b - \frac{a}{k_B T} \qquad B_3^{VdW} = b^2
 \end{equation}
-The \emph{Boyle's temperature} is when the second coefficient is zero:
+where in \( B_2 (T)^{VdW}  \) the first term is repulsive on excluded volume and the second one is the attraction term. In \( B_3^{VdW} \) we note that the term is always positive.
+
+\subsection{Boyle's temperature \( T_B \) }
+The Boyle's temperature is the \( T \) at which the second coefficient is zero:
 \begin{equation}
   B_2^{VdW} (T_B) = 0
 \end{equation}
-so you remove the most important coefficient.
-We have \( T_B \) versus \( T_c \). It is clear that the Boyle's temperature must be much greater than the critical one. Consider a polymer, the transition point called the \( \theta  \) point is when the second coefficient is zero, as the case described above, but it is interesting in polymer kind of system.
+so we have removed the most important coefficient. The competiting effects of repulsion and attraction are cancelled out.
 
-Let us try to do some calculation of this virial coefficients, starting from the model microscopical
+We have the Van der Walls temperature \( T_B^{VdW} \)
 \begin{equation}
-  Q_N = \int_{V}^{} \dd[]{\va{r}_1} \dots \int_{V}^{} \dd[]{\va{r}_N}  e^{-\beta \sum_{i,j > i}^{} \Phi _{ij} }
+  T_B^{VdW} = \frac{a}{b k_B}
 \end{equation}
-with
+to be compared with \( T_c^{VdW} \) that is
 \begin{equation}
-  \Phi _{ij} = \Phi ( \abs{\va{r}_i - \va{r}_j} )
+  T_c^{VdW} = \frac{8 a}{27 b^3}
 \end{equation}
-The \emph{Mayer function}  is something that is smaller in that given point
+We notice that \( T_c^{VdW} \ll T_B \).  It is clear that the Boyle's temperature must be much greater than the critical one.
+
+We now obtain the formal virial expansion by starting from the microscopic system and performing a perturbation expansion of the Boltzmann weights for small values of \( U \).
+
+\begin{remark}
+   Consider a polymer, the transition point called the \( \theta  \) point is when the second coefficient is zero, as the case described above, but it is interesting in polymer kind of system (lesson).
+\end{remark}
+
+\section{Cluster expansion technique for weakly interacting gases}
+Now, we try to do some calculation of this virial coefficients, starting from the model microscopical.
+Let us start from the partition function
 \begin{equation}
-  f (\abs{\va{r}} ) \equiv \exp [ - \beta \Phi ( \abs{\va{r}} )] -1
+\begin{split}
+  Q_N &= \int_{V}^{} \dd[]{\va{r}_1} \dots \int_{V}^{} \dd[]{\va{r}_N}  e^{-\beta U (\{ \va{r} \}  ) } \\
+  & = \int_{V}^{} \dd[]{\va{r}_1} \dots \int_{V}^{} \dd[]{\va{r}_N}  e^{-\beta \sum_{i,j > i}^{} \Phi _{ij} }
+\end{split}
 \end{equation}
-If \( \beta \Phi \ll 1 \), we have \( f \ll 1 \). So
+where
 \begin{equation}
-  \rightarrow  e^{-\beta \sum_{i,j > i}^{} \Phi _{ij} } = \prod_{i}^{} \qty(\prod_{j>i}^{} (1+ f_{ij})  )
+  \Phi _{ij} \equiv \Phi (\abs{\va{r}_i - \va{r}_j} )
 \end{equation}
-Expanding this object we obtain
+\begin{definition}[Mayer function]
+  The \emph{Mayer function}  is something that is smaller in that given point
+  \begin{equation}
+    f (\abs{\va{r}} ) \equiv \exp [ - \beta \Phi ( \abs{\va{r}} )] -1
+  \end{equation}
+  with \( f_{ij} \equiv f (\abs{\va{r}_i - \va{r}_j} ) \).
+\end{definition}
+
+\begin{remark}
+Note: if \( \beta \Phi (r) \ll 1 \), we have \( f(r) \ll 1 \).
+\end{remark}
+Hence,
 \begin{equation}
-  \rightarrow = \underbrace{(1+f_{12})(1+f_{13}) (1+ f_{14}) \dots ( 1 + f_{1N })}_{i=1}   \dots \underbrace{(1+f_{23}) (1+ f_{24}) \dots ( 1 + f_{2N })}_{i=2} \dots =
+\begin{split}
+  \Rightarrow e^{-\beta \sum_{i,j>i}^{} \Phi _{ij}  } &= \prod_{i}^{} \qty(\prod_{j>i}^{} (1+ f_{ij})  ) \\
+  & = \underbrace{(1+f_{12})(1+f_{13})  \dots ( 1 + f_{1N })}_{i=1}   \dots \underbrace{(1+f_{23}) (1+ f_{24}) \dots ( 1 + f_{2N })}_{i=2} \dots \\
+  & = (1 + f_{12} + f_{13} + f_{12}f_{13}) (1+f_{14}) \dots(1+f_{23}) \\
+  & = 1 + \sum_{i}^{} \sum_{k>i}^{} f_{ij} + \cancel{\sum_{i}^{N} \sum_{k \ge i}^{} \sum_{l > k}^{} \sum_{j > i }^{} \sum_{(ij) \neq (lk)}^{}  f_{ik} f_{kl}       } + O (f^3)
+\end{split}
 \end{equation}
+where 
 \begin{equation}
-  = 1 + \sum_{i}^{} \sum_{j>i}^{} f_{ij} + \cancel{\sum_{i}^{} \sum_{k \ge i}^{} \sum_{j > i}^{} \sum_{e \ge j}^{} f_{ik} f_{je}       }
+  f_{ij} \equiv  e^{-\beta \Phi _{ij}} -1
 \end{equation}
-The solution is given by considering only the linear term. This is the cluster expansion.
+
+Higher order terms contain products of \( 3,4,\dots f_{ij} \) terms. For simplicity, let us consider first only linear terms. Hence, the solution is given by considering only the linear term. This is the cluster expansion.
+
+
 
 
 

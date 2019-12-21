@@ -176,18 +176,77 @@ The frist assumption is that the Hamiltonian of the new system \( \mathcal{H}_l 
   - \beta \mathcal{H}_l = k_l \sum_{\expval{IJ} }^{} S_I S_J  + h_l \sum_{I}^{} S_I
 \end{equation}
 
+\begin{equation}
+  N_l = \frac{N}{l^D}
+\end{equation}
 How you measure in the new system the lengths? the correlations lengths. Before we have changed the size of the system. We have increased the ruler, so the number is smaller now. It seems stupid but it is fundamental.
+\begin{equation}
+  \xi _l = \frac{\xi }{l}
+\end{equation}
+were the last relation it is very important!
 
+Anyway for the Kadanoff it does not meant so much because we do not iterate.
+The new distance of the critical point in the new system \( t_l \) is
+\begin{equation}
+  t_l > t
+\end{equation}
 
+We have
+\begin{equation}
+  h \sum_{i}^{} \sigma _i = h \sum_{I}^{} \sum_{i \in \sigma _i}^{}  \sigma _i = h \sum_{I}^{}    \abs{m_l} l^D S_I
+  = \underbrace{h \abs{m_l} l^D}_{h_l} \sum_{I}^{} S_I
+\end{equation}
+\begin{equation}
+  h_l = \abs{m_l} l^D h
+\end{equation}
 
+What happens to the free energy?
+Since \( h_l \) is equal in form to \( h \), the story is the same. So also for the free energy there would be a difference in the number of spins.
 
+If I take \(   N_l f_s (t_l,h_l) \) this is equal to
+\begin{equation}
+  N_l f_s (t_l,h_l) = N f_s (t,h)
+\end{equation}
+\begin{equation}
+  \Rightarrow  f_s (t_l,h_l) = l^D f_s (t,h)
+\end{equation}
 
+Somehow we are getting just for free \( \lambda \equiv l^D \). Now we need other assumptions. The second assumption is
+\begin{equation}
+  t_l = t l^{Y_t} \quad h_l = h l^{Y_h}
+\end{equation}
+\begin{equation}
+  f_s (t,h) = l^{-D} f_s (t l^{Y_t}, h l^{Y_h})
+\end{equation}
+Let us take \( l= \abs{t}^{-1/Y_t}  \)
+\begin{equation}
+  f_s (t,h) = \abs{t}^{D/Y_t} f_s (1, h \abs{t}^{-Y_h/Y_t} )
+\end{equation}
+\begin{equation}
+  \Delta = \frac{Y_h}{Y_t} \quad \Rightarrow 2 - \alpha = \frac{D}{Y_t}
+\end{equation}
+We are changing the ruler
+\begin{equation}
+  G_{IJ} (\va{r}_l, t_l) \equiv \expval{S_I S_J} - \expval{S_I}\expval{S_J}
+\end{equation}
+\begin{equation}
+  \abs{\va{r}_l} = \frac{\va{r}}{l}
+\end{equation}
+We want to write \( G_{IJ} \) for \( \sigma _i \sigma _j \), what we get at the end is
+\begin{equation}
+  G_{IJ} (\va{r}_l, t_l) = l^{2(D-Y_h)} G_{ij} (\va{r},t)
+\end{equation}
 
-
-
-
-
-
+What we get resclaing the system is
+\begin{equation}
+  G_{IJ} \qty(\va{r}/l, t l ^{Y_t}, h l^{Y_h}) l^{2(D-Y_h)} G_{ij} (\va{r},t)
+\end{equation}
+\begin{equation}
+  l = t^{-1/Y_t}
+\end{equation}
+\begin{equation}
+  G_{IJ} (\va{r} t^{1/Y_t}, 1, h t^{-Y_h/Y_t}) = t^{-2 \frac{D- Y_h}{Y_t}} G_{ij} (\va{r},t)
+\end{equation}
 
 
 
