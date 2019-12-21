@@ -7,59 +7,159 @@
 
 \marginpar{ \textbf{Lecture 16.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-\subsection{\( O(n) \) model}
+\section{Cubic term and first transition}
+Let us consider more general forms of the Landay free energy. For example, in the case in which the symmetry is not violated, one can consider also odd temrs such as the cubic one.  In fact, we want to eneralize to include multicritical points, or phase transitions. The phase transitions can be obtained by introducing a cubic term in the Landau expansion. Remember that in the Ising model we have phase transition derived by symmetry breaking. Now, we have another type of phase transition.
 
-
-The correct order parameter is a \emph{n}-dimensional vector \( \va{\eta } \). We consider \( \va{h} = \va{0} \):
+The simplest Landau free energy that depends on a particular field is:
 \begin{equation}
-  \mathcal{L} (\va{\eta }) = \frac{a}{2} \va{\eta } \vdot \va{\eta } + \frac{b}{4} \qty(\va{\eta } \vdot \va{\eta })^2 + O \qty(\qty(\va{\eta } \vdot \va{\eta })^3 )
+  \mathcal{L} ( \eta ,t,h)= a t \eta ^2 - w \eta ^3 + \frac{b}{4} \eta ^4 - h \eta
 \end{equation}
-Generalize to include multicritical points, or phase transitions.
-
-The phase transitions can be obtained by introducing a cubic term in the landau expansion. Remember that in the Ising model we have phase transition derived by symmetry breaking. Now, we have another type of phase transition.
-
-The simplest Landau free energythat depends on a particular field is:
-\begin{equation}
-  \mathcal{L} = a t \eta ^2 - w \eta ^3 + \frac{b}{4} \eta ^4 - h \eta
-\end{equation}
+where \( t \equiv \frac{T-T^*}{2} \) and \( w \) is an additional parameter that we fix to be positive, \( w>0 \).
 \begin{remark}
-The minus sign \( w \) is not important, in this case \( w>0 \).
+For \( w<0 \) the results are the same, but in the \( \eta <0 \) diagram.
 \end{remark}
-with \( t = \frac{T-T^*}{2} \).
-The equation of state is:
+To satisfy thermodynamic stability we require \( b>0 \), while
 \begin{equation}
-  \pdv{\mathcal{L}}{\eta } = 0 \quad \Rightarrow h = 2 a t \eta - 3 w \eta ^2 + b \eta ^3
+  a t = \frac{a}{2} ( T - T^*) \quad \text{if } \begin{cases}
+    > 0 & T > T^* \\
+    <0 & T < T^*
+\end{cases}
 \end{equation}
+The equation of state for \( h \neq 0 \) is:
+\begin{equation}
+  \pdv{\mathcal{L}_G}{\eta } = 0 \quad \Rightarrow h = 2 a t \eta - 3 w \eta ^2 + b \eta ^3
+\end{equation}
+Let us consider the equilibrium states when \( h=0 \):
 \begin{equation}
   h = 0 \quad \Rightarrow 0 = \eta ( 2 a t - 3 w \eta  + \beta \eta ^2)
 \end{equation}
-The two solutions are:
+ The possible solutions are
 \begin{equation}
-  \bar{\eta } = 0, \quad  \bar{\eta } = \frac{1}{4b} \qty(3w \pm \sqrt{q w^2 - 16 abt} )
+  \begin{cases}
+   \bar{\eta } = 0 & \text{disordered phase}\\
+  \bar{\eta } = \frac{1}{4b} \qty(3w \pm \sqrt{q w^2 - 16 abt} ) & \text{ordered phases}
+  \end{cases}
 \end{equation}
+Let us rewrite the 'ordered' solutions as
 \begin{equation}
-  \bar{\eta }_{\pm} = c \pm \sqrt{c^2 - \frac{at}{b}}, \quad c = \frac{3w}{4b}
+  \bar{\eta }_{\pm} = c \pm \sqrt{c^2 - \frac{at}{b}}
 \end{equation}
+where
+\begin{equation}
+  c = \frac{3w}{4b}
+\end{equation}
+Note that
 \begin{equation}
   \bar{\eta }_{\pm} \in \R \iff c^2 > \frac{at}{b} \quad \Rightarrow \frac{T-T^*}{2} < \frac{c^2 b}{a} \equiv t^{**} \equiv  \frac{T^{**}-T^*}{2}
 \end{equation}
+It implies:
 \begin{equation}
   T^{**} = T^* + \frac{2c^2b}{a}
 \end{equation}
+\begin{itemize}
+\item If \( t> t^{**} \) \( (\iff T > T^ {**}) \), we have  \( \bar{\eta }_\pm \notin \R  \). The only real solution is \( \bar{\eta }=0  \) that is also the absolute minimum of \( \mathcal{L} \). The plot is shown in Figure \ref{fig:16_1}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/16_image/1.pdf}
+\caption{\label{fig:16_1} Description.}
+\end{figure}
+
+\item If \( t \le t^{**} \) \( (\iff T \le T^ {**}) \), we have \( \bar{\eta }_\pm = c \pm \sqrt{c^2 - \frac{at}{b}} \in \R  \) are both possible solutions. One will be a local maximum and the other a local minimum.
+
+\begin{itemize}
+\item At \( T = T^{**}\), \( \bar{\eta }_- = \bar{\eta }_+   \) (flex point), as shown in Figure \ref{fig:16_2}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/16_image/2.pdf}
+\caption{\label{fig:16_2} Description.}
+\end{figure}
+\item For \( T_t < T < T^{**} \), \( \mathcal{L} (\bar{\eta }_+) >0  \). Since \( \mathcal{L} (\bar{\eta }=0 ) \), the solution \( \bar{\eta }_+  \) is a local minimum, as shown in Figure \ref{fig:16_3}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/16_image/3.pdf}
+\caption{\label{fig:16_3} Description.}
+\end{figure}
+\item By decreasing \( T \) firther one eventually reaches the value \( T=T_t \) at which the local minimum \( \mathcal{L} (\bar{\eta }_+ ) \) becomes zero, as in Figure \ref{fig:16_4}. \( T_t \)  is given by the coexistence condition
 \begin{equation}
-  T > T^{**} \Rightarrow \bar{\eta }_{\pm} \notin \R \Rightarrow \bar{\eta } = 0
+  \mathcal{L} (\bar{\eta }_+ ) = \mathcal{L} (0)
+\end{equation}
+that is the coexistence between the disordered and ordered phases!
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/16_image/4.pdf}
+\caption{\label{fig:16_4} Description.}
+\end{figure}
+
+In the plot of Figure \ref{fig:16_4} we see that there are two minima in the same line, this is  a first order transition.
+At \( T=T_t \) the system undergoes a first order transition. To determine \( T_t \) we consider
+\begin{equation}
+  \begin{cases}
+   \pdv{\mathcal{L}}{\eta } = 0 = \eta \qty(2 a t - 3 w \eta + 2 b \eta ^2)  & \text{extreme condition}\\
+  \mathcal{L} ( 0 ) = \mathcal{L} ( \eta _+) & \text{coexistence condition}
+  \end{cases}
 \end{equation}
 \begin{equation}
-  T < T^{**} \Rightarrow \bar{\eta }_{\pm} = c \pm \sqrt{c^2 - \frac{at}{b}} \in \R
+\Rightarrow
+  \begin{cases}
+   2 a t - 3 w \eta + 2 b \eta ^2 = 0\\
+   a t - w \eta + \frac{b}{2} \eta ^2 = 0
+  \end{cases}
+\end{equation}
+Solving with respect to \( \eta  \)  and \( t \) we get
+\begin{equation}
+  \begin{cases}
+   \bar{\eta }_{+t} = + \frac{w}{b} >0 \\
+    t_t = \frac{w^2}{2ba} \equiv \frac{1}{2} (T_t - T^*)
+  \end{cases}
 \end{equation}
 \begin{equation}
-  T = T^{**} \Rightarrow \bar{\eta }_+ = \bar{\eta }_-
+  T_t = \frac{w^2}{b a} + T^*
 \end{equation}
-(Insert figure 1)
+\begin{remark}
+Note that \( T_t >T^* \).
+\end{remark}
+Since at \( T= T_t \) there is a first order transition does the system display latent heat?
 \begin{equation}
-  \mathcal{L} ( \va{\eta } = 0) = \mathcal{L} (\eta = \bar{\eta }_+ )
+  s = \eval{- \pdv{\mathcal{L}}{T} }_{\eta _t} = - \frac{1}{2} a \bar{\eta }_t^2 = - \frac{a}{2} \qty(\frac{w}{b})^2
 \end{equation}
-In the last plot (the four) we see that there are two minima in the same line. That is a first order transition. Going under the \( T < T_t \) the second minima decrease.
+\begin{remark}
+There is an entropy jump.
+\end{remark}
+The latent heat adsorbed to go from the ordered to the disordred phase is
+\begin{equation}
+  q = - T_t s = \frac{a}{2} T_t \qty(\frac{w}{b})^2
+\end{equation}
+
+\item Finally for \( T^* < T < T_t \), \( \eta = \bar{\eta }_+  \) becomes the global minimum ordered phase is the only stable one (Figure \ref{fig:16_5}).
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/16_image/5.pdf}
+\caption{\label{fig:16_5} Description.}
+\end{figure}
+\end{itemize}
+\end{itemize}
+
+
+\section{Phase stability and behaviour of \( \chi _T \equiv \pdv{\eta }{h}  \)}
+
+Let us derive the equation of state with respect to \( h \)
+\begin{equation}
+  \pdv{}{h} \qty(\pdv{\mathcal{L}_G}{\eta } = 0 )   = \pdv{}{h} \qty(2 a t \eta - 3 w \eta ^2 + 2 b \eta ^3 = h)
+\end{equation}
+\begin{equation}
+  \Rightarrow \chi \qty(2 a t - 6 w \eta + 6 b \eta ^2 ) =1
+\end{equation}
+The results is
+\begin{equation}
+  \chi _T = \frac{1}{2 a t - 6 w \eta + 6 b \eta ^2}
+  \label{eq:16_1}
+\end{equation}
+We now make use of equation \eqref{eq:16_1} to compute the limit of stability of the phases we have found. 
+
+
+\section{lesson}
+
+
 
 Another possibility is studying multicritical point.
 \begin{equation}
