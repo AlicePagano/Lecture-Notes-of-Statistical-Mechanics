@@ -154,46 +154,241 @@ The results is
   \chi _T = \frac{1}{2 a t - 6 w \eta + 6 b \eta ^2}
   \label{eq:16_1}
 \end{equation}
-We now make use of equation \eqref{eq:16_1} to compute the limit of stability of the phases we have found. 
+We now make use of equation \eqref{eq:16_1} to compute the limit of stability of the phases we have found.
 
-
-\section{lesson}
-
-
-
-Another possibility is studying multicritical point.
+\subsection{Computation of \( T^{**} \) }
+\( T=T^{**} \) is the value below which the ordred phase \( (\bar{\eta } = \bar{\eta }_+ ) \) becomes a metastable state (local minima). Since this coincides with the flex point
 \begin{equation}
-  \mathcal{L}_h (T, \Delta, \eta ) = \frac{a (t,\Delta )}{2} \eta ^2 + \frac{b(t,\Delta )}{4} \eta ^4 + c \eta ^6 - h \eta
+  \pdv[2]{\mathcal{L}}{\eta } = 0 \quad \Rightarrow \chi ^{-1} = 2 a t - 6 w \eta + 6 b \eta ^2 = 0
 \end{equation}
-Consider \( \Delta  \) (\( \Delta _c \) is a critical value):
+Remember that at \( T=T{**} \)  the two solutions \( \eta _\pm \) do coincide
+\begin{equation}
+  c^2 - \frac{at}{b} = 0 \Rightarrow \eta _\pm = \eta _2 = \frac{3 w}{4 b}
+\end{equation}
+Inserting in the expression for \( \chi ^{-1} \) since \( \chi ^{-1} =0 \) we have
+\begin{equation}
+  \chi ^{-1} = 0 = 2 a t^{**} - 6 w \bar{\eta }_2 + 6 \bar{\eta }_2^2
+\end{equation}
+\begin{equation}
+  \iff t^{**} = \frac{q w^2}{16 a b} = \frac{1}{2} \qty(T^{**}-T^*)
+\end{equation}
+For \( T_t < T < T^{**} \) the ordered phase is metastable.
+
+\subsection{Computation of \( T^* \)}
+The instability of the disordered phase \( (\eta =0) \) is when \( \mathcal{L} \) presents a flex point at \( \eta =0 \), as in Figure \ref{fig:16_6}.
+\begin{equation}
+  \chi ^{-1} (\eta =0) = 0 \iff \chi ^{-1} (\eta =0) = 2 a t = 0 \iff t = 0 \quad \Rightarrow T = T^*
+\end{equation}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/16_image/6.pdf}
+\caption{\label{fig:16_6} Description.}
+\end{figure}
+
+
+\section{Landau theory and multicritical points}
+Tricritical point is a critical point that separates a line of first transition points from a line of critical points.
+\begin{remark}
+The introduction of a cubic term is not the only way to obtain a first order transition. Let allow the coefficient of \( \eta ^4 \) to change signs. We need the \( \eta ^6 \) term (See Blume-Emery-Griffith model).
+\end{remark}
+\begin{equation}
+  \mathcal{L}_h (T, \Delta, \eta ) = \frac{a (t,\Delta )}{2} \eta ^2 + \frac{b(t,\Delta )}{4} \eta ^4 + \frac{c}{6} \eta ^6 - h \eta
+\end{equation}
+where we have two parameteres \( (T,\Delta ) \) and \( c>0 \), with \( \Delta  \) that is the disordered field (\( \% \, \text{He}^3\) in the BEG model).
+
+Now, consider \( \Delta  \) (\( \Delta _c \) is a critical value). The phenomenology is
+
 \begin{itemize}
-\item \( \Delta < \Delta _c \): as \( T \) decreases, it will reach a value, we have \( a \) that decreases.
+\item \( \Delta < \Delta _c \): as \( T \) decreases, \( a(T,\Delta ) \) decreases and at \( T = T_c (\Delta ) \) becomes zero. In this region \( b(T,\Delta ) >0 \) and the system displays the standard \( (\eta ^4) \) critical point.
 \begin{equation}
   T = T_c (\Delta ) \Rightarrow \begin{cases}
     a (T_c,\Delta ) = 0 \\
     b (T_c,\Delta ) > 0
 \end{cases}
 \end{equation}
-\item \( \Delta > \Delta _c \): as \( T \) decreases, we will have \( a \) and \( b \) that will decrease too. At that point:
+\item \( \Delta > \Delta _c \): as \( T \) decreases, \( b(T,\Delta ) \) becomes zero 'before' \( a(T,\Delta ) \). In this case one can show the existence of a line of first transition points:
 \begin{equation}
-b (\bar{T},\Delta  ) = 0
+  b (\bar{T},\Delta  ) = 0 \quad \Rightarrow   \mathcal{L} = a \eta ^2 + c \eta ^6, \quad a>0
 \end{equation}
-The free energy now is
 \begin{equation}
-  \mathcal{L} = \frac{a}{2} \eta ^2 + c \eta ^6
+  \pdv{\mathcal{L}}{\eta } = 2 a \eta + 6 c \eta ^5 \Rightarrow \begin{cases}
+    \eta =0 \\
+    \eta _{1,2,3,4}
+  \end{cases}
 \end{equation}
-The plot of the free energy is in figure 2. We have the coexistence of three lines.
-\end{itemize}
-Tricritical point:
-\begin{equation}
-  \Delta = \Delta _t, \quad T=T_t
-\end{equation}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/16_image/7.pdf}
+\caption{\label{fig:16_7} Description.}
+\end{figure}
+
+If \( b>0 \), \( \eta ^6 \) can be neglected.
+\item The Tricritical point is given by the values of \( \Delta = \Delta _t \)  and \( T= T_c \) such that
 \begin{equation}
   a (\Delta _t, T_t) = b (\Delta _t, T_t) = 0
 \end{equation}
+At this point the system is described by the following Landau free-energy
 \begin{equation}
   \mathcal{L}_t = c \eta ^6 - h \eta
 \end{equation}
+and equation of state
+\begin{equation}
+  h = 6 c \eta ^5
+\end{equation}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/16_image/8.pdf}
+\caption{\label{fig:16_8} Description.}
+\end{figure}
+
+\end{itemize}
+
+\section{Landau-de Gennes theory of liquid crystals}
+A liquid crystal phase (LC) can be seen as an intermediate phase (mesophase) between a solid and a liquid phase.
+In this phase the system flows as a fluid but it also displays an orientational order typical of a crystal. Because of this order this phase displays \emph{anisotropic} optical, magnetic and electrical properties.
+
+Typical structural properties of the elementary constituents (molecules) giving rise to LC phase are the following
+\begin{itemize}
+\item Anisotropic (elangated) shape.
+\item The long axis can be approximated as a rigid backbane.
+\item Existence of strong dipoles and groups easy to polarize.
+\end{itemize}
+\subsection{LC-phases}
+There are many possible LC phase, from \emph{nematic}, \emph{cholesteric}, \emph{smectic}, \emph{columnar}, etc. Here we gocus on the most common one the \emph{nematic phase}.
+
+The nematic phase is characterized by a strong and long range orientational order. As a measure of this order, one consider the director \( \overset{\leftrightarrow}{n} (\va{r}) \). This is a 'two arrow vector' that gives the local average alignment of the elementary constituents. In this description the amplitude of \( \overset{\leftrightarrow}{n} (\va{r}) \)    is irrelevant and one takes \( \overset{\leftrightarrow}{n} (\va{r}) \) such that \( \abs{\overset{\leftrightarrow}{n} (\va{r})}  =1 \). Since there is no head-tail symmetry (apolar order), \( \overset{\leftrightarrow}{n} = -  \overset{\leftrightarrow}{n}  \).
+From optical point of view the neumatic phase is birifrangent, i.e. two refraction indices, one parallel to \( \overset{\leftrightarrow}{n}  \) and one perpendicular to \( \overset{\leftrightarrow}{n}  \) (special index).
+
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][Isotropic phase]{ \includegraphics[width=0.8\textwidth]{../lessons/16_image/9.pdf}  \label{fig:16_9_1} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][Nematic phase]{\includegraphics[width=0.8\textwidth]{../lessons/16_image/10.pdf}  \label{fig:16_9_2} }
+\end{minipage}
+\caption{\label{fig:} }
+\end{figure}
+
+\subsection{Order parameter}
+A macroscopic definition of an order parameter for LC phase is based on the system response when subject to magnetic or electric fields. For instance, given an external magnetic field \( \va{H} \) the (diamagnetic) response of the system can be written as
+\begin{equation}
+  \va{M} = \bar{\bar{\chi } } \va{H}
+\end{equation}
+where the matrix \(  \bar{\bar{\chi } } \) is the response function.
+
+In components
+\begin{equation}
+  M_ \alpha = \chi _{\alpha \beta } H _{\beta }
+\end{equation}
+with \( \alpha ,\beta =x,y,z \). For a static \( \va{H} \), \( \chi _{\alpha \beta } \) is symmetric.
+
+ Clearly, for a isotropic fluid
+\begin{equation}
+  \chi _{\alpha \beta } = \chi  \delta _{\alpha \beta }
+\end{equation}
+For a LC in the neumatic phase one has
+\begin{equation}
+  \chi _{\alpha \beta } =
+  \begin{pmatrix}
+  \chi _\bot   &  0 & 0 \\
+    0 &  \chi _ \bot & 0 \\
+    0 &  0 &  \chi _\parallel
+  \end{pmatrix}
+\end{equation}
+One can then define an order parameter based on \( \chi _{\alpha \beta } \) as
+\begin{equation}
+  Q_{\alpha \beta } = A \qty(\chi _{\alpha \beta } - \frac{1}{3} \delta _{\alpha \beta }\Tr \bar{\bar{\chi } }  )
+\end{equation}
+The order parameter is a second rank traceless tensor. It is possible to show that \(   Q_{\alpha \beta }  \) can be written in terms of the local average orientiational order of the elementary constituents, \(  \overset{\leftrightarrow}{n} (\va{r}) \) and the degree of local order given by a scalar \( S(\va{r}) \).
+\begin{equation}
+  Q_{\alpha \beta } (\va{r}) = S (\va{r}) \qty(n_{\alpha } (\va{r}) n_{\beta } (\va{r}) - \frac{1}{3}\delta _{\alpha \beta })
+\end{equation}
+Note that by construtction \( \bar{\bar{Q} }  \) is symmetric and traceless.
+
+Its more general expression is
+\begin{equation}
+  Q_{\alpha \beta } =
+  \begin{pmatrix}
+  q_1   & q_2  & q_3 \\
+  q_2   & q_4  & q_5 \\
+  q_3   & q_5  & -q_1-q_4
+  \end{pmatrix}
+\end{equation}
+
+\subsection{Landau free energy}
+The free energy must be invariant to rotations of the system. Since \( Q_{\alpha \beta } \) transforms as a tensor under rotations, \( \mathcal{L} \) must be a combination of terms as \( \Tr \bar{\bar{Q} }^P \). By keeping terms up to fourth order
+\begin{equation}
+  \mathcal{L} = \mathcal{L}_0 + \frac{1}{2} A(T) \Tr \bar{\bar{Q} }^2 + \frac{1}{3} B(T) \Tr \bar{\bar{Q} }^3 + \frac{1}{4} C(T) \qty[ \qty(\Tr \bar{\bar{Q} }^2  )^2 + \Tr \bar{\bar{Q} }^4 ]
+\end{equation}
+In components,
+\begin{equation}
+  \mathcal{L} = \mathcal{L}_0 + \frac{1}{2} A(T) Q_{\alpha \beta }Q_{\beta \alpha } + \frac{1}{3} B(T) Q_{\alpha \beta } Q_{\beta \gamma  } Q_{\gamma  \alpha }+ \frac{1}{4} C(T) \qty(Q_{\alpha \beta } Q_{\beta  \alpha })^2
+\end{equation}
+\begin{remark}
+Since each \( 3 \times 3 \) matrix satisfies the relation
+\begin{equation}
+   \Tr \bar{\bar{Q} }^4 = \frac{1}{2} \qty( \Tr \bar{\bar{Q} }^2)^2
+\end{equation}
+\end{remark}
+the term proportional to \( C(T) \) can be written as \( \frac{1}{2}C(T)  \Tr \bar{\bar{Q} }^4 \).
+\begin{remark}
+The cubic term is here allowed since the rod like molecules have quadrupolar symmetry and the order parameter is a tensor for which the rotational invariance does not imply the absence of the odd powers.
+\end{remark}
+For the most general case of a \emph{biaxial nematic phase} \( \bar{\bar{Q} }  \) can be diagonalized giving
+\begin{equation}
+  Q_{\alpha \beta } =
+  \begin{pmatrix}
+  \frac{2}{3}s   & 0  & 0 \\
+    0 &  - \frac{s+ \eta  }{3} & 0 \\
+    0 &  0 & - \frac{(s- \eta  )}{3}
+  \end{pmatrix}
+\end{equation}
+where \( \eta =0 \) corresponds to the standard uniaxial nematic phase.
+
+In this cases
+\begin{equation}
+  Q_{\alpha \beta } =
+  \begin{pmatrix}
+  \frac{2}{3}s   & 0  & 0 \\
+    0 &  - \frac{s  }{3} & 0 \\
+    0 &  0 & - \frac{(s )}{3}
+  \end{pmatrix}
+\end{equation}
+and
+\begin{equation}
+  \mathcal{L} = \mathcal{L}_0 + A(T) \frac{s^2}{3} + \frac{2}{27} B(T) s^3 + \frac{3}{81} C(T) s^4
+\end{equation}
+Assuming \( A(T) \simeq A (T-T^*) \), \( B(T) =B \) and \( C(T) = C \):
+\begin{equation}
+  \mathcal{L} = \mathcal{L}_0 + \frac{A}{3} (T-T^*) s^2 + \frac{2}{27} B s^3 + \frac{C}{9} s^4
+\end{equation}
+that has the same form of the one studied before for the first order phase transition.
+
+In particular
+\begin{equation}
+  a = \frac{2}{3} A, \quad -w = \frac{2}{27} B, \quad b = \frac{2}{9} C
+\end{equation}
+It is then easy to see that the isotropic-nematic transition is of the first order and occur at
+\begin{equation}
+  T_t = \frac{w^2}{ba} + T^* = \frac{B^2}{27 A C} + T^*
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+\section{Lesson}
+
 
 
 As we approach the critical point \( T \rightarrow T_c \), the correlation length
