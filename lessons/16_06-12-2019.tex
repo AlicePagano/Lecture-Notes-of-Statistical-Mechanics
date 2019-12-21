@@ -379,107 +379,179 @@ It is then easy to see that the isotropic-nematic transition is of the first ord
 
 
 
+\chapter{Role of fluctuations in critical phenomena: Ginzburg criterium, Coarse-graining and Ginzburg-Landau theory of phase}
 
-
-
-
-
-
-
-
-\section{Lesson}
-
-
-
-As we approach the critical point \( T \rightarrow T_c \), the correlation length
-\( \xi \sim \abs{T-T_c}^{-\nu }  \) diverges.
-
+\section{Importance of fluctuations: the Ginzburg criterium}
 Maybe mean field is not a very good approximation in proximity of the critical point. Question: how bad is the mean field approximation in proximity of the critical point?
+
+Mean field approximations neglect the fluctuations of the order parameter in the computation of \( Z \).
+This is a rather strong assumption since the correlation length
 \begin{equation}
-  \expval{S_i S_j} \overset{MF}{\rightarrow } \expval{S_i} \expval{S_j}
+   \xi \overset{T \rightarrow T_c}{\sim } \abs{T-T_c}^{-\nu }
 \end{equation}
-Calculate the error:
+diverges. Let us estimate the error one does in using the MF approximation.
+
+To fix the ideas let us consider the Ising model. Since
+\begin{equation}
+  \expval{S_i S_j} \overset{MF}{\longrightarrow } \expval{S_i} \expval{S_j}
+\end{equation}
+For each pair of spin \( (S_i,S_j) \) the relative error is
 \begin{equation}
   E_{ij} = \frac{ \abs{\expval{S_i S_j}  - \expval{S_i} \expval{S_j}}   }{\expval{S_i}\expval{S_j}  }
 \end{equation}
-Define
+We need to compute the correlation function
 \begin{equation}
   G_c (i,j) \equiv \expval{S_i S_j} - \expval{S_i} \expval{S_j} = \expval{(S_i -\expval{S_i} )(S_j - \expval{S_j} )}
 \end{equation}
-If we want to compute the error in the mean field, is always zero. So, if we want calculate the average with respect to fluctuations it does not work. We can either look at the variation in which the field is the internal one, or we can somehow try to make a variation not because of thermal fluctuations but because we control it. We do this by using an external field. This is the response theory with a variation of the field.
-
-In order to do that, instead using an \( H \) we use an \( H_i \).
+Assuming \emph{translational invariance}
 \begin{equation}
-  Z = \Tr_{\{ S \} } \qty(e^{-\beta \qty(-J \sum_{\expval{ij} }^{} S_i S_j   - \sum_{i}^{} H_i S_i ) } )
+  G_c (i,j) \rightarrow G_c \qty(\abs{\va{r}_i - \va{r}_j} ) \rightarrow G_c (r)
+\end{equation}
+\begin{remark}
+In order to compute \( G_c (r) \) we cannot assume omogeneity since \( \expval{S_i} = \expval{S_j} = m   \). It implies that \( G_c = 0 \) identically in MF. We have to allow the system to display disomogeneities in space!
+\end{remark}
+
+\begin{remark}
+If we want to compute the error in the mean field, is always zero. So, if we want calculate the average with respect to fluctuations it does not work. We can either look at the variation in which the field is the internal one, or we can somehow try to make a variation not because of thermal fluctuations but because we control it. We do this by using an external field. This is the response theory with a variation of the field. (lesson)
+\end{remark}
+
+Let us discuss an important point. The function \( G_c \) does not only descrive the spatial correlation of the fluctuations but also, through the linear response theory, the way in which \( m \) varies in response to an external non-homogeneous magnetic field. Within a mean field theory this is the  only way to compute \( G_c \)!
+
+Let us see how it works. In order to do that, instead using an \( H \) we use an \( H_i \).
+
+\begin{equation}
+  Z [H_i]= \Tr_{\{ S \} } \qty(e^{-\beta \qty(-J \sum_{\expval{ij} }^{} S_i S_j   - \sum_{i}^{} H_i S_i ) } )
 \end{equation}
 The definition of the thermal average is
 \begin{equation}
-  \expval{S_i} = \frac{\Tr_{\{ S \} } \qty(S_i e^{-\beta \qty(-J \sum_{\expval{ij} }^{} S_i S_j   - \sum_{i}^{} H_i S_i ) } ) }{Z}
+  \expval{S_i} = \frac{\Tr_{\{ S \} } \qty(S_i e^{-\beta \qty(-J \sum_{\expval{ij} }^{} S_i S_j   - \sum_{i}^{} H_i S_i ) } ) }{Z[H_i]}
   = \beta ^{-1} \pdv{\ln{Z} }{H_i} = - \pdv{F}{H_i}
 \end{equation}
+Similarly one can show that
 \begin{equation}
-  \expval{S_i S_j} = \frac{\beta ^{-1}}{Z} \frac{\partial^2{Z} }{\partial{H_i} \partial{H_j}  }
+  \expval{S_i S_j} = \frac{\beta ^{-1}}{Z} \frac{\partial^2{Z} }{\partial{H_i} \partial{H_j}  } \quad (to \, do)
 \end{equation}
+Hence,
 \begin{equation}
-  G_c (i,j) = \beta ^{-1} \frac{\partial^2{\ln{Z} } }{\partial{H_i} \partial{H_j}  }
+\begin{split}
+  G_c (i,j) & = \frac{\beta ^{-2}}{Z}  \frac{\partial^2{Z} }{\partial{H_i} \partial{H_j}  }
+  - \qty(\frac{\beta ^{-1}}{Z} \pdv{Z}{H_i} ) \qty(\frac{\beta ^{-1}}{Z} \pdv{Z}{H_j} ) \\
+  & = \beta ^{-1} \frac{\partial^2{\ln{Z} } }{\partial{H_i} \partial{H_j}  }
   = - \frac{\partial^2{F(\{ H_i \}  )} }{\partial{H_i} \partial{H_j}  }
+\end{split}
 \end{equation}
-\begin{equation}
-  \pdv{}{H_j} \expval{S_i} = \pdv{}{H_j} \qty[-\pdv{F}{H_i} ] = G_c (i,j)
-\end{equation}
-\begin{equation}
-  M = \sum_{i}^{} \expval{S_i}
-\end{equation}
-\begin{equation}
-  \pdv{M}{H_j} = \sum_{i}^{} \pdv{\expval{S_i} }{H_j} = \sum_{i}^{} G_c (i,j)
-\end{equation}
-\begin{equation}
-  H_j = H_j (H)
-\end{equation}
-\begin{equation}
-  \pdv{M}{H} = \sum_{j}^{} \pdv{M}{H_j} \pdv{H_j}{H}
-  =  \beta \sum_{ij}^{} G_c (i,j)
-\end{equation}
-the last one is the susceptibility \( \chi _T \).
- Therefore,
- \begin{equation}
-   \chi _T = \beta \sum_{i,j}^{} G_c (i,j)
- \end{equation}
- \begin{equation}
-   G_c (i,j) \rightarrow G_c (\abs{i-j} ) \sim G (\abs{\va{r}} )
- \end{equation}
-More or less, we want to compute the total relative error
-\begin{equation}
-  E_{TT} = \frac{\int_{V_ \xi }^{ } \dd[D]{\va{r}}  G_c (r)}{ \int_{V_ \xi }^{} \dd[D]{\va{r}} \eta ^2 } \ll 1
-\end{equation}
-This quantity is related to \( \chi _T \). Because of the fluctutations we can say that the quantity above is
-\begin{equation}
-  \sim  \frac{\beta ^{-1} \chi _T }{ \int_{V_ \xi }^{} \dd[D]{\va{r}} \eta ^2 }
-\end{equation}
-where \( \chi _T \sim t^{-\gamma  } \) and  the denominator it is \(  \sim t^{2 \beta } \xi ^D\).
-\begin{equation}
-  \frac{t^{-\gamma  }}{t^{2 \beta } t^{-\nu D}}
-\end{equation}
-\begin{equation}
-  E \overset{t \rightarrow 0}{\sim } ^{-\gamma -2 \beta + \nu D } \ll 1
-\end{equation}
-\begin{equation}
-  - \gamma - 2 \beta + \nu D \ge 0 \Rightarrow D > \frac{\gamma + 2 \beta  }{\nu }
-\end{equation}
-this is called the \emph{Ginzburg criterium}.
+\begin{remark}
+  The response in \( i \) due to a variation of \( H \) in \( j \) is
+  \begin{equation}
+    \pdv{}{H_j} \expval{S_i} = \pdv{}{H_j} \qty[\beta ^{-1} \pdv{\ln{Z} }{H_i} ]  =\pdv{}{H_j} \qty[-\pdv{F}{H_i} ] =  \beta G_c (i,j)
+  \end{equation}
+\end{remark}
 
-In the mean field we have: \( \gamma =1  \), \( \beta = 1/2 \). We obtain:
-\begin{equation}
-  D > \frac{2}{\nu }
-\end{equation}
-We have \( \nu _{MF} = 1/2 \). THerefore the dimension is \( D>4 \) for the mean field.
-The
-\begin{equation}
-  D_c = \frac{\gamma + 2 \beta  }{2}
-\end{equation}
-is called \emph{upper critical dimension}.
+The \emph{generating functions} are:
+\begin{itemize}
+\item \( Z[H_i] \): generating function of \( G(i,j) \).
+\item \( \ln{Z[H_i]} = - \beta F  \): generating function of \( G_c (i,j) \).
+\end{itemize}
 
-Now we have a lower critical dimension (remember the last lessons!!) and an upper one.
+\begin{remark}
+  (lesson)
+  \begin{equation}
+    \pdv{M}{H_j} = \sum_{i}^{} \pdv{\expval{S_i} }{H_j} = \sum_{i}^{} G_c (i,j)
+  \end{equation}
+  \begin{equation}
+    H_j = H_j (H)
+  \end{equation}
+  \begin{equation}
+    \pdv{M}{H} = \sum_{j}^{} \pdv{M}{H_j} \pdv{H_j}{H}
+    =  \beta \sum_{ij}^{} G_c (i,j)
+  \end{equation}
+  the last one is the susceptibility \( \chi _T \).
+   Therefore,
+   \begin{equation}
+     \chi _T = \beta \sum_{i,j}^{} G_c (i,j)
+   \end{equation}
+   \begin{equation}
+     G_c (i,j) \rightarrow G_c (\abs{i-j} ) \sim G (\abs{\va{r}} )
+   \end{equation}
+\end{remark}
+\section{Fluctuation-dissipation relation}
+\begin{equation}
+  Z_N = \Tr \exp [ \beta J \sum_{\expval{ij} }^{} S_i S_j + H \sum_{i}^{} S_i    ]
+\end{equation}
+where \( H_i = H\, \forall i \).
+\begin{equation}
+  M = \sum_{i}^{} \expval{S_i} = \frac{1}{Z} \Tr \sum_{i}^{} S_i    \exp [ \beta J \sum_{\expval{ij} }^{} S_i S_j + H \sum_{i}^{} S_i    ] = \frac{1}{\beta Z_N} \pdv{Z_N}{H}
+\end{equation}
+Similarly
+\begin{equation}
+  \sum_{ij}^{} \expval{S_i S_j} \overset{to do}{=} \frac{1}{\beta ^2 Z_n} \pdv[2]{Z_N}{H}
+\end{equation}
+\begin{equation}
+\begin{split}
+  \chi _T & = \pdv{m}{H} = \pdv{}{H} \qty[- \frac{1}{N} \pdv{F}{H} ] = \pdv{}{H}  \qty[\frac{1}{N} k_B T \pdv{\ln{Z} }{H} ] \\
+  & = \frac{1}{N} k_B T \qty[\pdv[2]{\ln{Z} }{H} ] = \frac{1}{N} k_B T \qty[\frac{1}{Z} \pdv[2]{Z}{H} - \frac{1}{Z^2} \qty(\pdv{Z}{H} )^2 ] \\
+  & = \frac{1}{N \beta } \qty[\beta ^2 \sum_{ij}^{} \expval{S_i S_j}  - \beta ^2 \qty(\sum_{i}^{} \expval{S_i}  )^2   ] \\
+  & = \frac{\beta }{N} \sum_{ij}^{}  G_c (i,j) = \frac{\beta }{N} \sum_{ij}^{} G_c (\va{r}_i - \va{r}_j) \\
+  & = \beta \sum_{i}^{} G_c (\va{x_i}) = (a^d k_B T)^{-1} \int_{\Omega }^{} \dd[d]{\va{r}} G_c (\va{r})
+\end{split}
+\end{equation}
+where \( \va{x}_i \equiv \va{r}_i - \va{r}_j \). This is the fluctuation dissipation relation.
+\subsection{Computation of \( E_ R  \)}
+The total relative error is the \( E_R (r)\) integrated over the region of radius \( R \le \xi  \), i.e. where correlations are not negligible.
+\begin{equation}
+  E_{TOT} = \frac{\int_{0}^{\xi } G_c (r) \dd[D]{\va{r}}  }{\int_{0}^{\xi }\expval{S_i} \expval{S_j}  \dd[D]{\va{r}} }
+\end{equation}
+If \( T < T_c \), there is a solution \( \eta (r) = \eta \neq 0 \)
+\begin{equation}
+  \Rightarrow \expval{S_i} \expval{S_j} \approx \eta ^2
+\end{equation}
+is uniform in the region \( \abs{\va{r}} < \xi   \).
+\begin{equation}
+  E_{TOT} \sim \frac{\int_{0}^{\xi } G_c (\va{r}) \dd[D]{\va{r}}  }{\int_{0}^{\xi } \eta ^2 \dd[D]{\va{r}}  } \ll 1
+  \label{eq:16_2}
+\end{equation}
+This is the Ginzburg criterium. If satisfied the mean field theory is a valid approximation.
+\subsection{Estimation of \( E_{TOT} \) as \( t \rightarrow 0^- \)  }
+The numerator of the \eqref{eq:16_2} can be approximated as
+\begin{equation}
+  \int_{V_{\xi }}^{} G_c (r)\dd[D]{r} \overset{\substack{ \text{fluctuation} \\  \text{dissipation} } }{\sim } k_B T_c \chi _T \sim t^{-\gamma  }
+\end{equation}
+On the other hand, the denominator
+\begin{equation}
+  \int_{V_{\xi }}^{} \eta ^2 \dd[D]{r} \sim \xi ^D \abs{t}^{2 \beta } \sim t^{2 \beta - \nu D}
+\end{equation}
+To satisfy the Ginzburg criterium
+\begin{equation}
+  E_{TOT} \overset{t \rightarrow 0^-}{\sim } t^{- \gamma + \nu D - 2 \beta  } \ll 1
+\end{equation}
+As \( t \rightarrow 0^- \) this is possible only if \( - \gamma + \nu D - 2 \beta >0  \), hence
+\begin{empheq}[box=\myyellowbox]{equation}
+  D > \frac{\gamma + 2 \beta  }{\nu } \equiv D_c
+\end{empheq}
+is called the upper critical dimension.
+\begin{itemize}
+\item For \( D < D_c \): fluctuations are relevant and mean field is no a good approximation.
+\item For \( D > D_c \): fluctuations are less important and mean field describes properly the critical point.
+\item For \( D = D_c \): mean field critical exponents ok but strong correction to the scaling expected. For a Ising-like systems (in the mean field)
+\begin{equation}
+  \beta = \frac{1}{2}, \quad \gamma =1 \quad \Rightarrow D_c = \frac{2}{\nu}
+\end{equation}
+In order to compute \( D_c \) we need to compute \( \nu  \) withing the mean field approximation. We have to consider the system with spatial disomogeneitis!
+\begin{remark}
+We have \( \nu _{MF} = 1/2 \). Therefore, the dimension is \( D>4 \) for the mean field.
+\end{remark}
+\end{itemize}
+Now we have a lower critical dimension (remember the last lessons!) and an upper one.
+
+
+
+
+
+
+
+
+
+
 
 
 
