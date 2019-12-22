@@ -130,49 +130,91 @@ The Gaussian approximation consists in neglecting the quartic term \( (\delta m)
   \Rightarrow
     \beta \mathcal{H}_{eff}^{T>T_c} (\delta m) \simeq  \int_{}^{} \dd[D]{\va{r}} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2 )
 \end{equation}
+\begin{remark}
+  We cannot do again the saddle point, otherwise we do not get too much information.
+  We consider gaussian fluctuations: fluctuations that follow gaussian distribution.
+  Therefore, the term in \( (\delta m)^4 \)  is cancelled.
+  What it is the difference in the exponent respect the mean field?
+  Then we will to the same for \( T < T_c \), the story is the same.
+   (lesson)
+\end{remark}
 
-\section{lesson}
-
-
-We cannot do again the saddle point, otherwise we do not get too much information.
-We consider gaussian fluctuations: fluctuations that follow gaussian distribution.
-Therefore, the term in \( (\delta m)^4 \)  is cancelled.
-What it is the difference in the exponent respect the mean field?
-Then we will to the same for \( T < T_c \), the story is the same. Now, we are just taking the gaussian term
+\section{Ginzburg-Landau in the Gaussian approximation}
+Let us solve
 \begin{equation}
   Z_{GL}^G = \int_{}^{} \text{D} \qty[\delta m] e^{- \int_{}^{} \dd[D]{r} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2  )  }
  \end{equation}
-Consider a system in a box of volume \( V = L^D \):
+ in the Fourier space.  Consider a system in a box of volume \( V = L^D \) (periodic boundary conditions):
+ \begin{equation}
+   \delta m (\va{r}) = \frac{1}{V} \sum_{\va{k}}  e^{i \va{k}\vdot \va{r}} (\delta m_{\va{k}})
+ \end{equation}
+where
 \begin{equation}
-  \delta m (\va{r}) = \frac{1}{V} \sum_{}^{\va{k}}  e^{i \va{k}\vdot \va{r}} \delta m_{\va{k}}
+  \delta m_{\va{k}} = \int_{V}^{}  \delta m (\va{r}) e^{-i \va{k} \vdot \va{r} }\dd[D]{\va{r}}
 \end{equation}
-We have the integral
+where \( \va{k} = k_1, \dots, k_D = \frac{2 \pi  \bar{n} }{L}\) with \( k_ \alpha = \frac{2 \pi }{L} n_ \alpha  \) \( (n_ \alpha  = 0 , \pm 1, \dots) \).
+\begin{remark}
+  We have \( \delta m_{\va{k}} \in \mathbb{C} \) but \( \delta m (\va{r}) \in \R \), hence
+  \begin{equation}
+    \delta m_{\va{k}} = - \delta m^*_{-\va{k}}
+  \end{equation}
+\end{remark}
+
+\subsection{Useful relations}
+Sometimes it is useful to convert the sum over \( \va{k} \) by an integral by using the density of states in the \( \va{k} \) space that is \( \frac{V}{(2 \pi )^D} \),
+\begin{empheq}[box=\myyellowbox]{equation}
+  \sum_{\va{k}}^{} \rightarrow \frac{V}{( 2 \pi )^D} \int_{\R^D}^{} \dd[]{\va{k}}
+\end{empheq}
+Hence,
 \begin{equation}
-  \delta m_{\va{k}} = \int_{V}^{} \dd[D]{\va{r}} \delta m (\va{r}) e^{-i \va{k} \vdot \va{r} }
+\begin{split}
+  \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} (\va{r}-\va{r}')} & \rightarrow \frac{1}{V} \frac{V}{(2 \pi )^2} \int_{\R^D}^{} \dd[D]{\va{k}} e^{i \va{k} (\va{r}-\va{r}')} \\
+  & = \frac{1}{(2 \pi )^D} \int_{\R^D}^{} e^{i \va{k} (\va{r}-\va{r}')} \dd[D]{\va{k}}  = \delta (\va{r}- \va{r}')
+\end{split}
 \end{equation}
-with \( \va{k} = k_1, \dots, k_D = \frac{2 \pi  \bar{n} }{L}\)
-We have \( \delta m_{\va{k}} \in \mathbb{C} \) but \( \delta m (\va{r}) \in \R \), hence
+so
+\begin{empheq}[box=\myyellowbox]{equation}
+  \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} (\va{r}-\va{r}')} \rightarrow \delta (\va{r}-\va{r}')
+\end{empheq}
+Inserting
 \begin{equation}
-  \delta m_{\va{k}} = - \delta m_{-\va{k}}
+  m (\va{r}) = \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k}' \va{r}} m_{\va{k}'}
 \end{equation}
+In the expression
 \begin{equation}
-  \sum_{\va{k}}^{} \rightarrow \frac{V}{( 2 \pi )^D} \int_{\R}^{} \dd[]{\va{k}}
-\end{equation}
-\begin{equation}
-  \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} (\va{r}-\va{r}')} \rightarrow \frac{1}{V} \frac{V}{(2 \pi )^2} \int_{\R}^{} \dd[D]{\va{k}} e^{i \va{k} (\va{r}-\va{r}')}
-  = \delta (\va{r}- \va{r}')
-\end{equation}
-\begin{equation}
+  m_{\va{k}} = \int_{V}^{} \dd[D]{\va{r}} e^{- i \va{k} \vdot \va{r}} m (\va{r})
+ \end{equation}
+one gets
+\begin{empheq}[box=\myyellowbox]{equation}
   \frac{1}{V} \int_{}^{} \dd[D]{\va{r}} e^{i (\va{k} - \va{k}') \vdot  \va{r}} = \delta _{\va{k}\va{k}'}
-\end{equation}
-write immediately
+  \label{eq:18_1}
+\end{empheq}
+Finally, since
 \begin{equation}
-  V \delta _{\va{k} \va{k}'} \overset{V \rightarrow \infty }{\longrightarrow  } (2 \pi )^D \delta (\va{k} - \va{k}')
+  \int_{}^{} \dd[D]{\va{r}} e^{i (\va{k}-\va{k}') \vdot \va{r}} \overset{V \rightarrow \infty }{\longrightarrow  } (2 \pi )^D \delta (\va{k}-\va{k}')
 \end{equation}
+From \eqref{eq:18_1} one gets,
+\begin{empheq}[box=\myyellowbox]{equation}
+  V \delta _{\va{k} \va{k}'} \overset{V \rightarrow \infty }{\longrightarrow  } (2 \pi )^D \delta (\va{k} - \va{k}')
+\end{empheq}
+\begin{remark}
+Since the minimal spatial length of the system is \( a \),
 \begin{equation}
   a \Rightarrow \abs{\va{k}} \le \frac{\pi }{a} = \Lambda
 \end{equation}
 that is the ultraviolet cut-off.
+\end{remark}
+
+
+\section{Gaussian Hamiltonian in Fourier space}
+
+
+
+
+\section{lesson}
+
+
+
 
 Change now the notation:
 \begin{equation}
