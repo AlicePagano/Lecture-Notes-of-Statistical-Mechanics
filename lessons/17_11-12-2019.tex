@@ -225,6 +225,12 @@ and one can show that the magnetic suscpetibility is
 \end{equation}
 The problem is again try to approximate this term as much as we can.
 Let us compute the approximation.
+
+
+
+
+
+
 \section{Saddle point approximation and Landau theory for non-homogeneous systems}
 \begin{equation}
   Z_{GL}[h] = \int_{}^{} \text{D} [m] e^{- \int_{}^{} \dd[D]{\va{r}} \qty[\beta \mathcal{H}_{eff} [m] - h (\va{r}) m (\va{r})]   }
@@ -293,6 +299,7 @@ the Euler-Lagrange equation become
   h (\va{r}) = - k \grad ^2 m_0 (\va{r}) + 2 a t m _0 (\va{r}) + 2 b m_0^3 (\va{r})
    \label{eq:17_4}
 \end{equation}
+this is the mean field solution of the Gibbs-Landau. It is more general than the Landau we have used. It is just the Landau with the additional term \( \grad  \).
 \begin{remark}
 If \( h (\va{r}) = h \) (homogeneous field) and \( m_0 (\va{r})=m_0 \), equation reduces to the equation of state of the Landau theory of uniform system
 \begin{equation}
@@ -305,6 +312,30 @@ If \( h (\va{r}) = h \) (homogeneous field) and \( m_0 (\va{r})=m_0 \), equation
    F[m,h] = \int_{}^{} \dd[D]{\va{r}} \qty[a t m^2 (\va{r}) + \frac{b}{2} m^4 (\va{r}) + \frac{k}{2} (\grad m)^2 - h (\va{r}) m(\va{r})]
  \end{equation}
  \end{remark}
+
+ \subsubsection{lesson}
+ \begin{equation}
+ Z_{GL}^h = \int_{}^{} \text{D}[m] \exp (-F_{eff}[m])
+ \end{equation}
+
+ In the frist approximation, we replace this integral with just
+ \begin{equation}
+   \simeq \exp [-\beta F_{eff} [\bar{m} ] ]
+ \end{equation}
+ where \( \bar{m}(\va{r})  \) is such that \( F_{eff} [\bar{m} ] \) is minimal.
+ \begin{equation}
+   \bar{m} =  \min_{m} [F_{eff}[m]]
+ \end{equation}
+ Taking the variation of \( \delta F_{eff} \) when \( m \rightarrow m + \delta m \):
+ \begin{equation}
+   \delta F_{eff} = F_{eff} [m+\delta m] - F_{eff} [m]
+ \end{equation}
+ \begin{equation}
+   h (\va{r}) = - \qty[\grad \qty(\pdv{ \mathcal{H}_{eff}}{(\grad m)} ) - \pdv{\mathcal{H}_{eff}}{m}  ]
+ \end{equation}
+
+
+
 
 \section{Nono homogeneous systems and correlation functions within a mean field approximation}
 Let us now try to compute the correlation function. Starting from \eqref{eq:17_4}, we derive it (is a functional derivative!) with respect to \( h (\va{r}')\).
@@ -384,41 +415,7 @@ This equation can be solved in at least two ways:
 \item Spherical coordinates.
 \end{itemize}
 
-\section{lesson}
 
-
-
-\begin{equation}
-Z_{GL}^h = \int_{}^{} \text{D}[m] \exp (-F_{eff}[m])
-\end{equation}
-
-In the frist approximation, we replace this integral with just
-\begin{equation}
-  \simeq \exp [-\beta F_{eff} [\bar{m} ] ]
-\end{equation}
-where \( \bar{m}(\va{r})  \) is such that \( F_{eff} [\bar{m} ] \) is minimal.
-\begin{equation}
-  \bar{m} =  \min_{m} [F_{eff}[m]]
-\end{equation}
-Taking the variation of \( \delta F_{eff} \) when \( m \rightarrow m + \delta m \):
-\begin{equation}
-  \delta F_{eff} = F_{eff} [m+\delta m] - F_{eff} [m]
-\end{equation}
-\begin{equation}
-  h (\va{r}) = - \qty[\grad \qty(\pdv{ \mathcal{H}_{eff}}{(\grad m)} ) - \pdv{\mathcal{H}_{eff}}{m}  ]
-\end{equation}
-The equation of state in that approximation for the landau is
-\begin{equation}
-  h (\va{r}) = - k \grad ^2 m_0(\va{r}) + 2 a t m_0 (\va{r})+ 2 b m_0^3(\va{r})
-  \label{eq:17_1}
-\end{equation}
-It is the profile what at least make the function, the \( \delta F \) equal to zero.
-
-This is the mean field solution of the Gibbs-Landua. It is more general than the Landau we have used. It is just the Landau with the additional term \( \grad  \).
-
-\begin{equation}
-  h(\va{r}) \rightarrow h
-\end{equation}
 
 
 
