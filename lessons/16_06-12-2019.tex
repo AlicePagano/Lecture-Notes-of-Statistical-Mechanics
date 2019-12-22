@@ -492,10 +492,14 @@ Similarly
   & = \frac{1}{N} k_B T \qty[\pdv[2]{\ln{Z} }{H} ] = \frac{1}{N} k_B T \qty[\frac{1}{Z} \pdv[2]{Z}{H} - \frac{1}{Z^2} \qty(\pdv{Z}{H} )^2 ] \\
   & = \frac{1}{N \beta } \qty[\beta ^2 \sum_{ij}^{} \expval{S_i S_j}  - \beta ^2 \qty(\sum_{i}^{} \expval{S_i}  )^2   ] \\
   & = \frac{\beta }{N} \sum_{ij}^{}  G_c (i,j) = \frac{\beta }{N} \sum_{ij}^{} G_c (\va{r}_i - \va{r}_j) \\
-  & = \beta \sum_{i}^{} G_c (\va{x_i}) = (a^d k_B T)^{-1} \int_{\Omega }^{} \dd[d]{\va{r}} G_c (\va{r})
+  & = \beta \sum_{i}^{} G_c (\va{x_i})
 \end{split}
 \end{equation}
-where \( \va{x}_i \equiv \va{r}_i - \va{r}_j \). This is the fluctuation dissipation relation.
+where \( \va{x}_i \equiv \va{r}_i - \va{r}_j \).
+\begin{equation}
+  \Rightarrow \chi _T = (a^d k_B T)^{-1} \int_{\Omega }^{} \dd[d]{\va{r}} G_c (\va{r})
+\end{equation}
+this is the fluctuation dissipation relation.
 \subsection{Computation of \( E_ R  \)}
 The total relative error is the \( E_R (r)\) integrated over the region of radius \( R \le \xi  \), i.e. where correlations are not negligible.
 \begin{equation}
