@@ -207,73 +207,137 @@ that is the ultraviolet cut-off.
 
 
 \section{Gaussian Hamiltonian in Fourier space}
-
-
-
-
-\section{lesson}
-
-
-
-
-Change now the notation:
+For simplicity, let us change notation
 \begin{equation}
   \delta m (\va{r}) \leftrightarrow \varphi (\va{r}), \quad k \leftrightarrow c
 \end{equation}
-and obtain
+obtaining
 \begin{equation}
-  \beta \mathcal{H}_{eff}^{G,>} = \int_{}^{} \dd[D]{\va{r}} \qty[\frac{c}{2} \qty(\grad \phi )^2 + a t \phi ^2 ]
+  \beta \mathcal{H}_{eff}^{G,>} [\varphi ]= \int_{}^{} \dd[D]{\va{r}} \qty[\frac{c}{2} \qty(\grad \varphi )^2 + a t \varphi  ^2 ]
+  \label{eq:18_2}
 \end{equation}
+where
+\begin{equation}
+  \varphi (\va{r}) = \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} \vdot \va{r}} \varphi _{\va{k}}
+\end{equation}
+Consider the term of expression \eqref{eq:18_2} separately:
+\begin{itemize}
+\item Term \( a t \varphi ^2 \).
+\begin{equation}
+  \int_{}^{} \dd[D]{\va{r}} a t \varphi ^2 (\va{r}) = \frac{a t}{V^2} \sum_{\va{k},\va{k}'}^{}  \int_{\R^D}^{} e^{i (\va{k}+\va{k}') \vdot \va{r}} \varphi _{\va{k}} \varphi _{\va{k}'} \dd[D]{\va{r}}
+  = \frac{at}{V^2} \sum_{\va{k}\va{k}'}^{} \varphi _{\va{k}} \varphi _{\va{k}'} \delta (\va{k}+\va{k}') (2 \pi )^D
+\end{equation}
+On the other hand,
+\begin{equation}
+  \frac{(2 \pi )^D}{V} \delta (\va{k}+ \va{k}') \overset{V \gg 1}{\longrightarrow} \delta _{\va{k},-\va{k}'}
+\end{equation}
+\begin{equation}
+  \Rightarrow \int_{}^{} \dd[D]{\va{r}} a t \varphi ^2 (\va{r})  \overset{V \gg 1}{\longrightarrow} \frac{1}{2V} \sum_{\va{k}}^{} 2 a t  \varphi _{\va{k}} \varphi _{\va{k}'}
+\end{equation}
+\item Term \( \int_{}^{} \dd[D]{\va{r}} \frac{c}{2} \qty(\grad \varphi )^2    \).
 \begin{equation}
 \begin{split}
   \int_{}^{} \dd[D]{r} \frac{c}{2} \qty(\grad \varphi )^2 & = \frac{c}{2} \frac{1}{V^2} \int_{}^{} \dd[D]{\va{r}} \qty(\grad \sum_{\va{k}}^{} e^{i \va{k} \vdot \va{r}} \varphi _{\va{k}}  ) \qty(\grad \sum_{\va{k}'}^{} e^{i \va{k}' \vdot \va{r} } \varphi _{\va{k}'}  )     \\
-  & = \frac{c}{2} \sum_{\va{k} \va{k}'}^{}  \qty(- \va{k} \va{k}') \varphi _{\va{k}} \varphi _{\va{k}'} \underbrace{\int_{}^{} \dd[D]{\va{r}}  e^{i (\va{k}+\va{k}')\vdot \va{r}}}_{(2 \pi )^2 \delta (\va{k}+ \va{k}')}   \\
+  & = \frac{c}{2 V^2} \sum_{\va{k} \va{k}'}^{}  \qty(- \va{k} \vdot \va{k}') \varphi _{\va{k}} \varphi _{\va{k}'} \underbrace{\int_{}^{} \dd[D]{\va{r}}  e^{i (\va{k}+\va{k}')\vdot \va{r}}}_{(2 \pi )^2 \delta (\va{k}+ \va{k}') \rightarrow V \delta _{\va{k},-\va{k}'}}   \\
   & = \frac{c}{2V} \sum_{\va{k}}^{} \abs{\va{k}}^2 \varphi _{\va{k}} \varphi _{\va{-k}'}
 \end{split}
 \end{equation}
-\begin{equation}
+\end{itemize}
+In summary, the exponent is:
+\begin{empheq}[box=\myyellowbox]{equation}
   \beta \mathcal{H}_{eff}^{G,>} \rightarrow \frac{1}{2V} \sum_{\va{k}}^{} \qty(2 a t + c k^2) \varphi _{\va{k}} \varphi _{-\va{k}'}
+\end{empheq}
+this is the Gaussian model in Fourier space.
+
+Now, the question is: how can we write the measure \( \int \text{D}[\varphi ] \) in Fourier space?
+\begin{equation}
+  \varphi (\va{r}) = \frac{1}{V} \sum_{\va{k}}^{} \varphi _{\va{k}} e^{i \va{k} \vdot \va{r}}, \quad \varphi _{\va{k}} \in \mathbb{C}
 \end{equation}
 \begin{equation}
   \int_{}^{} \text{D} \qty[\varphi (\va{r})] \rightarrow \int_{- \infty }^{+ \infty } \prod_{\abs{\va{k}} < \Lambda  }^{}   \dd[]{(\Re{\varphi _{\va{k}}})}   \dd[]{(\Im{\varphi _{\va{k}}})}
 \end{equation}
-with \( \varphi _{\va{k}} \in \mathbb{C} \).
+with \( \varphi (\va{r}) \in \R \), that implies \(    \varphi _{\va{k}}^* = \varphi _{-\va{k}}\), hence
 \begin{equation}
-  \varphi _{\va{k}}^* = \varphi _{-\va{k}}
+  \begin{cases}
+   \Re {\varphi _{\va{k}}} = \Re {\varphi _{-\va{k}}} \\
+  \Im{\varphi _{\va{k}}} = -\Im {\varphi _{-\va{k}}}
+  \end{cases}
 \end{equation}
+Therefore, if we considered
 \begin{equation}
-  \Re {\varphi _[\va{k}]} = \Re {\varphi _{-\va{k}}}, \quad   \Im{\varphi _[\va{k}]} = -\Im {\varphi _{-\va{k}}}
+  \prod_{\abs{\va{k}} < \Lambda  }^{} \dd[]{\Re {\varphi _{\va{k}}}} \dd[]{\Im{\varphi _{\va{k}}}}
 \end{equation}
+we would count twice. We need to consider one restriction. For example we can assume
+\( k_z > 0 \) (hupper half of the \( \va{k} \) space), hence
 \begin{equation}
-  \Tr = \int_{- \infty }^{+ \infty } \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_D > 0 } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
+  \Tr \equiv \int_{- \infty }^{+ \infty } \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z > 0 } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
 \end{equation}
+or
 \begin{equation}
-  \widetilde{Z}_{GC}^{G,>} = \frac{1}{2} \int_{- \infty }^{+ \infty } \prod_{\substack{ \va{k}   \\\abs{\va{k}} < \Lambda } }^{} \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
-  e^{- \beta \widetilde{\mathcal{H}}_{eff} [\varphi _{\va{k}}] }
+  \Tr \equiv \frac{1}{2} \int_{- \infty }^{+ \infty } \prod_{\substack{ \abs{\va{k}} < \Lambda    } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
 \end{equation}
+For sake of brevity
 \begin{equation}
-  x = \Re \varphi _{\va{k}}, \quad   y = \Im \varphi _{\va{k}}
+  \Tr \equiv \int_{-\infty }^{+\infty } \prod_{\va{k}}^{'}  \dd[]{\varphi _{\va{k}}}
 \end{equation}
+where
+\begin{equation}
+  \prod_{\va{k}}^{} \dd[]{\varphi _{\va{k}}} \equiv \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z >0 } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
+\end{equation}
+In summary, we have
+\begin{equation}
+  \widetilde{Z}_{GC}^{G,>} =  \int_{- \infty }^{+ \infty }  \qty( \prod_{\va{k}}^{'}  \dd[]{\varphi _{\va{k}}})
+  e^{- \beta \widetilde{\mathcal{H}}_{eff}^G [\varphi _{\va{k}}] }
+\end{equation}
+where
+\begin{equation}
+  - \beta \widetilde{\mathcal{H}}_{eff}^G [\varphi _{\va{k}}] = - \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2
+\end{equation}
+\subsection{Free energy in Gaussian approximation}
+Let us consider the case \( T>T_c \) \( (m_0=0) \) and \( h=0 \)
+\begin{equation}
+  \widetilde{Z}_G^{T>T_c} = \prod_{\va{k}}^{'} \int_{-\infty }^{+\infty } \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}} e^{- \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2}
+\end{equation}
+Change variables
+\begin{equation}
+  \begin{cases}
+   x \equiv  \Re \varphi _{\va{k}}\\
+  y \equiv  \Im \varphi _{\va{k}}
+  \end{cases}
+\end{equation}
+and since
 \begin{equation}
   \int_{-\infty }^{+\infty } \dd[]{x} \dd[]{y} e^{-A (x^2+y^2)} = \frac{\pi }{A}
 \end{equation}
-where \( A= \frac{1}{2V} \).
+with \( A \equiv  \frac{1}{2V} \).
 \begin{equation}
-  e^{-\beta \widetilde{F}_{GL}^> } = \qty(\prod_{\substack{\va{k} \\ \abs{\va{k}} <\Lambda \\ k_D > 0  } }^{}  \frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 } )
+  e^{-\beta \widetilde{F}_{GL}^> } = \qty(\prod_{\substack{\va{k} \\ \abs{\va{k}} <\Lambda \\ k_z > 0  } }^{'}  \frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 } )
+  = \exp [\frac{1}{2} \sum_{\abs{\va{k}}<\Lambda  }^{} \log (\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })   ]
 \end{equation}
+Hence,
 \begin{equation}
-  \widetilde{F}_{GL}^{G,>} = - \frac{1}{2} k_B T \sum_{\abs{\va{k}}> \Lambda  }^{}
+  \widetilde{F}_{GL}^{G,T>T_c} = - \frac{1}{2} k_B T \sum_{\abs{\va{k}}< \Lambda  }^{}
   \log{\qty(\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })}
 \end{equation}
+\begin{remark}
+For \( T<T_c \) we have \( m_0 \neq 0 \). In addition, to redefine the quadratic term \( (at+3bm_0^2) \), that for \( m_0^2 = - at/b \), becames \( -2at \) we have also the term
 \begin{equation}
-  c_V = - T \pdv[2]{F}{T} = \frac{A}{V} \sum_{\abs{\va{k}} < \Lambda  }^{}
-  \frac{1}{2 a t + c \abs{\va{k}}^2 } - \frac{B}{V} \sum_{\abs{\va{k}}< \Lambda  }^{} \frac{1}{\qty(2 a t + c \abs{\va{k}}^2)^2 }
+  V A_0 = V (atm_0^2 + \frac{b}{2} m_0^4)
 \end{equation}
-Question: what happens if I introduce guassian fluctuations.
+Therefore,
+\begin{equation}
+  \widetilde{F}_{GL}^{G,T<T_c} = \beta A_0 V - \frac{1}{2} k_B T \sum_{\abs{\va{k}}< \Lambda  }^{}
+  \log{\qty(\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })}
+\end{equation}
+\end{remark}
 
-It turns out that when we study the asimptotic behaviour of these integrals.
-
-For the first term it turns out that
+\subsection{Specific heat in the Gaussian approximation}
+\begin{equation}
+  c_V^G = - T \pdv[2]{F^G/V}{T} \overset{to do}{=}   \underbrace{\frac{A}{V} \sum_{\abs{\va{k}} < \Lambda  }^{}
+  \frac{1}{ \qty(2 a t + c \abs{\va{k}}^2 )^2}}_{1^{st}}
+    - \underbrace{ \frac{B}{V} \sum_{\abs{\va{k}}< \Lambda  }^{} \frac{1}{2 a t + c \abs{\va{k}}^2 }}_{2^{st}}
+\end{equation}
+One can show that
 \begin{equation}
 1^{st} \propto
   \begin{cases}
@@ -288,13 +352,21 @@ For the first term it turns out that
   < \infty & D > 2
   \end{cases}
 \end{equation}
-At the end, the behaviour of the specific heat
+In summary, the behaviour of the specific heat is
 \begin{equation}
   c_V \sim \begin{cases}
     t^{-\nu (4-D)} & D < 4 \\
-    \infty & D > 4
+    <\infty & D > 4
 \end{cases}
 \end{equation}
+The introduction of the fluctuations even if only at the Gaussian level changes the behaviour of \( c_V \) at the transition point. 
+
+
+
+
+\section{lesson}
+
+
 figure 1, figure 2.
 \begin{equation}
   \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G = \frac{\int_{}^{} \prod_{}^{}   \dd[]{\varphi _{\va{k}}}  \dots e^{- \beta \mathcal{H}_{eff}}  \phi_{\va{k}} \varphi _{\va{k}'} }{Z_{GL}^{G,>}}
