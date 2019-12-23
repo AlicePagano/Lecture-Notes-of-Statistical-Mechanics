@@ -386,87 +386,138 @@ This assumption is in general wrong!
 \end{remark}
 Only the coupling constants \( k_l \) and \( h_l \) can change by the transformation. Note that the number of block spins \( N_l \) is given by \(   N_l = \frac{N}{l^D} \).
 
-\subsubsection{\(  2^{st} \) crucial assumption}
-
-
-\section{lesson}
-
-
-
-
-
-
-
-\begin{equation}
-  N_l = \frac{N}{l^D}
-\end{equation}
 How you measure in the new system the lengths? the correlations lengths. Before we have changed the size of the system. We have increased the ruler, so the number is smaller now. It seems stupid but it is fundamental.
+An important point is: the new system has a lattice length equal to \( la \), hence in the new system all the lengths will be measured in units of \( la \). In particular
 \begin{equation}
   \xi _l = \frac{\xi }{l}
 \end{equation}
-were the last relation it is very important!
+that is \( \xi _l \) has a numerical value smaller than the one measured in the original lattice.
 
-Anyway for the Kadanoff it does not meant so much because we do not iterate.
-The new distance of the critical point in the new system \( t_l \) is
-\begin{equation}
-  t_l > t
-\end{equation}
+What does it mean? Since \( \xi _l < \xi  \) the system described by \( \mathcal{H}_l \)   is more distant from the critical point than the original \( \mathcal{H} (\sigma _i) \)! We should expect \( t_l > t \).
 
-We have
+Similarly, \( h_l \) will be such that
 \begin{equation}
   h \sum_{i}^{} \sigma _i = h \sum_{I}^{} \sum_{i \in \sigma _i}^{}  \sigma _i = h \sum_{I}^{}    \abs{m_l} l^D S_I
-  = \underbrace{h \abs{m_l} l^D}_{h_l} \sum_{I}^{} S_I
+  = \underbrace{h \abs{m_l} l^D}_{h_l} \sum_{I}^{} S_I \equiv  h_l \sum_{I}^{} S_I
 \end{equation}
+giving
 \begin{equation}
   h_l = \abs{m_l} l^D h
 \end{equation}
-
-What happens to the free energy?
-Since \( h_l \) is equal in form to \( h \), the story is the same. So also for the free energy there would be a difference in the number of spins.
-
-If I take \(   N_l f_s (t_l,h_l) \) this is equal to
+Since \( \mathcal{H}_l \) is equal in form to \( \mathcal{H} \), so it is \( Z_l \) and hence the free energies per spins satisfy the equation
 \begin{equation}
   N_l f_s (t_l,h_l) = N f_s (t,h)
 \end{equation}
+Hence,
 \begin{equation}
   \Rightarrow  f_s (t_l,h_l) = l^D f_s (t,h)
 \end{equation}
+Note that the homogeneity condition is recovered with \( \lambda \equiv l^D \).
+We now should ask how \( t \) and \( h \) change under the block spin transformation.
 
-Somehow we are getting just for free \( \lambda \equiv l^D \). Now we need other assumptions. The second assumption is
+\subsubsection{\(  2^{st} \) crucial assumption}
+The second assumption is
 \begin{equation}
-  t_l = t l^{Y_t} \quad h_l = h l^{Y_h}
+  \begin{cases}
+     t_l = t l^{Y_t}\\
+  h_l = h l^{Y_h}
+  \end{cases}
+  \label{eq:19_8}
 \end{equation}
+where \( Y_t, \, Y_h \) are scaling exponents and are unknown!
+Inserting \eqref{eq:19_8} in the free energy equation one obtains
 \begin{equation}
   f_s (t,h) = l^{-D} f_s (t l^{Y_t}, h l^{Y_h})
 \end{equation}
-Let us take \( l= \abs{t}^{-1/Y_t}  \)
+As the parameter \( \lambda  \), in Widom also \( l \)  can be chosen such that
+\begin{equation}
+  l= \abs{t}^{-1/Y_t}
+\end{equation}
+so
 \begin{equation}
   f_s (t,h) = \abs{t}^{D/Y_t} f_s (1, h \abs{t}^{-Y_h/Y_t} )
 \end{equation}
+Therefore,
 \begin{equation}
-  \Delta = \frac{Y_h}{Y_t} \quad \Rightarrow 2 - \alpha = \frac{D}{Y_t}
+  \Delta = \frac{Y_h}{Y_t}
 \end{equation}
-We are changing the ruler
+\begin{remark}
+By comparing with the Widom's scaling
+\begin{equation}
+  f_s (t,h) \sim t^{2- \alpha } f_s \qty(1, \frac{h}{t^\Delta})
+\end{equation}
+we get the new relation
+\begin{equation}
+  2 - \alpha = \frac{D}{Y_t}
+\end{equation}
+\end{remark}
+
+
+\section{Kadanoff's argument applied to the two-point correlation}
+Let us compute the two-point correlation function for the block spins
 \begin{equation}
   G_{IJ} (\va{r}_l, t_l) \equiv \expval{S_I S_J} - \expval{S_I}\expval{S_J}
 \end{equation}
+Since
 \begin{equation}
-  \abs{\va{r}_l} = \frac{\va{r}}{l}
+  h_l = h \abs{m_l} l^D \quad \Rightarrow \abs{m_l} = \frac{h_l l^{-D}}{h}
 \end{equation}
-We want to write \( G_{IJ} \) for \( \sigma _i \sigma _j \), what we get at the end is
+and using \( h_l = h l^{Y_h} \), we obtain
+\begin{equation}
+  \abs{m_l} = l^{\frac{1}{h}-D}
+\end{equation}
+Since
+\begin{equation}
+  S_I = \frac{1}{\abs{m_l} } \frac{1}{l^D} \sum_{i \in I}^{} \sigma _i
+\end{equation}
+we have
+\begin{equation}
+\begin{split}
+  G_{IJ} (\va{r}_l, t_l) &=  \expval{S_I S_J} - \expval{S_I} \expval{S_J}    \\
+  & = \frac{1}{l^{2 (Y_h - D)} l^{2D}} \sum_{i \in I}^{} \sum_{j \in J}^{} \qty[ \underbrace{\expval{\sigma _i \sigma _j} - \expval{\sigma _i} \expval{\sigma _j} }_{ (a) }    ] \\
+  & = \frac{l^D l^D}{l^{2(Y_h-D)}l^{2D}} \qty[ \expval{\sigma _i \sigma _j} - \expval{\sigma _i} \expval{\sigma _j}  ]
+\end{split}
+\end{equation}
+in fact \( (a) \) we have made the assumption  that since \( la \ll \xi  \), \( G_{ij} \) inside a block is fairly constant
+\begin{remark}
+  \begin{equation}
+    \abs{\va{r}_l} = \frac{\va{r}}{l}
+  \end{equation}
+\end{remark}
+Hence,
 \begin{equation}
   G_{IJ} (\va{r}_l, t_l) = l^{2(D-Y_h)} G_{ij} (\va{r},t)
 \end{equation}
+If one includes also the \( h \) dependence:
+\begin{equation}
+  G_{IJ} \qty(\frac{\va{r}}{l}, t l^{Y_t}, h l^{Y_h}) = l^{2 (D- Y_h)} G_{ij} (\va{r},t,h)
+ \end{equation}
+By choosing \(   l = t^{-1/Y_t} \) one gets
+\begin{equation}
+  G (\va{r},t,h) = t^{\frac{2(D-Y_h)}{Y_t}} G (\va{r}t^{1/Y_t}, 1 , h t ^{-Y_h/Y_t})
+  \label{eq:19_9}
+\end{equation}
+Since we are interested at large length scale in proximiti of \( T=T_c \), we can choose \( \abs{\va{r}}  \) such that
+\begin{equation}
+  \abs{\va{r}} t^{1/Y_t} = 1  \quad \Rightarrow  t = \abs{\va{r}}^{-Y_t}
+\end{equation}
+Hence, inserting in \eqref{eq:19_9}
+\begin{equation}
+  G (\va{r},t,h) = \abs{\va{r}}^{-2(D-Y_h)} F_G \qty(h t^{-Y_h/Y_t})
+\end{equation}
+where
+\begin{equation}
+  F_G \qty(h t^{-Y_h/Y_t})  \equiv G (1, h t ^{-Y_h/Y_t},1)
+\end{equation}
 
-What we get resclaing the system is
+Remembering the power law behaviour of \( G \) in proximity of the critical point, i.e.  \( G \sim \abs{\va{r}}^{2-D- \eta }  \) and \( \xi \sim t^{-\nu } \).
+Finally we get
 \begin{equation}
-  G_{IJ} \qty(\va{r}/l, t l ^{Y_t}, h l^{Y_h}) l^{2(D-Y_h)} G_{ij} (\va{r},t)
+  \nu = \frac{1}{Y_t}, \quad 2 (D- Y_h) = D - 2 + \eta
 \end{equation}
+Hence, we obtain the hyperscaling relation
 \begin{equation}
-  l = t^{-1/Y_t}
-\end{equation}
-\begin{equation}
-  G_{IJ} (\va{r} t^{1/Y_t}, 1, h t^{-Y_h/Y_t}) = t^{-2 \frac{D- Y_h}{Y_t}} G_{ij} (\va{r},t)
+      \Rightarrow 2 - \alpha = \nu D
 \end{equation}
 
 
