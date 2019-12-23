@@ -337,13 +337,16 @@ that is the \( 2^{nd} \) scaling form of the free-energy.
 Widom's theory refers only to the free energy of the system. Moreover it do, not fully explain how the scaling hypothesis derives by \( \xi  \) being the only relevant length of the system.
 
 The first argument on this point was given \( 1966 \) by Kadonoff.
-The Kadonoff's intuition was: the divergence of \( \xi  \) implies a relation between the coupling constants of a \( \mathcal{H}_{eff} \) and the length scales over which \( m \) is defined.  
+The Kadonoff's intuition was: the divergence of \( \xi  \) implies a relation between the coupling constants of a \( \mathcal{H}_{eff} \) and the length scales over which \( m \) is defined.
 
-
-\section{lesson}
-
-\section{Kadanoff 1966}
-How can we relate the coupling costant of the two hamiltonian. This is the idea of the renormalization group.
+We will that Kadanoff's intuition is correct. However, the relation found by Kadanoff is an approximation of the one proposed later by the theory of renormalization.
+\begin{remark}
+How can we relate the coupling costant of the two hamiltonian. This is the idea of the renormalization group. (lesson)
+\end{remark}
+\subsection{Kadanoff's argument}
+It is based on a coarse-grained operation on the system and two basic assumptions.
+\subsubsection{Coarse graining operation}
+Let us start from the Hamiltonian
 \begin{equation}
   - \beta \mathcal{H}_{\Omega } = k \sum_{\expval{ij} }^{} \sigma _i \sigma _j + h \sum_{i}^{} \sigma _i
 \end{equation}
@@ -351,21 +354,39 @@ with
 \begin{equation}
   \sigma _i = \pm 1, \quad k \equiv \frac{J}{k_B T}, \quad h \equiv \frac{H}{k_B T}
 \end{equation}
-we assume
+Given \( xi \) we know that, for distances \( r < \xi  \), the spins are correlated.
+
+Let partition the system into blocks of size \( la \) (\( a \) is the lattice unit length while \( l \) is a adimensional scale) such that
 \begin{equation}
   r \ll \xi  \quad \Rightarrow a \ll l a \ll \xi (t)
 \end{equation}
-We can build up many procedure.
-This is the \emph{Block spin transformation}, the idea is divide into cell of length \( la \) (figure 2) and we replace it with (figure 3).
+The coarse-graining procedure consits in substituting the spins \( \sigma _i \) in a block of length \( la \) with a \emph{superspin} or \emph{block spin} \( S_I \).
 
+The transformation chosen by Kadanoff was the following
 \begin{equation}
   S_I \equiv \frac{1}{\abs{m_l} } \frac{1}{l^D} \sum_{i \in I}^{}  \sigma _i
+  \label{eq:19_7}
 \end{equation}
-with the sum is over all the sites with a given cell.
-Define the magnetization
+where \( m_l \) is the average magnetization of the \( I \)-esim block
 \begin{equation}
   m_l \equiv \frac{1}{l^D} \sum_{i \in I}^{} \sigma _i
 \end{equation}
+with the sum that is over all the sites with a given cell.
+\begin{remark}
+The division by \( \abs{m_l}  \) in equation \eqref{eq:19_7} is crucial because it rescales the new variables \( S_I \) to have the original values \( \pm 1 \) (rescaling of the fields).  
+\end{remark}
+
+\subsubsection{\(  1^{st} \) crucial assumption}
+\subsubsection{\(  2^{st} \) crucial assumption}
+
+
+\section{lesson}
+
+
+
+
+
+
 
 The frist assumption is that the Hamiltonian of the new system \( \mathcal{H}_l \) is equal in form to \( \mathcal{H}_ \Omega  \). It means that we can write
 \begin{equation}
