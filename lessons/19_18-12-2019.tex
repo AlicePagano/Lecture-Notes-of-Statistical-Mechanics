@@ -373,10 +373,19 @@ where \( m_l \) is the average magnetization of the \( I \)-esim block
 \end{equation}
 with the sum that is over all the sites with a given cell.
 \begin{remark}
-The division by \( \abs{m_l}  \) in equation \eqref{eq:19_7} is crucial because it rescales the new variables \( S_I \) to have the original values \( \pm 1 \) (rescaling of the fields).  
+The division by \( \abs{m_l}  \) in equation \eqref{eq:19_7} is crucial because it rescales the new variables \( S_I \) to have the original values \( \pm 1 \) (rescaling of the fields).
 \end{remark}
 
 \subsubsection{\(  1^{st} \) crucial assumption}
+The frist assumption is that the Hamiltonian of the new system \( \mathcal{H}_l \) is equal in form to \( \mathcal{H}_ \Omega  \), the original one:
+\begin{equation}
+  - \beta \mathcal{H}_l = k_l \sum_{\expval{IJ} }^{N_b} S_I S_J  + h_l \sum_{I=1}^{N_b} S_I
+\end{equation}
+\begin{remark}
+This assumption is in general wrong!
+\end{remark}
+Only the coupling constants \( k_l \) and \( h_l \) can change by the transformation. Note that the number of block spins \( N_l \) is given by \(   N_l = \frac{N}{l^D} \).
+
 \subsubsection{\(  2^{st} \) crucial assumption}
 
 
@@ -387,11 +396,6 @@ The division by \( \abs{m_l}  \) in equation \eqref{eq:19_7} is crucial because 
 
 
 
-
-The frist assumption is that the Hamiltonian of the new system \( \mathcal{H}_l \) is equal in form to \( \mathcal{H}_ \Omega  \). It means that we can write
-\begin{equation}
-  - \beta \mathcal{H}_l = k_l \sum_{\expval{IJ} }^{} S_I S_J  + h_l \sum_{I}^{} S_I
-\end{equation}
 
 \begin{equation}
   N_l = \frac{N}{l^D}
