@@ -509,7 +509,89 @@ For \( x' = x^3 \), we have two fixed points
    x^* = 1^- \iff k \rightarrow \infty  \iff T \rightarrow 0
   \end{cases}
 \end{equation}
-For \( \forall x_0 < 1 \), we have \( R^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0^+ \), \( x=1 \) is an unstable fixed point    
+For \( \forall x_0 < 1 \), we have \( R^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0^+ \), \( x=1 \) is an unstable fixed point, as shown in Figure  \ref{fig:20_3}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/20_image/3.pdf}
+\caption{\label{fig:20_3} Description.}
+\end{figure}
+We have
+\begin{equation}
+  \xi (x') = \frac{\xi (x)}{b}, \quad \text{with } x' = x^b
+\end{equation}
+where \( b \) is arbitrary. Let us choose \( b = c / \ln{x}  \):
+\begin{equation}
+  \xi (x^b) = \xi  \qty(e ^{b \ln{x} }) = \xi (e^c) = \frac{\xi (x)}{b}
+  = \qty(\frac{c}{\ln{x} })^{-1} \xi (x)
+\end{equation}
+Finally,
+\begin{equation}
+  \xi (e^c) = \frac{\ln{x} }{c} \xi (x) \quad \Rightarrow \xi (x) = \frac{c \xi (e^c)}{\ln{x} } = \frac{const}{\ln{x} }
+\end{equation}
+\begin{equation}
+  \xi (k) = \frac{const}{\ln{\qty(\tanh k) } }
+\end{equation}
+equal to the exact model in \( D=1 \).
+\( k \rightarrow \infty  \) \( (x \rightarrow 1) \), we have
+\begin{equation}
+  \xi \sim e^{const/T}
+\end{equation}
+finite \( \forall k \neq \infty  \).
+
+\section{Decimation procedure for \( D>1 \) (proliferation of interactions)}
+Ioing on a square lattice, block transformation (length \( b \)). There are problems with the spins at the boundaries.
+In order to get \( Z_{N'}' (k') = Z_N (k) \), at least an additional term in the Hamiltonian must be introduced
+\begin{equation}
+  \mathcal{H} \rightarrow \mathcal{H}' = \mathcal{H}' (k',k_2')
+\end{equation}
+This unfortunately occurs at each iteration! There is an uncontrolled proliferation and approximations are necessary.
+\begin{example}[Decimation of Ising on square lattice]
+  \( x \): spin to sum over
+\begin{equation}
+  \begin{cases}
+   k' = \frac{1}{4} \ln{\cosh 4 k} \\
+   L' = \frac{1}{8} \ln{\cosh 4 k} \\
+   Q' = \frac{1}{8} \ln{\cosh 4 k} - \frac{1}{2} \ln{\cosh 2 k}\\
+  \end{cases}
+\end{equation}
+(4 spins). The approximations are:
+\begin{enumerate}
+\item Neglect \( Q' \) term.
+\item Omit explicit dependence on \( L' \). Hence, assuming \( k'+L' \rightarrow k' \). 1 recursion
+\begin{equation}
+  k' = \frac{3}{8} \ln{\cosh 4 k}
+\end{equation}
+\begin{equation}
+  \begin{cases}
+   k^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} \infty  & k_0 > k_c \\
+   k^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0  & k_0 < k_c
+  \end{cases}
+\end{equation}
+where \( \infty ,0 \) are stable fixed point.
+\begin{equation}
+  \delta k' = \lambda _t \delta k = l^{\lambda _t} \delta k
+\end{equation}
+where
+\begin{equation}
+  \lambda _t = \eval{\dv{k'}{k} }_{k=k_c}
+\end{equation}
+For \( l = \sqrt{2}  \),
+\begin{equation}
+\begin{split}
+Y_t  &= \frac{\ln{\lambda _t} }{\ln{l} } = \frac{1}{\ln{\sqrt{2} } } \ln{\qty(\dv{k'}{k})_{k=k_c} }   \\
+& = \frac{1}{\ln{\sqrt{2} } }  \ln{\qty(\dv{}{k} \qty(\frac{3}{8} \ln{(\cosh 4k)} ) ) } = 1.070
+\end{split}
+\end{equation}
+we have also
+\begin{equation}
+  \nu = \frac{1}{Y_t} = 0.9345, \quad \alpha = 2 - \frac{d}{Y_t} = 0.1313
+\end{equation}
+\end{enumerate}
+
+\end{example}
+
+
+
 
 
 
