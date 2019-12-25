@@ -440,7 +440,68 @@ inside the system.
 
 \item The Lagrangian is gauge invariant.
 \item Symmetry breaking occurs at the level of the vacuum state.
-\item A gauge symmetry that is explicitely broken is not renormalizable. 
+\item A gauge symmetry that is explicitely broken is not renormalizable.
 \end{itemize}
+\subsection{Non abelian gauge theories}
+\begin{example}
+Electro-weak interactions theory (Glashow-Weinberg-Solam) (theory of leptons). Lagrangian has \( \underbrace{S U (2)}_{\substack{ \text{weak} \\  \text{interactions} } }  \times \underbrace{U(1)}_{\text{electromagnetian}}  \)
+\end{example}
+\begin{example}[Quantum chromodynamic (quarks+gluons)]
+\end{example}
+In this case, one has a term that is \( SU(3) \) invariant + the GWS lagrangian with symmetry \( SU(2) \times U(1) \), implies
+\begin{equation}
+  SU(3) \times SU(2) \times U(1)
+\end{equation}
+Because of the groups \( SU(2) \) and \( SU(3) \) the symmetries above ar not abelian.
+(For example in \( SU(2) \) two matrices \( U (\alpha ) \) and \( U(\beta ) \) do not commute in general).
+
+\section{Extension of Higgs mechanism to non abelian theories}
+
+\subsection{GWS model}
+Complex field \( SU(2) \)
+\begin{equation}
+  \Phi = \frac{1}{\sqrt{2} } \begin{pmatrix}
+  \Phi _1 + i \Phi _2 \\
+  \Phi _3 + i \Phi _4
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  \Phi _a (\va{x}) \\
+  \Phi _b (\va{x})
+  \end{pmatrix}
+\end{equation}
+where \( \Phi _a, \Phi _b \) are complex fields.
+
+Gauge transformation \( SU(2) \times U(1) \):
+\begin{equation}
+  \begin{pmatrix}
+  \Phi _a (\va{x}) \\
+  \Phi _b (\va{x})
+  \end{pmatrix}
+  \rightarrow
+  e^{\frac{i}{2} \alpha _0 (\va{x})} e^{\frac{i}{2} \va{\tau } \vdot \va{\alpha } (\va{x})}
+  \begin{pmatrix}
+  \Phi _a (\va{x}) \\
+  \Phi _b (\va{x})
+  \end{pmatrix}
+\end{equation}
+where \( \va{\tau } \) are Pauli matrices, \( \alpha _0, \alpha _1, \alpha _2, \alpha 3 \) are four real functions (4 vectorial mesons).
+\begin{equation}
+  \va{\alpha } (\va{x}) \rightarrow W _ \mu ^ a (\va{x}) = \qty( W_ \mu ^{(1)} (\va{x}),  W_ \mu ^{(2)} (\va{x}),  W_ \mu ^{(3)} (\va{x}) )
+\end{equation}
+The scalar gauge field is
+\begin{equation}
+  \alpha _0 (\va{x}) \rightarrow B _ \mu (\va{x})
+\end{equation}
+with \( B _ \mu  \) is a linear combination of \( A_ \mu  \) and \(  W_ \mu ^{(3)}  \).
+
+Lagrangian:
+\begin{equation}
+  \mathcal{L} = \qty(D_ \mu \Phi )^\dagger \qty(D ^ \mu \Phi ) - \mu ^2 \Phi ^* \Phi - \lambda \qty(\Phi ^* \Phi )^2
+  - \frac{1}{4} b^{\mu \nu } b_{\mu \nu } - \frac{1}{4} f_a^{\mu \nu } f_{\mu \nu }^a
+\end{equation}
+\begin{equation}
+  D_ \mu  \rightarrow \partial_ \mu \frac{1}{2} i g \tau ^a W_ \mu ^a - \frac{i}{2} g' B _ \mu  
+\end{equation}
 
 \end{document}
