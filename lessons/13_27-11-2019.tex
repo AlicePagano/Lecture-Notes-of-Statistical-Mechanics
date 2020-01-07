@@ -115,7 +115,20 @@ we get
 \end{equation}
 this is the Bragg-William approximation.
 
-\begin{example}[Ising antiferromagnet in an external field]
+
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][Square lattice is bipartite.]{ \includegraphics[width=0.8\textwidth]{../lessons/13_image/1.pdf}  \label{fig:} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][Triangular lattice is not bipartite.]{\includegraphics[width=0.8\textwidth]{../lessons/13_image/2.pdf}  \label{fig:} }
+\end{minipage}
+\caption{\label{fig:13_1} }
+\end{figure}
+
+
+\begin{example}{Ising antiferromagnet in an external field}{}
 Consider the model
 \begin{equation}
   \mathcal{H} = \mathcolorbox{green!20}{+} J \sum_{\expval{ij} }^{} S_i S_j - H \sum_{i}^{} S_i,
@@ -128,17 +141,6 @@ Note the \( + \) before \( J \). This means that the interactions are antiferrom
 \begin{remark}
 FCC is not bipartite, while BCC it is. See Figure \ref{fig:13_1}.
 \end{remark}
-
-\begin{figure}[h!]
-\begin{minipage}[c]{0.5\linewidth}
-\subfloat[][Square lattice is bipartite.]{ \includegraphics[width=0.8\textwidth]{../lessons/13_image/1.pdf}  \label{fig:} }
-\end{minipage}
-\begin{minipage}[]{0.5\linewidth}
-\centering
-\subfloat[][Triangular lattice is not bipartite.]{\includegraphics[width=0.8\textwidth]{../lessons/13_image/2.pdf}  \label{fig:} }
-\end{minipage}
-\caption{\label{fig:13_1} }
-\end{figure}
 
 If the lattic is bipartite and \( J_{ij} \) is non zero only when \( i \) and \( j \) belong to different sublattices (they do not have to be only n.n.!), one can redefine the spins such that
 \begin{equation}
@@ -428,7 +430,7 @@ Experimental estimate of \( x_t \) is \( \sim 0.67 \).
 \end{remark}
 
 
-\begin{exercise}
+\begin{exercise}{}{}
 Expand the free-energy per site
 \begin{equation}
   \frac{G}{N} = \frac{z}{2} J m^2 - \Delta - k_B T \ln{A}
@@ -579,7 +581,7 @@ This is nice to see a variation with respect to the real hamiltonian.
 Consider a bunch of data, for instance a million of configuration, which is the distribution of the configuration? Usually, we build up a model with a distribution that depends on parameters and what we want to do is statistical inference. Starting from the model and the data we have to obtain the real distribution. (lesson)
 \end{remark}
 
-\begin{exercise}
+\begin{exercise}{}{}
 Consider again the antiferromagnetic Ising model
 \begin{equation}
   \mathcal{H}[\{ S \}  ] = - J \sum_{\expval{\va{r}_A \va{r}_B} }^{} S (\va{r}_A) S(\va{r}_B) - H \sum_{\va{r}_A}^{} S (\va{r}_A) + H \sum_{\va{r}_B}^{} S (\va{r}_B)

@@ -87,7 +87,7 @@ Identifying the coefficients for each power we get, for example
   B_3 \approx (B_2)^2, \quad B_4 \approx (B_2)^3
 \end{equation}
 This is the approximation of higher order virial coefficients with powers of \( B_2 \).
-\begin{example}
+\begin{example}{}{}
 Exam: let us compute virial expansion of a gas in a potential.
 \end{example}
 
@@ -312,7 +312,7 @@ For each diagram we take the product \( \prod_{kl}^{} f_{kl}   \) and then integ
 \begin{equation}
   \int_{}^{} \prod_{lk \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_i}
 \end{equation}
-\begin{example}[\( i=4 \)]\
+\begin{example}{\( i=4 \)}{}
   For example the diagram 1 in Figure \ref{fig:15_6} gives the contribution
   \begin{equation}
     \int_{}^{} f_{12} f_{13} f_{34} \dd[]{\va{r}_1}  \dd[]{\va{r}_2} \dd[]{\va{r}_3} \dd[]{\va{r}_4}
@@ -375,30 +375,29 @@ Moreover, since there are \( m_i \) clusters one can swap them (in \( m_i! \) wa
   Q_N (V,T) = \sum_{\{ m_i \}  }^{} \prod_{i}^{}    \frac{N!}{m_i! (i!)^{m_i}} \qty(i! V B_i)^{m_i}
 \end{equation}
 \end{enumerate}
-\begin{example}[\( N=q \)] Consider the point in Figure \ref{fig:15_8}.
+\begin{example}{\( N=q \)}{}
+Consider the point in Figure \ref{fig:15_8}.
+  \begin{enumerate}
+  \item Partition these points into clusters, as in Figure \ref{fig:15_9}.
+  \item For this partition \( \{ m_i \}   \) we have \( m_4=1,m_2=2,m_1=1 \). Now, the cluster of size 4 can be connected in a given different ways \( (4! V B_4)^1 \).
+  \end{enumerate}
+\end{example}
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.3\textwidth]{../lessons/15_image/11.pdf}
 \caption{\label{fig:15_8} Description.}
 \end{figure}
-  \begin{enumerate}
-  \item Parition these points into clusters.
+
   \begin{figure}[h!]
   \centering
   \includegraphics[width=0.3\textwidth]{../lessons/15_image/12.pdf}
   \caption{\label{fig:15_9} Description.}
   \end{figure}
 
-  \item For this partition \( \{ m_i \}   \) we have \( m_4=1,m_2=2,m_1=1 \). Now, the cluster of size 4 can be connected in a given different ways \( (4! V B_4)^1 \).
-  \end{enumerate}
-
-  \begin{exercise}
+  \begin{exercise}{}{}
   TO DO: compute the degenerancy of this case.
   \end{exercise}
-\end{example}
-
-
-
 
 
 

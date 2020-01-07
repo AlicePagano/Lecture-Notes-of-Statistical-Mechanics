@@ -25,8 +25,7 @@ where
 \item \( w_B  \):  is the mass fraction of element \emph{B} in the entire alloy or mixture.
 \end{itemize}
 
-\begin{example}
-
+\begin{example}{}{}
   Consider the Figure \ref{fig:3_0}; at all points between \emph{A} and \emph{B} the system is a mixsture of gas and liquid. Points \emph{D} has global density \( \rho_D = \rho_A + \rho_B \)  and therefore \( v_D = \frac{1}{\rho_D}, v_A = \frac{1}{\rho _A}, v_B = \frac{1}{\rho_B} \) which implies:
   \begin{equation*}
     v_D = \frac{N_A}{N} v_A + \frac{N_B}{N} v_B = x_A v_A + x_B v_B
@@ -38,14 +37,14 @@ where
     \frac{x_A}{x_B} = \frac{v_B - v_D}{v_D - v_A}
     \label{eq:}
   \end{equation}
+  
+\end{example}
 
   \begin{figure}[h!]
   \centering
   \includegraphics[width=0.6\textwidth]{../lessons/3_image/1.pdf}
   \caption{\label{fig:3_0} \( (V,P) \) projection. In the region between \emph{A} and \emph{B} the gas and the liquid phase coexist by keeping the pressure constant.}
   \end{figure}
-
-\end{example}
 
 
 \subsection{Phase coexistence (one component system)}
@@ -169,7 +168,7 @@ At the melt temperature:
 \end{equation}
 In general, \( \Delta v_m = v_{liq} - v_{solid} > 0 \) which implies \( \qty( \dd[]{P}/\dd[]{T}   )_{coex} > 0  \). There are cases, however, where \( \Delta v_m = v_{liq} - v_{solid} < 0 \) because \( \rho_{liq} > \rho _{solid} \) (for instance the \( H_2 0 \), or also Silicon and Germanium). The paradigmatic example is the freezing of water where \( v_{ice} > v_{liq} \) since ice is less dense than liquid water at the coxistence (\( 0 < T° < 4 \)). This implies that \( \dd[]{P}/\dd[]{T} < 0   \).
 
-\begin{example}[Melting point on Everest] \
+\begin{example}{Melting point on Everest}{}
 
 Consider \( T = 237 K \) and \( P=P_0 \). If \( \delta Q_m = 6.01 kJ/mol \) and \( \Delta v = -1.7 cm^3 /mol  \) we have:
 \begin{equation*}
@@ -185,7 +184,7 @@ Consider \( T = 237 K \) and \( P=P_0 \). If \( \delta Q_m = 6.01 kJ/mol \) and 
   \Rightarrow T_m ( \text{Everest}) = T_m (P_0) + 0.5 C
   \label{eq:}
 \end{equation*}
-\begin{example}[Boiling point on Everest] \
+\begin{example}{Boiling point on Everest}{}
 
 Consider \( P_{\text{Everest}}= 0.36 atm \), \( \rho (T= 100\SI{}{\celsius})=0.598 kg/m^3 \), \( L_{ge} = 2.257 \cdot 10^3 J/g \). The density of the vapour is about 1000 less than water, it implies that: \( \Delta V = V_g - V_e \approx V_g = \frac{1}{\rho g}\). We have:
 \begin{equation*}
@@ -268,13 +267,13 @@ The \emph{Eherenfest classification} is based on the behaviour of the derivative
 
 A phase transition is of order \emph{n} if all the \( (n-1) \)  derivatives are continuous and the \( n^{th} \) derivative displays a finite discontinuity.
 
-\begin{example}
+\begin{example}{}{}
 For instance, the first order transition \( S=-(\partial{G}/\partial{T}  )_P \) has finite discontinuity.
 \end{example}
 \begin{remark}
 There are first order transitions where \emph{S} is continuous (no latent heat) but \( \rho  \) is discontinuous (\( v = (\partial{G}/\partial{P}  )_T \)).
 \end{remark}
-\begin{example}
+\begin{example}{}{}
 Second order transition. The specific heat displays a finite jump, see Figure \ref{fig:3_04_3} in the conductor-superconductor transition.
 
 Another example is a second order transition but with divergence. Consider the fluid-superfluid transition (or \( \lambda  \) transition) of the \( \text{He}_4 \) (Figure \ref{fig:3_04_4}).
@@ -330,15 +329,17 @@ In general, when you are close to \( T_c \), there are singolarities. Now, we ca
 
 \subsection{Divergence of the response functions at the critical point}
 While at the critical point the order parameter goes to zero continuously as \( T \rightarrow T_c^- \), the response function may develop divergences.
-\begin{example}
+\begin{example}{}{}
 In a fluid system since at \( T=T_c \) the curve \( P = P(V) \) develops an horizontal flex (Figure \ref{fig:3_2_2}), we have \( k_T = -\frac{1}{V} \qty(\pdv{V}{P} )_T  \rightarrow \infty  \). Similarly, in a magnetic since the curve is like Figure \ref{fig:3_3}, we have \( \chi _T = \qty(\pdv{M}{H} )_T \underset{T \rightarrow  T_c}{\rightarrow } \infty   \).
+
+\end{example}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{../lessons/3_image/4.pdf}
 \caption{\label{fig:3_2_2} \( (V,T) \) projection.  }
 \end{figure}
-\end{example}
+
 
 \subsection{Critical exponents definition}
 
