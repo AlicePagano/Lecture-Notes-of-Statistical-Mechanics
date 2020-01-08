@@ -1,0 +1,128 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{8}{1}{2020}
+
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 22.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\section{Renormalization group}
+
+The idea is to consider a partition function \( Z_N (\va{k}) \) and then integrate, in order to obtain another partition function \( Z_{N(/l^d)} (\va{k}') \).
+We make the assumptions:
+\begin{enumerate}
+\item \( R_l (\va{k}) = \va{k}' \), \( R_l \) is analytic
+\item  \( R_l \dot R_{l'}  = R_{l l'} \)   semigroup %circle! not dot
+\end{enumerate}
+
+Procedure:
+\begin{itemize}
+\item You find the fixed point
+\item You linearized around the fixed point.
+\item You find the behaviour.
+\end{itemize}
+
+\section{Ising model}
+we use l = 2.
+
+We have \( \sigma _i = \pm 1 \) and a weight
+\begin{equation}
+  w (\sigma _i, \sigma _j) = - \hat{g} - \frac{h}{z} (\sigma _i + \sigma _j) - J \sigma _i \sigma _j
+\end{equation}
+In that sense, the partition function can be written as
+\begin{equation}
+  Z = \sum_{\{ \sigma  \}  }^{}  e^{\sum_{\expval{ij} }^{} w (\sigma _i, \sigma _j)  }
+\end{equation}
+
+\begin{equation}
+  Z (g, h, k) = \sum_{\{ \sigma  \}  }^{}   = \sum_{\{ \sigma ' \}  }^{}  \sum_{\{ S \}  }^{} e^{\sum_{i}^{} w (\sigma _i, \sigma _{i+1}) }
+\end{equation}
+(the \( \sigma _1' \) are the new red bubble, while the \( S_1 \) the rejected one in the second graph. In the first graph we had \( \sigma _1 \)  )
+
+\begin{equation}
+  w (\sigma _i, \sigma _{i+1}) =  g + \frac{h}{z} (\sigma _i + \sigma _{i+1}) + k \sigma _i \sigma _{i+1}
+\end{equation}
+Hence,
+\begin{equation}
+  Z (g, h, k)  = \sum_{\{ \sigma' \}_{N/2}  }^{}  \sum_{\{ S \}_{N/2}  }^{} e^{\sum_{i}^{N/2} \qty[ w (\sigma _i', S_i) + w (S_i, \sigma _{i+1}' )  ] }
+  = \sum_{\{ \sigma' \}_{N/2}  }^{}  \prod_{i=1}^{N/2} \qty( \sum_{S = \pm 1}^{}
+  e^{ w (\sigma _i', S_i) + w (S_i, \sigma _{i+1}' )   }  )
+\end{equation}
+and we define
+\begin{equation}
+  f ( \sigma _i', \sigma _{i+1}') =   e^{ w (\sigma _i', S_i) + w (S_i, \sigma _{i+1}' )   }
+\end{equation}
+Hence,
+\begin{equation}
+  f ( \sigma _i', \sigma _{i+1}')  = \exp [ w' (\sigma _i', \sigma _{i+1}')]
+\end{equation}
+So
+\begin{equation}
+  Z_N (g,h,k) = \sum_{\{ \sigma' \}_{N/2}  }^{}  e^{\sum_{i}^{N/2}  w' (\sigma _i', \sigma _{i+1}' )  }
+  = Z_{N/2} (g',h',k')
+\end{equation}
+It means that this equations must holds for each \( \sigma _i' \) and \( \sigma _{i+1}' \).
+\begin{equation}
+  e^{g'+\frac{h'}{2} (\sigma _i'+ \sigma _{i+1}') + k' \sigma _i' \sigma _{i+1}'}
+  = \sum_{S_i = \pm 1}^{}
+    e^{g +\frac{h}{2} (\sigma _i'+ S_i) + k \sigma _i' S_i + g + \frac{h}{2} (S_i + \sigma _{i+1}) + k S_i \sigma _{i+1}'}
+\end{equation}
+\( \forall (\sigma _i', \sigma _{i+1}') \)
+\begin{equation}
+  \begin{cases}
+   x \equiv e^K\\
+   y \equiv e^h\\
+   z \equiv e^g
+  \end{cases}
+\end{equation}
+\begin{equation}
+  z' y'^{\frac{\sigma _i' + \sigma _{i+1}'}{2}  } x'^{\sigma _i' \sigma _{i+1}'}
+  = \sum_{S_i}^{} z y^{ \frac{\sigma _i'+S_i}{2}} x^{\sigma _i' S_i} z y^{S_i + \sigma _{i+1}'} x^{S_i \sigma _{i+1}'}
+\end{equation}
+
+Copiare tabella da qualcuno: (da 4 equazioni )
+\( \sigma _i' \) \( \sigma _{i+1}' \)
+
+++
+\begin{equation}
+  z' y' x' = z^2 y (x^2 y + x^{-2} y^{-1}) \quad \text{for } S_i = +1, S_i =-1
+\end{equation}
+--
+\begin{equation}
+  z' y'^{-1} x' = z^2 y^{-1} (x^{-2} y + x^{2} y^{-1})
+\end{equation}
++-
+\begin{equation}
+    z'  x'^{-1} = z^2 y (y y^{-1})
+\end{equation}
+-+
+\begin{equation}
+    z'  x'^{-1} = z^2 y (y y^{-1})
+\end{equation}
+
+Now we multiply \( (1)(2)(3)(4) \)
+\begin{equation}
+  (1)(2)(3)(4) \Rightarrow  z'^{4} = \dots (see notes)
+\end{equation}
+\begin{equation}
+  (1)/(2) \Rightarrow y'^2 = y^2 \frac{x^2 y + x^{-2} y^{-1}}{ x^{-2}y + x^2 y^{-1}}
+\end{equation}
+\begin{equation}
+  \frac{(1)(2)}{(3)(4)} \Rightarrow x'^4 = \frac{(x^2 y + x^{-2} y^{-1} ) (x^{-2}y + x^2 y^{-1}) }{(y+y^{-1})^2}
+\end{equation}
+We obtain:
+\begin{equation}
+  2 h' = 2 h + \log() - \log()
+\end{equation}
+\begin{equation}
+  4 k' = \log() + \log() - 2\log()
+\end{equation}
+Those are the normalization equation.
+\begin{equation}
+  (k',h') = \mathcal{R}_2 (k,h)
+\end{equation}
+
+
+
+\end{document}

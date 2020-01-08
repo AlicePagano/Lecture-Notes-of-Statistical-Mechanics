@@ -4,9 +4,11 @@
 
 \begin{document}
 
-\subsubsection{Grancanonical potential}
+\subsubsection{Grand canonical potential}
 \marginpar{ \textbf{Lecture 2.} \\  \displaydate{date}. \\ Compiled:  \today.}
-The two intensive variables to became indipendent are \emph{T} and \( \mu  \). The corresponding Legendre transform is
+The \textbf{grand canonical potential} is obtained by performing the Legendre transform of \emph{U} to replace \emph{S} and \emph{N} with \emph{T} and \( \mu  \).
+%The two intensive variables to became independent are \emph{T} %and \( \mu  \).
+The corresponding Legendre transform is
 \begin{empheq}[box=\myyellowbox]{equation}
   \Omega = U -T S - \sum_{i=1}^{r} \mu _i N _i = A - \sum_{i=1}^{r}  \mu _i N _ i
 \end{empheq}
@@ -27,9 +29,31 @@ Internal energy $U$ and entropy $S$ are homogeneus function of the first order. 
   U = T S - P V + \sum_{j}^{} \mu _j N_j
 \end{empheq}
 
+\begin{example}{How to derive the Euler equation}{}
+Using the additive property of the internal energy \emph{U}, we can derive a useful thermodynamic relation, the Euler equation.
+\begin{equation*}
+  U (\lambda S, \lambda V, \lambda N_1, \dots, \lambda N_m) = \lambda U (S,V,N_1,\dots N_m)
+\end{equation*}
+Let us differentiate this “extensivity condition” with respect to \( \lambda  \):
+\begin{equation*}
+\pdv{U (\lambda S, \dots)}{(\lambda S)} S + \pdv{U (\lambda S, \dots)}{(\lambda V)} V
++ \sum_{i = 1}^{m}  \pdv{U (\lambda S, \dots)}{(\lambda N_i)} N_i =
+U (S,V,N_1,\dots,N_m)
+\end{equation*}
+Setting \( \lambda =1 \)  in the above equation, we obtain:
+\begin{equation*}
+  \pdv{U}{S} S + \pdv{U}{V} V + \pdv{U}{N_1}N_1 + \dots + \pdv{U}{N_m} N_m = U
+\end{equation*}
+Using the definition of the intensive parameters, we arrive at the Euler equation:
+\begin{equation*}
+  U = T S - P V + \sum_{i=1}^{m} \mu _i N_i
+\end{equation*}
+\end{example}
+
+
 Instead, the \textbf{Maxwell relations} are relations between the mixed derivatives of the thermodynamic potentials. They can be obtained from the expressions of \( \dd[]{U},\dd[]{H} ,\dd[]{A}, \dd[]{G}    \)  and \( \dd[]{\Omega }  \) and from the Schwarz theorem on mixed partial derivatives.
 
-Due to Schwarz theorem, if a thermodynamic potential depends on \( t+1 \) variables there will be \( \frac{t(t+1)}{2} \)  indipendent mixed derivatives.
+Due to Schwarz theorem, if a thermodynamic potential depends on \( t+1 \) variables there will be \( \frac{t(t+1)}{2} \)  independent mixed derivatives.
 \begin{example}{Internal energy \( U=U(S,V,N)\)}{}
 \begin{equation}
   \dd[]{U} = T \dd[]{S} - P \dd[]{V} + \mu \dd[]{N}
@@ -76,7 +100,7 @@ In this case the \emph{3 Maxweel relations} (\( [T,V,N] \)) are
 \end{example}
 \begin{example}{Gibbs \( G=G(T,P,N) \) }{}
   \begin{equation}
-    \dd[]{G} = - S \dd[]{T} - V \dd[]{P} + \mu \dd[]{N}
+    \dd[]{G} = - S \dd[]{T} + V \dd[]{P} + \mu \dd[]{N}
   \end{equation}
   In this case the \emph{3 Maxweel relations} (\( [T,P,N] \)) are
   \begin{subequations}
@@ -125,7 +149,7 @@ Remember that \( k_T \) it is the second derivative of the Gibbs potential write
       = - T \qty(\pdv[2]{A}{T} )_{V,N}
   \label{eq:}
 \end{equation}
-\item \emph{Magnetic suscettibility (d=1)} for a magnetic system \( (\va{M},\va{H},T  ) \).
+\item \emph{Magnetic susceptibility (d=1)} for a magnetic system \( (\va{M},\va{H},T  ) \).
 \begin{equation}
   \chi_T = \qty(\pdv{M}{H} )_T \underset{M = -\eval{\pdv{G}{H}}_T }{=}  - \qty(\pdv[2]{G}{H} )_T
   \label{eq:}
@@ -138,11 +162,14 @@ More generals, \( \va{M},\va{H}   \) we have
 
 \end{itemize}
 
+\begin{remark}
+Note that the response functions, when used with the Maxwell relations, allow to express observables usually inaccessible to experiments with measurable quantities.
+\end{remark}
 
-Note that the response functions, when used with the Maxwell relations, allow to express observables usually inaccessible to experiments with measurable quantitities.
 
 Let us illustrate a lemma useful for calculation:
 
+\begin{orangebox}
 \begin{lemma}
   \label{th:2_1}
 Let \(x,y,z  \)  be quantities that satisfy the relation \( f(x,y,z)=0 \). If \( w \)  is a function of  two any variables chosen between  \(x,y,z  \), then:
@@ -152,6 +179,7 @@ Let \(x,y,z  \)  be quantities that satisfy the relation \( f(x,y,z)=0 \). If \(
 \item \( \qty(\pdv{x}{y} )_z \qty(\pdv{y}{z} )_x  \qty(\pdv{z}{x} )_y = -1    \)  (concatenation relation or triple product rule).
 \end{enumerate}
 \end{lemma}
+\end{orangebox}
 
 \begin{example}{}{}
   The Maxwell relation
@@ -162,7 +190,7 @@ Let \(x,y,z  \)  be quantities that satisfy the relation \( f(x,y,z)=0 \). If \(
   \begin{equation*}
 \dd[]{G} = - S \dd[]{T} + V \dd[]{P}
   \end{equation*}
-and the response function \( \alpha _P \) permit to write
+  (\( (T,P) \) equation) used with the response function \( \alpha _P \), permits to write
 \begin{equation}
   \underbrace{\qty(\pdv{S}{P} )_{T,N}}_{\substack{ \text{inaccessible} \\  \text{to experiments} } }  = \underbrace{- V \alpha _P}_{\text{measurable}}
   \label{eq:}
@@ -173,15 +201,14 @@ Let us start with the Maxwell relation
 \begin{equation*}
   \qty(\pdv{S}{V} )_{T,N} =  \qty(\pdv{P}{T} )_{V,N}
 \end{equation*}
-obtained from
+obtained from   (\( (T,V) \) equation)
 \begin{equation*}
-    \dd[]{A} = - S \dd[]{T} - P \dd[]{V} + \mu \dd[]{N}
+    \dd[]{A} = - S \dd[]{T} - P \dd[]{V}
 \end{equation*}
 From some property of multi-variable differential calculus one has the \textit{triple product rule}:
-\begin{equation}
+\begin{equation*}
     \qty(\pdv{P}{T} )_{V,N}  \qty(\pdv{V}{P} )_{T,N}   \qty(\pdv{T}{V} )_{P,N} =-1
-  \label{eq:}
-\end{equation}
+\end{equation*}
 Hence
 \begin{equation}
 \begin{split}
@@ -256,19 +283,16 @@ we get:
 \end{equation*}
 It can be shown similarly for magnetic systems.
 \end{solution}
-\end{exercise}
-
-
- A consequence is that since the right hand terms are non negative it follows that
+ A consequence is that, since the right hand terms are non negative,  it follows that
 \begin{equation}
   \begin{cases}
    c_P \ge c_V \ge 0  \\
    c_H \ge c_M \ge 0
   \end{cases}
-\label{eq:}
 \end{equation}
+\end{exercise}
 
-For reasuming, we have seen the thermodynamic of a phase, where the equilibrium state can be described by the maximum of the entropy. If we have a given phase, we can look for the Gibbs function. If we have more phases, we want to change between these phases.
+For resuming, we have seen the thermodynamic of a phase, where the equilibrium state can be described by the maximum of the entropy. If we have a given phase, we can look for the Gibbs function. If we have more phases, we want to change between these phases.
 
 
 
@@ -298,7 +322,7 @@ Let us consider for example the Gibbs potential per particle of a fluid system
   \label{eq:}
 \end{equation}
   that depends on two intensive variables \emph{T} and \emph{P} and is not anymore a function of \emph{N} because we have divided for \emph{N}.
-  Let us define \( \alpha  \) the phase of a one-component system (say \( \alpha = \) gas or liquid). Therfore, the thermodynamic properties are described by surfaces of function \( g_\alpha (T,P) \) and for all equilibrium phase we have a surface on the space (T,P,g). For each value of \emph{T} and \emph{P} the thermodynamically stable phase is the one for which \( g_ \alpha (T,P) \) is minimum.
+  Let us define \( \alpha  \) as the phase of a one-component system (say \( \alpha = \) gas or liquid). Therefore, the thermodynamic properties are described by surfaces of function \( g_\alpha (T,P) \) and for all equilibrium phase we have a surface on the space (T,P,g). For each value of \emph{T} and \emph{P} the thermodynamically stable phase is the one for which \( g_ \alpha (T,P) \) is minimum.
 
 \section{First order phase transition and phase coexistence}
 
@@ -324,7 +348,7 @@ g_ \alpha(T,P) = g_ \beta(T,P)
 
 
 
-To fix the ideas, let us choose a given value of pressure \( P = P^* \) and study the behaviour of \( g(T,P^*) \) as a function of \emph{T} when we go from solid to gas, as illustrated in Figure \ref{fig:2_2}.
+To fix the ideas, let us choose a given value of pressure \( P = P^* \) and study the behavior of \( g(T,P^*) \) as a function of \emph{T} when we go from solid to gas, as illustrated in Figure \ref{fig:2_2}.
 
 \begin{figure}[h!]
 \centering
@@ -336,11 +360,15 @@ To fix the ideas, let us choose a given value of pressure \( P = P^* \) and stud
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.62\textwidth]{../lessons/2_image/3.pdf}
-\caption{\label{fig:2_3}  \( (g,T) \) projection at a fixed pression \( P = P^* \).}
+\includegraphics[width=0.6\textwidth]{../lessons/2_image/3.pdf}
+\caption{\label{fig:2_3}  \( (g,T) \) projection at a fixed pression \( P = P^* \). The red line is the coexistence line of the two phases \( \alpha\) and \( \beta\).}
 \end{figure}
 
-At the triple point \( g_{\text{solid}}(T_ a, P^*) = g_{\text{liq}}(T_a) \) and \( g_{\text{liq}}(T_b) = g_{\text{gas}}(T_b , P^*) \), as shown in Figure \ref{fig:2_3}.
+The existence of a critical point has a very intriguing consequence: since the liquid-gas coexistence line ends in a point, this means that a liquid can continuously be transformed in a gas
+(or viceversa), and in such a way that the coexistence of liquid and gaseous phases is never encountered.
+
+At the triple point \( g_{\text{solid}}(T_ a, P^*) = g_{\text{liq}}(T_a) \) and \( g_{\text{liq}}(T_b) = g_{\text{gas}}(T_b , P^*) \), as shown in Figure \ref{fig:2_3} (???).
+
 Note also that:
 \begin{itemize}
 \item At the coexistence points \emph{a} and \emph{b} of the two phases, one has \( g_ \alpha (T) = g_ \beta (T) \).
@@ -351,12 +379,12 @@ Note also that:
 \noindent
 How about its derivatives? Since \emph{P}  is fixed we can vary \emph{T}  and look for \( s=-\qty(\pdv{g}{T} )_P  \). As we cross different phases  we have discontinuities, where \( \Delta s T \)  is called the \emph{latent heat}. It is illustrated in Figure \ref{fig:2_4}.
 
-If there is a finite discontinuity in one or more of the first derivatives of the appropriate thermodynamic potential, the transition is called \emph{first order transition.} In general, a phase transition is signalled by a singularity in a thermodynamic potential.
+If there is a finite discontinuity in one or more of the first derivatives of the appropriate thermodynamic potential, the transition is called \emph{first order transition.} In general, \emph{a phase transition is signaled by a singularity in a thermodynamic potential}.
 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.62\textwidth]{../lessons/2_image/4.pdf}
+\includegraphics[width=0.5\textwidth]{../lessons/2_image/4.pdf}
 \caption{\label{fig:2_4} \( (s,T) \) projection. }
 \end{figure}
 
@@ -381,11 +409,11 @@ It is illustrated in Figure \ref{fig:2_6}.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{../lessons/2_image/6.pdf}
+\includegraphics[width=0.5\textwidth]{../lessons/2_image/6.pdf}
 \caption{\label{fig:2_6} \( (v,P) \) projection.}
 \end{figure}
 
-
+\clearpage
 \subsection{Critical points}
 At the critical point \( (P_c,T_c) \) the system can pass from the liquid to the gas phase (and viceversa) in a continuous way
 \begin{equation*}

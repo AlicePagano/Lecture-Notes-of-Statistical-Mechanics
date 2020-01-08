@@ -222,10 +222,11 @@ is a square matrix
 \item \( \bar{\pi }  \) is in general not symmetric. One has to distinguish between left and right eigenvectors.
 \item \( \bar{\pi }  \) is not always diagonalizible or sometimes the eigenvalues are complete. For most of the physical system, however, \( \bar{\pi }  \) can be diagonalized and the eigenvalues are real.
 \end{enumerate}
-Let \( \lambda _l^{(r)} \) be the \( \sigma  \)-esim eigenvalue and \( \va{l}^{(\sigma )} \) the corresponding eigenvector
+Let \( \lambda _l^{(\sigma)} \) be the \( \sigma  \)-esim eigenvalue and \( \va{l}^{(\sigma )} \) the corresponding eigenvector
 \begin{equation}
   \Rightarrow \bar{\pi }^{(l)}_{ij} l^{(\sigma )}_j = \lambda _l^{(\sigma )} l_i ^{(\sigma )}
 \end{equation}
+this is the eigenvalue equation.
 Since the \( \mathcal{R}_l \)'s form a semi-group
 \begin{equation}
   \bar{\pi }^{(l)} \bar{\pi }^{(l')} = \bar{\pi }^{(ll')}
@@ -239,11 +240,11 @@ By solving \eqref{eq:20_3} one can show
 \begin{equation}
    \lambda _{l}^{(\sigma )} = l^{(Y_\sigma)}
 \end{equation}
-where \( Y_\sigma \) is the exponent to be determined.
+where \( Y_\sigma \) is the critical exponent to be determined.
 
 How \( \delta \va{k} \) behaves under the linearized transformation \( \bar{\pi }  \)?
 
-Let us expand \( \delta \va{k} \) in terms of \( \va{l}^{(\sigma )} \)
+Let us expand \( \delta \va{k} \) in terms of \( \va{l}^{(\sigma )} \) (that is a complete orthonormal base)
 \begin{equation}
   \delta \va{k} = \sum_{\sigma }^{} a^{(\sigma )} \va{l}^{(\sigma )}
 \end{equation}
@@ -263,7 +264,7 @@ where \( a^{(\sigma )'} \) is the projection of \( \delta \va{k}' \) on \( \va{l
 Same components of \( \delta \va{k} \) grow under the action of \( \bar{\pi }  \) while same others shrink.
 If we order the eigenvalues in descending order
 \begin{equation}
-  \abs{\va{\lambda }_1} \ge \abs{\va{\lambda }_2} \ge \abs{\va{\lambda }_3} \ge \dots
+  \abs{\va{\lambda }_1} \ge \abs{\va{\lambda }_2} \ge \abs{\va{\lambda }_3} \ge \dots \abs{\va{\lambda }_{\sigma}} 
 \end{equation}
 threee cases can occur
 \begin{enumerate}
@@ -303,10 +304,13 @@ The critical fixed point is defined as
 \begin{equation}
   \begin{cases}
    T^* = \mathcal{R}_l ^T (T^*,H^*)\\
-   H^* = \mathcal{R}_l ^H (T^*,,H^*)
+   H^* = \mathcal{R}_l ^H (T^*,H^*)
   \end{cases}
 \end{equation}
 with \( \xi (T^*,H^*) = \infty  \).
+\begin{remark}
+Remember that \( \va{k}^* \equiv (T^*,H^*) \).
+\end{remark}
 For standard magnetic systems \( H^*=0 \). By linearising around the fixed point
 \( \delta \va{k}= (t,h) \)  where
 \begin{equation}
@@ -355,7 +359,7 @@ A linear transformation is
   h
   \end{pmatrix}
 \end{equation}
-After \( n \) iterations we have
+After \( n \) iterations, we have
 \begin{equation}
   \begin{cases}
    t^{(n)} = \qty(l^{Y_t})^n t  \\
@@ -366,10 +370,11 @@ On the other hand,
 \begin{equation}
   \xi ' \equiv \xi (t',h') = \frac{\xi (t,h)}{l}
 \end{equation}
-and after \( n \) iterations
+and, hence, after \( n \) iterations
 \begin{equation}
   \xi (t,h) = l^n \xi \qty(l^{n Y_t} t, l^{n Y_h} h)
 \end{equation}
+Idea (lesson): we are very close to the critical point (infinite) and we want to go a little bit away in order to not to be anymore infinite. In such a way after \emph{n} iterations we obtain the previous result. 
 Let \( h=0 \) \( (H=H^*) \), hence
 \begin{equation}
   \xi (t,0) = l^n \xi \qty(l^{n Y_t} t , 0)
@@ -378,6 +383,7 @@ Since \( l \) is arbitrary, we can choose it such that
 \begin{equation}
   t l ^{n Y_t} = b \gg 1, \quad b \in \R^+
 \end{equation}
+In such a way we go away from the critical point!
 \begin{remark}
 \( l \) is not an integer any more.
 \end{remark}
@@ -388,7 +394,7 @@ so, for \( t \rightarrow 0 \)
 \begin{equation}
   \xi (t) = \qty(\frac{t}{b})^{-1/Y_t} \xi (b)
 \end{equation}
-On the other hand \( \xi \sim t^{-\nu } \), \( t \rightarrow 0 \)
+On the other hand, \( \xi \sim t^{-\nu } \), \( t \rightarrow 0 \)
 \begin{equation}
   \Rightarrow \nu = \frac{1}{Y_t}
 \end{equation}
@@ -406,7 +412,9 @@ f_s (t,h)  &= l^{-D} f_s (t',h') = l^{-nD} f_s (t^{(n)},h^{(n)}) \\
 & = l^{-nD} f_s \qty(l^{n Y_t}t, l^{n Y_h}h)
 \end{split}
 \end{equation}
-Let \( l \) such that \( l^{n Y_t} = b \), hence
+Hence, we get the free energy of the original system, by using the renormalization group!
+
+Let \( l \) such that \( l^{n Y_t} t= b \gg 1\), hence
 \begin{equation}
   l^n = \qty(\frac{b}{t})^{1/Y_t}
 \end{equation}
@@ -424,12 +432,15 @@ with
    \Delta = \frac{Y_h}{Y_t}
   \end{cases}
 \end{equation}
+where \( Y_h \) and \( Y_t \) can be computed as 
 \begin{equation}
   Y_h = \frac{1}{l} \log{\lambda _l^{(h)}}
 \end{equation}
+Hence, we have all we need for the computation!
 
 \section{Real space renormalization group on 1D Ising model \( (H=0) \)}
-Decimation procedure.
+\subsubsection{Decimation procedure}
+Decimation means summing up over all spins.
 \( D=1 \) the procedure is clearly exact. Idea: pass from a \( N- \) spins system to one with \( \frac{N}{b} \) spins by summing the remaining \( N- \frac{N}{b} \) spins.
 
 
