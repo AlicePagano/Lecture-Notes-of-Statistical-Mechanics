@@ -11,9 +11,9 @@
 
 \marginpar{ \textbf{Lecture 3.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-The lever rule \cite{3_lesson_1} is a rule used to determine the mole fraction of each phase of a binary equilibrium phase diagram. For instance, it can be used to determine the fraction of liquid and solid phases for a given binary composition and temperature that is between the liquidus and solidus line.
+The lever rule \cite{3_lesson_1} is a rule used to determine the mole fraction of each phase of a binary equilibrium phase diagram. For instance, it can be used to determine the fraction of liquid and solid phases for a given binary composition and temperature that is between the liquid and solid line.
 
-In an alloy or a mixture with two phases, \( \alpha  \)  and \( \beta  \) , which themselves contain two elements, \emph{A}  and \emph{B}, the lever rule states that the mass fraction of the \( \alpha  \)  phase is
+In an alloy or a mixture with two phases, \( \alpha  \)  and \( \beta  \), which themselves contain two elements, \emph{A}  and \emph{B}, the lever rule states that the mass fraction of the \( \alpha  \)  phase is
 
 \begin{equation}
 w^{\alpha } = \frac{w_B - w_B^\beta }{w_B^\alpha - w_B^\beta }
@@ -26,17 +26,17 @@ where
 \end{itemize}
 
 \begin{example}{}{}
-  Consider the Figure \ref{fig:3_0}; at all points between \emph{A} and \emph{B} the system is a mixsture of gas and liquid. Points \emph{D} has global density \( \rho_D = \rho_A + \rho_B \)  and therefore \( v_D = \frac{1}{\rho_D}, v_A = \frac{1}{\rho _A}, v_B = \frac{1}{\rho_B} \) which implies:
+  Consider Figure \ref{fig:3_0}; at all points between \emph{A} and \emph{B} the system is a mixture of gas and liquid. Points \emph{D} has global density \( \rho_D = \rho_A + \rho_B \)  and therefore \( v_D = \frac{1}{\rho_D}, v_A = \frac{1}{\rho _A}, v_B = \frac{1}{\rho_B} \) which implies:
   \begin{equation*}
     v_D = \frac{N_A}{N} v_A + \frac{N_B}{N} v_B = x_A v_A + x_B v_B
     \label{eq:}
   \end{equation*}
   Since \( x_A + x_B = 1 \) we have \( (x_A + x_B)v_D = x_A v_A + x_B v_B \) and finally by rearranging, one finds the \textit{Lever Rule}. It shows that the relative concentration of the liquid-gas mixture changes with \emph{V}:
 
-  \begin{equation}
+  \begin{equation*}
     \frac{x_A}{x_B} = \frac{v_B - v_D}{v_D - v_A}
     \label{eq:}
-  \end{equation}
+  \end{equation*}
   
 \end{example}
 
@@ -73,7 +73,7 @@ Therefore, on the coexistence line it should hold the relation
 \subsection{Clausius-Clapeyron equation}
 The coexistence curves \cite{3_lesson_2}, as the one illustrated in Figure  \ref{fig:3_1}, are less arbitrary than is immediately evident; the slope \( \dd[]{P} /\dd[]{T}   \) of a coexistence curve is fully determined by the properties of the two coexisting phases.
 
-The slope of a coexistence curve is of direct physical interest. Consider cubes of ice at equilibrium in a glass of water. Given the ambient pressure, the temperature of the mixed system is determined by the liquid-solid coexistence curve of water; if the temperature were not on the coexistence curve some ice would melt, or some liquid would freeze, until the temperature would again lie on the coexistence curve (or one phases would become depleted). If the ambient pressure were to decrease-perhaps by virtue of a change in altitude-then the temperature of the glass of water would appropriately adjust to a new point on the coexistence curve. If \( \Delta P \) were the change in pressure, then the change in temperature would be \( \Delta T = \Delta P / (\dd[]{P} /\dd[]{T})_{coex} \), where the derivative in the denominator is the slope of the coexistence curve.
+The slope of a coexistence curve is of direct physical interest. Consider cubes of ice at equilibrium in a glass of water. Given the ambient pressure, the temperature of the mixed system is determined by the liquid-solid coexistence curve of water; if the temperature were not on the coexistence curve some ice would melt, or some liquid would freeze, until the temperature would again lie on the coexistence curve (or one phases would become depleted). If the ambient pressure were to decrease perhaps, by virtue of a change in altitude, then the temperature of the glass of water would appropriately adjust to a new point on the coexistence curve. If \( \Delta P \) were the change in pressure, then the change in temperature would be \( \Delta T = \Delta P / (\dd[]{P} /\dd[]{T})_{coex} \), where the derivative in the denominator is the slope of the coexistence curve.
 
 \begin{remark}
 Ice skating presents another interesting example. The pressure applied to the ice directly beneath the blade of the skate shifts the ice across the solid-liquid coexistence curve, providing a lubricating film of liquid on which the skate slides. The possibility of ice skating depends on the negative slope of the liquid-solid coexistence curve of water.
@@ -109,7 +109,7 @@ Therefore, the \emph{starting point} for \emph{Clausius-Clapeyron} is
   \Rightarrow \dd[]{g_1} =\dd[]{g_2}
   \label{eq:}
 \end{equation}
-From the molar version of the Gibbs-Duhem relation we have
+From the molar version of the Gibbs-Duhem relation, we have
 \begin{equation}
   \begin{cases}
    \dd[]{g_1} = -s_1 \dd[]{T} + v_1 \dd[]{P} = \dd[]{\mu _1}    \\
@@ -121,7 +121,7 @@ taking the difference, one obtains
 \begin{equation*}
   -(s_2 - s_1) \dd[]{T} + (v_2 - v_1) \dd[]{P} = 0
 \end{equation*}
-The splope is called \textbf{Clausius-Clapeyron equation}:
+The slope is called \textbf{Clausius-Clapeyron equation}:
 \begin{empheq}[box=\myyellowbox]{equation}
   \qty(\dv{P}{T} )_{coex} = \frac{(s_2-s_1)}{(v_2-v_1)} = \frac{\Delta s}{\Delta v}
 \end{empheq}
@@ -141,59 +141,75 @@ whence, the Clapeyron equation is
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{../lessons/3_image/16.pdf}
-\caption{\label{fig:3_16} \( (T,P) \) projection. Region 1: liquid. Region 2: gas. }
+\caption{\label{fig:3_16} \( (T,P) \) projection. Region 1: liquid. Region 2: gas. The lines represent the combinations of pressures and temperatures at which two phases can exist in equilibrium.}
 \end{figure}
 
  Now, we go from gas (region 2) to liquid (region 1), we have:
-\begin{equation}
+\begin{equation*}
   \qty(\dv{P}{T} )_{coex} = \frac{s_2 - s_1}{v_2 - v_1}
   \label{eq:}
-\end{equation}
+\end{equation*}
 
-The Clapeyron equation embodies the \emph{Le Chatelier principle} \footnote{"When a settled system is disturbed, it will adjust to diminish the change that has been made to it".}
- Consider a liquid-solid transition (the coexistence curves are shown in Figure \ref{fig:3_16}):
-\begin{equation}
+The Clapeyron equation embodies the \emph{Le Chatelier principle}\footnote{"When a settled system is disturbed, it will adjust to diminish the change that has been made to it".}.
+ Consider a liquid-gas transition (the coexistence curves are shown in Figure \ref{fig:3_16}):
+\begin{equation*}
   \qty(\dv{P}{T} )_{coex} > 0 \quad \Rightarrow \frac{s_2 - s_1}{v_2 - v_1} > 0
-\end{equation}
+\end{equation*}
 and since \( v_2 > v_1 \), we have \( s_2 > s_1 \). The gas has more entropy as it should be.  The slope of the phase curve is positive, then an increase in pressure at constant temperature tends to drive the system to the more dense (solid) phase, and an increase in temperature tends to drive the system to the more entropic (liquid) phase.
 
 
 When going from a low-temperature phase to a high-temperature phase entropy always increases \( \Delta S > 0 \), because \( c_P \equiv T (\partial{S}/\partial{T}  )_P > 0 \).
 
-The sign of \( \Delta V \) is more uncertain though. To see this point let us consider the C-C equation at the solid-liquid (now solid is region 1 and liquid region 2) coexistence curve.
+The sign of \( \Delta V \) is more uncertain though. To see this point, let us consider the C-C equation at the solid-liquid (now solid is region 1 and liquid region 2) coexistence curve.
 At the melt temperature:
-\begin{equation}
-  \qty(\dv{P}{T} )_{coex} = \frac{\delta Q_{melt}}{T_{melt}\Delta v_{melt}} \qquad \delta Q_{melt} = Q_{liq} - Q_{solid} > 0
+\begin{equation*}
+  \qty(\dv{P}{T} )_{coex} = \frac{\delta Q_{melt}}{T_{melt}\Delta v_{melt}}, \qquad \delta Q_{melt} = Q_{liq} - Q_{solid} > 0
   \label{eq:}
-\end{equation}
+\end{equation*}
 In general, \( \Delta v_m = v_{liq} - v_{solid} > 0 \) which implies \( \qty( \dd[]{P}/\dd[]{T}   )_{coex} > 0  \). There are cases, however, where \( \Delta v_m = v_{liq} - v_{solid} < 0 \) because \( \rho_{liq} > \rho _{solid} \) (for instance the \( H_2 0 \), or also Silicon and Germanium). The paradigmatic example is the freezing of water where \( v_{ice} > v_{liq} \) since ice is less dense than liquid water at the coxistence (\( 0 < T° < 4 \)). This implies that \( \dd[]{P}/\dd[]{T} < 0   \).
 
 \begin{example}{Melting point on Everest}{}
 
-Consider \( T = 237 K \) and \( P=P_0 \). If \( \delta Q_m = 6.01 kJ/mol \) and \( \Delta v = -1.7 cm^3 /mol  \) we have:
+Consider \( T = 237 K \) and \( P=P_0 \). If we suppose that
+\begin{equation*}
+\delta Q_m = 6.01 kJ/mol, \quad \Delta v = -1.7 cm^3 /mol    
+\end{equation*}
+we have
 \begin{equation*}
   \dv{P}{T}  = \frac{\delta Q_m}{T \Delta v} = \frac{6.01 10^3 J/mol}{273 \cdot (-1.7 cm^3/mol)} = -1.29 \cdot 10^4 J/m^3 = -1.29 bar/K
   \label{eq:}
 \end{equation*}
 \begin{equation*}
-  \Delta T = \frac{\Delta P}{(-1.29 Pa/K)} = \frac{(P_0 - P_{\text{Everest}})}{(-1.29 Pa/K)} = \frac{(1-0.36)atm}{(-1.29 Pa/K)} = -0.5 C
+  \Rightarrow \Delta T = \frac{\Delta P}{(-1.29 Pa/K)} = \frac{(P_0 - P_{\text{Everest}})}{(-1.29 Pa/K)} = \frac{(1-0.36)atm}{(-1.29 Pa/K)} = -0.5\SI{}{\celsius}
+  \label{eq:}
+\end{equation*}
+\begin{equation*}
+  \Rightarrow T_m ( \text{Everest}) = T_m (P_0) + 0.5\SI{}{\celsius}
   \label{eq:}
 \end{equation*}
 \end{example}
-\begin{equation*}
-  \Rightarrow T_m ( \text{Everest}) = T_m (P_0) + 0.5 C
-  \label{eq:}
-\end{equation*}
+
 \begin{example}{Boiling point on Everest}{}
 
-Consider \( P_{\text{Everest}}= 0.36 atm \), \( \rho (T= 100\SI{}{\celsius})=0.598 kg/m^3 \), \( L_{ge} = 2.257 \cdot 10^3 J/g \). The density of the vapour is about 1000 less than water, it implies that: \( \Delta V = V_g - V_e \approx V_g = \frac{1}{\rho g}\). We have:
+Let us consider
 \begin{equation*}
-  \dv{P}{T} = \frac{L_{ge}}{T \Delta V} = \frac{L_{ge} \rho _g}{T} = \frac{2.25 \cdot 10^3 J/g \cdot 0.593 kg/m^3}{373 K} = \frac{3.6}{K} \frac{10^3 J}{g} \frac{kg}{m^3} = 3.6 \cdot 10^3 Pa/K
+ P_{\text{Everest}}= 0.36 atm, \quad \rho (T= 100\SI{}{\celsius})=0.598 kg/m^3, \quad
+  L_{gl} = 2.257 \cdot 10^3 J/g
+\end{equation*}
+The density of the vapour (gas) is about 1000 less than water (liquid), it implies that: 
+\begin{equation*}
+ \Delta V = V_g - V_l \approx V_g = \frac{1}{\rho_g}   
+\end{equation*}
+ We have:
+\begin{equation*}
+  \dv{P}{T} = \frac{L_{ge}}{T \Delta V} = \frac{L_{ge} \rho _g}{T} = \frac{2.25 \cdot 10^3 J/g \cdot 0.593 kg/m^3}{373 K} = \frac{3.6}{K} \frac{10^3 J}{g} \frac{kg}{m^3} = 3.6 \cdot 10^3 \frac{Pa}{K} 
+\end{equation*}
+\begin{equation*}
+  \Rightarrow \Delta T \approx \Delta P/(3.6 10^3 Pa/K) = 18 \SI{}{\celsius}   
   \label{eq:}
 \end{equation*}
 \begin{equation*}
-  \Rightarrow \Delta T \approx \Delta P/(3.6 10^3 Pa/K) = 18 \SI{}{\celsius}   \rightarrow T_0 - T_{\text{Everest}} = 18\SI{}{\celsius} C \Rightarrow T_{\text{Everest}}\approx 80\SI{}{\celsius}
-  \label{eq:}
+ \Rightarrow T_0 - T_{\text{Everest}} = 18\SI{}{\celsius} \quad \Rightarrow T_{\text{Everest}}\approx 80\SI{}{\celsius}   
 \end{equation*}
 \end{example}
 

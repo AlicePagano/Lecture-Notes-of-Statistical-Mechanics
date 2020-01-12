@@ -400,7 +400,7 @@ We can also fix the temperature \( T=T^* \)  and look at the variation of \emph{
 \noindent
 Note that, we have  \( v= \qty(\pdv{g}{P} )_T > 0  \) :
 \begin{equation}
-  \qty(\pdv[2]{g}{P} ) = \qty(\pdv{U}{P} )_T = -v k_T < 0
+  \qty(\pdv[2]{g}{P} ) = \qty(\pdv{v}{P} )_T = -v k_T < 0
   \label{eq:}
 \end{equation}
 so, also in this case we had a jump of the first order derivative of the thermodynamic potential \( g \).
@@ -415,11 +415,11 @@ It is illustrated in Figure \ref{fig:2_6}.
 
 \clearpage
 \subsection{Critical points}
-At the critical point \( (P_c,T_c) \) the system can pass from the liquid to the gas phase (and viceversa) in a continuous way
+At the critical point \( (P_c,T_c) \) the system can pass from the liquid to the gas phase (and vice versa) in a continuous way
 \begin{equation*}
   \Delta s = \Delta v = 0
 \end{equation*}
-Usually critical points are end point of first order transition phases. Why there is no critical point between solid and liquid? The crossover between phases having the same symmetry define the Landau point. There is a break of symmetry, for instance we can think about the structure of the bravais lattice. Instead, from gas to liquid symmetries are not broken.
+Usually, critical points are end point of first order transition phases. Why there is no critical point between solid and liquid? The crossover between phases having the same symmetry define the Landau point. There is a break of symmetry, for instance we can think about the structure of the bravais lattice. Instead, from gas to liquid symmetries are not broken.
 
 
 \begin{figure}[h!]
@@ -443,7 +443,7 @@ Supposing \( P \leftrightarrow H, V \leftrightarrow M \), we have \( (P,T) \left
 \caption{\label{fig:2_10} Phase diagram for a magnetic system in \( (T,H) \) space. A line of first-order transitions at zero field ends in a critical point at a temperature \( T_c\). }
 \end{figure}
 
-The magnetization \( M \) has a jump at \( H=0 \) for temperatures lower that the critical one; in this case since \( M = - \pdv{F}{H}  \) we see that the first derivative of the free energy \emph{F} with respect to \emph{H} has a jump discontinuity.
+The magnetization \( M \) has a jump at \( H=0 \) for temperatures lower than the critical one; in this case since \( M = - \pdv{F}{H}  \) we see that the first derivative of the free energy \emph{F} with respect to \emph{H} has a jump discontinuity.
 For instance, consider Figure \ref{fig:2_11}. At  the critical point the magnetization would pass through zero.
 
 
@@ -462,7 +462,7 @@ For instance, consider Figure \ref{fig:2_11}. At  the critical point the magneti
 
 \section{Second order phase transition}
 The transitions are classified in the first order transition and continuous transition.
-If the first derivatives are continuous but second derivatives are discontinuous or infinite the transition will be described as higher order, continuous or critical. This is different from the previous situation in which we had a jump for the first order derivative of a thermodynamic potential. Some examples are illustrated in Figure \ref{fig:2_7}.
+If the first derivatives are continuous, but second derivatives are discontinuous, or infinite, the transition will be described as higher order, \emph{continuous} or critical. This is different from the previous situation, in which we had a jump for the first order derivative of a thermodynamic potential. Some examples are illustrated in Figure \ref{fig:2_7}.
 
 Let us suppose that
 \begin{subequations}
@@ -471,12 +471,12 @@ Let us suppose that
   \qty(\pdv{g}{P} )_T &= v
 \end{align}
 \end{subequations}
-are continuous. This implies:
+are continuous. We suppose also that
 \begin{equation}
-  \qty(\pdv{g}{T}{P}  ) = \qty(\pdv{v}{T} )_P = v_{\alpha p}
+  \qty(\pdv{g}{T}{P}  ) = \qty(\pdv{v}{T} )_P = v \alpha_p
   \label{eq:}
 \end{equation}
-that is discontinuous.
+is discontinuous.
 An example is \emph{superconductivity}.
 
 
@@ -509,14 +509,14 @@ An example is \emph{superconductivity}.
 \caption{\label{fig:2_7} Example of a second order phase transition.}
 \end{figure}
 
-If we look for example at the specific heat \( c_P \) in Figure \ref{fig:2_7_4}, it represent the transition from superconduction.
+If we look for example at the specific heat \( c_P \) in Figure \ref{fig:2_7_4}, it represent the transition from superconducting.
 
-The critical point is special beacause there is not a jump, so we can go continuously from gas to liquid. The response function when we plot this point shows that the specific heat diverges.
+The critical point is special because there is not a jump, so we can go continuously from gas to liquid. The response function when we plot this point shows that the specific heat diverges.
 
- The superfluid transition is a transition where the second derivative of the thermodynamic potential diverges. There are many phase transitions that can be classified in different ways.
+ The \emph{superfluid transition} is a transition where the second derivative of the thermodynamic potential diverges. There are many phase transitions that can be classified in different ways.
 
  \begin{remark}
-Note that at the coexistence line we increase V, but the pression remains constant. At the coexistence line we see bubbles. It is the density that is changing locally, the bubbles becames bigger and bigger and at the \( V_G \) , becames a liquid.
+Note that at the coexistence line we increase V, but the pressure remains constant. At the coexistence line we see bubbles. It is the density that is changing locally, the bubbles becomes bigger and bigger and at the \( V_G \), becomes a liquid.
  \end{remark}
 
 
@@ -543,7 +543,7 @@ Note that at the coexistence line we increase V, but the pression remains consta
 \end{figure}
 
 
-Consider \( A = A (T,V,N) \), here the derivative with respect to \emph{P} is replaced by \emph{V} which is discontinuous at the first order transition. Moreover \( P > 0 \)  implies \( \partial{A}/\partial{V} < 0   \) and
+Consider \( A = A (T,V,N) \), here  \emph{P} is replaced by \emph{V} which has the derivative discontinuous at the first order transition. Moreover, \( P > 0 \)  implies \( \partial{A}/\partial{V} < 0   \) and
 \begin{equation}
   k_T = -\frac{1}{V} \qty(\pdv{V}{P} )_T = -\frac{1}{V} \qty(\pdv{P}{V} )_T = \frac{1}{V} \qty(\pdv[2]{A}{V} )_T > 0
   \label{eq:}
