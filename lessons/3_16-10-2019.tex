@@ -363,14 +363,14 @@ The notion of \emph{critical exponent} describes the behaviour of the order para
 In order to answer to these questions, let us define:
 
 
-\begin{definition}{\textit{Critical Exponent}, or \emph{Scale Exponent}}{}
-Let us define the adimensional parameter measuring the distance from the critical point \( t \equiv \frac{T-T_c}{T_c} \), the \emph{Critical Exponent} \( \lambda  \) associated to the function \( F(t) \) is defined as:
+\begin{definition}{Critical Exponent, \emph{or} Scale Exponent}{}
+Let us define the adimensional parameter measuring the distance from the critical point \( t \equiv \frac{T-T_c}{T_c} \), the \emph{critical exponent} \( \lambda  \) associated to the function \( F(t) \) is defined as:
 \begin{equation}
   \lambda _{\pm} = \lim_{t \rightarrow 0^{\pm}} \frac{\ln{\abs{F(t)} } }{\ln{\abs{t} } }
 \end{equation}
 \end{definition}
 
-We note that it behaves like a power low and that one can also write the \textit{power law}:
+We note that it behaves like a power law. One can also write the \textit{power law}:
 \begin{equation}
   F(t) \overset{t \rightarrow  0^{\pm}}{\sim } \abs{t}^{\lambda _{\pm}}
 \end{equation}
@@ -380,16 +380,16 @@ More generally, for \( t \ll 1 \):
 \end{equation}
 where all other terms are less important.
 
-\begin{definition}{\emph{Thermodynamic critical exponents}}{}
+\begin{definition}{Thermodynamic Critical Exponents}{}
 \begin{itemize}
-\item \textbf{Exponent \( \beta \)}: tells how the order parameter goes to zero.
-Consider Figure \ref{fig:3_4_1}, we have \( M \overset{t \rightarrow  0^-}{\sim} (-t)^{\beta }  \). No sense in going from above where it stays 0.
+\item \textbf{Exponent \( \pmb{\beta} \)}: tells how the order parameter goes to zero.
+Consider Figure \ref{fig:3_4_1}, we have \( M \overset{t \rightarrow  0^-}{\sim} (-t)^{\beta }  \). No sense in going from above \( (t \rightarrow 0^+) \) where it stays 0.
 
-\item \textbf{Exponent \( \gamma _{\pm}  \)} (suscettibility): related to the response function. Consider Figure \ref{fig:3_4_2}, we have \( \chi _T \overset{t \rightarrow 0^{\pm}}{\sim} \abs{t}^{-\gamma _{\pm} }   \). In principle, the value of \( \gamma   \) can depend on the sign of \emph{t} i.e.   \( \gamma ^+ \neq \gamma ^-  \), but they are the same in reality and we have \( \gamma ^+ = \gamma ^- = \gamma     \).
+\item \textbf{Exponent \(\pmb{ \gamma _{\pm} } \)} (susceptibility): related to the response function. Consider Figure \ref{fig:3_4_2}, we have \( \chi _T \overset{t \rightarrow 0^{\pm}}{\sim} \abs{t}^{-\gamma _{\pm} }   \). In principle, the value of \( \gamma   \) can depend on the sign of \emph{t} i.e.   \( \gamma ^+ \neq \gamma ^-  \), but they are the same in reality and we have \( \gamma ^+ = \gamma ^- = \gamma     \).
 
-\item \textbf{Exponent \( \alpha _{\pm} \)}: how specific heat diverges (second order derivative in respect of \emph{T}). For instance see Figure \ref{fig:3_4_3}, we have \( c_H \sim \abs{t}^{-\alpha _{\pm}}  \).
+\item \textbf{Exponent \(\pmb{ \alpha _{\pm} }\)}: how specific heat diverges (second order derivative in respect of \emph{T}). For instance see Figure \ref{fig:3_4_3}, we have \( c_H \sim \abs{t}^{-\alpha _{\pm}}  \).
 
-\item \textbf{Exponent \( \delta   \)}: in this case one consider the isotherm \( T =T_c \) and look for the behaviour of \emph{M} at the critical point at small \emph{H} (or viceversa).  The result is \( M \sim H^{1/\delta } \).
+\item \textbf{Exponent \( \pmb{\delta   }\)}: in this case one consider the isotherm \( T =T_c \) and look for the behaviour of \emph{M} at the critical point at small \emph{H} (or viceversa).  The result is \( M \sim H^{1/\delta } \).
 In Figure \ref{fig:3_4_4}, \( H \sim \abs{M}^{\delta } \text{sign} (M)  \).
 
 \end{itemize}
@@ -469,15 +469,15 @@ In compiling Table \ref{tab:3_1} and \ref{tab:3_2} we have made the as yet total
 The system displays correlation at very long distance, these goes to the size of the system when \( T \rightarrow T_c \). We are talking about long range correlation. The \emph{correlation function} is \( \xi \sim t^{-\nu } \).
 For instance, consider a polymer as in Figure \ref{fig:3_5}.
 
-Having defined the critical exponents we need to justify why they are interesting. And indeed, why they are more interesting than the critical temperature \( T_c \) itself. It turns out that, whereas \( T_c \) depends sensitively on the details of the interatomic interactions, the critical exponents are to a large degree \emph{universal} depending only on a few fundamental parameters.
+Having defined the critical exponents, we need to justify why they are interesting and  why they are more interesting than the critical temperature \( T_c \) itself. It turns out that, whereas \( T_c \) depends sensitively on the details of the interatomic interactions, the critical exponents are to a large degree \emph{universal} depending only on a few fundamental parameters.
 
-To summurize, the critical exponents are more interesting than \( T_c \) since their values do not depend on microscopic details but only on few parameters such as the space dimension \emph{d} and the symmetry of the system.
+To summurize, the critical exponents are more interesting than \( T_c \) since their values do not depend on microscopic details, but only on few parameters such as the space dimension \emph{d} and the symmetry of the system.
 
 One of the first experimental evidence of this universality was given by the work of Guggenheim on the coexistence curves of \emph{g} different fluids: A, Kn, $\chi_e$, Ne, $N_2$, $CO_2$ and $O_2$. By plotting \( T/T_c \) versus \( \rho /\rho _c \) (Figure \ref{fig:3_6}) he found that all the data collapse on the same curve, i.e. different sets of data fit the  same function. Moreover for \( t \rightarrow 0 \):
-\begin{equation}
+\begin{equation*}
   (\rho _l - \rho _c) \sim (-t)^{\beta}
   \label{eq:}
-\end{equation}
+\end{equation*}
 and \( \beta \sim 1/3 \approx 0.335 \).  Therefore, close to the critical point all the data lie on the same curve and hence can be described by the same exponent \( \beta  \).
 A further test of universality is to compare this value to that obtained for a phase transition in a completely different system with a scalar order parameter. For instance, if we do the same for a string ferromagnetic the result is \( \beta = 1/3 \)  too.
 \begin{remark}
@@ -511,36 +511,43 @@ It is possible to obtain several rigorous inequalities between the critical expo
 It follows from the well known thermodynamic relation between the specific heats at constant field and constant magnetization.
 Remember the relation between response functions:
 
-\begin{equation}
+\begin{equation*}
    k_T (c_p-c_v)=T v \alpha ^2 = T v \frac{1}{v^2} \qty(\pdv{v}{T} )^2_P = T \frac{1}{v} \qty(\pdv{v}{T} )^2_P
-\end{equation}
+\end{equation*}
 For magnetic systems one has
+\begin{equation*}
+  \chi _T (c_H-c_M) = T \underbrace{ \qty(\pdv{M}{T} )^2_H }_{\geq 0}
+\end{equation*}
+From thermodynamic stability we have \( c_M \geq 0, c_H \geq 0, \chi _T \geq 0  \).
+Hence, from the previous relation we have
+\begin{equation*}
+   c_H = \frac{T}{\chi _T} \qty(\pdv{M}{T} )^2_H + \underbrace{c_M}_{\ge0}
+\end{equation*}
+which implies
 \begin{equation}
-  \chi _T (c_H-c_M) = T \qty(\pdv{M}{T} )^2_H
-\end{equation}
-from the thermodynamic stability we have \( c_M \geq 0, \chi _T \geq 0  \).
-Hence from the previous relation we have
-\begin{equation}
-   c_H \geq \frac{T}{\chi _T} \qty(\pdv{M}{T} )^2_H
+   c_H \ge \frac{T}{\chi _T} \qty(\pdv{M}{T} )^2_H 
    \label{eq:3_1}
 \end{equation}
 On the other hand, for \( T \rightarrow T_c^- \) \( (t \rightarrow 0^-) \) and \( H=0 \) (zero field) we have
-\begin{equation}
+\begin{equation*}
   \begin{cases}
    c_H \sim (-t)^{-\alpha }\\
-   \chi _T \sim (-t)^{-\gamma  }
+   \chi _T \sim (-t)^{-\gamma  } \\
+    M \sim (-t)^{\beta }
   \end{cases}
-\end{equation}
-Moreover, \( M \sim (-t)^{\beta } \),  implies \( \qty( \pdv{M}{T})_{H=0} \sim (-t)^{\beta -1} \).
-
+\end{equation*}
+that implies
+\begin{equation*}
+ \qty( \pdv{M}{T})_{H=0} \sim (-t)^{\beta -1}    
+\end{equation*}
 Since the inequality \eqref{eq:3_1} is valid for all temperature \emph{T}, it follows that can only be obeyed if
-\begin{equation}
+\begin{equation*}
   B (T_c - T)^{-\alpha } \ge B' T \frac{[(T_c - T)^{\beta -1}]^2}{(T_c-T)^{-\gamma  }}
-\end{equation}
-with \( B,B' > 0 \). Take the limit \( T \rightarrow T_c^- \) we have:
-\begin{equation}
+\end{equation*}
+with \( B,B' > 0 \). Take the limit \( T \rightarrow T_c^- \), we have:
+\begin{equation*}
   \lim_{T \rightarrow T_c^-} (T_c - T)^{2- \alpha - 2 \beta - \gamma  } \ge \frac{B' T}{B} > 0
-\end{equation}
+\end{equation*}
 Since the left hand side must be strictly greater than zero, we have the \textit{RushBrook inequality}:
 
 \begin{empheq}[box=\myyellowbox]{equation}
@@ -556,9 +563,9 @@ The \emph{Griffith inequality} is obtained from the convexity property (in \emph
 
 
 \subsubsection{}
-We have introduced two very new ideas, universality and inequalities between the critical exponents which appear to hold as equalities.
+We have introduced two very new ideas, universality and inequalities between the critical exponents, which appear to hold as equalities.
 
-In the intervening chapters we look  at models of systems which undergo phase transitions and how to calculate their critical exponents and other properties.
+In the intervening chapters, we look  at models of systems which undergo phase transitions and how to calculate their critical exponents and other properties.
 
 
 
