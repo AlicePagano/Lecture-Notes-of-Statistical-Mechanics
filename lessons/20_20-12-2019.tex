@@ -439,7 +439,7 @@ where \( Y_h \) and \( Y_t \) can be computed as
 Hence, we have all we need for the computation!
 
 \section{Real space renormalization group on 1D Ising model \( (H=0) \)}
-\subsubsection{Decimation procedure}
+\subsection{Decimation procedure for \( D=1 \)}
 Decimation means summing up over all spins.
 \( D=1 \) the procedure is clearly exact. Idea: pass from a \( N- \) spins system to one with \( \frac{N}{b} \) spins by summing the remaining \( N- \frac{N}{b} \) spins.
 
@@ -549,7 +549,7 @@ equal to the exact model in \( D=1 \).
 \end{equation}
 finite \( \forall k \neq \infty  \).
 
-\section{Decimation procedure for \( D>1 \) (proliferation of interactions)}
+\subsection{Decimation procedure for \( D>1 \) (proliferation of interactions)}
 Ioing on a square lattice, block transformation (length \( b \)). There are problems with the spins at the boundaries.
 In order to get \( Z_{N'}' (k') = Z_N (k) \), at least an additional term in the Hamiltonian must be introduced
 \begin{equation}
@@ -580,7 +580,7 @@ This unfortunately occurs at each iteration! There is an uncontrolled proliferat
 \end{equation}
 where \( \infty ,0 \) are stable fixed point.
 \begin{equation}
-  \delta k' = \lambda _t \delta k = l^{\lambda _t} \delta k
+  \delta k' = \lambda _t \delta k = l^{Y _t} \delta k
 \end{equation}
 where
 \begin{equation}
@@ -593,7 +593,8 @@ Y_t  &= \frac{\ln{\lambda _t} }{\ln{l} } = \frac{1}{\ln{\sqrt{2} } } \ln{\qty(\d
 & = \frac{1}{\ln{\sqrt{2} } }  \ln{\qty(\dv{}{k} \qty(\frac{3}{8} \ln{(\cosh 4k)} ) ) } = 1.070
 \end{split}
 \end{equation}
-we have also
+so, this is actual a relevant eigenvalue.
+We have also the critical exponents
 \begin{equation}
   \nu = \frac{1}{Y_t} = 0.9345, \quad \alpha = 2 - \frac{d}{Y_t} = 0.1313
 \end{equation}
