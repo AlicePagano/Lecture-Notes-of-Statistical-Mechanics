@@ -1,3 +1,4 @@
+
 \documentclass[../main/main.tex]{subfiles}
 
 \newdate{date}{25}{10}{2019}
@@ -189,21 +190,21 @@ The above properties have been postulated in thermodynamics, but here they have 
 \end{proof}
 
 All the other properties listed before (except \( (1) \)) are consequences of the \emph{convexity} property of \( f_b \).
-\begin{orangebox}
-  \begin{theorem}[]
+
+  \begin{theorem}{}{}
   \( f_b  (T,J,H)\) is an upper convex (i.e. concave) function of \emph{H}.
   \end{theorem}
-\end{orangebox}
+
 \begin{proof}
 The proof is based on the H$\ddot{o}$lder inequality for two sequences  \( \{ g_k \}, \{ h_k \}     \):
-\begin{bluebox}
-  \begin{definition}[H$\ddot{o}$lder inequality]
+
+  \begin{definition}{H$\ddot{o}$lder inequality}{}
     Given  \( \{ g_k \}, \{ h_k \}     \) with \( g_k,h_k \ge 0, \forall k \) and two non negative real numbers \( \alpha _1, \alpha _2 \) such that \( \alpha _1 + \alpha _2 =1 \), the following inequality holds
     \begin{equation}
       \sum_{k}^{} (g_k)^{\alpha _1} (h_k)^{\alpha _2} \le \qty(\sum_{k}^{} g_k )^{\alpha _1} \qty(\sum_{k}^{} h_k )^{\alpha _2}
     \end{equation}
   \end{definition}
-\end{bluebox}
+
 Now, consider the partiction function:
 \begin{equation}
   Z_ \Omega  (H) = \Tr[\exp (\beta H \sum_{i}^{} S_i ) \underbrace{\exp (\beta J \sum_{\expval{ij} }^{} S_i S_j ) }_{G (S)}  ] = \Tr [\exp (\beta H \sum_{i}^{} S_i ) G (S)]
@@ -242,7 +243,7 @@ That is a concave function of \emph{H}.
 \subsection{Ising model and \( \mathbb{Z}^2 \) symmetry. }
 The symmetry of the system in sense of the Hamiltonian is: we can invert the value of the \emph{S} and the Hamiltonian does not change. It is valid when \( H=0 \), otherwise is not true. Let us see the \( \mathbb{Z}^2 \) symmetry and the following interesting relation:
 \begin{orangebox}
-  \begin{lemma}[]
+  \begin{lemma}{}{}
   \( \forall  \) function \( \Phi  \) of the configuration \( \{ S_i \}   \), the following relation holds:
   \begin{equation}
     \sum_{ \{S_i = \pm 1\}}^{}  \Phi  (\{S_i\} ) =   \sum_{ \{S_i = \pm 1\}}^{}  \Phi  (\{-S_i\} )

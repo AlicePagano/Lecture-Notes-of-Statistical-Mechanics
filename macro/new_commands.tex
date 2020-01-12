@@ -20,18 +20,95 @@
 \newcommand{\hlfancy}[2]{\sethlcolor{#1}\hl{#2}}
 
 %Theorem
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{corollary}{Corollary}[theorem]
+%\newtheorem{lemma}[theorem]{Lemma}
 
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}%[section]
+%%%%%%%%%%%%%%%%%%%%Theorem, Corollary, Lemma, Proposition%%%%%%%%%%%%%%%%%
+\usepackage[many,most,theorems]{tcolorbox}
+
+\newtcbtheorem{theorem}{Theorem}{ % frame stuff
+    boxrule = 1pt,
+    breakable,
+    enhanced,
+    frame empty,
+    interior style= {orange!20},
+    %interior empty,
+    colframe=black,
+    borderline ={1pt}{0pt}{black},
+    left=0.2cm,
+    % title stuff
+    attach boxed title to top left={yshift=-2mm,xshift=0mm},
+    coltitle=black,
+    fonttitle=\bfseries,
+    colbacktitle=white,
+    fontupper=\slshape,
+    boxed title style={boxrule=1pt,sharp corners}}{theorem} 
+
+\newtcbtheorem{corollary}{Corollary}{ % frame stuff
+    boxrule = 1pt,
+    breakable,
+    enhanced,
+    frame empty,
+    interior style= {orange!20},
+    %interior empty,
+    colframe=black,
+    borderline ={1pt}{0pt}{black},
+    left=0.2cm,
+    % title stuff
+    attach boxed title to top left={yshift=-2mm,xshift=0mm},
+    coltitle=black,
+    fonttitle=\bfseries,
+    colbacktitle=white,
+    fontupper=\slshape,
+    boxed title style={boxrule=1pt,sharp corners}}{corollary} 
+    
+\newtcbtheorem{lemma}{Lemma}{ % frame stuff
+    boxrule = 1pt,
+    breakable,
+    enhanced,
+    frame empty,
+    interior style= {orange!20},
+    %interior empty,
+    colframe=black,
+    borderline ={1pt}{0pt}{black},
+    left=0.2cm,
+    % title stuff
+    attach boxed title to top left={yshift=-2mm,xshift=0mm},
+    coltitle=black,
+    fonttitle=\bfseries,
+    colbacktitle=white,
+    fontupper=\slshape,
+    boxed title style={boxrule=1pt,sharp corners}}{lemma} 
+
+
+%%%%%%%%%%%%%%%%%%%%Definition%%%%%%%%%%%%%%%%%
+
+
+\newtcbtheorem{definition}{Definition}{ % frame stuff
+    boxrule = 1pt,
+    breakable,
+    enhanced,
+    frame empty,
+    interior style= {blue!10},
+    %interior empty,
+    colframe=black,
+    borderline ={1pt}{0pt}{black},
+    left=0.2cm,
+    % title stuff
+    attach boxed title to top left={yshift=-2mm,xshift=0mm},
+    coltitle=black,
+    fonttitle=\bfseries,
+    colbacktitle=white,
+    boxed title style={boxrule=1pt,sharp corners}}{definition} 
+
+
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}%[section]
+
 
 
 %%%%%%%%%%%%%%%%%%%%Exercise and example%%%%%%%%%%%%%%%%%
-\usepackage[many,most,theorems]{tcolorbox}
-
 
 \newtcbtheorem{exercise}{Exercise}{ % frame stuff
     boxrule = 1pt,
