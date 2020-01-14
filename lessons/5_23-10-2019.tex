@@ -11,7 +11,7 @@
 
 \section{Statistical mechanics of phase transitions}
 
-From the microscopic degrees of freedom one compute the partition function in the appropriate ensemble, then the corresponding thermodynamic potential and from it all the thermodynamic properties of the system as \emph{equilibrium phases} and, if present, \emph{phase transitions}. Actually, until the '30 there were strong concerns about the possibility that statistical mechanics could describe phase transitions.
+From the microscopic degrees of freedom, one compute the partition function in the appropriate ensemble, then the corresponding thermodynamic potential and from it all the thermodynamic properties of the system as \emph{equilibrium phases} and, if present, \emph{phase transitions}. Actually, until the '30 there were strong concerns about the possibility that statistical mechanics could describe phase transitions.
 
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
@@ -33,13 +33,13 @@ From the microscopic degrees of freedom one compute the partition function in th
 Let us consider a system withing a region \( \Omega  \) of volume \( V(\Omega ) \) and boundary \( \partial{\Omega }  \)    of area \( S (\Omega ) \) (Figure \ref{fig:5_1_0}). Denoting by \emph{L} a characteristic lenght of the system
 
 \begin{equation*}
-  V(\Omega ) \propto L^d, \quad S(\partial{\Omega } ) \propto L^{d-1}
+  V(\Omega ) \propto L^d, \quad S(\Omega  ) \propto L^{d-1}
 \end{equation*}
 where \emph{d} is the spatial dimension.
 \begin{remark}
 Space \( \Omega  \) can be either \emph{discrete} or \emph{continuous}.
 \end{remark}
-Suppose that the system is \emph{finite}. Formally we can write
+Suppose that the system is \emph{finite}. Formally, we can write
 \begin{equation}
   \mathcal{H}_{\Omega } = - \sum_{n}^{} k_n \Theta _n
 \end{equation}
@@ -49,10 +49,10 @@ where
   \item \( \Theta _n \): is a linear, or higher order, combination of the dynamical microscopic degrees of freedom (local operators in quantum statistical mechanics).
   \item \( k_n \Theta _n \): must obey the symmetry of the system. It is important that in principle the term satisfies the symmetry of the system. This is a master rule!
 \end{itemize}
-To fix the idea let us consider two classical examples: the magnetic system and the fluid system.
+To fix the idea, let us consider two classical examples: the magnetic system and the fluid system.
 
 \subsection{Magnetic system (canonical)}
-The degrees of freedom are the \emph{spins} lying on a Bravais lattice \( \va{S_i}  \) with \( 1 \le i \le N(\Omega ) \), where the \( N(\Omega )   \) are the number of lattice sites (Figure \ref{fig:5_1_1}). A configuration is the orientation of the spin in each site \( \mathcal{C} = \{ \va{S_1},\dots,\va{S_N} \}  \).
+The degrees of freedom are the \emph{spins} lying on a Bravais lattice \( \va{S_i}  \), with \( 1 \le i \le N(\Omega ) \), where the \( N(\Omega )   \) are the number of lattice sites (Figure \ref{fig:5_1_1}). A configuration is the orientation of the spin in each site \( \mathcal{C} = \{ \va{S_1},\dots,\va{S_N} \}  \).
 We have:
 \begin{subequations}
 \begin{align}
@@ -60,11 +60,12 @@ We have:
   \Theta _2 &= \sum_{ij}^{} \va{S_i} \vdot \va{S_j}
 \end{align}
 \end{subequations}
-We consider the trace operation that is the sum over all possible values that each degree of freedom can assume:
+We consider the trace operation, that is the sum over all possible values that each degree of freedom can assume:
 \begin{equation}
   \Tr \equiv \sum_{\{ \mathcal{C} \}  }^{}  \equiv \sum_{\va{S_1} }^{} \sum_{\va{S_2} }^{} \dots  \sum_{\va{S_N} }^{}
 \end{equation}
 where \( \sum_{}^{}   \) can also indicate an integration if values are continuous.
+
 The \emph{canonic partition function} is
 \begin{empheq}[box=\myyellowbox]{equation}
   Q_ \Omega (T, \{ k_n \} ) = \Tr( e^{-\beta \mathcal{H }_ \Omega} )
@@ -92,11 +93,13 @@ The \emph{gran canonical partition function} is:
   \mathcal{F}_ \Omega = \Tr(e^{-\beta (\mathcal{H}_ \Omega - \mu N) } )
 \end{empheq}
 
-For a generic partition function \( Q_ \Omega (T, \{ k_n \}  ) \) we can define the finite system \emph{free energy} as
+For a generic partition function \( Q_ \Omega (T, \{ k_n \}  ) \), we can define the finite system \emph{free energy} as
 \begin{empheq}[box=\myyellowbox]{equation}
   F_ \Omega [T,\{ k_n \}  ] = - k_B T \ln{Q_ \Omega (T, \{ k_n \}  )}
 \end{empheq}
-The relation with thermodynamic is trough the \emph{theromdynamic limit}. Since the free energy is an extensive function
+The relation with thermodynamic is trough the \emph{theromdynamic limit}. 
+
+Since the free energy is an extensive function,
 \begin{equation*}
   F_ \Omega \propto V (\Omega)  \sim L^d
 \end{equation*}
@@ -106,12 +109,12 @@ In general, one can write
 \end{empheq}
 where \( f_b [T,\{ k_n \}  ] \) is the bulk free energy density.
 
-  \begin{definition}{}{}
-  We define
+  \begin{definition}{Bulk free energy density}{}
+  We define the \emph{bulk free energy density} as
   \begin{equation}
     f_b [T,\{ k_n \}  ] \equiv \lim_{V (\Omega ) \rightarrow \infty } \frac{F_ \Omega [T,\{ k_n \}  ]}{V (\Omega )}
   \end{equation}
-  If the limit exists (to prove for each system) and does not depend on \( \Omega  \).
+  if the limit exists (to prove for each system) and does not depend on \( \Omega  \).
   \end{definition}
 
 
@@ -119,12 +122,12 @@ For a system defined on a lattice we have
 \begin{equation*}
   L (\Omega ) \propto N (\Omega )^{1/d}, \quad V (\Omega ) \propto N (\Omega )
 \end{equation*}
-\begin{equation}
+\begin{equation*}
   f_b [T,\{ k_n \}  ] = \lim_{N (\Omega) \rightarrow \infty } \frac{1}{N (\Omega )} F_N [T,\{ k_n \}  ]
-\end{equation}
-To get information on surface property of the system
+\end{equation*}
+To get information on surface property of the system, let us calculate
 \begin{equation}
-  f_s [T,\{ k_n \}  ] \equiv \lim_{S (\Omega ) \rightarrow \infty } \frac{F_ \Omega [T,\{ k_n \}  ]  - V (\Omega ) f_b}{S (\Omega )}
+  f_s [T,\{ k_n \}  ] \equiv \lim_{S (\Omega ) \rightarrow \infty } \frac{F_ \Omega [T,\{ k_n \}  ]  - V (\Omega ) f_b [T,\{ k_n \}  ]}{S (\Omega )}
 \end{equation}
 
 \subsection{Thermodynamic limit with additional constraints}
@@ -132,26 +135,29 @@ For a fluid we cannot simply take the limit \( V (\Omega ) \rightarrow \infty  \
 \begin{equation*}
   \frac{N (\Omega )}{V (\Omega )} \equiv \rho = const
 \end{equation*}
-In general is not so easy to prove the existence of the limit and it depends on the range of the particle-particle interactions.
+In general, is not so easy to prove the existence of the limit and it depends on the range of the particle-particle interactions.
+
 \subsection{Statistical mechanics and phase transitions}
-Since all the thermodynamic information of a system can be obtained by the partition function, in principle also the ones concerning the existence and nature of the phase transition must be contained in \emph{Z} (or \emph{Q}). On the other hand, we know from thermodynamic that phase transitions are characterized by singularities in the derivation of \emph{F}. Also \emph{Z} must display these singularities.
-Moreover, \emph{Z} is a sum of exponentials
+Since all the thermodynamic information of a system can be obtained by the partition function, in principle, also the ones concerning the existence and nature of the phase transition must be contained in \emph{Z} (or \emph{Q}). On the other hand, we know from thermodynamic that phase transitions are characterized by singularities in the derivation of \emph{F}. Also \emph{Z} must display these singularities.
+
+On the other hand, \emph{Z} is a sum of exponentials
 \begin{equation}
   Z_ \Omega = \Tr(e^{-\beta \mathcal{H}_ \Omega } )
 \end{equation}
-These are analytic functions everywhere (it converges), therefore \( Z_ \Omega  \) is analytic for \( \Omega  \) finite!
-The question is: where the singularities came from?
+the exponentials are analytic functions everywhere (they converge), hence \( Z_ \Omega  \) is analytic for \( \Omega  \) finite!
+
+The question is: where do singularities come from?
 It is only in the thermodynamic limit that singularities in \emph{F} and hence points describing phase transitions can arise!
 
-For summarizing, there is no way out of this for producing singularities. The singularities will develop in the thermodynamic limits. For reach singularities we have to reach so precision in thermodynamic that we are not able to go extactly into the critical point. How can we relate singularities in the behaviour of the system geometrically?
+For summarizing, there is no way out of this for producing singularities. The singularities will develop in the thermodynamic limits. For reaching singularities, we have to reach so precision in thermodynamic that we are not able to go exactly into the critical point. How can we relate singularities, geometrically, in the behaviour of the system?
 
  \section{Critical point and correlations of fluctuations}
- From thermodynamics we know that, at the critical point, some response functions may diverge. Now, we show that this is a consequence of the onset of microscopic fluctuactions that are spatially correlated over long distances.
- To see this let us compute the response of a ferromagnetic in presence of an external magnetic field \emph{H}.
- The Gibbs partition function of a generic magnetic system is
- \begin{equation}
+ From thermodynamics, we know that, at the critical point, some response functions may diverge (see Section \ref{sec:3_1}). Now, we show that this is a consequence of the onset of microscopic fluctuactions that are spatially correlated over long distances.
+ To see this, let us compute the response of a ferromagnetic in presence of an external magnetic field \emph{H}.
+ The Gibbs partition function of a generic magnetic system is as equation \eqref{eq:4_6}:
+ \begin{equation*}
    Z_{\text{Gibbs}} [T,\{ k_n \}  ] = \Tr(e^{-\beta (\mathcal{H} (\mathcal{C}) - H M (\mathcal{C}))} ) = \sum_{M,E}^{} e^{-\beta E + \beta H M} \Omega (E,M)
- \end{equation}
+ \end{equation*}
 \begin{remark}
 The term \( (- H M) \) is the work done by the system against the external field \emph{H} to mantain a given magnetization \( M \).
 \end{remark}
@@ -165,13 +171,13 @@ Hence,
 \begin{equation}
   \chi _T = \frac{1}{k_B T} \qty(\expval{M^2} - \expval{M}^2  )
 \end{equation}
-The thermodynamic response function \( \chi _T \) in statistical mechanics is related to the variance of the magnetization.
+\emph{The thermodynamic response function \( \chi _T \) in statistical mechanics is related to the variance of the magnetization}.
 
 We can relate the above expression with the correlation of the microscopic by performing a coarse-graining of the system where the magnetization \( M (\mathcal{C}) \)  can be computed  as an integral
 \begin{equation}
   M (\mathcal{C}) = \int_{}^{} \dd[3]{\va{r}}   m (\va{r})
 \end{equation}
-Hence
+Hence,
 \begin{equation}
   k_B T \chi _T = \int_{}^{} \dd[]{\va{r}}  \dd[]{\va{r'}}   \qty[\expval{m (\va{r}) m (\va{r'})} - \expval{m(\va{r}) } \expval{m (\va{r'})}  ]
 \end{equation}
