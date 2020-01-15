@@ -13,9 +13,9 @@
 Which is the role of models in statistical mechanics? There are two possible approaches:
 \begin{enumerate}
   \item The model must describe the real system in a very detailed way. The maximum number of details and parameters to be tuned are included. The \emph{pro} is the closer to the real specific system (faithfull description). The \emph{drawback} is that the model is so complicated that no analytical solution is possible. Moreover, even numerically, these models can be studied for very short times and small sizes.
-  An example is the simulation of the folding dynamics that can be performed for few nanoseconds. On the other hand the introduction of many details are often not crucial if one is interested in large scale properties.
-  \item Try to introduce the most simple model that satisfies few essential properties of the real system such as its symmetries, dimensionality, range of interactions etc.
-  Since most of the microscopic details are integrated, these models cannot describe the full physics of a specific system but they can reproduce its main features. Moreover these models can be studied numerically and, to some extent also analitically (exact solution).
+  An example is the simulation of the folding dynamics that can be performed for few nanoseconds. On the other hand, the introduction of many details are often not crucial if one is interested in large scale properties.
+  \item Try to introduce (coarse-graining approach) the most simple model that satisfies few essential properties of the real system such as its symmetries, dimensionality, range of interactions etc.
+  Since most of the microscopic details are integrated, these models cannot describe the full physics of a specific system but they can reproduce its main features. Moreover, these models can be studied numerically and, to some extent, also analytically (exact solution).
 \end{enumerate}
 
 It is the latter approach that we shall take here.
@@ -48,21 +48,21 @@ The physical origin is the overlap between the electronic orbitals of the neighb
 Remember that a term as \( \sum_{i}^{} S_i  \) is not correlated, while we need an interaction for describing the model.
 
 A general Hamiltonian of the model can be written as:
-\begin{equation}
+\begin{equation*}
   \mathcal{H}_ \Omega ( \{ S_i \}  ) = \sum_{ij}^{} J_{ij} S_i S_j - \sum_{i}^{} H_i S_i - \sum_{ijk}^{} S_i S_j S_k + \dots
-\end{equation}
+\end{equation*}
 Standard Ising model one keeps only the two-body interactions:
 \begin{empheq}[box=\myyellowbox]{equation}
-  \mathcal{H}_ \Omega ( \{ S_i \}  ) = -\frac{1}{2}\sum_{i\neq j}^{N} J_{ij} S_i S_j - \sum_{i=1}^{N} H_i S_i
+  \mathcal{H}_ \Omega ( \{ S_i \}  ) = -\frac{1}{2}\sum_{i,j}^{N} J_{ij} S_i S_j - \sum_{i=1}^{N} H_i S_i
 \end{empheq}
-where the first term represents a two body interaction that is a quadratic term, while the second term is a one body interaction.  We have put the minus because we want to minimize the energy, but it dipends on the sign of  \emph{J}.
+where the first term represents a two body interaction that is a quadratic term, while the second term is a one body interaction.  We have put the minus because we want to minimize the energy, but it depends on the sign of  \emph{J}.
 
-For this model the sum over all configurations on trace is given by
-\begin{equation}
-  \Tr \equiv \sum_{S_1 = \pm }^{}  \sum_{S_2 = \pm }^{}  \dots \sum_{S_N = \pm }^{} \equiv \sum_{\{ S \}  }^{}
-\end{equation}
- Our problem is to find the partition function with \emph{N} sites, which depends on \emph{T} and in principle depends in the configuration given (it is fixed both for \emph{H} and \emph{J}!).
-Hence, the canonical partition function is given by
+For this model, the sum over all configurations on trace is given by
+\begin{equation*}
+  \Tr \equiv \sum_{S_1 = \pm 1}^{}  \sum_{S_2 = \pm 1}^{}  \dots \sum_{S_N = \pm 1}^{} \equiv \sum_{\{ S \}  }^{}
+\end{equation*}
+ Our problem is to find the partition function with \emph{N} sites, which depends on \emph{T} and in principle depends on the configuration given (it is fixed both for \emph{H} and \emph{J}!).
+Hence, the \emph{canonical partition function} is given by
 \begin{equation}
   Z_{\Omega } (T, \{ H_i \}, \{ J_{ij} \}    ) = \Tr e^{-\beta \mathcal{H}_ \Omega ( \{ S \}  )}
 \end{equation}
@@ -72,17 +72,17 @@ and the corresponding \emph{free-energy},
 \end{equation}
 The \emph{bulk limiting free energy} is:
 \begin{equation}
-  f_b (T, \{ H_i \}, \{ J_{ij} \} ) = \lim_{N \rightarrow \infty }\frac{1}{N}  \ln { F_ \Omega  }
+  f_b (T, \{ H_i \}, \{ J_{ij} \} ) = \lim_{N \rightarrow \infty }\frac{1}{N}  F_ \Omega  
 \end{equation}
 How do we know that the above limit does exist? It must be proven. The surface is not important in the bulk limit.
- Note that we are assuming that the interaction between the spin is a short range force, it is not as the size of the system.
+ Note that we are assuming that the \emph{interaction between the spin is a short range force}, it is not as the size of the system.
 
 For this model it is possible to show that the limit exists if
 \begin{equation}
   \sum_{j \neq i}^{} \abs{J_{ij}} < \infty
 \end{equation}
 \begin{remark}
-In general what determines the existence of the limit of these spin models are the dimension \emph{d} and the range of the spins interactions.
+In general what determines the existence of the limit of these spin models are the \emph{dimension} \emph{d} and the \emph{range} of the spins \emph{interactions}.
 \end{remark}
 For example it is possible to show that, if
 \begin{equation}
@@ -93,12 +93,12 @@ so it is a long range interaction, the limit exists when
   \sigma > d
 \end{equation*}
 \begin{remark}
-If the interaction is \emph{dipolar} since it decades as \( 1/r^3 \), for the case \( d=3 \) the limit does not exists. However, it is still possible to prove the existence of the limit for this case if one assumes that not all dipoles are fully aligned.
+If the interaction is \emph{dipolar}, since it decades as \( 1/r^3 \), for the case \( d=3 \) the limit does not exists. However, it is still possible to prove the existence of the limit for this case if one assumes that not all dipoles are fully aligned.
 \end{remark}
 Assuming that the thermodynamic limit exists, we now look at some additional rigorous results on the limiting free energy and its derivatives.
 
-\subsection{Mathematical properties of the Ising model with neirest neighbours interactions}
-For simplicity let us consider the case in which the external magnetic field is homogeneous, i.e. \( H_i \equiv H \), and the spin-spin interaction is only between spins that are nearest-neighbours (n.n.) on the lattice:
+\subsection{Mathematical properties of the Ising model with nearest neighbours interactions}
+For simplicity, let us consider the case in which the external magnetic field is homogeneous, i.e. \( H_i \equiv H \), and the spin-spin interaction is only between spins that are nearest-neighbours (n.n.) on the lattice:
 \begin{equation}
 J_{ij} =
   \begin{cases}
@@ -120,27 +120,26 @@ Since \emph{H} is uniform, the average magnetization per spin is
 where \( \expval{\dots}  \)  means average over the chosen ensemble.
 
 \begin{remark}
-For \( J=0 \), \eqref{eq:6_0}  is the hamiltonian of a paramagnet. The only influence ordering the spins is the field \( H \). They do not interact, there are no cooperative ffects and hence no phase transition.
+For \( J=0 \), \eqref{eq:6_0}  is the Hamiltonian of a paramagnet. The only influence ordering the spins is the field \( H \). They do not interact, there are no cooperative effects and hence no phase transition.
 \end{remark}
 
 Since
-\begin{equation}
+\begin{equation*}
   \sum_{i=1}^{N} \expval{S_i} = \frac{1}{Z} \Tr \qty[\sum_{i}^{} S_i  e^{-\beta \mathcal{H}_ \Omega (\{ S_i \}  )} ]  = \frac{1}{Z} \Tr \qty[\sum_{i}^{} S_i \exp (\beta  J \sum_{\expval{ij} }^{N(\Omega )} S_i S_j + \beta H \sum_{i}^{N(\Omega )} S_i  )  ]
-\end{equation}
+\end{equation*}
 it is easy to show that:
-\begin{equation}
+\begin{empheq}[box=\myyellowbox]{equation}
   \expval{m} = - \frac{1}{N} \pdv{F_ \Omega }{H}
-\end{equation}
+\end{empheq}
 where
 \begin{equation}
   F_ \Omega (T,J,H) = - k_B T \ln{Z_N (T,J,H)}
 \end{equation}
 
-Let us now consider the properties of the limiting free-energy
-\begin{equation}
-  f_b = \lim_{N \rightarrow \infty } \frac{1}{N} (-k_B T \ln{Z_N} )
-\end{equation}
-\begin{greenbox}
+Now, let us consider the properties of the limiting free-energy
+\begin{empheq}[box=\myyellowbox]{equation}
+  f_b = \lim_{N \rightarrow \infty } \frac{1}{N} F_ \Omega  =\lim_{N \rightarrow \infty } \frac{1}{N}  (-k_B T \ln{Z_N} )
+\end{empheq}
   It is possible to prove the following properties:
   \begin{enumerate}
   \item \( f_b < 0 \).
@@ -148,45 +147,45 @@ Let us now consider the properties of the limiting free-energy
   \item The right and left derivatives of \( f_b (T,J,H) \) exist and are equal almost everywhere.
   \item The molar entropy \( s = - \pdv{f_b}{T} \ge 0\)    almost everywhere.
   \item \( \pdv{f_b}{T}  \) is a \emph{monotonic non increasing} function of \emph{T}. That is \( \pdv[2]{f_b}{T} \le  0 \). This implies that:
-  \begin{equation}
+  \begin{equation*}
     c_H = T \qty(\pdv{S}{T} )_H = - T \qty(\pdv[2]{f_b}{T} )_H \ge 0
-  \end{equation}
+  \end{equation*}
   \item \( \pdv{f_b}{H}  \) is a \emph{monotonic non increasing} function of \emph{H}. That is
-  \begin{equation}
+  \begin{equation*}
     \pdv[2]{f_b}{H} \le 0
-  \end{equation}
+  \end{equation*}
   This implies that
-  \begin{equation}
+  \begin{equation*}
     \chi _T = \qty(\pdv{M}{H} )_T = - \qty(\pdv[2]{f_b}{H})_T \ge 0
-  \end{equation}
+  \end{equation*}
   \end{enumerate}
-\end{greenbox}
+
 \begin{remark}
 The above properties have been postulated in thermodynamics, but here they have been rigorously proved for the Ising model using statistical mechanics.
 \end{remark}
 \begin{proof} [Proof of property (4)]
-  Almost everywhere we have to prove that:
+  Almost everywhere, we have to prove that
   \begin{equation*}
     s \equiv - \pdv{f_b}{T} \ge 0
   \end{equation*}
   Let us consider a finite system
-  \begin{equation}
+  \begin{equation*}
   \begin{split}
   - \pdv{F_ \Omega }{T}   &= k_B \ln{(\Tr e^{- \beta \mathcal{H}_ \Omega }  )} + k_B T \frac{1}{k_B T^2} \frac{\Tr(\mathcal{H}_ \Omega  e^{-\beta \mathcal{H}_ \Omega } ) }{\Tr(e^{- \beta \mathcal{H}_ \Omega } ) } \\
   &= k_B \qty[\ln{Z} + \frac{\Tr(\beta \mathcal{H}_ \Omega e^{-\beta \mathcal{H}_ \Omega
   } ) }{Z_ \Omega } ] \underset{to\, do}{=}   - k_B T \Tr(\rho _ \Omega  \ln{\rho _ \Omega } )
   \end{split}
-  \end{equation}
+  \end{equation*}
   where
-  \begin{equation}
+  \begin{equation*}
     \rho _ \Omega  = \frac{e^{-\beta \mathcal{H}_ \Omega } }{Z_ \Omega  }
-  \end{equation}
+  \end{equation*}
   is the probability distribution.
 
   Since \( \rho _ \Omega \le 1 \) it implies \( \ln{\rho _ \Omega } \le 0  \) and so \( - \Tr(\rho _ \Omega ) \ln{\rho _ \Omega }   \) is positive. Then, let us divide by \( N (\Omega ) \) and take the thermodynamic limit:
-  \begin{equation}
+  \begin{equation*}
   \lim_{N \rightarrow \infty } - \frac{1}{N} \pdv{F_ \Omega }{T}   = - k_B T  \lim_{N \rightarrow \infty }  \frac{1}{N}  \underbrace{\Tr(\rho _ \Omega  \ln{\rho _ \Omega })}_{S _ \Omega }  = T s \ge 0  \quad \Rightarrow \quad s \ge 0
-  \end{equation}
+  \end{equation*}
 \end{proof}
 
 All the other properties listed before (except \( (1) \)) are consequences of the \emph{convexity} property of \( f_b \).
@@ -242,7 +241,7 @@ That is a concave function of \emph{H}.
 \end{proof}
 \subsection{Ising model and \( \mathbb{Z}^2 \) symmetry. }
 The symmetry of the system in sense of the Hamiltonian is: we can invert the value of the \emph{S} and the Hamiltonian does not change. It is valid when \( H=0 \), otherwise is not true. Let us see the \( \mathbb{Z}^2 \) symmetry and the following interesting relation:
-\begin{orangebox}
+
   \begin{lemma}{}{}
   \( \forall  \) function \( \Phi  \) of the configuration \( \{ S_i \}   \), the following relation holds:
   \begin{equation}
@@ -251,7 +250,7 @@ The symmetry of the system in sense of the Hamiltonian is: we can invert the val
   \end{equation}
   this is true for all function of the spin.
   \end{lemma}
-\end{orangebox}
+
 Now, we consider the hamiltonian of the Ising model:
 \begin{equation*}
   - \mathcal{H}_ \Omega  = J \sum_{\expval{ij} }^{N(\Omega )} S_i S_j + H \sum_{i}^{N(\Omega )} S_i

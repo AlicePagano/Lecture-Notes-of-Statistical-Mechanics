@@ -176,7 +176,11 @@
 \newcommand*\mygreenbox[1]{%
   \colorbox{green!20}{\hspace{1em}#1\hspace{1em}}}
   
-  
-  
+
+%%%%%%%%%%PROOF%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xpatch}
+\xpatchcmd{\proof}{\itshape}{\normalfont\proofnamefont}{}{}
+\newcommand{\proofnamefont}{\bfseries}
+\renewcommand\qedsymbol{$\blacksquare$}  
   
   

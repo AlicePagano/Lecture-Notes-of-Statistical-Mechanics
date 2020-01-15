@@ -173,7 +173,7 @@ Hence,
 \end{equation}
 \emph{The thermodynamic response function \( \chi _T \) in statistical mechanics is related to the variance of the magnetization}.
 
-We can relate the above expression with the correlation of the microscopic by performing a coarse-graining of the system where the magnetization \( M (\mathcal{C}) \)  can be computed  as an integral
+We can relate the above expression with the correlation of the microscopic by performing a coarse-graining of the system, where the magnetization \( M (\mathcal{C}) \)  can be computed  as an integral
 \begin{equation}
   M (\mathcal{C}) = \int_{}^{} \dd[3]{\va{r}}   m (\va{r})
 \end{equation}
@@ -188,36 +188,36 @@ Let us assume the \emph{translational symmetry}:
    \expval{ m (\va{r}) m (\va{r'})} \equiv G (\va{r}-\va{r'}) & \text{two-point correlation function}
   \end{cases}
 \end{equation}
-Let us consider instead the \emph{connected correlation function}, i.e. the correlation function of the fluctuations \( \delta m = m - \expval{m}  \):
+Instead, let us consider the \emph{connected correlation function}, i.e. the correlation function of the fluctuations \( \delta m = m - \expval{m}  \):
 \begin{equation}
   \expval{ m (\va{r}) m (\va{r'})}_c \equiv \expval{ \qty(m(\va{r}) - \expval{m (\va{r})} )  \qty(m(\va{r'}) - \expval{m(\va{r'})} ) } = G (\va{r}-\va{r'})  -m^2
 \end{equation}
-Given the translational inviariance on can centre the system such that its centre of mass coincides with the origin
+Given the translational invariance, one can centre the system such that its centre of mass coincides with the origin
 \begin{equation*}
   \va{r}_{CM} \Rightarrow \va{r}_0 \equiv \va{0}
 \end{equation*}
-\begin{equation}
+\begin{equation*}
   \Rightarrow \int_{}^{} \dd[]{\va{r}} \int_{}^{} \dd[]{\va{r'}} [ G (\va{r} - \va{r}_0) -m^2]
-\end{equation}
+\end{equation*}
 The integration over \( \va{r'} \) gives the volume \( V (\Omega ) \) of the system:
 \begin{empheq}[box=\myyellowbox]{equation}
   \underbrace{ k_B T \chi_T }_{\substack{ \text{response} \\  \text{function} } }= V (\Omega ) \int_{}^{} \dd[]{\va{r}} \underbrace{\expval{m(\va{r})m(\va{r}_0)}_c}_{ \substack{ \text{correlation function} \\  \text{of the fluctuations}  \\ \text{of the local magnetization}} }
   \label{eq:5_1}
 \end{empheq}
-The equation \eqref{eq:5_1} is called the \textbf{Fluctuation-Dissipation relation}.
+The equation \eqref{eq:5_1} is called the \textbf{fluctuation-dissipation relation}.
 
-How \( G_c (\va{r}) \) behaves? In general one has
+How \( G_c (\va{r}) \) behaves? In general, one has
 \begin{equation}
   G_c (\va{r}) \sim e^{- \abs{\va{r}}/\xi  }
 \end{equation}
 meaning that for \( \abs{\va{r}} > \xi   \) the fluctuations are uncorrelated, where \( \xi  \) is the \emph{correlation length}.
-The correlation length it is related to the correlation function. In general is finite but if you approach \( T_c \), it diverges. In fact, at the critical point this correlation will expand in the whole space and reaches the size of all the system, in other words, it goes to infinity \( (\xi \rightarrow \infty ) \). When \( \xi  \)  will diverge, there will not be anymore the exponential and the integral cannot be keeped finite.
+The correlation length is related to the correlation function. In general, it is finite but, if you approach \( T_c \), it diverges. In fact, at the critical point this correlation will expand in the whole space and reaches the size of all the system, in other words, it goes to infinity \( (\xi \rightarrow \infty ) \). When \( \xi  \)  will diverge, there will not be anymore the exponential and the integral cannot be keeped finite.
 
 
 Let \emph{g} be the value of \( G_c \) for \( \abs{\va{r}} < \xi \):
-\begin{equation}
+\begin{equation*}
   k_B T \chi _T \le V g \xi ^3
-\end{equation}
+\end{equation*}
 where there is an inequality because we are understimating the integral (Figure \ref{fig:5_1}).
 
 \begin{figure}[h!]
@@ -226,13 +226,13 @@ where there is an inequality because we are understimating the integral (Figure 
 \caption{\label{fig:5_1} Plot of the  two-point correlation function, \( G \).}
 \end{figure}
 
-\noindent Rearranging the terms we obtain
+\noindent Rearranging the terms, we obtain
 \begin{equation}
-  \frac{k_B T \chi _T}{V} < g \xi ^3
+  \frac{k_B T \chi _T}{V} \leq g \xi ^3
 \end{equation}
 Hence, if \( \chi _T \) diverges at the critical point it implies \( \xi \rightarrow \infty  \).
 
-In particular, one can see that for \( H=0 \) and \( T \rightarrow T_C^\pm \):
+In particular, one can see that for \( H=0 \) and \( T \rightarrow T_c^\pm \):
 \begin{equation}
   \xi _\pm (T,H=0) \sim \abs{t}^{- \nu _\pm}
   \label{eq:5_2}
@@ -241,11 +241,13 @@ where \( \nu _+ = \nu _- = \nu  \) is the correlation length critical exponent.
 \begin{remark}
 It does not derive from thermodynamic considerations.
 \end{remark}
-Scaling \eqref{eq:5_2} is often used as the most general definition of a critical point. One can also show that at \( T=T_c \) (i.e. \( t=0 \))
+\noindent Scaling \eqref{eq:5_2} is often used as the most general definition of a critical point. 
+
+One can also show that at \( T=T_c \) (i.e. \( t=0 \))
 \begin{equation}
-  G_c (r) \sim \frac{1}{r^{d-2+\mu }}
+  G_c (r) \sim \frac{1}{r^{d-2+\eta }}
 \end{equation}
-where \( \mu  \) is the correlation critical exponent.
+where \( \eta  \) is the correlation critical exponent.
 \begin{remark}
 The formula is a power law decay instead than exponential.
 \end{remark}
@@ -253,9 +255,9 @@ The formula is a power law decay instead than exponential.
 \section{Finite size effects and phase transitions}
 Actually, the thermodynamic limit is a mathematical trick and in real systems it is never reached. Is it then physically relevant?
 
-If we had instruments with \emph{infinite} precision each change of the physical properties of a system would occur within a finite range, therefore we would observe a smooth crossover instead than a singularity. In this respect the notion of correlation length \( \xi  \) is extremely important.
+If we had instruments with \emph{infinite} precision each change of the physical properties of a system would occur within a finite range, therefore we would observe a smooth crossover instead than a singularity. In this respect, the notion of correlation length \( \xi  \) is extremely important.
 
-To illustrate this point let us consider the gas-liquid system in proximity of its critical point (\( T \sim T_c \) ). If we approach \( T_c \) from the gas phase, there will be fluctuations of \( \rho  \) with respect to \( \rho _G \), \( \Delta \rho = \rho - \rho _G \), due to the presence of denser droplets (liquid) in the continuum gas phase.
+To illustrate this point, let us consider the gas-liquid system in proximity of its critical point (\( T \sim T_c \) ). If we approach \( T_c \) from the gas phase, there will be fluctuations of \( \rho  \) with respect to \( \rho _G \), \( \Delta \rho = \rho - \rho _G \), due to the presence of denser droplets (liquid) in the continuum gas phase.
 These droplets will have different diameters, but the average size would be \( \xi  \), where it is the typical size of the liquid droplets.
 Clearly \( \xi = \xi [T] \) and, in proximity of the critical point \( \xi  \overset{t \rightarrow 0}{\sim } \abs{t}^{-\nu }   \).
 
@@ -275,7 +277,7 @@ In the next chapters, we will see that \( \nu < 1 \) and close to \( 1/2 \), hen
 \begin{equation*}
   t \sim (10^{10})^{-2 } = 10^{-20}
 \end{equation*}
-Therefore we have \( t \approx 10^{-20} \)  as distance from \( T_c \).
+Therefore we have \( t \approx 10^{-20} \)  as a distance from \( T_c \).
 
 This estimate suggests that the experimental instrument that measures temperature must have a precision of \( 10^{-20} \)  to see deviations from the results obtained in the thermodynamic limit.
 
@@ -284,7 +286,7 @@ This estimate suggests that the experimental instrument that measures temperatur
 
 \section{Numerical simulations and phase transitions}
 
-In this case the size \( L \) of the simulated system is few multiples of \( \xi _0 \) and the finite-size effects of the simulated data can strongly affect the location and the scaling laws of the phase transition under numerical investigation.
+In this case, the size \( L \) of the simulated system is few multiples of \( \xi _0 \) and the finite-size effects of the simulated data can strongly affect the location and the scaling laws of the phase transition under numerical investigation.
 Finite size scaling analysis of the numerical data is needed.
 
 \begin{figure}[h!]
@@ -294,13 +296,13 @@ Finite size scaling analysis of the numerical data is needed.
 \end{figure}
 
 
-We can find the critical point by doing Montecarlo simulation. Supposing a Montecarlo simulation of a Ising model, for which there is no an analitic solution and compute the energy.
-Try to estrapolate for example the position of the peak as \emph{N} increases. If we start to see the behaviour as in Figure \ref{fig:5_2}, something is happening.
+We can find the critical point by doing Montecarlo simulation. Supposing a Montecarlo simulation of a Ising model, for which there is no an analytic solution and compute the energy.
+Try to extrapolate for example the position of the peak as \emph{N} increases. If we start to see the behaviour as in Figure \ref{fig:5_2}, something is happening.
 There are two approaches we can use.
 
- The first approach is studying the system by looking for all the details. An example could be a protein, that interact with other proteins; in this case we can look at all the electrons (or atoms). Nevertheless, even if we thought at the simple protein that exist, there would be a lot of degrees of freedom.
+ The first approach is studying the system by looking for all the details. An example could be a protein, that interact with other proteins; in this case we can look at all the electrons (or atoms). Nevertheless, even if we thought at the simple protein that exists, there would be a lot of degrees of freedom.
 
-  For doing a simulation, if we are interested in long time behaviour and in large scale behaviur, details are not important. What it is important are symmetries, ranges of interaction. Therefore, we can forget about all the details. We can introduce the effective potentials as Van der Waals or Lenard Jones potential and studying collective effects. This is the second approach.
+  For doing a simulation, if we are interested in long time behaviour and in large scale behaviour, details are not important. What it is important are symmetries, ranges of interaction. Therefore, we can forget about all the details. We can introduce the effective potentials as Van der Waals or Lenard Jones potential and studying collective effects. This is the second approach.
 
 
 

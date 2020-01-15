@@ -38,7 +38,7 @@ If these variables are time independent, the system is in a \textit{steady state
 Moreover, if  there are no macroscopic currents, the system is at \textit{equilibrium}.
 Therefore, we describe a system by characterizing all the extensive variables at equilibrium.
 
-Suppose that the system changes slow in time, it goes from an equilibrium state to another one and the transformation is so slow that in each $\Delta t$ the system is at equilibrium. Hence, considering a sequence of equilibrium states, the \textbf{quasi-static transormation} are described by the  \textit{\( 1^{st} \) Law of Thermodynamic}:
+Suppose that the system changes slow in time, it goes from an equilibrium state to another one and the transformation is so slow that in each $\Delta t$ the system is at equilibrium. Hence, considering a sequence of equilibrium states, the \textbf{quasi-static transformation} are described by the  \textit{\( 1^{st} \) Law of Thermodynamic}:
 
 \begin{empheq}[box=\myyellowbox]{equation}
   \dd[]{U} = \delta Q - \delta W
@@ -46,7 +46,7 @@ Suppose that the system changes slow in time, it goes from an equilibrium state 
 \end{empheq}
 
 
-  \noindent The variation of the internal energy of the systems depends by two factors, \( \delta w \) that is the work done by the system during a \emph{quasi-static process} (infinitively slow), and \( \delta Q \) that is the heat absorbed by the system during the process. Remember that we write \( \dd[]{U}  \) because it is a differential quantity, while the other quantities with the \( \delta  \) are only small quanties. Therefore, \( \dd[]{U}  \) is a function of state, the other are not.
+  \noindent The variation of the internal energy of the systems depends by two factors, \( \delta w \) that is the work done by the system during a \emph{quasi-static process} (infinitive slow), and \( \delta Q \) that is the heat absorbed by the system during the process. Remember that we write \( \dd[]{U}  \) because it is a differential quantity, while the other quantities with the \( \delta  \) are only small quantities. Therefore, \( \dd[]{U}  \) is a function of state, the other are not.
 \begin{remark}
 The convention is \( \delta Q > 0 \) if the heat is absorbed by the system, and \( \delta W > 0 \) if the work is done by the system.
 \end{remark}
@@ -66,7 +66,7 @@ If exists a function \emph{S} of the extensive variables of the system that is d
 \end{empheq}
 The new values taken by the extensive parameters when a constraint has been removed are the ones that \emph{maximize} S. It means \( \dd[]{S} = 0 \) and \( \dd[2]{S} < 0  \), given the remaining constraint.
 
-\begin{greenbox}
+
 The properties of \emph{S} are:
 \begin{enumerate}
 \item \emph{S} is an \emph{additive function} with respect to the subsystems in which the system is partitioned:
@@ -85,7 +85,7 @@ This fundamental relation holds for each subsystem.
 \end{equation}
 It means that \emph{S} is an extensive quantity.
 \end{enumerate}
-\end{greenbox}
+
 
 \begin{remark}
   Since \emph{S} is monotonically increasing in \emph{U}, the following inequality holds:
@@ -151,7 +151,7 @@ We compute \( \qty(\pdv{U}{M} )_{S,N}=H  \).
 \end{itemize}
 \end{example}
 
-The equations of state are homogenous functions of \emph{zero} degree. For example, considering the temperature \( T \):
+The equations of state are homogeneous functions of \emph{zero} degree. For example, considering the temperature \( T \):
 \begin{equation*}
   T (\lambda S, \lambda V, \lambda N) \overset{0}{=} T (S,V,N)
 \end{equation*}
@@ -214,7 +214,7 @@ In the energy representation we have \( U=U(S,V,N_1,\dots,N_r) \) or \( U=U(S,\v
 
 \section{Legendre transform and thermodynamic potentials}
 
-In many situations, it is convenient to change some extensive variables with their conjiugate intensive ones that became indipendent and free to vary. We have new thermodynamic potentials.
+In many situations, it is convenient to change some extensive variables with their conjugate intensive ones that became independent and free to vary. We have new thermodynamic potentials.
 It works as following; suppose we have a function as
 \begin{equation}
   Y=Y(X_0,X_1,\dots,X_k,\dots,X_{r+1})
@@ -228,8 +228,8 @@ where
 \begin{equation}
   X_k \rightarrow P_k \equiv \pdv{Y}{X_k}
 \end{equation}
-i.e. \( P_k \) substitutes \( X_k \) as a new indipendent variable.
-In mathematic this is called \textit{Legendre transform}.
+i.e. \( P_k \) substitutes \( X_k \) as a new independent variable.
+In mathematics this is called \textit{Legendre transform}.
 
 
 The \textbf{thermodynamic potentials} are extremely useful tools, whose name derives from an analogy with mechanical potential energy: as we will later see, in certain circumstances the work obtainable from a macroscopic system is related to the change of an appropriately defined function, the thermodynamic potential. They are useful because they allow one to define quantities which are experimentally more easy to control and to rewrite the fundamental thermodynamic relations in terms of them.
@@ -237,7 +237,7 @@ The \textbf{thermodynamic potentials} are extremely useful tools, whose name der
 Mathematically, \emph{all the thermodynamic potentials are the result of a Legendre transformation of the internal energy}, namely they are a rewriting of the internal energy so that a variable has been substituted with another.
 
 \begin{example}{How to calculate thermodynamic potentials}{}
-Suppose we want to replace the entropy \emph{S} with its conjiugate derivative
+Suppose we want to replace the entropy \emph{S} with its conjugate derivative
 \begin{equation*}
   T = \pdv{U}{S}
 \end{equation*}
@@ -297,7 +297,7 @@ which implies
   (\delta W)_{irr} = \delta Q - T \dd[]{S} - \dd[]{A} \le - \dd[]{A}.
 \end{equation}
 Hence, if \( \delta W = 0 \) and \( \dd[]{T}=0  \), we have \( \dd[]{A} \le 0  \).
-Therefore, in a spontaneous (irreversible) process, the thermodynamc system, as a function of \emph{T,V,N} etc, evolves towards a \emph{minimum} of the Helmoltz free energy \( A=A(T,V,N_1,\dots,N_r) \).
+Therefore, in a spontaneous (irreversible) process, the thermodynamic system, as a function of \emph{T,V,N} etc, evolves towards a \emph{minimum} of the Helmoltz free energy \( A=A(T,V,N_1,\dots,N_r) \).
 \end{remark}
 In the case of a system with \( (P,V,T) \),  we have:
 \begin{equation}
@@ -325,7 +325,7 @@ with
 
 
 \subsubsection{Heltalpy}
-The \textbf{Hentalpy} is the partial Legendre transform of \emph{U} that replaces the volume \emph{V} with the pressure \emph{P} as indipendent variable.
+The \textbf{Hentalpy} is the partial Legendre transform of \emph{U} that replaces the volume \emph{V} with the pressure \emph{P} as independent variable.
 
 Consider \( U=U(S,V,N_1,\dots,N_r) \) and \( -P = \pdv{U}{V}  \), we define the hentalpy as
 \begin{empheq}[box=\myyellowbox]{equation}
