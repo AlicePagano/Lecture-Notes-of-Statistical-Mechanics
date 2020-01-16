@@ -304,7 +304,7 @@ Even if we had not seen any transition, the Ising model is interesting because w
 
  What is a lattice gas model in more details?
  The archetypal lattice gas is a model where each lattice site can either be occupied by an atom or vacant.
- Let us consider a \emph{d}-dimensional lattice with coordination number \emph{z} and lattice spacing \emph{a}, divided into cell as in Figure \ref{fig:6_1} . Let us suppose that each cell is either empty or occupied by a single particle (this is more true if \( a \sim \SI{}{\angstrom}  \)).
+ Let us consider a \emph{d}-dimensional lattice with coordination number \emph{z} and lattice spacing \emph{a}, divided into cells, as in Figure \ref{fig:6_1} . Let us suppose that each cell is either empty or occupied by a single particle (this is more true if \( a \sim \SI{}{\angstrom}  \)).
 
  \begin{figure}[h!]
  \centering
@@ -313,58 +313,60 @@ Even if we had not seen any transition, the Ising model is interesting because w
  \end{figure}
 
  \noindent The \( n_i \) is the occupation of the \emph{i}-esim cell and it is:
-\begin{equation}
+\begin{equation*}
 n_i =
   \begin{cases}
    0 & \text{if empty} \\
    1 & \text{if occupied}
   \end{cases}
-\end{equation}
+\end{equation*}
 We have:
 \begin{equation}
   N _ \Omega = \sum_{i=1}^{N_c} n_i
 \end{equation}
 where \( N_c \) is the number of the lattice cells. In particular, \( N_c > N_{\Omega } \).
 
-The hamiltonian of the model is
+The Hamiltonian of the model is
 \begin{equation}
-  \mathcal{H}_ \Omega  = \sum_{i=1}^{N_c} U_1 (i) n_i + \frac{1}{2} \sum_{ij}^{} U_2 (i,j) n_i n_j + O (n_i n_j n_k)
+  \mathcal{H}_ \Omega  = \sum_{i=1}^{N_c} U_1 (i) n_i + \frac{1}{2} \sum_{ij}^{N_c} U_2 (i,j) n_i n_j + O (n_i n_j n_k)
 \end{equation}
 where \( U_1 \) is for instance an external field, while \( U_2 \) is a many body interaction.
 
 Since we want to work in the gran-canonical ensemble,
-\begin{equation}
+\begin{equation*}
   \mathcal{H}_ \Omega  - \mu N_ \Omega  = \sum_{i=1}^{N_c} ( \cancel{ U_1 (i)} - \mu) n_i + \frac{1}{2} \sum_{ij}^{} U_2 (i,j) n_i n_j +   \dots
-\end{equation}
-and we put \( U_1=0 \) for convenience.
+\end{equation*}
+and we will put \( U_1=0 \) for convenience.
 
 A formal relation with the Ising model can be obtained by choosing
 \begin{equation}
-  n_i = \frac{1}{2} (1+S_i) \quad \text{with } S_i = \pm 1
+  n_i = \frac{1}{2} (1+S_i), \quad \text{with } S_i = \pm 1
 \end{equation}
-The one body term becames:
+The one body term becomes:
 \begin{equation}
   \sum_{i}^{} (U_1 (i) - \mu )  \frac{1}{2} (1+S_i) = \frac{1}{2} \sum_{i}^{} (U_1 (i) - \mu ) + \frac{1}{2} \sum_{i}^{} S_i (U_1 (i) - \mu )
 \end{equation}
 while the two bodies term is equal to:
-\begin{equation}
+\begin{equation*}
   \frac{1}{2} \sum_{ij}^{} U_2 (i,j) \qty[\frac{1}{4} (1+S_i)(1+S_j)] = \frac{1}{8} 2 \sum_{ij}^{N_c} U_2 (i,j) S_i + \frac{1}{8}  \sum_{ij}^{N_c} U_2 (i,j) S_i S_j + \frac{1}{8} \sum_{ij}^{N_c} U_2 (i,j)
-\end{equation}
-
+\end{equation*}
 Let us consider only short-range interactions, i.e.
-\begin{equation}
+\begin{equation*}
 U_2 (i,j) =
   \begin{cases}
    U_2 & i,j \text{ are n.n.}\\
    0 & \text{otherwise}
   \end{cases}
-\end{equation}
+\end{equation*}
 It implies
 \begin{equation}
     \frac{1}{2} \sum_{ij}^{} U_2 (i,j) \qty[\frac{1}{4} (1+S_i)(1+S_j)] =
       \frac{1}{4} z U_2 \sum_{i}^{N_c} S_i + \frac{U_2}{4} \sum_{\expval{ij} }^{} S_i S_j + \frac{1}{8} U_2 z N_c
 \end{equation}
-Remember that we put \( U_1 = 0 \) for simplicity:
+\begin{remark}
+Note that the \( \sum_{ij} \) becomes \(z \sum_{i}\), where \emph{z} is the coordination number of neighbours.
+\end{remark}
+Remember that, for simplicity, we put \( U_1 = 0 \). We can rewrite:
 \begin{equation}
     \mathcal{H}_ \Omega  - \mu N_ \Omega   =  E_0 - H \sum_{i=1}^{N_c} S_i - J \sum_{\expval{ij} }^{} S_i S_j
 \end{equation}
@@ -379,9 +381,9 @@ where
 and remember that \emph{z} is the coordination number of neighbours.
  \( J \) is a nearest neighbour interaction which favours neighbouring sites being occupied.
 
-The last equation implies:
+The last equation implies that, in the gran canonical ensemble, we have:
 \begin{equation}
-  Z_{LG} = \Tr_{\{n\}}(e^{-\beta (\mathcal{H}_ \Omega -\mu N)} ) = e^{-\beta E_0} Z_{\text{Ising}} (H,J,N_c)
+  Z_{LG} = \Tr_{\{n\}}(e^{-\beta (\mathcal{H}_ \Omega -\mu N_\Omega)} ) = e^{-\beta E_0} Z_{\text{Ising}} (H,J,N_c)
 \end{equation}
 We have seen that the Ising model is something more general than the magnetization transition.
 In the next section, we show how to pass from the partition \( Z \) of a fluid, in the continuum, to the  \( Z_{LG} \) of the lattice gas model.
@@ -389,11 +391,11 @@ In the next section, we show how to pass from the partition \( Z \) of a fluid, 
 \section{Fluid system in a region \( \Omega  \) }
 We can consider the system with periodic boundary condition, or within a box, or confined by an external one-body potential.
 
-The hamiltonian for \emph{N} particles in \emph{d}-dimension is
+The Hamiltonian for \emph{N} particles in \emph{d}-dimension is
 \begin{equation}
   \mathcal{H}_ \Omega = \sum_{i=1}^{N} \qty[\frac{p_i^2}{2m} + U_1 (\va{r_i})] + \frac{1}{2} \sum_{i \neq j}^{} U_2 (\va{r_i}, \va{r_j}) + \frac{1}{3!} \sum_{i \neq j \neq k }^{}  U_3 (\va{r_i}, \va{r_j}, \va{r_k})
 \end{equation}
-In the gran-canonical ensemble we have:
+In the gran-canonical ensemble, we have:
 \begin{equation}
   Z_ \Omega = \Tr(e^{-\beta (\mathcal{H}_ \Omega  - \mu N)} ) = \sum_{N=0}^{\infty } \frac{1}{N!} \int_{}^{} \prod_{i=1}^{N} \frac{\dd[d]{\va{p_i}} \dd[d]{\va{r_i}} }{h^{dN}} \qty(e^{-\beta (\mathcal{H}_ \Omega  - \mu N)} )
 \end{equation}
@@ -402,56 +404,55 @@ and the gran-canonical potential is
   \omega _ \Omega (T, \mu , U_1, U_2, \dots) = -k_B T \ln{Z_ \Omega }
 \end{equation}
 \begin{remark}
-\( \omega _ \Omega (\dots) \) even if it contains an infinite sum is not singular if \( \Omega  \) is finite!
+Even if \( \omega _ \Omega (\dots) \) contains an infinite sum, it is not singular if \( \Omega  \) is finite!
 \end{remark}
 Indeed, if \( U_2 \) is an hard-core repulsion, each particle has a finite volume and, within a finite \( \Omega  \), only \( N_{max} \) particles can fit in
 \begin{equation*}
   \Rightarrow \sum_{N=0}^{\infty } \sim \sum_{N=0}^{N_{max}}
 \end{equation*}
-In the thermodynamic limit it corresponds to
-\begin{equation}
+In the thermodynamic limit, it corresponds to
+\begin{equation*}
   \omega _ b (T, \mu , U_1, U_2, \dots) = \lim_{V (\Omega ) \rightarrow \infty } \frac{\omega
   _ \Omega }{V (\Omega )}
-\end{equation}
-with the contraint
-\begin{equation*}
-  \rho = \lim_{V \rightarrow \infty } \frac{\expval{N} }{V (\Omega ) } = const
 \end{equation*}
-
+with the constraint
+\begin{equation*}
+  \rho = \lim_{V,N \rightarrow \infty } \frac{\expval{N} }{V (\Omega ) } = const
+\end{equation*}
 Remember also that
-\begin{redbox}
   \begin{equation}
   \dd[]{\omega _b (T, \mu )} = - \sigma \dd[]{T} - \rho  \dd[]{\mu } = - P
   \end{equation}
-\end{redbox}
 Now:
 \begin{equation}
-  Z_N = \sum_{N=0}^{\infty } \frac{1}{N!} \qty[\prod_{i=1}^{N}  \qty{ \int_{-\infty }^{+ \infty } \dd[d]{\va{p}} \frac{1}{h^{dN}} e^{-\beta \va{p_i}^2/2m}  } Q_N (T) ]
-\end{equation}
-On the other hand since \( \int_{}^{} \dd[]{x} e^{- \alpha x^2} = \sqrt{2 \pi / \alpha }    \),
-\begin{equation}
-  \int_{-\infty }^{+ \infty } \dd[d]{\va{p}} \frac{1}{h^{dN}} e^{-\beta \va{p_i}^2/2m} = \frac{1}{\Lambda (T)^d}
+  Z_N = \sum_{N=0}^{\infty } \frac{1}{N!} \qty[\prod_{i=1}^{N}  \qty{ \int_{-\infty }^{+ \infty } \dd[d]{\va{p}} \frac{1}{h^{dN}} e^{-\beta \va{p_i}^2/2m}  } Q_N (T) e^{ \beta \mu N}]
 \end{equation}
 where
 \begin{equation}
-  \Lambda ( T) = \frac{h}{\sqrt{2 \pi m k_B} T}
+  Q_N (T) =   \int_{}^{}  \prod_{i=1}^{N}  \dd[]{\va{r_i}}  e^{-\beta (U(\va{r}))} 
 \end{equation}
-Therefore,
+On the other hand, since \( \int_{}^{} \dd[]{x} e^{- \alpha x^2} = \sqrt{2 \pi / \alpha }    \),
+\begin{equation*}
+  \int_{-\infty }^{+ \infty } \dd[d]{\va{p}} \frac{1}{h^{d}} e^{-\beta \va{p_i}^2/2m} = \frac{1}{\Lambda (T)^d}
+\end{equation*}
+where
 \begin{equation}
-  Z_ \Omega = \sum_{N=0}^{\infty } \frac{1}{N!} \qty(\frac{e^{\beta \mu } }{\Lambda (T)^d})^N Q_N
+  \Lambda ( T) = \frac{h}{2 \sqrt{ \pi m k_B T} }
 \end{equation}
-with
+Hence,
 \begin{equation}
-  Q_N (T) = \int_{}^{} \prod_{i=1}^{N}  \dd[]{\va{r_i}}  e^{-\beta (U(\va{r}))}
+  Z_ \Omega = \sum_{N=0}^{\infty } \frac{1}{N!} \qty(\frac{e^{\beta \mu } }{\Lambda^d (T)})^N Q_N
+  \label{eq:6_4}
 \end{equation}
+
 
 
 \subsection{From the continuous to the lattice gas model}
-Let us divied \( \Omega  \) in discrete cells of size \emph{a}. If \emph{a} is approximate a repulsive range between particles we have that the probability that there is more than a particles sits in a cell is \( \ll 1 \). The potentials of the continuoum model depend on  \( \{ \va{r_i} \}   \).
+Let us divide \( \Omega  \) in discrete cells of size \emph{a}. If \emph{a} is approximate a repulsive range between particles, we have that the probability that there is more than one particle sits in a cell is \( \ll 1 \). The potentials of the continuous model depend on  \( \{ \va{r_i} \}   \).
 
-Consider \( n_ \alpha = n_ \alpha (\va{r_i}) \) the occupation numbers. We have:
+Consider the occupation numbers \( n_ \alpha = n_ \alpha (\va{r_i}) \). We have:
 \begin{equation}
-  \sum_{\alpha }^{} n_ \alpha = N = \int_{}^{} \dd[d]{\va{r}} \sum_{i=1}^{N} \delta (\va{r_i}-\va{r})= \int_{}^{} \dd[]{\va{r}} \rho (\va{r})
+  \sum_{\alpha }^{} n_ \alpha = N = \int_{\Omega}^{} \dd[d]{\va{r}} \sum_{i=1}^{N} \delta (\va{r_i}-\va{r})= \int_{\Omega}^{} \dd[d]{\va{r}} \rho (\va{r})
 \end{equation}
 where
 \begin{equation}
@@ -459,53 +460,56 @@ where
 \end{equation}
 Moreover,
 \begin{equation}
-  \sum_{i}^{} U_1 (\va{r_i}) = \sum_{i}^{} \int_{\Omega }^{} \dd[d]{\va{r}} U_1 (\va{r})   \delta (\va{r_i}-\va{r}) = \int_{\Omega }^{} \dd[]{\va{r}}      U_1 (\va{r}) \rho (\va{r})
+  \sum_{i}^{} U_1 (\va{r_i}) = \sum_{i}^{} \int_{\Omega }^{} \dd[d]{\va{r}} U_1 (\va{r})   \delta (\va{r_i}-\va{r}) = \int_{\Omega }^{} \dd[d]{\va{r}}      U_1 (\va{r}) \rho (\va{r})
 \end{equation}
 We have \( U (\{ \va{r_i} \}  ) \rightarrow U (\{ n_ \alpha  \}  ) \) :
-\begin{equation}
+\begin{equation*}
   Q_N \propto \int_{}^{} \prod_{i=1}^{N}  \dd[d]{\va{r_i}}   \rightarrow \sum_{\{ n_ \alpha  \} }^{}
-\end{equation}
+\end{equation*}
 Indeed, for each configuration specified by the set \( \{ n_ \alpha  \}  \) there are \( N! \) possible configurations of \( \{ \va{r_i} \}  \). This is because the particles can exchange position between occupied cells.
-Hence,
-\begin{equation}
- Q_N \propto \int_{}^{} \prod_{i=1}^{N}  \dd[d]{\va{r_i}} \simeq N! (a^d)^{N_c} \sum_{\{ n_ \alpha = 0, 1 \}}^{'} \dots
-\end{equation}
+Hence, more precisely,
+\begin{equation*}
+ Q_N \propto \int_{}^{} \prod_{i=1}^{N}  \dd[d]{\va{r_i}} \simeq N! (a^d)^{N} \sum_{\{ n_ \alpha = 0, 1 \}}^{'} \dots
+\end{equation*}
 \begin{remark}
-The symbol \( \sum_{}^{'}   \) means that the sum has the contraint that the toal number of particles is fixed to \emph{N}.
+The symbol \( \sum_{}^{'}   \) means that the sum has the constraint that the total number of particles is fixed to \emph{N}, that is \( \sum_{\alpha }^{} n_ \alpha = N \).
 \end{remark}
 Therefore,
 \begin{equation}
-  Q_N \propto N! (a^d)^N \sum_{\{ n_ \alpha  \} }^{'} e^{-\beta U ( \{ n_ \alpha  \} )}
+  Q_N \propto N! (a^d)^{N} \sum_{\{ n_ \alpha  \} }^{'} e^{-\beta U ( \{ n_ \alpha  \} )}
 \end{equation}
-and
+and we can rewrite the equation \eqref{eq:6_4} as 
 \begin{equation}
-  Z_ \Omega  = \sum_{N=0}^{\infty } \frac{1}{N!} \qty(\frac{e^{\beta \mu } }{\Lambda ^d (T)}) ^N Q_N = \sum_{N=0}^{\infty } \qty[\qty(e^{\beta \mu} \frac{a}{\Lambda (T)}  )^d ]  ^N \sum_{\{ n_ \alpha  \} }^{'} e^{-\beta U ( \{ n_ \alpha  \} )}
+  Z_ \Omega  = \sum_{N=0}^{\infty } \frac{1}{N!} \qty(\frac{e^{\beta \mu } }{\Lambda ^d (T)}) ^N Q_N = \sum_{N=0}^{\infty } \qty[e^{\beta \mu} \qty( \frac{a}{\Lambda (T)}  )^d ]  ^N \sum_{\{ n_ \alpha  \} }^{'} e^{-\beta U ( \{ n_ \alpha  \} )}
 \end{equation}
-where \( \sum_{}^{'} = \sum_{\{ n_ \alpha  \} }^{}     \)  with the contraint \( \sum_{\alpha }^{} n_ \alpha = N   \).
+where \( \sum_{}^{'} = \sum_{\{ n_ \alpha  \} }^{}     \)  with the constraint \( \sum_{\alpha }^{} n_ \alpha = N   \).
 \begin{remark}
-In general it is difficult to perform sum with contraints. Fortunately, we are considering the gran-canonical ensemble.
+In general it is difficult to perform sum with constraints. Fortunately, we are considering the gran-canonical ensemble.
 Indeed, we can write
-\begin{equation}
+\begin{equation*}
   \sum_{N=0}^{\infty} \sum_{\{ n_ \alpha  \}}^{'} f(n_ \alpha ) =   \underset{\sum_{\alpha }^{} n_ \alpha =0 }{\sum_{\{ n_ \alpha  \} }^{'}} f (n_ \alpha )  +
   \underset{\sum_{\alpha }^{} n_ \alpha =1 }{\sum_{\{ n_ \alpha  \} }^{'}} f (n_ \alpha )
   \dots +
     \underset{\sum_{\alpha }^{} n_ \alpha = \infty }{\sum_{\{ n_ \alpha  \} }^{'}} f (n_ \alpha ) =  \sum_{\{ n_ \alpha  \}} f(n_ \alpha )
-\end{equation}
+\end{equation*}
 with no restriction.
 \end{remark}
 \begin{remark}
-In the final sum all the \( 2^N \) possible microscopic states are inclued (considering \( U_1 =0 \)):
+In the final sum all the \( 2^N \) possible microscopic states are inclued (considering \( U_1 =0 \))
+\end{remark}
+Eventually\footnote{ \( b^a = e^{a \ln b} \, \Rightarrow e^{\beta \mu} ( \frac{a}{\Lambda})^d = e^{\beta \mu} \exp (d \ln (\frac{a}{\Lambda}) ) \) }, we have
 \begin{equation}
-  Z_ \Omega ^{GC} \propto  \sum_{\{ n_ \alpha  \}} \exp [-\beta \qty(-\mu - \frac{D}{\beta } \log{\frac{a}{\Lambda }} ) \sum_{\alpha =0}^{N_c} n_ \alpha  + \beta U_2 \sum_{\expval{\alpha \beta } }^{} n_ \alpha n_ \beta + \dots     ]
+  Z_ \Omega ^{GC} \propto  \sum_{\{ n_ \alpha  \}} \exp [-\beta \qty(-\mu - \frac{d}{\beta } \log{\frac{a}{\Lambda }} ) \sum_{\alpha =0}^{N_c} n_ \alpha  + \beta U_2 \sum_{\expval{\alpha \beta } }^{} n_ \alpha n_ \beta + \dots     ]
 \end{equation}
 \begin{equation}
   \Rightarrow Z_ \Omega = \Tr e^{-\beta ( \mathcal{H}_ \Omega - \widetilde{\mu} N )} = Z_{LG} ( \widetilde{\mu } )
 \end{equation}
 where
 \begin{equation}
-  \widetilde{\mu } = \mu _{LG} = \mu _{phys} + D k_B T \log{\frac{a}{\Lambda }}
+  \widetilde{\mu } = \mu _{LG} = \mu _{phys} + d k_B T \log{\frac{a}{\Lambda }}
 \end{equation}
-\end{remark}
+
+
 %%%%%%%%%%%%%
 
 

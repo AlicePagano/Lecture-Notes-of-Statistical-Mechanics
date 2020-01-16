@@ -4,17 +4,17 @@
 
 \begin{document}
 
-\chapter{Recall of statistical mechanics and theory of ensambles}
+\chapter{Recall of statistical mechanics and theory of ensembles}
 \marginpar{ \textbf{Lecture 4.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-\section{Statistical ensambles}
-Statistical mechanics roughly speaking was born as a sort of theory from microscopic and try to compute the macroscopic lenght using thermodynamics. The problem is going from the countinuous problems to the macroscopic problems. In origin was statistical mechanics of equilibrium system. Each microstate with a given energy fixed, will have the same probability, this is the equal probability statement.
+\section{Statistical ensembles}
+Statistical mechanics roughly speaking was born as a sort of theory from microscopic and try to compute the macroscopic length using thermodynamics. The problem is going from the countinuous problems to the macroscopic problems. In origin was statistical mechanics of equilibrium system. Each microstate with a given energy fixed, will have the same probability, this is the equal probability statement.
 
 In general, if we consider a system with \emph{N,V} (number of particles and volume) fixed and also the total energy \emph{E} fixed, we call \( \Omega (E,V,N) \)  the number of microstate with total energy \emph{E} , volume \emph{V} and number of particles \emph{N}.
 
 If the system is \emph{isolated} and in \emph{equilibrium} the rule of \textbf{equal probability} of the microstates holds:
 \begin{orangebox}
-If the system is isolated and in equilibirum with energy \emph{E} it visits each microstate consistent with energy \emph{E} with equal probability.
+If the system is isolated and in equilibrium with energy \emph{E} it visits each microstate consistent with energy \emph{E} with equal probability.
 \end{orangebox}
 Another way to say is: the system spends the same amount of time in each of the \( \Omega (E,V,N) \) microstates.
 
@@ -57,7 +57,7 @@ We next consider these properties to the case in which 1 is the system we want t
 
 Let us consider an isolated system made by two subsystems, one \emph{S} and one much larger, \emph{B}, that we call \emph{thermal bath} (Figure \ref{fig:4_1}). The total number of particles is given by \( N_T = N_B + N_S\)  with \( N_B \gg N_S \gg 1 \) (they are both large but \emph{B} is much larger than \emph{S}), where \( N_B \) are the particles in the thermal bath and \( N_S \) the particle of the system.
 
-Let \( E_T \) be the energy of the composite system. The two subsystems can exchange energy but the whole system has constant energy  \( E_T \). Therefore, let the energy to be free to fluctuate in time at fixed temperature  \( T_B \) (isothermal ensambles).
+Let \( E_T \) be the energy of the composite system. The two subsystems can exchange energy but the whole system has constant energy  \( E_T \). Therefore, let the energy to be free to fluctuate in time at fixed temperature  \( T_B \) (isothermal ensembles).
 Note that \( V_S,N_S,V_B,N_B \) are fixed (no exchange of volume and particles).
 
 For resuming, other quantities fixed are the temperature of the bath \( T_B \) , the number of the total particles of the system \( N_T \), and also the total volume \( V_T \).
@@ -241,14 +241,14 @@ because \( N \sim 10^{23} \).
 
 \section{Isothermal and isobaric ensemble}
 Now, the system is coupled both to a thermal and a volumic bath at temperature \( T_B \) and pressure \( P_B \).
-The idea is: consider the same system with the bath; the difference is that in this case the system can exchange energy but also volume (we continue to keep the temperature of the bath fixed). At this point the ensamble is \emph{isothermal} and \emph{isobaric}. All the assumptions done before are valid, in particular, assuming as before \emph{weak coupling} between the degrees of freedom of the bath and those of the system
+The idea is: consider the same system with the bath; the difference is that in this case the system can exchange energy but also volume (we continue to keep the temperature of the bath fixed). At this point the ensemble is \emph{isothermal} and \emph{isobaric}. All the assumptions done before are valid, in particular, assuming as before \emph{weak coupling} between the degrees of freedom of the bath and those of the system
 \begin{subequations}
 \begin{align*}
   E_T &= E + E_B \\
   V_T &= V + V_B
 \end{align*}
 \end{subequations}
-We look for the partition function that describes this isothermal and isobaric ensamble.
+We look for the partition function that describes this isothermal and isobaric ensemble.
 Similarly to the previous case, one can write
 \begin{equation}
   P_{\mathcal{C}} \propto  \Omega _B (E_B,V_B) \propto \Omega _B (E_T-E_{\mathcal{C}}, V_T - V_{\mathcal{C}}) \propto \exp [S_B (E_T - E_{\mathcal{C}},V_T - V_{\mathcal{C}})/k_B]
@@ -332,7 +332,7 @@ The Laplace transform of a function \(f(t) \), defined for all real numbers \(t 
 \end{remark}
 
 \subsubsection{Magnetic system}
-Ensamble in which both \emph{E} and \emph{M} can fluctuate. In particular, we have \( \Omega (E,M) \) (with \( T_B \) and \( H_B \) fixed).
+Ensemble in which both \emph{E} and \emph{M} can fluctuate. In particular, we have \( \Omega (E,M) \) (with \( T_B \) and \( H_B \) fixed).
 \begin{equation}
   P_{\mathcal{C}} \propto e^{ \frac{S_B (E_T,M_T)}{k_B} - \frac{E_{\mathcal{C}}}{k_B}\dv{S_B}{E_B} - \frac{M_{\mathcal{C}}}{k_B} \dv{S_B}{M_B}  }
 \end{equation}
