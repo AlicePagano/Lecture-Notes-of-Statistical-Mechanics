@@ -6,13 +6,13 @@
 \begin{document}
 
 \marginpar{ \textbf{Lecture 7.} \\  \displaydate{date}. \\ Compiled:  \today.}
-
 \subsection{Transfer Matrix method}
+
 Given the Hamiltonian discussed in (\ref{sec:6_1}) \footnote{The choice of boundary conditions becomes irrelevant in the thermodynamic limit, \( N \rightarrow \infty  \).} we can write the corresponding partition function in the following symmetric form:
-\begin{equation}
+\begin{equation*}
   Z_N (k,h) = \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{}  \dots \sum_{S_N = \pm 1}^{}
   \qty[e^{K S_1 S_2 + \frac{h}{2}(S_1+S_2)} ] \qty[e^{K S_2 S_3 + \frac{h}{2}(S_2+S_3)} ] \dots \qty[e^{K S_N S_1 + \frac{h}{2}(S_N+S_1)} ]
-\end{equation}
+\end{equation*}
 We want to write the partition function in a form similarly to \( \sum_{j}^{}  M_{ij} P_{jk} \).
 Note that, in the previous form \( Z_N \) can be written as a product of matrices
 \begin{equation}
@@ -26,15 +26,15 @@ where \( \mathbb{T} \) is a \( 2 \times 2 \)  matrix defined as
   \bra{S} \mathbb{T} \ket{S'} = \exp [K S S' + \frac{h}{2} (S+S')]
 \end{equation}
 \begin{remark}
-  Note that the labels of the matrix corresponds to the values of \( S_i \). Hence its dimension depends on the number of possible values a spin \( S_i \) can assume.
-  It can also depends on how many spins are involved in the interacting terms that are present in the hamiltonian (\( k_{LL} \sum_{}^{} S_i S_{i+1} S_{i+2} S_{i+3}  \)).
+  Note that the labels of the matrix corresponds to the values of \( S_i \). Hence, its dimension depends on the number of possible values a spin \( S_i \) can assume.
+  It can also depends on how many spins are involved in the interacting terms that are present in the Hamiltonian (\( k_{LL} \sum_{}^{} S_i S_{i+1} S_{i+2} S_{i+3}  \)).
 \end{remark}
- For Ising \( S_i = \pm 1 \) and neirest neighbour interaction implies that we have two values and that \( \mathbb{T} \) is a \( 2 \times 2 \) matrix whose components are
+ For the Ising model, we have \( S_i = \pm 1 \) and nearest neighbour interaction implies that we have two values and that \( \mathbb{T} \) is a \( 2 \times 2 \) matrix whose components are
 \begin{subequations}
 \begin{align}
   \bra{+1} \mathbb{T} \ket{+1} &= \exp [K+h]  \\
-    \bra{+1} \mathbb{T} \ket{-1} &=   \bra{-1} \mathbb{T} \ket{+1} = \exp [K-h] \\
-      \bra{-1} \mathbb{T} \ket{-1} &= \exp [-K]
+    \bra{+1} \mathbb{T} \ket{-1} &=   \bra{-1} \mathbb{T} \ket{+1} = \exp [-K] \\
+      \bra{-1} \mathbb{T} \ket{-1} &=\exp [K-h] 
 \end{align}
 \end{subequations}
 The explicit representation is
@@ -70,25 +70,25 @@ The identity relation is:
   0   & 1
   \end{pmatrix}
 \end{equation}
-By using the identity property we can write
+By using the identity property, we can rewrite the partition function as 
 \begin{equation}
   \begin{split}
    Z_N (K,h) &= \sum_{S_1 = \pm 1}^{} \dots \sum_{S_N = \pm 1}^{} \bra{S_1} \mathbb{T} \ket{S_2} \bra{S_2}  \mathbb{T} \ket{S_3} \dots \ket{S_i} \bra{S_i}  \mathbb{T} \ket{S_{i+1}} \dots \\
    & = \sum_{S_1 = \pm 1}^{}  \bra{S_1}  \mathbb{T}^N \ket{S_1} = \Tr[\mathbb{T}^N]
      \end{split}
 \end{equation}
-this is exactly the trace of the matrix, which is most usefully expressed in terms of the eigenvalues. Being \( \mathbb{T} \) symmetric, we can diagonalize it by an unitary transformation
+this is exactly the trace of the matrix, which is most usefully expressed in terms of the eigenvalues. Being \( \mathbb{T} \) symmetric, we can diagonalize it by an unitary transformation as
 \begin{equation}
    \mathbb{T}_D = \mathbb{P}^{-1} \mathbb{T} \mathbb{P}
 \end{equation}
 with \( \mathbb{P} \mathbb{P}^{-1} = \mathbb{1} \). Hence,
-\begin{equation}
+\begin{equation*}
 \begin{split}
   \Tr[\mathbb{T}^N] &= \Tr[\underbrace{\mathbb{T} \mathbb{T} \mathbb{T} \dots \mathbb{T}}_{N} ] = \Tr[ \mathbb{P} \mathbb{P}^{-1} \mathbb{T} \mathbb{P} \mathbb{P}^{-1} \mathbb{T} \mathbb{P} \dots \mathbb{P}^{-1}  \mathbb{T} \mathbb{P} \mathbb{P}^{-1} ]    \\
   & = \Tr[ \mathbb{P} \mathbb{T}_D^N \mathbb{P}^{-1}] \underset{\substack{ \text{ciclyc property} \\  \text{of the trace} } }{=} \Tr[ \mathbb{T}_D^N \mathbb{P}^{-1} \mathbb{P} ]\\
   & = \Tr[ \mathbb{T}_D^N]
 \end{split}
-\end{equation}
+\end{equation*}
 where
 \begin{equation}
 \mathbb{T}_D =  \begin{pmatrix}
@@ -103,29 +103,29 @@ where
 \end{equation}
 with \( \lambda _{\pm} \) are the eigenvalues with \( \lambda _+ > \lambda _- \).
 \begin{remark}
-\( \mathbb{P} \) is the similitude matrix whose colums are given by the eigenvectors of \(   \lambda _{\pm} \).
+\( \mathbb{P} \) is the similitude matrix whose columns are given by the eigenvectors of \(   \lambda _{\pm} \).
 \end{remark}
 We finally have:
-\begin{equation}
+\begin{empheq}[box=\myyellowbox]{equation}
   Z_N (K,h) = \Tr[\mathbb{T_D^N}] = \lambda _+^N  + \lambda _-^N
-\end{equation}
+\end{empheq}
 \begin{remark}
 As mentioned previously the dimension of the transfer matrix \( \mathbb{T} \) and hence the number of eigenvalues \( \{ \lambda  \}   \) depend both on the possible values of \( S_i \) and on the number of sites involved in terms of the Hamiltonian (range of interaction).
 \end{remark}
 \begin{example}{}{}
-For example consider the Ising (\( S_i = \pm 1\)) with neirest neighbour and next neirest neighbour interactions. The hamiltonian is:
-\begin{equation}
+For example, consider the Ising (\( S_i = \pm 1\)) with n. n. and next n. n. interactions. The Hamiltonian is:
+\begin{equation*}
   \mathcal{H} = k_1 \sum_{i}^{} S_i S_{i+1} + k_2 \sum_{i}^{} S_i S_{i+1} S_{i+2} S_{i+3}
-\end{equation}
-Because of the second term now there are \( 2^4 = 16 \) possible configurations that can be described by using a \( 4 \times 4 \) transfer matrix that we can write formally as
+\end{equation*}
+Because of the second term, now there are \( 2^4 = 16 \) possible configurations that can be described by using a \( 4 \times 4 \) transfer matrix that we can write formally as
 \begin{equation*}
   \bra{S_i S_{i+1}} \mathbb{T} \ket{S_{i+2} S_{i+3}}
 \end{equation*}
 \end{example}
 \begin{example}{}{}
-  For example, suppose \( S_i = +1,0,-1 \), therefore the spin can assume three different values.   This is a \emph{deluted} ising model.
+  For example, suppose \( S_i = +1,0,-1 \), therefore the spin can assume three different values.   This is a \emph{deluted} Ising model.
 \end{example}
-Let us now consider the transfer matrix formalism in a more general setting.
+Now, let us consider the transfer matrix formalism in a more general setting.
 
 \section{General transfer matrix method}
 The aim of this section is to describe how transfer matrices can be used to solve classical spin models. The idea is to write down the partition function in terms of a matrix, the transfer matrix. The thermodynamic properties of the model are then wholly described by the eigenspectrum of the matrix. In particular, the free energy per spin in the thermodynamic limit depends only on the largest eigenvalue and the correlation length only on the two largest eigenvalues through simple formulae.

@@ -497,7 +497,7 @@ with no restriction.
 \begin{remark}
 In the final sum all the \( 2^N \) possible microscopic states are inclued (considering \( U_1 =0 \))
 \end{remark}
-Eventually\footnote{ \( b^a = e^{a \ln b} \, \Rightarrow e^{\beta \mu} ( \frac{a}{\Lambda})^d = e^{\beta \mu} \exp (d \ln (\frac{a}{\Lambda}) ) \) }, we have
+Eventually, we have\footnote{ \( b^a = e^{a \ln b} \, \Rightarrow e^{\beta \mu} ( \frac{a}{\Lambda})^d = e^{\beta \mu} \exp (d \ln (\frac{a}{\Lambda}) ) \) }
 \begin{equation}
   Z_ \Omega ^{GC} \propto  \sum_{\{ n_ \alpha  \}} \exp [-\beta \qty(-\mu - \frac{d}{\beta } \log{\frac{a}{\Lambda }} ) \sum_{\alpha =0}^{N_c} n_ \alpha  + \beta U_2 \sum_{\expval{\alpha \beta } }^{} n_ \alpha n_ \beta + \dots     ]
 \end{equation}
@@ -517,10 +517,7 @@ where
 
 \chapter{Some exactly solvable models of phase transitions}
 
-The bibliography of the entire chapter is taken by \cite{9_lesson_1},\cite{9_lesson_2},\cite{9_lesson_3}.
-
-
-\section{\emph{1-dimensional} Ising model}
+\section{\emph{1-dim} Ising model}
 In this section, we arrive at the exact solution of the one dimensional Ising model.
  There are two techniques for solving the model:
 \begin{enumerate}
@@ -538,69 +535,85 @@ In this section, we arrive at the exact solution of the one dimensional Ising mo
 \caption{\label{fig:6_2} One dimensional Bravais Lattice.}
 \end{figure}
 
-Consider a Bravais lattice in the one dimensional case, that is just a one dimensional lattice, as in Figure \ref{fig:6_2}.
+Let us consider a Bravais lattice in the one dimensional case, that is just a one dimensional lattice, as in Figure \ref{fig:6_2}.
 
 The canonical partition function of such a system is:
-
 \begin{equation}
   Z_N (T) = \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{} \dots  \sum_{S_N = \pm 1}^{} \exp [
   \overbrace{ \beta J}^{K}  \sum_{i=1}^{N-1} S_i S_{i+1}  ]
 \end{equation}
-The two body interaction is the sum in all the neighbours that in that case are \( (i-1) \)  and \( (i+1) \), but you have only to consider the one after, because the one behind is yet taken by the behind site.
+The two body interaction is the sum in all the neighbours that in that case are \( (i-1) \)  and \( (i+1) \), but we have only to consider the one after, because the one behind is yet taken by the behind site.
 
-Solve now this partition function. If we consider \emph{free boundary} condition, the \emph{N} does not have a \emph{N+1}, almost for the moment.
+We want to solve this partition function. If we consider \emph{free boundary} condition, the \emph{N} does not have a \emph{N+1}, almost for the moment.
 Let us define
 \begin{equation}
    K \equiv \beta J,  \quad h \equiv \beta H
 \end{equation}
 Making explicit the sum in the exponential:
-\begin{equation}
+\begin{equation*}
   Z_{N} (K) =   \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{} \dots  \sum_{S_N = \pm 1}^{} e^{K (S_1 S_2 + S_2 S_3 + \dots + S_{N-1}S_N)}
-\end{equation}
-What if we just add another spin at the end \( S_{N+1} \) ? Which is the partition function with that new spin? We obtain:
-\begin{equation}
-  Z_{N+1} (K) =   \sum_{S_{N+1} = \pm 1}^{} \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{} \dots  \sum_{S_N = \pm 1}^{} e^{K (S_1 S_2 + S_2 S_3 + \dots + S_{N-1}S_N)} e^{K S_N S_{N+1}}
-\end{equation}
-On the other hand, this sum is just involve this term:
-\begin{equation}
+\end{equation*}
+What does happen if we just add another spin at the end \( S_{N+1} \) ? Which is the partition function with that new spin? We obtain:
+\begin{equation*}
+  Z_{N+1} (K) =   \sum_{S_{N+1} = \pm 1}^{} \sum_{S_1 = \pm 1}^{} \sum_{S_2 = \pm 1}^{} \dots  \sum_{S_N = \pm 1}^{} e^{K (S_1 S_2 + S_2 S_3 + \dots + S_{N-1}S_N)} \mathcolorbox{green!20}{ e^{K S_N S_{N+1}} }
+\end{equation*}
+On the other hand, this sum is just involving this term:
+\begin{equation*}
    \sum_{S_{N+1} = \pm 1}^{} e^{K S_N S_{N+1}}  = e^{K S_N} + e^{-K S_N} = 2 \cosh (K S_N) = 2 \cosh(K)
-\end{equation}
-where the last equivalence derive from the fact that \( \cosh \) is an even function and it does not depend on \( \pm 1 \). Therefore:
-\begin{equation}
+\end{equation*}
+where the last equivalence derive from the fact that \( \cosh \) is an even function and it does not depend on \( \pm 1 \). Therefore,
+\begin{equation*}
   Z_{N+1} (K) = (2 \cosh (K) ) Z_N (K) \quad \text{and} \quad   Z_{N} (K) = (2 \cosh (K)) Z_{N-1} (K)
-\end{equation}
-By performing a backward iteration
-\begin{equation}
-  Z_N (K) = Z_1 (2 \cos(K) )^{N-1}
-\end{equation}
+\end{equation*}
+By performing a backward iteration,
+\begin{equation*}
+  Z_N (K) = Z_1 (2 \cosh(K) )^{N-1}
+\end{equation*}
 Since \( Z_1 = \sum_{S_1=\pm1}^{} 1 = 2 \),
 we have
 \begin{empheq}[box=\myyellowbox]{equation}
-   Z_N (T) = 2 (2 \cos(K) )^{N-1}
+   Z_N (T) = 2 (2 \cosh(K) )^{N-1}
 \end{empheq}
-The free energy is:
+The free energy is
 \begin{equation}
   F_N (K) = - k_B T \ln{Z_N (K)} = - k_B T \ln{2} - k_B T (N-1) \ln{\qty(2 \cosh (K))}
 \end{equation}
-taking the thermodynamic limit it becames
+and taking the thermodynamic limit it becomes
 \begin{equation}
   f_b (T) \equiv \lim_{N \rightarrow \infty } \frac{1}{N} F_N (K)= -k_B T \ln{\qty( 2 \cosh (\frac{J}{k_B T}))}
 \end{equation}
-As one can see \( f_b (T)  \) is an analytic function of \emph{T}, so we have no phase transition  at \( T \neq 0 \).
+As one can see (Figure \ref{fig:6_3}) \( f_b (T)  \) is an analytic function of \emph{T}, so we have no phase transition  at \( T \neq 0 \).
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.45\textwidth]{../lessons/6_image/3.pdf}
-\caption{\label{fig:6_3} Free energy function in thermodynamic limit for the one dimension Ising model.}
+\includegraphics[width=0.7\textwidth]{../lessons/6_image/3.pdf}
+\caption{\label{fig:6_3} Free energy function in thermodynamic limit for the one dimensional Ising model, for \( k_B = 1.38 \times 10^{23}, J=1\). }
 \end{figure}
-We can compute the magnetization (the average over the spin \( \expval{S_j}  \)) for a generic site \emph{j}. This can be done in many ways. Assume again that \( S_i = \pm 1 \). Here, we choose one that consider another way to compute \emph{Z} for the \( 1-dimensional \) Ising model. This method can be useful for other calculations. It is based on the following identity:
+Now, let us compute the magnetization (the average over the spin \( \expval{S_j}  \)) for a generic site \emph{j} (assume again that \( S_i = \pm 1 \)). This can be done in many ways. Here, we choose one that consider another way to compute \emph{Z} for the \( 1-dim \) Ising model. This method can be useful for other calculations. It is based on the following identity:
 \begin{equation}
-  \exp [ K S_i S_{i+1}] \underset{to\,do}{=}  \cosh ( K) + S_i S_{i+1} \sinh (K) = \cosh (K) [1+ S_i S_{i+1} \tanh (K)]
+  \exp [ K S_i S_{i+1}] \underset{(proof)}{=}  \cosh ( K) + S_i S_{i+1} \sinh (K) = \cosh (K) [1+ S_i S_{i+1} \tanh (K)]
+  \label{eq:6_5}
 \end{equation}
-It means that
-\begin{equation}
+\begin{proof}[Proof of identity \eqref{eq:6_5}]
+Remind that 
+\begin{equation*}
+\cosh x = \frac{e^x + e ^{-x} }{2}, \qquad \sinh x = \frac{e^x - e ^{-x} }{2}
+\end{equation*}
+Hence, 
+\begin{equation*}
+    e^x = \cosh{x} + \sinh{x}
+\end{equation*}
+In our case, 
+\begin{equation*}
+ e^{k S_i S_{i+1}} = \cosh (K S_i S_{i+1}) +     \sinh (K S_i S_{i+1})
+ = \cosh K + S_i S_{i+1} \sinh K 
+\end{equation*}
+where the last step was obtained considering that \( \cosh \) is an even function, while \( \sinh \) is an odd one.
+\end{proof}
+Using identity \eqref{eq:6_5}, we obtain
+\begin{equation*}
   Z_N (K) = \sum_{\{ S \}  }^{}    \exp [K  \sum_{i=1}^{N-1} S_i S_{i+1}  ] = \sum_{\{ S \}  }^{}   \prod_{i=1}^{N-1} [ \cosh (K) (1+ S_i S_{i+1} \tanh (K))]
-\end{equation}
+\end{equation*}
 by rearranging,
 \begin{equation}
   Z_N (K)= (\cosh K)^{N-1} \sum_{\{S\}}^{}  \prod_{i=1}^{N-1} ( 1 + S_i S_{i+1} \tanh K )
@@ -615,16 +628,16 @@ where \( i_1 \dots i_m \) is a set of \emph{M} sites of the lattice.
 The terms above, when summed over \( \{ S \}   \) are zero, except the term with \( M=0 \) that is equal to 1 and, when summed over \( \{ S \}   \), gives \( 2^N \).
 \end{remark}
 Therefore:
-\begin{equation}
+\begin{equation*}
   Z_N (K) = 2^N (\cosh K)^{N-1}
-\end{equation}
+\end{equation*}
 that coincides with the result obtained before.
 
- If we now compute the average \( \expval{S_j}  \), the procedure is similar but now there will be terms as \eqref{eq:6_3} but with the addiction of an \( S_j \):
+ If we now compute the average \( \expval{S_j}  \), the procedure is similar but now there will be terms as \eqref{eq:6_3} with the addiction of an \( S_j \):
 \begin{equation}
   (\tanh K)^M S_{i_1} S_{i_{1+1}} S_{i_2} S_{i_{2+1}} \dots S_{i_M} S_{i_{M+1}} \mathcolorbox{green!10}{S_j}
 \end{equation}
-that, when one sums over \( \{ S \}   \) are all zero, included the term with \( H=0 \) that now is equal to \( S_j \) and \( \sum_{S_j = \pm 1}^{} = 0   \). Hence, we have the result
+that, when one sums over \( \{ S \}   \) are all zero, included the term with \( M=0 \) that now is equal to \( S_j \) and \( \sum_{S_j = \pm 1}^{} = 0   \). Hence, we have the result
 \begin{equation}
   \expval{S_j} = 0 \quad \forall j
 \end{equation}
@@ -633,24 +646,26 @@ The magnetization is always zero \( \forall j \neq \infty  \)!
 
 \subsubsection{Case with \( H\neq0 \) and periodic boundary conditions}
 \label{sec:6_1}
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{../lessons/6_image/4.pdf}
-\caption{\label{fig:6_4} One dimensional lattice ring.}
+\caption{\label{fig:6_4} One dimensional lattice ring: Ising model with periodic boundary conditions.}
 \end{figure}
+
 Consider the spins sitting on a 1D lattice ring as in Figure \ref{fig:6_4}. The periodic boundary conditions are:
-\begin{equation}
+\begin{equation*}
   S_{N+1}=S_1
-\end{equation}
+\end{equation*}
 We have:
 \begin{equation}
   -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) = K \sum_{i=1}^{N} S_i S_{i+1} + h \sum_{i=1}^{N} S_i
 \end{equation}
 where
-\begin{equation}
+\begin{equation*}
    K \equiv \beta J,  \quad h \equiv \beta H
-\end{equation}
-The \( 1-dimensional \) Ising model with this setup can be solved in several ways. Here we will use the method of the transfer matrix. This is a quite general technique that we will discuss within the Ising model.
+\end{equation*}
+The \( 1-dim \) Ising model with this setup can be solved in several ways. Here we will use the method of the transfer matrix. This is a quite general technique that we will discuss within the Ising model.
 
 
 
