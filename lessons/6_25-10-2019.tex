@@ -172,7 +172,7 @@ The above properties have been postulated in thermodynamics, but here they have 
   \begin{equation*}
   \begin{split}
   - \pdv{F_ \Omega }{T}   &= k_B \ln{(\Tr e^{- \beta \mathcal{H}_ \Omega }  )} + k_B T \frac{1}{k_B T^2} \frac{\Tr(\mathcal{H}_ \Omega  e^{-\beta \mathcal{H}_ \Omega } ) }{\Tr(e^{- \beta \mathcal{H}_ \Omega } ) } \\
-  &= k_B \qty[\ln{Z} + \frac{\Tr(\beta \mathcal{H}_ \Omega e^{-\beta \mathcal{H}_ \Omega
+  &= k_B \qty[\ln{Z_\Omega} + \frac{\Tr(\beta \mathcal{H}_ \Omega e^{-\beta \mathcal{H}_ \Omega
   } ) }{Z_ \Omega } ] \underset{to\, do}{=}   - k_B T \Tr(\rho _ \Omega  \ln{\rho _ \Omega } )
   \end{split}
   \end{equation*}
@@ -204,43 +204,45 @@ The proof is based on the H$\ddot{o}$lder inequality for two sequences  \( \{ g_
     \end{equation}
   \end{definition}
 
-Now, consider the partiction function:
-\begin{equation}
+Now, consider the partition function:
+\begin{equation*}
   Z_ \Omega  (H) = \Tr[\exp (\beta H \sum_{i}^{} S_i ) \underbrace{\exp (\beta J \sum_{\expval{ij} }^{} S_i S_j ) }_{G (S)}  ] = \Tr [\exp (\beta H \sum_{i}^{} S_i ) G (S)]
-\end{equation}
+\end{equation*}
 It implies that
-\begin{equation}
+\begin{equation*}
   Z_ \Omega  (H_1 \alpha _1 + H_2 \alpha _2) = \Tr(\exp {\beta \alpha _1 H_1 \sum_{i}^{} S_i + \beta \alpha _2 H_2 \sum_{i}^{} S_i} G(S))
-\end{equation}
+\end{equation*}
 On the other hand, since \( \alpha _1 + \alpha _2 =1 \):
-\begin{equation}
+\begin{equation*}
   G (S) = G (S)^{\alpha _1} G(S)^{\alpha _2}
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
     Z_ \Omega  (H_1 \alpha _1 + H_2 \alpha _2)   = \Tr[ (e^{\beta H_1 \sum_{i}^{} S_i } G (S))^{\alpha _1} (e^{\beta H_2 \sum_{i}^{} S_i } G (S))^{\alpha _2}]
-\end{equation}
+\end{equation*}
 If we now apply the H$\ddot{o}$lder inequality we get
-\begin{equation}
+\begin{equation*}
 \begin{split}
     Z_ \Omega  (H_1 \alpha _1 + H_2 \alpha _2) & \le \qty(\Tr (e^{\beta H_1 \sum_{i}^{} S_i } G(S))^{\alpha _1}  ) \qty(\Tr (e^{\beta H_2 \sum_{i}^{} S_i } G (S))^{\alpha _2}  ) \\
     & = Z_ \Omega (H_1)^{\alpha _1} Z_ \Omega (H_2)^{\alpha _2}
 \end{split}
-\end{equation}
-If we now take the logs and multiply by \( -k_B T \) both sides we have
-\begin{equation}
+\end{equation*}
+If we now take the logs and multiply by \( -k_B T \) both sides, we have
+\begin{equation*}
   \lim_{N \rightarrow \infty } - \frac{1}{N} k_B T \ln{Z_ \Omega (H_1 \alpha _1 + H_2 \alpha _2)}  \ge
    - \lim_{N \rightarrow \infty } \frac{\alpha _1}{N} k_B T \ln{Z_ \Omega  (H_1 )} -
     \lim_{N \rightarrow \infty } \frac{\alpha _2}{N} k_B T \ln{Z_ \Omega  (H_2 )}  \\
-\end{equation}
+\end{equation*}
 It implies
-\begin{equation}
+\begin{equation*}
   f_b (H_1 \alpha _1 + H_2 \alpha _2) \ge \alpha _1 f_b (H_1 ) +  \alpha _2 f_b (H_2)
-\end{equation}
-That is a concave function of \emph{H}.
+\end{equation*}
+That is a concave function of \emph{H} \footnote{A real-valued function \(f \) on an interval is said to be concave if, for any \(x \) and \( y \) in the interval and for any \( \alpha \in [0,1] \),
+\(  f( (1-\alpha ) x + \alpha y ) \geq (1-\alpha ) f(x) + \alpha f(y) \).}.
 \end{proof}
+
 \subsection{Ising model and \( \mathbb{Z}^2 \) symmetry. }
-The symmetry of the system in sense of the Hamiltonian is: we can invert the value of the \emph{S} and the Hamiltonian does not change. It is valid when \( H=0 \), otherwise is not true. Let us see the \( \mathbb{Z}^2 \) symmetry and the following interesting relation:
+The symmetry of the system in sense of the Hamiltonian is: we can invert the value of the \emph{S} and the Hamiltonian does not change. It is valid when \( H=0 \), otherwise it is not true. Let us see the \( \mathbb{Z}^2 \) symmetry and the following interesting relation:
 
   \begin{lemma}{}{}
   \( \forall  \) function \( \Phi  \) of the configuration \( \{ S_i \}   \), the following relation holds:
@@ -251,7 +253,7 @@ The symmetry of the system in sense of the Hamiltonian is: we can invert the val
   this is true for all function of the spin.
   \end{lemma}
 
-Now, we consider the hamiltonian of the Ising model:
+Now, we consider the Hamiltonian of the Ising model:
 \begin{equation*}
   - \mathcal{H}_ \Omega  = J \sum_{\expval{ij} }^{N(\Omega )} S_i S_j + H \sum_{i}^{N(\Omega )} S_i
 \end{equation*}
@@ -269,16 +271,16 @@ Z_ \Omega  (-H,J,T) &= \sum_{ \{S_i = \pm 1 \}}^{} \exp [-\beta \mathcal{H}_ \Om
 &\underset{\eqref{eq:6_1_1}}{=} \sum_{ \{S_i= \pm 1\}}^{} \exp [-\beta \mathcal{H}_ \Omega  (H,J, \{S_i\}) ] = Z_ \Omega (H,J,T)
 \end{split}
 \end{equation}
-Taking \( -k_B T \log  \)  and the \( \lim_{N \rightarrow \infty } \frac{1}{N} \)  we got:
+Taking \( -k_B T \ln  \), we got:
 \begin{equation}
   F_ \Omega  (T,J,H) = F_ \Omega  (T,J,-H)
   \label{eq:6_2}
 \end{equation}
-If we take the thermodynamic limit, we have
+If we take the thermodynamic limit \( \lim_{N \rightarrow \infty } \frac{1}{N} \), we have
 \begin{equation}
 \Rightarrow f_b (T,J,H) = f_b (T,J,-H)
 \end{equation}
-and it means that the free energy density is an even function of \emph{H}!
+and it means that the \emph{free energy density is an even function of H}!
 \begin{remark}
 From the finite-size relation \eqref{eq:6_2}, one can show that a \emph{finite-size}  Ising model does not display a transition to a ferromagnetic phase (for all dimension \emph{d}). Indeed,
 \begin{equation}
@@ -290,11 +292,15 @@ Therefore:
 \end{equation}
 If \( H=0 \), we have \( M (0) = -M (0) \), that is valid if and only if \( M(0)= 0 \)!
 
-The magnetization of a finite system is, at \( H=0 \), always zero. This is simply consequence of the symmetry argument shown above. It is only in the thermodynamic limit, where the symmetry is spontaneously broken.
+The magnetization of a finite system is, at \( H=0 \), always zero. This is simply consequence of the symmetry argument shown above. We have not a phase transition.
+
+Hence, it is only in the thermodynamic limit, where the symmetry is spontaneously broken, that the model displays a transition.
+
+For resuming, although the Hamiltonian is invariant with respect to the transformation \( H \rightarrow -H, \{ S_i \} \rightarrow \{-S_i\} \), the thermodynamic state is not. This situation is called \emph{spontaneous symmetry breaking}.
 \end{remark}
 
 \section{Lattice gas model}
-Even if we had not seen any transition, the Ising model is interesting because we can use this model to solve other problems that seems different but are not. In fact, the importance of the Ising model relies also on the fact that it can be mapped into other discrete systems. Despite its simplicity the Ising model is widely applicable because it describes any interacting two-state system. One of these applications is the \emph{lattice gas model}, where a gas is put in a lattice.
+Even if we had not seen any transition, the Ising model is interesting because we can use this model to solve other problems that seems different but are not. In fact, the importance of the Ising model relies also on the fact that it can be mapped into other discrete systems. Despite its simplicity, the Ising model is widely applicable because it describes any interacting two-state system. One of these applications is the \emph{lattice gas model}, where a gas is put in a lattice.
 
  What is a lattice gas model in more details?
  The archetypal lattice gas is a model where each lattice site can either be occupied by an atom or vacant.
