@@ -130,7 +130,7 @@ Now, let us consider the transfer matrix formalism in a more general setting.
 \section{General transfer matrix method}
 The aim of this section is to describe how transfer matrices can be used to solve classical spin models. The idea is to write down the partition function in terms of a matrix, the transfer matrix. The thermodynamic properties of the model are then wholly described by the eigenspectrum of the matrix. In particular, the free energy per spin in the thermodynamic limit depends only on the largest eigenvalue and the correlation length only on the two largest eigenvalues through simple formulae.
 
-Let \( \mathbb{T} \) be a square matrix \( (n+2) \times (n+2) \) that, for example, it is built if the spin variables mary assume \( (n+2) \) possible values. The \emph{k}-esim value can be defined by the bra-ket notation where the two vectors are given by a sequence of "0" and a single "1" at the \emph{k}-esim  position.
+Let \( \mathbb{T} \) be a square matrix \( (n+2) \times (n+2) \) that, for example, it is built if the spin variables may assume \( (n+2) \) possible values. The \emph{k}-esim value can be defined by the bra-ket notation where the two vectors are given by a sequence of "0" and a single "1" at the \emph{k}-esim  position.
 \begin{example}{}{}
 If \( k=3 \) and there are \( (n+2) \)  possible values:
   \begin{equation*}
@@ -150,7 +150,7 @@ Similarly to the \( 2 \times 2 \) Ising case, it is easy to show the identity pr
 \end{equation}
 where now the sum is over \( (n+2) \) values.
 
-Let us consider  the \emph{diagonal matrix} \( \mathbb{S}_i \) where the elements along the diagonal are all the  \( (n+2) \) possible values of the \emph{i}-esim spin (or of some of their combination if longer interaction terms are considered)
+Let us consider  the \emph{diagonal matrix} \( \mathbb{S}_i \), where the elements along the diagonal are all the  \( (n+2) \) possible values of the \emph{i}-esim spin (or of some of their combination if longer interaction terms are considered)
 \begin{equation}
   \mathbb{S}_i \equiv  \sum_{S_i}^{} \ket{S_i} S_i \bra{S_i}
 \end{equation}
@@ -186,52 +186,52 @@ Note that in this case the matrix \( \mathbb{S}_i \) is equal to the Pauli matri
 \end{remark}
 \end{example}
 \begin{remark}
-By constrution \( \bra{S_i}  \) and \( \ket{S_i}  \) are the eigenvectors related to the eigenvalues \( S_i = S^{(1)},S^{(2)}, \dots,S^{(n+2)} \).
+By construction \( \bra{S_i}  \) and \( \ket{S_i}  \) are the eigenvectors related to the eigenvalues \( S_i = S^{(1)},S^{(2)}, \dots,S^{(n+2)} \).
 \end{remark}
-Similarly let \( \bra{t_i}  \) and \( \ket{t_i}  \) be the eigenvectors related to the \( (n+2) \) eigenvalues of the transfer matrix \( \mathbb{T} \):
+Similarly. let \( \bra{t_i}  \) and \( \ket{t_i}  \) be the eigenvectors related to the \( (n+2) \) eigenvalues of the transfer matrix \( \mathbb{T} \):
    \( \{ \lambda _+,\lambda _-,\lambda _1,\dots,\lambda _n  \}   \) , with \( \lambda _+ > \lambda _- \ge \lambda _1 \ge \dots \ge \lambda _n \).
 
-Clearly
+Clearly,
 \begin{equation}
-  \mathbb{T} = \mathbb{P} \mathbb{T}_D \mathbb{P}^{-1} = \sum_{i}^{} \ket{t_i} \lambda _i \bra{t_i}
+  \mathbb{T} = \mathbb{P} \mathbb{T}_D \mathbb{P}^{-1} = \sum_{i=1}^{n+2} \ket{t_i} \lambda _i \bra{t_i}
 \end{equation}
-Indeed,
+Indeed
 \begin{equation}
-  \mathbb{T} \ket{t_j} = \sum_{i}^{} \ket{t_i} \lambda _i \braket{t_i}{t_j} = \sum_{i}^{}  \ket{t_i} \lambda _i \delta _{ij} = \lambda _j \ket{t_j}
+  \mathbb{T} \ket{t_j} = \sum_{i=1}^{n+2} \ket{t_i} \lambda _i \braket{t_i}{t_j} = \sum_{i=1}^{n+2}  \ket{t_i} \lambda _i \delta _{ij} = \lambda _j \ket{t_j}
 \end{equation}
-
 Given the set of \( \lambda  \) described above, the \emph{N} particle partition function is given by
-\begin{equation}
-  Z_N ( \{ K \},h  ) = \lambda _+^N +\lambda _-^N + \sum_{i=1}^{n} \lambda _i^{N}
+\begin{empheq}[box=\myyellowbox]{equation}
+  Z_N  = \lambda _+^N +\lambda _-^N + \sum_{i=1}^{n} \lambda _i^{N}
   \label{eq:7_01}
-\end{equation}
+\end{empheq}
 
 \subsection{The free energy}
 
-Now, we are interested in the limit of the bulk free energy
-\begin{equation}
-  F_N () =-k_B T \log{Z_N ()}
-\end{equation}
-In general, looking at the thermodynamic limit \( N \rightarrow \infty  \), by factorizing \( \lambda _+ \)
-\begin{equation}
-  f_b ( \{ k \},h  ) = \lim_{N \rightarrow \infty } \frac{1}{N} F_N = \lim_{N \rightarrow \infty } \frac{1}{N} (-k_B T) \log{\qty[\lambda _+^N + \lambda _-^N + \sum_{i=1}^{n} \lambda _i ^N  ] }
-\end{equation}
-by rearringing,
-\begin{equation}
+
+Now, let us consider the free energy 
+\begin{equation*}
+  F_N = -k_B T \log{Z_N} 
+\end{equation*}
+In particular, we are interested in the limit of the bulk free energy. Looking at the thermodynamic limit \( N \rightarrow \infty  \) we have
+\begin{equation*}
+  f_b  = \lim_{N \rightarrow \infty } \frac{1}{N} F_N = \lim_{N \rightarrow \infty } \frac{1}{N} (-k_B T) \log{\qty[\lambda _+^N + \lambda _-^N + \sum_{i=1}^{n} \lambda _i ^N  ] }
+\end{equation*}
+by factorizing \( \lambda _+ \), we obtain
+\begin{equation*}
   f_b = \lim_{N \rightarrow \infty } \frac{-k_B T}{N} \log{\qty[\lambda _+^N \qty(1+\frac{\lambda _-^N}{\lambda _+^N}+ \sum_{i=1}^{n} \qty(\frac{\lambda _i}{\lambda _+})^N    ) ] }
-\end{equation}
+\end{equation*}
 Since \( \lambda _+ > \lambda _- > \lambda _1 > \dots \lambda _n \),
-\begin{equation}
+\begin{equation*}
 \qty(\frac{\lambda _-}{\lambda _+})^N \overset{N \rightarrow \infty }{\longrightarrow} 0,
 \quad
 \qty(\frac{\lambda _i}{\lambda _+})^N \overset{N \rightarrow \infty }{\longrightarrow} 0
 \quad \forall i
-\end{equation}
-we obtain:
+\end{equation*}
+The result is 
 \begin{empheq}[box=\myyellowbox]{equation}
 f_b = -k_B T \log{\lambda _+}
 \end{empheq}
-The limiting free-energy depends only on the largest eigenvalue of the transfer matrix \( \mathbb{T} \)! This is important since sometimes it is much simpler to compute only the largest eigenvalue than the whole spectrum of \( \mathbb{T} \). Also an important theorem about \( \lambda _+ \) exists.
+The \emph{limiting bulk free-energy depends only on the largest eigenvalue of the transfer matrix \( \mathbb{T} \)}! This is important since sometimes it is much simpler to compute only the largest eigenvalue than the whole spectrum of \( \mathbb{T} \). Also an important theorem about \( \lambda _+ \) exists.
 
   \begin{theorem}{Perron-Frobenius}{}
   Let \( \mathbb{A} \) be a \( n \times n \) matrix. If \( \mathbb{A} \) is finite (\( n < \infty  \)) and \( \mathbb{A}_{ij} > 0 , \forall i,j \), \( (\mathbb{A}_{ij}=\mathbb{A}_{ij} (\va{x})) \), therefore its largest eigenvalue \( \lambda _+ \) has the following properties:
@@ -245,52 +245,54 @@ The limiting free-energy depends only on the largest eigenvalue of the transfer 
 \begin{remark}
 Since in our case \( \mathbb{A} \leftrightarrow  \mathbb{T} \), \( \lambda _+ \) is related to \( f_b \) from the theorem. This means that \( f_b \) is an analytic function!
 \end{remark}
+If the conditions of the Perron-Frobenius theorem are satisfied by \( \mathbb{T} \), the model described by  \( \mathbb{T} \) cannot display a phase transition!
 \begin{remark}
 This is true for \( T>0 \) since for \( T=0 \) some \( \mathbb{T}_{ij} \) can be either 0 or \( \infty  \) violating the hypothesis of the theorem.
 \end{remark}
 \begin{remark}
-If \( \mathbb{T} \) has infinite dimension (see \( d>1 \)) the hypothesis of the theorem are not valid any more and \( f_b \) can be non-analytic.
+If \( \mathbb{T} \) has infinite dimension (see \( d>1 \)) the hypothesis of the theorem are not valid anymore and \( f_b \) can be non-analytic.
 \end{remark}
-If the conditions of the Perron-Frobenius theorem are satisfied by \( \mathbb{T} \), the model described by  \( \mathbb{T} \) cannot display a phase transition!
+
 
 \subsection{The correlation function}
-A second important quantity which is simply related to the eigenvalues of the transfer matrix is the correlation length. To calculate this we need the spin-spin correlation function which serves as an example of how to obtain averages of products of spins using transfer matrices.
+A second important quantity which is simply related to the eigenvalues of the transfer matrix is the correlation length. To calculate this, we need the spin-spin correlation function which serves as an example of how to obtain averages of products of spins using transfer matrices.
 
-Let us consider the two point correlation between two spins at distance \emph{R} to another. The fluctuation respect to the average is:
-\begin{equation}
+Let us consider the two point correlation between two spins at distance \emph{R} to another. The fluctuation with respect to the average is:
+\begin{empheq}[box=\myyellowbox]{equation}
   \Gamma _R \equiv  \expval{S_1 S_R} - \expval{S_1}\expval{S_R}
-\end{equation}
+\end{empheq}
 Since
-\begin{equation}
+\begin{equation*}
   \Gamma _R \underset{R \rightarrow \infty }{\sim } \exp [-R/\xi ]
-\end{equation}
+\end{equation*}
 we can define the correlation length \( \xi  \) as
-\begin{equation}
+\begin{empheq}[box=\myyellowbox]{equation}
   \xi^{-1} \equiv  \lim_{R \rightarrow \infty } \qty[ - \frac{1}{R} \log{ \qty| \expval{S_1 S_R} - \expval{S_1}\expval{S_R}| } ]
   \label{eq:7_2}
-\end{equation}
-
+\end{empheq}
 Now, let us compute the terms \( \expval{S_1 S_R}_N  \) and \( \expval{S_1}_N\expval{S_R}_N \).
-From the definition of average we obtain
+
+\subsubsection{Term \(\expval{S_1 S_R}_N\)}
+\noindent From the definition of average we obtain
 \begin{equation}
   \expval{S_1 S_R}_N = \frac{1}{Z_N} \sum_{\{ S \}  }^{} S_1 S_R \exp [-\beta \mathcal{H}_N]
 \end{equation}
 \begin{remark}
 The subscript \( N \) denotes that we are again considering a ring of \( N \) spins. \( Z_N \) is known from equation \eqref{eq:7_01}.
 \end{remark}
-Writing this expression by using the transfer matrix formalism one obtains
-\begin{equation}
+Writing this expression by using the transfer matrix formalism, one obtains
+\begin{equation*}
 \expval{S_1 S_R}_N  = \frac{1}{Z_N} \sum_{\{ S \}  }^{} S_1 \bra{S_1} \mathbb{T} \ket{S_2} \dots  \bra{S_{R-1}} \mathbb{T} \ket{S_R} S_R \bra{S_R} \mathbb{T} \ket{S_{R+1}} \dots \bra{S_N} \mathbb{T} \ket{S_1}
-\end{equation}
+\end{equation*}
 Summing over the free spins,
 \begin{equation}
   \expval{S_1 S_R}_N = \frac{1}{Z_N} \sum_{S_1,S_R}^{} S_1 \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} S_R \bra{S_R} \mathbb{T}^{N-R+1} \ket{S_1}
   \label{eq:7_1}
 \end{equation}
 On the other hand, since
-\begin{equation}
+\begin{equation*}
   \mathbb{T} = \sum_{i=1}^{n+2} \ket{t_i} \lambda _i  \bra{t_i}
-\end{equation}
+\end{equation*}
 we have
 \begin{subequations}
 \begin{align}
@@ -299,14 +301,17 @@ we have
 \end{align}
 \end{subequations}
 Hence,
-\begin{equation}
-  \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} = \sum_{i=1}^{n+2} \braket{S_1}{t_i} \lambda_i ^{R-1} \braket{t_i}{S_R}
-\end{equation}
-and plugging this expression in  \eqref{eq:7_1} one gets
-\begin{equation}
+\begin{subequations}
+\begin{align}
+  \bra{S_1} \mathbb{T}^{R-1} \ket{S_R} & = \sum_{i=1}^{n+2} \braket{S_1}{t_i} \lambda_i ^{R-1} \braket{t_i}{S_R} \\
+  \bra{S_R} \mathbb{T}^{N-R+1} \ket{S_1} & = \sum_{j=1}^{n+2} \braket{S_R}{t_j} \lambda_j ^{N-R+1} \braket{t_j}{S_1}   
+\end{align}
+\end{subequations}
+and plugging these expressions in  \eqref{eq:7_1} one gets
+\begin{equation*}
   \sum_{\{ S \}  }^{}  S_1 S_R e^{-\beta \mathcal{H}_N} = \sum_{S_1 S_R}^{} S_1 \sum_{i=1}^{n+2} \braket{S_1}{t_i} \lambda _i^{R-1} \braket{t_i}{S_R} S_R \sum_{j=1}^{n+2} \braket{S_R}{t_j} \lambda_j ^{N-R+1} \braket{t_j}{S_1}
-\end{equation}
-Since the term \( \braket{t_j}{S_1}  \) is a scalar it can be moved at the beginning of the product. Remembering the notations
+\end{equation*}
+Since the term \( \braket{t_j}{S_1}  \) is a scalar, it can be moved at the beginning of the product. Remembering the notations
 \begin{subequations}
 \begin{align}
   \mathbb{S}_1 &= \sum_{S_1}^{} \ket{S_1} S_1 \bra{S_1} \\

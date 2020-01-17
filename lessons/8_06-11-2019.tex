@@ -6,33 +6,52 @@
 \begin{document}
 
 \marginpar{ \textbf{Lecture 8.} \\  \displaydate{date}. \\ Compiled:  \today.}
-\noindent Since \( \sum_{k}^{} \lambda _k^N = Z_N \) for \( k=+,-,1,\dots,n \):
-\begin{equation}
+\noindent Since \( \sum_{k}^{} \lambda _k^N = Z_N \) for \( k=+,-,1,\dots,n \), we have
+\begin{equation*}
   \expval{S_1 S_R}_N = \frac{\sum_{ij}^{} \bra{t_j} \mathbb{S}_1 \ket{t_i} \lambda _i^{R-1} \bra{t_i} \mathbb{S}_R \ket{t_j} \lambda _j^{N-R+1}      }{\sum_{k=1}^{n} \lambda _k^N  }
-\end{equation}
+\end{equation*}
 If we now multiply and divide by \( \lambda _+^N \), we get
-\begin{equation}
+\begin{equation*}
   \expval{S_1 S_R}_N = \frac{\sum_{ij}^{} \bra{t_j} \mathbb{S}_1 \ket{t_i} (\lambda _i/ \lambda _+)^{R-1}  \bra{t_i} \mathbb{S}_R \ket{t_j} (\lambda _j / \lambda _+)^{N-R+1}    }{\sum_{k=1}^{n} (\lambda _k  / \lambda _+)^{N} }
-\end{equation}
+\end{equation*}
 \begin{remark}
-In the thermodynamic limit \( N \rightarrow \infty  \), only the terms with \( j=+ \) and \( k=+ \) survive in the sum. Remind that \( R \) is fixed.
+In the thermodynamic limit \( N \rightarrow \infty  \), only the terms with \( j=+ \) and \( k=+ \) will survive in the sum. Remind that \( R \) is fixed.
 \end{remark}
+\begin{equation*}
+\expval{S_1 S_R} =   \lim_{N \rightarrow \infty } \expval{S_1 S_R}_N = \sum_{i= \pm,1 \dots n}^{} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
+\end{equation*}
+Rembember that \( \lambda _+ > \lambda _- \ge \lambda _1 \ge \dots \ge \lambda _n \):
+\begin{equation*}
+  \expval{S_1 S_R} = \bra{t_+} \mathbb{S}_1 \ket{t_+} \bra{t_+} \mathbb{S}_R \ket{t_+} +   \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
+\end{equation*}
+Since one can prove 
 \begin{equation}
-\expval{S_1 S_R}_N =   \lim_{N \rightarrow \infty } \expval{S_1 S_R}_N = \sum_{i= \pm,1 \dots n}^{} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
-\end{equation}
-Rembember that \( \lambda _+ > \lambda _T \ge \lambda _1 \dots \lambda _n \):
-\begin{equation}
-  \expval{S_1 S_R}_N = \bra{t_+} \mathbb{S}_1 \ket{t_+} \bra{t_+} \mathbb{S}_R \ket{t_+} +   \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
-\end{equation}
-Since one can prove, by a method entirely analogous to that followed above, that
-\begin{equation}
-  \lim_{N \rightarrow \infty } \expval{S_R}_N = \bra{t_+} \mathbb{S}_R \ket{t_+}
+  \lim_{N \rightarrow \infty } \expval{S_R}_1 = \bra{t_+} \mathbb{S}_1 \ket{t_+} , \quad \lim_{N \rightarrow \infty } \expval{S_R}_N = \bra{t_+} \mathbb{S}_R \ket{t_+}
+  \label{eq:8_3}
 \end{equation}
 we obtain
 \begin{equation}
   \expval{S_1 S_R} = \expval{S_1} \expval{S_R} + \sum_{i \neq +}^{}  \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
+  \label{eq:8_2}
 \end{equation}
-The correlation function then follows immediately as
+\begin{example}{Show relation \eqref{eq:8_3}}{}
+Let us prove \eqref{eq:8_3} by a method analogous to that followed above.
+\begin{equation*}
+\begin{split}
+\expval{S_1}_N &= \frac{1}{Z} \sum_{\{ S \} }  S_1 e^{- \beta \mathcal{H}_N}
+= \frac{1}{Z} \sum_{S_1} S_1 \bra{S_1}  \mathbb{T}^N \ket{S_1} 
+ = \frac{1}{Z} \sum_{S_1} S_1 \sum_{i}  \bra{S_1}\ket{t_i} \lambda_i^N \bra{t_i} \ket{S_1} \\
+&= \frac{1}{Z} \sum_{i} \lambda_i^N \bra{t_i} \mathbb{S}_1 \ket{t_i}  
+ = \frac{\sum_{i}^{} \qty(\lambda_i/\lambda_+)^N \bra{t_i} \mathbb{S}_1 \ket{t_i}  }{ \sum_{k=1}^{n} (\lambda _k  / \lambda _+)^{N} }
+\end{split}
+\end{equation*}
+Taking the limit \( N \rightarrow \infty \):
+\begin{equation*}
+\expval{S_1} =   \lim_{N \rightarrow \infty } \expval{S_1}_N = 
+\bra{t_+} \mathbb{S}_1 \ket{t_+}
+\end{equation*}
+\end{example}
+The correlation function follows immediately from \eqref{eq:8_2},
 \begin{equation}
 \Gamma _R =   \expval{S_1 S_R} - \expval{S_1}\expval{S_R} = \sum_{i \neq +}^{n} \qty(\frac{\lambda _i}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ket{t_i} \bra{t_i} \mathbb{S}_R \ket{t_+}
 \end{equation}
@@ -40,38 +59,40 @@ The correlation function then follows immediately as
 \( \Gamma_R \) depends only on the eigenvalues and eigenvectors of the transfer matrix \( \mathbb{T} \) and by the values of the spins \( S_1 \) and \( S_R \).
 \end{remark}
 A much simpler formula is obtained for the correlation length \eqref{eq:7_2}. Taking the limit \( R \rightarrow \infty  \) the ratio \( (\lambda _-/ \lambda _+) \) dominates the sum and hence
-\begin{equation}
+\begin{equation*}
 \begin{split}
 \xi ^{-1} &=  \lim_{R \rightarrow \infty } \qty{-\frac{1}{R-1} \log{\qty|\expval{S_1S_R} - \expval{S_1} \expval{S_R}   |} } \\
 & = \lim_{R \rightarrow \infty }  \qty{-\frac{1}{R-1} \log{\qty[  \qty(\frac{\lambda _-}{\lambda _+})^{R-1} \bra{t_+} \mathbb{S}_1 \ketbra{t_-}{t_-} \mathbb{S}_R \ket{t_+}  ]  } } \\
-& = -\log{\qty[\qty(\frac{\lambda _-}{\lambda _+}) ] } - \lim_{R \rightarrow \infty } \frac{1}{R-1} \log{ \bra{t_+} \mathbb{S}_1 \ketbra{t_-}{t_+} \mathbb{S}_R \ket{t_+}    }  \\
+& = -\log{\qty[\qty(\frac{\lambda _-}{\lambda _+}) ] } - \lim_{R \rightarrow \infty } \frac{1}{R-1} \log{ \bra{t_+} \mathbb{S}_1 \ketbra{t_-}{t_-} \mathbb{S}_R \ket{t_+}    }  \\
 & = - \log{\qty(\frac{\lambda _-}{\lambda _+}) }
 \end{split}
-\end{equation}
+\end{equation*}
 The important result is
 \begin{empheq}[box=\myyellowbox]{equation}
   \xi ^{-1} = -  \log{\qty(\frac{\lambda _-}{\lambda _+}) }
 \end{empheq}
-It means that the correlation length does depend only on the ratio between the two largest eigenvalues of the transfer matrix \( \mathbb{T} \).
+It means that the \emph{correlation length does depend only on the ratio between the two largest eigenvalues of the transfer matrix \( \mathbb{T} \)}.
 
 
-\subsection{Results for the \emph{1-dimensional} Ising model}
-The transfer matrix is given by
-\begin{equation}
+\subsection{Results for the \emph{1-dim} Ising model}
+Let us now return to the example of the nearest neighbour Ising model in a magnetic field, to obtain explicit results for the bulk free energy \(f_b\), the correlation function \( \Gamma\) and the correlation length \( \xi \).
+
+Recall that the transfer matrix of such a system is given by
+\begin{equation*}
   \mathbb{T} =
   \begin{pmatrix}
   \exp (K+h)     & \exp (-K)  \\
   \exp (-K)    & \exp (K-h)
   \end{pmatrix}
-\end{equation}
-Calculate the eigenvalues:
-\begin{equation}
+\end{equation*}
+Now, let us calculate the eigenvalues:
+\begin{equation*}
   \abs{\mathbb{T}-\lambda \mathbb{1}} =  (e^{K+h}- \lambda  )(e^{K-h}-\lambda  )-e^{-2K}=0
-\end{equation}
-The solutions are
-\begin{equation}
+\end{equation*}
+The two solutions are
+\begin{empheq}[box=\myyellowbox]{equation}
   \lambda _{\pm} = e^{K} \cosh(h) \pm \sqrt{e^{2K}\sinh^2 (h)+e^{-2K} }
-\end{equation}
+\end{empheq}
 \subsubsection{The free energy}
 The free energy is
 \begin{equation}
