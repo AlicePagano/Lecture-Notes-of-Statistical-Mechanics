@@ -8,9 +8,10 @@
 \section{Zipper model}
 \marginpar{ \textbf{Lecture 9.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-It is a model introduced by Kittel to describe oligomers undergoing \emph{denaturation transition}.
-Simplest model of DNA thermal denaturation transition (no bubbles). Better model for the denaturation of short oligomers.
-
+The Zipper model is an unusually simple and interesting member of the class of one dimensional systems which exhibit a phase transition.
+It is a model introduced by Kittel \cite{9_lesson_5} to describe oligomers undergoing \emph{denaturation transition}.
+ Simplest model of DNA thermal denaturation transition (no bubbles). Better model for the denaturation of short oligomers.
+ 
 The hypothesis are: the binding energy between two bases located at the end of the molecule is smaller than the one for pairs away from the ends. The unbinding starts and develops from the ends as a \emph{zipper}.
 \begin{figure}[h!]
 \centering
@@ -18,22 +19,30 @@ The hypothesis are: the binding energy between two bases located at the end of t
 \caption{\label{fig:9_1} Sequential unzipping from the ends.}
 \end{figure}
 
-In this denaturation transition we do not allow bubbles.
-Let us consider first the zingle-ended zipper, i.e. a molecular zipper of \emph{N} parallel links that can be opened only from one end as in Figure \ref{fig:9_2}.
-
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/9_image/2.pdf}
-\caption{\label{fig:9_2} }
+\caption{\label{fig:9_2} Open and closed links in a single-ended zipper.}
 \end{figure}
-If the first \emph{k} bonds are open (unbounded pairs) the energy to open the \emph{k+1} is \( \varepsilon _0 \). Note that if at least one of the previous \emph{k} bond is closed the energy needed to open the \( k+1 \) band is infinite! One a bond is open it can orient itself in \emph{G} different ways. In other words there is an entropy
+
+In this denaturation transition we do not allow bubbles.
+Let us consider first the single-ended zipper, i.e. a molecular zipper of \emph{N} parallel links that can be opened only from one end as in Figure \ref{fig:9_2}. The single-ended zipper is simpler than any related problem which has been treated, and it offers a good way to introduce a biophysics example into a course of statistical mechanics.
+
+If the first \emph{k} bonds (or links) are open (unbounded pairs) the energy to open the \emph{k+1} is \( \varepsilon _0 \). Note that if at least one of the previous \emph{k} bond is closed the energy needed to open the \( k+1 \) band is infinite! 
+We specify further that the last link, \(k=N\), cannot be opened; this minor features serves only to distinguish one end from the other, and we shall say that the zipper is open when \(N-1\) links are open. 
+
+We suppose that there are \emph{G} orientations which each open link can assume: that is, the open state of a link is \emph{G}-fold degenerate, corresponding to the rotational freedom of a link. Hence, once a bond is open it can orient itself in \emph{G} different ways. In other words, there is an entropy
 \begin{equation}
   S_0 = k_B \log{G}
 \end{equation}
-associated to each open band. If \emph{k} bands (\( i=1,\dots,k \)) are open the associated weight is given by
-\begin{equation}
+associated to each open band. 
+In the problem of DNA the empirical value of \emph{G} may be of the order of \(10^4\).
+
+\subsubsection{Partition function}
+Let us suppose that the energy required to open the first \emph{k} links is \(\varepsilon_0\). If \emph{k} links are open, the degeneracy is \(G^k\), and the contribution of this configuration to the partition function is 
+\begin{equation*}
   G^k e^{-k \varepsilon _0/k_B T}
-\end{equation}
+\end{equation*}
 By summing over the possible values of \emph{k}, the partition function is
 \begin{equation}
   Z_N (T,G, \varepsilon _0) = \sum_{k=0}^{N-1}  G^k e^{-k \varepsilon _0/k_B T} = \sum_{k=0}^{N-1} e^{k(S_0 T - \varepsilon _0)/k_B T}
@@ -46,23 +55,29 @@ and simplify the previous expression
 \begin{equation}
   Z_N = \sum_{k=0}^{N-1} \chi ^k = \frac{1-\chi^N}{1-\chi}
 \end{equation}
-We see immidiately there is a single pole singularity. The free energy is
+We see immediately there is a single pole singularity.
+
+The free energy is
 \begin{equation}
   F_N = -k_B T \ln{Z_N} = -k_B T \ln{\qty[\frac{1-\chi^N}{1-\chi}]}
 \end{equation}
 We can now compute some observables of interest.
+The correct procedure is to evaluate thermodynamic quantities for finite \(N\) and then to examine the limit \( N \rightarrow \infty\).
 
 \subsubsection{Calculate average number of open links}
-The equal of our magnetization in this case is
+The thermodynamic average number of open links is
 \begin{equation}
   \expval{k}_N \equiv  \frac{\sum_{k=0}^{N-1} k \chi^k}{\sum_{k=0}^{N-1} \chi^k } = \chi \dv[]{}{\chi} \ln{Z_N}  = \frac{N \chi^N}{\chi^N-1} - \frac{\chi}{\chi-1}
 \end{equation}
-There is a pole in \( \chi =1 \) and the last quantity can be drawn as in Figure \ref{fig:9_3}.
+The function is plotted in Figure \ref{fig:9_3}. We examine the behaviour of \( \expval{k}_N \)in the vicinity of the point \( \chi_c = 1 \) for which the denominators are equal to zero (pole).
+\begin{remark}
+In this model, we consider the average number of open links instead of the magnetization.
+\end{remark}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/9_image/3.pdf}
-\caption{\label{fig:9_3} Description.}
+\caption{\label{fig:9_3} Thermodynamic average number of open links in a single-ended zipper of \(N\) links.}
 \end{figure}
 
  In order to analyze what happens near 1, we expand \( \chi \equiv 1+\varepsilon  \):
@@ -72,7 +87,7 @@ There is a pole in \( \chi =1 \) and the last quantity can be drawn as in Figure
   \log{Z_N} (\chi)  &=  \log{\qty[\frac{1-(1+\varepsilon )^N}{1-(1+\varepsilon )}] }  \\
   & =   \log{\qty[\frac{1-(1+\varepsilon N  + \frac{N(N-1)}{2!}\varepsilon ^2 + \frac{N(N-1)(N-2)}{3!}\varepsilon ^3 +O(\varepsilon ^4))}{\varepsilon }] } \\
   & = \log{\qty[N + \frac{N(N-1)}{2}\varepsilon + \frac{N(N-1)(N-2)}{6}\varepsilon^2 + \dots]  } \\
-  & = \log{N} + \log{\qty[1+\frac{N-1}{2}\varepsilon +\frac{N(N-1)}{6}\varepsilon ^2] } \\
+  & = \log{N} + \log{\qty[1+\frac{N-1}{2}\varepsilon +\frac{(N-1)(N-2)}{6}\varepsilon ^2] } \\
   & = \log{N} + \log{\qty[1+ \frac{N \varepsilon }{2}+ \frac{N^2 \varepsilon ^2}{6}+ \dots] }  \\
   & = \log{N} + \qty( \frac{N \varepsilon }{2} + \frac{N^2 \varepsilon ^2}{6} + \dots) + \frac{1}{2} \qty(\frac{N \varepsilon }{2} + \frac{N^2 \varepsilon ^2}{6} + \dots)^2  + \dots  \\
   & = \log{N}+ \frac{N \varepsilon }{2} + \frac{N^2 \varepsilon ^2}{24} + \dots
@@ -83,10 +98,11 @@ By doing the same for \(   \expval{k}_N = \frac{N \chi^N}{\chi^N-1} - \frac{\chi
   \expval{k}_N = \frac{N}{2} \qty( 1 + \frac{N \varepsilon }{6} - \frac{N^3 \varepsilon ^3}{360} + \dots)
 \end{equation}
 this is true for \( N \gg 1, \varepsilon \ll 1 \).
-A the transition point \( \chi _C =1 \), where \( \varepsilon =0 \):
-\begin{equation}
+
+At the transition point \( \chi _c =1 \), where \( \varepsilon =0 \):
+\begin{equation*}
   \expval{k}_N \simeq \frac{N}{2}
-\end{equation}
+\end{equation*}
 We can define the variation (slope per site) as a response function (the derivative with respect to the parameter):
 \begin{equation}
   \frac{1}{N}\dv{\expval{k} }{\varepsilon } \simeq \frac{N}{12} - \frac{N^3 \varepsilon ^3}{240} + \dots
