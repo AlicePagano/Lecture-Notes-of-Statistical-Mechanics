@@ -107,26 +107,36 @@ We can define the variation (slope per site) as a response function (the derivat
 \begin{equation}
   \frac{1}{N}\dv{\expval{k} }{\varepsilon } \simeq \frac{N}{12} - \frac{N^3 \varepsilon ^3}{240} + \dots
 \end{equation}
-It is max at \( \varepsilon =0 \) and diverges as \( N \rightarrow \infty  \) (linearly). The response function diverges linearly to \emph{N}. This is a good signal that we have a transition.
-The temperature \( T_c \) corresponding to the pole \( \chi=1 \) is given
-  \begin{equation}
+is a maximum at \( \varepsilon =0 \), and the slope at the transition point becomes infinite as \( N \rightarrow \infty  \) (linearly). The response function diverges linearly to \emph{N}, this is a good signal that we have a transition.
+
+\subsubsection{Transition temperature}
+The temperature \( T_c \) corresponding to the pole \( \chi_c =1 \) is given by 
+  \begin{equation*}
     G e^{-\varepsilon _0 /k_B T_C}  = 1
-  \end{equation}
-Hence
+  \end{equation*}
+Hence,
 \begin{equation}
   T_C = \frac{\varepsilon _0}{k_B \log{G} }
 \end{equation}
-Note that as \( G \rightarrow 1 \), \( T_c \rightarrow 0 \). For \( G=1 \) there is no solution and hence the model does not display a phase transition for any finite \emph{T}! This is telling you that if \( G=1 \) what is important it is the energy, you have no entropy as disorder. At that point everything can happen.
+Note that as \( G \rightarrow 1 \), \( T_c \rightarrow 0 \). For \( G=1 \) there is no solution at a finite temperature and hence the model does not display a phase transition for any finite \emph{T}! This is telling you that if \( G=1 \) what is important it is the energy, you have no entropy as disorder. At that point everything can happen.
+
+There is a finite transition temperature if \(G>1\). One might perhaps argue that the model is now not strictly one-dimensional, for the degeneracy \emph{G} arises from the rotational freedom of an open link.
 \begin{remark}
-Despite the model is \( 1D \), for \( G>1 \) there is a phase transition. This is due to two contributions:
+Despite the model is 1-dim, for \( G>1 \) there is a phase transition. This is due to two contributions:
 \begin{enumerate}
-\item Existence of forbidden configuration (infinite energy). Necessary condition for a phase transition in \( d=1 \) with finite range interactions.
-\item Degeneracy of the excited state (\emph{G}).
+\item Existence of forbidden configuration (infinite energy). It is a necessary condition, but not sufficient, for a phase transition in \( d=1 \) with finite range interactions.
+\item A further requirement may be that the degeneracy of the excited state (\emph{G}) of a structural unit must be higher than the degeneracy of the ground state\footnote{In the mean-field approximation no transition can occur if the degeneracy of the ground state is higher than that of the excited state.}.
 \end{enumerate}
 \end{remark}
+\subsubsection{Unwinding from both ends}
+When the zipper is allowed to unwind from both ends, there are \(k+1\) ways in which a total of \(k\) links may be opened, so that the partition function for a double-ended zipper of \(N\) links is
+\begin{equation}
+  Z_N (T,G, \varepsilon _0) = \sum_{k=0}^{N-1}  (k+1) G^k e^{-k \varepsilon _0/k_B T} 
+\end{equation}
+and to this should be added a term for the state of \(N\) open links. This terminal term for a simple zipper is \( G^N \exp(-N \varepsilon_0/ k_B T) \).
 
-\subsection{Transfer matrix method for the Kittel model}
-The idea is: we want to map this model to an Ising model. The spin like model consists on associating to each bond a spin such that \( S_i = 0 \) if the \emph{i}-esim bond is \emph{closed} , while \( S_i = 1, \dots, G \) if the \emph{i}-esim bond is \emph{open} with \emph{G} possible orientations.
+\subsection{Transfer matrix method for the Zipper model}
+The idea is: we want to map the Zipper model to an Ising model. The spin like model consists on associating to each bond a spin such that \( S_i = 0 \) if the \emph{i}-esim bond is \emph{closed} , while \( S_i = 1, \dots, G \) if the \emph{i}-esim bond is \emph{open} with \emph{G} possible orientations. Therefore,
 \begin{itemize}
   \item Case: \( S_i \neq 0 \) open. We have two subcases:
   \begin{itemize}
@@ -135,7 +145,7 @@ The idea is: we want to map this model to an Ising model. The spin like model co
   \end{itemize}
 \item Case: \( S_i = 0 \) closed. We have \( E (S_i=0)=0 \) irrespective of \( S_{i-1} \).
 \end{itemize}
-Therefore
+Hence, considering all these cases, the energy results
 \begin{equation}
   E ( S_i, S_{i-1}) = ( \varepsilon _0 + V_0 \delta _{S_{i-1},0}) (1- \delta _{S_i,0})
 \end{equation}
@@ -144,13 +154,13 @@ The full Hamiltonian of the model can be written as (it could be also a function
 \begin{equation}
   \mathcal{H}_N = \varepsilon _0 (1- \delta _{S_1,0}) + \sum_{i=2}^{N-1} (\varepsilon _0 + V_0 \delta _{S_{i-1},0})(1- \delta _{S_i,0})
 \end{equation}
-THe Kittel's version is obtained by assuming \( V_0 = \infty  \).
+The Kittel's version is obtained by assuming \( V_0 = \infty  \).
 
 The partition function is
-\begin{equation}
+\begin{equation*}
   Z_N = \sum_{\{ S \}  }^{} \exp (-\beta \mathcal{H}_N)
-\end{equation}
-In order to implement the transfer matrix formalism we rewrite \( Z_N \) as follows (DUBBIIOOOOOO per la prossima equation )
+\end{equation*}
+In order to implement the transfer matrix formalism we rewrite \( Z_N \) as follows
 \begin{equation}
   Z_N = \sum_{\{ S \}  }^{} e^{-\beta \varepsilon _0 (1- \delta _{S_1,0})}  \prod_{i=1}^{N-2} e^{-\beta \varepsilon _0 (1- \delta _{S_{i+1},0}) \qty(\dots) \qty(1 + (e^{-\beta V_0}-1 ) \delta _{S_i,0}(1- \delta _{S_{i+1},0}))  }
 \end{equation}
