@@ -112,11 +112,12 @@ is a maximum at \( \varepsilon =0 \), and the slope at the transition point beco
 \subsubsection{Transition temperature}
 The temperature \( T_c \) corresponding to the pole \( \chi_c =1 \) is given by 
   \begin{equation*}
-    G e^{-\varepsilon _0 /k_B T_C}  = 1
+    G e^{-\varepsilon _0 /k_B T_c}  = 1
   \end{equation*}
 Hence,
 \begin{equation}
-  T_C = \frac{\varepsilon _0}{k_B \log{G} }
+  T_c = \frac{\varepsilon _0}{k_B \log{G} }
+  \label{eq:9_3}
 \end{equation}
 Note that as \( G \rightarrow 1 \), \( T_c \rightarrow 0 \). For \( G=1 \) there is no solution at a finite temperature and hence the model does not display a phase transition for any finite \emph{T}! This is telling you that if \( G=1 \) what is important it is the energy, you have no entropy as disorder. At that point everything can happen.
 
@@ -162,9 +163,9 @@ The partition function is
 \end{equation*}
 In order to implement the transfer matrix formalism we rewrite \( Z_N \) as follows
 \begin{equation}
-  Z_N = \sum_{\{ S \}  }^{} e^{-\beta \varepsilon _0 (1- \delta _{S_1,0})}  \prod_{i=1}^{N-2} e^{-\beta \varepsilon _0 (1- \delta _{S_{i+1},0}) \qty(\dots) \qty(1 + (e^{-\beta V_0}-1 ) \delta _{S_i,0}(1- \delta _{S_{i+1},0}))  }
+  Z_N = \sum_{\{ S \}  }^{} e^{-\beta \varepsilon _0 (1- \delta _{S_1,0})}  \prod_{i=1}^{N-2} e^{-\beta \varepsilon _0 (1- \delta _{S_{i+1},0}) }  \qty[1 + (e^{-\beta V_0}-1 ) \delta _{S_i,0}(1- \delta _{S_{i+1},0})] 
 \end{equation}
-Consider the Kittel model, \( V_0 = \infty  \) which implies \( \exp (-\beta V_0) = 0  \). We can define the transfer matrix as
+Let us consider the Kittel model, the condition \( V_0 = \infty  \) implies \( \exp (-\beta V_0) = 0  \). Hence, we can define the transfer matrix as
 \begin{equation}
   \mathbb{T} = \{ \bra{S} \mathbb{T} \ket{S'} \equiv t_{S,S'}   \}
 \end{equation}
@@ -173,7 +174,7 @@ where
 t_{S,S'} = e^{-\beta \varepsilon _0 (1- \delta _{S',0})} [1 - \delta _{S,0} (1- \delta _{S',0})]
 \end{equation}
 or in matrix form
-\begin{equation}
+\begin{equation*}
   \mathbb{T} =
   \begin{bmatrix}
     1 & 0 & \dots \dots 0 \\
@@ -181,15 +182,14 @@ or in matrix form
     \vdots & \vdots   & \vdots \\
         \vdots & \vdots &  \vdots \\
         1 & a & \dots \dots  a
-  \end{bmatrix}
-\end{equation}
-where \( a \equiv e^{-\beta \varepsilon _0}  \).
+  \end{bmatrix},
+  \qquad \text{with } a \equiv e^{-\beta \varepsilon _0}
+\end{equation*}
+The first think to notice is that the constraint that the bond \( S_{i+1} \) cannot be open if bond \( S_i \) is closed (\( S_i =0 \)) yields the null entries in the first row of \( \mathbb{T} \). This violates the hypothesis of the Perron-Frobenius theorem!
 
-The first think to notice that the constraint that the bond \( S_{i+1} \) cannot be open if bond \( S_i \) is closed (\( S_i =0 \) ) yields the null entries in the first row of \( \mathbb{T} \). This violates the hypothesis of the Perron-Frobenius theorem!
-
-The matrix \( \mathbb{T} \) has three differen eigenvalues
+The matrix \( \mathbb{T} \) has three different eigenvalues
 \begin{equation}
-  \lambda _1 = Ga, \quad \lambda _2 =1, \quad \lambda _1 = 0
+  \lambda _1 = Ga, \quad \lambda _2 =1, \quad \lambda _3 = 0
 \end{equation}
 The partition function can be written as
 \begin{equation}
@@ -200,8 +200,8 @@ The partition function can be written as
   1
   \end{pmatrix}
 \end{equation}
-
-\begin{equation}
+Moreover, we have 
+\begin{equation*}
   \lambda _1 \rightarrow \va{v}_1 = \begin{pmatrix}
   0 \\
   1 \\
@@ -215,10 +215,10 @@ The partition function can be written as
   \vdots \\
   1
   \end{pmatrix}
-\end{equation}
-We can then write
-\begin{subequations}
-\begin{align}
+\end{equation*}
+and we can then write
+\begin{subequations*}
+\begin{align*}
   \begin{pmatrix}
   1 \\
   a \\
@@ -231,83 +231,90 @@ We can then write
 \vdots \\
 1
 \end{pmatrix}  &= \frac{-Ga}{1-Ga} \va{v}_1 + \frac{1}{1-Ga}\va{v}_2
-\end{align}
-\end{subequations}
-Therefore
+\end{align*}
+\end{subequations*}
+Therefore,
 \begin{equation}
   Z_N = \frac{1-(Ga)^N}{1-Ga} = \frac{1-(G e^{-\beta \varepsilon _0} )^N}{1-G e^{-\beta \varepsilon _0} }
+  = \frac{1}{1-G e^{-\beta \varepsilon _0} } (-\lambda _1^N + \lambda _2^N)
 \end{equation}
-or
-\begin{equation}
-  Z_N = \frac{1}{1-G e^{-\beta \varepsilon _0} } (-\lambda _1^N + \lambda _2^N)
-\end{equation}
+
 Since in the thermodynamic limit only the contribution of the largest eigenvalue matters for \( f_b \) we have
-\begin{equation}
+\begin{equation*}
   f_b = - k_B T \ln{\text{max} (\lambda _1, \lambda _2)}
-\end{equation}
+\end{equation*}
 \begin{remark}
-Given that the \( \lambda _1 \) and \( \lambda _2 \) are positive, analytic function of \emph{T} (\( \lambda _1 = Ga, \lambda _2=1 \) ). In order to have a phase transition
+Given that the \( \lambda _1 \) and \( \lambda _2 \) are positive, analytic function of \emph{T} (\( \lambda _1 = Ga, \lambda _2=1 \)). In order to have a phase transition
 (i.e. non analiticity of \( f_b \)) the two eigenvalues must cross for a given value of \emph{T}. It is true if and only if:
 \begin{equation}
   G a_c =1 \Leftrightarrow G e^{-\beta _c \varepsilon _0} = 1  \Leftrightarrow T_c = \frac{\varepsilon _0}{k_B \ln{G} }
 \end{equation}
-It is agree with previous calculation.
+that agree with previous calculation (see Eq.\eqref{eq:9_3}).
 \end{remark}
 
 
-\section{Transfer matrix for \( 2D \) Ising}
-The bibliography of this section is  \cite{9_lesson_1},\cite{9_lesson_2},\cite{9_lesson_3}.
+\section{Transfer matrix for \emph{2-dim} Ising}
+%The bibliography of this section is  \cite{9_lesson_1},\cite{9_lesson_2},\cite{9_lesson_3}.
+The two-dimensional Ising model for a system of interacting spins on a square lattice is one of the very few nontrivial many-body problems that is exactly soluble and shows a phase transition \cite{9_lesson_2}. 
+The exact solution in the absence of an external magnetic field (\(H=0\)) was first given almost eighty years ago in a famous paper by Onsager \cite{9_lesson_1}, using the theory of Lie algebras.
 
-Dimensional reducation from \emph{d} to \emph{d-1}. You can to the same for the 3D Ising model. In order to go smoothly to the one dimensional to the two dimensional the idea is to solve the Ising model to surfaces.
+%Dimensional reducation from \emph{d} to \emph{d-1}. You can do the same for the 3D Ising model. In order to go smoothly to the one dimensional to the two dimensional the idea is to solve the Ising model to surfaces.
 
-Consider a square lattice with \emph{N} rows and \emph{M} colums, as in Figure \ref{fig:9_4}, with periodic boundary conditions (wrapped around a torus).
-The spin in a site is identifed by \( S_{\text{site}} = S_{m,n} \).
+Let us consider a square lattice with \emph{N} rows and \emph{M} columns, as in Figure \ref{fig:9_4}, with periodic boundary conditions (wrapped around a torus).
+The spin in a site is identified by \( S_{\text{site}} = S_{m,n} \).
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/9_image/4.pdf}
-\caption{\label{fig:9_4} Description.}
+\caption{\label{fig:9_4} 2-dimensional Ising lattice of \(N\) rows and \(M\) columns.}
 \end{figure}
-The Hamiltonian is (if \( H \neq 0 \) we have also the term with the \emph{h}):
-\begin{equation}
-\begin{split}
-  -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) &= k \sum_{\expval{ij} }^{} S_i S_j + h \sum_{i}^{} S_i  \\
-  & = k \sum_{n=1}^{N} \sum_{m=1}^{M} (S_{m,n} S_{m+1,n}+S_{m,n}S_{m,n+1}) + h \sum_{n=1}^{N} \sum_{m=1}^{M} S_{m,n}
-\end{split}
-\end{equation}
-in fact
-\begin{equation}
-  \sum_{\expval{i,j} }^{}  \rightarrow \sum_{i,j \in nn(i)}^{} \quad \Rightarrow   S_{m,n} \rightarrow S_{m+1,n}
-\end{equation}
 
-The Hamiltonian can be rewritten as follows:
+We consider a set of spin arranged on a square lattice, interacting only with nearest neighbors and with a magnetic field \(H  \neq 0 \). 
+Let the Hamiltonian be
+\begin{equation*}
+\begin{split}
+  -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) &= K \sum_{\expval{ij} }^{} S_i S_j + h \sum_{i}^{} S_i  \\
+  & = K \sum_{n=1}^{N} \sum_{m=1}^{M} (S_{m,n} S_{m+1,n}+S_{m,n}S_{m,n+1}) + h \sum_{n=1}^{N} \sum_{m=1}^{M} S_{m,n}
+\end{split}
+\end{equation*}
+This can be rewritten as follows:
 \begin{equation}
   -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) = \sum_{m=1}^{M} \qty[E[\mu _m, \mu _{m+1}] + E[\mu _m]]
 \end{equation}
-where the first term is the interaction between columns (two body interaction), the second term is the one body interaction of one column. Moreover, the \( \mu  \)  is a \emph{m} dimensional vector, in particular each \( \mu _m \) represents the set of \emph{N} spins along column \emph{m}:
+where 
+\begin{subequations}
+\begin{align}
+E [ \mu _m,h] &= K \sum_{n=1}^{N} S_{m,n} S_{m,n+1} + h \sum_{n=1}^{N} S_{m,n} \\
+  E [\mu _m, \mu _{m+1},h] & = K \sum_{n=1}^{N} S_{m,n} S_{m+1,n}
+\end{align}
+\end{subequations}
+the first equation is the one body interaction, while the second equation represents the interaction between nearest neighbours columns (two body interaction).
+
+Moreover, \( \mu  \)  is a \emph{m} dimensional vector; in particular, each \( \mu _m \) represents the set of \emph{N} spins along column \emph{m}:
 \begin{equation}
   \mu _m = \{ S_{m,1}, S_{m,2}, \dots, S_{m,N} \}
   \label{eq:9_1}
 \end{equation}
-We have:
-\begin{subequations}
-\begin{align}
-E [ \mu _m,h] &= k \sum_{n=1}^{N} S_{m,n} S_{m,n+1} + h \sum_{n=1}^{N} S_{m,n} \\
-  E [\mu _m, \mu _{m+1},h] & = k \sum_{n=1}^{N} S_{m,n} S_{m+1,n}
-\end{align}
-\end{subequations}
-where the first equation is the one body interaction, while the second equation represents the interaction between neirest neighbours columns.
 
-We can write a transfer matrix between these new variables. The transfer matrix permit to transfer along the \emph{m}. To make it simpler suppoe \( h=0 \) (so the energy does not depend on h):
+We can write a transfer matrix between columns, permitting to transfer along the \emph{m}. To make it simpler, suppose \( h=0 \) (so the energy does not depend on h):
 \begin{equation}
   \bra{\mu _m} \mathbb{T} \ket{\mu _{m+1}} = \exp [ k(E [\mu _m, \mu _{m+1}] + E [ \mu _m])]
   \label{eq:9_2}
 \end{equation}
-Now we have to diagonalize. In the 2x2 tranfer matrix in the two dimensional we have 2 possible values. Now we have to do the same in principle, but we have to do for all of the \eqref{eq:9_1}.
-\( \mathbb{T} \) is a matrix of dimension \( 2^N \times 2^N \). In the thermodynamic limit is an infinite matrix (violation of Perron-Frobenius). According to the formalism
-\begin{equation}
-  Z_{N} (k,h) = \Tr(\mathbb{T}^N)
-\end{equation}
-To find the eigenvalues of \( \mathbb{T} \) given by  \eqref{eq:9_2} is highly non trivial. The big problem it is that in the thermodynamic limit is that the dimension of the transfer matrix goes to infinity, then it is diffucult to be diagonalized. This was first achived by Onsanger in 1944 for the case \( H=0 \) and in the \( N \rightarrow \infty  \) limit. The result is given by
+Now, we have to diagonalize. 
+\begin{remark}
+In the 2x2 transfer matrix in the 2-dim we have two possible values. Now, we have to do the same in principle, but we have to do for all of the \eqref{eq:9_1}.
+\end{remark}
+\begin{remark}
+\( \mathbb{T} \) is a matrix of dimension \( 2^N \times 2^N \), hence, in the thermodynamic limit is an infinite matrix (violation of Perron-Frobenius).
+\end{remark}
+According to the formalism
+\begin{equation*}
+  Z_{N} (K,h) = \Tr(\mathbb{T}^N)
+\end{equation*}
+To find the eigenvalues of \( \mathbb{T} \) given by  \eqref{eq:9_2} is highly non trivial. The big problem it is that in the thermodynamic limit is that the dimension of the transfer matrix goes to infinity, then it is difficult to be diagonalized. This was first achieved by Onsanger in 1944, as said, for the case \( H=0 \) and in the \( N \rightarrow \infty  \) limit. 
+
+The result is given by
 \begin{equation}
   f_b (T) = -k_B T \log{\qty(2 \cosh(2 \beta J))- \frac{k_B T}{2 \pi} \int_{0}^{2\pi} \log{\qty[\frac{1}{2}\qty(1+ \sqrt{1-g^2 \sin^2(\Phi) } )] } \dd[]{\Phi }  }
 \end{equation}
@@ -316,15 +323,24 @@ that is the density bulk free energy, where
   g = \frac{2}{\cosh(2 \beta J)\coth(2 \beta J)}
 \end{equation}
 The equation for the critical \emph{T} is
-\begin{equation}
-  2 \tanh^2 \qty(\frac{2J}{k_B T_c}) = 1 \quad \Rightarrow T_c \simeq 2,264 J/k_B \neq 0!
-\end{equation}
+\begin{equation*}
+  2 \tanh^2 \qty(\frac{2J}{k_B T_c}) = 1 \quad \Rightarrow T_c \simeq 2,264 J/k_B \neq 0
+\end{equation*}
+hence, we have a phase transition at a critical temperature different from 0!
+
 One can also show that
-\begin{equation}
+\begin{equation*}
   c \propto A \qty[-\ln{\qty(1- \frac{T}{T_c}) } + B  ]
-\end{equation}
-The specifi heat displays at the transition a logarithmic divergence (no power law!). Therefore the in \( d=2 \)  the Ising model as \( \alpha _{\text{\tiny Ising 2D}} =0\).
-You do Montecarlo simulation.
+\end{equation*}
+It means that the specific heat displays at the transition a logarithmic divergence (no power law!). Therefore, we have
+\begin{equation*}
+\alpha _{\text{\tiny Ising 2D}} =0
+\end{equation*}
+\begin{remark}
+We can do Montecarlo simulation.
+\end{remark}
+
+
 
 
 
