@@ -11,16 +11,16 @@
 \marginpar{ \textbf{Lecture 10.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
 
-Which is the role of dimensionality in phase transition? Consider \emph{D}, the dimension of the system.
-For the Ising model we have seen that in \( D=1 \) there is no phase transition while the Onsanger solution tell us that for \( D=2 \) there is a paramagnetic-ferromagnetic transition for \( T_c >0 \).
-Therefore, dimensionality seems a crucial parameter!
-Since in general analytic solutions are not available is there a simple argument to establish the existence of a phase transition?
-In the case of a para-ferro transition may we establish wheter a phase with long range order exists and is stable withn a range of \( T>0 \)?
-
-We need an argument that can tell us which kind of system has a phase transition. The idea is to use the entropy energy argument. Indeed, our systems are ruled by a free energy and the previous states are found by making derivative. We have energy and entropy: low energy state can be stable respect thermal fluctuations, but the fluctuations will destroy the long range order. This idea can be generalized.
+Which is the role of the dimension in phase transition? Consider \emph{d}, the dimension of the system.
+For the Ising model, we have seen that in \( d=1 \) there is no phase transition, while the Onsanger solution tell us that for \( d=2 \) there is a paramagnetic-ferromagnetic transition for \( T_c >0 \).
+Therefore, the dimension seems a crucial parameter!
+Since in general analytic solutions are not available, is there a simple argument to establish the existence of a phase transition?
+In the case of a para-ferro transition, may we establish whether a phase with long range order exists and is stable within a range of \( T>0 \)?
 
 \section{Energy-entropy argument}
+We need an argument that can tell us which kind of system has a phase transition. The idea is to use the entropy energy argument. Indeed, our systems are ruled by a free energy and the previous states are found by making derivative. We have energy and entropy: low energy state can be stable with respect to thermal fluctuations, but the fluctuations will destroy the long range order. This idea can be generalized.
 
+Let us consider: 
 \begin{equation}
   \dd[]{F} = \underbrace{\dd[]{U}}_{\text{energy}}  - T \underbrace{ \dd[]{S}}_{\text{entropy}}
 \end{equation}
@@ -32,34 +32,32 @@ We expect that:
 
 \noindent Question: there is a temperature different to zero in which this is compatible?
 
-\subsection{Ising \( D=1 \) }
-Consider \emph{N} the size of the system.
-Study the stability of the states with minimum energy to fluctuations for \( T \neq 0 \).
-We already know that in the case \( T=0 \), two ground states exist, either all spins up or all spins down.
+\subsection{\emph{1-dim} Ising}
+Let us study the stability of the states with minimum energy to fluctuations for \( T \neq 0 \), for a system of size  \emph{N}.
 
+We already know that, for \( T=0 \), two ground states exist, either all spins up or all spins down.
 For instance, suppose that we have the ground state with all the spin up; the energy of the state is
 \begin{equation}
    E_G = -JN
 \end{equation}
-Now consider \( T \neq 0 \), there could be a given number of elementary excitations of the kind spin up/down. What happens if we swap one or more spins?
-These are defects respect the ground state and they are also called \emph{domain walls}.
-This is in one dimentional, but is valid also in many dimensional.
+and it is the same for the other configuration.
 
-Which is the variation in energy \( \Delta E \) respect the ground state?
-For each excitation there is an energy penalty \( \Delta E = 2J \), indeed
-\begin{equation}
+Now, let us consider \( T \neq 0 \), there could be a given number of elementary excitations of the kind spin up/down. What happens if we swap one or more spins?
+These are defects with respect to the ground state and they are also called \emph{domain walls}.
+This is in the one dimensional case, but is valid also in many dimensional. Therefore, which is the variation in energy \( \Delta E \) with respect to the ground state?
+For each excitation there is an energy penalty \( \Delta E = 2J \), indeed, if we suppose that we have only one swap, we have 
+\begin{equation*}
   E_G = -JN, \qquad E^* = -J(N-1) +J \qquad \Rightarrow \Delta E = 2J
-\end{equation}
-Here we have supposed that we have only one swap. If there is a finite concentration of domains, we have \emph{x} such that there are \(   M = Nx \) domain walls.
-Therefore:
+\end{equation*}
+For a finite concentration \emph{x} of domain walls, we can write \(   M = Nx \), giving
 \begin{equation}
   \Delta E_M = 2MJ
 \end{equation}
 
-Now compute the change in entropy.
-We can compute immediately the entropy of the ground state: this is zero because is the logarithm of the number of configurations, but in this case we have only one configuration, namely  \( S_G = \ln{1} =  0 \). Therefore, the different of the entropies is just the entropy of the last state.
-
-Now we estimate the entropy of the states with \emph{M} domain walls.  The number of possible ways to insert \emph{M} domains in \emph{N} positions, namely the number of configurations, is
+Now, let us compute the change in entropy.
+The entropy of the ground state can be computed immediately: this is zero because it is the logarithm of the number of configurations, but in this case we have only one configuration, namely  \( S_G = \ln{1} =  0 \). Hence, the difference between the entropy of the ground state and the entropy of the new state is just the entropy of the new state.
+Therefore, we want to estimate the entropy of the states with \emph{M} domain walls. 
+The number of possible ways to insert \emph{M} domains in \emph{N} positions, namely the number of configurations, is
 \begin{equation}
   \# = \begin{pmatrix}
   N \\
@@ -77,14 +75,14 @@ We have:
   \end{pmatrix}}
 \end{equation}
 the difference is
-\begin{equation}
-  \Delta S = S_M -S_G = S_M = -k_B \ln{\begin{pmatrix}
+\begin{equation*}
+  \Delta S = S_M -S_G = S_M = k_B \ln{\begin{pmatrix}
   N \\
   xN
   \end{pmatrix} }
-\end{equation}
-Consider:
-\begin{equation}
+\end{equation*}
+Let us calulate
+\begin{equation*}
 \begin{split}
 \Delta F  &= F_M - F_G = \Delta E - T \Delta S  \\
           &= 2 M J - k_B T \ln{\begin{pmatrix}
@@ -97,143 +95,174 @@ Consider:
           \end{pmatrix} } \\
           & = N \qty{ 2xJ +k_B T \qty[x \ln{x} + (1-x)\ln{(1-x)}  ] }
 \end{split}
-\end{equation}
-were we have used the Stirling approximation: \( \ln{N!} = N \ln{N} - N   \).
-
-Since equilibrium states are obtained by the minima of \emph{F} we can minimize with respect to \emph{x}. We are interested in the free energy in the bulk:
+\end{equation*}
+where we have used the Stirling approximation
+\begin{equation*}
+ \ln{N!} = N \ln{N} - N   
+\end{equation*}
+Since the equilibrium states are obtained by the minimum of \emph{F}, we can minimize with respect to \emph{x}. We are interested in the free energy in the bulk, hence, firstly we normalize and then we derive for finding the minimum
 \begin{equation}
   \Delta f_{b_N} = \frac{\Delta F_N}{N}, \qquad \pdv{\Delta f_b}{x} = 0
 \end{equation}
-this gives
-\begin{equation}
+this gives 
+\begin{equation*}
 \begin{split}
   \pdv{}{x} \qty{ 2xJ +k_B T \qty[x \ln{x} + (1-x)\ln{(1-x)}  ] } &=  2J + k_B T \qty[\ln{x} +1 -\ln{(1-x)} -1 ]\\
   & = 2J + k_B T \qty[\ln{x}- \ln{(1-x)}  ] = 0
 \end{split}
-\end{equation}
-therefore
-\begin{equation}
+\end{equation*}
+hence,
+\begin{equation*}
   \ln{\frac{x}{1-x}} = -\frac{2J}{k_B T} \quad \Rightarrow \frac{x}{1-x} = e^{-2J/k_BT}
-\end{equation}
+\end{equation*}
 and finally the results is
 \begin{equation}
  x = \frac{1}{1+e^{2J/k_BT} }
+ \label{eq:10_3}
 \end{equation}
-It means that  \( \forall T \neq 0 \) exist a finite concentration \emph{x}. The ground state is unstable \( \forall T>0 \). Indeed, if you have a finite density of \emph{x} it means no long range order exist for \( T>0 \).  It tells you that at \( T=0 \), \( x=0 \).
+It means that  \( \forall T \neq 0 \) exist a finite concentration \emph{x} of domain walls. The ground state is unstable \( \forall T>0 \). Indeed, if you have a finite density of \emph{x}, no long range order exist for \( T>0 \).  From \eqref{eq:10_3}, we can see that as \( T \rightarrow 0 \),  we have \( x \rightarrow 0\) as expected.
+Now, let us try to do the same for \emph{d} dimensions.
 
-Let us try to do the same for \emph{D} dimensions.
-
-\subsection{\( D \) dimension}
-What is a \emph{domain wall} in \emph{D} dimension? The domain walls is an hypersurface of size \( L^{D-1} \)
+\subsection{\emph{d-dim} Ising}
+What is a \emph{domain wall} in \emph{d} dimensions? The domain walls is an hypersurface of size \( L^{d-1} \)
 \begin{equation}
-  \Delta E \propto 2JL^{D-1}
+  \Delta E \propto 2JL^{d-1}
 \end{equation}
-Computing the entropy it is a very difficult problem. In fact, the entropy of a fluctuating hypersurface is difficult to estimate. For a single domain wall we can say
+Computing the entropy it is a very difficult problem. Indeed, the entropy of a fluctuating hypersurface is difficult to estimate. 
+For a single domain wall, we can say
 \begin{equation}
-  S^* \ge k_B \ln{L}
+  S \ge k_B \ln{L}
 \end{equation}
-the number of ways to place a straight wall within a system of linear size \emph{L}.
+where  \emph{L} is the number of ways to place a straight wall within a system of linear size \emph{L}.
 The \( \Delta S \)  is just \emph{S}  because the entropy of the ground state is again zero.
 \begin{remark}
-Understimate of \emph{S}
+If we underestimate \emph{S}, we obtain
 \begin{equation}
-  \Delta F = 2JL^{D-1}-k_B T \ln{L}
+  \Delta F = 2JL^{d-1}-k_B T \ln{L}
 \end{equation}
-it means that now energy can win if the temperature is different from zero. Therefore, for \( D=2 \)  or greater (\( D>1 \)) that long range order can survive  thermal fluctuations, the system could present an ordered phase!
+it means that now energy can win if the temperature is different from zero. Therefore, for \( d=2 \),  or greater (\( d>1 \)), that long range order can survive  thermal fluctuations and the system could present an ordered phase!
 \end{remark}
 
 \subsubsection{Peierls argument}
-Idea: try to perturbe the system using an external magnetic field as perturbation (it is very small \emph{h}). We are breaking explicity the symmetry, but then you take the limit \( h \rightarrow 0 \) and swich off the magnetic field. This is the typical way to see this stability.
+The Peierls argument \cite{10_lesson_1} is a mathematically rigorous and intuitive method to show the presence of a non-vanishing spontaneous magnetization in some lattice models. This argument is typically explained for the \(d=2\) Ising model in a way which cannot be easily generalized to higher dimension.
+The idea is trying to perturb the system using an external magnetic field as perturbation (it is very small \emph{h}). In that way, we are breaking explicitly the symmetry, but then, taking the limit \( h \rightarrow 0 \) and switching off the magnetic field, we see the stability.
 
-An argument due to \emph{Pierls} shows that this is indeed the case. We now that for finite systems, from the \( \mathbb{Z}^2 \) symmetry it follows
-\begin{equation}
+ We know that for finite systems, from the \( \mathbb{Z}^2 \) symmetry, it follows
+\begin{equation*}
   \expval{m}_N = 0
-\end{equation}
-If, as \( N \rightarrow \infty  \) we have \( \expval{m}_{\infty } \neq 0  \) with \( T < T_c \). We have spontaneous symmetry breaking. This can be seen as a thermodynamical instability, namely the value of \( \expval{m}_ \infty   \) in the ferromagnetic phase, is determined by small perturbations. Usually the value of \( \expval{m}_ \infty   \)  is determined by using an infinitesimal magnetic field:
+\end{equation*}
+This is true for finite systems, however, in the thermodynamical limit \( N \rightarrow \infty  \), if \(d \ge 2\) the magnetization \( \expval{m}_{\infty } \) vanishes only in the high temperature paramagnetic phase. 
+In the low temperature ferromagnetic phase, the value of \( \expval{m}_{\infty } \) is not well defined and depends on how the thermodynamical limit is performed. In this case the \( \mathbb{Z}^2\) symmetry  is said to be spontaneously broken.
+
+The breaking of a symmetry can be thought as a form of thermodynamical instability: the particular value acquired by \( \expval{m}_{\infty } \) in the ferromagnetic phase is determined by small perturbations.
+
+A conventional way to uniquely define \( \expval{m}_{\infty } \) in the broken phase (where it is called spontaneous magnetization) is to use an infinitesimal magnetic field:
 \begin{equation}
   \expval{m}_{\infty } = \lim_{h \rightarrow 0^+} \lim_{N \rightarrow \infty } \expval{m}_N^{(h)}
 \end{equation}
-\begin{remark}
-It is crucial to take first the thermodynamic limit and then the limit \( h \rightarrow 0^+ \)!
-\end{remark}
-That is to see the stability.  Another way to do that is instead using a small \emph{h}, using periodic boundary condition.
+where it is crucial to perform the thermodynamical limit before switching off the magnetic field \( h \rightarrow 0^+ \). The instability manifests itself in that using \( h \rightarrow 0^- \)  would change the sign of \( \expval{m}_{\infty } \).
 
-A different infinitesimal perturbation that trigger the instability is to chose appropriate boundary conditions. For example, if we want \( \expval{m}_ \infty  > 0\) one can choose a boundary condition such that at the surface of the system all the spins are up (\( S_i = +1 \) with \( i \in \partial{\Omega }  \)  ), as in Figure \ref{fig:10_1}.
+A different approach to expose the instability is the use of appropriate boundary conditions:
+we can for example, if we want \( \expval{m}_ \infty  > 0\), impose in all the sites \(i\) on the lattice boundary (\( i \in \partial{\Omega }  \)) the condition
+\( S_i = +1 \),  as in Figure \ref{fig:10_1}.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{../lessons/10_image/1.pdf}
-\caption{\label{fig:10_1} }
+\caption{\label{fig:10_1} System with boundary condition with all the spins in the surface up.}
 \end{figure}
 
- It is equivalent, because on the border we have a very high field, by it is at the border so it do not really count for the surface internal.
-This is a very smart way to do this perturbation.  The idea is therefore to perturbe the surface. This particular configuration with all the spin up will give you a particular shape, you can do this also in higher dimensional. From this you can also exstimate the temperature.
+In the paramagnetic phase the effect of boundary conditions does not survive the thermodynamical limit, while in the ferromagnetic phase their effect is analogous to that of the infinitesimal magnetic field.
+%\begin{remark}
+ %It is equivalent, because on the border we have a very high field, but it is at the border, so it do not really count for the surface internal. This is a very smart way to do this perturbation of the surface. This particular configuration with all the spin up will give us a particular shape. We can do this also in higher dimensional and we can also estimate the temperature.
+%\end{remark}
 
-In the paramagnetic phase this constraint at the boundary does not affect the disorder bulk phase. In the ferromagnetic phase, however, this boundary condition has the same effect of considering an infinitesim magnetic field.
+This is the boundary condition chosen by Pierls to establish the existence of a \( T_c \neq 0 \) for the \(d=2\) Ising model.
+Let us gives just a qualitative presentation  of the (rigorous) result. 
 
-This is the boundary condition chosen by Pierls to establish the existence of a \( T_c \neq 0 \) for the \( < D \) Ising model.
-
-Let us gives just a qualitative presentation of the (rigorous) result. If one is interested to the full proof refer for example to \cite{10_lesson_1}.
-
-Let \( N_+,N_- \) the number of spin up and down respectively. Clearly, \( N=N_+ + N_- \) and
-\begin{equation}
+Let \( N_+,N_- \) be the number of spin up and down respectively. Clearly,
+\begin{equation*}
+  N=N_+ + N_-  
+\end{equation*}
+On a finite lattice the mean value of the magnetization can be written in the form 
+\begin{equation*}
   \expval{m}_N = \frac{\expval{N_+} - \expval{N_-}  }{N} = 1 - 2 \frac{\expval{N_-} }{N}
-\end{equation}
-In order to show that \( \expval{m}_ \infty >0  \) (remember that we are considerin boundary conditions with spin ap at \( \partial{\Omega }  \)) it is sufficient to show that \( \forall N \)
+\end{equation*}
+In order to show that \( \expval{m}_ \infty >0  \) (remember that we are considering boundary conditions with spin up at \( \partial{\Omega }  \)), it is sufficient to show that for every \(N\) we have 
 \begin{equation}
   \frac{\expval{N_-} }{N}  < \frac{1}{2}- \varepsilon
   \label{eq:10_1}
 \end{equation}
-where \( \varepsilon >0 \) and indipendent on \emph{N}.
+with \( \varepsilon >0 \) and \(N\)-independent.
 Indeed, if \eqref{eq:10_1} holds
 \begin{equation}
   \expval{m}_N \ge 2 \varepsilon \quad \forall N
 \end{equation}
-Pierles was indeed able to show that
+The Peierls argument is a simple geometrical construction that can be used to prove this
+bound.
+The outcome of the Peierls argument for the model in \(d\) dimensions is an estimate of the form
 \begin{equation}
   \frac{\expval{N_-} }{N} \le f_D (x)
 \end{equation}
-where \( f_D \) is a continuous function of \( x \) indipendent on \emph{N} and so
+where \(x\) is defined by 
 \begin{equation}
-  x = q e^{-4J \beta }
+  x = 9 e^{-4J \beta } 
 \end{equation}
-and such that \( \lim_{x \rightarrow 0} f_D (x) = 0 \).
-
-In particular for \emph{T} sufficiently small
-
-\begin{equation}
+and \( f_D \) is a continuous function of \( x \) (independent on \emph{N}) and such that 
+\begin{equation*}
+\lim_{x \rightarrow 0} f_D (x) = 0    
+\end{equation*}
+In particular, for small enough \emph{T} we have the bound
+\begin{equation*}
   \frac{\expval{N_-} }{N} < \frac{1}{2} - \varepsilon
-\end{equation}
-More precisely one has
+\end{equation*}
+which ensures that \(\expval{m}_\infty \ge 2\varepsilon  \) and the \(\mathbb{Z}^2\) symmetry is spontaneously broken.
+More precisely, for \(d=2\), one has
 \begin{equation}
     \frac{\expval{N_-} }{N} \le \frac{x^2}{36} \frac{2-x}{(1-x)^2}
 \end{equation}
-where \(   x = q e^{-4J \beta } < 1 \).
+where \(   x = 9 e^{-4J \beta } < 1 \).
 
-
+\begin{remark}
 Note that above bound gives also a lower bound on the critical temperature
-\begin{equation}
+\begin{equation*}
     \frac{\expval{N_-} }{N} \le \frac{x^2}{36} \frac{2-x}{(1-x)^2} < \frac{1}{2} - \varepsilon
-\end{equation}
-As long as \(   \frac{\expval{N_-} }{N}  < \frac{1}{2} - \varepsilon  \) the system is in the ferromagnetic phase. The critical value \( x_c \equiv x (\beta _c) \) must be outside the interval \( [0,x_{1/2}] \) where \( x_{1/2} \)   is the smallest positive solution of the equation
-\begin{equation}
+\end{equation*}
+As long as \(   \frac{\expval{N_-} }{N}  < \frac{1}{2} - \varepsilon  \), the system is in the ferromagnetic phase. The critical value \( x_c \equiv x (\beta _c) \) must be outside the interval \( [0,x_{1/2}] \) where \( x_{1/2} \)   is the smallest positive solution of the equation
+\begin{equation*}
   \frac{x^2}{36} \frac{2-x}{(1-x)^2} = \frac{1}{2}
-\end{equation}
-From the solution \( x_{1/2} \) and the condition \( x_c > x_{1/2} \) one has
-\begin{equation}
+\end{equation*}
+From the solution \( x_{1/2} \) and the condition \( x_c > x_{1/2} \), one has
+\begin{equation*}
   J \beta _c \le J \beta_{1/2}
-\end{equation}
-where \( J \beta _{1/2} = \frac{1}{4} \log{q/x_{1/2}}  \) which implies \(  T_c > T_{1/2} \).
+\end{equation*}
+where \( J \beta _{1/2} = \frac{1}{4} \log{9/x_{1/2}}  \). 
+Hence, \( T_c > T_{1/2} \).
+\end{remark}
+
 \begin{exercise}{}{}
-The equation
-\begin{equation}
+The following equation gives \( x_{1/2} \):
+\begin{equation*}
   x^3 + 16x^2 - 36 x + 18 = 0
-\end{equation}
-gives \( x_{1/2} \). Found \( T_{1/2} \).
+\end{equation*}
+ Find \( T_{1/2} \).
+\begin{solution}
+This equation has three real solutions:
+\begin{equation*}
+    x_1 =-18.05, \quad x_2=0.79, \quad x_3=1.26
+\end{equation*}
+The smallest positive solutions is \( x_{1/2} \equiv x_2 \), hence 
+\begin{equation*}
+\frac{J}{k_B T_{1/2} } = \frac{1}{4} \log{9/x_{1/2}} \quad \Rightarrow 
+T_{1/2} = \frac{4J}{k_B \log{9/x_{1/2}}}
+\end{equation*}
+\end{solution}
 \end{exercise}
 
+
+\clearpage
 \section{Role of the symmetry}
-Interacting systems can be classified with respect to their \emph{global symmetry group}.
+Interacting systems can be classified with respect to their \emph{global symmetry group}. Let us illustrate some examples.
 \begin{example}{Ising model}{}
   \begin{equation}
     \mathcal{H}_{\text{Ising}} = - \sum_{i<j}^{} J_{ij} \sigma _i \sigma _j
