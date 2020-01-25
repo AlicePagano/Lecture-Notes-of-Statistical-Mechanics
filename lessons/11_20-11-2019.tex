@@ -267,12 +267,12 @@ We are replacing the interaction of the J with a field close to the \( S_i \). W
 \end{remark}
 
 The free energy per spin is
-\begin{equation*}
+\begin{equation}
 \begin{split}
   \frac{F_N (T,H,\hat{J} )}{N} & = \frac{1}{N} \qty(-k_B T \ln{Z_N(T,H,\hat{J} )} ) \\
   & = \frac{1}{2} \hat{J} z m^2 - k_B T \ln{\qty[\cosh(\beta (\hat{J}zm+H ))] } - k_B T \ln{2}
 \end{split}
-\end{equation*}
+\end{equation}
 Sometimes it is useful to use the \emph{dimensionless variables} defined as
 \begin{equation}
   \bar{f} \equiv \frac{F_N}{N z \hat{J} }, \quad \theta \equiv \frac{k_B T}{z \hat{J} }, \quad \bar{H} \equiv \frac{H}{z \hat{J} }
@@ -318,23 +318,24 @@ The critical temperature \( T_c \) is given by
 \end{figure}
 
 
-\subsection{Free-energy expansion for \( m \simeq 0 \)}
-The critical point is characterized by the order parameter that is zero. Now we want to expand the free energy around the critical point. Let us put \( H=0 \):
+\subsection{Free-energy expansion for \( \pmb{m \simeq 0} \) }
+The critical point is characterized by the order parameter that is zero. Now, we want to expand the free energy around the critical point. Let us put \( H=0 \):
 \begin{equation}
   f(m,0,T,\hat{J} ) = \frac{1}{2}\hat{J}zm^2 -k_BT \ln{\qty[\cosh(\beta \hat{J}zm )]}
 \end{equation}
-Define \( x \equiv \beta \hat{J} z m \simeq 0  \), hence
-\begin{equation}
+Define \( x \equiv \beta \hat{J} z m \simeq 0  \) and by expanding in Taylor series
+\begin{equation*}
   \cosh (x) \simeq 1 + \underbrace{\frac{x^2}{2} + \frac{x^4}{4!}}_{t \simeq 0}  + \dots
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
   \log{(1+t)} \simeq t - \frac{1}{2}t^2
-\end{equation}
-\begin{equation}
+\end{equation*}
+Hence,
+\begin{equation*}
   \log{(\cosh x)} \simeq \frac{x^2}{2} + \frac{x^4}{4!} - \frac{1}{2} \frac{x^4}{4}+O(x^6)
   = \frac{x^2}{2} - \frac{x^4}{12}+O(x^6)
-\end{equation}
-This gives
+\end{equation*}
+This gives the result
 \begin{equation}
   f(m,0,T,\hat{J} ) \simeq  const + \frac{A}{2} m^2 + \frac{B}{4} m^4 + O (m^6)
 \end{equation}
@@ -346,22 +347,24 @@ with
 \end{align}
 \end{subequations}
 
-Let us consider:
+We have three cases:
+
 \begin{itemize}
-\item case \( \beta \hat{J} z > 1 \Rightarrow A<0 \): two stable symmetric minima at \( m= \pm m_0 \). Coexistence between the two ordered phases.
+\item Case \( \beta \hat{J} z > 1 \Rightarrow A<0 \): two stable symmetric minima at \( m= \pm m_0 \) (Figure \ref{fig:11_2}). Coexistence between the two ordered phases.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/11_image/2.pdf}
 \caption{\label{fig:11_2} Plot of the free energy: case \( \beta \hat{J} z > 1 \Rightarrow A<0 \).}
 \end{figure}
-\item case \( \beta \hat{J} z < 1 \Rightarrow A>0 \): one minimum at \( m=0 \).
+
+\item Case \( \beta \hat{J} z < 1 \Rightarrow A>0 \): one minimum at \( m=0 \) (Figure \ref{fig:11_3}).
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/11_image/3.pdf}
 \caption{\label{fig:11_3} Plot of the free energy: case \( \beta \hat{J} z < 1 \Rightarrow A>0 \).}
 \end{figure}
-\item case \( \beta \hat{J} z = 1 \Rightarrow A=0 \): 3 minima coincide at \( m=0 \).
 
+\item Case \( \beta \hat{J} z = 1 \Rightarrow A=0 \): 3 minima coincide at \( m=0 \) (Figure \ref{fig:11_4}).
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/11_image/4.pdf}

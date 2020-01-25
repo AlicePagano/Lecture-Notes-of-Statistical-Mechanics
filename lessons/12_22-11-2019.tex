@@ -5,34 +5,35 @@
 
 \begin{document}
 
+\subsection{Mean field critical exponents}
 \marginpar{ \textbf{Lecture 12.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-\subsection{Mean field critical exponents}
-Let us consider
-\begin{equation}
+Let us consider the equation
+\begin{equation*}
   f (m,T,0) \approx const + \frac{A}{2} m^2 + \frac{B}{4} m^4 + O(m^6)
-\end{equation}
+\end{equation*}
 with \( B>0 \), so we do not need more term to find the minima of the solution. This is called stabilization. What is most important is  the coefficient \( A = \hat{J} z (1- \beta \hat{J} z ) \), that means that  \emph{A} can change sign.
-\subsubsection{\( \beta  \) exponent}
+
+\subsubsection{\( \pmb{\beta}  \) exponent}
 The \( \beta  \) exponential observe the order parameter. Consider \( H=0,\, t \equiv \frac{T-T_c}{T_c} \) and \( m \overset{t \rightarrow 0^-}{\sim } -t^ \beta  \). The condition of equilibrium is
-\begin{equation}
+\begin{equation*}
   \pdv{f}{m}=0
-\end{equation}
+\end{equation*}
 which implies
-\begin{equation}
+\begin{equation*}
   \eval{\pdv{f}{m} }_{m=m_0} = A m_0 + B m_0^3 = \qty[ \hat{J} z ( 1- \beta \hat{J} z ) + B m_0^2]m_0 = 0
-\end{equation}
-Since \( T_c = \frac{\hat{J}z }{k_B } \) :
-\begin{equation}
+\end{equation*}
+Since at the critical point we have \( T_c = \frac{\hat{J}z }{k_B } \) :
+\begin{equation*}
   0 = \frac{k_B T_c}{T} (T-T_c) m_0 + B m_0^3
-\end{equation}
+\end{equation*}
 The solution are \( m_0=0 \) and
 \begin{equation}
   m_0 \simeq (T_c-T)^{1/2}
 \end{equation}
-The mean field value is so \( \beta =1/2 \).
+Hence, the mean field value is \( \beta =1/2 \).
 
-\subsubsection{\( \delta  \) exponent}
+\subsubsection{\( \pmb{\delta}  \) exponent}
 Now, let us concentrate in the \( \delta  \) exponent. We are in the only case in which we are in \( T = T_c \) and we want to see how the magnetization decrease: \(  H \sim m^ \delta \).
 
 Starting from the self-consistent equation, we have
@@ -41,21 +42,21 @@ Starting from the self-consistent equation, we have
   \label{eq:12_1}
 \end{equation}
 Inverting it
-\begin{equation}
+\begin{equation*}
   \beta (\hat{J}zm+H ) = \tanh^{-1} m
-\end{equation}
+\end{equation*}
 On the other hand, for \( m \sim 0 \)
-\begin{equation}
+\begin{equation*}
   \tanh^{-1} m \simeq m + \frac{m^3}{3} + \frac{m^5}{5} + \dots
-\end{equation}
+\end{equation*}
 Therefore, by substituting
-\begin{equation}
+\begin{equation*}
 \begin{split}
   H  = k_B T \qty(m+ \frac{m^3}{3} + \dots) - \hat{J} z m
     &= \qty(k_B T - \hat{J}z) m + k_B T \frac{m^3}{3} + \dots \\
     & \simeq k_B (T-T_c)m + \frac{k_B T}{3}m^3
 \end{split}
-\end{equation}
+\end{equation*}
 At \( T=T_c= \frac{\hat{J}z }{k_B} \), we have
 \begin{equation}
   H \sim k_B T_c \frac{m^3}{3}
@@ -63,43 +64,44 @@ At \( T=T_c= \frac{\hat{J}z }{k_B} \), we have
 The mean field value is \( \delta =3 \).
 
 
-\subsubsection{\( \alpha  \) exponent}
-Consider the \( \alpha  \) exponent, for  \( H=0 \), \( c_H \sim t^{-\alpha } \) and we have \( t = (T-T_c)/T_c \).
+\subsubsection{\( \pmb{\alpha}  \) exponent}
+Consider the \( \alpha  \) exponent, for  \( H=0 \), \( c_H \sim t^{-\alpha } \) and \( t = (T-T_c)/T_c \).
 Compute the specific heat at \( H=0 \).
 Consider first \( T>T_c \), where \( m_0 =0 \),
-\begin{equation}
+\begin{equation*}
   f(m,H) = \frac{\hat{J}zm^2 }{2} - \frac{1}{\beta } \ln{\qty(2\cosh(\beta (\hat{J}zm+H ))) }
-\end{equation}
+  - k_B T \ln 2
+\end{equation*}
 If \( m=0 \), \( \cosh 0 =1 \) and
-\begin{equation}
+\begin{equation*}
   f = -k_B T \ln{2}
-\end{equation}
-therefore
+\end{equation*}
+it is called paramagnetic phase. Indeed,
 \begin{equation}
   c_H = - T \qty(\pdv[2]{f}{T} ) = 0
 \end{equation}
 The mean field value is \( \alpha =0 \).
 \begin{remark}
 For \( T<T_c \), \( m=m_0 \neq 0 \). This implies that \( c_H \neq 0 \), but still \( f=-k_BT \ln{A}  \) with \( A= const \). We obtain \( \alpha =0 \) also in this case.
-\begin{equation}
+\begin{equation*}
   m_0 = \pm \sqrt{- \frac{\hat{J} z}{2T_c}(T-T_c)}
-\end{equation}
+\end{equation*}
 \end{remark}
 
 
 
-\subsubsection{\( \gamma   \) exponent}
+\subsubsection{\( \pmb{\gamma}   \) exponent}
 Now we consider the \( \gamma   \) exponent, for \( H=0 \), \( \chi \sim t^{-\gamma  } \).   Starting again from equation \eqref{eq:12_1}:
 \begin{equation*}
   m = \tanh (\beta (\hat{J}zm+H ))
 \end{equation*}
 and developing it around \( m \simeq 0 \), as shown before we get
-\begin{equation}
+\begin{equation*}
   H = m k_B (T-T_c)+ \frac{k_B T}{3}m^3
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
   \Rightarrow \chi _T = \pdv{m}{H} = \frac{1}{\pdv{H}{m} }
-\end{equation}
+\end{equation*}
 Since \( \pdv{H}{m} \simeq k_B (T-T_c) + K_B T m^2 \), as \( m \rightarrow 0 \)
 \begin{equation}
   \chi \sim (T-T_c)^{-1}
@@ -112,34 +114,31 @@ The mean field critical exponents are
   \beta = \frac{1}{2}, \quad \gamma =1, \quad \delta =3, \quad \alpha =0
 \end{equation}
 \begin{remark}
-In the mean field critical exponents the dimension \( D \) does not appear. \( T_c \) instead depends on the number of \emph{z} of neirest neighbours and hence on the embedding lattice!
+In the mean field critical exponents the dimension \( d \) does not appear. \( T_c \) instead depends on the number of \emph{z} of neirest neighbours and hence on the embedding lattice (on the dimension)!
 \end{remark}
 \begin{remark}
   (lesson)
   The \( \nu  \) exponent define the divergence of the correlation lengths. In order to do that, in principle we should compute the correlation function, but which are the correlation we are talking about? The correlation or the fluctuation with to respect the average? In the ferromagnetic we have infinite correlation lengths, but it is not true, because instead of that we consider the variation correlated!
   Which is the problem here? In mean field we were neglecting correlation between fluctuation.
-  We thought: let us compute negleting correlation.
-  How we can compute the correlation function within the meanfield theory with thermal fluctuations? We look at the response of the system. Esperimentally what can we do? It is a magnetic field, but we cannot use homogeneous magnetic field. Another way to compute the correlation function without looking at thermal fluctuation it is by considering a non homogeneous magnetic field.
-
-  If we make a variation in \( H_i \) in the system, what happend in the \( H_j \)? This is an important point.
+  We thought: let us compute neglecting correlation.
+  How we can compute the correlation function within the mean field theory with thermal fluctuations? We look at the response of the system. Experimentally what can we do? It is a magnetic field, but we cannot use homogeneous magnetic field. Another way to compute the correlation function without looking at thermal fluctuation it is by considering a non homogeneous magnetic field.
+  If we make a variation in \( H_i \) in the system, what happened in the \( H_j \)? This is an important point.
 \end{remark}
 
 
 
 \section{Mean field variational method}
-The mean field variational method is a general approach to derive a mean field theory. The method is valid for all \( T \) and is sufficiently flexibile to deal with complex systems.
-
+The mean field variational method is a general approach to derive a mean field theory. The method is valid for all \( T \) and is sufficiently flexible to deal with complex systems.
  The method is similar to the one used in quantum mechanics, namely it is based on the following inequality
-
- \begin{equation}
+\begin{empheq}[box=\myyellowbox]{equation}
    E_{\alpha } = \bra{\psi _ \alpha } \hat{H} \ket{\psi _ \alpha } \ge E_0
- \end{equation}
+\end{empheq}
 valid for all trial function \( \psi _ \alpha  \).
 \begin{remark}
 \( E_0 \) is the ground state energy.
 \end{remark}
 \begin{example}{}{}
-In many mody problem we have Hartee and Hartree-Fock.
+In many body problem we have Hartree and Hartree-Fock variational methods.
 \end{example}
 The closest bound to \( E_0 \) is the one that is obtained by minimizing \( E_ \alpha  \), i.e. \( \bra{\psi _ \alpha } \hat{H} \ket{\psi _ \alpha } \)  over \( \ket{\psi _ \alpha } \), where the \( \ket{\psi _ \alpha } \) are functions to be parametrized in some convenient way.
 
@@ -160,11 +159,11 @@ it is possible to show the inequality
   \expval{e^{-\lambda \Phi } }_p \ge e^{- \lambda \expval{\Phi }_p }, \quad \forall p
   \label{eq:12_4}
 \end{empheq}
-\begin{proof}
+\begin{proof}[Proof of inequality \eqref{eq:12_4}]
   \( \forall \Phi \in \R \), \( e^{\Phi } \ge 1 + \Phi   \). Hence,
   \begin{equation*}
     e^{-\lambda \Phi } = e^{- \lambda \expval{\Phi } } e^{- \lambda [\Phi - \expval{\Phi } ]}
-    \ge e^{-\lambda \expval{\Phi }  } (1- \lambda (\Phi - \expval{\Phi} ))
+    \ge e^{-\lambda \expval{\Phi }  } \qty(1- \lambda (\Phi - \expval{\Phi} ))
   \end{equation*}
   Taking the average of both sides, we get
   \begin{equation*}
@@ -175,28 +174,28 @@ it is possible to show the inequality
 \end{proof}
 \item The second inequality refers to the free energy. Let \( \rho (\Phi ) \) be a probability distribution, i.e. such that
 \begin{equation}
-  \Tr(\rho (\Phi )) = 1 \quad \rho (\Phi ) \ge 0 \quad \forall \Phi
+  \Tr(\rho (\Phi )) = 1, \quad \rho (\Phi ) \ge 0 \quad \forall \Phi
    \label{eq:12_2}
 \end{equation}
 Hence,
-\begin{equation}
+\begin{equation*}
   e^{-\beta F_N} = Z_N = \Tr_{\{ \Phi  \}  } e^{-\beta \mathcal{H}[\{ \Phi \}  ]}
                 = \Tr_{\{ \Phi  \}  } \rho e^{-\beta \mathcal{H}-\ln{\rho } }
                 = \expval{e^{-\beta \mathcal{H}- \ln{\rho } } }_\rho
-\end{equation}
+\end{equation*}
 From the inequality \eqref{eq:12_4},
-\begin{equation}
+\begin{equation*}
   e^{-\beta F_N} =  \expval{e^{-\beta \mathcal{H}- \ln{\rho } } }_\rho \ge e^{-\beta \expval{\mathcal{H}}_\rho - \expval{\ln{\rho } }_\rho  }
-\end{equation}
+\end{equation*}
 Taking the logs one has
 \begin{equation}
   F \le \expval{\mathcal{H}}_\rho + k_B T \expval{\ln{\rho } }_\rho
   = \Tr(\rho \mathcal{H}) +k_B T \Tr(\rho \ln{\rho } ) \equiv F_ \rho
   \label{eq:12_3}
 \end{equation}
-Whenever we are able to write the last equation by using a \( \rho  \), then we will minimize. This is the variational approach of statistical mechanics. The question is: which is the \( \rho  \) that minimize?
+Whenever we are able to write the last equation by using a \( \rho  \), then we will minimize it. This is the variational approach of statistical mechanics. The question is: which is the \( \rho  \) that minimizes?
 
-The functional \( F_ \rho  \) will reach its minimum value with respect to the variation of \( \rho  \) with the consrtraint \( \Tr(\rho ) = 1  \), when
+The functional \( F_ \rho  \) will reach its minimum value with respect to the variation of \( \rho  \) with the constraint \( \Tr(\rho ) = 1  \), when
 \begin{empheq}[box=\myyellowbox]{equation}
   \bar{\rho } = \rho _{eq} = \frac{1}{Z} e^{-\beta \mathcal{H}}
 \end{empheq}
@@ -204,15 +203,15 @@ So far so good but not very useful, since we are back to the known result that t
 \end{enumerate}
 
 \subsection{Mean field approximation for the variational approach}
-Let us now try to compute the \emph{Z} by starting to the inequality \eqref{eq:12_3}.
-Up to now everithing is exact. The idea is to choose a functional form of \( \rho  \) and then minimize \( F_ \rho  \) with respect to \( \rho  \). Note that \( \rho  \) is the \( N- \)point probability density function (it is a function of all the degrees of freedom):
-\begin{equation}
+Let us now try to compute the \emph{Z} by starting from the inequality \eqref{eq:12_3}.
+Up to now everything is exact. The idea is to choose a functional form of \( \rho  \) and then minimize \( F_ \rho  \) with respect to \( \rho  \). Note that \( \rho  \) is the \( N- \)point probability density function (it is a function of all the degrees of freedom):
+\begin{equation*}
   \rho = \rho (\Phi _1, \dots, \Phi _N)
-\end{equation}
-it is a \( N- \)body problem. The \( \Phi _ \alpha  \) is the random variables associated to the \( \alpha - \)esim degree of freedom. This is in general a very difficult distribution to deal with. This is equivalent exactly when we have:
-\begin{equation}
+\end{equation*}
+it is a \( N- \)body problem, where \( \Phi _ \alpha  \) is the random variables associated to the \( \alpha - \)esim degree of freedom. This is in general a very difficult distribution to deal with. This is equivalent exactly at
+\begin{equation*}
   \psi _ \alpha (\va{r}_1, \va{P}_1, \dots, \va{r}_N, \va{P}_N )
-\end{equation}
+\end{equation*}
 
 The mean-field approximation consists in factorising \( \rho  \) into a product of \( 1- \)point distribution function:
 \begin{empheq}[box=\myyellowbox]{equation}
@@ -221,7 +220,7 @@ The mean-field approximation consists in factorising \( \rho  \) into a product 
 \end{empheq}
 where we have used the short-hand notation \(  \rho^{(1)}\qty(\Phi _ \alpha ) \rightarrow  \rho _ \alpha \).
 \begin{remark}
-Approximation \eqref{eq:12_5} is equivalent to assume statistical indipendence between particles (or more generally between different degrees of freedom). The indipendence of the degree of freedom is a very strong assumption!
+Approximation \eqref{eq:12_5} is equivalent to assume statistical independence between particles (or more generally between different degrees of freedom). The independence of the degree of freedom is a very strong assumption!
 \end{remark}
 \begin{example}{}{}
 Let us consider the spin model on a lattice; what is the \( \Phi _ \alpha  \)? We have:
@@ -229,19 +228,18 @@ Let us consider the spin model on a lattice; what is the \( \Phi _ \alpha  \)? W
    \Phi _ \alpha  \rightarrow S_i
 \end{equation*}
 Hence, \( \rho = \rho (S_1,S_2, \dots, S_N) \) and \eqref{eq:12_5} becomes
-\begin{equation}
+\begin{equation*}
   \rho \overset{MF}{\simeq } \prod_{i =1}^{N} \rho ^{(1)} (S_i) \equiv \prod_{i =1}^{N} \rho_ i
-\end{equation}
+\end{equation*}
 \end{example}
-With \eqref{eq:12_5} and \( \Tr(\rho _ \alpha ) =1 \), we compute the two averages in the \eqref{eq:12_3} given the field. We have:
+
+With Eq.\eqref{eq:12_5} and the condition \( \Tr(\rho _ \alpha ) =1 \), we compute the two averages in the Eq.\eqref{eq:12_3} given the field. We have:
 \begin{equation}
   \Tr_{\{ \Phi  \}  } ( \rho \ln{\rho } ) = \Tr(\prod_{\alpha }^{} \rho _ \alpha  \qty( \sum_{\alpha }^{} \ln{\rho _ \alpha }  ) ) \overset{\text{to do}}{=} \sum_{\alpha }^{}
   \Tr^{(\alpha )}(\rho _ \alpha  \ln{\rho _ \alpha } )
 \end{equation}
-where \( \Tr^{(\alpha )} \) means sum over all possible values of the random variable \( \Phi _ \alpha  \) (with \( \alpha  \) fixed).
-\begin{remark}
-We have \( \Tr^{(\alpha )} \rho _ \alpha = 1 \).
-\end{remark}
+where \( \Tr^{(\alpha )} \) means sum over all possible values of the random variable \( \Phi _ \alpha  \) (with \( \alpha  \) fixed and \( \Tr^{(\alpha )} \rho _ \alpha = 1 \)).
+
 We end up that
 \begin{equation}
   F_{\rho _{MF}} = \expval{\mathcal{H}}_{\rho _{MF}} + k_B T \sum_{\alpha }^{} \Tr^{(\alpha )}(\rho _ \alpha  \ln{\rho _ \alpha } )
@@ -257,43 +255,44 @@ There are two approaches that are mostly used:
   \rho _ \alpha = \rho ^{(1)} ( \Phi _{\alpha })  \rightarrow  \expval{\Phi _ \alpha }_ {\rho _ \alpha }
 \end{equation*}
 This means that there are two constraints in the minimization procedure:
-\begin{equation}
+\begin{equation*}
   \Tr^{(\alpha )} \rho _ \alpha = 1, \quad  \Tr^{(\alpha )}(\rho _ \alpha \Phi _ \alpha ) = \expval{\Phi _ \alpha }
-\end{equation}
+\end{equation*}
 where the second is the self-consistent equation.
 \begin{remark}
 In this case the variational parameter coincides with the order parameter.
 \end{remark}
+
 \item In the second approach is \( \rho _ \alpha  \) itself the variational parameter.
 \( F_{\rho _{MF}} \) is minimized by varying \( \rho _ \alpha  \). It is a more general approach, that involves functional minimization.
 \end{enumerate}
 
 \subsection{First approach: Bragg-Williams approximation}
-We apply this approach to the Ising model with non uniform magnetic field:
+We apply this approach to the Ising model with non uniform magnetic field. The Hamiltonian of such a system is 
 \begin{equation}
   \mathcal{H} [\{ S \}  ] = - J \sum_{\expval{ij} }^{} S_i S_j - \sum_{i}^{} H_i S_i
 \end{equation}
-it means that
-\begin{equation}
+It means that
+\begin{equation*}
   \Phi _ \alpha \rightarrow S_i = \pm 1
-\end{equation}
-and that the order parameter (variational parameter) becomes
-\begin{equation}
+\end{equation*}
+and that the variational parameter becomes the order parameter
+\begin{equation*}
   \expval{\Phi _ \alpha } \rightarrow \expval{S_i}  \equiv m_i
-\end{equation}
+\end{equation*}
 \begin{remark}
 Note that this time \( H \rightarrow H_i \) (non-uniform), hence \( m_i \) depends on the site \( i \).
 \end{remark}
 We have to define a \( 1- \)particle probability density distribution \( \rho _i \equiv \rho ^{(1)} (S_i) \) such that
 \begin{equation}
-  \rho ^{(1)} \equiv \rho ^{(1)} (S_i) \rightarrow \begin{cases}
-    \Tr \rho _i ^{(1)} = 1 \\
-    \Tr \rho _i ^{(1)} S_i = m_i
+  \rho_i \equiv \rho ^{(1)} (S_i) \rightarrow \begin{cases}
+    \Tr \rho _i  = 1 \\
+    \Tr \rho _i  S_i = m_i
 \end{cases}
 \end{equation}
-Since we have to satisdy these two constraints, we need two free parameters. A linear functional form is sufficient. Denoting by:
+Since we have to satisfy these two constraints, we need two free parameters. A linear functional form is sufficient. Denoting by:
 \begin{itemize}
-\item \emph{a}: stastistical weight associated to the value \( S_i =-1\).
+\item \emph{a}: statistical weight associated to the value \( S_i =-1\).
 \item \emph{b}: statistical weight associated to all the remaining possible values of \( S_i \) (for an Ising only one value remains, i.e. \( S_i = +1 \)).
 \end{itemize}
 The simplest function form with two parameters is the linear function, namely
