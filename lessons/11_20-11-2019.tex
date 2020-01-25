@@ -12,107 +12,129 @@ The partition function is
 \begin{equation}
 Z_N (T,J,H) = \sum_{\{ S \}  }^{} \exp [\frac{\beta J}{2N} \sum_{ij}^{} S_i S_j + \beta H \sum_{i}^{} S_i    ]
 \end{equation}
-Since there are no restrictions on the double sum we can write
-\begin{equation}
+Since there are no restrictions on the double sum, we can write
+\begin{equation*}
   \sum_{ij}^{} S_i S_j  = \qty(\sum_{i}^{} S_i ) \qty(\sum_{j}^{} S_j )= \qty( \sum_{i}^{} S_i )^2
-\end{equation}
-Rewriting the partition function:
+\end{equation*}
+Rewriting the partition function, we have:
 \begin{equation}
   Z_N (T,J,H)  =   \sum_{\{ S \}  }^{} \exp  [\frac{K}{2N} \qty( \sum_{i}^{} S_i )^2 + h \sum_{i}^{} S_i    ]
 \end{equation}
-In order to transform the quadratic term into al inear one we make use of the integral identity known as the \emph{Hubbard-stratonovitch transformation} (we can do it in any dimension). The idea is to rewrite something as a square.
+\begin{remark}
+Recall that we have defined \(K=\beta J\) and \( h = \beta H\).
+\end{remark}
 
-Let us define:
-\begin{equation}
+In order to transform the quadratic term into a linear one we make use of the integral identity known as the \emph{Hubbard–Stratonovich transformation} (we can do it in any dimension). 
+Let 
+\begin{equation*}
  x \equiv \sum_{i}^{} S_i
-\end{equation}
-The following identity holds
-\begin{equation}
-  e^{\frac{K x^2}{2N}} =  \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } e^{-\frac{N K}{2}y^2+Kxy} \dd[]{y}, \quad \text{with} \quad \Re(K) >0
+\end{equation*}
+The key identity in the Hubbard-Stratonovich method is simply an observation of the result of a Gaussian
+integral. In the present case it takes the form
+\begin{empheq}[box=\myyellowbox]{equation}
+  e^{\frac{K x^2}{2N}} =  \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } e^{-\frac{N K}{2}y^2+Kxy} \dd[]{y}, \qquad \Re K >0
   \label{eq:11_1}
-\end{equation}
+\end{empheq}
 where \emph{y} is a random field that follows a random distribution.
-To show the identity above it is sufficient to complete the square
-\begin{proof}(of \eqref{eq:11_1})
-  \begin{equation}
+\begin{proof}[Proof of Hubbard-Stratonovich identity]
+To show the identity \eqref{eq:11_1} it is sufficient to complete the square
+  \begin{equation*}
     - \frac{N K}{2} y^2 + K x y = - \frac{N K}{2} \qty(y - \frac{x}{N})^2 + \frac{K x^2}{2N}
-  \end{equation}
-  Then we integrate:
-  \begin{equation}
+  \end{equation*}
+and then shifting the integral to one over \(z \equiv \qty( y - \frac{x}{N} )\).
+
+Hence,
+  \begin{equation*}
     e^{\frac{K x^2}{2N}} \int_{- \infty }^{+ \infty } e^{- \frac{N K}{2} \qty(y - \frac{x}{N})^2 } \dd[]{y} \overset{(a)}{=}  e^{\frac{K x^2}{2N}} \sqrt{\frac{2 \pi }{N K}}
-  \end{equation}
-  where in \( (a) \) we have considered \( z \equiv \qty( y - \frac{x}{N} )\) , \( \dd[]{z} = \dd[]{y}   \):
-  \begin{equation}
-    \rightarrow \int_{-\infty }^{+\infty } e^{- \alpha z^2} \dd[]{z} = \sqrt{\frac{\pi }{\alpha }}
-  \end{equation}
+  \end{equation*}
+  where in \( (a) \) we have considered \( z \equiv \qty( y - \frac{x}{N} )\) , \( \dd[]{z} = \dd[]{y}   \) and the integral
+  \begin{equation*}
+    \int_{-\infty }^{+\infty } e^{- \alpha z^2} \dd[]{z} = \sqrt{\frac{\pi }{\alpha }}
+  \end{equation*}
   with \( \alpha \equiv \frac{N K}{2} \).
+  
 \end{proof}
-By using \eqref{eq:11_1} we have
+By using \eqref{eq:11_1} in the partition function, we have
 \begin{equation}
   Z_N (K,h)= \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \underbrace{\qty[\sum_{\{ S \}  }^{}  e^{(h+Ky) \sum_{i}^{} S_i  }  ]}_{Q_y}
 \end{equation}
-Sometimes \emph{y} is called \emph{auxiliary field}. If \emph{y} is a fluctuating external field  with Gaussian distribution
+where
 \begin{equation}
-\begin{split}
- Q_y  =  \sum_{\{ S \}  }^{}  e^{(h+Ky) \sum_{i}^{} S_i  }
-      &= \prod_{i}^{N} \qty(\sum_{S_i = \pm 1}^{} \exp [ (h+Ky) S_i]  )\\
-      &= \qty( 2 \cosh (h+Ky))^N
-\end{split}
+ Q_y  =  \sum_{\{ S \}  }^{}  e^{(h+Ky) \sum_{i=1}^{N} S_i  }
+      = \prod_{i=1}^{N} \qty(\sum_{S_i = \pm 1}^{} \exp [ (h+Ky) S_i]  )
+      = \qty( 2 \cosh (h+Ky))^N
 \end{equation}
+\begin{remark}
+\emph{y} is called \emph{auxiliary field} and is a fluctuating external field  with Gaussian distribution.
+\end{remark}
 The partition function becomes
 \begin{equation}
-Z_N (K,h) = \sqrt{\frac{N K}{2 \pi }} \int_{- \infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \qty(2 \cosh(h+Ky))^N = \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } \dd[]{y} e^{N \alpha (K,h,y)}
+Z_N (K,h) = \sqrt{\frac{N K}{2 \pi }} \int_{- \infty }^{+ \infty } \dd[]{y} e^{- \frac{NK}{2}y^2} \qty(2 \cosh(h+Ky))^N = \sqrt{\frac{N K}{2 \pi }} \int_{-\infty }^{+\infty } \dd[]{y} e^{N \mathcal{L} (K,h,y)}
 \end{equation}
 where
 \begin{equation}
-  \alpha (K,h,y) = \ln{\qty[2 \cosh(h+Ky)] } - \frac{K}{2}y^2
+  \mathcal{L} (K,h,y) = \ln{\qty[2 \cosh(h+Ky)] } - \frac{K}{2}y^2
 \end{equation}
 
 \begin{remark}
 In the limit \( N \rightarrow \infty  \) the integral can be computed exactly by the \emph{saddle point method}.
-We can replace the medium of the integral with the maximum of the integrand, we say that all the information is coming only from a bit of information. Replace the all integral with the integrand computed where it is maximum. That is an approximation and we are loosing information, it depends on the form of the function. For example, for a delta function it works better. In general:
-\begin{equation}
+We can replace the medium of the integral with the maximum of the integrand, we say that all the information is coming only from a bit of information. Replacing the all integral with the integrand computed where it is maximum is an approximation and we are loosing information.  It also depends on the form of the function. For example, for a delta function it works better. In general:
+\begin{equation*}
   \int_{-\infty }^{+ \infty } f(x) \dd[]{y} \rightarrow f(\bar{x} )
-\end{equation}
+\end{equation*}
 where \( \bar{x} = \max_{x} f(x)  \).
 \end{remark}
 
 
-Indeed as \( N \rightarrow \infty  \), since the integrand is \( \exp (N \alpha (K,h,y))  \), the integral is dominated by the global maximum in \emph{y} of the function \( \alpha (K,h,y) \).
-\begin{equation}
-  Z_N (K,h) \overset{N \gg1 }{\approx}  \sqrt{\frac{N K}{2 \pi }} \max_y \qty[e ^{N \alpha(K,h,y) } ]
-\end{equation}
+Indeed as \( N \rightarrow \infty  \), since the integrand is \( \exp (N \mathcal{L} (K,h,y))  \), the integral is dominated by the global maximum in \emph{y} of the function \( \mathcal{L} (K,h,y) \):
+\begin{equation*}
+  Z_N (K,h) \overset{N \gg1 }{\approx}  \sqrt{\frac{N K}{2 \pi }} \max_y \qty[e ^{N \mathcal{L}(K,h,y) } ]
+\end{equation*}
 Let \( y_s \) be the value of \( y \) at which
+\begin{equation*}
+  \mathcal{L} (K,h,y_s) = \max_y \mathcal{L} (K,h,y)
+\end{equation*}
+hence,
 \begin{equation}
-  \alpha (K,h,y_s) = \max_y \alpha (K,h,y)
+  Z_N (K,h) \overset{N \gg1 }{\approx} \sqrt{\frac{N K}{2 \pi }} e^{N \mathcal{L} (K,h,y_s)}
 \end{equation}
-therefore
+When we are able to compute the \( y_s \) we can do this approximation and we can compute the bound free energy as 
 \begin{equation}
-  Z_N (K,h) \overset{N \gg1 }{\approx} \sqrt{\frac{N K}{2 \pi }} e^{N \alpha (K,h,y_s)}
+  f_b (K,h)= \lim_{N \rightarrow \infty } \frac{1}{N} \qty(- k_B T \log{Z_N}) = -k_B T \mathcal{L} (K,h,y_s)
 \end{equation}
-When we are ample to compute the \( y_s \) we can do this approximation and
-\begin{equation}
-  f_b (K,h)= \lim_{N \rightarrow \infty } \frac{1}{N} \qty(- k_B T \log{Z_N}) = -k_B T \alpha (K,h,y_s)
-\end{equation}
-Looking for \( y_s \) we consider the condition \( \pdv{\alpha }{y} = 0  \):
-\begin{equation}
-  \pdv{\alpha }{y} = \frac{\sinh (h+Ky)K}{\cosh (h+Ky)} - Ky = 0 \quad   \Rightarrow y_s = \tanh (h+Ky_s)
-\end{equation}
+
+
+\begin{example}{How to compute \( y_s \)}{}
+Looking for \( y_s \), we consider the condition of maximum \( \pdv{\mathcal{L} }{y} = 0  \):
+\begin{equation*}
+  \pdv{\mathcal{L}}{y} = \frac{\sinh (h+Ky)K}{\cosh (h+Ky)} - Ky = 0 \quad   \Rightarrow y_s = \tanh (h+Ky_s)
+\end{equation*}
 The last one is an implicit equation that can be solved graphically as a function of \emph{K} and \emph{h}.
+\end{example}
 
 The magnetization in the \( N \rightarrow \infty  \) limit is given by
-\begin{equation}
+\begin{equation*}
 \begin{split}
 m  &= - \qty( \pdv{f}{H})_T = \lim_{N \rightarrow \infty } \frac{1}{\beta N} \pdv{\ln{Z_N(K,h)} }{H}   \\
-& =  \pdv{\alpha (K,h,y_s) }{h}  + \frac{O ( \log{N} )}{N} = \frac{2 \sinh(Ky_s+h)}{2 \cosh(ky_s+h)} \\
+& =  \pdv{\mathcal{L} (K,h,y_s) }{h}  + \frac{O ( \log{N} )}{N} = \frac{2 \sinh(Ky_s+h)}{2 \cosh(K y_s+h)} \\
 & = \tanh (K y_s +h)
 \end{split}
-\end{equation}
-At the end \( m \equiv y_s \)
+\end{equation*}
+Hence, we have
 \begin{equation}
-  m = \tanh (h+Km)
+   m \equiv y_s \Rightarrow \quad m = \tanh (h+Km)
 \end{equation}
 that is a self consistent equation. We have solved analitically this problem.
+
+
+
+
+
+
+
+
+
+
 
 
 \chapter{Mean field theories of phase transitions and variational mean field}

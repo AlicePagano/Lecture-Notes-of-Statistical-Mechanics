@@ -436,44 +436,51 @@ Many systems with KT transitions involve the dissociation of bound anti-parallel
 
 In order to minimize free energy, \(F=E-TS\), the system undergoes a transition at a critical temperature, \(T_{KT}\).
 Below \(T_{KT}\) there are only bound vortex–antivortex pairs. Above \(T_{KT}\), there are free vortices.
-
 \end{example}
 
 
 
-
 \section{Role of the interaction range}
-So far we have considered models where the interactions were short range. How things change if long range are considered instead? How does the symmetry broken depends on the range of interactions? One can show, for example, that if
+So far we have considered models where the interactions were short range. How things change if long range are considered instead? How does the symmetry broken depends on the range of interactions?
+
+One can show, for example, that if
 \begin{equation}
-  J_{ij} = \frac{J}{\abs{\va{r}_i - \va{r}_j}^\alpha  }
+  J_{ij} = \frac{J}{\abs{\va{r}_i - \va{r}_j}^\alpha  }, \quad 1 \le \alpha \le 2
 \end{equation}
-with \( 1 \le \alpha \le 2 \), phase with long range order is stable for \( 0 < T < T_c \) also for \( D=1 \)!   So we have a long range order with \( T_c \neq 0 \), even for \( D=1 \)!
+phase with long range order is stable for \( 0 < T < T_c \) also for \( d=1 \)!  
 
 \begin{remark}
 If \( \alpha > 2 + \varepsilon  \) we get back the physics found for short range interactions. If \( \alpha <1 \) the thermodynamic limit does not exist.
 \end{remark}
-A limiting case of long range interaction is the infinite range case where all the spins interact one to another with the same intensity indipendently on their distance. No metric is involed (instead of previously where the definition of \emph{J} of before is a metric.). It can be solve exactly and later we will seen why.
 
+A limiting case of long range interaction is the \emph{infinite range} case where all the spins interact one to another with the same intensity independently on their distance. No metric is involved (instead of previously where the definition of \emph{J} of before is a metric.). It can be solve exactly and later we will see why.
 
-\section{Ising model with infinite range}
+\subsection{Ising model with infinite range}
 
-The Hamiltonian is the following:
+Let us consider the Hamiltonian 
 \begin{equation}
   -\mathcal{H}_N (\{ S \} ) = \frac{J_0}{2} \sum_{i,j}^{N} S_i S_j + H \sum_{i}^{}  S_i
 \end{equation}
-with \( S_i \in [-1,+1] \). The problem is the double sum over \emph{i,j}, indeed
-\begin{equation}
+with \( S_i \in [-1,+1] \).
+\begin{remark}
+The sum over \(i,j\) is an unrestricted double sum.
+\end{remark}
+The problem with the double sum is that
+\begin{equation*}
   \sum_{i,j}^{} S_i S_j \propto O(N^2)
-\end{equation}
-and the thermodynamic limit is ill-defined. To circumvent this problem \emph{Kac}  suggested to consider a strength
+\end{equation*}
+and the thermodynamic limit is ill-defined. To circumvent this problem Mark Kac suggested to consider a strength
 \begin{equation}
   J_0 = \frac{J}{N}
 \end{equation}
-this is called the \emph{kac} approximation
+this is called the \emph{kac approximation}. 
+Hence,
 \begin{equation}
   -\mathcal{H}_N (\{ S \} ) = \frac{J}{2N} \sum_{i,j}^{N} S_i S_j + H \sum_{i}^{}  S_i
 \end{equation}
-with this choice we recover \( E \sim O(N) \).  In this Hamiltonian since you have no metric you have no dimension.
+with this choice we recover \( E \sim O(N) \).  
+
+%In this Hamiltonian since you have no metric you have no dimension.
 
 
 
