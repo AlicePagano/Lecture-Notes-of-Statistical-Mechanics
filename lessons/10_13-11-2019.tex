@@ -267,96 +267,103 @@ Interacting systems can be classified with respect to their \emph{global symmetr
   \begin{equation}
     \mathcal{H}_{\text{Ising}} = - \sum_{i<j}^{} J_{ij} \sigma _i \sigma _j
   \end{equation}
-  where \( \sigma _i \in \{ -1,1 \}   \). The symmetry gropu of this Hamiltonian is \( \mathbb{Z}^2 \), which has two elements \( \{ \mathbb{1}, \mu  \}   \). We have
-  \begin{equation}
-    \mathbb{1}: \text{ identity}, \quad \mu \sigma _i = - \sigma _i, \quad \mu ^2 = \mathbb{1}
-  \end{equation}
+  where \( \sigma _i \in \{ -1,1 \}   \). The symmetry group of this Hamiltonian is \( \mathbb{Z}^2 \), which has two elements \( \{ \mathbb{1}, \eta  \}   \). We have
+  \begin{equation*}
+    \mathbb{1}: \text{ identity}, \quad \eta \sigma _i = - \sigma _i, \quad \eta ^2 = \mathbb{1}
+  \end{equation*}
 \end{example}
 \begin{example}{Potts model}{}
+The Potts model, a generalization of the Ising model, is a model of interacting spins on a crystalline lattice. The Hamiltonian is 
   \begin{equation}
     \mathcal{H}_{q- \text{Potts}} = - \sum_{i<j}^{} J_{ij} \delta _{\sigma _i, \sigma _j}
   \end{equation}
-  where \( \sigma _i \in [1,2,3,\dots,q] \). \( \mathcal{H}_{q- \text{Potts}} \)  is invariant under the permutation group of the sequence \( \{ 1,2,3,\dots,q \}   \). There are \( q! \) elemtns, for example \( \{ 2,1,3,\dots,q \}   \). The symmetry group is denoted by \( S_q \).
+  where \( \sigma _i \in [1,2,3,\dots,q] \). \( \mathcal{H}_{q- \text{Potts}} \)  is invariant under the permutation group of the sequence \( \{ 1,2,3,\dots,q \}   \). There are \( q! \) elements, for example \( \{ 2,1,3,\dots,q \}   \). The symmetry group is denoted by \( S_q \).
 \end{example}
 \begin{remark}
-The difference between a \( \mathbb{Z}_q \) and \( S_q \) symmetry is that an Hamiltonian has symmetry \( \mathbb{Z}_q \) if it is invariant with respect to \emph{cyclic permutations}
+The difference between a \( \mathbb{Z}_q \) and \( S_q \) symmetry is that an Hamiltonian has symmetry \( \mathbb{Z}_q \) if it is invariant with respect to \emph{cyclic permutations}\footnote{In mathematics, and in particular in group theory, a cyclic permutation (or cycle) is a permutation of the elements of some set \(X\) which maps the elements of some subset \(S\) of \(X\) to each other in a cyclic fashion, while fixing (that is, mapping to themselves) all other elements of\(X\). If \(S\) has \(k\) elements, the cycle is called a \(k\)-cycle. Cycles are often denoted by the list of their elements enclosed with parentheses, in the order to which they are permuted.}
 \begin{equation}
-  \mu = \begin{pmatrix}
+  \eta = \begin{pmatrix}
     1 & 2 & \dots & q-1 & q \\
     2 & 3 & \dots & q & 1
   \end{pmatrix}
 \end{equation}
-and its powers \( \mu ^l \) with \( l=0, \dots, q-1 \). Both models satisfy a \emph{discrete global symmetry}.
+and its powers \( \eta ^l \) with \( l=0, \dots, q-1 \). Both models satisfy a \emph{discrete global symmetry}.
 \end{remark}
 Now, we jump into the case in which we consider \emph{continuous} symmetries.
 
-\section{XY model}
-This is a spin model that is invariant with respect to the continuous global symmetry
-\( \theta _i \rightarrow \theta _i + \alpha  \).
-Indeed the Hamiltonian of this model is
-\begin{equation}
-  \mathcal{H}_{XY} = - \sum_{i<j}^{} J_{ij} \va{S}_i \vdot \va{S}_j
-\end{equation}
-where \(\va{S}_i  \) is a \( 2D \) spin vector
-\begin{equation}
-  \va{S}_i = (S_{x_i}, S_{y_i})
-\end{equation}
-that can assume values on the unit circle ( \(  \abs{\va{S}_i} =1 \)).
-
-Suppose that you have spins that are sitting in hyper dimensional. Rotate along a circle this spins. They can assume all the value as in Figure \ref{fig:10_2}.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{../lessons/10_image/2.pdf}
-\caption{\label{fig:10_2} }
+\caption{\label{fig:10_2} Spin can assume all values around the circles.}
 \end{figure}
+
+\begin{example}{XY model}{}
+
+
+This is a spin model that is invariant with respect to the continuous global symmetry
+\( \theta _i \rightarrow \theta _i + \alpha  \).
+Indeed, the Hamiltonian of this model is
+\begin{equation}
+  \mathcal{H}_{XY} = - \sum_{i<j}^{} J_{ij} \va{S}_i \vdot \va{S}_j
+\end{equation}
+where \(\va{S}_i  \) is a \( 2D \) spin vector
+\begin{equation*}
+  \va{S}_i = (S_{x_i}, S_{y_i})
+\end{equation*}
+that can assume values on the unit circle ( \(  \abs{\va{S}_i} =1 \)).
+Suppose that spins are sitting in hyper dimensional and can rotate along circles. They can assume all the value as in Figure \ref{fig:10_2}.
+
 The simplest way to parametrize the Hamiltonian is by the angle.
-Denoting by \( \theta _i \) the direction angle of spins \( \va{S}_i \), the \( \mathcal{H}_{XY} \) can be written as
+Denoting by \( \theta _i \) the direction angle of spins \( \va{S}_i \), the Hamiltonian can be rewritten as
 \begin{equation}
   \mathcal{H}_{XY} = - \sum_{i<j}^{} J_{ij} \cos(\theta _i - \theta _j)
 \end{equation}
 with \( \theta _i \in [0,2 \pi ] \).
+
 \begin{remark}
 The interaction term \( \cos(\theta _i - \theta _j)  \) can be written also as
-\begin{equation}
+\begin{equation*}
   \frac{1}{2} \qty(Z_i^* Z_j + Z_i Z_j^*)
-\end{equation}
+\end{equation*}
 where \(   Z_j = \exp (i \theta _j) \).
 \end{remark}
+
 The model is invariant under the global transformation
 \begin{equation}
   Z_i \rightarrow e^{i \alpha } Z_i
 \end{equation}
-The phase  \( \exp (i \alpha )  \) form a group under multiplication known as \( U(1) \) that is equivalent to \( O(2) \). Indeed the interaction term can be written also as
-\begin{equation}
+The phase  \( \exp (i \alpha )  \) form a group under multiplication known as \( U(1) \) that is equivalent to \( O(2) \). Indeed, the interaction term can be written also as
+\begin{equation*}
   \vu{\Omega }_i \vdot \vu{\Omega }_j
-\end{equation}
+\end{equation*}
 where \( \vu{\Omega }_i = ( \cos \theta _i, \sin \theta _i) \).
 \begin{remark}
-In \emph{n}-dimensions \( \vu{\Omega } \) has \emph{n} components  \( \vu{\Omega } = \{ \Omega ^1, \Omega ^2, \dots, \Omega ^n \}   \)  and the corresponding Hamiltonian
+In \emph{n}-dimensions \( \vu{\Omega } \) has \emph{n} components  \( \vu{\Omega } = \{ \Omega ^1, \Omega ^2, \dots, \Omega ^n \}   \)  and the corresponding Hamiltonian is
 \begin{equation}
   \mathcal{H} = - \sum_{i>j}^{} J_{ij} \vu{\Omega }_i \vdot  \vu{\Omega }_j
 \end{equation}
 It is symmetric with respect to the global symmetry group \( O(n) \).
 \end{remark}
+\end{example}
+
  Which are the domain walls for continuous symmetries? Which are the implications for the stability of the ordered phase?
 
-
-
 \section{Continuous symmetries and phase transitions}
-The questions is: when it is not continuous which is the boundary?
-When the symmetry is continuous the domain walls interpolate smootly between two ordered regions (see Figure \ref{fig:10_3}).
+
+When the symmetry is continuous the domain walls interpolate smoothly between two ordered regions (see Figure \ref{fig:10_3}).
+The energy term that in Ising is proportional to \( 2JL^{d-1} \), how does it change here?
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/10_image/3.pdf}
-\caption{\label{fig:10_3} }
+\caption{\label{fig:10_3} For continuous symmetry the domain walls interpolate smoothly between two ordered regions.}
 \end{figure}
-The energy term that in Ising is proportional to \( 2JL^{D-1} \) how does it change here?
-Suppose that the variation of the direction between two neirest neighbours sites is very small, i.e. \( (\theta _i - \theta _j) \ll 1 \) for \( i,j \) neirest neighbours.
- Now we can diluite the energy, in other words weak the energy term.
 
-Let us do a Taylor expainding of the interaction term
+Let us consider the XY model and suppose that the variation of the direction between two nearest neighbours sites is very small, i.e. \( (\theta _i - \theta _j) \ll 1 \) for \( i,j \) nearest neighbours.
+ Now, we can dilute the energy, in other words we weak the energy term.
+
+Let us do a Taylor expansion of the interaction term
 \begin{equation}
   \cos (\theta _i - \theta _j) \simeq 1 - \frac{1}{2} (\theta _i - \theta _j)^2 \Rightarrow \sum_{\expval{ij} }^{}  \qty(1 - \frac{1}{2} (\theta _i - \theta _j)^2)
   \label{eq:10_2}
@@ -367,7 +374,7 @@ The Hamiltonian can be written as
 \end{equation}
 The \eqref{eq:10_2} corresponds to the discrete differential operator where
 \( \theta _i - \theta _j = \partial_x{\theta }  \),
-therefore
+hence
 \begin{equation}
   \mathcal{H} = E_0 + \underbrace{\frac{J}{2} \int_{}^{} \dd[]{\va{r}} \qty(\grad \theta )^2 }_{E \equiv \text{Stifness energy}}
 \end{equation}
@@ -380,39 +387,59 @@ where \( E_0 = 2JN \) is the energy corresponding to the case in which all the s
   \end{equation}
 where \( \theta (\va{r})  \) is the angle of a local rotation around an axis and \emph{J} is the \emph{spin rigidity}. For an ordered phase \( \theta (\va{r}) = \theta _0 \).
 \end{definition}
-Let us now imagine a domain wall where \(\theta (\va{r})  \)  rotates by \( 2 \pi  \) (or \( 2 \pi m \)) by using the entire length of the system (see again Figure \ref{fig:10_3}):
-\begin{equation}
-  \theta (\va{r}) = \frac{2 \pi n x}{L}
-\end{equation}
-where \emph{n} is the total number of \( 2 \pi  \) turn of \( \theta  \) in \emph{L}. Note that there is no variation along the other \( D-1 \) dimensions, therefore we just doing over one dimension.
 
- Consider only the term called \emph{E}
+Let us now imagine a domain wall where \(\theta (\va{r})  \)  rotates by \( 2 \pi  \) (or \( 2 \pi m \)) by using the entire length of the system (see again Figure \ref{fig:10_3}):
+\begin{equation*}
+  \theta (\va{r}) = \frac{2 \pi n x}{L}
+\end{equation*}
+where \emph{n} is the total number of \( 2 \pi  \) turn of \( \theta  \) in \emph{L}. 
+\begin{remark}
+Note that there is no variation along the other \( d-1 \) dimensions, therefore we just doing over one dimension.
+\end{remark}
+
+We consider only the term \emph{E} (Stifness energy) of the Hamiltonian 
  \begin{equation}
-   E = \frac{J}{2} L^{D-1} \int_{0}^{L} \dd[]{x} \qty(\dv{}{x} \qty(\frac{2 \pi n x}{L})  )^2 = \frac{J}{2} L^{D-1} \int_{0}^{L} \dd[]{x} \qty(\frac{2 \pi n}{L})^2 \approx 2 \pi ^2 n^2 J L^{D-2}
+   E = \frac{J}{2} L^{d-1} \int_{0}^{L} \dd[]{x} \qty(\dv{}{x} \qty(\frac{2 \pi n x}{L})  )^2 = \frac{J}{2} L^{d-1} \int_{0}^{L} \dd[]{x} \qty(\frac{2 \pi n}{L})^2 \approx 2 \pi ^2 n^2 J L^{d-2}
  \end{equation}
 \begin{remark}
-Unlike the Ising model where \( E \sim L^{D-1} \), here \( E \sim L^{D-2} \)!
-
-If \( S \ge k_B \ln{L}  \) for a single domain wall, \emph{S} should dominate if \( D \le 2 \), the ordered phase is always unstable and no phase transition is expected for \( T \neq 0 \)!
+Unlike the Ising model where \( E \sim L^{d-1} \), here \( E \sim L^{d-2} \)! Hence, if \( S \ge k_B \ln{L}  \) for a single domain wall, \emph{S} should dominate if \( d \le 2 \), the ordered phase is always unstable and no phase transition is expected for \( T \neq 0 \)!
 \end{remark}
 
-\begin{definition}{Lower critical dimension}
-  The Lower Critical dimension \( D_c \) is the dimension at which (and below which) the system does not display a ordered phase (there is no long range order).
-  In other words if \( D \le D_c \), we have \( T_c = 0 \).
+\begin{definition}{Lower critical dimension}{}
+  The Lower Critical dimension \( d_c \) is the dimension at which (and below which) the system does not display a ordered phase (there is no long range order).
+  In other words if \( d \le d_c \), we have \( T_c = 0 \).
 \end{definition}
-\begin{theorem}{Mermin-Wagner}{}
-  For continuous global symmetries the \( D_c =2 \).
-\end{theorem}
-
- From what we have dound before we can say that
+ From what we have found before we can say that
 \begin{itemize}
-\item Discrete global symmetries: \( D_c =1 \).
-\item Continuous global symmetries: \( D_c =2 \).
+\item For discrete global symmetries: \( d_c =1 \).
+\item For continuous global symmetries: \( d_c =2 \) (Merming-Wagner theorem)\footnote{In statistical mechanics, the Mermin–Wagner theorem states that continuous symmetries cannot be spontaneously broken at finite temperature in systems with sufficiently short-range interactions in dimensions \(d \le 2\). Intuitively, this means that long-range fluctuations can be created with little energy cost and since they increase the entropy they are favored.}.
 \end{itemize}
 
+\begin{example}{XY model transition}{}
+The \emph{XY} model in \( d=2 \) is rather special. While the Mermin–Wagner theorem prevents any spontaneous symmetry breaking on a global scale, ordering transitions of Kosterlitz-Thouless-type may be allowed.
+ This is the case for the XY model where the continuous (internal) \( O(2) \) symmetry on a spatial lattice of dimension \(d \le 2\),  remains zero for any finite temperature \( T \neq 0 \) (it do not display an ordered phase).
 \begin{remark}
-The \emph{XY} model in \( D=2 \) is rather special. Although it dos not display an ordered phase, there exist at \( T \neq 0 \) a special phase transition known as the \emph{Kosterlitz-thouless transition}. This transition dows not imply the spontaneous breaking of the \( O(2) \) symmetry! There is no long range order for \( T<T_{KT} \) (statistic of vortices, topological defects in \( D=2 \)).
-\end{remark}
+This transition does not imply the spontaneous breaking of the \( O(2) \) symmetry!
+\end{remark} 
+However, the theorem does not prevent the existence of a phase transition in the sense of a diverging correlation length \(\xi\). To this end, the model has two phases: 
+\begin{itemize}
+    \item a conventional disordered phase at high temperature with dominating exponential decay of the correlation function 
+\(G(r)\sim \exp(-r/\xi )\) for \(r/\xi \gg 1\);
+\item a low-temperature phase with quasi-long-range order where \(G(r)\) decays according to some power law, which depends on the temperature, for "sufficiently large", but finite distance \(r\) (\(a \ll r \ll \xi\) with \(a\) the lattice spacing).
+\end{itemize}
+
+The transition from the high-temperature disordered phase with the exponential correlation to this low-temperature quasi-ordered phase is a Kosterlitz–Thouless transition. It is a phase transition of infinite order.
+
+In the \(d=2\) XY model, vortices are topologically stable configurations. It is found that the high-temperature disordered phase with exponential correlation decay is a result of the formation of vortices. Vortex generation becomes thermodynamically favorable at the critical temperature \(T_{KT}\) of the KT transition. At temperatures below this, vortex generation has a power law correlation (hence, there is no long range order for \( T<T_{KT} \)).
+
+Many systems with KT transitions involve the dissociation of bound anti-parallel vortex pairs, called vortex–antivortex pairs, into unbound vortices rather than vortex generation. In these systems, thermal generation of vortices produces an even number of vortices of opposite sign. Bound vortex–antivortex pairs have lower energies than free vortices, but have lower entropy as well.
+
+In order to minimize free energy, \(F=E-TS\), the system undergoes a transition at a critical temperature, \(T_{KT}\).
+Below \(T_{KT}\) there are only bound vortex–antivortex pairs. Above \(T_{KT}\), there are free vortices.
+
+\end{example}
+
+
 
 
 \section{Role of the interaction range}
