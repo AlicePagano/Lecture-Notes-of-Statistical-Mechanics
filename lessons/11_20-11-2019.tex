@@ -106,9 +106,10 @@ When we are able to compute the \( y_s \) we can do this approximation and we ca
 
 \begin{example}{How to compute \( y_s \)}{}
 Looking for \( y_s \), we consider the condition of maximum \( \pdv{\mathcal{L} }{y} = 0  \):
-\begin{equation*}
+\begin{equation}
   \pdv{\mathcal{L}}{y} = \frac{\sinh (h+Ky)K}{\cosh (h+Ky)} - Ky = 0 \quad   \Rightarrow y_s = \tanh (h+Ky_s)
-\end{equation*}
+  \label{eq:11_3}
+\end{equation}
 The last one is an implicit equation that can be solved graphically as a function of \emph{K} and \emph{h}.
 \end{example}
 
@@ -120,12 +121,17 @@ m  &= - \qty( \pdv{f}{H})_T = \lim_{N \rightarrow \infty } \frac{1}{\beta N} \pd
 & = \tanh (K y_s +h)
 \end{split}
 \end{equation*}
-Hence, we have
+Hence, showing that \(y_s\) is determined by Eq.\eqref{eq:11_3} plays the role of an effective field acting on each spin. Comparing Eq.\eqref{eq:11_3} with the last result, gives us the self consistency condition for \(m\)
 \begin{equation}
    m \equiv y_s \Rightarrow \quad m = \tanh (h+Km)
 \end{equation}
-that is a self consistent equation. We have solved analitically this problem.
-
+\begin{remark}
+We have solved analitically this problem.
+This is the usual “mean field” result.
+\end{remark}
+\begin{remark}
+The a Hubbard-Stratonovich transformation is generally useful for transforming an interacting problem to a sum or integration over non-interacting problems.
+\end{remark}
 
 
 
@@ -141,111 +147,119 @@ that is a self consistent equation. We have solved analitically this problem.
 
 \section{Mean field theories}
 
-Increasing the dimension of the systems the effort to solve analitically the problems increase , in fact we have seen that
+Increasing the dimension of the systems, the effort to solve analitically the problems increase; indeed, we have seen that
 \begin{itemize}
-\item In \( D=1 \): many (simple) models can be solved exactly using techniques such as the transfer matrix method.
-\item In \( D=2 \): few models can still be solved exactly (often with a lot of effort).
-\item In \( D=3 \): almost no model can be exactly solved.
+\item In \( d=1 \): many (simple) models can be solved exactly using techniques such as the transfer matrix method.
+\item In \( d=2 \): few models can still be solved exactly (often with a lot of effort).
+\item In \( d=3 \): almost no model can be exactly solved.
 \end{itemize}
-hence, approximations are needed.
-The most important and most used one is the \emph{mean field approximation}. The idea is to try to simplify the problem by negletic the correlation between the fluctuations of the order parameter. It is equivalent to a statistical indipendence of the microscopic degrees of freedom.
-
-The mean field approximation has different names depending on the system considered:
+Hence, approximations are needed.
+The most important and most used one is the \emph{mean field approximation}. 
+It has different names depending on the system considered:
 \begin{itemize}
-\item Magnetic: Weiss theory.
-\item Fluids: Van der Walls.
+\item Magnetic systems: Weiss theory.
+\item Fluids systems: Van der Walls.
 \item Polymers: Flory's theory.
 \end{itemize}
 
-\subsection{Mean field for Ising model}
-Let us start from the following generic model
+The idea is trying to simplify the problem by neglecting the correlation between the fluctuations of the order parameter. It is equivalent to a statistical independence of the microscopic degrees of freedom.
+
+
+
+\subsection{Mean field for the Ising model}
+Let us start from the generic Ising model
 \begin{equation}
   \mathcal{H} [\{ S \}  ] =  -\frac{1}{2} \sum_{ij}^{} J_{ij} S_i S_j - H \sum_{i}^{} S_i
 \end{equation}
 where the double sum over \( i \) and \( j \) have no restrictions, while \( H \) is homogeneous.
+
+The partition function is
 \begin{equation}
   Z_N (T,H,\{ J_{ij} \}  )= \sum_{\{ S \}  }^{} e^{-\beta   \mathcal{H} [\{ S \}] } = \exp (-\beta F_N (T,H,\{ J_{ij} \}  ))
 \end{equation}
 Since \( H \) is uniform, the magnetization per spin is
-\begin{equation}
+\begin{equation*}
   \expval{S_i}  = \expval{S} \equiv m
-\end{equation}
-Let us now consider the idenity
-\begin{equation}
+\end{equation*}
+Let us now consider the identity
+\begin{equation*}
 \begin{split}
   S_i S_j  &= (S_i - m + m) (S_j - m + m)  \\
   & = (S_i - m ) (S_j - m)  + m^2 + m (S_j-m) + m (S_i-m)
 \end{split}
-\end{equation}
+\end{equation*}
+
 \begin{remark}
-The term
+The mean field approximation consists in neglecting the term
 \begin{equation*}
   (S_i - m ) (S_j - m) = (S_i - \expval{S_i})(S_j - \expval{S_j})
 \end{equation*}
-measures correlation between fluctuations. The mean field approximation consists in neglecting this term!
+that measures correlation between fluctuations. 
 \end{remark}
-Using the mean field approximation,
-\begin{equation}
+
+Hence, using the mean field approximation, the above identity becomes
+\begin{equation*}
   S_i S_j  \approx m^2 + m(S_i-m) + m(S_j-m)
-\end{equation}
-we obtain
-\begin{equation}
+\end{equation*}
+and
+\begin{equation*}
   \frac{1}{2} \sum_{i,j}^{} J_{ij}S_i S_j \overset{MF}{\approx } \frac{1}{2} \sum_{i,j }^{} J_{ij} \qty[-m^2+m(S_i+S_j)]
-\end{equation}
+\end{equation*}
 Let us focus on the term
 \begin{equation}
   \frac{1}{2} \sum_{i,j }^{} J_{ij} m (S_i+S_j) = 2 \frac{1}{2} m \sum_{i,j }^{} J_{ij}  S_i
   \label{eq:11_2}
 \end{equation}
-If we do not many assumption on \( J_{ij} \) the mean field hamiltonian is
+If we do not make any assumption on \( J_{ij} \), the mean field Hamiltonian is
 \begin{equation}
 \mathcal{H}_{MF} [ \{ S \}  ] = \frac{1}{2} m^2 \sum_{ij}^{} J_{ij} - m \sum_{ij}^{} J_{ij} S_i - H \sum_{i}^{} S_i
 \end{equation}
 and by calling
-\begin{equation}
+\begin{equation*}
   \bar{J_i} \equiv  \sum_{j}^{} J_{ij}
-\end{equation}
+\end{equation*}
 we get
-\begin{equation}
+\begin{equation*}
     \mathcal{H}_{MF} [ \{ S \}  ]  = \frac{1}{2} m^2 \sum_{i}^{} \bar{J_i} - \mathcolorbox{green!20}{\frac{m}{2}} \sum_{i}^{} \bar{J_i} S_i - H \sum_{i}^{} S_i
-\end{equation}
+\end{equation*}
 \begin{remark}
-Note the coefficient \( 1/2 \) that is needed to avoid the double counting of bonds.
+Note the coefficient emphasized in green (\( 1/2 \)) is needed to avoid the double counting of bonds.
 \end{remark}
-If moreover we suppose that
+Moreover, if we suppose that
 \begin{equation*}
   \bar{J_i} \rightarrow \bar{J}
 \end{equation*}
 we have
-\begin{equation}
+\begin{empheq}[box=\myyellowbox]{equation}
   \mathcal{H}_{MF} [ \{ S \}  ] = \frac{1}{2} m^2 N \bar{J} - \qty(\frac{m}{2}\bar{J} +H) \sum_{i}^{} S_i
-\end{equation}
-In the standard Ising model, where
-\begin{equation}
-  \frac{1}{2} \sum_{ij}^{} J_{ij} S_i S_j \rightarrow \sum_{\expval{ij} }^{} J_{ij}    S_i S_j
-\end{equation}
-the term \( 2 m \sum_{\expval{ij} }^{}  J_{ij} S_i \) can be written as follows;
-let
-\begin{equation}
-  \sum_{j \in n.n.\text{ of } i}^{} J_{ij} = z \hat{J}_i
-\end{equation}
-where \( z \) is the coordination number of the underlying lattice.
+\end{empheq}
 \begin{remark}
-For the hypercubic lattice \( z=2D \).
-\end{remark}
-By assuming \( \hat{J}_i = \hat{J}  \) and inserting the \( 1/2 \) to avoid double counting, we have that equation \eqref{eq:11_2} becames
+In the standard Ising model, where
+\begin{equation*}
+  \frac{1}{2} \sum_{ij}^{} J_{ij} S_i S_j \rightarrow \sum_{\expval{ij} }^{} J_{ij}    S_i S_j
+\end{equation*}
+the term \( 2 m \sum_{\expval{ij} }^{}  J_{ij} S_i \) of Eq.\eqref{eq:11_2} can be written as follows.
+Let
+\begin{equation*}
+  \sum_{j \in n.n.\text{ of } i}^{} J_{ij} = z \hat{J}_i
+\end{equation*}
+where \( z \) is the coordination number of the underlying lattice (for the hypercubic lattice \( z=2d \)).
+By assuming \( \hat{J}_i = \hat{J}  \) and inserting the \( 1/2 \) to avoid double counting, we have that equation \eqref{eq:11_2} becomes
 \begin{equation}
   2m \sum_{\expval{ij} }^{}  J_{ij} S_i = 2 m \frac{1}{2} z \hat{J} \sum_{i=1}^{N} S_i
 \end{equation}
-Hence,
-\begin{equation}
+\end{remark}
+
+Hence, in this case the Hamiltonian is
+\begin{empheq}[box=\myyellowbox]{equation}
   \mathcal{H}_{MF} [ \{ S \}  ] = \frac{1}{2} m^2 N z \hat{J} - (m z \hat{J} + H ) \sum_{i=1}^{N} S_i
-\end{equation}
+\end{empheq}
+The partition function becomes
 \begin{equation}
 \begin{split}
-  Z_N (T,H,\hat{J} ) &= e^{-N \beta \hat{J} \frac{z}{2} m^2 }  \sum_{\{ S \}  }^{} e^{\beta m (\hat{J}zm+H )\sum_{i}^{} S_i }   \\
-  & = e^{-N \beta \hat{J} \frac{z}{2} m^2 } \qty(\sum_{S = \pm 1}^{} \exp (\beta ^m \qty(\hat{J}zm+H ) )   )^N \\
-  & = e^{-N \beta \hat{J} \frac{z}{2} m^2 } \qty(2 \cosh \qty[\beta \qty(\hat{J}zm+J ) ] )^N
+  Z_N (T,H,\hat{J} ) &= e^{-N \beta \hat{J} \frac{z}{2} m^2 }  \sum_{\{ S \}  }^{} e^{\beta  (\hat{J}zm+H )\sum_{i=1}^{N} S_i }   \\
+  & = e^{-N \beta \hat{J} \frac{z}{2} m^2 } \prod_{i=1}^{N}  \sum_{S = \pm 1}^{} \exp (\beta  \qty(\hat{J}zm+H ) S_i )   \\
+  & = e^{-N \beta \hat{J} \frac{z}{2} m^2 } \qty(2 \cosh \qty[\beta \qty(\hat{J}zm+H ) ] )^N
 \end{split}
 \end{equation}
 \begin{remark}
@@ -253,13 +267,13 @@ We are replacing the interaction of the J with a field close to the \( S_i \). W
 \end{remark}
 
 The free energy per spin is
-\begin{equation}
+\begin{equation*}
 \begin{split}
   \frac{F_N (T,H,\hat{J} )}{N} & = \frac{1}{N} \qty(-k_B T \ln{Z_N(T,H,\hat{J} )} ) \\
   & = \frac{1}{2} \hat{J} z m^2 - k_B T \ln{\qty[\cosh(\beta (\hat{J}zm+H ))] } - k_B T \ln{2}
 \end{split}
-\end{equation}
-Sometimes it is useful to use the \emph{dimensionless variables}
+\end{equation*}
+Sometimes it is useful to use the \emph{dimensionless variables} defined as
 \begin{equation}
   \bar{f} \equiv \frac{F_N}{N z \hat{J} }, \quad \theta \equiv \frac{k_B T}{z \hat{J} }, \quad \bar{H} \equiv \frac{H}{z \hat{J} }
 \end{equation}
@@ -269,38 +283,40 @@ Hence,
 \end{equation}
 
 In order to be a self-consistent, the last equation has to satisfy the  thermodynamic relation:
-\begin{equation}
+\begin{equation*}
   m = - \qty( \pdv{f}{H})_T \quad \Rightarrow   m = \tanh (\beta (\hat{J}z m + H  ))
-\end{equation}
+\end{equation*}
 \begin{remark}
 The results of \( m \)  is similar to the Ising with infinite range (\( \hat{J}z \leftrightarrow J  \)).
 \end{remark}
+
 Now, let us consider the \( H=0 \) case, we have
 \begin{equation}
   m =  \tanh (\beta (\hat{J}z m ))
 \end{equation}
 and the graphical solution is shown in Figure \ref{fig:11_1} (hyperbolic function).
+We can distinguish three cases:
+\begin{itemize}
+\item Case \( \beta \hat{J} z > 1  \): there are three solutions, one at \( m=0 \) and two symmetric at \( m=\pm m_0 \). Magnetization is \( \neq 0 \, (= \abs{m_0} )\) for \( H=0 \) (\emph{ordered phase}).  The two solution are symmetric because they are related by the \( \mathbb{Z}^2 \)  symmetry.
+\item Case \( \beta \hat{J} z < 1  \): single solution at \( m=0 \) (\emph{disordered or paramagnetic phase}).
+\item Case \( \beta \hat{J} z = 1  \): the three solutions coincide at \( m=0 \) (\emph{critical point}). 
+The critical temperature \( T_c \) is given by
+\begin{equation*}
+ \beta_c \hat{J} z = 1 \Rightarrow  \frac{z \hat{J} }{k_B T_c} = 1 \Rightarrow T_c = \frac{z \hat{J} }{k_B} \neq 0!
+\end{equation*}
+\begin{remark}
+\( T_c \) depends on \emph{z} and hence on \emph{d}!
+\end{remark}
+\end{itemize}
+
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\textwidth]{../lessons/11_image/1.pdf}
-\caption{\label{fig:11_1}}
+\caption{\label{fig:11_1} Graphical solution of equation \(m =  \tanh (\beta (\hat{J}z m )) \) (case \(H=0\)).}
 \end{figure}
 
-In particular:
-\begin{itemize}
-\item case \( \beta \hat{J} z > 1  \): there are three solutions, one at \( m=0 \) and two symmetric at \( m=\pm m_0 \). Magnetization is \( \neq 0 \, (= \abs{m_0} )\) for \( H=0 \) (\emph{ordered phase}).  The two solution are symmetric because they are related by the \( \mathbb{Z}^2 \)  symmetry;
-\item case \( \beta \hat{J} z < 1  \): single solution at \( m=0 \) (\emph{disordered or paramagnetic phase});
-\item case \( \beta \hat{J} z = 1  \): the three solutions coincide at \( m=0 \) (\emph{critical point}).
-\end{itemize}
-As said, the condition \( \beta_c \hat{J} z = 1  \), define the critical point. The critical temperature \( T_c \) is given by
-\begin{equation}
-  \frac{z \hat{J} }{k_B T_c} = 1 \Rightarrow T_c = \frac{z \hat{J} }{k_B} \neq 0!
-\end{equation}
-\begin{remark}
-\( T_c \) depends on \emph{z} and hence on \emph{D}!
-\end{remark}
 
 \subsection{Free-energy expansion for \( m \simeq 0 \)}
 The critical point is characterized by the order parameter that is zero. Now we want to expand the free energy around the critical point. Let us put \( H=0 \):
