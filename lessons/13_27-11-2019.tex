@@ -93,7 +93,7 @@ This gives:
 
 To solve it, remember that
 \begin{equation*}
-  \tanh^{-1} (x) = \frac{1}{2} \ln{\frac{1+x}{1-x}} 
+  \tanh^{-1} (x) = \frac{1}{2} \ln{\frac{1+x}{1-x}} \quad |x| < 1
 \end{equation*}
 Hence,
 \begin{equation*}
@@ -103,6 +103,7 @@ which implies
 \begin{equation*}
   \bar{m_i} = \tanh \qty[(k_B T)^{-1} \qty(J \sum_{j \in \, n.n. \,\text{of}\, i}^{} \bar{m_j} + H_i ) ]
 \end{equation*}
+We have again found the self-consistency equation for the magnetization that we have already encountered in the Weiss mean field theory for the Ising model! This is again a confirmation that all mean field theories are equivalent.
 Defining
 \begin{equation*}
   z \bar{m_i} \equiv  \sum_{j \in \, n.n. \,\text{of}\, i}^{} \bar{m_j}
@@ -226,7 +227,7 @@ This is a spin model with vacancies that describes the phase diagram and the cri
 From a quantum statistical point of view \( \text{He}^4 \) is a \emph{boson}.
 \end{remark}
 
- A gas of \( \text{He}^4 \) undergoes a fluid-superfluid transition at \( T_ \lambda =2.17 K \) and \( P=P_0 \). It is known as \( \lambda - \)transition since at \( T \sim T_ \lambda  \)  the specific heat \( c(T) \) behaves as in Figure \ref{fig:13_2_1}.
+ A gas of \( \text{He}^4 \) undergoes a fluid-superfluid transition at \( T_ \lambda =2.17 K \) and \( P=P_0 \). It is known as \( \lambda - \)transition since at \( T \sim T_ \lambda  \)  the specific heat \( c(T) \) behaves as in Figure \ref{fig:13_2_1}: the plot of the specific heat as a function of the temperature has a shape that resembles a \(\lambda\). 
 The \( \lambda - \)transition is a genuine critical point (second order). For \( T < T_{\lambda } \), \( \text{He}^4 \)  is in the superfluid phase and it can be described by a two-fluids model in which one component has zero viscosity and zero entropy.
 
 
@@ -411,30 +412,24 @@ and the parameter \(\delta\) is
 Note that unlike the Ising model in the Weiss approximation in this case both the quadratic and the quartic terms, \(a\) and \(b\), can change sign when the parameters assume particular values.
 Let us also note that the order parameter of the system, namely the concentration of \( \text{He}^3 \), is:
 \begin{equation*}
-    x = 1 - \expval{S_i^2} = \frac{1}{ 1 + 2 e^{-\beta \Delta } \cosh (\beta z J m)}
+    x(T, \Delta , J) = 1 - \expval{S_i^2} = \frac{1}{A}= \frac{1}{ 1 + 2 e^{-\beta \Delta } \cosh (\beta z J m)}
 \end{equation*}
 Therefore, in the disordered phase (both 
 \( \text{He}^3 \) and \( \text{He}^4 \) are present) we have \(m=0\) and the concentration of \( \text{He}^3 \) becomes:
-Since
 \begin{equation}
-  x (T, \Delta , J) \equiv  1 - \expval{S_i^2} = \frac{1}{A} = \qty(1 + 2 e^{-\beta \Delta }  \cosh (\beta z J m))^{-1}
+  x (T,\Delta , J) = \frac{1}{1 + 2 e^{-\beta \Delta }}  = 1 - \frac{1}{\delta }
 \end{equation}
-In the disordered phase \( (m=0) \) one has
-\begin{equation}
-  x (T,\Delta , J) = \qty(1 + 2 e^{-\beta \Delta } )^{-1} = \frac{\delta -1}{\delta }
-\end{equation}
-By combining this result with the order-disorder transition
-\begin{equation}
-  a (T_c (\Delta )) = \frac{z J}{2} \qty(1 - \frac{z J}{\delta k_B T_c}) = 0, \quad \qty[\delta = \frac{z J}{k_B T_c}]
-\end{equation}
-one obtains (TO DO)
+This way we can determine how the temperature of the \(\lambda\)-transition depends on \(x\); in fact, the critical temperature will be the one that makes \(a\) change sign, so we can determine it from the condition \(a=0\):
+\begin{equation*}
+  a (T_c (\Delta )) = \frac{z J}{2} \qty(1 - \frac{z J}{\delta k_B T_c}) = 0 \quad \Rightarrow T_c = \frac{z J}{k_B \delta}
+\end{equation*}
+Since as we have just seen \(1/\delta = 1-x\), we have
 \begin{equation}
   T_c (x) = T_c (0) (1-x)
 \end{equation}
-There is a dependence of the critical temperature \( \lambda  \) on the \( \text{He}^3 \) concentration \( x \).
-
-The tricritical point is the one that satisfies the conditions
-  \begin{equation}
+where \(T_c (0)=zJ/k_B \).
+The other transition (from the continuous \(\lambda\) to the discontinuous one) will occur when the quartic term \(b\) changes sign, and so we can determine the critical value of \(x_c\) at which it occurs from the condition \(b=0\). Hence, the tricritical point is the one that satisfies the conditions
+  \begin{equation*}
     \begin{cases}
      a (T_t, \Delta _t) = 0 \\
      b (T_t, \Delta _t) = 0
@@ -443,69 +438,73 @@ The tricritical point is the one that satisfies the conditions
       \delta _t = \frac{zJ}{k_B T_t} \\
       \delta _t = 3
     \end{cases}
-\end{equation}
+\end{equation*}
+and the value of the concentration of \( \text{He}^3 \) results
 \begin{equation}
-  x (T_t, \Delta _t) = \frac{\delta _t - 1}{\delta _t} = \frac{2}{3}
+  x (T_t, \Delta _t) = 1 - \frac{1}{\delta _t} = \frac{2}{3}
 \end{equation}
-\begin{remark}
-Experimental estimate of \( x_t \) is \( \sim 0.67 \).
-\end{remark}
+which is in astonishingly good agreement with the experimental result of \(x_t \sim 0.67\).
 
 
-\begin{exercise}{}{}
+
+\begin{exercise}{Expansion of G for small values of m }{}
 Expand the free-energy per site
-\begin{equation}
+\begin{equation*}
   \frac{G}{N} = \frac{z}{2} J m^2 - \Delta - k_B T \ln{A}
-\end{equation}
-where \( A = 1 + 2 e^{-\beta \Delta } \cosh(\beta z J m) \) for small values of \( m \).
-\begin{equation}
+\end{equation*}
+where \( A = 1 + 2 e^{-\beta \Delta } \cosh(\beta z J m) \) for small values of \( m \). 
+\begin{solution}
+Let us define
+\begin{equation*}
   x \equiv \beta z J m, \quad B \equiv 2 e^{-\beta \Delta }
-\end{equation}
-Since \( \cosh x \simeq 1 + \frac{x^2}{2} + \frac{x^4}{24} \),
-\begin{equation}
+\end{equation*}
+Since \( \cosh x \simeq 1 + \frac{x^2}{2} + \frac{x^4}{24} \), we can expans \(A\) as
+\begin{equation*}
   A = 1 + B \cosh x \simeq 1 + B \qty(1 + \frac{x^2}{2} + \frac{x^4}{24})
-\end{equation}
-\begin{equation}
+\end{equation*}
+Hence,
+\begin{equation*}
 \begin{split}
   \ln{A} &= \ln{\qty(1 + B + \frac{B x^2}{2} + \frac{B x^4}{24}) } \\
   &\simeq
   \ln{\qty[(1+B)\qty(1+ \frac{B}{2(1+B)}x^2 + \frac{B}{24(1+B)}x^4) ] } \\
   & = \ln{(1+B)} + \ln{(1+t)}
 \end{split}
-\end{equation}
+\end{equation*}
 where
-\begin{equation}
+\begin{equation*}
   t \equiv \frac{B}{2(1+B)}x^2 + \frac{B}{24(1+B)}x^4
-\end{equation}
+\end{equation*}
 Let us first consider the term
-\begin{equation}
-  \frac{B}{1+B} = \frac{2 e^{-\beta \Delta } }{1 + 2 e^{-\beta \Delta } } = \frac{2}{2+ e^{\beta \Delta } } = \delta ^{-1}
-\end{equation}
-\begin{equation}
-  \Rightarrow \ln{A} = \ln{(1+B)} + \frac{x^2}{2 \delta } + \qty(\frac{1}{24 \delta } - \frac{1}{8 \delta ^2})x^4 - \frac{1}{24 \delta ^2}x^6
-\end{equation}
-\begin{remark}
-We have that \( x \equiv \beta z J m \).
-\end{remark}
-\begin{equation}
+\begin{equation*}
+  \frac{B}{1+B} = \frac{2 e^{-\beta \Delta } }{1 + 2 e^{-\beta \Delta } } = \frac{2}{2+ e^{\beta \Delta } } = \frac{1}{\delta}
+\end{equation*}
+Since \(\ln{(1+t)} = t - \frac{t^2}{2} \), we have
+\begin{equation*}
+  \Rightarrow \ln{A} = \ln{(1+B)} + \frac{x^2}{2 \delta } + \qty(\frac{1}{24 \delta } - \frac{1}{4 \delta ^2})x^4 - \frac{1}{24 \delta ^2}x^6
+\end{equation*}
+If we remember that \( x \equiv \beta z J m\), we obtain
+\begin{equation*}
 \begin{split}
-  - \frac{\ln{A} }{B} + \frac{z}{2} J m^2 - \Delta \simeq & a_0 (T,\Delta )
+  - \frac{\ln{A} }{\beta} + \frac{z}{2} J m^2 - \Delta \simeq & a_0 (T,\Delta )
   + \qty(\frac{z}{2}J - \frac{\beta z^2 J^2}{2 \delta })m^2 \\
   &+ \qty(\frac{1}{8 \delta }- \frac{1}{24 \delta })\beta ^3 z^4 J^4 m^4
   + \frac{1}{24 \delta ^2} \beta ^5 z^6 J^6 m^6
 \end{split}
-\end{equation}
-\begin{equation}
+\end{equation*}
+Hence, the free energy \(G\) for small values of \(m\) is 
+\begin{equation*}
   G (T, \Delta , J, m) = a_0 (T,\Delta ) + a(T, \Delta )m^2 + b (T, \Delta ) m^4 + c(T, \Delta )m^6
-\end{equation}
+\end{equation*}
 where
-\begin{subequations}
-\begin{align}
+\begin{subequations*}
+\begin{align*}
   a(T,\Delta ) &= \frac{z J}{2} \qty(1 - \frac{\beta z J}{\delta })   \\
   b(T,\Delta ) &= \frac{\beta ^3 z^4 J^4}{8 \delta } \qty(\frac{1}{\delta } - \frac{1}{3}) = \frac{\beta ^3 z^4 J^4}{8 \delta^2 } \qty(1 - \frac{\delta }{3})    \\
   c(T,\Delta ) &= \frac{\beta ^5 z^6 J^6}{24 \delta^2 } > 0
-\end{align}
-\end{subequations}
+\end{align*}
+\end{subequations*}
+\end{solution}
 
 \end{exercise}
 
@@ -524,137 +523,143 @@ with
 \begin{equation}
   Z_{TR} = e^{-\beta F_{TR}} = \sum_{\{ \Phi _i \}  }^{} e^{-\beta \mathcal{H}_{TR} ( \{ \Phi _i \}  )}
 \end{equation}
-If we are able to choose hamiltonian trial as here, we can do this sum, this is the idea. In principle, if we are able to find an Hamiltonian that we can solve without choosing a mean filed it is ok.
-
-Then, since
-\begin{equation}
+then, since
+\begin{equation*}
   \ln{\rho _{TR}} = - \beta \mathcal{H}_{TR} - \ln{Z_{TR}}
-\end{equation}
+\end{equation*}
 we have
-\begin{equation}
+\begin{equation*}
   k_B T \expval{\ln{\rho _{TR}} }_{\rho _{TR}} = k_B T \expval{\frac{- \mathcal{H}_{TR}}{k_B T}} + k_B T \underbrace{\expval{- \ln{Z_{TR}} } }_{\beta F_{TR}}
-\end{equation}
-\begin{equation}
+\end{equation*}
+By rearranging,
+\begin{equation*}
   k_B T \expval{\ln{\rho _{TR}} }_{\rho _{TR}} = \expval{- \mathcal{H}_{TR}} + F_{TR}
-\end{equation}
-\begin{equation}
-  \Rightarrow F_{var} = \expval{\mathcal{H}}_{\rho _{TR}} - \expval{\mathcal{H}_{TR}}_{\rho _{TR}}  + F_{TR}
+\end{equation*}
+Hence, the variational free energy becomes
+\begin{empheq}[box=\myyellowbox]{equation}
+  F_{var} = \expval{\mathcal{H}}_{\rho _{TR}} - \expval{\mathcal{H}_{TR}}_{\rho _{TR}}  + F_{TR}
   = \expval{\mathcal{H}- \mathcal{H}_{TR}}_{\rho _{TR}} + F_{TR}
-\end{equation}
+  \label{eq:13_1}
+\end{empheq}
 Clearly, \( F \le F_{var} \) and one has to look for the minima of \( F_{var} \) by varying \( \rho _{TR} \).
 Within this approach, the  mean field approximation is still given by
-\begin{equation}
+\begin{equation*}
   \rho _{TR}^{MF} (\Phi _1, \dots, \Phi _N) = \prod_{i=1}^{N} \rho _{TR}^{(1)} (\Phi _i)
-\end{equation}
+\end{equation*}
 that in this case becomes
 \begin{equation}
-  \prod_{i}^{} \rho _{TR}^{(1)} (\Phi _i) = \frac{1}{Z_{TR}^{MF}} e^{-\beta \sum_{i}^{} b_i \Phi _i  }
+  \prod_{i=1}^{N} \rho _{TR}^{(1)} (\Phi _i) = \frac{1}{Z_{TR}^{MF}} e^{-\beta \sum_{i}^{} b_i \Phi _i  }
 \end{equation}
 and
 \begin{equation}
   Z_{TR} = \sum_{\{ \Phi  \}  }^{}  e^{-\beta \sum_{i}^{} b_i \Phi _i  }
 \end{equation}
-where \( b_i \) are the variational parameters.
+where \( b_i \) are the variational parameters. The Hamiltonian is 
 \begin{equation}
   \mathcal{H}_{TR} = - \sum_{i}^{} b_i \Phi _i
 \end{equation}
-If we consider again the Ising model
-\begin{equation}
+If we consider again the Ising model (remind that it means \(\Phi_i \rightarrow S_i = \pm 1\)), the Hamiltonian is
+\begin{equation*}
   \mathcal{H} = - J \sum_{\expval{ij} }^{} S_i S_j - H \sum_{i}^{} S_i
-\end{equation}
-\begin{equation}
+\end{equation*}
+Hence, Eq.\eqref{eq:13_1} becomes
+\begin{equation*}
 \begin{split}
 F_{var}  &= \expval{\mathcal{H} - \mathcal{H}_{TR}}_{\rho _{TR}} + F_{TR}   \\
 & = F_{TR} + \expval{\qty(- J \sum_{\expval{ij} }^{} S_i S_j - H \sum_{i}^{} S_i    ) - \qty(- \sum_{i}^{} b_i S_i )  }_{\rho _{TR}} \\
 & = F_{TR} + \expval{-J \sum_{\expval{ij} }^{} S_i S_j + \sum_{i}^{} (b_i-H) S_i   }_{\rho _{TR}} \\
 & = F_{TR} - J \sum_{\expval{ij} }^{} \expval{S_i S_j}_{\rho _{TR}} + \sum_{i}^{} (b_i - H) \expval{S_i}_{\rho _{TR}}
 \end{split}
-\end{equation}
-Since \( \rho _{TR} = \prod_{i}^{} \rho _i  \),
-\begin{equation}
+\end{equation*}
+Since \( \rho _{TR} = \prod_{i=1}^{N} \rho _i  \), we have 
+\begin{equation*}
   \expval{S_i S_j}_{\rho _{TR}}  = \expval{S_i}_{\rho _{TR}}  \expval{S_j}_{\rho _{TR}}
-\end{equation}
-\begin{equation}
+\end{equation*}
+Therefore,
+\begin{equation*}
   F_{var} = F_{TR} - J \sum_{\expval{ij} }^{} \expval{S_i}_{\rho _{TR}}  \expval{S_j}_{\rho _{TR}}  + \sum_{i}^{} (b_i - H) \expval{S_i}_{\rho _{TR}}
-\end{equation}
-\begin{equation}
+\end{equation*}
+Let us minimize the last equation, we consider the condition:
+\begin{equation*}
   \pdv{F_{var}}{b_i} = 0, \quad \forall i
-\end{equation}
-\begin{equation}
-  0 = \pdv{F_{var}}{b_i} = \qty[-J \sum_{j \, n.n. \, i}^{} \expval{S_i}_{\rho _{TR}}  + b_i - H  ] \pdv{\expval{S_i} }{b_i}
-\end{equation}
-or
-\begin{equation}
-  b_i = J \sum_{j \, n.n. \, i}^{} \expval{S_j}_{\rho _{TR}} + H
-\end{equation}
-\begin{equation}
+\end{equation*}
+which gives
+\begin{equation*}
+  0 = \pdv{F_{var}}{b_i} = \qty[-J \sum_{j \in \, n.n. \, i}^{} \expval{S_i}_{\rho _{TR}}  + b_i - H  ] \pdv{\expval{S_i} }{b_i}
+\end{equation*}
+The variational parameters are equal to
+\begin{equation*}
+  b_i = J \sum_{j\in \, n.n. \, i}^{} \expval{S_j}_{\rho _{TR}} + H
+\end{equation*}
+Let us calculate the average of the spin \( \expval{S_i}_{\rho _{TR}} \):
+\begin{equation*}
 \begin{split}
 \expval{S_i}_{\rho _{TR}}    &= \frac{1}{Z_{TR}} \sum_{\{ S \}  }^{} S_i e^{\beta \sum_{k}^{} S_k b_k } = \frac{\prod_{k}^{}  \sum_{S_k}^{} S_i e^{\beta S_k b_k}   }{\prod_{k}^{} \sum_{S_k}^{} e^{\beta S_k b_k}    }  \\
-& = \frac{\sum_{S_i = \pm 1}^{} S_i e^{\beta S_i b_i}  }{\sum_{S_i = \pm 1}^{} e^{\beta S_i b_i}   } = \frac{\cosh (\beta b_i)}{\sinh (\beta b_i)} \\
-&= \tanh (\beta b_i)
+& = \frac{\sum_{S_i = \pm 1}^{} S_i e^{\beta S_i b_i}  }{\sum_{S_i = \pm 1}^{} e^{\beta S_i b_i}   } = \frac{\sinh (\beta b_i)}{\cosh (\beta b_i)} 
+= \tanh (\beta b_i)
 \end{split}
-\end{equation}
+\end{equation*}
+Finally, the variational parameters are 
 \begin{equation}
-  b_i = J \sum_{j \, n.n. \, i}^{} \tanh (\beta b_j) + H
+  b_i = J \sum_{j \in \, n.n. \, i}^{} \tanh (\beta b_j) + H
 \end{equation}
 \begin{remark}
 The main step to understand is how to derive \( F_{var} \) from a \( \rho _{TR} \).
 This is nice to see a variation with respect to the real hamiltonian.
-Consider a bunch of data, for instance a million of configuration, which is the distribution of the configuration? Usually, we build up a model with a distribution that depends on parameters and what we want to do is statistical inference. Starting from the model and the data we have to obtain the real distribution. (lesson)
+Consider a bunch of data, for instance a million of configuration, which is the distribution of the configuration? Usually, we build up a model with a distribution that depends on parameters and what we want to do is statistical inference. Starting from the model and the data we have to obtain the real distribution. 
 \end{remark}
 
 \begin{exercise}{}{}
 Consider again the antiferromagnetic Ising model
-\begin{equation}
+\begin{equation*}
   \mathcal{H}[\{ S \}  ] = - J \sum_{\expval{\va{r}_A \va{r}_B} }^{} S (\va{r}_A) S(\va{r}_B) - H \sum_{\va{r}_A}^{} S (\va{r}_A) + H \sum_{\va{r}_B}^{} S (\va{r}_B)
-\end{equation}
-where \( J>0 \) and \( H>0 \).
+\end{equation*}
+whith \( J>0 \) and \( H>0 \). Remember that
 \begin{itemize}
 \item \( \va{r}_A \) denotes the site on the \( A \) sublattice.
 \item \( \va{r}_B \) denotes the site on the \( B \) sublattice.
 \end{itemize}
 
-Let us find again the mean-field solution but now using the variational ansatz
-\begin{equation}
+Let us find again the mean-field solution, but now using the variational ansatz
+\begin{equation*}
   F \le F_{var} = \expval{\mathcal{H}}_{\rho _{TR}} - \expval{\mathcal{H}_{TR} }_{\rho _{TR}}  + F_{TR} = \expval{\mathcal{H} - \mathcal{H}_{TR}}_{\rho _{TR}} + F_{TR}
-\end{equation}
+\end{equation*}
 \begin{remark}
   Since the problem can be splitted in two sublattices, it is convenient to use
-  \begin{equation}
+  \begin{equation*}
     \mathcal{H}_{TR} = - H_A \sum_{r_A}^{} S(r_A) - H_B \sum_{r_B}^{}  S(r_B)
-  \end{equation}
+  \end{equation*}
 \end{remark}
-
+In particular:
 \begin{itemize}
-\item Show that \( F_{var} \) has the following expression:
-\begin{equation}
+\item show that \( F_{var} \) has the following expression:
+\begin{equation*}
 \begin{split}
 F_{var}  = &  F_{TR} (\beta H_A, \beta H_B)
 - 4 NJ \expval{S_A}_{\rho _{TR}}  \expval{S_B}_{\rho _{TR}} \\
  &- \frac{1}{2} NH \qty(\expval{S_A}_{\rho _{TR}}
  - \expval{S_B}_{\rho _{TR}}   )
- + \frac{1}{2} N \qty(H_A \expval{S_A}_{\rho _{TR}}  + \expval{S_B}_{\rho _{TR}}   )
+ + \frac{1}{2} N \qty(H_A \expval{S_A}_{\rho _{TR}}  + H_B \expval{S_B}_{\rho _{TR}}   )
 \end{split}
-\end{equation}
-
+\end{equation*}
 where
-\begin{subequations}
-\begin{align}
+\begin{subequations*}
+\begin{align*}
    \expval{S_A}_{\rho _{TR}}  & \equiv m_A + n \\
     \expval{S_B}_{\rho _{TR}}  & \equiv m_B - n
-\end{align}
-\end{subequations}
+\end{align*}
+\end{subequations*}
 with \( m=m_A+m_B \), and
-\begin{subequations}
-\begin{align}
+\begin{subequations*}
+\begin{align*}
    m_A &= \tanh ( \beta H - 4 \beta J m_B) \\
     m_B &= \tanh ( \beta H - 4 \beta J m_A)
-\end{align}
-\end{subequations}
-\item Expand the free energy \( F_{var} \) in powrs of \( m \) of the form
-\begin{equation}
+\end{align*}
+\end{subequations*}
+\item Expand the free energy \( F_{var} \) in powers of \( m \) of the form
+\begin{equation*}
   F_{var} = A + B m^2 + c m^4 + O (m^6)
-\end{equation}
+\end{equation*}
 and find the explicit expression of \( A,B \) and \( C \) as a function of \( T,H \) and \( n \).
 \end{itemize}
 

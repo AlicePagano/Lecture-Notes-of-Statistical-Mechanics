@@ -166,7 +166,7 @@ The idea is trying to simplify the problem by neglecting the correlation between
 
 
 
-\subsection{Mean field for the Ising model}
+\subsection{Mean field for the Ising model (Weiss mean field)}
 Let us start from the generic Ising model
 \begin{equation}
   \mathcal{H} [\{ S \}  ] =  -\frac{1}{2} \sum_{ij}^{} J_{ij} S_i S_j - H \sum_{i}^{} S_i
@@ -258,7 +258,10 @@ The partition function becomes
 \begin{equation}
 \begin{split}
   Z_N (T,H,\hat{J} ) &= e^{-N \beta \hat{J} \frac{z}{2} m^2 }  \sum_{\{ S \}  }^{} e^{\beta  (\hat{J}zm+H )\sum_{i=1}^{N} S_i }   \\
-  & = e^{-N \beta \hat{J} \frac{z}{2} m^2 } \prod_{i=1}^{N}  \sum_{S = \pm 1}^{} \exp (\beta  \qty(\hat{J}zm+H ) S_i )   \\
+  & = e^{-N \beta \hat{J} \frac{z}{2} m^2 } 
+   \sum_{\{ S \}}^{} \prod_{i=1}^{N}  \exp (\beta  \qty(\hat{J}zm+H ) S_i )   \\
+  & = e^{-N \beta \hat{J} \frac{z}{2} m^2 } 
+   \qty( \sum_{S=\pm1}^{}  \exp (\beta  \qty(\hat{J}zm+H ) S ) )^N  \\
   & = e^{-N \beta \hat{J} \frac{z}{2} m^2 } \qty(2 \cosh \qty[\beta \qty(\hat{J}zm+H ) ] )^N
 \end{split}
 \end{equation}
@@ -351,26 +354,31 @@ We have three cases:
 
 \begin{itemize}
 \item Case \( \beta \hat{J} z > 1 \Rightarrow A<0 \): two stable symmetric minima at \( m= \pm m_0 \) (Figure \ref{fig:11_2}). Coexistence between the two ordered phases.
+\item Case \( \beta \hat{J} z < 1 \Rightarrow A>0 \): one minimum at \( m=0 \) (Figure \ref{fig:11_3}).
+\item Case \( \beta \hat{J} z = 1 \Rightarrow A=0 \): 3 minima coincide at \( m=0 \) (Figure \ref{fig:11_4}).
+\end{itemize}
+
+\begin{remark}
+Note that in the computations we have just made we have never imposed a particular value for the dimensionality of the system. This means that the results of this approximation should be valid also for \(d=1\), but we know that in one dimension the Ising model does not exhibit a phase transition. This is an expression of the fact that in the one-dimensional case mean field theory is not a good approximation (again, the dimensionality of the system is still too low).
+\end{remark}
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/11_image/2.pdf}
 \caption{\label{fig:11_2} Plot of the free energy: case \( \beta \hat{J} z > 1 \Rightarrow A<0 \).}
-\end{figure}
-
-\item Case \( \beta \hat{J} z < 1 \Rightarrow A>0 \): one minimum at \( m=0 \) (Figure \ref{fig:11_3}).
+\end{figure} 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/11_image/3.pdf}
 \caption{\label{fig:11_3} Plot of the free energy: case \( \beta \hat{J} z < 1 \Rightarrow A>0 \).}
 \end{figure}
-
-\item Case \( \beta \hat{J} z = 1 \Rightarrow A=0 \): 3 minima coincide at \( m=0 \) (Figure \ref{fig:11_4}).
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/11_image/4.pdf}
 \caption{\label{fig:11_4} Plot of the free energy: case \( \beta \hat{J} z = 1 \Rightarrow A=0 \).}
 \end{figure}
-\end{itemize}
+
+
 
 
 

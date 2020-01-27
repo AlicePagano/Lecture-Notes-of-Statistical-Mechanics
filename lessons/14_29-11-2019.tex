@@ -12,48 +12,50 @@
 \marginpar{ \textbf{Lecture 14.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
 \section{Mean field theory for fluids}
-Fluid system of \( N \) particles with position vectors \( \{ \va{r}_i \}_{i=1,\dots,N}   \). The configurational (grancanonical) partition function is (we can do Gaussian integrals)
-\begin{equation}
-  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}_i}  \exp [-\beta \Phi (\{ \va{r} \}  ) - \beta \sum_{i=1}^{N} \psi _{ext}  (\va{r}_i)]
-\end{equation}
-where \( \psi _{ext} \) is a one body potential, but we do not consider it because is not the aim of our problem.
 
-In general,
-\begin{equation}
-  \Phi (\{ \va{r}_i \}  ) = \sum_{i,j>i}^{}  U_2 (\va{r}_i,\va{r}_j) + \sum_{i,j, \mu }^{} U_3 (\va{r}_i, \va{r}_j, \va{r}_ \mu ) + \dots
-\end{equation}
-but we forgot about \( U_3 \) that is the three body interaction.
+Ideal gases are exceedingly idealised systems and are not suited to describe the behaviour of real systems: they always obey the same state equation and never undergo phase transitions (for example they never condense). We must therefore step a little further: using the "philosophy" of mean field theories we can make the description of fluids a little bit more realistic. As we will see this will also lead to the derivation of the Van der Waals equation, which better describes the behaviour of real fluids (even if, as we will shortly see, it still has some problems).
 
- We consider
+In general, in a real gas all the atoms or molecules interact through a certain potential \(\Phi(\{\va{r}_i\})\) that will depend on the positions of all the particles. For a fluid system of  \( N \) particles  with position vectors \( \{ \va{r}_i \}_{i=1,\dots,N}   \), the configurational contribution to the (grancanonical) partition function will therefore be:
+
 \begin{equation}
+  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}_i}  e^ {-\beta  \qty( \Phi(\{\va{r}_i\}) + \sum_{i=1}^{N} \psi _{ext}  (\va{r}_i) ) }
+\end{equation}
+where \( \psi _{ext} \) is a one body external potential, but we do not consider it because is not the aim of our problem. In general,
+\begin{equation*}
+  \Phi (\{ \va{r}_i \}  ) = \sum_{i\neq j}^{}  U_2 (\va{r}_i,\va{r}_j) + \sum_{i\neq j\neq \mu }^{} U_3 (\va{r}_i, \va{r}_j, \va{r}_ \mu ) + \dots
+\end{equation*}
+(where \(U_{n} \) can be a generic \(n\)-body interaction potential). For simplicity, we do not consider \( U_3 \), that is the three body interaction. Let us suppose
+\begin{equation*}
    U_2 (\va{r}_i,\va{r}_j) \rightarrow U_2 ( \abs{\va{r}_i - \va{r}_j} )
-\end{equation}
+\end{equation*}
 Therefore,
-\begin{equation}
-  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \sum_{i,j > i }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) ]
-\end{equation}
+\begin{equation*}
+  Q_N (T) = \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}_i}  e^ {-\beta \sum_{i\neq j }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) }
+\end{equation*}
 Now, we replace all this story with just a field, it is a sort of average of the interactions. Doing the mean field assumption for \( U_2 \), we obtain
-\begin{equation}
+\begin{equation*}
   \sum_{i,j > 1 }^{}  U_2 ( \abs{\va{r}_i - \va{r}_j} ) \rightarrow \sum_{i}^{} \Phi _{MF} (\va{r}_i)
+\end{equation*}
+
+Generally \(\psi _{ext}\) does not pose great problems while it is \(\Phi\) that makes \( Q_{N}\) impossible to compute exactly, forcing us to resort to approximations. In the framework of mean field theories, we substitute the interaction potential \(\Phi\) with an effective single-particle potential  that acts on every particle in the same way. Hence,  the \textit{mean field approximation}  consists in substituting the multi-body interaction potential \(   \Phi (\{ \va{r}_i \}  ) \) with an effective one body potential \( \Phi (\va{r}) \) withing which all the particles move:
+\begin{empheq}[box=\myyellowbox]{equation}
+\Phi (\{ \va{r}_i \})   =\sum_{i}^{} \Phi _{MF} (\va{r}_i)
+\end{empheq}
+As said, for simplicity consider \( \psi _{ext} = 0 \), hence mean field theories allow us to compute \(Q_N\) as
+\begin{equation}
+  Q_N^{MF} (T) \simeq \qty[  \int_{V}^{}  \dd[D]{\va{r}}  e^ {-\beta \Phi _{MF} (\va{r})  } ]^N
 \end{equation}
 
-In particular, the \textbf{mean field approximation}  consists in substituting the multi-body interaction potential \(   \Phi (\{ \va{r}_i \}  ) \) with an effective one body potential \( \Phi (\va{r}) \) withing which all the particles move.
-\begin{equation}
-\Phi (\{ \va{r}_i \})   =\sum_{i}^{} \Phi _{MF} (\va{r}_i)
-\end{equation}
-As said, for simplicity consider \( \psi _{ext} = 0 \), hence
-\begin{equation}
-  Q_N (T) \simeq \qty[  \int_{V}^{} \prod_{i=1}^{N}  \dd[]{\va{r}}  \exp [-\beta \Phi _{MF} (\va{r})  ] ]^N
-\end{equation}
 \begin{remark}
-The integral depends on the form of \( \Phi _{MF} (\va{r})  \).
+The integral depends on the form of \( \Phi _{MF} (\va{r})  \). Of course, every particular mean field theory will provide a different form of \( \Phi _{MF} (\va{r})  \) which will lead to different results.
 \end{remark}
-If one assumes the \emph{spatial isotropy},
+
+If one assumes \emph{spatial isotropy},
 what it is important is not anymore the vector but only the distance; hence, it is important just the integral over the modulus:
-\begin{equation}
+\begin{equation*}
     \Phi _{MF} (\va{r}) = \Phi _{MF} (\abs{\va{r}} ) = \Phi _{MF} (r)
-\end{equation}
-In general
+\end{equation*}
+In general,
 \begin{equation}
 \Phi _{MF} (r) =
   \begin{cases}
@@ -67,25 +69,27 @@ as plotted in Figure \ref{fig:14_1}.
 \includegraphics[width=0.6\textwidth]{../lessons/14_image/1.pdf}
 \caption{\label{fig:14_1} Plot of the potential \( \Phi _{MF} (r) \).}
 \end{figure}
-Moreover,
-\begin{equation}
+
+
+\noindent The partition function becomes
+\begin{equation*}
   Q_N^{MF} (T) = \qty[ V_{ex}e^{- \infty } + (V-V_{ex})e^{-\beta u} ]^N
-\end{equation}
-where \( V_{ex} \simeq r_0^3 \) is the volume not accessible by the particle.
+\end{equation*}
+where \( V_{ex} \simeq r_0^3 \) is the volume not accessible by the particle. Finally, the result is 
 \begin{equation}
   Q_N^{MF} (T) = \qty[ (V-V_{ex})e^{-\beta u} ]^N
 \end{equation}
-The free energy is
-\begin{equation}
+The free energy is \( F_N = -k_B T \ln Q_N \), hence 
+\begin{empheq}[box=\myyellowbox]{equation}
   F_N^{MF} (T) = - N k_B T \qty[ \ln{(V-V_{ex})} - \beta u ]
-\end{equation}
-The pressure is
+\end{empheq}
+Let us calculate the pressure 
 \begin{equation}
   P_N^{MF} = - \eval{\pdv{F_N^{MF}}{V} }_T = \frac{N k_B T}{V-V_{ex}} - N \qty(\pdv{u}{V} )_T
   \label{eq:14_1}
 \end{equation}
 \begin{remark}
-In general, the deep \( u \)  can go up and down depending on the \emph{V}: \( u = u (V) \). This is becous \( u \) is the attractive well of the mean field potential and, for \( r \ge r_0 \) must be proportional to the fluid density
+In general, the deep \( u \)  can go up and down depending on the \emph{V}: \( u = u (V) \). This is because \( u \) is the attractive well of the mean field potential and, for \( r \ge r_0 \) must be proportional to the fluid density
 \begin{equation*}
   u \sim -N/V
 \end{equation*}

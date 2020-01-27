@@ -253,14 +253,14 @@ that agree with previous calculation (see Eq.\eqref{eq:9_3}).
 \end{remark}
 
 
-\section{Transfer matrix for \emph{2-dim} Ising}
+\section{Transfer matrix for \(\pmb{2-dim}\) Ising}
 %The bibliography of this section is  \cite{9_lesson_1},\cite{9_lesson_2},\cite{9_lesson_3}.
 The two-dimensional Ising model for a system of interacting spins on a square lattice is one of the very few nontrivial many-body problems that is exactly soluble and shows a phase transition \cite{9_lesson_2}. 
-The exact solution in the absence of an external magnetic field (\(H=0\)) was first given almost eighty years ago in a famous paper by Onsager \cite{9_lesson_1}, using the theory of Lie algebras.
+The exact solution in the absence of an external magnetic field (\(H=0\)) was first given almost eighty years ago in a famous paper by Onsager \cite{9_lesson_1}, using the theory of Lie algebras. In particular, from Onsager's solution we can see that already in two dimensions an Ising model can exhibit phase transitions, showing a non null spontaneous magnetization for temperatures low enough.
 
 %Dimensional reducation from \emph{d} to \emph{d-1}. You can do the same for the 3D Ising model. In order to go smoothly to the one dimensional to the two dimensional the idea is to solve the Ising model to surfaces.
 
-Let us consider a square lattice with \emph{N} rows and \emph{M} columns, as in Figure \ref{fig:9_4}, with periodic boundary conditions (wrapped around a torus).
+Let us therefore consider a two-dimensional Ising model, defined on a lattice made of \emph{N} rows and \emph{M} columns, as in Figure \ref{fig:9_4}. We apply periodic boundary conditions to the system in both directions (geometrically, this can be thought of as defining the model on a torus), and we  consider only nearest neighbour interactions.
 The spin in a site is identified by \( S_{\text{site}} = S_{m,n} \).
 
 \begin{figure}[h!]
@@ -269,8 +269,7 @@ The spin in a site is identified by \( S_{\text{site}} = S_{m,n} \).
 \caption{\label{fig:9_4} 2-dimensional Ising lattice of \(N\) rows and \(M\) columns.}
 \end{figure}
 
-We consider a set of spin arranged on a square lattice, interacting only with nearest neighbors and with a magnetic field \(H  \neq 0 \). 
-Let the Hamiltonian be
+We consider a set of spin arranged on a square lattice, interacting only with nearest neighbors and with a magnetic field \(H  \neq 0 \).  The reduced Hamiltonian of the system will be:
 \begin{equation*}
 \begin{split}
   -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) &= K \sum_{\expval{ij} }^{} S_i S_j + h \sum_{i}^{} S_i  \\
@@ -312,35 +311,39 @@ According to the formalism
 \begin{equation*}
   Z_{N} (K,h) = \Tr(\mathbb{T}^N)
 \end{equation*}
-To find the eigenvalues of \( \mathbb{T} \) given by  \eqref{eq:9_2} is highly non trivial. The big problem it is that in the thermodynamic limit is that the dimension of the transfer matrix goes to infinity, then it is difficult to be diagonalized. This was first achieved by Onsanger in 1944, as said, for the case \( H=0 \) and in the \( N \rightarrow \infty  \) limit. 
-
-The result is given by
+To find the eigenvalues of \( \mathbb{T} \) given by  \eqref{eq:9_2} is highly non trivial. The big problem it is that in the thermodynamic limit is that the dimension of the transfer matrix goes to infinity, then it is difficult to be diagonalized. This was first achieved by Onsanger in 1944, as said, for the case \( H=0 \) and in the \( N \rightarrow \infty  \) limit. Onsanger has shown that the free energy of the system is given by
 \begin{equation}
   f_b (T) = -k_B T \log{\qty(2 \cosh(2 \beta J))- \frac{k_B T}{2 \pi} \int_{0}^{2\pi} \log{\qty[\frac{1}{2}\qty(1+ \sqrt{1-g^2 \sin^2(\Phi) } )] } \dd[]{\Phi }  }
 \end{equation}
-that is the density bulk free energy, where
-\begin{equation}
-  g = \frac{2}{\cosh(2 \beta J)\coth(2 \beta J)}
-\end{equation}
-The equation for the critical \emph{T} is
+ where
 \begin{equation*}
-  2 \tanh^2 \qty(\frac{2J}{k_B T_c}) = 1 \quad \Rightarrow T_c \simeq 2,264 J/k_B \neq 0
+  g = \frac{2}{\cosh(2 \beta J)\coth(2 \beta J)}
 \end{equation*}
-hence, we have a phase transition at a critical temperature different from 0!
+and also that the magnetization is:
+\begin{equation}
+ m= \begin{cases}
+ \left[1-\sinh ^{-4}(2\beta J)\right]^{1/8}&T<T_{c}\\
+ 0&T>T_{c}
+ \end{cases}    
+\end{equation}
+where \(T_c\) is the temperature given by the condition
+\begin{equation*}
+  2 \tanh^2 \qty(\frac{2J}{k_B T_c}) = 1 
+\end{equation*}
+ which yields the numeric result:
+ \begin{equation*} \Rightarrow T_c \simeq 2,264 J/k_B \neq 0
+\end{equation*}
+hence, we have a phase transition at a critical temperature \(T_c\) different from 0!
 
-One can also show that
+Onsager also showed that the critical exponents of this model are:
+\begin{equation*}
+\alpha =0,\quad \beta=\frac{1}{8}, \quad \gamma = \frac{7}{4}
+\end{equation*}
+where \(\alpha=0\)  because the specific heat diverges logarithmically for \(T \sim T_c\):
 \begin{equation*}
   c \propto A \qty[-\ln{\qty(1- \frac{T}{T_c}) } + B  ]
 \end{equation*}
-It means that the specific heat displays at the transition a logarithmic divergence (no power law!). Therefore, we have
-\begin{equation*}
-\alpha _{\text{\tiny Ising 2D}} =0
-\end{equation*}
-\begin{remark}
-We can do Montecarlo simulation.
-\end{remark}
-
-
+It means that the specific heat displays at the transition a logarithmic divergence (no power law!).
 
 
 
