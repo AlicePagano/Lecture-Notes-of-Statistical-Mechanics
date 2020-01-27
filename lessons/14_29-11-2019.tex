@@ -55,7 +55,9 @@ what it is important is not anymore the vector but only the distance; hence, it 
 \begin{equation*}
     \Phi _{MF} (\va{r}) = \Phi _{MF} (\abs{\va{r}} ) = \Phi _{MF} (r)
 \end{equation*}
-In general,
+
+\section{Van der Waals equation}
+The Van der Waals equation can be obtained considering the atoms of a gas as hard spheres. In this case, in fact, the mean field has the form:
 \begin{equation}
 \Phi _{MF} (r) =
   \begin{cases}
@@ -93,127 +95,130 @@ In general, the deep \( u \)  can go up and down depending on the \emph{V}: \( u
 \begin{equation*}
   u \sim -N/V
 \end{equation*}
-where the minus sign means attraction. On the other hand, also \( V_{ex} \), the volume not accessible, must be proportional to \( N \),
+where the minus sign means attraction. On the other hand, also \( V_{ex} \), the volume not accessible, must be proportional to \( N \).
+\end{remark}
+Hence, we have
 \begin{equation*}
-  V_{ex} = b N  \quad  \Rightarrow u = - a \frac{N}{V}
+  u = - a \frac{N}{V}, \qquad V_{ex} = b N  
 \end{equation*}
 where \( b \) is the volume of a single particle.
-\end{remark}
 Inserting the last term in \eqref{eq:14_1}, we obtain the \emph{Van der Walls equation of state}:
-\begin{equation}
+\begin{empheq}[box=\myyellowbox]{equation}
   P_N^{MF} (V,T) = \frac{N k_B T}{V-bN} - a \qty(\frac{N}{V})^2
   \label{eq:14_2}
-\end{equation}
-\section{Equation of state and critical point}
-Let us define the specific volume
-\begin{equation}
+\end{empheq}
+
+
+
+\subsection{Critical point of Van der Waals equation of state}
+Let us define the specific volume as
+\begin{equation*}
   v \equiv \frac{1}{\rho } = \frac{V}{N}
-\end{equation}
-Hence,
+\end{equation*}
+Hence, the equation of state becomes
 \begin{equation}
 P = \frac{K_B T}{v - b} - \frac{a}{v^2}
 \end{equation}
-We have this effect because it is a mean field, so the curve in Figure \ref{fig:14_2_1} it is replaced by the curve in Figure \ref{fig:14_2_2}.
+
+The behaviour of the Van der Waals isotherms is shown in Figure \ref{fig:14_2_1}. As we can see this changes with the temperature and resembles that of real isotherms; however, Van der Waals isotherms are always analytic and have a non physical behaviour in certain regions of \( (v,P)\) plane, called spinodal curves, if \( T < T_c\): for some values of \(v\) we have \( \partial P / \partial v >0\) which is physically impossible. This is a consequence of the roughness of the approximation we have made, since it can be shown that it doesn't ensure that the equilibrium state of the system globally minimizes the Gibbs free energy. As we will shortly see, however, this problem can be solved "by hand" with Maxwell's equal area rule, or Maxwell's Construction. Overall, we have this effect because it is a mean field, so the curve in Figure \ref{fig:14_2_1} it is replaced by the curve in Figure \ref{fig:14_2_2}.
+Moreover, for \( T < T_c \) the equation \( P(v) = const \) has 3 distinct solutions. For \( T > T_c \) only one solution \( \in \R \).
+
+
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
-\subfloat[][Description]{ \includegraphics[width=0.9\textwidth]{../lessons/14_image/2.pdf}  \label{fig:14_2_1} }
+\subfloat[][ Van der Waals isotherms are represented in red in \( (v,P) \) diagram for different values of \(T\). ]{ \includegraphics[width=0.9\textwidth]{../lessons/14_image/2.pdf}  \label{fig:14_2_1} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{\includegraphics[width=0.9\textwidth]{../lessons/14_image/3.pdf}  \label{fig:14_2_2} }
+\subfloat[][Real isotherm in \( (v,P)\) diagram for \(T<T_c\). ]{\includegraphics[width=0.9\textwidth]{../lessons/14_image/3.pdf}  \label{fig:14_2_2} }
 \end{minipage}
 \caption{\label{fig:} }
 \end{figure}
 
-For \( T < T_c \) the equation \( P(v) = const \) has 3 distinct solutions. For \( T > T_c \) only one solution \( \in \R \).
+Let us now see how to determine the critical point of a system obeying Van der Waals equation.
 
 \begin{itemize}
-\item
-The \emph{inflection point condition} at \( T = T_c \) is
-\begin{equation}
-  \pdv{P}{v} = \pdv[2]{P}{v} = 0
-\end{equation}
-and these are the critical point conditions. The second in particular means that there is a flex point. Let us pay attention to it, indeed it is a standard way to find critical points.
-We obtain  \( v_c = 3 b \):
-\begin{equation}
-  P_c = \frac{a}{27 b^2}, \quad k_B T_c = \frac{8a}{27b}
-\end{equation}
-and
-\begin{equation}
-  \frac{P_c v_c}{k_B T_c} = \frac{3}{8}  \approx 0.375
-\end{equation}
+\item First of all, from the representation of the isotherms we can see that the critical point is a flex for the critical isotherm (i.e. the one with \(T=T_c\)); in other words, we can determine the critical point from the equations:
+\begin{equation*}
+  \pdv{P}{v} = 0, \qquad \pdv[2]{P}{v} = 0
+\end{equation*}
+ The second in particular means that there is a flex point. Let us pay attention to it, indeed it is a standard way to find critical points.
+We obtain 
+\begin{equation*}
+  v_c = 3 b, \quad  P_c = \frac{a}{27 b^2}, \quad k_B T_c = \frac{8a}{27b}
+\end{equation*}
 
-\item Another way to find the critical point consists in noticing that at \( T=T_c \), the 3 solutions coincide.
-Let us rewrite the equation of state
-\begin{equation}
+
+\item Another way to find the critical point consists in noticing that at \( T=T_c \), the 3 solutions coincide. In fact, we can note that the equation \(P (v)= P = const \) is cubic in \(v\). Let us rewrite the Van der Waals equation 
+\begin{equation*}
   P = \frac{v^2 k_B T - a (v-b)}{v^2 (v-b)}
-\end{equation}
+\end{equation*}
 as
 \begin{equation}
   v^3 - \qty(b + \frac{k_B T}{P})v^2 + \frac{a}{P} v - \frac{a b }{P} = 0
   \label{eq:14_3}
 \end{equation}
-Since at \( T=T_c \) the 3 solutions coincide, equation  \eqref{eq:14_3} must be of the form
-\begin{equation}
+For \(T>T_c\) this equation has one real solution and two imaginary ones, and for \(T<T_c\)  three distinct real solutions; when \(T=T_c\) the three solutions of the equation coincide. This means that at the critical point \( T=T_c \) this last equation Eq.\eqref{eq:14_3}  must be written in the form:
+\begin{equation*}
   (v-v_c)^3 = 0 \quad \Rightarrow v^3 - 3 v^2 v_c + 3 v v_c^2 - v_c^3 = 0
-\end{equation}
-and, by identifying its coefficients with the ones in \eqref{eq:14_3} one gets
-\begin{equation}
+\end{equation*}
+Equating the coefficients with Eq.\eqref{eq:14_3} we get:
+\begin{equation*}
   v_c^3 = \frac{a b}{P_c}, \quad 3 v_c^2 = \frac{a}{P_c}, \quad 3 v_c = b + \frac{k_B T_c}{P_c}
-\end{equation}
-Giving
+\end{equation*}
+from which we have again:
 \begin{equation}
   v_c = 3 b, \quad P_c = \frac{a}{27 b^2}, \quad k_B T_c = \frac{8 a }{27 b }
   \label{eq:14_4}
 \end{equation}
-From the relations \eqref{eq:14_4}, it is clear that it is sufficient to estimate the \( a \) and \( b \) coefficients of a gas using the equation of state at \( T \) sufficiently high to estimate its critical values, \( v_c \), \( T_c \) and \( P_c \).
-Moreover, one can show that
-\begin{equation}
+We have found a very interesting result: in fact, if we can measure \(a\) and \(b\) at high temperatures then we are able to determine the critical point of the system.
+
+This model has also an interesting property, since it predicts that:
+\begin{equation*}
     \frac{P_c v_c}{k_B T_c} = \frac{3}{8}  \approx 0.375
-\end{equation}
-It is an universal ratio whose value does not depends on either \( a \) or \( b \).
+\end{equation*}
+which is a universal number, independent of \(a\) and \(b\) and so of the particular fluid considered. Experimentally this ratio is approximately 0.29 for Argon, 0.23 for water and 0.31 for  \( \text{He}^4 \).
+Therefore, even if it is very rough, this model leads to reasonable conclusions.
+
 \end{itemize}
 
-\subsection{Law of the correspondent states}
+
+
+\subsection{Law of corresponding states}
 The universal value of the ratio \( \frac{P_c v_c}{k_B T_c} \) suggests a deeper correspondence between different fluid systems.
-
-Let us rewrite the Van der Walls equation of state \eqref{eq:14_2} in adimensional form
+We can also rewrite Van der Waals equation \eqref{eq:14_2} in a dimensionless form, rescaling the thermodynamic quantities of the system. In particular, defining:
 \begin{equation}
-  \pi \equiv \frac{P}{P_c}, \quad \nu  \equiv \frac{v}{v_c}, \quad \tau \equiv \frac{T}{T_c}
+  \pi \equiv \frac{P}{P_c}= P\frac{27b^2}{a}, \quad \nu  \equiv \frac{v}{v_c} = \frac{v}{3b}, \quad \tau \equiv \frac{T}{T_c} = k_B T\frac{27b}{8a}
 \end{equation}
-The result is
-\begin{equation}
+Van der Waals equation becomes:
+\begin{empheq}[box=\myyellowbox]{equation}
   \qty(\pi + \frac{3}{\nu ^2}) \qty(3 \nu -1) = 8 \tau
-\end{equation}
-\begin{remark}
-When rescaled by \( P_c, v_c \) and \( T_c \), the thermodynamic variables \( P,v \) and \( T \) of the Van der Walls fluids, follow the same equation of state! The Van der Walls theory describes the law of correspondent states found experimentally.
-\end{remark}
+\end{empheq}
+We have found another very interesting result: when rescaled by their critical thermodynamic properties (by \( P_c, v_c \) and \( T_c \)), all fluids obey the same state equation. This is the law of corresponding states: this is a form of universality. The law of corresponding states applies everywhere on the phase diagram. It can even be shown that this law is a consequence of dimensional analysis, and is more general than what might seem: experimentally the law of corresponding states is well satisfied also by fluids which do not obey Van der Waals equation.
 
-\section{Region of coexistence and Maxwell construction}
-In real fluids, for \( T < T_c \) \( (\tau < 1) \), there is a first order liquid-gas transition with coexistence between vapor and liquid phase and non analiticity of the thermodynamic potential. In particular, an isotherm for \( T < T_c \) is the one in Figure \ref{fig:14_2_2}. How this is described by the mean-field (i.e. Van der Walls) theory?
 
-The Van der Walls isotherm is given by the graphic in Figure \ref{fig:14_3}.
+
+\subsection{Region of coexistence and Maxwell's equal area rule}
+In real fluids, for \( T < T_c \) \( (\tau < 1) \), there is a first order liquid-gas transition with coexistence between vapor and liquid phase and non analiticity of the thermodynamic potential. In particular, a real isotherm for \( T < T_c \) is the one in Figure \ref{fig:14_2_2}. How this is described by the mean-field (i.e. Van der Walls) theory?
+The Van der Walls isotherm for \(T<T_c\) is given by the graphic in Figure \ref{fig:14_3}.
 The liquid phase goes into a phase region that is not thermodinamycally stable.
-
-How can we remove the non physical regions of the Van der Walls equation of state and describe coexistence? The solution is the Maxwell (or equal area) construction.
+How can we remove the non physical regions of the Van der Walls equation of state and describe coexistence? The solution is the Maxwell (or equal area) construction!
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/14_image/4.pdf}
-\caption{\label{fig:14_3} Description.}
+\caption{\label{fig:14_3} Van der Waals isotherm for \(T<T_c\).}
 \end{figure}
 
 
-\subsection{Equal area or Maxwell construction}
-\begin{remark}
-The coexistence regions are characterised by having the same pressure (mechanical equilibrium) and same temperature (thermal equilibrium).
-\end{remark}
+\subsubsection{Equal area or Maxwell construction}
+As we have previously anticipated, Maxwell's equal area rule is a method to "manually" remove the unphysical regions of Van der Waals isotherms.
 
-Since
-\begin{equation}
-  \mu \equiv \frac{G}{N} = \frac{F+PV}{N}
-\end{equation}
-we have
+From phase coexistence and general properties of phase transitions we know that at the coexistence of two phases the chemical potentials and the pressures of the two phases must be equal;  furthermore, from thermodynamic potentials we also know that the chemical potential is the Gibbs free energy per particle, namely \(G=\mu N \), and in general we have also:
+\begin{equation*}
+    \dd[]{G} = - S \dd[]{T} + V \dd[]{P} + \mu \dd[]{N}
+\end{equation*}
+Now, differentiating \(G=\mu N\) and subtracting this last equation we get:
 \begin{equation}
   \dd[]{\mu } = - \frac{S}{N} \dd[]{T} + \frac{V}{N} \dd[]{P}
 \end{equation}
