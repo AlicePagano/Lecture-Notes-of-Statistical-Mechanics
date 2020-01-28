@@ -7,186 +7,221 @@
 
 \marginpar{ \textbf{Lecture 15.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-
-
-This first approximation is reasonable if either
+As said, this first approximation is reasonable if either
 \begin{enumerate}
 \item \( \rho  \) is small enough. It implies that \( \abs{\va{r}_i - \va{r}_j} \gg 1 \) and hence \( \Phi _{ij} \ll 1 \).
 \item Sufficiently high \( T \) such that \( \Phi (\abs{\va{r}_i - \va{r}_j} )/k_B T \ll 1 \). What is important it is the ration between \( \beta  \)  and \( \Phi _{ij} \).
 \end{enumerate}
-In either cases we have \( \exp (- \beta \Phi _{ij}) \rightarrow 1 \) and \( f_{ij} \rightarrow 0 \). By keeping only linear terms the partition function is
-\begin{equation}
+In either cases we have \( \exp (- \beta \Phi _{ij}) \rightarrow 1 \) and \( f_{ij} \rightarrow 0 \). By keeping only linear terms,  the configurational contribution to the partition function will be
+\begin{equation*}
 \begin{split}
-  Q_N (V,T) &= \int_{V}^{} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_N} \qty(1+ \sum_{i,j>i}^{} f_{ij} + \dots )  \\
-  &= V^N + \sum_{i,j>i}^{} \int_{V}^{} \dd[]{\va{r}_1} \dots \int_{V}^{}  \dd[]{\va{r}_N} f_{ij} \\
+  Q_N (V,T) &= \int_{V}^{} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_N} \qty(1+ \sum_{i,j>i}^{} f_{ij} + \dots )
+  = V^N + \sum_{i,j>i}^{} \int_{V}^{} \dd[]{\va{r}_1} \dots \int_{V}^{}  \dd[]{\va{r}_N} f_{ij} \\
   &= V^N + V^{N-2} \sum_{i,j>i}^{} \int_{V}^{} \dd[]{\va{r}_i} \dd[]{\va{r}_j} f_{ij} + \dots \\
 \end{split}
-\end{equation}
-We are summing up over all configurations \( ij \). Let us try to compute the double integral:
-\begin{equation}
-  \int_{V}^{} \dd[]{\va{r}_i} \dd[]{\va{r}_j} f_{ij} (\abs{\va{r}_i - \va{r}_j} ) \underset{\substack{ \text{translational} \\  \text{symmetry} } }{=}  \int_{}^{} \dd[]{\va{r}_i} \dd[]{\va{r}_j} f (\va{r})
+\end{equation*}
+We are summing up over all configurations \( ij \). Let us try to compute the double integral, with the definition of a new variable \( \va{r} = \va{r}_i - \va{r}_j \):
+\begin{equation*}
+  \int_{V}^{} \dd[]{\va{r}_i} \int_{V}^{} \dd[]{\va{r}_j} f_{ij} (\abs{\va{r}_i - \va{r}_j} ) \underset{\substack{ \text{translational} \\  \text{symmetry} } }{=}  \int_{V}^{} \dd[]{\va{r}_i} \int_{V}^{}  \dd[]{\va{r}} f (\va{r})
   = V \int_{V}^{} \dd[]{\va{r}}  f \qty(\abs{\va{r}} ) \equiv -2 B_2 V
-\end{equation}
-where
+\end{equation*}
+Hence,
 \begin{equation}
   B_2 \equiv - \frac{1}{2} \int_{V}^{} \dd[]{\va{r}}  f \qty(\abs{\va{r}} )
 \end{equation}
-so, what is important it is the relative distance. \( \va{r} \) gives us the position from the center we have choosen.
-Rewriting again the partition function we obtain:
+From this we see precisely how the virial coefficient, which as we have already stated can be experimentally measured, is related to the microscopic properties of the interaction between the particles, represented by the Mayer function \( f \). It can also be shown that all the virial coefficients can be expressed in terms of integrals of products of Mayer functions: higher order coefficients involve the computation of increasingly difficult integrals, which can however be visualized in terms of graphs.
+
+What we have seen now is how the cluster expansion works in general. Let us now apply it in order to find the virial expansion for real gases. From what we have found, the configurational partition function of the system becomes:
+\begin{equation*}
+  Q_N (V,T) = V^N - V^{N-1}  B_2 (T) \sum_{i,j>i}^{} 1 + \dots
+\end{equation*}
+The remaining sum is equal to\( N(N-1)\): in fact, for any of the \( N \) values that
+\( i \) can assume,  \( j \)  can have \( N-1 \) values. These are all the possible connections (bonds) between pairs of particles \( (i,j) \) with \( j>i \).
+Hence,
 \begin{equation}
-  Q_N (V,T) = V^N - V^{N-1} N (N-1) B_2 (T)
+  Q_N (V,T) = V^N - V^{N-1}  B_2 (T)  N (N-1) + \dots
 \end{equation}
-\begin{remark}
-The factor \( \frac{N(N-1)}{2} \) comes out becouse in the double sum are considered all the possible connections (bonds) between pairs of particles \( (i,j) \) with \( j>i \).
-\end{remark}
+and, considering that  \( N-1 \approx N \) for large \( N \), the complete partition function of the system will be:
 \begin{equation}
-  Z_N (V,T) = \qty(\frac{V^N}{N! \Lambda ^{3N}}) \qty(1- \overset{N(N-1) \approx N^2}{\frac{N^2}{V}} B_2 (T)+ \dots)
+  Z_N (V,T) = \qty(\frac{V^N}{N! \Lambda ^{3N}}) \qty(1- \frac{N^2}{V} B_2 (T)+ \dots)
 \end{equation}
-\begin{remark}
-We do not care about the \( (N-1) \) term, because \( N \) is big enough!
-\end{remark}
-The free energy is:
+We recognise in this expression that \( (1-B_{2}N^{2}/V+\cdots ) \) is the correction \( \chi  \) to the ideal gas partition function that we have mentioned earlier; therefore, the free energy of the system will be:
 \begin{equation}
   F_N = F_N^{ideal} - k_B T \ln{\qty[1-\frac{N^2}{V}B_2 (T)+ \dots] }
 \end{equation}
-Hence,
-\begin{equation}
+and its pressure:
+\begin{equation*}
   P_N = - \qty(\pdv{F_N}{V} )_{T,N} = \frac{N k_B T}{V} \qty(1+ \frac{\frac{N}{V}B_2}{1- \frac{N^2}{V}B_2})
   = \frac{N k_B T}{V} \qty(\frac{1 -\frac{N^2}{V} B_2 + \frac{N}{V} B_2 }{1- \frac{N^2}{V} B_2})
-\end{equation}
-Expanding the denominator for \( \frac{N}{V} B_2 \ll 1 \) \( \rho \ll 1 \) one gets
-\begin{equation}
+\end{equation*}
+Expanding the denominator for \( \frac{N}{V} B_2 \ll 1 \) \( \rho \ll 1 \), one gets
+\begin{empheq}[box=\myyellowbox]{equation}
   P_N \simeq \frac{N k_B T}{V} \qty(1+\frac{N}{V}B_2 + \dots)
   \label{eq:15_1}
-\end{equation}
-here we see the ideal gas and the correction to the ideal gas.
+\end{empheq}
+here we see the correction to the ideal gas.
 \begin{remark}
 The equation \eqref{eq:15_1} gives an important relation between experimentally accessible observables as \( P_N \) and microscopic quantities such as \( f(\va{r}) \) (and hence \( \Phi (\va{r}) \)) trough the estimate of \( B_2 \).
-
 Therefore, it is important computing \( B_2 \), because one time we have this we have the expansion. Or if we wish, by doing the fit of data at different temperature we obtain \( B_2 \) from the experiment and we can see \( f_{ij} \).
 \end{remark}
+
+The expansion in Eq.\eqref{eq:15_1} contains only low-order terms in the density \( N/V \), so strictly speaking it is valid only for low densities. To consider higher order terms in the virial expansion we need to consider higher order products of the \( f_{ij} \).
+However, we can use a "trick" in order to extend its range; in fact, remembering that the McLaurin expansion \(  (1-x)^{-1} = 1 + x + \dots \), from the Eq.\eqref{eq:15_1} we can write:
+\begin{equation*}
+  \frac{PV}{N k_B T} \approx 1 + \rho B_2 + \dots \simeq \frac{1}{1-B_2 \rho }
+\end{equation*}
+and now re-expand \( (1-B_2 \rho )^{-1} \), so that we can express all the virial coefficients in terms of the first one:
+\begin{equation*}
+  \frac{1}{1-B_2 \rho } \simeq  1 + B_2 \rho + (B_2)^2 \rho ^2  + (B_2)^3 \rho ^3 + \dots
+\end{equation*}
+Hence,
+\begin{equation*}
+  \frac{P}{k_B T} = \rho  + B_2 \rho ^2 + (B_2)^2 \rho ^3 + (B_2)^3 \rho ^4 + \dots
+\end{equation*}
+Identifying the coefficients for each power we get, in the end:
+\begin{equation*}
+  B_3 \approx (B_2)^2, \quad B_4 \approx (B_2)^3, \quad \dots, \quad B_n \approx (B_2)^{n-1}
+\end{equation*}
+This is the approximation of higher order virial coefficients with powers of \( B_2 \).
 \begin{remark}
-The virial expansion obtained in \eqref{eq:15_1} is valid for small densities.
+One question at the exam can be: let us compute virial expansion of a gas in a potential.
 \end{remark}
 
 
-To consider higher order terms in the virial expansion we need to consider higher order products of the \( f_{ij} \).
+\subsection{ Computation of virial coefficients for some interaction potentials \( \pmb{\Phi } \)}
+Let us now see this method in action by explicitly computing some coefficients \( B_2 \) for particular interaction potentials.
 
-Before doing this, however, one can show that an higher order expansion can be obtained by using the following (rather rude) trick.
-
-Since \(  (1-x)^{-1} = 1 + x + \dots \), ny going backward it is possible to write
-\begin{equation}
-  \frac{PV}{N k_B T} \approx 1 + \rho B_2 + \dots \simeq \frac{1}{1-B_2 \rho }
-\end{equation}
-this is the Clausius equation. On the other hand,
-\begin{equation}
-  \frac{1}{1-B_2 \rho } \simeq  1 + B_2 \rho + \underbrace{(B_2)^2 \rho ^2}_{B_3 \approx B_2^2}  + \underbrace{(B_2)^3 \rho ^3}_{B_4 \approx B_2^3} + \dots
-\end{equation}
-Identifying the coefficients for each power we get, for example
-\begin{equation}
-  B_3 \approx (B_2)^2, \quad B_4 \approx (B_2)^3
-\end{equation}
-This is the approximation of higher order virial coefficients with powers of \( B_2 \).
-\begin{example}{}{}
-Exam: let us compute virial expansion of a gas in a potential.
-\end{example}
-
-\subsection{Computation of \( B_2 \) for given \( \Phi  \)}
-\subsubsection{Gas of hard spheres}
+\subsubsection{Hard sphere potential}
 The particles are interacting (it is not ideal!) and there is a size that is the range of the potential.
+As a first trial, we use a hard sphere potential similar (see Figure \ref{fig:15_12}) to the one we have seen for the derivation of the Van der Waals equation:
 \begin{equation}
   \Phi (r) = \begin{cases}
     \infty & r < \sigma \\
     0     & r \ge \sigma
 \end{cases}
 \end{equation}
+(the difference with what we have seen in Van der Waals equation is that now the potential is purely repulsive, and has no attractive component).
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{../lessons/15_image/1.pdf}
-\caption{\label{fig:} Plot of the potential \( \Phi (r) \).}
+\caption{\label{fig:15_12} Plot of the hard sphere potential \( \Phi (r) \).}
 \end{figure}
-Hence,
+
+In this case,
 \begin{equation}
-  e^{-\beta \Phi (r)} = \begin{cases}
-    0 & r < \sigma\\
-    1 & r \ge \sigma
+  f(\va{r}) = e^{-\beta \Phi (r)} -1 = \begin{cases}
+    -1 & r < \sigma\\
+    0 & r \ge \sigma
   \end{cases}
 \end{equation}
-This implies that
-\begin{equation}
+Therefore, from the definition of \( B_2 \) and shifting to spherical coordinates:
+\begin{equation*}
   B_2 (T)= - \frac{1}{2} \int_{V}^{} \dd[]{\va{r}}  f \qty(\abs{\va{r}} )
-  = - \frac{1}{2} 4 \pi \int_{V}^{} \dd[]{r} r^2 \qty[e^{-\beta \Phi (r)}-1 ]
+  = - \frac{1}{2} 4 \pi \int_{0}^{+ \infty } \dd[]{r} r^2 \qty[e^{-\beta \Phi (r)}-1 ]
   = 2 \pi \int_{0}^{\sigma } \dd[]{r} r^2 = \frac{2}{3} \pi  \sigma ^3
-\end{equation}
+\end{equation*}
+Hence,
 \begin{equation}
   \Rightarrow B_2^{HS} (T) = \frac{2}{3} \pi  \sigma ^3
 \end{equation}
-this is the second virial coefficient for a hard sphere gas. There is no condensation in the gas spheres.
-\begin{remark}
-As expected \(  B_2^{HS} \) does not depend on temperature (purely repulsive interaction).
-\end{remark}
-For hard spheres we have:
+this is the second virial coefficient for a hard sphere gas.
+As expected \(  B_2^{HS} \) does not depend on temperature (purely repulsive interaction). Finally, for hard spheres we have:
 \begin{equation}
   P V = N k_B T \qty(1 + \frac{2}{3} \pi \sigma ^3 \frac{N}{V})
 \end{equation}
-\begin{remark}
-The excluded volume interaction (hard sphere) increases the product \( PV \) with respect to the ideal gas.
-\end{remark}
+Note that the excluded volume interaction (hard sphere term) increases the product \( PV \) with respect to the ideal gas.
 
-Let us say, that the potential is not anymore zero but is \( - \varepsilon  \) when it is in the case \( r \ge \sigma \). Or consider a case in which it is \( - \varepsilon  \) between \( [\sigma ,2 \sigma ] \), then it goes to zero.
-\subsubsection{Gas with Lennard-Jones interaction}
-We can consider a Lennard-Jones potential. The 2-body Lennard-Jones potential energy is
+\subsubsection{Square wall potential}
+We now use a slight refinement of the previous potential:
+\begin{equation}
+   \Phi ({\vec {r}})={\begin{cases}+\infty &|{\va {r}}|<r_{0}\\-\varepsilon &r_{0}<|{\va {r}}|<r_{0}+\delta \\0&|{\va {r}}|>r_{0}+\delta \end{cases}}
+\end{equation}
+This can be seen as a hard sphere potential where the spheres have an attractive shell of thickness \( \delta  \). We thus have:
+\begin{equation}
+f({\va {r}})={\begin{cases}-1&|{\va {r}}|<r_{0}\\e^{\beta \varepsilon }-1&r_{0}<|{\va {r}}|<r_{0}+\delta \\0&|{\va {r}}|>r_{0}+\delta \end{cases}}
+\end{equation}
+so that:
+\begin{equation*}
+\begin{split}
+  B_{2} & =-{\frac {1}{2}}\int f(|{\va {r}}|)d{\va {r}}=-{\frac {1}{2}}\int 4\pi r^{2}f(r)dr=\\
+  &=-2\pi \left[\int _{0}^{r_{0}}(-r^{2})dr+\int _{r_{0}}^{r_{0}+\delta }\left(e^{\beta \varepsilon }-1\right)r^{2}dr\right]=\\
+  &=-2\pi \left\lbrace -{\frac {r_{0}^{3}}{3}}+{\frac {e^{\beta \varepsilon }-1}{3}}\left[(r_{0}+\delta )^{3}-r_{0}^{3}\right]\right\rbrace =B_{2}^{\text{h.s.}}-{\frac {2}{3}}\pi \left(e^{\beta \varepsilon }-1\right)\left[(r_{0}+\delta )^{3}-r_{0}^{3}\right]
+\end{split}
+\end{equation*}
+where  \( B_2^{HS} \) is the first virial coefficient of the hard sphere potential we have previously seen. Now, if the temperature is sufficiently high, namely \(  \beta \varepsilon \ll 1\), we can approximate \( e^{\beta \varepsilon }-1\approx \beta \varepsilon \), so that:
+\begin{equation}
+  B_{2}=B_2^{HS} -{\frac {2}{3}}\pi \beta \varepsilon r_{0}^{3}\left[\left(1+{\frac {\delta }{r_{0}}}\right)^{3}-1\right]
+\end{equation}
+For the sake of simplicity, defining:
+\begin{equation*}
+  \lambda \equiv \left(1+{\frac {\delta }{r_{0}}}\right)^{3}-1
+\end{equation*}
+we will have, in the end:
+\begin{equation}
+  { \frac {PV}{Nk_{B}T}}=1+B_{2}\rho =1+\left(B_2^{HS} -{\frac {2}{3}}{\frac {\pi \varepsilon }{k_{B}T}}r_{0}^{3}\lambda \right)\rho
+\end{equation}
+so in this case  \( B_2 \) actually depends on the temperature.
+
+
+
+\subsubsection{Lennard-Jones potential}
+This potential is a quite realistic representation of the interatomic interactions. It is defined as:
 \begin{equation}
   \Phi = 4 \varepsilon \qty[\qty(\frac{\sigma }{r})^{12} - \qty(\frac{\sigma }{r})^6  ]
 \end{equation}
-where the first one is the repulsive term (Pauli excluded principle) and the second is the attractive term (fluctuation of the elecrtic dipole moment).
+which contains a long-range attractive term (the one proportional to \( 1/r^6 \), which can be justified in terms of electric dipole fluctuations) and a short-range repulsive one (proportional to \( 1/r^{12} \), which comes from the overlap of the electron orbitals, i.e.Pauli excluded principle). This potential is plotted in Figure \ref{fig:15_13}.  The minimum is in \( r_{min}=2^{1/\sigma } \).   We can play with the range of attraction by changing \( \sigma  \) or by changing the   \( \varepsilon  \).
+
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{../lessons/15_image/2.pdf}
-\caption{\label{fig:} Plot of the Lennard-Jones potential.}
+\caption{\label{fig:15_13} Plot of the Lennard-Jones potential \( \Phi  \).}
 \end{figure}
- The minimum is in \( r_{min}=2^{1/\sigma } \).   You can play with the range of attraction by changing \( \sigma  \) or by changing the   \( \varepsilon  \).
- What it is important is that for the Lennard-Jones we have
- \begin{equation}
-   B_2 \overset{LJ}{=} B_2 (T)
- \end{equation}
-\begin{equation}
+% What it is important is that for the Lennard-Jones we have
+% \begin{equation}
+%   B_2 \overset{LJ}{=} B_2 (T)
+% \end{equation}
+
+With this interaction potential, the first virial coefficient is:
+\begin{equation*}
   B_2 (T) = - 2 \pi \int_{0}^{\infty } r^2 \qty[e^{- \frac{4 \varepsilon }{k_B T} \qty[\qty(\frac{\sigma }{r})^{12} - \qty(\frac{\sigma }{r})^6] } -1] \dd[]{r}
-\end{equation}
-It is not solvable exactly but by series expansion. Let us consider the following change of variables
-\begin{equation}
-  x = \frac{r}{\sigma }, \quad \tau = \frac{k_B T}{\varepsilon }
-\end{equation}
-Integrating by parts \( \int_{}^{} f' g = fg - \int_{}^{} g' f    \) where \( f' = x^2 g = \exp [-()]   \), we obtain
-\begin{equation}
+\end{equation*}
+which is not analytically computable. However, it can be simplified defining the variables
+\begin{equation*}
+  x = \frac{r}{\sigma }, \qquad \tau = \frac{k_B T}{\varepsilon }
+\end{equation*}
+ so that, integrating by parts \( \int_{}^{} f' g = fg - \int_{}^{} g' f    \) where \( f' = x^2 g = \exp [-()]   \), we obtain
+\begin{equation*}
 \begin{split}
   B_2 (T^*) &= \frac{2}{3} \pi \sigma ^3 \frac{4}{\tau } \int_{0}^{\infty } x^2  \qty(\frac{12}{x^{12}}- \frac{6}{x^6}) e^{- \frac{4}{\tau } \qty(\frac{1}{x^{12}} - \frac{1}{x^6}) }  \dd[]{x}  \\
   & = A \int_{0}^{\infty } \qty(\frac{12}{x^{16}}- \frac{6}{x^4}) e^{- \frac{4}{\tau } \qty(\frac{1}{x^{12}} - \frac{1}{x^6}) } \dd[]{x}
 \end{split}
-\end{equation}
-Expand the exponential and then integrate term by term. One gets a serie in inverse power of \( \tau  \).
+\end{equation*}
+Now, we can expand the exponential and integrate term by term; this gives an expression of \( B_2 \) as a power series of \( 1/\tau  \):
 \begin{equation}
   B_2 (\tau ) = - 2 A' \sum_{n=0}^{\infty } \frac{1}{4n!} \Gamma \qty(\frac{2n-1}{4}) \qty(\frac{1}{\tau })^{\frac{2n+1}{4}}
 \end{equation}
-where \( \Gamma  \) is the Euler function.
-\begin{remark}
-Note that, because the Lennard-Jones potential has an attractive interaction term \( \qty[- \qty(\frac{\sigma }{r})^6 ]  \), the second virial coefficient depends on temperature.
-\end{remark}
+where \( \Gamma  \) is the Euler function and \( A' \) is a constant.  Note that the attractive part of the Lennard-Jones potential has introduced in \( B_2 \) a dependence on the temperature.
+
+
+
+
+
 \subsection{Higher order terms in the cluster expansion}
 Let us consider again the formal expansion
-\begin{equation}
+\begin{equation*}
   \prod_{i}^{} \qty(\prod_{j>i}^{} (1+f_{ij}) ) = 1 + \sum_{i,j>i}^{} f_{ij}
   + \sum_{\substack{ i \\ j>i \\ l>k \\ k \ge i \\ (ij) \neq (kl)} }^{} f_{ij} f_{kl}     + \dots
-\end{equation}
+\end{equation*}
 The problem with this expansion is that it groups terms quite different from one another. Fro example the terms \( f_{12}f_{23} \) and \( f_{12}f_{34} \). Indeed the first term correspond to a diagram as in Figure \ref{fig:15_1_1}, while the second to two disconnected diagrams as in Figure \ref{fig:15_1_2}.
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
-\subfloat[][Description]{ \includegraphics[width=0.6\textwidth]{../lessons/15_image/3.pdf}  \label{fig:15_1_1} }
+\subfloat[][Diagram of \( f_{12}f_{23} \). ]{ \includegraphics[width=0.6\textwidth]{../lessons/15_image/3.pdf}  \label{fig:15_1_1} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{\includegraphics[width=0.6\textwidth]{../lessons/15_image/4.pdf}  \label{fig:15_1_2} }
+\subfloat[][Diagram of \(  f_{12}f_{34} \).]{\includegraphics[width=0.6\textwidth]{../lessons/15_image/4.pdf}  \label{fig:15_1_2} }
 \end{minipage}
 \caption{\label{fig:} }
 \end{figure}
@@ -194,10 +229,14 @@ The problem with this expansion is that it groups terms quite different from one
 Another problem of the above expansion is that it does not recognize identical clusters formed by different particles. For example the terms \( f_{12} f_{23} \) and \( f_{12}f_{14} \) contribute in the same way to the partition function. It is then convenient to follow a diagrammatic approach similar to the Feymann approach in the reciprocal space.
 
 \begin{minipage}[c]{0.7\linewidth}
-For the linear term \( f_{ij} \) the only diagram is given by Figure \ref{fig:15_2}. As we have seen this has multeplicity \( \frac{N(N-1)}{2} \) and the integral is of the form
-\begin{equation}
+For the linear term \( f_{ij} \) the only diagram is given by Figure \ref{fig:15_2}. As we have seen this has multeplicity
+\begin{equation*}
+\frac{N(N-1)}{2}
+\end{equation*}
+and the integral is of the form
+\begin{equation*}
   \int_{}^{}  f_{12} \dd[]{\va{r}_1} \dd[]{\va{r}_2}  = V \int_{}^{} f(\va{r}) \dd[]{\va{r}}  = - 2 V B_2
-\end{equation}
+\end{equation*}
 \end{minipage}
 \begin{minipage}[]{0.3\linewidth}
 \centering
@@ -205,24 +244,25 @@ For the linear term \( f_{ij} \) the only diagram is given by Figure \ref{fig:15
 \captionof{figure}{\label{fig:15_2} }
 \end{minipage}
 
+\vspace{0.5cm}
 \begin{minipage}[c]{0.7\linewidth}
 For the term \( f_{ij}f_{kl} \) we can have the case as in Figure \ref{fig:15_3},
 that has molteplicity
-\begin{equation}
+\begin{equation*}
   \frac{N(N-1)}{2} \frac{(N-1)(N-3)}{2} \frac{1}{2}
-\end{equation}
+\end{equation*}
  and the integral is of the  form
-\begin{equation}
+\begin{equation*}
   \int_{}^{}  f_{12} f_{34} \dd[]{\va{r}_1} \dd[]{\va{r}_2}  \dd[]{\va{r}_3}  \dd[]{\va{r}_4}
-\end{equation}
+\end{equation*}
 i.e. involving 4-particles
-\begin{equation}
+\begin{equation*}
 \begin{split}
  &  \int_{}^{}  f( \abs{\va{r}_1 - \va{r}_2} )f( \abs{\va{r}_3 - \va{r}_4} ) \dd[]{\va{r}_1}  \dd[]{\va{r}_2}  \dd[]{\va{r}_3}  \dd[]{\va{r}_4}
   = \\
   & = V^2 \qty(\int_{}^{} f(\va{r})\dd[]{\va{r}}  )^2 = 4 V^2 B_2^2
 \end{split}
-\end{equation}
+\end{equation*}
 \end{minipage}
 \begin{minipage}[]{0.3\linewidth}
 \centering
@@ -230,12 +270,14 @@ i.e. involving 4-particles
 \captionof{figure}{\label{fig:15_3} }
 \end{minipage}
 
+\vspace{0.5cm}
+
 \begin{minipage}[c]{0.7\linewidth}
 The next case if for instance as in Figure \ref{fig:15_4}. This involves 3 particles.
 The multiplicity of this diagram is
-\begin{equation}
+\begin{equation*}
   \frac{N (N-1) (N-2)}{3!} \times 3
-\end{equation}
+\end{equation*}
 The integral is of the form
 \begin{equation}
 \begin{split}
@@ -243,6 +285,7 @@ The integral is of the form
   \simeq V  \qty(  \int_{}^{} \dd[]{r} f(r)  )^2  = \\
   & =   \int_{}^{}  f( \abs{\va{r}_1 - \va{r}_2} )f( \abs{\va{r}_2 - \va{r}_3} ) \dd[]{\va{r}_1}  \dd[]{\va{r}_2}  \dd[]{\va{r}_3}  = \\
   & = V \qty(\int_{}^{} f(\va{r})\dd[]{\va{r}}  )^2  = 4 V B_2^2
+  \label{eq:15_3}
 \end{split}
 \end{equation}
 \end{minipage}
@@ -252,152 +295,171 @@ The integral is of the form
 \captionof{figure}{\label{fig:15_4} }
 \end{minipage}
 
+\vspace{0.5cm}
+
 \begin{minipage}[c]{0.7\linewidth}
 Another interesting diagram is the one in Figure \ref{fig:15_5}. Its molteplicity is
-\begin{equation}
+\begin{equation*}
   \frac{N(N-1)(N-2)}{3!}
-\end{equation}
+\end{equation*}
 The associated integral involves 3 particles and it is of the form
-\begin{equation}
+\begin{equation*}
 \begin{split}
    & \int_{}^{} f_{12} f_{23} f_{31} \dd[]{\va{r}_1}  \dd[]{\va{r}_2} \dd[]{\va{r}_3} = \\
    & = \int_{}^{} f ( \abs{\va{r}_1 - \va{r}_2} ) f ( \abs{\va{r}_2 - \va{r}_3} )  f ( \abs{\va{r}_3 - \va{r}_1} )  \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3} \\
    & = \int_{}^{} f ( \abs{\va{r}_1 - \va{r}_2} ) f ( \abs{\va{r}_2 - \va{r}_3} )  f ( \abs{\va{r}_3 - \va{r}_1} )  \dd[]{\va{r}_2} \dd[]{\va{r}_{21}} \dd[]{\va{r}_{23}}
 \end{split}
-\end{equation}
+\end{equation*}
 \end{minipage}
 \begin{minipage}[]{0.3\linewidth}
 \centering
 \includegraphics[width=0.8\textwidth]{../lessons/15_image/8.pdf}
 \captionof{figure}{\label{fig:15_5} }
 \end{minipage}
-On the other hand \( \va{r}_{13} = \va{r}_{23} - \va{r}_{21} \), which implies
-\begin{equation}
+
+\noindent On the other hand \( \va{r}_{13} = \va{r}_{23} - \va{r}_{21} \), which implies
+\begin{equation*}
    f ( \abs{\va{r}_3 - \va{r}_1} )  =  f ( \abs{\va{r}_{23} - \va{r}_{21}} )
-\end{equation}
-hence,
-\begin{equation}
+\end{equation*}
+Hence,
+\begin{equation*}
   \int_{}^{} f (\abs{\va{r}_{12}} ) f (\abs{\va{r}_{23}} ) f (\abs{\va{r}_{31}} ) \dd[]{\va{r}_{21}}  \dd[]{\va{r}_{23}}  \dd[]{\va{r}_{2}}
-  =
-    \int_{}^{} f (\abs{\va{r}_{12}} ) f (\abs{\va{r}_{23}} ) f (\abs{\va{r}_{23}-\va{r}_{21}} )  \dd[]{\va{r}_{21}}  \dd[]{\va{r}_{23}}  \dd[]{\va{r}_{2}}
-\end{equation}
+   =  \int_{}^{} f (\abs{\va{r}_{12}} ) f (\abs{\va{r}_{23}} ) f (\abs{\va{r}_{23}-\va{r}_{21}} )  \dd[]{\va{r}_{21}}  \dd[]{\va{r}_{23}}  \dd[]{\va{r}_{2}}
+\end{equation*}
 Let us call this integral
 \begin{equation}
   \int_{}^{} f_{12} f_{23} f_{31} \dd[]{\va{r}_1}  \dd[]{\va{r}_2}   \dd[]{\va{r}_3}
   \equiv  3! V  \qty( B_3 - 2 B_2^2  )
+  \label{eq:15_4}
 \end{equation}
-The configurational partition function with these terms becomes
+The configurational partition function with the terms in Eq.\ref{eq:15_3} and Eq.\ref{eq:15_4} becomes
+\begin{small}
 \begin{equation}
 \begin{split}
-Q_N (V,T) = &  V^N - V^N \frac{N(N-1)}{V} B_2 + V^N\frac{ N (N-1)(N-2)(N-3)}{8V^2} (4B_2^2)  \\
-& + V^N \frac{N(N-1)(N-2)}{2V^2} 4B_2^2 \\
+Q_N (V,T) = &  V^N - V^N \frac{N(N-1)}{V} B_2 + V^N\frac{ N (N-1)(N-2)(N-3)}{8V^2} (4B_2^2)
+ + V^N \frac{N(N-1)(N-2)}{2V^2} 4B_2^2 \\
 & = V^N \qty(1 + \frac{N(N-1)}{V} B_2 + \frac{N(N-1)(N-2)(N-3)}{2V^2} B_2^2 + \frac{N(N-1)(N-3)}{V^2} B_3)
 \end{split}
 \end{equation}
+\end{small}
+
 Let us now face the problem in a slightly different ways. Let us remind that
 \begin{equation}
   Q_N (V,T) = \sum_{diagrams}^{} \int_{}^{} \prod_{kl}^{} f_{kl} \dd[3N]{r}
 \end{equation}
-i.e. sum over all possible diagrams i.e. all possible ways in which a can draw edges between pairs of points \( (k,l) \).
+where the sum is over all possible diagrams, i.e. all possible ways in which ones can draw edges between pairs of points \( (k,l) \).
 For each such diagrams I have to product between all edge and then integrate over the configurational space (\( N \)  points).
 
  Let us now consider only \emph{connected} diagrams for \( i \) sites. In other words given \( i \) points (\( i \) particles)  from a system of \( N \) points and I consider all the possible ways I can connect these \( i  \) points (an example is shown in Figure \ref{fig:15_6}).
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{../lessons/15_image/9.pdf}
-   \caption{\label{fig:15_6} Example for \( i=4 \).}
+   \caption{\label{fig:15_6} Example of connected diagrams for \( i=4 \) sites.}
    \end{figure}
 
 For each diagram we take the product \( \prod_{kl}^{} f_{kl}   \) and then integrate over the position of the \( i \) points (\( i \) particles). For a fixed diagram:
-\begin{equation}
-  \int_{}^{} \prod_{lk \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_i}
-\end{equation}
-\begin{example}{\( i=4 \)}{}
+\begin{equation*}
+  \int_{}^{} \prod_{kl \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_i}
+\end{equation*}
+
+\begin{example}{Diagram for \( \pmb{i=4} \) sites}{}
   For example the diagram 1 in Figure \ref{fig:15_6} gives the contribution
-  \begin{equation}
+  \begin{equation*}
     \int_{}^{} f_{12} f_{13} f_{34} \dd[]{\va{r}_1}  \dd[]{\va{r}_2} \dd[]{\va{r}_3} \dd[]{\va{r}_4}
-  \end{equation}
+  \end{equation*}
   The diagram 2 gives
-  \begin{equation}
+  \begin{equation*}
     \int_{}^{} f_{12} f_{13} f_{23} f_{34} \dd[]{\va{r}_1}  \dd[]{\va{r}_2} \dd[]{\va{r}_3} \dd[]{\va{r}_4}
-  \end{equation}
+  \end{equation*}
   and so on.
 \end{example}
-Finally we sum over all these connected diagrams of \( i \) points.
-\begin{equation}
+
+\noindent Finally, we sum over all these connected diagrams of \( i \) points:
+\begin{equation*}
   \sum_{\substack{ \text{connected} \\  \text{diagrams} } }^{}    \int_{}^{} \prod_{lk \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1} \dots \dd[]{\va{r}_i}
-\end{equation}
-This is what we call \( i! V B_i \) and defines \( B_i \).
+\end{equation*}
+the results is what we call \( (i! V B_i) \) and defines \( B_i \). Let us analyze what happens for different values of \( i \) points:
 \begin{itemize}
-\item Case \( i=1 \): clearly  \( B_1 =1 \).
-\item Case \( i=2 \): just one edge, one connected diagram
-\begin{equation}
+\item case \( i=1 \): clearly  \( B_1 =1 \);
+\item case \( i=2 \): just one edge, hence we have just one connected diagram. The integral becomes:
+\begin{equation*}
   \int_{}^{} f_{12} \dd[]{\va{r}_1} \dd[]{\va{r}_2} = - 2 V B_2
-\end{equation}
-\item Case \( i=3 \): the connected diagrams are shown in Figure \ref{fig:15_7}.
+\end{equation*}
+\item case \( i=3 \): the connected diagrams are shown in Figure \ref{fig:15_7}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.8\textwidth]{../lessons/15_image/10.pdf}
-\caption{\label{fig:15_7} Description.}
+\caption{\label{fig:15_7} Connected diagrams for \( i=3 \) points.}
 \end{figure}
-\begin{equation}
+
+\begin{equation*}
 \begin{split}
-   = & \underbrace{ \int_{}^{} f_{12} f_{23} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3}
+  & \sum_{\substack{ \text{connected diagrams } \\ \text{of \( i=3 \) points}} }^{} \int_{}^{} \prod_{kl \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1}   \dd[]{\va{r}_2}    \dd[]{\va{r}_3} = \\
+   &=  \underbrace{ \int_{}^{} f_{12} f_{23} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3}
     + \int_{}^{} f_{12}f_{13} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3}
     + \int_{}^{} f_{13}f_{23} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3} }_{3 V \qty(\int_{}^{} f (\va{r})\dd[]{\va{r}}  )^2 }   \\
   & + \underbrace{\int_{}^{} f_{12} f_{23} f_{13} \dd[]{\va{r}_1} \dd[]{\va{r}_2} \dd[]{\va{r}_3}}_{3! V (B_3 - 2 B_2^2)}
 \end{split}
-\end{equation}
+\end{equation*}
 Hence,
-\begin{equation}
+\begin{equation*}
 \begin{split}
   \sum_{\substack{ \text{connected diagrams } \\ \text{of \( i=3 \) points}} }^{} \int_{}^{} \prod_{kl \in \, diagram }^{} f_{kl} \dd[]{\va{r}_1}   \dd[]{\va{r}_2}    \dd[]{\va{r}_3}
   & = 3 V (-2B_2)^2 + 6V (B_3 - 2 B_2) \\
   & = 6V B_3 = 3! V B_3
 \end{split}
-\end{equation}
+\end{equation*}
 
 \end{itemize}
-For the partition function we have to sum over all possible clusters.
-Possible procedure:
+
+Eventually, for the partition function we have to sum over all possible clusters.
+One possible procedure is:
 \begin{enumerate}
-\item Given the \( N \) points we can partition the into connected clusters. For all \( i \) points we can make \( m_i \) clusters of that size \( i \).
-\begin{equation}
+\item given the \( N \) points we can partition them into connected clusters. For all \( i \) points we can make \( m_i \) clusters of that size \( i \).
+\begin{equation*}
   \sum_{i}^{} i m_i = N
-\end{equation}
+\end{equation*}
 For each cluster of size \( i \) we have a term \( (i!VB_i) \). If there are \( m_i \) of them we have a weight \( (i! V B_i)^{m_i} \).
-\item Now we have to count in how many ways we can make the partition of \( N \) in a set of \( \{ m_i \}   \) clusters. Clearly if we permute the label of the \( N \) vertices we have possible different clusters. In principle this degenerancy is proportional to \( N \)!
+\item Now, we have to count in how many ways we can make the partition of \( N \) in a set of \( \{ m_i \}   \) clusters. Clearly if we permute the label of the \( N \) vertices we have possible different clusters. In principle, this degenerancy is proportional to \( N \)!
 
-On the other hand, if one changes the order of the labels within a cluster (in \( i! \) ways) this does not change the cliuster and since there are \( m_i \) clusters of size \( i \) we have to divide by \( (i!)^{m_i} \).
+On the other hand, if one changes the order of the labels within a cluster (in \( i! \) ways) this does not change the cluster and since there are \( m_i \) clusters of size \( i \) we have to divide by \( (i!)^{m_i} \).
 
-Moreover, since there are \( m_i \) clusters one can swap them (in \( m_i! \) ways). THe degenerancy is \( \frac{N!}{m_i! (i!)^{m_i}} \). Therefore,
+Moreover, since there are \( m_i \) clusters one can swap them (in \( m_i! \) ways). The degenerancy is \( \frac{N!}{m_i! (i!)^{m_i}} \). Therefore,
 \begin{equation}
   Q_N (V,T) = \sum_{\{ m_i \}  }^{} \prod_{i}^{}    \frac{N!}{m_i! (i!)^{m_i}} \qty(i! V B_i)^{m_i}
 \end{equation}
 \end{enumerate}
-\begin{example}{\( N=q \)}{}
-Consider the point in Figure \ref{fig:15_8}.
-  \begin{enumerate}
-  \item Partition these points into clusters, as in Figure \ref{fig:15_9}.
-  \item For this partition \( \{ m_i \}   \) we have \( m_4=1,m_2=2,m_1=1 \). Now, the cluster of size 4 can be connected in a given different ways \( (4! V B_4)^1 \).
-  \end{enumerate}
-\end{example}
+
+
 
 \begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][Description]{ \includegraphics[width=0.8\textwidth]{../lessons/15_image/11.pdf}  \label{fig:15_8} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
 \centering
-\includegraphics[width=0.3\textwidth]{../lessons/15_image/11.pdf}
-\caption{\label{fig:15_8} Description.}
+\subfloat[][Description]{\includegraphics[width=0.8\textwidth]{../lessons/15_image/12.pdf}  \label{fig:15_9} }
+\end{minipage}
+\caption{\label{fig:} }
 \end{figure}
 
-  \begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.3\textwidth]{../lessons/15_image/12.pdf}
-  \caption{\label{fig:15_9} Description.}
-  \end{figure}
 
-  \begin{exercise}{}{}
-  TO DO: compute the degenerancy of this case.
-  \end{exercise}
+\begin{exercise}{\( \pmb{N=9} \) points}{}
+Consider the \( N=9 \) points in Figure \ref{fig:15_8}.
+  \begin{enumerate}
+  \item Partition these points into clusters, as in Figure \ref{fig:15_9}.
+
+   For this partition \( \{ m_i \}   \) we have \( m_4=1,m_2=2,m_1=1 \). Now, the cluster of size 4 can be connected in a given different ways \( (4! V B_4)^1 \).
+   \item Compute the degenerancy of this case (More on Huang chapter 10).
+  \end{enumerate}
+\end{exercise}
+
+
+
+
+
+
+
 
 
 
