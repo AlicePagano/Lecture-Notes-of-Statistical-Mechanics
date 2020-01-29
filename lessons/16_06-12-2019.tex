@@ -5,139 +5,169 @@
 
 \begin{document}
 
+\section{First-order phase transitions in Landau theory}
 \marginpar{ \textbf{Lecture 16.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-\section{Cubic term and first transition}
-Let us consider more general forms of the Landay free energy. For example, in the case in which the symmetry is not violated, one can consider also odd temrs such as the cubic one.  In fact, we want to eneralize to include multicritical points, or phase transitions. The phase transitions can be obtained by introducing a cubic term in the Landau expansion. Remember that in the Ising model we have phase transition derived by symmetry breaking. Now, we have another type of phase transition.
+As we have seen, Landau theory is based on the assumption that the order parameter is small near the critical point, and we have seen in the example of the Ising model how it can describe a continuous phase transition (in fact, for \( t \rightarrow 0 \) we have \( \eta \rightarrow 0 \)).
+However, because of the symmetry properties of the Ising model we have excluded any possible cubic term; what we now want to do is to consider a more general form of
+\( \mathcal{L} \) which includes also a cubic term in \( \eta  \) (in the case in which the symmetry is not violated), and see that this leads to the occurrence of a first-order phase transition.
+In fact, we want to generalize to include multicritical points, or phase transitions. Let us remember that in the Ising model we have phase transition derived by symmetry breaking, while now we have another type of phase transitions.
 
-The simplest Landau free energy that depends on a particular field is:
-\begin{equation}
-  \mathcal{L} ( \eta ,t,h)= a t \eta ^2 - w \eta ^3 + \frac{b}{4} \eta ^4 - h \eta
-\end{equation}
-where \( t \equiv \frac{T-T^*}{2} \) and \( w \) is an additional parameter that we fix to be positive, \( w>0 \).
+We have seen that since the order parameter is null for \( T > \bar{T}  \) the Landau free energy cannot contain any linear term in \( \eta  \). Let us therefore consider the simplest Landau free energy that depends on a particular field:
+\begin{empheq}[box=\myyellowbox]{equation}
+\mathcal{L} ( \eta ,t,h)= a t \eta ^2 - w \eta ^3 + \frac{b}{4} \eta ^4 - h \eta
+\end{empheq}
+where \( t \equiv \frac{T-T^*}{2} \) and \( w \) is an additional parameter that we fix to be positive, \( w>0 \); as in the previous case, we must have \( b>0 \) so that \( \eta  \) has finite values in the equilibrium configurations. In addiction,
+\begin{equation*}
+  a t = \frac{a}{2} ( T - T^*) \quad \begin{cases}
+    > 0 & \text{ if } T > T^* \\
+    <0 & \text{ if } T < T^*
+\end{cases}
+\end{equation*}
 \begin{remark}
 For \( w<0 \) the results are the same, but in the \( \eta <0 \) diagram.
 \end{remark}
-To satisfy thermodynamic stability we require \( b>0 \), while
-\begin{equation}
-  a t = \frac{a}{2} ( T - T^*) \quad \text{if } \begin{cases}
-    > 0 & T > T^* \\
-    <0 & T < T^*
-\end{cases}
-\end{equation}
-The equation of state for \( h \neq 0 \) is:
-\begin{equation}
+The temperature \( T^* \) is the one at which we have the continuous transition if \( w=0 \), but as we will see it doesn't have great significance now. The equilibrium configurations of the system,  will be given by:
+\begin{equation*}
   \pdv{\mathcal{L}_G}{\eta } = 0 \quad \Rightarrow h = 2 a t \eta - 3 w \eta ^2 + b \eta ^3
-\end{equation}
-Let us consider the equilibrium states when \( h=0 \):
-\begin{equation}
-  h = 0 \quad \Rightarrow 0 = \eta ( 2 a t - 3 w \eta  + \beta \eta ^2)
-\end{equation}
- The possible solutions are
+\end{equation*}
+In absence of external fields (\( h=0 \)), the equilibrium states becomes
+\begin{equation*}
+  h = 0 \quad \Rightarrow \eta ( 2 a t - 3 w \eta  + b \eta ^2) = 0
+\end{equation*}
+The solutions of this equation are
 \begin{equation}
   \begin{cases}
    \bar{\eta } = 0 & \text{disordered phase}\\
-  \bar{\eta } = \frac{1}{4b} \qty(3w \pm \sqrt{q w^2 - 16 abt} ) & \text{ordered phases}
+  \bar{\eta_\pm } = \frac{1}{2b} \qty(3w \pm \sqrt{9 w^2 - 4abt} ) & \text{ordered phases}
   \end{cases}
 \end{equation}
-Let us rewrite the 'ordered' solutions as
-\begin{equation}
-  \bar{\eta }_{\pm} = c \pm \sqrt{c^2 - \frac{at}{b}}
-\end{equation}
-where
-\begin{equation}
+Let us rewrite the ordered solutions as
+\begin{equation*}
+  \bar{\eta }_{\pm} = \frac{1}{2b} \qty(3w \pm \sqrt{9 w^2 - 4abt} ) = c \pm \sqrt{c^2 - \frac{at}{b}}
+\end{equation*}
+with
+\begin{equation*}
   c = \frac{3w}{4b}
-\end{equation}
-Note that
-\begin{equation}
-  \bar{\eta }_{\pm} \in \R \iff c^2 > \frac{at}{b} \quad \Rightarrow \frac{T-T^*}{2} < \frac{c^2 b}{a} \equiv t^{**} \equiv  \frac{T^{**}-T^*}{2}
-\end{equation}
-It implies:
-\begin{equation}
-  T^{**} = T^* + \frac{2c^2b}{a}
-\end{equation}
+\end{equation*}
+However, these two last solutions are possible only if:
+\begin{equation*}
+  \bar{\eta }_{\pm} \in \R \iff c^2 - \frac{at}{b}>0  \iff t = \frac{T-T^*}{2} < \frac{c^2 b}{a} \equiv t^{**} \equiv  \frac{T^{**}-T^*}{2}
+\end{equation*}
+Hence, we have
+\begin{equation*}
+  T^{**} = T^* + \frac{2c^2b}{a} = T^* + 2t^{**}
+\end{equation*}
+so, since \( t^{**} \) is positive, this will occur at temperatures higher than \( T^* \).
+Let us consider different cases:
 \begin{itemize}
-\item If \( t> t^{**} \) \( (\iff T > T^ {**}) \), we have  \( \bar{\eta }_\pm \notin \R  \). The only real solution is \( \bar{\eta }=0  \) that is also the absolute minimum of \( \mathcal{L} \). The plot is shown in Figure \ref{fig:16_1}.
+\item If \( t> t^{**} \) \( ( T > T^ {**}) \), then the system will be in the disordered phase and we have  \( \bar{\eta }_\pm \notin \R  \). The only real solution is \( \bar{\eta }=0  \) that is also the absolute minimum of \( \mathcal{L} \). The plot is shown in Figure \ref{fig:16_1}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/16_image/1.pdf}
-\caption{\label{fig:16_1} Description.}
+\caption{\label{fig:16_1} Landau free energy for \( t> t^{**} \) \( ( T > T^ {**}) \). The point \( \bar{\eta }=0  \) is the absolute minimum.}
 \end{figure}
 
-\item If \( t \le t^{**} \) \( (\iff T \le T^ {**}) \), we have \( \bar{\eta }_\pm = c \pm \sqrt{c^2 - \frac{at}{b}} \in \R  \) are both possible solutions. One will be a local maximum and the other a local minimum.
 
-\begin{itemize}
-\item At \( T = T^{**}\), \( \bar{\eta }_- = \bar{\eta }_+   \) (flex point), as shown in Figure \ref{fig:16_2}.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/16_image/2.pdf}
-\caption{\label{fig:16_2} Description.}
-\end{figure}
-\item For \( T_t < T < T^{**} \), \( \mathcal{L} (\bar{\eta }_+) >0  \). Since \( \mathcal{L} (\bar{\eta }=0 ) \), the solution \( \bar{\eta }_+  \) is a local minimum, as shown in Figure \ref{fig:16_3}.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/16_image/3.pdf}
-\caption{\label{fig:16_3} Description.}
-\end{figure}
-\item By decreasing \( T \) firther one eventually reaches the value \( T=T_t \) at which the local minimum \( \mathcal{L} (\bar{\eta }_+ ) \) becomes zero, as in Figure \ref{fig:16_4}. \( T_t \)  is given by the coexistence condition
-\begin{equation}
-  \mathcal{L} (\bar{\eta }_+ ) = \mathcal{L} (0)
-\end{equation}
-that is the coexistence between the disordered and ordered phases!
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/16_image/4.pdf}
-\caption{\label{fig:16_4} Description.}
-\end{figure}
+\item If \( t \le t^{**} \) \( ( T \le T^ {**}) \), we have \( \bar{\eta }_\pm = c \pm \sqrt{c^2 - \frac{at}{b}} \in \R  \) are both possible solutions. One will be a local maximum and the other a local minimum.
 
-In the plot of Figure \ref{fig:16_4} we see that there are two minima in the same line, this is  a first order transition.
-At \( T=T_t \) the system undergoes a first order transition. To determine \( T_t \) we consider
-\begin{equation}
-  \begin{cases}
-   \pdv{\mathcal{L}}{\eta } = 0 = \eta \qty(2 a t - 3 w \eta + 2 b \eta ^2)  & \text{extreme condition}\\
-  \mathcal{L} ( 0 ) = \mathcal{L} ( \eta _+) & \text{coexistence condition}
-  \end{cases}
-\end{equation}
-\begin{equation}
-\Rightarrow
-  \begin{cases}
-   2 a t - 3 w \eta + 2 b \eta ^2 = 0\\
-   a t - w \eta + \frac{b}{2} \eta ^2 = 0
-  \end{cases}
-\end{equation}
-Solving with respect to \( \eta  \)  and \( t \) we get
-\begin{equation}
-  \begin{cases}
-   \bar{\eta }_{+t} = + \frac{w}{b} >0 \\
-    t_t = \frac{w^2}{2ba} \equiv \frac{1}{2} (T_t - T^*)
-  \end{cases}
-\end{equation}
-\begin{equation}
-  T_t = \frac{w^2}{b a} + T^*
-\end{equation}
-\begin{remark}
-Note that \( T_t >T^* \).
-\end{remark}
-Since at \( T= T_t \) there is a first order transition does the system display latent heat?
-\begin{equation}
-  s = \eval{- \pdv{\mathcal{L}}{T} }_{\eta _t} = - \frac{1}{2} a \bar{\eta }_t^2 = - \frac{a}{2} \qty(\frac{w}{b})^2
-\end{equation}
-\begin{remark}
-There is an entropy jump.
-\end{remark}
-The latent heat adsorbed to go from the ordered to the disordred phase is
-\begin{equation}
-  q = - T_t s = \frac{a}{2} T_t \qty(\frac{w}{b})^2
-\end{equation}
+  \begin{itemize}
+  \item At \( T = T^{**}\), we have \( \bar{\eta }_- = \bar{\eta }_+   \) (flex point), as shown in Figure \ref{fig:16_2}.
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../lessons/16_image/2.pdf}
+  \caption{\label{fig:16_2} Landau free energy for \( t\le t^{**} \) \( ( T = T^ {**}) \). The point \( \bar{\eta }_- =\bar{\eta }_+   \) is a flex one.}
+  \end{figure}
 
-\item Finally for \( T^* < T < T_t \), \( \eta = \bar{\eta }_+  \) becomes the global minimum ordered phase is the only stable one (Figure \ref{fig:16_5}).
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/16_image/5.pdf}
-\caption{\label{fig:16_5} Description.}
-\end{figure}
+
+  \item For \( T_t < T < T^{**} \), a new minimum appears at \( \eta = \bar{\eta }_+   \), but we will have \( \mathcal{L} (\bar{\eta }_+) >0  \), so  this is only a local minimum (since \( \mathcal{L}(0)=0 \)):  in this range of temperatures the ordered phase is metastable. The plot is shown in Figure  \ref{fig:16_3}.
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../lessons/16_image/3.pdf}
+  \caption{\label{fig:16_3} Landau free energy for \( t\le t^{**} \) \( ( T_t <T \le T^ {**}) \). The point \( \bar{\eta }_+   \) is a local minimum.}
+  \end{figure}
+
+
+  \item If we further decrease the temperature \( T \), we will reach a temperature \( T=T_t \) for which \(\mathcal{L} (\bar{\eta }_+ ) = 0 = \mathcal{L}(0)  \):  at this point the ordered and disordered phase coexist, so this is the temperature of a new transition! The plot is shown in Figure  \ref{fig:16_4}. \( T_t \)  is given by the coexistence condition
+  \begin{equation*}
+    \mathcal{L} (\bar{\eta }_+ ) = \mathcal{L} (0)
+  \end{equation*}
+  that is the coexistence between the disordered and ordered phases. In fact, in the plot of Figure \ref{fig:16_4} we see that there are two minima in the same line, this is  a first order transition.
+
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../lessons/16_image/4.pdf}
+  \caption{\label{fig:16_4} Landau free energy for \( t\le t^{**} \) \( ( T = T_t ) \). The point \( \bar{\eta }_+   \) is a minimum. The ordered and disordered phase coexist.}
+  \end{figure}
+
+
+  \item Finally for \( T^* < T < T_t \), \( \mathcal{\bar{\eta }_+ } \) becomes negative and so now \( \eta = \bar{\eta }_+  \) is the global minimum of \( \mathcal{L} \):  the ordered phase becomes stable and the disordered phase metastable, indeed now \( \eta =0 \) is only a local minimum (see Figure \ref{fig:16_5}).
+
+  \begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../lessons/16_image/5.jpg}
+  \caption{\label{fig:16_5} Landau free energy for \( t\le t^{**} \) \( ( T^*< T <T_t ) \). The point \( \bar{\eta }_+   \) is the global minimum.}
+  \end{figure}
+
+
+  \item  If now \( T < T^*\), \( \mathcal{L} \) develops a new minimum for \( \eta <0 \), but it is only a local minimum (the asymmetry introduced by \( -w \eta ^3 \) ensures that \( \bar{\eta }_+  \) is always the global minimum).
+  This means that also for \( T< T^* \)  the disordered phase with \( \bar{\eta }_+  \) continues to be the stable one, and so no phase transition occurs at \( T^* \)  any more; this is what we meant when we said that \( T^* \) is not a relevant temperature any more.
+  \end{itemize}
+
+  \begin{figure}[h!]
+  \begin{minipage}[c]{0.55\linewidth}
+  \subfloat[][First-order transition.]{ \includegraphics[width=0.8\textwidth]{../lessons/16_image/p_1.png}  \label{fig:} }
+  \end{minipage}
+  \begin{minipage}[]{0.55\linewidth}
+  \centering
+  \subfloat[][Same transition for lower values of the temperature.]{\includegraphics[width=0.8\textwidth]{../lessons/16_image/p_2.png}  \label{fig:} }
+  \end{minipage}
+  \caption{\label{fig:16_p} The notation in this plot is different from the one used previously. Here \( \bar{T} \equiv T^*  \), \( T^{*} \equiv T^{**} \) and \( T^{**} \equiv T_t \).  }
+  \end{figure}
+
+Therefore, we have seen that lowering the temperature of the system, the value of \( \eta  \) for which \( \mathcal{L} \) has a global minimum changes discontinuously from \( \eta =0 \)  to \( \bar{\eta }_+  \): this is a first-order transition. All the results obtained are shown in Figure \ref{fig:16_p}.
+
 \end{itemize}
-\end{itemize}
+
+
+  As we said, at \( T=T_t \) the system undergoes a first order transition. It is defined by two conditions: it must be a minimum of \( \mathcal{L} \) and such that the value of \( \mathcal{L} \) in that minimum is zero.  Thus we can determine \( T_t \) as follows:
+  \begin{equation*}
+    \begin{cases}
+     \pdv{\mathcal{L}}{\eta } = 0 = \eta \qty(2 a t - 3 w \eta +  b \eta ^2)  & \text{extreme condition}\\
+    \mathcal{L} ( 0 ) = \mathcal{L} ( \eta _+)=0 = \eta ^2 (a t - w \eta + \frac{b}{4} \eta ^2)& \text{coexistence condition}
+    \end{cases}
+  \end{equation*}
+  Therefore, for \( \eta \neq 0 \):
+  \begin{equation*}
+  \Rightarrow
+    \begin{cases}
+     2 a t - 3 w \eta +  b \eta ^2 = 0\\
+     a t - w \eta + \frac{b}{4} \eta ^2 = 0
+    \end{cases}
+  \end{equation*}
+  Solving with respect to \( \eta  \)  and \( t \), we get
+  \begin{equation*}
+    \begin{cases}
+     \bar{\eta }_{t} = + \frac{2w}{b} >0 \\
+      t_t = \frac{2w^2}{ab}
+    \end{cases}
+  \end{equation*}
+Since by the definition \( t = (T-T^*)/2 \), we have:
+  \begin{equation}
+    T_t = T^* + \frac{4w^2}{ab}
+  \end{equation}
+  \begin{remark}
+  Let us note that \( T_t >T^* \).
+  \end{remark}
+  Since at \( T= T_t \) there is a first order transition does the system display latent heat?
+  \begin{equation*}
+    s = \eval{- \pdv{\mathcal{L}}{T} }_{\eta _t} = - \frac{1}{2} a \bar{\eta }_t^2 = - \frac{a}{2} \qty(\frac{2w}{b})^2
+  \end{equation*}
+  Hence, there is an entropy jump.
+  The latent heat absorbed to go from the ordered to the disordered phase is
+  \begin{equation}
+    q = - T_t s = \frac{a}{2} T_t \qty(\frac{2w}{b})^2
+  \end{equation}
 
 
 \section{Phase stability and behaviour of \( \chi _T \equiv \pdv{\eta }{h}  \)}

@@ -469,246 +469,275 @@ Consider the \( N=9 \) points in Figure \ref{fig:15_8}.
 
 \chapter{Landau theory of phase transition for homogeneous systems}
 
-\section{Landau theory of phase transition (uniform systems)}
+\section{Introduction to Landau theory}
 
-It is a phenomenological mean field theory of phase transitions for uniform systems (no spatial variation of the order parameter). It is based on the following assumptions:
+Landau theory is a phenomenological mean field theory of phase transitions  that aims at describing the occurence of phase transitions in a unitary framework (no spatial variation of the order parameter). Landau theory is based on some assumptions, which we now introduce:
 \begin{enumerate}
 \item Existence of an unfirom order parameter \( \eta   \). Remember the definition of the order parameter:
-\begin{equation}
+\begin{equation*}
   \eta   = \begin{cases}
-    0 & T \ge \bar{T} \text{ (disordered or symmetric phase)}\\
-    \neq 0 & T < \bar{T}  \text{ (ordered symmetry is broken)}
+    0 & T \ge \bar{T} \text{ (disordered phase)}\\
+    \neq 0 & T < \bar{T}  \text{ (ordered phase)}
 \end{cases}
-\end{equation}
+\end{equation*}
 Well known examples are
-\begin{equation}
+\begin{equation*}
   \begin{cases}
    \eta \rightarrow m \\
   \eta  \rightarrow \rho _L - \rho _G
   \end{cases}
-\end{equation}
-\item The free energy is an \emph{analyc function}  of the order parameter \( \eta   \). It is because you are doing the expansion close to...etc etc. Therefore, \( \mathcal{L} = \mathcal{L} (\eta ) \).
+\end{equation*}
+
+\item There exists a function \( \mathcal{L} \)  called Landau free energy\footnote{To be more precise,  \( \mathcal{L} \) is the Landau free energy density; the "real" Landau free energy should be  \( L = V \mathcal{L}  \).}, which is an analytic function of the coupling constants \( \{ K_i\} \) of the system and of the order parameter \( \eta  \):
+\begin{equation*}
+  \mathcal{L} = \mathcal{L} (\eta )
+\end{equation*}
+
 \item The form of \( \mathcal{L} \) must satisfy the underlying symmetry of the system.
-\item Equilibrium states correspond to the absolute minima of \( \mathcal{L} \).
+\item The equilibrium states of the system are the global minima of \( \mathcal{L} \) with respect to  \( \eta  \).
+
 \end{enumerate}
+
+We also assume that the thermodynamic properties of the system can be obtained by differentiating \( \mathcal{L} \), just like we can do with thermodynamic potentials\footnote{Strictly speaking, Landau free energy is not really a thermodynamic potential: the correct interpretation of \( \mathcal{L} \) is that it is a coarse grained free energy (not the exact one).}.
+
+Note also that the general formulation of the Landau theory does not depend on the dimensionality of the system (although we will see that once a system has been chosen some details can depend on it).
+
 \begin{remark}
-Since \( \mathcal{L} \) os analytic it can be formally expanded in power of \( \eta  \), for \( \eta \sim 0 \).
-\begin{equation}
+Since \( \mathcal{L} \) is analytic it can be formally expanded in power of \( \eta  \), for \( \eta \sim 0 \).
+\begin{empheq}[box=\myyellowbox]{equation}
   \mathcal{L} (\eta ) \approx a_0 + a_1 \eta + a_2 \eta ^2 + a_3 \eta ^3 + \dots
-\end{equation}
+\end{empheq}
 \end{remark}
 
-\section{Symmetries}
-To fix the ideas let us consider the theory for the Ising model. In this case \( \eta  \) is a scalar (magnetization).
+\section{Landau theory for the Ising model}
+To make things more clear, let us now consider the Ising model without any external field and see how we can determine the form of \( \mathcal{L} \) from the general assumptions we have introduced. In this case \( \eta  \) is a scalar (magnetization).
 
-For \( T > \bar{T}  \) (critical point) we expect a paramagnetic phase. \( \mathcal{L} \) has a minimum at \( \eta =0 \), hence
-\begin{equation}
+\subsection{Costruction of \( \pmb{\mathcal{L} } \) }
+First of all, since the equilibrium configurations of the system must be minima of \( \mathcal{L} \) :
+\begin{equation*}
   \pdv{\mathcal{L}}{\eta } = a_1 + 2 a _2 \eta + 3 a _3 \eta ^2 + \dots = 0
-\end{equation}
-\( \eta = 0 \) is a solution if and only if \( a_1 = 0 \).
- \begin{remark}
-No linear term must be present!
-\end{remark}
-Since Ising has \( \mathbb{Z}^2 \) symmetry, we should require
-\begin{equation}
+\end{equation*}
+where we have chosen to stop the expansion at the three order. Now, since this equation must hold for all \( T \) and for \( T > \bar{T}  \) \footnote{For \( T > \bar{T}  \) (critical point) we expect a paramagnetic phase.} we have \( \eta =0 \), we see that \( a_1=0 \).
+
+Considering now the constraint on the symmetries of the system, in absence of phase transitions for finite systems we have seen that the Ising model is invariant under parity (\( \mathbb{Z}^2 \) symmetry), i.e. its Hamiltonian is simultaneously even in \( H \) and \( \{S_i\} \):
+\begin{equation*}
+  \mathcal{H} (H, \{ S_i \}  ) =   \mathcal{H} (-H, \{ -S_i \}  )
+\end{equation*}
+Thus, in absence of external fields (\( H=0 \)) the Hamiltonian of the Ising model is even; this means that also \( \mathcal{L} \)  must be invariant under parity, namely an even function of \( \eta  \):
+\begin{equation*}
   \mathcal{L} (-\eta ) =   \mathcal{L} (\eta )
-\end{equation}
-which implies
-\begin{equation}
-  a_k = 0 \quad \forall k  \text{ odd}
-\end{equation}
-Moreover, since \( \mathcal{L} \) is analytic, terms proportional to \( \abs{\eta }  \)  are excluded.
-The minimal expression for \( \mathcal{L}(\eta ) \) that describes the equilibrium phase diagram of an Ising-like system is
-\begin{equation}
+\end{equation*}
+Therefore all the odd terms of the expansion are null:
+\begin{equation*}
+  a_{2k+1} = 0 \quad \forall k  \in \mathbb{N}
+\end{equation*}
+
+Finally, since we have assumed that \( \mathcal{L} \) is an analytic function of  \( \eta  \) then its expansion cannot contain terms proportional to \( \abs{\eta }  \).
+
+
+In conclusion, the minimal expression for \( \mathcal{L}(\eta ) \) that describes the equilibrium phase diagram of an Ising-like system is:
+\begin{empheq}[box=\myyellowbox]{equation}
   \mathcal{L} (\eta ) \simeq a_0 (J,T) + a_2 (J,T) \eta  ^2 + a_4  (J,T) \eta  ^4 + O(\eta ^6)
-\end{equation}
-The coefficients of the expansion are functions of the physical parameters, \( J \) and \( T \).
-
-Since for \( T > \bar{T}  \)  , \( \eta = \bar{\eta } = 0  \) and
-\begin{equation}
+\end{empheq}
+where the coefficients of the expansion \( a_0,a_2,a_4,\dots \) are functions of the physical parameters, \( J \) and \( T \).  However,  \( \mathcal{L} \) can be further simplified and we can also explicitly show its dependence on the temperature.
+In fact, first of all we can note that  \( a_0 \) is the value of \( \mathcal{L} \) in the paramagnetic state (when \( T> \bar{T}  \), \( \eta =0 \)):
+\begin{equation*}
   \mathcal{L} (\eta =0) = a_0
-\end{equation}
-\( a_0 (T,J) \) value of \( \mathcal{L} \) in the paramagnetic phase. Since what matters is the free-energy difference we can put \( a_0 =0 \) identically.
+\end{equation*}
+and so for simplicity we can set \( a_0 = 0 \) (it's just a constant shift in the energy, what matters is the free-energy difference).
 
-Moreover, in order to have \( \eta = \bar{\eta } \neq 0 < \infty   \) for \( T < \bar{T} \) (thermodynamic stability) we should impose that the coefficient of the highest power of \( \eta  \) is always positive. In this case
-\begin{equation}
+
+Moreover, in order to have \( \eta = \bar{\eta } \neq 0 < \infty   \) for \( T < \bar{T} \) (thermodynamic stability) we should impose that the coefficient of the highest power of \( \eta  \) is always positive. In this case:
+\begin{equation*}
   a_4 (J,T)>0
-\end{equation}
-   Indeed if this condition is violated \( \mathcal{L} \) reaches it s absolute minimum for \( \abs{\eta } \rightarrow \infty   \)!
-Therefore,
+\end{equation*}
+Indeed if this condition is violated \( \mathcal{L} \) reaches it s absolute minimum for \( \eta  \rightarrow \pm \infty   \), which makes no sense physically! The Landau free energy results
 \begin{equation}
-    \mathcal{L} (\eta ) \simeq  a_2 \eta  ^2 + a_4  \eta  ^4
+    \mathcal{L} (\eta ) \simeq  a_2 \eta  ^2 + a_4  \eta  ^4, \quad \text{with } a_4>0
 \end{equation}
-where he term \( a_4 \) it is positive and fixed.
 
-If we now fix \( J \) and expand the coefficients \( a_2 \) and \( a_4 \) as a function of \( t \equiv \frac{T - \bar{T} }{\bar{T} } \),
-\begin{subequations}
-\begin{align}
-  a_2 & \sim  a_2^0 +    \frac{T - \bar{T} }{\bar{T} } \frac{a}{2} \\
-  a_4 & \sim \frac{b}{4} + \dots
-\end{align}
-\end{subequations}
-By choosing \( a_2^0 = 0\) the sign of \( a_2 \) is determined by the one of
-\begin{equation}
-  t \equiv \frac{T - \bar{T} }{\bar{T} }
-\end{equation}
+Finally, fixing \( J \) and expanding the coefficients \( a_2 \) and \( a_4 \) as a function of the reduced temperature \( t \equiv \frac{T - \bar{T} }{\bar{T} } \) (in \( T \) near \( \bar{T}  \)), we obtain
+\begin{equation*}
+    a_2  \sim  a_2^0 +    \frac{T - \bar{T} }{\bar{T} } \frac{a}{2} + \dots, \qquad  a_4  \sim \frac{b}{4} + \dots
+\end{equation*}
+in the expansion of \( a_4 \) we have neglected any explicit dependence on \( T - \bar{T}  \) because as we will see it will not dominate the behaviour of the thermodynamics near \( \bar{T}  \). Moreover, by choosing \( a_2^0 = 0\) the sign of \( a_2 \) is determined by the one of \( t \).
 In particular, at \( T = \bar{T}  \), one has \( a_2 =0 \).
-Hence, for scalar, Ising like systems the minimal Landau free energy is given by
-\begin{equation}
+
+We finally have that the form of the Landau free energy for the Ising model is given by:
+\begin{empheq}[box=\myyellowbox]{equation}
     \mathcal{L} = \mathcolorbox{green!20}{\frac{a}{2}} t  \eta ^2 + \frac{b}{4} \eta ^4 + O ( \eta ^6)
-\end{equation}
+\end{empheq}
+
 \begin{remark}
 Does not matter the coefficient in green in front, so in the next part of the course we will change it. If it is written in this way we have always \( a>0 \). We have also \( b>0 \).
 \end{remark}
 
-
-
-\section{Equilibrium phases}
-Now, the equilibrium states
-\begin{equation}
-  \pdv{\mathcal{L}}{\eta } = 0 \quad \Rightarrow  a t \eta + b \eta ^3 = 0
-\end{equation}
-Hence,
-\begin{equation}
-  \bar{\eta } =
-  \begin{cases}
-   0 & T > \bar{T} \\
-   \pm \sqrt{\frac{-at}{b}} & T < \bar{T}
-  \end{cases}
-\end{equation}
-At \( T= \bar{T}  \)  the 3 solutions coincide!
-\begin{itemize}
-\item Case \( T> \bar{T}  \) \( (t>0) \): only one solution \( \bar{\eta }=0  \).
-\begin{equation}
-  \pdv[2]{\mathcal{L}}{\eta } = a t + 3 b \eta ^2 \ge 0
-\end{equation}
-for \( \bar{\eta } = 0  \) and \( t>0 \) implying that \( \eta = \bar{\eta }  \) is a global minimum, as in Figure \ref{fig:15_10}.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth]{../lessons/15_image/13.pdf}
-\caption{\label{fig:15_10} Description.}
-\end{figure}
-\item Case \( T< \bar{T}  \) \( (t<0) \): 3 solutions \( \bar{\eta } = 0  \) and \( \bar{\eta } = \pm \sqrt{- \frac{at}{b}}   \).
-Let us see wheter they are minima or local maxima.
-\begin{equation}
-  \eval{\pdv[2]{\mathcal{L}}{\eta } }_{\bar{\eta } =0 } = a t < 0 \quad \Rightarrow \bar{\eta } = 0 \text{ local maximum (no equilibrium)}
-\end{equation}
-
-\begin{equation}
-  \eval{\pdv[2]{\mathcal{L}}{\eta } }_{\bar{\eta } = \pm \sqrt{- \frac{at}{b}}  } = a t + 3 b \qty(- \frac{at}{b}) = -2at
-\end{equation}
-since \( t<0 \), \( -2at >0 \) and hence \( \bar{\eta } = \pm \sqrt{- \frac{at}{b}}   \) are 2 minima!
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth]{../lessons/15_image/14.pdf}
-\caption{\label{fig:15_11} Description.}
-\end{figure}
-
-\begin{equation}
-  \mathcal{L} \qty(\eta = \pm \sqrt{- \frac{at}{b}} ) = - \frac{a^2 t^2}{2b} + \frac{a^2 t^2}{4b} = - \frac{a^2 t^2}{4b} < 0
-\end{equation}
-The 2 minima are related by the group symmetry \( \mathbb{Z}^2 \)  \( (\bar{\eta } \rightarrow - \bar{\eta }  ) \).
-\end{itemize}
-
-\begin{remark}
 Note that, in presence of an external magnetic field \( h \), one should consider the Legendre transform of \( \mathcal{L} \) obtaining its Gibbs version:
 
 \begin{equation}
-  \mathcal{L} =  \frac{a}{2} t \eta ^2 + \frac{b}{4} \eta ^4 - h \eta
+  \mathcal{L}_G =  \frac{a}{2} t \eta ^2 + \frac{b}{4} \eta ^4 - h \eta
 \end{equation}
 we have inserted a field coupled with the order parameter.
-\end{remark}
+
+
+\subsection{Equilibrium phases}
+Let us now see what does the Landau theory for the Ising model predict. First of all, in the absence of external fields we have that the equilibrium states are determined by:
+\begin{equation}
+  \pdv{\mathcal{L}}{\eta } = 0 \quad \Rightarrow  a t \eta + b \eta ^3 = \eta (at+b \eta ^2)= 0
+\end{equation}
+Hence, the minima are
+\begin{equation}
+  \bar{\eta } =
+  \begin{cases}
+   0 & t>0 \,(\text{i.e. } T > \bar{T}) \\
+   \pm \sqrt{\frac{-at}{b}} & t<0 \,(\text{i.e. } T < \bar{T})
+  \end{cases}
+\end{equation}
+and at \( T= \bar{T}  \)  the 3 solutions coincide!
+
+Let us consider the two different cases:
+\begin{itemize}
+\item Case \( t>0 \) (\( T> \bar{T}  \)):  the only global minimum of \( \mathcal{L} \) is the solution \( \bar{\eta }=0  \). The second derivative of \( \mathcal{L} \) with respect to \( \eta  \) is
+\begin{equation*}
+  \pdv[2]{\mathcal{L}}{\eta } = a t + 3 b \eta ^2
+\end{equation*}
+which results \( \ge 0 \) for \( \bar{\eta } = 0  \) and in the case \( t>0 \). It implies that \( \eta = \bar{\eta }  \) is a global minima, as in Figure \ref{fig:15_10}.
+
+
+
+\item Case \( t<0 \) (\( T< \bar{T}  \)): there are 3 solutions, \( \bar{\eta } = 0  \) and \( \bar{\eta } = \pm \sqrt{- \frac{at}{b}}   \).
+Let us see wheter they are minima or local maxima.
+\begin{equation*}
+  \eval{\pdv[2]{\mathcal{L}}{\eta } }_{\bar{\eta } =0 } = a t < 0 \quad \Rightarrow \bar{\eta } = 0 \text{ local maxima (no equilibrium)}
+\end{equation*}
+
+\begin{equation*}
+  \eval{\pdv[2]{\mathcal{L}}{\eta } }_{\bar{\eta } = \pm \sqrt{- \frac{at}{b}}  } = a t + 3 b \qty(- \frac{at}{b}) = -2at
+\end{equation*}
+since \( t<0 \), we have \( -2at >0 \) and hence \( \bar{\eta } = \pm \sqrt{- \frac{at}{b}}   \) are two minima!
+
+
+\begin{equation*}
+  \mathcal{L} \qty(\bar{\eta }  = \pm \sqrt{- \frac{at}{b}} ) = - \frac{a^2 t^2}{2b} + \frac{a^2 t^2}{4b} = - \frac{a^2 t^2}{4b} < 0
+\end{equation*}
+Hence, the two minima have the same valueare related by the group symmetry \( \mathbb{Z}^2 \)  \( (\bar{\eta } \rightarrow - \bar{\eta }  ) \).
+\end{itemize}
+
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][Landau free energy \( \mathcal{L} \) for \( t>0 \) with \( h=0 \).]{ \includegraphics[width=0.8\textwidth]{../lessons/15_image/13.pdf}  \label{fig:15_10} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][Landau free energy \( \mathcal{L} \) for \( t<0 \) with \( h=0 \).]{\includegraphics[width=0.8\textwidth]{../lessons/15_image/14.jpg}  \label{fig:15_11} }
+\end{minipage}
+\caption{\label{fig:} }
+\end{figure}
+
+
 
 \section{Critical exponents in Landau's theory}
-Consider \( t \equiv \frac{T- \bar{T} }{\bar{T} } \).
+Let us therefore see what critical exponents does the Landau theory for the Ising model predict. Let us define \( t \equiv \frac{T- \bar{T} }{\bar{T} } \).
 
-\subsubsection{Exponent \( \beta  \)}
-We have  \( \eta \sim t^\beta  \) for \( h=0 \), \( t \rightarrow 0^- \). Since \( t<0 \), the minima of \( \mathcal{L} \) are
-\begin{equation}
+\subsubsection{Exponent \( \pmb{\beta}  \)}
+This is immediately determined from what we have just seen: in fact, \( \eta \sim t^\beta  \) for \( h=0 \), \( t \rightarrow 0^- \). Since \( t<0 \), the minima of \( \mathcal{L} \) are
+\begin{equation*}
   \bar{\eta } = \pm \sqrt{- \frac{at}{b}} \quad \Rightarrow  \beta = \frac{1}{2}
-\end{equation}
+\end{equation*}
 as expected.
-\subsubsection{Exponent \( \alpha  \)}
-We have \( C \sim t^{-\alpha } \) for  \( h=0 \), \( \abs{t}  \rightarrow 0 \). Two cases:
+
+\subsubsection{Exponent \( \pmb{\alpha}  \)}
+The specific heat at zero field of the system is \(   C_H = - T \pdv[2]{\mathcal{L}}{T} \).
+In particular, we have \( C _H \sim t^{-\alpha } \) for  \( h=0 \), \( \abs{t}  \rightarrow 0 \).
+As we have seen:
+
 \begin{itemize}
-\item \( t>0 \): \( \bar{\eta }=0  \) and \( \mathcal{L} (\bar{\eta } )= 0 \).
-\item \( t < 0 \): \( \mathcal{L}_{min} = \mathcal{L} \qty(\bar{\eta } = \pm \sqrt{- \frac{at}{b}}  ) = - \frac{a^2t^2}{4b}  \), that implies
-\begin{equation}
+\item if \( t>0 \):  \( \mathcal{L} (\bar{\eta }=0 )= 0 \).
+\item if \( t < 0 \): \( \mathcal{L}_{min} = \mathcal{L} \qty(\bar{\eta } = \pm \sqrt{- \frac{at}{b}}  ) = - \frac{a^2t^2}{4b}  \).
+\end{itemize}
+Hence,
+\begin{equation*}
   \mathcal{L}_{min} =
     \begin{cases}
      0 & t > 0\\
      - \frac{a^2 t^2}{4b} & t < 0
     \end{cases}
-\end{equation}
-Hence,
-\begin{equation}
-  c_V = - T \pdv[2]{\mathcal{L}}{T} = - T \pdv[2]{}{T} \qty(- \frac{a^2}{4b \bar{T}^2 }(T- \bar{T} )^2)
-\end{equation}
+\end{equation*}
+Therefore:
+\begin{equation*}
+  c_H = - T \pdv[2]{\mathcal{L}}{T} = - T \pdv[2]{}{T} \qty(- \frac{a^2}{4b \bar{T}^2 }(T- \bar{T} )^2)
+\end{equation*}
 We have
-\begin{equation}
-  \pdv{}{T} (\dots) = - \frac{a^2}{2 b \bar{T}^2 } (T- \bar{T} )
-\end{equation}
-\begin{equation}
+\begin{equation*}
+  \pdv{}{T} (\dots) \qty[- \frac{a^2}{4b \bar{T}^2 }(T- \bar{T} )^2 ] = - \frac{a^2}{2 b \bar{T}^2 } (T- \bar{T} )
+\end{equation*}
+\begin{equation*}
   \pdv[2]{}{T} = \pdv{}{T} \qty[ - \frac{a^2}{2 b \bar{T}^2 } (T- \bar{T} )]   = - \frac{a^2}{2 b \bar{T}^2 }
-\end{equation}
-\begin{equation}
-c_V
+\end{equation*}
+Hence, the specific heat at zero field results
+\begin{equation*}
+c_H =
   \begin{cases}
    0 & T > \bar{T} \\
    \frac{a^2}{2 b \bar{T}^2 } T & T < \bar{T}
   \end{cases}
-\end{equation}
-We have \( t \rightarrow 0^- \) if and only if \( T \rightarrow \bar{T}^-  \), which implies \( c_V \rightarrow \frac{a^2}{2b \bar{T} } \) that is constant.
-\end{itemize}
-In obth cases \( \alpha =0 \).
+\end{equation*}
+We have \( t \rightarrow 0^- \) if and only if \( T \rightarrow \bar{T}^-  \), which implies \( c_H \rightarrow \frac{a^2}{2b \bar{T} } \) that is constant. Hence, in both cases:
+\begin{equation*}
+  \alpha =0
+\end{equation*}
+
+
 \subsubsection{Exponent \( \delta  \)}
-We have \( h \sim \eta ^ \delta  \) at \( T = \bar{T}  \). Let us start from the equation of state. This is obtained by computing the \( \pdv{}{\eta }  \) of the Gibbs version.
-\begin{equation}
-  \pdv{\mathcal{L}_G}{\eta } = a t \eta + b \eta ^3 - h = 0
-\end{equation}
-that is the condition for equilibrium. The equation of state is
+Let us remind that \( h \sim \eta ^ \delta  \) at \( T = \bar{T}  \).
+Considering now also an external field, the state equation of the system will be given by the differentiation of \( \mathcal{L} \):
+\begin{equation*}
+  \pdv{\mathcal{L}}{\eta } = a t \eta + b \eta ^3 - h = 0
+\end{equation*}
+Hence, the condition of equilibrium is
 \begin{equation}
   h = a t \eta + b \eta ^3
   \label{eq:15_2}
 \end{equation}
-Equation \eqref{eq:15_2} tells us that, for fixed \( h \), the extreme points of \( \mathcal{L} \) are given by the values of \( \eta  \) that satisfies \eqref{eq:15_2}.
+This tells us that, for fixed \( h \), the extreme points of \( \mathcal{L} \) are given by the values of \( \eta  \) that satisfies Eq.\eqref{eq:15_2} (see Figure \ref{fig:15_14}).
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.5\textwidth]{../lessons/15_image/15.pdf}
-\caption{\label{fig:} Description.}
+\includegraphics[width=0.6\textwidth]{../lessons/15_image/15.jpg}
+\caption{\label{fig:15_14} Plot of the Landau free energy for \( t<0 \) with an external field \( h>0 \).}
 \end{figure}
-At \( T= \bar{T}  \) \( (t=0) \) we have \( h \sim \eta ^3 \), hence \( \delta =3 \).
+At the critical point \( T= \bar{T}  \) \( (t=0) \) we have \( h \sim \eta ^3 \). Therefore:
+\begin{equation*}
+  \delta =3
+\end{equation*}
 
-\subsubsection{Exponent \( \gamma   \)}
-\( \chi _T \sim t^{- \gamma  } \) for \( h=0 \), \( \abs{t} \rightarrow 0  \). Let us derive the equation of state \eqref{eq:15_2} with respect to \( h \):
-\begin{equation}
-  a t \pdv{\eta }{h} + 3 b \eta ^3 \pdv{\eta }{h} = 1
-\end{equation}
-and since
-\begin{equation}
-  \chi = \pdv{\eta }{h}
-\end{equation}
-we have
-\begin{equation}
+
+\subsubsection{Exponent \( \pmb{\gamma}   \)}
+Let us remind that \( \chi _T \sim t^{- \gamma  } \) for \( h=0 \), \( \abs{t} \rightarrow 0  \).
+If we now differentiate the state equation \eqref{eq:15_2} with respect to \( h \) we get:
+\begin{equation*}
+  a t \pdv{\eta }{h} + 3 b \eta ^2 \pdv{\eta }{h} = 1
+\end{equation*}
+Since \( \chi = \pdv{\eta }{h} \), we have
+\begin{equation*}
   \chi = \frac{1}{at+3 b \eta ^2}
-\end{equation}
+\end{equation*}
+If we now set \( h=0 \), then for:
 \begin{itemize}
-\item Case \( t>0 \), \( \bar{\eta } = 0  \): \( \chi _T = - \frac{1}{at} \).
-\item Case \( t<0 \), \( \bar{\eta } = \pm \qty(- \frac{at}{b})^{1/2}   \): \( \chi _T = - \frac{1}{2at} \).
+\item \( t>0 \): we will have \( \bar{\eta } = 0  \) and thus \( \chi _T =  \frac{1}{at} \).
+\item \( t<0 \): we will have \( \bar{\eta } = \pm \qty(- \frac{at}{b})^{1/2}   \) and thus \( \chi _T = - \frac{1}{2at} \).
 \end{itemize}
-In both cases \( \chi _T \sim  1/t \) and this gives
-\begin{equation}
+In both cases \( \chi _T \sim  1/t \) and thus:
+\begin{equation*}
   \gamma = \gamma' = 1
-\end{equation}
+\end{equation*}
 
 \subsubsection{Summary}
-In summary the Landau theory gives the following (mean field) values of the critical exponents
+In summary, the Landau theory for the Ising model gives the following (mean field) values of the critical exponents
 \begin{equation}
   \beta = \frac{1}{2}, \quad \alpha =0, \quad \delta =3, \quad \gamma =1
 \end{equation}
-Landau theory does not depend on the system dimension \( D \) (as expected since isa mean field theory) but only on its symmetries.
+which, as we expected, are identical to those we have found within Weiss mean field theory. Moreover, Landau theory does not depend on the system dimension \( d \) (as expected since is a mean field theory) but only on its symmetries.
 
 \begin{remark}
 For a \( O(n) \) (vector) model the order parameter \( \eta  \) becomes a vector field \( \va{\eta } \) with \( n \) compnents and
