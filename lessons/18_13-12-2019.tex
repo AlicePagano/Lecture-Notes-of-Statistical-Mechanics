@@ -130,6 +130,7 @@ We have also \( A_0 =0 \),  \( 3bm_0^2 \delta m^2 = 0 \) and \( 2 b m_0 \delta m
 The Gaussian approximation consists in neglecting the quartic term \( (\delta m)^4 \), hence we finally obtain:
 \begin{equation}
     \beta \mathcal{H}_{eff}^{T>T_c} (\delta m) \simeq  \int_{}^{} \dd[d]{\va{r}} \qty(\frac{k}{2} \qty( \va{\grad } \delta m)^2 + a t (\delta m)^2 )
+    \label{eq:18_4}
 \end{equation}
 \begin{remark}
 It is important to understand that these are fluctuations with respect to the solution \( m_0 \).
@@ -164,7 +165,7 @@ and this is true only if:
 \end{equation*}
 Let us now make an observations; since \( \delta m (\va{r}) \in \R \) (is real) we have that
 \begin{equation*}
-  \delta m_{\va{k}} = - \delta m^*_{-\va{k}}
+  \delta m^*_{\va{k}} =  \delta m_{-\va{k}}
 \end{equation*}
 
 
@@ -204,13 +205,13 @@ one gets
 We get the last useful relation:
 \begin{empheq}[box=\myyellowbox]{equation}
   V \delta _{\va{k} \va{k}'} \overset{V \rightarrow \infty }{\longrightarrow  } (2 \pi )^d \delta (\va{k} - \va{k}')
+  \label{eq:18_5}
 \end{empheq}
 
 \end{itemize}
 
-
 \begin{remark}
-Since the minimal spatial length of the system is \( a \), we have
+Our coarse graining procedure is based on the construction of blocks which have a linear dimension that cannot be smaller than \( a \), the characteristic microscopic length of the system; this means that not all the \( \va{k} \)  are allowed, and in particular we must have
 \begin{equation*}
 \abs{\va{k}} \le \frac{\pi }{a} = \Lambda
 \end{equation*}
@@ -219,100 +220,115 @@ It is the ultraviolet cut-off!
 
 
 
-
-
-\section{Gaussian Hamiltonian in Fourier space}
-For simplicity, let us change notation
+\subsubsection{Gaussian Hamiltonian in Fourier space}
+We want to compute Eq.\eqref{eq:18_4}  in the Fourier space. For simplicity, let us change notation as follows
+\begin{equation*}
+  \delta m (\va{r}) \leftrightarrow \varphi (\va{r}), \qquad k \leftrightarrow c
+\end{equation*}
+Hence, Eq.\eqref{eq:18_4} becomes
 \begin{equation}
-  \delta m (\va{r}) \leftrightarrow \varphi (\va{r}), \quad k \leftrightarrow c
-\end{equation}
-obtaining
-\begin{equation}
-  \beta \mathcal{H}_{eff}^{G,>} [\varphi ]= \int_{}^{} \dd[D]{\va{r}} \qty[\frac{c}{2} \qty(\grad \varphi )^2 + a t \varphi  ^2 ]
+  \beta \mathcal{H}_{eff}^{T>T_c} [\varphi ]= \int_{}^{}  \qty[\frac{c}{2} \qty(\grad \varphi )^2 + a t \varphi  ^2 ] \dd[d]{\va{r}}
   \label{eq:18_2}
 \end{equation}
-where
-\begin{equation}
-  \varphi (\va{r}) = \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} \vdot \va{r}} \varphi _{\va{k}}
-\end{equation}
-Consider the term of expression \eqref{eq:18_2} separately:
+with
+\begin{equation*}
+  \varphi (\va{r}) = \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} \vdot \va{r}} \varphi _{\va{k}}, \quad \varphi _{\va{k}} \in \mathbb{C}
+\end{equation*}
+Let us consider the terms of expression \eqref{eq:18_2} separately:
 \begin{itemize}
-\item Term \( a t \varphi ^2 \).
-\begin{equation}
-  \int_{}^{} \dd[D]{\va{r}} a t \varphi ^2 (\va{r}) = \frac{a t}{V^2} \sum_{\va{k},\va{k}'}^{}  \int_{\R^D}^{} e^{i (\va{k}+\va{k}') \vdot \va{r}} \varphi _{\va{k}} \varphi _{\va{k}'} \dd[D]{\va{r}}
-  = \frac{at}{V^2} \sum_{\va{k}\va{k}'}^{} \varphi _{\va{k}} \varphi _{\va{k}'} \delta (\va{k}+\va{k}') (2 \pi )^D
-\end{equation}
+\item Term \( a t \varphi ^2 \): the integral we are considering is
+\begin{equation*}
+  \int_{}^{}  a t \varphi ^2 (\va{r}) \dd[d]{\va{r}}= \frac{a t}{V^2} \sum_{\va{k},\va{k}'}^{}  \int_{\R^d}^{} e^{i (\va{k}+\va{k}') \vdot \va{r}} \varphi _{\va{k}} \varphi _{\va{k}'} \dd[d]{\va{r}}
+  \overset{\eqref{eq:18_1},\eqref{eq:18_5}}{=}  \frac{at}{V^2} \sum_{\va{k}\va{k}'}^{} \varphi _{\va{k}} \varphi _{\va{k}'} (2 \pi )^d \delta (\va{k}+\va{k}')
+\end{equation*}
 On the other hand,
+\begin{equation*}
+  (2 \pi )^d \delta (\va{k}+ \va{k}') \overset{V \gg 1 }{\longrightarrow} V \delta _{\va{k},-\va{k}'}
+\end{equation*}
+Hence, the term becomes
 \begin{equation}
-  \frac{(2 \pi )^D}{V} \delta (\va{k}+ \va{k}') \overset{V \gg 1}{\longrightarrow} \delta _{\va{k},-\va{k}'}
+   \int_{}^{}  a t \varphi ^2 (\va{r}) \dd[d]{\va{r}} \overset{V \gg 1 }{\longrightarrow} \frac{1}{2V} \sum_{\va{k}}^{} 2 a t  \varphi _{\va{k}} \varphi _{-\va{k}'}
+   \label{eq:18_6}
 \end{equation}
-\begin{equation}
-  \Rightarrow \int_{}^{} \dd[D]{\va{r}} a t \varphi ^2 (\va{r})  \overset{V \gg 1}{\longrightarrow} \frac{1}{2V} \sum_{\va{k}}^{} 2 a t  \varphi _{\va{k}} \varphi _{\va{k}'}
-\end{equation}
-\item Term \( \int_{}^{} \dd[D]{\va{r}} \frac{c}{2} \qty(\grad \varphi )^2    \).
-\begin{equation}
-\begin{split}
-  \int_{}^{} \dd[D]{r} \frac{c}{2} \qty(\grad \varphi )^2 & = \frac{c}{2} \frac{1}{V^2} \int_{}^{} \dd[D]{\va{r}} \qty(\grad \sum_{\va{k}}^{} e^{i \va{k} \vdot \va{r}} \varphi _{\va{k}}  ) \qty(\grad \sum_{\va{k}'}^{} e^{i \va{k}' \vdot \va{r} } \varphi _{\va{k}'}  )     \\
-  & = \frac{c}{2 V^2} \sum_{\va{k} \va{k}'}^{}  \qty(- \va{k} \vdot \va{k}') \varphi _{\va{k}} \varphi _{\va{k}'} \underbrace{\int_{}^{} \dd[D]{\va{r}}  e^{i (\va{k}+\va{k}')\vdot \va{r}}}_{(2 \pi )^2 \delta (\va{k}+ \va{k}') \rightarrow V \delta _{\va{k},-\va{k}'}}   \\
-  & = \frac{c}{2V} \sum_{\va{k}}^{} \abs{\va{k}}^2 \varphi _{\va{k}} \varphi _{\va{-k}'}
-\end{split}
-\end{equation}
-\end{itemize}
-In summary, the exponent is:
-\begin{empheq}[box=\myyellowbox]{equation}
-  \beta \mathcal{H}_{eff}^{G,>} \rightarrow \frac{1}{2V} \sum_{\va{k}}^{} \qty(2 a t + c k^2) \varphi _{\va{k}} \varphi _{-\va{k}'}
-\end{empheq}
-this is the Gaussian model in Fourier space.
 
-Now, the question is: how can we write the measure \( \int \text{D}[\varphi ] \) in Fourier space?
+
+
+\item Term \( \frac{c}{2} \qty(\grad \varphi )^2    \): consider the integral
+\begin{equation*}
+\begin{split}
+  \int_{}^{}  \frac{c}{2} \qty(\grad \varphi )^2 \dd[d]{\va{r}} & =
+  \frac{c}{2} \frac{1}{V^2} \int_{}^{} \qty(\grad \sum_{\va{k}}^{} e^{i \va{k} \vdot \va{r}} \varphi _{\va{k}}  ) \qty(\grad \sum_{\va{k}'}^{} e^{i \va{k}' \vdot \va{r} } \varphi _{\va{k}'}  )  \dd[d]{\va{r}}    \\
+  & = \frac{c}{2 V^2} \sum_{\va{k} \va{k}'}^{}  \qty( - \va{k} \vdot \va{k}') \varphi _{\va{k}} \varphi _{\va{k}'} \underbrace{ \int_{}^{}  e^{i (\va{k}+\va{k}')\vdot \va{r}} \dd[d]{\va{r}}   }_{(2 \pi )^d \delta (\va{k}+ \va{k}') \rightarrow V \delta _{\va{k},-\va{k}'} }
+   = \frac{c}{2V} \sum_{\va{k}}^{} \abs{\va{k}}^2 \varphi _{\va{k}} \varphi _{-\va{k}'}
+\end{split}
+\end{equation*}
+Hence, the term becomes
 \begin{equation}
+  \int_{}^{}  \frac{c}{2} \qty(\grad \varphi )^2 \dd[d]{\va{r}}
+\overset{V \gg 1 }{\longrightarrow}
+   \frac{c}{2V} \sum_{\va{k}}^{} \abs{\va{k}}^2 \varphi _{\va{k}} \varphi _{-\va{k}'}
+   \label{eq:18_7}
+\end{equation}
+
+\end{itemize}
+
+In conclusion, the Gaussian Hamiltonian in Eq.\eqref{eq:18_4} in the Fourier space is the sum of the two terms in Eq.\eqref{eq:18_6} and Eq.\eqref{eq:18_7}:
+\begin{empheq}[box=\myyellowbox]{equation}
+  \beta \mathcal{H}_{eff}^{T>T_c} [ \varphi ] \overset{V \gg 1 }{\longrightarrow} \frac{1}{2V} \sum_{\va{k}}^{} \qty(2 a t + c \abs{\va{k}}^2) \varphi _{\va{k}} \varphi _{-\va{k}'}
+\end{empheq}
+
+
+Now, thinking about the functional integral form of the partition function, what does the measure \( \int \mathcal{D} [\varphi ] \)  become in Fourier space?
+
+Since \( \varphi(\va{r}) \)  is expressed in terms of the Fourier modes \( \varphi_{\va{k}} \), which are in general complex,
+\begin{equation*}
   \varphi (\va{r}) = \frac{1}{V} \sum_{\va{k}}^{} \varphi _{\va{k}} e^{i \va{k} \vdot \va{r}}, \quad \varphi _{\va{k}} \in \mathbb{C}
-\end{equation}
+\end{equation*}
+the measure of the integral becomes:
 \begin{equation}
-  \int_{}^{} \text{D} \qty[\varphi (\va{r})] \rightarrow \int_{- \infty }^{+ \infty } \prod_{\abs{\va{k}} < \Lambda  }^{}   \dd[]{(\Re{\varphi _{\va{k}}})}   \dd[]{(\Im{\varphi _{\va{k}}})}
+  \int_{}^{} \mathcal{D} \qty[\varphi (\va{r})] \rightarrow \int_{- \infty }^{+ \infty } \prod_{\abs{\va{k}} < \Lambda  }^{}   \dd[]{(\Re{\varphi _{\va{k}}})}   \dd[]{(\Im{\varphi _{\va{k}}})}
+  \label{eq:18_8}
 \end{equation}
-with \( \varphi (\va{r}) \in \R \), that implies \(    \varphi _{\va{k}}^* = \varphi _{-\va{k}}\), hence
-\begin{equation}
+However, since \( \varphi (\va{r} ) \) is real (i.e. \( \varphi _{\va{k}}^* = \varphi _{-\va{k}}\)) the real and imaginary parts of the Fourier modes are not independent, because we have:
+\begin{equation*}
   \begin{cases}
    \Re {\varphi _{\va{k}}} = \Re {\varphi _{-\va{k}}} \\
   \Im{\varphi _{\va{k}}} = -\Im {\varphi _{-\va{k}}}
   \end{cases}
-\end{equation}
-Therefore, if we considered
+\end{equation*}
+This means that if we use the measure we have written above (Eq.\eqref{eq:18_8}) we would integrate twice on the complex plane; we must therefore change the measure so as to avoid this double counting. We can for example simply divide everything by \( 2 \), or restrict the integration on the region where for example the last coordinate of \( \va{k} \), let us call it \( k_z \), is positive. Therefore:
 \begin{equation}
-  \prod_{\abs{\va{k}} < \Lambda  }^{} \dd[]{\Re {\varphi _{\va{k}}}} \dd[]{\Im{\varphi _{\va{k}}}}
+\begin{split}
+  \Tr \equiv   \int_{}^{} \mathcal{D} \qty[\varphi (\va{r})]  & =
+  \int_{- \infty }^{+ \infty } \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z > 0 } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}} \\
+  &= \frac{1}{2} \int_{- \infty }^{+ \infty } \prod_{\substack{ \abs{\va{k}} < \Lambda    } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
+\end{split}
 \end{equation}
-we would count twice. We need to consider one restriction. For example we can assume
-\( k_z > 0 \) (hupper half of the \( \va{k} \) space), hence
+For sake of brevity, we define:
 \begin{equation}
-  \Tr \equiv \int_{- \infty }^{+ \infty } \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z > 0 } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
+  \Tr \equiv \int_{-\infty }^{+\infty } \prod_{\va{k}}'  \dd[]{\varphi _{\va{k}}}, \qquad
+   \prod_{\va{k}}' \dd[]{\varphi _{\va{k}}} \equiv \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z >0 } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
 \end{equation}
-or
+In the end,  in the Fourier space we have:
 \begin{equation}
-  \Tr \equiv \frac{1}{2} \int_{- \infty }^{+ \infty } \prod_{\substack{ \abs{\va{k}} < \Lambda    } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
-\end{equation}
-For sake of brevity
-\begin{equation}
-  \Tr \equiv \int_{-\infty }^{+\infty } \prod_{\va{k}}^{'}  \dd[]{\varphi _{\va{k}}}
+  \widetilde{Z} _{GL}^{T>T_c} =  \int_{- \infty }^{+ \infty }  \qty( \prod_{\va{k}}'  \dd[]{\varphi _{\va{k}}})
+  e^{- \beta \widetilde{\mathcal{H}}_{eff}^{T>T_c} [\varphi _{\va{k}}] }
+  \label{eq:18_9}
 \end{equation}
 where
 \begin{equation}
-  \prod_{\va{k}}^{} \dd[]{\varphi _{\va{k}}} \equiv \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z >0 } }^{}   \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}}
+  - \beta \widetilde{\mathcal{H}}_{eff}^{T>T_c} [\varphi _{\va{k}}] = - \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2
 \end{equation}
-In summary, we have
-\begin{equation}
-  \widetilde{Z}_{GC}^{G,>} =  \int_{- \infty }^{+ \infty }  \qty( \prod_{\va{k}}^{'}  \dd[]{\varphi _{\va{k}}})
-  e^{- \beta \widetilde{\mathcal{H}}_{eff}^G [\varphi _{\va{k}}] }
-\end{equation}
-where
-\begin{equation}
-  - \beta \widetilde{\mathcal{H}}_{eff}^G [\varphi _{\va{k}}] = - \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2
-\end{equation}
-\subsection{Free energy in Gaussian approximation}
-Let us consider the case \( T>T_c \) \( (m_0=0) \) and \( h=0 \)
+
+
+\subsubsection{Free energy in Gaussian approximation}
+Let us consider again the case \( T>T_c \) (for which we have \( (m_0=0) \)) and \( h=0 \). The partition function of the system in the Fourier space is the one in Eq.\eqref{eq:18_9}:
 \begin{equation}
   \widetilde{Z}_G^{T>T_c} = \prod_{\va{k}}^{'} \int_{-\infty }^{+\infty } \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}} e^{- \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2}
 \end{equation}
+
+
+
 Change variables
 \begin{equation}
   \begin{cases}
