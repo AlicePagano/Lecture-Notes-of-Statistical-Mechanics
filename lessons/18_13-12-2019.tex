@@ -135,79 +135,90 @@ The Gaussian approximation consists in neglecting the quartic term \( (\delta m)
 It is important to understand that these are fluctuations with respect to the solution \( m_0 \).
 \end{remark}
 
+In order to compute this integral it is more convenient to shift to Fourier space.
 
 
 
 
-
-
-
-\section{Ginzburg-Landau in the Gaussian approximation}
-
-Let us solve
+\subsection{Gaussian approximation for the Ising model in Ginzburg-Landau theory}
+For simplicity, consider the case \( T>T_c \); now, let us compute the partition function
 \begin{equation}
-  Z_{GL}^G = \int_{}^{} \text{D} \qty[\delta m] e^{- \int_{}^{} \dd[D]{r} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2  )  }
+  Z_{GL} (\delta m) = \int_{}^{} \mathcal{D} \qty[\delta m] e^{- \int_{}^{} \dd[d]{r} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2  )  }
  \end{equation}
- in the Fourier space.  Consider a system in a box of volume \( V = L^D \) (periodic boundary conditions):
+ in the Fourier space.
+ Let us make some remarks on what happens when we apply Fourier transformations in this case. If our system is enclosed in a cubic box of volume \( V = L^d \) (with periodic boundary conditions), we can define the Fourier components of the magnetization as:
+ \begin{equation}
+   \delta m_{\va{k}} = \int_{V}^{}  \delta m (\va{r}) e^{-i \va{k} \vdot \va{r} }\dd[d]{\va{r}}
+ \end{equation}
+ where \( \va{k} = k_1, \dots, k_d = \frac{2 \pi  \va{n} }{L}\) with \( k_ \alpha = \frac{2 \pi }{L} n_ \alpha  \) and \( n_ \alpha  = 0 , \pm 1, \dots \). We can therefore expand the magnetization in a Fourier series:
  \begin{equation}
    \delta m (\va{r}) = \frac{1}{V} \sum_{\va{k}}  e^{i \va{k}\vdot \va{r}} (\delta m_{\va{k}})
  \end{equation}
-where
-\begin{equation}
-  \delta m_{\va{k}} = \int_{V}^{}  \delta m (\va{r}) e^{-i \va{k} \vdot \va{r} }\dd[D]{\va{r}}
-\end{equation}
-where \( \va{k} = k_1, \dots, k_D = \frac{2 \pi  \bar{n} }{L}\) with \( k_ \alpha = \frac{2 \pi }{L} n_ \alpha  \) \( (n_ \alpha  = 0 , \pm 1, \dots) \).
-\begin{remark}
-  We have \( \delta m_{\va{k}} \in \mathbb{C} \) but \( \delta m (\va{r}) \in \R \), hence
-  \begin{equation}
-    \delta m_{\va{k}} = - \delta m^*_{-\va{k}}
-  \end{equation}
-\end{remark}
+ Substituting this expression of \( m \) in \( \delta m_{\va{k}} \) we obtain an integral representation for the Kronecker delta; in fact:
+ \begin{equation*}
+   \delta m_{\va{k}} = \sum_{\va{k}'}^{}  \delta m_{\va{k}'} \qty( \frac{1}{V} \int_{V}^{} e^{i(\va{k}-\va{k}')\vdot \va{r}} \dd[d]{\va{r}}  )
+ \end{equation*}
+and this is true only if:
+\begin{equation*}
+  \frac{1}{V} \int_{V}^{} e^{i(\va{k}-\va{k}')\vdot \va{r}} \dd[d]{\va{r}} = \delta _{\va{k},\va{k}'} \quad \Rightarrow   \int_{V}^{} e^{i(\va{k}-\va{k}')\vdot \va{r}} \dd[d]{\va{r}} = V \delta _{\va{k},\va{k}'}
+\end{equation*}
+Let us now make an observations; since \( \delta m (\va{r}) \in \R \) (is real) we have that
+\begin{equation*}
+  \delta m_{\va{k}} = - \delta m^*_{-\va{k}}
+\end{equation*}
 
-\subsection{Useful relations}
-Sometimes it is useful to convert the sum over \( \va{k} \) by an integral by using the density of states in the \( \va{k} \) space that is \( \frac{V}{(2 \pi )^D} \),
+
+\subsubsection{Useful relations}
+\begin{itemize}
+\item Sometimes it is useful to convert the sum over \( \va{k} \) by an integral by using the density of states in the \( \va{k} \) space that is \( V/(2 \pi )^d \), hence one useful relation is
 \begin{empheq}[box=\myyellowbox]{equation}
-  \sum_{\va{k}}^{} \rightarrow \frac{V}{( 2 \pi )^D} \int_{\R^D}^{} \dd[]{\va{k}}
+  \sum_{\va{k}}^{} \rightarrow \frac{V}{( 2 \pi )^d} \int_{\R^d}^{} \dd[d]{\va{k}}
+  \label{eq:18_3}
 \end{empheq}
-Hence,
-\begin{equation}
-\begin{split}
-  \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} (\va{r}-\va{r}')} & \rightarrow \frac{1}{V} \frac{V}{(2 \pi )^2} \int_{\R^D}^{} \dd[D]{\va{k}} e^{i \va{k} (\va{r}-\va{r}')} \\
-  & = \frac{1}{(2 \pi )^D} \int_{\R^D}^{} e^{i \va{k} (\va{r}-\va{r}')} \dd[D]{\va{k}}  = \delta (\va{r}- \va{r}')
-\end{split}
-\end{equation}
-so
+
+\item From the relation Eq.\eqref{eq:18_3}, we have:
+\begin{equation*}
+  \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} (\va{r}-\va{r}')}  \rightarrow \frac{1}{\cancel{V} } \frac{\cancel{V} }{(2 \pi )^d} \int_{\R^D}^{} \dd[d]{\va{k}} e^{i \va{k} (\va{r}-\va{r}')}
+     = \delta (\va{r}- \va{r}')
+\end{equation*}
+Hence, another useful relation is:
 \begin{empheq}[box=\myyellowbox]{equation}
   \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} (\va{r}-\va{r}')} \rightarrow \delta (\va{r}-\va{r}')
 \end{empheq}
-Inserting
-\begin{equation}
-  m (\va{r}) = \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k}' \va{r}} m_{\va{k}'}
-\end{equation}
-In the expression
-\begin{equation}
-  m_{\va{k}} = \int_{V}^{} \dd[D]{\va{r}} e^{- i \va{k} \vdot \va{r}} m (\va{r})
- \end{equation}
+
+\item As previously shown, by inserting \( m(\va{r}) \) into the expression for \( m_{\va{k}} \)
+\begin{equation*}
+  m (\va{r}) = \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k}' \va{r}} m_{\va{k}},
+  \qquad   m_{\va{k}} = \int_{V}^{} m (\va{r}) e^{- i \va{k} \vdot \va{r}}  \dd[d]{\va{r}}
+\end{equation*}
 one gets
 \begin{empheq}[box=\myyellowbox]{equation}
-  \frac{1}{V} \int_{}^{} \dd[D]{\va{r}} e^{i (\va{k} - \va{k}') \vdot  \va{r}} = \delta _{\va{k}\va{k}'}
+ \int_{V}^{}  e^{i (\va{k} - \va{k}') \vdot  \va{r}} \dd[d]{\va{r}} = V \delta _{\va{k}\va{k}'}
   \label{eq:18_1}
 \end{empheq}
-Finally, since
-\begin{equation}
-  \int_{}^{} \dd[D]{\va{r}} e^{i (\va{k}-\va{k}') \vdot \va{r}} \overset{V \rightarrow \infty }{\longrightarrow  } (2 \pi )^D \delta (\va{k}-\va{k}')
-\end{equation}
-From \eqref{eq:18_1} one gets,
+
+\item Finally, since
+\begin{equation*}
+  \int_{V}^{}  e^{i (\va{k}-\va{k}') \vdot \va{r}} \dd[d]{\va{r}} =   V \delta _{\va{k} \va{k}'}  \overset{V \rightarrow \infty }{\longrightarrow  } (2 \pi )^d \delta (\va{k}-\va{k}')
+\end{equation*}
+We get the last useful relation:
 \begin{empheq}[box=\myyellowbox]{equation}
-  V \delta _{\va{k} \va{k}'} \overset{V \rightarrow \infty }{\longrightarrow  } (2 \pi )^D \delta (\va{k} - \va{k}')
+  V \delta _{\va{k} \va{k}'} \overset{V \rightarrow \infty }{\longrightarrow  } (2 \pi )^d \delta (\va{k} - \va{k}')
 \end{empheq}
+
+\end{itemize}
+
+
 \begin{remark}
-Since the minimal spatial length of the system is \( a \),
-\begin{equation}
-  a \Rightarrow \abs{\va{k}} \le \frac{\pi }{a} = \Lambda
-\end{equation}
-that is the ultraviolet cut-off.
+Since the minimal spatial length of the system is \( a \), we have
+\begin{equation*}
+\abs{\va{k}} \le \frac{\pi }{a} = \Lambda
+\end{equation*}
+It is the ultraviolet cut-off!
 \end{remark}
+
+
+
 
 
 \section{Gaussian Hamiltonian in Fourier space}
