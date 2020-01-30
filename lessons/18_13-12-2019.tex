@@ -5,131 +5,137 @@
 
 \begin{document}
 
-\marginpar{ \textbf{Lecture 18.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-\subsection{Solution by Fourier transform}
-Let us try to do the Fourier transform and define
-\begin{equation}
-  \va{x} \equiv \va{r} - \va{r}'
-\end{equation}
- Taking the Fourier transform of
-\begin{equation}
+\subsection{Solution of \eqref{eq:17_13} by Fourier transform}
+\marginpar{ \textbf{Lecture 18.} \\  \displaydate{date}. \\ Compiled:  \today.}
+Let us  do the Fourier transform of Eq.\eqref{eq:17_13}:
+\begin{equation*}
   \qty(- \grad ^2 + \xi ^{-2} (t)) G_c (\va{r}-\va{r}') = \frac{k_B T}{k} \delta (\va{r}-\va{r}')
-\end{equation}
-and calling \( \widetilde{G} (q)  \) the Fourier transform of the function \( G \), one gets
+\end{equation*}
+If we define \( \va{x} \equiv \va{r} - \va{r}' \) and we use the following convention for the Fourier transform \( \widetilde{G} (q)  \) of \( G \):
+\begin{equation*}
+  \widetilde{G} (q) = \int_{- \infty }^{+ \infty }  G_c ( \abs{\va{x}} ) e^{- i \va{q} \vdot \abs{\va{x}} } \dd[d]{\abs{\va{x}} }
+\end{equation*}
+then transforming both sides of the equation we get:
 \begin{equation}
-  \widetilde{G} (q) = \int_{- \infty }^{+ \infty } \dd[]{\abs{\va{x}} } G_c ( \abs{\va{x}} ) e^{- i q \abs{\va{x}} } \quad
+  \qty(q^2 + \xi ^{-2}) \widetilde{G} ( q ) = \frac{k_B T}{k} \quad
    \Rightarrow \widetilde{G} ( q ) = \frac{k_B T}{k} \frac{1}{q^2 + \xi ^{-2}}
 \end{equation}
-\begin{remark}
-At \( T = T_c \), since  \( \xi \rightarrow \infty  \)  we have  and \( \widetilde{G} (q) \simeq \frac{1}{q^2}  \) and performing the inverse Fourier transform one gets
+where \( q = \abs{\va{q}}  \).
+From this last equation we can also see that when \( T=T_c \), since \( \xi \rightarrow \infty  \)  we have \( \widetilde{G} (q) \simeq \frac{1}{q^2}  \) and so performing the inverse Fourier transform one gets
+\begin{equation*}
+  G_c (\abs{\va{x}} ) = \abs{\va{x}}^{2-d}
+\end{equation*}
+from which we have that the critical exponent \( \eta  \)  is null (we will see that explicitly once we have computed \( G \)). In fact, at \( T=T_c \) we have previously defined
+\begin{equation*}
+  G (r) \sim \abs{\va{x}}^{2-d- \eta }
+\end{equation*}
+hence, in this case we have \( \eta =0 \).
+ Therefore, reminding that  \( \va{x} \equiv \va{r} - \va{r}' \) we can now determine \( G (\va{x}) \)  with the Fourier antitransform:
 \begin{equation}
-  G_c (\abs{\va{x}} ) = \abs{\va{x}}^{2-D}
+  G (\va{x}) = \int_{}^{}   \frac{\dd[d]{\va{q}}}{(2 \pi )^d} \frac{e^{i \va{q} \vdot \va{x}} }{q^2 + \xi ^{-2}}
 \end{equation}
-On the other hand, at \( T=T_c \) we defined
-\begin{equation}
-  G (r) \sim \abs{\va{x}}^{2-D- \eta }
-\end{equation}
-hence, we have \( \eta =0 \).
-\end{remark}
-Let us now obtain the full expression of \( G(r) \) by computing the inverse Fourier transform
-\begin{equation}
-  G (\va{x}) = \int_{}^{} \dd[D]{\va{q}}  \frac{1}{(2 \pi )^D} \frac{1}{q^2 + \xi ^{-2}} e^{i \va{q} \vdot \va{x}}
-\end{equation}
-Let us do it for \( D=3 \):
-\begin{equation}
+This integral is a bit tedious to compute, and in general its result depends strongly on the dimensionality \( d \) of the system; the general approach used to solve it is to shift to spherical coordinates in \( \R^d \) and then complex integration for the remaining part, which involves \( \abs{\va{q}}  \). In order to do some explicit computations, let us consider the case \( d=3 \); we will then have:
+
+\begin{equation*}
 \begin{split}
-G(\va{x})  &=  \int_{}^{} \dd[3]{\va{q}}  \frac{1}{(2 \pi )^3} \frac{1}{q^2 + \xi ^{-2}} e^{i \va{q} \vdot \va{x}} \overset{\substack{ \text{spherical} \\ \text{coordinates}} }{=}  \\
-& = \frac{4 \pi }{ (2 \pi )^3} \int_{0}^{\infty } \dd[]{q} \frac{q^2}{q^2+ \xi ^{-2}} \int_{-1}^{+1} \dd[]{(\cos \theta  )}    e^{i q \abs{\va{x}} \cos \theta  } \\
-& \overset{z \equiv \cos(\theta ) }{=} \frac{2}{(2 \pi )^2} \int_{0}^{\infty } \dd[]{q} \frac{q^2}{q^2 + \xi ^{-2}} \qty[\frac{1}{i q \abs{\va{x}} } e^{i q \abs{\va{x}} z } ]_{-1}^{1}   \\
-& = \frac{4}{(2 \pi )^2 \abs{\va{x}} } \int_{0}^{\infty } \frac{q \sin(q \abs{\va{x}} ) }{q^2 + \xi ^{-2}} \dd[]{q}
+G(\va{x}) & =   \int_{}^{}  \frac{ \dd[3]{\va{q}}}{(2 \pi )^3} \frac{e^{i \va{q} \vdot \va{x}}}{q^2 + \xi ^{-2}}  \overset{\substack{ \text{spherical} \\ \text{coordinates}} }{=}
+= \frac{1}{ (2 \pi )^3} \int_{0}^{\infty }  \frac{q^2}{q^2+ \xi ^{-2}} \dd[]{q} \int_{-1}^{+1}    e^{i q \abs{\va{x}} \cos \theta  } \dd[]{(\cos \theta  )} \int_{0}^{2 \pi } \dd[]{ \varphi}
+\\
+ &\overset{z \equiv \cos(\theta ) }{=}  \frac{2 \pi }{(2 \pi )^3} \int_{0}^{\infty }  \frac{q^2}{q^2 + \xi ^{-2}} \dd[]{q} \qty[\frac{  e^{i q \abs{\va{x}} z } }{i q \abs{\va{x}} } ]_{-1}^{1}
+ = \frac{1}{(2 \pi )^2 \abs{\va{x}} } \int_{0}^{\infty } \frac{q \sin(q \abs{\va{x}} ) }{q^2 + \xi ^{-2}} \dd[]{q}
 \end{split}
-\end{equation}
-Let us now consider the integral
-\begin{equation}
+\end{equation*}
+This last integral can be computed, using the residue theorem, extending it to the complex plane:
+\begin{equation*}
   I = \int_{0}^{\infty } \frac{q \sin(q \abs{\va{x}} ) }{q^2 + \xi ^{-2}} \dd[]{q}
   = \frac{1}{2} \int_{- \infty }^{+ \infty } \frac{q \sin(q \abs{\va{x}} ) }{q^2 + \xi ^{-2}} \dd[]{q}
-\end{equation}
-that can be computed in the complex plane, i.e. as
+  = \frac{1}{2} \Im \oint \frac{z e^{i z \abs{\va{x}} } }{\qty(z^2 + \xi ^{-2}) } \dd[]{z}
+\end{equation*}
+There are two poles at \( z_P = \pm i \xi ^{-1} \); we choose as the contour of integration \( \gamma   \) which contains only the pole at \( +i \xi ^{-1} \) (see Figure \ref{fig:18_1}) and so using the residue theorem we will have:
+\begin{equation*}
+I  =
+\frac{1}{2}  \Im \oint_\gamma \frac{z e^{i z \abs{\va{x}} } }{ \qty(z + i \xi ^{-1}) \qty(z - i \xi ^{-1})  } \dd[]{z}
+ \overset{\substack{ \text{residue} \\  \text{theorem} } }{=}  \frac{1}{2} \Im \qty[2 \pi  i \text{Res} (i \xi ^{-1})]
+\end{equation*}
+Since,
+\begin{equation*}
+  \text{Res} (i \xi ^{-1}) = \frac{i \xi ^{-1} e^{- \xi ^{-1} \abs{\va{x}} } }{2 i \xi ^{-1}} = \frac{e^{-\abs{\va{x}}/\xi  } }{2}
+\end{equation*}
+we obtain
 \begin{equation}
-  I = \frac{1}{2} \Im \oint \frac{z e^{i z \abs{\va{x}} } }{\qty(z^2 + \xi ^{-2}) } \dd[]{z}
+   I = \frac{1}{2} \Im \qty[2 \pi  i \text{Res} (i \xi ^{-1})] = \frac{\pi }{2} e^{- \abs{\va{x}} /\xi }
 \end{equation}
-The integration contour is a semicirle in the positive half plane. There are two poles \( z_P = \pm i \xi ^{-1} \), but only one is enclosed by the semicirle (Figure \ref{fig:18_1}).
+Therefore, in the end we have:
+\begin{empheq}[box=\myyellowbox]{equation}
+   G ( \abs{\va{x}} ) = \frac{1}{8 \pi } \frac{e^{- \abs{\va{x}}/\xi } }{\abs{\va{x}} }
+\end{empheq}
+We see now clearly that the correlation function has indeed an exponential behaviour (as we have stated also in long range correlations) and that \( \xi  \)  is really the correlation length; furthermore, \( G(\va{x}) \sim 1/ \abs{\va{x}}  \) and from the definition of the exponent \( \eta  \)  we have \(  G(\va{x}) \sim 1/ \abs{\va{x}}^{d-2 + \eta } \),  so since \( d=3 \)  we indeed have \( \eta =0 \).
+
+One can also solve the equation for \( G(\va{r}- \va{r}') \)   by using the spherical coordinates and use the Bessel functions.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/18_image/1.pdf}
-\caption{\label{fig:18_1} Description.}
+\caption{\label{fig:18_1} Positive integration contour \( \gamma   \) in the complex plane for the integral \( I \). It contains only the pole at \( +i \xi ^{-1} \).}
 \end{figure}
 
-Using the Theorem of residues one has
-\begin{equation}
-\begin{split}
-I  &=  \frac{1}{2} \Im \oint_\gamma \frac{z e^{i z \abs{\va{x}} } }{\qty(z^2 + \xi ^{-2}) } \dd[]{z} = \frac{1}{2}  \oint_\gamma \frac{z e^{i z \abs{\va{x}} } }{ \qty(z + i \xi ^{-1}) \qty(z - i \xi ^{-1})  } \dd[]{z}  \\
-& \overset{th.\, of\, residues}{=}  \frac{1}{2} \Im \qty[2 \pi  i \text{Res} (i \xi ^{-1})]
-\end{split}
-\end{equation}
-and since
-\begin{equation}
-  \text{Res} (i \xi ^{-1}) = \frac{i \xi ^{-1} e^{- \xi ^{-1} \abs{\va{x}} } }{2 i \xi ^{-1}} = \frac{e^{-\abs{\va{x}}/\xi  } }{2}
-\end{equation}
-\begin{equation}
-  \Rightarrow  I = \frac{1}{2} \Im \qty[2 \pi  i \text{Res} (i \xi ^{-1})] = \frac{\pi }{2} e^{- \abs{\va{x}} /\xi }
-\end{equation}
-Hence, at the end
-\begin{equation}
-  \Rightarrow G ( \abs{\va{x}} ) = \frac{1}{2 \pi } \frac{e^{- \frac{\abs{\va{x}} }{\xi }} }{\abs{\va{x}} }
-\end{equation}
-where it is confirmed the exponential behaviour for \( t \neq 0 \) and \( \eta =0 \).
 
-One can also solve the equation for \( G(\va{r}- \va{r}') \)   by using the spherical coordinates and use the Bessel functions.
+Therefore, we have seen that for the Ising model \( \nu = 1/2 \). If we also consider the values of the other critical exponents we see that the upper critical dimension for this model is \( d=4 \). In other words, mean field theories are actually good approximations for the Ising model if \( d \geq 4 \). We will later see some other confirmations of this fact.
+
+
+
 
 
 \section{Including fluctuations at the Gaussian level (non interacting fields)}
-Can we reach the simple level of fluctuation? The simple level is the one that follow gaussian distribution.
-Let us introduce fluctuations at the Gaussian level.
+Until now even if we have introduced Ginzburg-Landau theory we are still neglecting the effects of the fluctuations since we are regarding the mean field theory approximation for non-homogeneous systems as a saddle point approximation of a more general theory; in other words, since we are approximating
+\begin{equation*}
+  Z_{GL} [h] \overset{\substack{ \text{saddle} \\  \text{point} } }{\simeq } Z_{GL}^0 [h] = e^{- L [m_0 (\va{r})]}
+\end{equation*}
+we are still regarding the magnetization \( m \) as non fluctuating over the system. In order to include the fluctuations we must do more and go further the simple saddle point approximation. The simplest way we can include fluctuations in our description is expanding \( Z \) expressed as a functional integral around the stationary solution and keeping only quadratic terms; this means that we are considering fluctuations that follow a normal distribution around the stationary value. The important thing to note, however, is that in this approximation these fluctuations are independent, i.e. they do not interact with each other. As we will see, with this assumption the values of some critical exponents will differ from the "usual" ones predicted by mean field theories.
 
-Let us consider \( h=0 \) and let \( m_0 (\va{r})= m_0 \) be the solution of the saddle point approximation. Let us expand the general expression
-\begin{equation}
-  \beta \mathcal{H}_{eff}  [m] = \int_{}^{} \dd[D]{\va{r}} \qty( a t m^2 + \frac{b}{2} m^4 + \frac{k}{2} \qty(\grad m)^2 )
-\end{equation}
+Hence, let us introduce fluctuations at the Gaussian level. Consider consider \( h=0 \) and \( m_0 (\va{r})= m_0 \) be the solution of the saddle point approximation. Let us expand the general expression
+\begin{equation*}
+  \beta \mathcal{H}_{eff}  [m (\va{r})] = \int_{}^{}  \qty( a t m^2 + \frac{b}{2} m^4 + \frac{k}{2} \qty(\va{\grad } m)^2 ) \dd[d]{\va{r}}
+\end{equation*}
 by using
-\begin{equation}
+\begin{equation*}
   m(\va{r}) = m_0 + \delta m(\va{r})
-\end{equation}
-We are assuming that the fluctuations \(  \delta m(\va{r})\) are small:
+\end{equation*}
+If we assumed that the fluctuations \(  \delta m(\va{r})\) are small, we would obtain:
 \begin{subequations}
-\begin{align}
+\begin{align*}
    \qty(\grad m)^2 &= \qty(\grad \qty(m_0 + \delta m) )^2 = \qty(\grad \qty(\delta m) )^2  \\
      m^2 &= m_0^2 + 2 m_0 \delta m + \qty(\delta m)^2 \\
      m^4 &= m_0^4 + 4 m_0^3 \delta m + 6 m_0^2 (\delta m)^2 + 4 m_0 \delta m^3 + (\delta m)^4
-\end{align}
+\end{align*}
 \end{subequations}
-Hence,
+Hence, we have
 \begin{equation}
   \beta \mathcal{H}_{eff} = V \underbrace{ \qty(a t m_0^2 + \frac{b}{2} m_0^4) }_{A_0}
-  + \int_{}^{} \dd[D]{\va{r}} \qty(\frac{k}{2}\qty(\grad m)^2 + \qty(a t + 3 b m_0^2)\delta  m^2 + 2 b m_0 \delta m^3 + \frac{b}{2} \delta m^4 )
+  + \int_{}^{} \qty(\frac{k}{2}\qty( \va{\grad } (\delta m))^2 + \qty(a t + 3 b m_0^2)\delta  m^2 + 2 b m_0 \delta m^3 + \frac{b}{2} \delta m^4 )\dd[d]{\va{r}}
+\end{equation}
+where \( V \) is the volume of the system and the term proportional to \( \delta m \),  \( \qty( 2 a t m_0  +  2b m_0^3 )  \), is zero since \( m_0 \) is the solution of the extremal condition (\( m_0 \) is the stationary solution)
+\begin{equation*}
+  \eval{\frac{\delta \mathcal{H}_{eff}}{\delta m}}_{m=m_0} = 0
+\end{equation*}
+For simplicity let us first consider \( T>T_c \); in this case, we know that \( m_0 = 0 \) and hence,
+\begin{equation*}
+   m (\va{r}) = m_0 + \delta m(\va{r}) = \delta m (\va{r})
+\end{equation*}
+We have also \( A_0 =0 \),  \( 3bm_0^2 \delta m^2 = 0 \) and \( 2 b m_0 \delta m^3 = 0 \). Taking all of this into account, we obtain:
+\begin{equation*}
+  \beta \mathcal{H}_{eff}^{T>T_c} (\delta m)= \int_{}^{} \dd[d]{\va{r}} \qty(\frac{k}{2} \qty(\va{\grad }\delta m)^2 + a t (\delta m)^2 + \frac{b}{2} (\delta m)^4 )
+\end{equation*}
+The Gaussian approximation consists in neglecting the quartic term \( (\delta m)^4 \), hence we finally obtain:
+\begin{equation}
+    \beta \mathcal{H}_{eff}^{T>T_c} (\delta m) \simeq  \int_{}^{} \dd[d]{\va{r}} \qty(\frac{k}{2} \qty( \va{\grad } \delta m)^2 + a t (\delta m)^2 )
 \end{equation}
 \begin{remark}
-The term proportional to \( \delta m \),  \( \qty( 2 a t m_0  + \frac{b}{2} 4 m_0^3 )  \) is zero since \( m_0 \) is the solution of the extremal condition
-\begin{equation}
-  \eval{\frac{\delta \mathcal{H}_{eff}}{\delta m}}_{m=m_0} = 0
-\end{equation}
+It is important to understand that these are fluctuations with respect to the solution \( m_0 \). 
 \end{remark}
 
-For simplicity let us first consider \( T>T_c \),  we know that \( m_0 = 0 \) and
-\( m (\va{r}) = m_0 + \delta m(\va{r}) = \delta m (\va{r}) \). We have \( A_0 =0 \), \( 3bm_0^2 \delta m^2 = 0 \) and \( 2 b m_0 \delta m^3 = 0 \), that implies
-\begin{equation}
-  \beta \mathcal{H}_{eff}^{T>T_c} (\delta m)= \int_{}^{} \dd[D]{\va{r}} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2 + \cancel{\frac{b}{2} (\delta m)^4} )
-\end{equation}
-\begin{remark}
-It is important to understand that these are fluctuations with respect to the solution.
-\end{remark}
-The Gaussian approximation consists in neglecting the quartic term \( (\delta m)^4 \)
-\begin{equation}
-  \Rightarrow
-    \beta \mathcal{H}_{eff}^{T>T_c} (\delta m) \simeq  \int_{}^{} \dd[D]{\va{r}} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2 )
-\end{equation}
+
 \begin{remark}
   We cannot do again the saddle point, otherwise we do not get too much information.
   We consider gaussian fluctuations: fluctuations that follow gaussian distribution.
@@ -139,7 +145,13 @@ The Gaussian approximation consists in neglecting the quartic term \( (\delta m)
    (lesson)
 \end{remark}
 
+
+
+
+
+
 \section{Ginzburg-Landau in the Gaussian approximation}
+
 Let us solve
 \begin{equation}
   Z_{GL}^G = \int_{}^{} \text{D} \qty[\delta m] e^{- \int_{}^{} \dd[D]{r} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2  )  }

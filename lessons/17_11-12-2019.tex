@@ -269,10 +269,12 @@ A function can be written in the form of an integral like a functional. For exam
   f(\va{r}) \equiv F[ f ] = \int f ( \va{r}') \delta^d(\va{r}-\va{r}')\dd[d]{\va{r}'}
 \end{equation*}
 Since the integrand does not depend on derivatives of \( f \), the functional derivative of \(   f(\va{r})  \)  is,
-\begin{equation*}
+\begin{equation}
   \frac{\delta f (\va{r})}{\delta f (\va{r}')} \equiv \frac{\delta F}{\delta f (\va{r}')}
   =\pdv{}{f (\va{r}')}  \qty[ f ( \va{r}') \delta^d (\va{r}-\va{r}')] =  \delta^d (\va{r}-\va{r}')
-\end{equation*}
+  \label{eq:17_12}
+\end{equation}
+
 \end{example}
 
 \begin{example}{Functional derivative of interaction component of \( \pmb{\mathcal{H}_{eff} } \)}{}
@@ -414,84 +416,92 @@ Supposing \( h=0 \)  and looking for the variation of \( L \) with respect to th
 
 
 \section{Correlation function in the saddle point approximation for non-homogeneous systems}
-We can now proceed to compute the correlation function within our approximations. In order to do that, we take the (functional!) derivative of the state equation \eqref{eq:17_4} with respect to \( h (\va{r}') \), so that
-\begin{equation}
+We can now proceed to compute the correlation function within our approximations. In order to do that, we take the (functional!) derivative of the state equation \eqref{eq:17_4} with respect to \( h (\va{r}') \). Remembering that
+\begin{equation*}
   \chi _T (\va{r},\va{r}') = \frac{\delta m(\va{r})}{\delta h (\va{r}')}
-\end{equation}
-appears
-\begin{equation}
+\end{equation*}
+and that from Eq.\eqref{eq:17_12}:
+\begin{equation*}
   \frac{\delta h (\va{r})}{\delta h (\va{r}')} = \delta (\va{r}-\va{r}')
-\end{equation}
-we have
+\end{equation*}
+The functional derivative becomes
 \begin{equation}
-  \delta  (\va{r} - \va{r}')  = \qty[- k \grad ^2 + 2 a t    + 6 b m_0^2 (\va{r}) ] \chi _T (\va{r}-\va{r}')
+  \delta  (\va{r} - \va{r}')  = \frac{\delta h(\va{r})}{\delta m (\va{r})} \frac{\delta m(\va{r})}{\delta h (\va{r}')} = \qty[- k \va{\grad }^2 + 2 a t    + 6 b m_0^2 (\va{r}) ]   \chi _T (\va{r}-\va{r}')
 \end{equation}
-where we have assumed translational invariance.
-
-On the other hand, from fluctuation dissipation relation
-\begin{equation}
+where we have assumed translational invariance (i.e. uniform systems).
+Now, from fluctuation-dissipation theorem we know that:
+\begin{equation*}
   G_c (\va{r}-\va{r}') = k_B T \chi _T (\va{r}-\va{r}')
-\end{equation}
-we obtain
+\end{equation*}
+so that
 \begin{equation}
-  \beta \qty[-k \grad ^2 + 2 a t + 6 b m_0 ^2 ] G_c (\va{r}-\va{r}') = \delta (\va{r}- \va{r}')
+  \beta \qty[-k \va{\grad } ^2 + 2 a t + 6 b m_0 ^2 ] G_c (\va{r}-\va{r}') = \delta (\va{r}- \va{r}')
   \label{eq:17_5}
 \end{equation}
-The equation \eqref{eq:17_5} is also known as fundamental equation and \( G_c (\va{r}- \va{r}') \)  the fundamental solution or green function of the differential operator
-\begin{equation}
-  D \equiv - k \grad ^2 + 2 a t + 6 b m^2
-\end{equation}
-We now look for the solutions of \eqref{eq:17_5}.  We consider two cases, \( T > T_c \) and \( T < T_c \) and let \( h \rightarrow 0 \).
+Note that this means that the correlation function \(  G_c (\va{r}-\va{r}')\)  can be interpreted as the Green's function of the operator \( D \) written between the square brackets:
+\begin{equation*}
+  D \equiv - k \va{\grad } ^2 + 2 a t + 6 b m^2
+\end{equation*}
+the equation \eqref{eq:17_5} is also known as \emph{Fundamental Equation} and \( G_c (\va{r}- \va{r}') \)  as Fundamental Solution, or Green's function of the differential operator \( D \).
+
+As said, in case of translationally invariant (i.e. uniform) systems, \( m \) is constant and equal to the equilibrium values given by the Landau theory for the Ising model; in particular, depending on the sign of \( t \) there are two possible situations:
+% We now look for the solutions of \eqref{eq:17_5}.  We consider two cases, \( T > T_c \) and \( T < T_c \) and let \( h \rightarrow 0 \).
 \begin{itemize}
-\item Case \( T > T_c \) \( (t>0) \) : the mean field solution is \( m_0 (\va{r}) = m_0 = 0 \). Hence,
+
+\item Case \( t>0 \) (\( T > T_c \)): in this case the mean field solution is \( m (\va{r}) = m_0 = 0 \), so the last equation becomes:
 \begin{equation}
   \qty(-k \grad ^2 + 2 a t ) G_c (\va{r}-\va{r}') = k_B T \delta (\va{r}-\va{r}')
   \label{eq:17_6}
 \end{equation}
-By calling
-\begin{equation}
-  \xi_> (t) = \qty(\frac{k}{2 a t })^{1/2}
-\end{equation}
-we have
-\begin{equation}
+Defining:
+\begin{equation*}
+  \xi_> (t) \equiv  \qty(\frac{k}{2 a t })^{1/2}
+\end{equation*}
+this can be rewritten as:
+\begin{equation*}
   \qty(-\grad ^2 + \xi _> ^{-2} (t)) G_c (\va{r}-\va{r}') = \frac{k_B T}{k} \delta (\va{r}-\va{r}')
-\end{equation}
-\item Case \( T < T_c \) \( (t<0) \). Let us conside the omogeneous solution
-\begin{equation}
+\end{equation*}
+
+
+\item Case \( t<0 \) (\( T < T_c \)): in this case the magnetization is:
+\begin{equation*}
   m_0 = \pm \qty(-\frac{at}{b})^{1/2}
-\end{equation}
-This gives
+\end{equation*}
+so the differential equation for \( G_c \) becomes:
 \begin{equation}
+  \qty(-k \grad ^2 - 4 a t ) G_c (\va{r}-\va{r}') = k_B T \delta (\va{r}-\va{r}')
+\end{equation}
+Defining:
+\begin{equation*}
+  \xi _{<} (t) \equiv \qty(- \frac{k}{4at})^{1/2}
+\end{equation*}
+this can be written as
+\begin{equation*}
   \qty(-\grad ^2 + \xi _<^{-2} (t))G_c (\va{r}- \va{r}') = \frac{k_B T}{k} \delta (\va{r}- \va{r}')
-\end{equation}
-where
-\begin{equation}
-  \xi _{<} (t) = \qty(- \frac{k}{4at})^{1/2}
-\end{equation}
+\end{equation*}
+
 \end{itemize}
-\begin{remark}
-In both cases \( \xi \sim t^{-1/2} \), we have \( \nu = \nu ' = \frac{1}{2} \), that is the mean field value of \( \nu  \)!
-\end{remark}
+
+We will shortly see that \( \xi _{>} \)  and \( \xi _{<} \)  are the expressions of the correlation length for \( T>T_c \)  and \( T<T_c \) , respectively. We can therefore see that in both cases we get:
+\begin{equation}
+  \xi \sim t^{-1/2} \quad \Rightarrow \nu  = \frac{1}{2}
+\end{equation}
+that is the mean field value of \( \nu  \)!
+
 \begin{remark}
 Since \( \nu = 1/2 \), the upper critical dimension of a critical point belonging to the Ising universality class is
-\begin{equation}
-  D_c = \frac{2}{\nu } = 4
-\end{equation}
+\begin{equation*}
+  d_c = \frac{2}{\nu } = 4
+\end{equation*}
+as previously anticipated.
 \end{remark}
-For both cases, the equation for \( G_c (\va{r}-\va{r}') \) has the following form
+
+We have seen that for both the cases, \( t>0 \) and \( t<0 \),  the correlation function  can be obtained by solving the differential equation:
 \begin{equation}
   \qty(- \grad ^2 + \xi ^{-2}) G_c (\va{r}-\va{r}') = \frac{k_B T}{k} \delta (\va{r}-\va{r}')
+  \label{eq:17_13}
 \end{equation}
-
-This equation can be solved in at least two ways:
-\begin{itemize}
-\item Fourier transform.
-\item Spherical coordinates.
-\end{itemize}
-
-
-
-
+which can be can be solved  with the Fourier transform and by using spherical coordinates. 
 
 
 
