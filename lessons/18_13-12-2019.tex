@@ -114,6 +114,7 @@ Hence, we have
 \begin{equation}
   \beta \mathcal{H}_{eff} = V \underbrace{ \qty(a t m_0^2 + \frac{b}{2} m_0^4) }_{A_0}
   + \int_{}^{} \qty(\frac{k}{2}\qty( \va{\grad } (\delta m))^2 + \qty(a t + 3 b m_0^2)\delta  m^2 + 2 b m_0 \delta m^3 + \frac{b}{2} \delta m^4 )\dd[d]{\va{r}}
+  \label{eq:18_10}
 \end{equation}
 where \( V \) is the volume of the system and the term proportional to \( \delta m \),  \( \qty( 2 a t m_0  +  2b m_0^3 )  \), is zero since \( m_0 \) is the solution of the extremal condition (\( m_0 \) is the stationary solution)
 \begin{equation*}
@@ -311,7 +312,9 @@ For sake of brevity, we define:
 \end{equation}
 In the end,  in the Fourier space we have:
 \begin{equation}
-  \widetilde{Z} _{GL}^{T>T_c} =  \int_{- \infty }^{+ \infty }  \qty( \prod_{\va{k}}'  \dd[]{\varphi _{\va{k}}})
+  \widetilde{Z} _{GL}^{T>T_c} =   \int_{}^{} \mathcal{D} \qty[\varphi (\va{r})]
+  e^{- \beta \widetilde{\mathcal{H}}_{eff}^{T>T_c} [\varphi _{\va{k}}] } =
+   \int_{- \infty }^{+ \infty }  \qty( \prod_{\va{k}}'  \dd[]{\varphi _{\va{k}}})
   e^{- \beta \widetilde{\mathcal{H}}_{eff}^{T>T_c} [\varphi _{\va{k}}] }
   \label{eq:18_9}
 \end{equation}
@@ -322,47 +325,43 @@ where
 
 
 \subsubsection{Free energy in Gaussian approximation}
-Let us consider again the case \( T>T_c \) (for which we have \( (m_0=0) \)) and \( h=0 \). The partition function of the system in the Fourier space is the one in Eq.\eqref{eq:18_9}:
-\begin{equation}
-  \widetilde{Z}_G^{T>T_c} = \prod_{\va{k}}^{'} \int_{-\infty }^{+\infty } \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}} e^{- \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2}
-\end{equation}
-
-
-
-Change variables
-\begin{equation}
-  \begin{cases}
-   x \equiv  \Re \varphi _{\va{k}}\\
-  y \equiv  \Im \varphi _{\va{k}}
-  \end{cases}
-\end{equation}
-and since
-\begin{equation}
-  \int_{-\infty }^{+\infty } \dd[]{x} \dd[]{y} e^{-A (x^2+y^2)} = \frac{\pi }{A}
-\end{equation}
-with \( A \equiv  \frac{1}{2V} \).
-\begin{equation}
-  e^{-\beta \widetilde{F}_{GL}^> } = \qty(\prod_{\substack{\va{k} \\ \abs{\va{k}} <\Lambda \\ k_z > 0  } }^{'}  \frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 } )
-  = \exp [\frac{1}{2} \sum_{\abs{\va{k}}<\Lambda  }^{} \log (\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })   ]
-\end{equation}
+Let us consider again the case \( T>T_c \) (for which we have \( (m_0=0) \)) and \( h=0 \). In this case, the partition function of the system in the Fourier space is the one in Eq.\eqref{eq:18_9}:
+\begin{equation*}
+  \widetilde{Z}_G^{T>T_c} = \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z >0 } }^{}
+   \int_{-\infty }^{+\infty } \dd[]{\Re {\varphi _{\va{k}}}}  \dd[]{\Im {\varphi _{\va{k}}}} e^{- \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2}
+\end{equation*}
+Since \( \abs{\varphi_{\va{k}}}^2 = \Re^2 \varphi_{\va{k}} + \Im^2 \varphi_{\va{k}} \), changing variables to:
+\begin{equation*}
+   x \equiv  \Re \varphi _{\va{k}}, \qquad  y \equiv  \Im \varphi _{\va{k}}
+\end{equation*}
+Thus, we have
+\begin{equation*}
+  \int_{-\infty }^{+\infty } \dd[]{x} \dd[]{y} e^{-A (x^2+y^2)} = \frac{\pi }{A}, \qquad A \equiv  \frac{2at+c \abs{\va{k}}^2}{2V}
+\end{equation*}
 Hence,
+\begin{equation*}
+    \widetilde{Z}_{GL}^{T>T_c} = e^{-\beta \widetilde{F}_{GL}^{T>T_c} } =  \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z >0 } }^{} \frac{2 \pi V  }{ 2at+c \abs{\va{k}}^2 }
+    = \exp [\frac{1}{2} \sum_{\abs{\va{k}}<\Lambda  }^{} \log (\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })   ]
+\end{equation*}
+We therefore have that the free energy of the system is:
 \begin{equation}
-  \widetilde{F}_{GL}^{G,T>T_c} = - \frac{1}{2} k_B T \sum_{\abs{\va{k}}< \Lambda  }^{}
+  \widetilde{F}_{GL}^{T>T_c} = - \frac{k_B T}{2}  \sum_{\abs{\va{k}}< \Lambda  }^{}
   \log{\qty(\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })}
 \end{equation}
+
 \begin{remark}
-For \( T<T_c \) we have \( m_0 \neq 0 \). In addition, to redefine the quadratic term \( (at+3bm_0^2) \), that for \( m_0^2 = - at/b \), becames \( -2at \) we have also the term
+For \( T<T_c \) we have \( m_0 = \pm (-at/b)^{1/2} \neq 0 \). In addition, we have to redefine the quadratic term \( (at+3bm_0^2) \) (in Eq.\eqref{eq:18_10}), that for \( m_0^2 = - at/b \), becames \( -2at \). Moreover, we have also the term \( V A_0 = V (atm_0^2 + \frac{b}{2} m_0^4) \).
+Therefore, in the case \( T<T_c \) the free energy of the system is
 \begin{equation}
-  V A_0 = V (atm_0^2 + \frac{b}{2} m_0^4)
-\end{equation}
-Therefore,
-\begin{equation}
-  \widetilde{F}_{GL}^{G,T<T_c} = \beta A_0 V - \frac{1}{2} k_B T \sum_{\abs{\va{k}}< \Lambda  }^{}
-  \log{\qty(\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })}
+  \widetilde{F}_{GL}^{T<T_c} = V A_0  - \frac{k_B T}{2}  \sum_{\abs{\va{k}}< \Lambda  }^{}
+  \log{\qty(\frac{2 \pi V}{ -4 a t + c \abs{\va{k}}^2 })}
 \end{equation}
 \end{remark}
 
-\subsection{Specific heat in the Gaussian approximation}
+
+
+
+\subsubsection{Specific heat in the Gaussian approximation}
 \begin{equation}
   c_V^G = - T \pdv[2]{F^G/V}{T} \overset{to do}{=}   \underbrace{\frac{A}{V} \sum_{\abs{\va{k}} < \Lambda  }^{}
   \frac{1}{ \qty(2 a t + c \abs{\va{k}}^2 )^2}}_{1^{st}}
