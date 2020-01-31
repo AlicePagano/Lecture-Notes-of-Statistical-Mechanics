@@ -9,127 +9,163 @@
 
 \marginpar{ \textbf{Lecture 19.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-\section{Static scaling hypothesis (Widom)}
-It is used whenever you have a collective behaviour.
-As \( T \rightarrow T_c^{\pm} \) we know that \( \xi \rightarrow L \). In this limit all the microscopic and intermediate scales are irrelevant. The length scale of the problem are \( a,L,\xi  \), but  \( \xi  \) is the only relevant length scale in the problem.
+\section{Introduction}
+We have seen  that as a given system approaches a critical point \( T \rightarrow T_c^{\pm} \), the distance \( \xi  \)  over which the fluctuations of the order parameter are correlated becomes comparable to the size of the whole system \( L \) and the microscopic aspects of the system become irrelevant. This means that near a critical point the system has no longer characteristic lengths (\( a,L \)), besides \( \xi  \) of course that becomes the only relevant length scale of the problem. We can therefore expect that if we "move" a little bit from a critical point (\( t \sim 0 \)), for example changing the temperature by a small amount, the free energy of the system as a function will not change its shape, hence it is invariant in form by a change of scale.
 
-One should expect that, for \( t \sim 0 \), the free energy (better, its critical term) is invariant in form by a change of scale. This hypothesis is also suggested by experimental data such as the ones shown by Guggenheim for the gas phase diagrams and the ones shown for ferromagnetic materials at different temperatures.
+ This hypothesis is also suggested by experimental data such as the ones shown by Guggenheim for the gas phase diagrams and the ones shown for ferromagnetic materials at different temperatures. Let us consider the experiment in Figure \ref{fig:19_2}; we can see that data from different temperatures, if scaled properly, collapse into two (one for \( t<0 \) and one for \( t>0 \)) unique curves. It is clearly illustrated in Figure \ref{fig:19_1}. At the origin, the Widom's static scaling theory was introduced also to explain this collapse.
 
-Which are the experimental data which gives us this ideas? What you can see from experiment (Figure \ref{fig:19_1}) is that data from different temperatures, if scaled properly, collapse into two (one for \( t<0 \) and one for \( t>0 \)) unique curves.
+ \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.55\textwidth]{../lessons/19_image/1.pdf}
+ \caption{\label{fig:19_1} Scaled magnetization \( m \) is plotted against scaled magnetic field \( h \).}
+ \end{figure}
+
+ \begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.7\textwidth]{../lessons/19_image/exp.jpg}
+ \caption{\label{fig:19_2} Scaled magnetic field \( h \) is plotted against scaled magnetization \( m \) for the insulating ferromagnet \( \text{CrBr}_3 \), using data from seven supercritical \( (T>T_c) \) and from eleven subcritical \( T<T_c \) isotherms. Here \( \sigma \equiv M/M_0 \). (1969)}
+ \end{figure}
 
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth]{../lessons/19_image/1.pdf}
-\caption{\label{fig:19_1} Description.}
-\end{figure}
 
-The Widom's static scaling theory is introduced also to explain the collapse of data shown above.
 
-In order to properly define the scaling hypothesis, we should rely on the mathematical concept of homogeneous functions.
+\section{Widom's static scaling theory}
+We have seen that when a phase transition occurs the free energy of the system is such that the response functions exhibit singularities, often in the form of divergences. To make a concrete example (but of course all our statements are completely general) if we consider a magnetic system we can suppose to write its free energy density as:
+\begin{equation*}
+  f(T,H) = f_r (T,H) + f_s (T,H)
+\end{equation*}
+where \( t = (T-T_c)/T_c \) and \( h = (H-H_c)/k_B T \), \( f_r \)  is the "regular" part of the free energy (which does not significantly change near a critical point), while \( f_s \) is the "singular" one, which contains the non-analytic behaviour of the system near a critical point (i.e. \( t \sim 0 \) and \( h \sim 0 \)).
 
-\subsection{Homogeneous functions}
-Consider a single variable \( r \).
+Widom's static scaling hypothesis consists in assuming that the singular part \( f_s \) of the free energy is a generalized homogeneous function, i.e.:
+\begin{equation*}
+  f_s (\lambda ^{p_1}t, \lambda ^{p_2} h) = \lambda f _s (t,h)
+\end{equation*}
+Note that assuming that one thermodynamic potential is a generalized homogeneous function implies that all the other thermodynamic potentials are so.
+
+Therefore, in order to properly define the scaling hypothesis, we should rely on the mathematical concept of homogeneous functions and now we discuss the main properties of such functions.
+
+
+
+\subsection{Homogeneous functions of one or more variables}
+
+\subsubsection{Single variable}
+Let us begin with the definition of homogeneous function for a single variable \( r \).
 \begin{definition}{Homogeneous function}{}
-\( f(r) \) is homogeneous in \( r \) if \( \forall \lambda \in \R \),
+A function \( f(r) \) is said to be homogeneous in \( r \) if
 \begin{equation}
-  f (\lambda r) = g (\lambda ) f(r)
+  f (\lambda r) = g (\lambda ) f(r), \qquad \forall \lambda \in \R
 \end{equation}
-where \( g(\lambda ) \) is, for the moment, arbitrary.
+where \( g \) is, for the moment, an unspecified function (we will shortly see that it has a precise form).
 \end{definition}
-\begin{example}{}{}
-  Parabola:
-\begin{equation}
+\begin{example}{Parabola \( \pmb{ f(r) = B r^2} \) }{}
+  An example of homogeneous function is
+\begin{equation*}
   f(r) = B r^2
-\end{equation}
-\begin{equation}
-  f ( \lambda r) = B ( \lambda r)^2 = \lambda ^2 f (r) \quad \Rightarrow g ( \lambda ) = \lambda ^2
-\end{equation}
+\end{equation*}
+in fact
+\begin{equation*}
+  f ( \lambda r) = B ( \lambda r)^2 = \lambda ^2 f (r)
+\end{equation*}
+and so in this case \( g ( \lambda ) = \lambda ^2 \).
 \end{example}
-\begin{remark}
-An interesting property of an homogeneous function is that, if \( f(r_0) \) is known and \( g(\lambda ) \) is known, hence \( f(r) \) is known \( \forall r \in \R \).
-Indeed, we can always write \( r=\lambda r_0 \),
+
+A very interesting property of an homogeneous functions is that,  once its value in a point \( r_0 \) (i.e. \( f(r_0) \)) and the function \( g(\lambda ) \) are known,
+the entire \( f(r) \) can be reconstructed for all \( r \in \R \); indeed, any \( r \) can be written in the form \( r=\lambda r_0 \) (of course with \( \lambda = r / r_0 \)), so that
 \begin{equation}
   f(r) = f (\lambda r_0) = g(\lambda ) f(r_0)
 \end{equation}
-\end{remark}
+We now want to show that \( g (\lambda ) \)  has a precise form.
+
+
 \begin{theorem}{}{}
-  The function \( g(\lambda ) \) is not arbitrary but it must be of the form
+  The function \( g(\lambda ) \) is not arbitrary, but it must be of the form
 \begin{equation}
   g(\lambda ) = \lambda ^p
 \end{equation}
 where \( p \) is the degree of the homogeneity of the function.
 \end{theorem}
+
 \begin{proof}
-Change of scale with respect to \( \mu  \) and \( \lambda  \).
-\begin{equation}
-  f(\lambda (\mu r)) = g (\lambda ) f(\mu r) = g(\lambda ) g(\mu ) f(r)
-\end{equation}
-On the other hand,
-\begin{equation}
-  f[(\lambda \mu )r] = g (\lambda  \mu ) f(r)
-\end{equation}
-Hence,
-\begin{equation}
+  From the definition of homogeneous function, for \( \lambda, \mu \in \R  \) we have on one hand that:
+\begin{equation*}
+  f(\lambda \mu r) = f(\lambda (\mu r)) = g (\lambda ) f(\mu r) = g(\lambda ) g(\mu ) f(r)
+\end{equation*}
+on the other hand,
+\begin{equation*}
+  f((\lambda \mu )r) = g (\lambda  \mu ) f(r)
+\end{equation*}
+and so:
+\begin{equation*}
   g (\lambda \mu ) = g(\lambda ) g (\mu )
-\end{equation}
-Let us assume that \( g(\lambda ) \) is differentiable (actually \( g(\lambda ) \) continuous is sufficient but proof more complicated)
-\begin{equation}
-  \pdv{}{\mu } \qty[g(\lambda \mu )] = \pdv{}{\mu } \qty[ g(\lambda )g(\lambda )]
-\end{equation}
-\begin{equation}
+\end{equation*}
+If we now suppose \( g \) to be differentiable\footnote{Actually \( g(\lambda ) \) continuous is sufficient, but proof becomes more complicated.}, then differentiating with respect to \( \mu  \)  this last equation we get:
+\begin{equation*}
+  \pdv{}{\mu } \qty[g(\lambda \mu )] = \pdv{}{\mu } \qty[ g(\lambda )g(\mu  )] \quad
   \Rightarrow \lambda g' (\lambda \mu ) = g (\lambda ) g' (\mu )
-  \label{eq:19_1}
-\end{equation}
-Let \( \mu =1 \) and let \( g'(\mu =1) = p \), equation \eqref{eq:19_1} implies
-\begin{equation}
-  \frac{g'(\lambda )}{g(\lambda )} = \frac{p}{\lambda }
-\end{equation}
-\begin{equation}
-  \dv{}{\lambda } \qty(\ln{g(\lambda )} ) = \frac{p}{\lambda }   \quad \Rightarrow \ln{g(\lambda )} = p \ln{\lambda } + c
-\end{equation}
-or
-\begin{equation}
-  g (\lambda ) = e^c \lambda ^p \quad \Rightarrow g'(\lambda ) = p e^c \lambda ^{p-1}
-\end{equation}
-and since \( g'(1) = p \), we have \( p=p e^c \) if and only if \( c=0 \) which implies
-\begin{equation}
+\end{equation*}
+Setting \( \mu =1 \) and defining \( p \equiv g'( \mu =1 ) \), we have:
+\begin{equation*}
+   \lambda g'(\lambda ) = g(\lambda ) p \quad \Rightarrow \frac{g'(\lambda )}{g(\lambda )} = \frac{p}{\lambda }
+\end{equation*}
+which yields:
+\begin{equation*}
+  \dv{}{\lambda } \qty(\ln{g(\lambda )} ) = \frac{p}{\lambda }   \quad \Rightarrow \ln{g(\lambda )} = p \ln{\lambda } + c \quad \Rightarrow g (\lambda ) = e^c \lambda ^p
+\end{equation*}
+Now, \( g'(\lambda ) = p e^c \lambda ^{p-1} \), so since \( g'(1) = p \) by definition we have  \( p = p e^c \) and thus \( c=0 \).
+Therefore:
+\begin{equation*}
   g(\lambda ) = \lambda ^ p
-\end{equation}
+\end{equation*}
+A homogeneous function such that \(   g(\lambda ) = \lambda ^ p \)  is said to be homogeneous of degree \( p \).
 \end{proof}
 
-\section{Generalized homogeneous functions}
-We can make it for any variable, not only for a single one.
-We are discussing \( f(x,y) \), that is a generalized homogeneous function if as a most general form as
-\begin{equation}
+\subsubsection{More variables}
+Let us now define homogeneous functions for more than only one variable. The function  \( f(x,y) \) is a generalized homogeneous function if has as more general form
+\begin{empheq}[box=\myyellowbox]{equation}
   f (\lambda ^a x, \lambda ^b y) = \lambda f(x,y)
   \label{eq:19_2}
-\end{equation}
-Indeed, if we consider instead
-\begin{equation}
-    f (\lambda ^a x, \lambda ^b y) = \lambda^p f(x,y)
-\end{equation}
-we can always choose \( \lambda ^p \equiv s \) such that
-\begin{equation}
-  f ( s^{a/p} x, s^{b/p} y) = s f(x,y)
-\end{equation}
-and choosing \( a'=a/p \) and \( b'=b/p \) we are back to \eqref{eq:19_2}.
+\end{empheq}
+
+
 \begin{remark}
-Since \( \lambda  \) is arbitrary \( \Rightarrow \lambda  = y ^{-1/b} \), we get
-\begin{equation}
+  If we consider instead
+  \begin{equation*}
+      f (\lambda ^a x, \lambda ^b y) = \lambda^p f(x,y)
+  \end{equation*}
+  we can always choose \( \lambda ^p \equiv s \) such that
+  \begin{equation*}
+    f ( s^{a/p} x, s^{b/p} y) = s f(x,y)
+  \end{equation*}
+  and choosing \( a'=a/p \) and \( b'=b/p \) we are back to \eqref{eq:19_2}. Hence, it is the most general form an homogeneous function can have.
+\end{remark}
+
+
+\begin{remark}
+Since \( \lambda  \) is arbitrary, we can choose \( \lambda  = y ^{-1/b} \), thus we get
+\begin{equation*}
   f(x,y) = y^{1/b} f \qty( \frac{x}{y^{a/b}},1)
-\end{equation}
-\( f \) depends on \( x \) and \( y \) only through the ratio \( \frac{x}{y^{a/b}} \)! Similarly, for \( x \), one can choose \( \lambda = x^{-1/a} \).
+\end{equation*}
+in that way \( f \) depends on \( x \) and \( y \) only through the ratio \( \frac{x}{y^{a/b}} \)! Similarly, for \( x \), one can choose \( \lambda = x^{-1/a} \), obtaining
+\begin{equation*}
+  f(x,y) = x^{1/a} f \qty(1, \frac{y}{x^{b/a}})
+\end{equation*}
+
 \end{remark}
 \begin{example}{}{}
-Examples of non-homogeneous functions are
-\begin{equation}
-  f(x) = e^{-x}
-\end{equation}
-\begin{equation}
-  f(x) = \log{x}
-\end{equation}
+The function \( f(x,y) = x^3 + y^7 \) is an homogeneous one. Indeed, we have:
+\begin{equation*}
+  f(\lambda ^{1/3} x, \lambda ^{1/7}y) = \lambda x^3 + \lambda y^7 = \lambda f (x,y)
+\end{equation*}
+Instead, examples of non-homogeneous functions are:
+\begin{equation*}
+  f(x) = e^{-x}, \qquad f(x) = \log{x}
+\end{equation*}
+
 \end{example}
+
+
+
+
 
 \section{Widom's theory of static scaling}
 Close to the critical point, the singular part of the free energy does not change form by a change of the scale.
