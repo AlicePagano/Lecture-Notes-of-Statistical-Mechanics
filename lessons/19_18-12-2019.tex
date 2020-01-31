@@ -12,7 +12,7 @@
 \section{Introduction}
 We have seen  that as a given system approaches a critical point \( T \rightarrow T_c^{\pm} \), the distance \( \xi  \)  over which the fluctuations of the order parameter are correlated becomes comparable to the size of the whole system \( L \) and the microscopic aspects of the system become irrelevant. This means that near a critical point the system has no longer characteristic lengths (\( a,L \)), besides \( \xi  \) of course that becomes the only relevant length scale of the problem. We can therefore expect that if we "move" a little bit from a critical point (\( t \sim 0 \)), for example changing the temperature by a small amount, the free energy of the system as a function will not change its shape, hence it is invariant in form by a change of scale.
 
- This hypothesis is also suggested by experimental data such as the ones shown by Guggenheim for the gas phase diagrams and the ones shown for ferromagnetic materials at different temperatures. Let us consider the experiment in Figure \ref{fig:19_2}; we can see that data from different temperatures, if scaled properly, collapse into two (one for \( t<0 \) and one for \( t>0 \)) unique curves. It is clearly illustrated in Figure \ref{fig:19_1}. At the origin, the Widom's static scaling theory was introduced also to explain this collapse.
+ This hypothesis is also suggested by experimental data such as the ones shown by Guggenheim for the gas phase diagrams and the ones shown for ferromagnetic materials at different temperatures. Let us consider the experiment in Figure \ref{fig:19_2} (\cite{3_lesson_3} pag. 119); we can see that data from different temperatures, if scaled properly, collapse into two (one for \( t<0 \) and one for \( t>0 \)) unique curves. It is clearly illustrated in Figure \ref{fig:19_1}. At the origin, the Widom's static scaling theory was introduced also to explain this collapse.
 
  \begin{figure}[h!]
  \centering
@@ -23,7 +23,7 @@ We have seen  that as a given system approaches a critical point \( T \rightarro
  \begin{figure}[h!]
  \centering
  \includegraphics[width=0.7\textwidth]{../lessons/19_image/exp.jpg}
- \caption{\label{fig:19_2} Scaled magnetic field \( h \) is plotted against scaled magnetization \( m \) for the insulating ferromagnet \( \text{CrBr}_3 \), using data from seven supercritical \( (T>T_c) \) and from eleven subcritical \( T<T_c \) isotherms. Here \( \sigma \equiv M/M_0 \). (1969)}
+ \caption{\label{fig:19_2} Scaled magnetic field \( h \) is plotted against scaled magnetization \( m \) for the insulating ferromagnet \( \text{CrBr}_3 \), using data from seven supercritical \( (T>T_c) \) and from eleven subcritical \( T<T_c \) isotherms. Here \( \sigma \equiv M/M_0 \). (1969) \cite{3_lesson_3}}
  \end{figure}
 
 
@@ -268,8 +268,132 @@ from which we see that the gap exponent is:
 \end{equation}
 
 
+\subsection{Exponent \( \pmb{\gamma  } \) }
+In order to obtain the magnetic susceptibility, we derive twice the expression of Widom's assumption with respect to \( h \), to get:
+\begin{equation*}
+  \lambda ^{2p_2} \chi _T \qty(\lambda ^{p_1}t, \lambda ^{p_2}h) = \lambda \chi _T (t,h)
+\end{equation*}
+
+The exponent \( \gamma   \) describes the behaviour of \( \chi _T \)  for \( t \rightarrow 0 \)  when no external field is present (\( h=0 \)). What we can now see is that the scaling hypothesis leads to the equality of the exponents for \( t \rightarrow 0^+ \)  and \( t \rightarrow 0^- \).
+
+\begin{itemize}
+\item Case \( t \rightarrow 0^- \): setting \( h=0 \)  and \( \lambda = (-t)^{-1/p_1} \) we get
+\begin{equation*}
+  \chi _T (t,0) = \qty(-t)^{-\frac{2p_2-1}{p_1}} \chi _T (-1,0)
+\end{equation*}
+and if we call \( \gamma ^-  \)  the critical exponent for \( t \rightarrow 0^- \), we see that, since
+\begin{equation*}
+  \chi _T (t,0) \overset{t \rightarrow 0^-}{\sim } \qty(-t)^{-\gamma_-  }
+\end{equation*}
+we get
+\begin{equation*}
+  \gamma _- = \frac{2p_2 -1}{p_1} = \beta (\delta -1)
+\end{equation*}
+
+\item Case \( t \rightarrow 0^+ \): setting \( h=0 \)  and \( \lambda = (t)^{-1/p_1} \) we get
+\begin{equation*}
+  \chi _T (t,0) = t^{-\frac{2p_2-1}{p_1}} \chi _T (1,0)
+\end{equation*}
+and if we call \( \gamma ^+  \)  the critical exponent for \( t \rightarrow 0^+ \), we see that, since
+\begin{equation*}
+  \chi _T (t,0) \overset{t \rightarrow 0^+}{\sim } t^{-\gamma_+  }
+\end{equation*}
+we get
+\begin{equation*}
+  \gamma _+ = \frac{2p_2 -1}{p_1} = \beta (\delta -1)
+\end{equation*}
+\end{itemize}
+We therefore see explicitly that:
+\begin{equation}
+  \gamma _- = \gamma _+ \equiv \gamma  = \frac{2p_2 -1}{p_1} = \beta (\delta -1)
+\end{equation}
+
+
+
+
+
+\subsection{Exponent \( \pmb{\alpha } \) (scaling of the specific heat)}
+In order to determine the behaviour of the specific heat (at constant external field) near the critical point, we derive the expression of Widom's assumption twice with respect to the temperature \( t \), so that:
+\begin{equation*}
+  \lambda ^{2p_1}c_H \qty(\lambda ^{p_1}t, \lambda ^{p_2}h) = \lambda c_H (t,h)
+\end{equation*}
+We want to see again that the scaling hypothesis leads to the equality of the exponents for \( t \rightarrow 0^+ \)  and \( t \rightarrow 0^- \).
+
+\begin{itemize}
+\item Case \( t \rightarrow 0^- \): setting \( h=0 \) and \( \lambda = (-t)^{-1/p_1} \) we get
+\begin{equation*}
+  c_H (t,0) = \qty(-t)^{-\qty(2- \frac{1}{p_1}) } c_H (-1,0)
+\end{equation*}
+and if we call \( \alpha ^-  \)  the critical exponent for \( t \rightarrow 0^- \), we see that, since
+\begin{equation*}
+  c_H (t,0) \overset{t \rightarrow 0^-}{\sim } (-t)^{-\alpha _-}
+\end{equation*}
+we get
+\begin{equation*}
+  \alpha _- = 2 - \frac{1}{p_1}
+\end{equation*}
+
+\item Case \( t \rightarrow 0^+ \): setting \( h=0 \) and \( \lambda = (t)^{-1/p_1} \) we get
+\begin{equation*}
+  c_H (t,0) = t^{-\qty(2- \frac{1}{p_1}) } c_H (1,0)
+\end{equation*}
+and if we call \( \alpha ^+  \)  the critical exponent for \( t \rightarrow 0^+ \), we see that, since
+\begin{equation*}
+  c_H (t,0) \overset{t \rightarrow 0^-}{\sim } t^{-\alpha _+}
+\end{equation*}
+we get
+\begin{equation*}
+  \alpha _+ = 2 - \frac{1}{p_1}
+\end{equation*}
+
+\end{itemize}
+
+We have again:
+\begin{equation}
+  \alpha  _- = \alpha  _+ \equiv \alpha  = 2 - \frac{1}{p_1}
+  \label{eq:19_6}
+\end{equation}
+
+
+
+
+\subsection{Griffiths and Rushbrooke's equalities}
+\label{sec:19_1}
+If we now substitute \( p_1 = \frac{1}{\beta (\delta +1)} \) into \( \alpha  =  2 - \frac{1}{p_1} \), we get:
+\begin{empheq}[box=\myyellowbox]{equation}
+  \alpha + \beta (\delta +1) = 2
+\end{empheq}
+This is the \emph{Griffiths equality}, which we have already encountered in inequalities between critical exponents as an inequality (see Sec.\ref{sec:3_2}).
+
+On the other hand, \emph{Rushbrooke's equality} is obtained by combining Griffith equality with the relation \( \gamma = \beta (\delta -1)  \):
+\begin{empheq}[box=\myyellowbox]{equation}
+\alpha + 2 \beta + \gamma = 2
+\end{empheq}
+We therefore see, as anticipated in Sec.\ref{sec:3_2}, that the static scaling hypothesis allows to show that they are indeed exact equalities.
+
+
+
+
+\subsection{An alternative expression for the scaling hypothesis}
+We can re-express Widom's assumption in another fashion often used in literature. Let us consider the Widom's assumption
+\begin{equation*}
+  f_s ( \lambda^{p_1} t, \lambda ^{p_2}h) = \lambda f_s (t,h)
+\end{equation*}
+If we set \( \lambda = t ^{-1/p_1} \), then:
+\begin{equation*}
+  f_s (1,t^{-p_2/p_1}h) = t^{-1/p_1} f_s (t,h)
+\end{equation*}
+From \( \Delta = \frac{p_2}{p_1} \) and \( \alpha = 2 - \frac{1}{p_1} \), we can rewrite this as:
+\begin{equation}
+  f_s (t,h) = t^{2- \alpha } f_s \qty(1, \frac{h}{t^{\Delta }})
+\end{equation}
+which is the most used form of the scaling hypothesis in statistical mechanics.
+
+As we can notice, we have not considered the critical exponents \( \eta  \)  and \( \nu  \); this will be done shortly in Kadanoff's scaling and correlation lengths.
+
 \subsection{Scaling of the equation of state}
-We can also predict the scaling form of the equation of state and explain the collapse of the experimental data. Let us start from the relation
+Besides the relations between critical exponents, Widom's static scaling theory allows us to make predictions on the shape of the state equation of a given system.
+By predicting the scaling form of the equation of state, we can explain the collapse of the experimental data. Let us now see how, again for a magnetic system. We start from the relation
 \begin{equation*}
   M_s (t,h) = \lambda ^{p_2 - 1} M_s (\lambda ^{p_1} t, \lambda ^{p_2} h)
 \end{equation*}
@@ -290,102 +414,29 @@ and
 \begin{equation}
   F_{\pm} ( \bar{h} ) \equiv M_s (\pm1, \bar{h} )
 \end{equation}
+where \( +1 \)  corresponds to \( t>0 \)  (namely \( T>T_c \)) and \( -1 \)  to \( t<0 \)  (i.e. \( T<T_c \)).
 Using these definitions, Eq.\eqref{eq:19_5} becomes
 \begin{equation}
   \bar{m} = F_{\pm} (\bar{h} )
 \end{equation}
-these are universal curves!
+The meaning of this equation is that if we measure \( M \) and \( h \) and rescale them as we have just seen, all the experimental data should fall on the same curve independently of the temperature \( T \); there are of course two possible curves (not necessarily equal), one for \( T>T_c \)  and one for \( T<T_c \)  (which correspond to \( M(1,h) \) and \( M(-1,h) \)). These predictions are in perfect agreement with experimental results shown in Figure \ref{fig:19_2}, and are one of the greatest successes of Widom's static scaling theory.
 
 
 
 
-\subsection{Exponent \( \pmb{\gamma  } \) }
-Compute \( \pdv[2]{}{h}  \) of the scaling hypothesis
-\begin{equation}
-  f_s ( \lambda^{p_1} t, \lambda ^{p_2}h) = \lambda f_s (t,h)
-\end{equation}
-From equation \eqref{eq:19_5} we have
-\begin{equation}
-  \lambda ^{2p_2} \chi _T \qty(\lambda ^{p_1}t, \lambda ^{p_2}h) = \lambda \chi _T (t,h)
-\end{equation}
 
-
-
-
-Consider \( h=0 \), \( t \rightarrow 0^- \) (for example).
- Let \( \lambda = - t ^{-1/p_1} \), from equation \eqref{eq:19_5}
-\begin{equation}
-  \chi _T (t,0) = \qty(-t)^{-\frac{2p_2-1}{p_1}} \chi _T (-1,0)
-\end{equation}
-and since
-\begin{equation}
-  \chi _T (t,0) \overset{t \rightarrow 0^-}{\sim } \qty(-t)^{-\gamma_-  }
-\end{equation}
-we get
-\begin{equation}
-  \gamma _- = \frac{2p_2 -1}{p_1} = \beta (\delta -1)
-\end{equation}
-\begin{remark}
-For \( t \rightarrow 0^+ \), we have \( \lambda  = t ^{1/p_1} \) and we get
-\begin{equation}
-  \gamma _- = \gamma _+ \equiv \gamma  = \beta (\delta -1)
-\end{equation}
-relation between exponents!
-\end{remark}
-
-\subsection{Scaling of the specific heat}
-Starting again from
-\begin{equation}
-  f_s ( \lambda^{p_1} t, \lambda ^{p_2}h) = \lambda f_s (t,h)
-\end{equation}
-and compute \( \pdv[2]{}{t}  \) of both side, we get
-\begin{equation}
-  \lambda ^{2p_1}c_h \qty(\lambda ^{p_1}t, \lambda ^{p_2}h) = \lambda c_H (t,h)
-\end{equation}
-For \( h=0 \) and \( t \rightarrow 0^- \), we have \( \lambda = (-t)^{-1/p_1} \) which implies
-\begin{equation}
-  - t^{-2} c_H (-1,0) = - t ^{-1/p_1} c_H (t,0)
-\end{equation}
-and since
-\begin{equation}
-  c_H (t,0) \overset{t \rightarrow 0^-}{\sim } t^{-\alpha _-}
-\end{equation}
-we get
-\begin{equation}
-  \alpha _- = 2 - \frac{1}{p_1}
-  \label{eq:19_6}
-\end{equation}
-Also in this case it is easy to show that
-\begin{equation}
-  \alpha _- = \alpha _+
-\end{equation}
-Moreover, by inserting in \eqref{eq:19_6} the relation \( p_1 = \frac{1}{\beta (\delta +1)} \) one gets the \emph{Griffith relation}
-\begin{equation}
-  \alpha + \beta (\delta +1) = 2
-\end{equation}
-Moreover, by combining Griffith with the relation \( \gamma = \beta (\delta -1)  \) one get the \emph{Rushbrooke relation}
-\begin{equation}
-  \alpha + 2 \beta + \gamma = 2
-\end{equation}
-\begin{remark}
-By using these hypothesis you can get equalities. All the inequality that you have in thermodynamics becames equalities. (lesson)
-\end{remark}
-
-\subsection{Second form of the static scaling hypothesis}
-\begin{equation}
-  f_s ( \lambda^{p_1} t, \lambda ^{p_2}h) = \lambda f_s (t,h)
-\end{equation}
-The relation \( \lambda = t ^{-1/p_1} \) implies
-\begin{equation}
-  f_s (1,t^{-p_2/p_1}h) = t^{-1/p_1} f_s (t,h)
-\end{equation}
-Since \( \Delta = \frac{p_2}{p_1} \) and \( \alpha = 2 - \frac{1}{p_1} \), one gets
-\begin{equation}
-  f_s (t,h) = t^{2- \alpha } f_s (1, \frac{h}{t^{\Delta }})
-\end{equation}
-that is the \( 2^{nd} \) scaling form of the free-energy.
 
 \section{Kadanoff's block spin and scaling of the correlation function}
+As we have seen, Widom's static scaling theory allows us to determine exact relations between critical exponents, and to interpret the scaling properties of systems near a critical point. However, this theory is based upon the following equation:
+\begin{equation*}
+  f (T,H) = f_r (T,H) + f_s(T,H)
+\end{equation*}
+but gives no physical interpretation of it; in other words, it does not tell anything about the physical origin of scaling laws. Furthermore, as we have noticed Widom's theory does not involve correlation lengths, so it tells nothing about the critical exponents \( \nu  \)  and \( \eta  \).
+
+
+
+We know (see Long range correlations) that one of the characteristic traits of critical phenomena is the divergence of the correlation length \( \xi  \), which becomes the only physically relevant length near a critical point. However, by now we are unable to tell if and how this is related to Widom's scaling hypothesis; everything will become more clear within the framework of The Renormalization Group, in which we will see that Widom's assumption is a consequence of the divergence of correlation length.
+
 Widom's theory refers only to the free energy of the system. Moreover it do, not fully explain how the scaling hypothesis derives by \( \xi  \) being the only relevant length of the system.
 
 The first argument on this point was given \( 1966 \) by Kadonoff.
