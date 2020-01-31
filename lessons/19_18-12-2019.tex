@@ -34,11 +34,11 @@ We have seen that when a phase transition occurs the free energy of the system i
 \begin{equation*}
   f(T,H) = f_r (T,H) + f_s (T,H)
 \end{equation*}
-where \( t = (T-T_c)/T_c \) and \( h = (H-H_c)/k_B T \), \( f_r \)  is the "regular" part of the free energy (which does not significantly change near a critical point), while \( f_s \) is the "singular" one, which contains the non-analytic behaviour of the system near a critical point (i.e. \( t \sim 0 \) and \( h \sim 0 \)).
+where \( t = (T-T_c)/T_c \) and \( h = (H-H_c)/k_B T \), \( f_r \)  is the "regular" part of the free energy (which does not significantly change near a critical point, it is an analytic function), while \( f_s \) is the "singular" one, which contains the non-analytic behaviour of the system near a critical point (i.e. \( t \sim 0 \) and \( h \sim 0 \)).
 
 Widom's static scaling hypothesis consists in assuming that the singular part \( f_s \) of the free energy is a generalized homogeneous function, i.e.:
 \begin{equation*}
-  f_s (\lambda ^{p_1}t, \lambda ^{p_2} h) = \lambda f _s (t,h)
+  f_s (\lambda ^{p_1}t, \lambda ^{p_2} h) = \lambda f _s (t,h), \quad \forall \lambda \in \R
 \end{equation*}
 Note that assuming that one thermodynamic potential is a generalized homogeneous function implies that all the other thermodynamic potentials are so.
 
@@ -119,10 +119,14 @@ Therefore:
 A homogeneous function such that \(   g(\lambda ) = \lambda ^ p \)  is said to be homogeneous of degree \( p \).
 \end{proof}
 
-\subsubsection{More variables}
-Let us now define homogeneous functions for more than only one variable. The function  \( f(x,y) \) is a generalized homogeneous function if has as more general form
+\subsubsection{Generalized homogeneous functions (more variables)}
+Let us now define homogeneous functions for more than only one variable:
+\begin{equation*}
+  f(\lambda x, \lambda y) = \lambda ^p f(x,y), \quad \forall \lambda \in \R
+\end{equation*}
+ The function  \( f(x,y) \) is a \emph{generalized homogeneous function} if has as more general form
 \begin{empheq}[box=\myyellowbox]{equation}
-  f (\lambda ^a x, \lambda ^b y) = \lambda f(x,y)
+  f (\lambda ^a x, \lambda ^b y) = \lambda f(x,y), \quad \forall \lambda \in \R
   \label{eq:19_2}
 \end{empheq}
 
@@ -167,126 +171,135 @@ Instead, examples of non-homogeneous functions are:
 
 
 
-\section{Widom's theory of static scaling}
-Close to the critical point, the singular part of the free energy does not change form by a change of the scale.
+\subsection{Widom's scaling hypothesis}
 
-More precisely, given \( t \equiv  \frac{T - T_c}{T_c}\) and \( h = \frac{H - H_c}{H_c} \) and the free energy density
-\begin{equation}
-  f (T,H) = f_{ana} (T,H) + f_{sing} (t,h)
-\end{equation}
-where \( f_{ana} \) is an analytic term and \( f_{sing} \) diverges, has a singularity. Given that the scaling hypothesis is
-\begin{equation}
+As said, the Widom's static scaling hypothesis consists in assuming that the singular part of the free energy, \( f_s \), is a generalized homogeneous function, i.e.:
+\begin{empheq}[box=\myyellowbox]{equation}
   f_s ( \lambda ^{p_1} t, \lambda ^{p_2} h) = \lambda f_s (t,h), \quad \forall \lambda \in \R
-\end{equation}
-where \( p_1 \) and \( p_2 \) are the degrees of the homogeneity of the singular part of the free energy.
-\begin{remark}
-The exponents \( p_1 \) and \( p_2 \)  are not specified by the hypothesis but they will depend on the critical exponents.
-\end{remark}
-\begin{remark}
-Since \( f_s \) is a generalized homogeneous function, it is always possible to choose \( \lambda  \) to eliminate one dependence.
+\end{empheq}
+where \( p_1 \) and \( p_2 \) are the degrees of the homogeneity.
 
-For example, one can choose \(   \lambda = h^{-1/p_2} \) to obtain
-\begin{equation}
+The exponents \( p_1 \)  and \( p_2 \) are not specified by the scaling hypothesis; however, we are shortly going to show that all the critical exponents of a system can be expressed in terms of \( p_1 \)  and \( p_2 \); this also implies that if two critical exponents are known, we can write \( p_1 \) and \( p_2 \) in terms of them (since in general we will have a set of two independent equations in the two variables \( p_1 \) and \( p_2 \)  and therefore determine all the critical exponents of the system. In other words, we just need to know two critical exponents to obtain all the others.
+
+\begin{remark}
+Since \( f_s \) is a generalized homogeneous function, it is always possible to choose \( \lambda  \) to remove the dependence on one of their arguments;
+for example, one can choose \(   \lambda = h^{-1/p_2} \) to obtain
+\begin{equation*}
  f_s (t,h) = h^{1/p_2} f_s (h^{-p_1/p_2} t , 1)
-\end{equation}
+\end{equation*}
 where
-\begin{equation}
-  \Delta  \equiv \frac{p_1}{p_2}
-\end{equation}
+\begin{equation*}
+  \Delta  \equiv \frac{p_2}{p_1}
+\end{equation*}
 is called the \emph{gap exponent}.
 \end{remark}
 
-Now, let us see how this simple hypothesis allow us, by simple differential calculus, to obtain relations between the thermodynamic critical exponents.
 
-\subsection{Scaling of the magnetization}
+
+\section{Relations between critical exponents}
+Let us now explore the consequences of Widom's assumption on the critical exponents of a system, again on a magnetic one for concreteness. Indeed, let us see how this simple hypothesis allow us, by simple differential calculus, to obtain relations between the thermodynamic critical exponents.
+
+\subsection{Exponent \( \pmb{\beta } \) (scaling of the magnetization)}
 Let us start from the scaling hypothesis
-\begin{equation}
+\begin{equation*}
   f_s (\lambda ^{p_1}t, \lambda ^{p_2}h) = \lambda f_s (t,h)
-  \label{eq:19_3}
-\end{equation}
-Since \( M \) is the \( 1^{st} \) derivative of \( f \) with respect to \( H \), let us derive   \eqref{eq:19_3} with respect to \( h \)
-\begin{equation}
+\end{equation*}
+Since
+\begin{equation*}
+  M = \pdv{f}{H}
+\end{equation*}
+deriving both sides of Widom's assumption with respect to \( h \)\footnote{We should in principle derive with respect to \( H \), but since \( h \propto \beta H \), the  \( \beta  \) factors simplify on both sides.} we get:
+\begin{equation*}
   \lambda ^{p_2} \pdv{f_s}{h} \qty(\lambda ^{p_1}t, \lambda ^{p_2}h) = \lambda \pdv{f_s}{h} (t,h)
-\end{equation}
-\begin{equation}
-  \Rightarrow \lambda ^{p_2} M_s ( \lambda ^{p_1} t, \lambda ^{p_2} h) = \lambda M_s (t,h)
-  \label{eq:19_4}
-\end{equation}
-On the other hand, we know that, for \( h=0 \) and \( t \rightarrow 0^- \), \( M_s (t) \sim (-t)^{\beta } \). Putting \( h=0 \) in \eqref{eq:19_4}
-\begin{equation}
+\end{equation*}
+and thus:
+\begin{equation*}
+   \lambda ^{p_2} M_s ( \lambda ^{p_1} t, \lambda ^{p_2} h) = \lambda M_s (t,h)
+\end{equation*}
+On the other hand, we know that, for \( h=0 \) and \( t \rightarrow 0^- \), \( M_s (t) \sim (-t)^{\beta } \). Hence, in order to determine \( \beta  \), we set \( h=0 \) so that this becomes
+\begin{equation*}
   M_s (t,0) = \lambda ^{p_2 -1} M_s ( \lambda ^{p_1} t,0)
-\end{equation}
-Since \( \lambda  \) is arbitrary, we can eliminate the dependence on \( t \) by choosing
-\begin{equation}
-  \lambda ^{p_1} t = -1 \quad \Rightarrow \lambda = (t)^{-1/p_1}
-\end{equation}
-hence,
-\begin{equation}
-  M_s (t,0) = - (t)^{\frac{1-p_2}{p_1}} M_s (-1,0)
-\end{equation}
-Obtaining the \( 1^{st} \) relation:
+\end{equation*}
+Since \( \lambda  \) is arbitrary, using the properties of generalized homogeneous functions, we set
+\begin{equation*}
+  \lambda ^{p_1} t = -1 \quad \Rightarrow \lambda = (-t)^{-1/p_1}
+\end{equation*}
+to eliminate the dependence on \( t \). Hence, we get
+\begin{equation*}
+  M_s (t,0) =  (-t)^{(1-p_2)/p_1} M_s (-1,0)
+\end{equation*}
+By definition of the \( \beta  \) critical exponent, we have:
 \begin{equation}
   \beta = \frac{1-p_2}{p_1}
+  \label{eq:19_10}
 \end{equation}
-\subsubsection{Exponent \( \delta  \)}
-At \( T=T_c \) \( (t=0) \) we have
-\begin{equation}
-   M_s  \overset{h \rightarrow 0^+}{\sim} h^{1/\delta }
-\end{equation}
-\begin{equation}
-  \Rightarrow M_s (0,h) = \lambda ^{p_2 - 1} M_s (0,\lambda ^{p_2} h)
-\end{equation}
-Now, we want
-\begin{equation}
-  \lambda ^{p_1} h = 1 \quad \Rightarrow \lambda = h ^{-1/p_2}
-\end{equation}
-\begin{equation}
-  \Rightarrow M_s (0,h) = h ^{\frac{1-p_2}{p_2}} M_s (0,1)
-\end{equation}
-Since \( M_s \sim h^{1/\delta } \), we get the \( 2^{nd} \) relation:
+
+
+\subsection{Exponent \( \pmb{\delta}  \)}
+Let us consider again the relation
+\begin{equation*}
+   \lambda ^{p_2} M_s ( \lambda ^{p_1} t, \lambda ^{p_2} h) = \lambda M_s (t,h)
+\end{equation*}
+We can determine the exponent \( \delta  \) by setting \( t=0 \) (\( T=T_c  \)), obtaining:
+\begin{equation*}
+  M(0,h) = \lambda ^{p_2-1} M (0, \lambda ^{p_2} h)
+\end{equation*}
+Now, using again the same property of generalized homogeneous functions we set
+\begin{equation*}
+  \lambda ^{p_2} h = 1 \quad \Rightarrow \lambda = h^{-1/p_2}
+\end{equation*}
+and we get:
+\begin{equation*}
+  M_s (0,h) =  h^{(1-p_2)/p_2} M_s (0,1)
+\end{equation*}
+Since \(  M_s  \overset{h \rightarrow 0^+}{\sim} h^{1/\delta } \), we have:
 \begin{equation}
   \delta = \frac{p_2}{ 1 - p_2 }
-\end{equation}
-By getting \( p_1 \) and \( p_2 \) from the two relations we have
-\begin{equation}
-  p_1 = \frac{1}{\beta (\delta +1)}, \quad p_2 = \frac{\delta }{\delta + 1}
-\end{equation}
-and in particular the gap exponent is
-\begin{equation}
-  \frac{p_2}{p_1} \equiv  \Delta = \beta \delta
+  \label{eq:19_11}
 \end{equation}
 
-\subsection{Equation of state}
-We can also predict the scaling form of the equation of state and explain the collapse of the experimental data. Let us start from
+Now we can also express \( p_1 \) and \( p_2 \)  in terms of \( \beta  \) and \( \delta  \) from the two relations Eq.\eqref{eq:19_10} and Eq.\eqref{eq:19_11}. The result is:
 \begin{equation}
+  p_1 = \frac{1}{\beta (\delta +1)}, \qquad p_2 = \frac{\delta }{\delta + 1}
+\end{equation}
+from which we see that the gap exponent is:
+\begin{equation}
+  \Delta \equiv \frac{p_2}{p_1}  = \beta \delta
+\end{equation}
+
+
+\subsection{Scaling of the equation of state}
+We can also predict the scaling form of the equation of state and explain the collapse of the experimental data. Let us start from the relation
+\begin{equation*}
   M_s (t,h) = \lambda ^{p_2 - 1} M_s (\lambda ^{p_1} t, \lambda ^{p_2} h)
-\end{equation}
-and choose \( \lambda = \abs{t}^{-1/p_1}  \).
-
-We have
-\begin{equation}
-  M_s (t,h) = \abs{t}^{\frac{1-p_2}{p_1}} M_s ( \frac{t}{\abs{t} }, \frac{h}{\abs{t}^{\Delta } })
-\end{equation}
-Since \( \beta = \frac{1-p_2}{p_1} \), \( \delta = \frac{p_2}{p_1} \) we have
+\end{equation*}
+Using the property of generalized homogeneous functions we set \( \lambda = \abs{t}^{-1/p_1}  \). Hence,
+\begin{equation*}
+  M_s (t,h) = \abs{t}^{\frac{1-p_2}{p_1}} M_s ( \frac{t}{\abs{t} }, \frac{h}{\abs{t}^{p_2/p_1 } })
+\end{equation*}
+Since \( \beta = (1-p_2)/p_1 \) and \( \Delta = p_2/p_1 \), we have
 \begin{equation}
   \frac{M_s (t,h)}{\abs{t}^{\beta } } = M_s ( \frac{t}{\abs{t} }, \frac{h}{\abs{t}^{\Delta } })
   \label{eq:19_5}
 \end{equation}
-We define the \emph{scaled magnetization} as
+Hence, we can define the \emph{scaled magnetization} and \emph{scaled magnetic field}  as
 \begin{equation}
-  \bar{m} \equiv \abs{t}^{-\beta } M(t,h)
+    \bar{m} \equiv \abs{t}^{-\beta } M(t,h), \qquad \bar{h} \equiv \abs{t}^{-\Delta } h (t,M)
 \end{equation}
-and the \emph{scaled magnetic field} as
+and
 \begin{equation}
-  \bar{h} \equiv \abs{t}^{-\Delta } h (t,M)
+  F_{\pm} ( \bar{h} ) \equiv M_s (\pm1, \bar{h} )
 \end{equation}
-Hence, the equation \eqref{eq:19_5} becomes
+Using these definitions, Eq.\eqref{eq:19_5} becomes
 \begin{equation}
   \bar{m} = F_{\pm} (\bar{h} )
 \end{equation}
-universal curves!
+these are universal curves!
 
-\subsection{Magnetic susceptibility}
+
+
+
+\subsection{Exponent \( \pmb{\gamma  } \) }
 Compute \( \pdv[2]{}{h}  \) of the scaling hypothesis
 \begin{equation}
   f_s ( \lambda^{p_1} t, \lambda ^{p_2}h) = \lambda f_s (t,h)
@@ -295,7 +308,10 @@ From equation \eqref{eq:19_5} we have
 \begin{equation}
   \lambda ^{2p_2} \chi _T \qty(\lambda ^{p_1}t, \lambda ^{p_2}h) = \lambda \chi _T (t,h)
 \end{equation}
-\subsubsection{Exponent \( \gamma   \) }
+
+
+
+
 Consider \( h=0 \), \( t \rightarrow 0^- \) (for example).
  Let \( \lambda = - t ^{-1/p_1} \), from equation \eqref{eq:19_5}
 \begin{equation}
