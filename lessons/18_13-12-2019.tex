@@ -7,6 +7,7 @@
 
 
 \subsection{Solution of \eqref{eq:17_13} by Fourier transform}
+\label{sec:18_1}
 \marginpar{ \textbf{Lecture 18.} \\  \displaydate{date}. \\ Compiled:  \today.}
 Let us  do the Fourier transform of Eq.\eqref{eq:17_13}:
 \begin{equation*}
@@ -130,7 +131,7 @@ We have also \( A_0 =0 \),  \( 3bm_0^2 \delta m^2 = 0 \) and \( 2 b m_0 \delta m
 \end{equation*}
 The Gaussian approximation consists in neglecting the quartic term \( (\delta m)^4 \), hence we finally obtain:
 \begin{equation}
-    \beta \mathcal{H}_{eff}^{T>T_c} (\delta m) \simeq  \int_{}^{} \dd[d]{\va{r}} \qty(\frac{k}{2} \qty( \va{\grad } \delta m)^2 + a t (\delta m)^2 )
+    \beta \mathcal{H}_{eff}^{G,T>T_c} (\delta m) \simeq  \int_{}^{} \dd[d]{\va{r}} \qty(\frac{k}{2} \qty( \va{\grad } \delta m)^2 + a t (\delta m)^2 )
     \label{eq:18_4}
 \end{equation}
 \begin{remark}
@@ -145,7 +146,7 @@ In order to compute this integral it is more convenient to shift to Fourier spac
 \subsection{Gaussian approximation for the Ising model in Ginzburg-Landau theory}
 For simplicity, consider the case \( T>T_c \); now, let us compute the partition function
 \begin{equation}
-  Z_{GL} (\delta m) = \int_{}^{} \mathcal{D} \qty[\delta m] e^{- \int_{}^{} \dd[d]{r} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2  )  }
+  Z_{G} (\delta m) = \int_{}^{} \mathcal{D} \qty[\delta m] e^{- \int_{}^{} \dd[d]{r} \qty(\frac{k}{2} \qty(\grad \delta m)^2 + a t (\delta m)^2  )  }
  \end{equation}
  in the Fourier space.
  Let us make some remarks on what happens when we apply Fourier transformations in this case. If our system is enclosed in a cubic box of volume \( V = L^d \) (with periodic boundary conditions), we can define the Fourier components of the magnetization as:
@@ -228,7 +229,7 @@ We want to compute Eq.\eqref{eq:18_4}  in the Fourier space. For simplicity, let
 \end{equation*}
 Hence, Eq.\eqref{eq:18_4} becomes
 \begin{equation}
-  \beta \mathcal{H}_{eff}^{T>T_c} [\varphi ]= \int_{}^{}  \qty[\frac{c}{2} \qty(\grad \varphi )^2 + a t \varphi  ^2 ] \dd[d]{\va{r}}
+  \beta \mathcal{H}_{eff}^{G,T>T_c} [\varphi ]= \int_{}^{}  \qty[\frac{c}{2} \qty(\grad \varphi )^2 + a t \varphi  ^2 ] \dd[d]{\va{r}}
   \label{eq:18_2}
 \end{equation}
 with
@@ -275,7 +276,7 @@ Hence, the term becomes
 
 In conclusion, the Gaussian Hamiltonian in Eq.\eqref{eq:18_4} in the Fourier space is the sum of the two terms in Eq.\eqref{eq:18_6} and Eq.\eqref{eq:18_7}:
 \begin{empheq}[box=\myyellowbox]{equation}
-  \beta \mathcal{H}_{eff}^{T>T_c} [ \varphi ] \overset{V \gg 1 }{\longrightarrow} \frac{1}{2V} \sum_{\va{k}}^{} \qty(2 a t + c \abs{\va{k}}^2) \varphi _{\va{k}} \varphi _{-\va{k}'}
+  \beta \mathcal{H}_{eff}^{G,T>T_c} [ \varphi ] \overset{V \gg 1 }{\longrightarrow} \frac{1}{2V} \sum_{\va{k}}^{} \qty(2 a t + c \abs{\va{k}}^2) \varphi _{\va{k}} \varphi _{-\va{k}'}
 \end{empheq}
 
 
@@ -312,15 +313,15 @@ For sake of brevity, we define:
 \end{equation}
 In the end,  in the Fourier space we have:
 \begin{equation}
-  \widetilde{Z} _{GL}^{T>T_c} =   \int_{}^{} \mathcal{D} \qty[\varphi (\va{r})]
+  \widetilde{Z} _{G}^{T>T_c} =   \int_{}^{} \mathcal{D} \qty[\varphi (\va{r})]
   e^{- \beta \widetilde{\mathcal{H}}_{eff}^{T>T_c} [\varphi _{\va{k}}] } =
    \int_{- \infty }^{+ \infty }  \qty( \prod_{\va{k}}'  \dd[]{\varphi _{\va{k}}})
-  e^{- \beta \widetilde{\mathcal{H}}_{eff}^{T>T_c} [\varphi _{\va{k}}] }
+  e^{- \beta \widetilde{\mathcal{H}}_{eff}^{G,T>T_c} [\varphi _{\va{k}}] }
   \label{eq:18_9}
 \end{equation}
 where
 \begin{equation}
-  - \beta \widetilde{\mathcal{H}}_{eff}^{T>T_c} [\varphi _{\va{k}}] = - \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2
+  - \beta \widetilde{\mathcal{H}}_{eff}^{G,T>T_c} [\varphi _{\va{k}}] = - \frac{1}{2V} \sum_{\va{k}}^{} \qty(2at+c \abs{\va{k}}^2 ) \abs{\varphi _{\va{k}}}^2
 \end{equation}
 
 
@@ -340,12 +341,12 @@ Thus, we have
 \end{equation*}
 Hence,
 \begin{equation*}
-    \widetilde{Z}_{GL}^{T>T_c} = e^{-\beta \widetilde{F}_{GL}^{T>T_c} } =  \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z >0 } }^{} \frac{2 \pi V  }{ 2at+c \abs{\va{k}}^2 }
+    \widetilde{Z}_{G}^{T>T_c} = e^{-\beta \widetilde{F}_{G}^{T>T_c} } =  \prod_{\substack{ \abs{\va{k}} < \Lambda   \\ k_z >0 } }^{} \frac{2 \pi V  }{ 2at+c \abs{\va{k}}^2 }
     = \exp [\frac{1}{2} \sum_{\abs{\va{k}}<\Lambda  }^{} \log (\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })   ]
 \end{equation*}
 We therefore have that the free energy of the system is:
 \begin{equation}
-  \widetilde{F}_{GL}^{T>T_c} = - \frac{k_B T}{2}  \sum_{\abs{\va{k}}< \Lambda  }^{}
+  \widetilde{F}_{G}^{T>T_c} = - \frac{k_B T}{2}  \sum_{\abs{\va{k}}< \Lambda  }^{}
   \log{\qty(\frac{2 \pi V}{2 a t + c \abs{\va{k}}^2 })}
 \end{equation}
 
@@ -353,8 +354,8 @@ We therefore have that the free energy of the system is:
 For \( T<T_c \) we have \( m_0 = \pm (-at/b)^{1/2} \neq 0 \). In addition, we have to redefine the quadratic term \( (at+3bm_0^2) \) (in Eq.\eqref{eq:18_10}), that for \( m_0^2 = - at/b \), becames \( -2at \). Moreover, we have also the term \( V A_0 = V (atm_0^2 + \frac{b}{2} m_0^4) \).
 Therefore, in the case \( T<T_c \) the free energy of the system is
 \begin{equation}
-  \widetilde{F}_{GL}^{T<T_c} = V A_0  - \frac{k_B T}{2}  \sum_{\abs{\va{k}}< \Lambda  }^{}
-  \log{\qty(\frac{2 \pi V}{ -4 a t + c \abs{\va{k}}^2 })}
+  \widetilde{F}_{G}^{T<T_c} = V A_0  - \frac{k_B T}{2}  \sum_{\abs{\va{k}}< \Lambda  }^{}
+  \log{\qty(\frac{2 \pi V}{ 2 a t + c \abs{\va{k}}^2 })}
 \end{equation}
 \end{remark}
 
@@ -364,11 +365,11 @@ Therefore, in the case \( T<T_c \) the free energy of the system is
 \subsubsection{Specific heat in the Gaussian approximation}
 We can now compute the specific heat of the system, and so determine its critical exponent \( \alpha  \). We therefore want to compute:
 \begin{equation*}
-    c_V^{GL} = - T \pdv[2]{}{T} \frac{F_{GL}}{V}
+    c_V^{G} = - T \pdv[2]{}{T} \frac{F_{GL}}{V}
 \end{equation*}
 The derivatives are straightforward, and in the end we get:
 \begin{equation*}
-  c_V^{GL} =   \underbrace{\frac{A}{V} \sum_{\abs{\va{k}} < \Lambda  }^{}
+  c_V^{G} =   \underbrace{\frac{A}{V} \sum_{\abs{\va{k}} < \Lambda  }^{}
   \frac{1}{ \qty(2 a t + c \abs{\va{k}}^2 )^2}}_{1^{st}}
     - \underbrace{ \frac{B}{V} \sum_{\abs{\va{k}}< \Lambda  }^{} \frac{1}{2 a t + c \abs{\va{k}}^2 }}_{2^{st}}
 \end{equation*}
@@ -388,9 +389,9 @@ and
   < \infty & d > 2
   \end{cases}
 \end{equation*}
-Therefore for \( d<2 \) the \( 2^{nd} \)  contribution to \( c_V^{GL} \) diverges, but in the same range of \( d \) the divergence of the first contribution is more relevant; on the other hand, for \( 2 \leq d < 4  \) only the first contribution diverges. It is therefore the \( 1^{st} \) term that determines the divergence of the specific heat, and in particular for \( d<4 \) we have \( c_V^{GL}  \sim t^{-\nu (4-d)} \); in summary:
+Therefore for \( d<2 \) the \( 2^{nd} \)  contribution to \( c_V^{GL} \) diverges, but in the same range of \( d \) the divergence of the first contribution is more relevant; on the other hand, for \( 2 \leq d < 4  \) only the first contribution diverges. It is therefore the \( 1^{st} \) term that determines the divergence of the specific heat, and in particular for \( d<4 \) we have \( c_V^{G}  \sim t^{-\nu (4-d)} \); in summary:
 \begin{equation}
-  c_V \sim \begin{cases}
+  c_V^G \sim \begin{cases}
     t^{-\nu (4-d)} & d < 4 \\
     <\infty & d > 4
 \end{cases}
@@ -398,7 +399,7 @@ Therefore for \( d<2 \) the \( 2^{nd} \)  contribution to \( c_V^{GL} \) diverge
 and so we see that in the Gaussian approximation the inclusion of the fluctuations
 has changed the behaviour of \( c_V \) at the transition point; in particular, has changed the value of the critical exponent \( \alpha  \) (\( c_V \sim t^{- \alpha } \)) to:
 \begin{equation}
-  \alpha = \nu (4-d) \quad \text{for } d < 4
+  \alpha_G = \nu (4-d) \quad \text{for } d < 4
 \end{equation}
 In order to compute it, however, we still must determine \( \nu  \)  so we now proceed to compute the two-point correlation function in order to determine both \( \eta  \) and \( \nu  \).
 
@@ -410,72 +411,77 @@ In order to compute it, however, we still must determine \( \nu  \)  so we now p
 \centering
 \subfloat[][Case \( d<4 \).]{\includegraphics[width=1\textwidth]{../lessons/18_image/3.pdf}  \label{fig:18_2_2} }
 \end{minipage}
-\caption{\label{fig:} Behaviour of the specific heat \( c_V \) in function of the rescaled temperature \( t \). In blue it is represented its behaviour in the mean field theory, while in red the one with Gaussian approximations.}
+\caption{\label{fig:} Behaviour of the specific heat \( c_V \) as a function of the rescaled temperature \( t \). In blue it is represented its behaviour in the mean field theory, while in red the one with Gaussian approximations. We see that in the case \( d<4 \) with Gaussian approximations the specific heat diverges near \( t \sim 0 \). }
 \end{figure}
 
 
 
 
-
-
-
-
-\subsection{How about \( \nu  \)?}
-We have to compute the \( 2- \)point correlation function for \( \mathcal{H}_{eff}^G (\varphi ) \) that in Fourier space become
-\begin{equation}
+\subsubsection{Two-point correlation function in the Gaussian approximation}
+We have to compute the  \( 2 \)-point correlation function for \( \mathcal{H}_{eff}^G (\varphi) \).
+We know that the (simple)  correlation function is defined as:
+\begin{equation*}
+  G ( \va{r}, \va{r}') = \expval{ \varphi(\va{r})\varphi(\va{r}')}
+\end{equation*}
+so we first have to determine:
+\begin{equation*}
+   \varphi(\va{r})\varphi(\va{r}') = \frac{1}{V^2} \sum_{\va{k}, \va{k}'}^{}
+   e^{i (\va{k} \vdot \va{r} + \va{k}' \vdot \va{r}')} \varphi_{\va{k}} \varphi_{\va{k}'}
+\end{equation*}
+Shifting to Fourier space, we have (the subscript \( G \) stands for Gaussian):
+\begin{equation*}
   \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G =
-\frac{\int_{- \infty }^{+ \infty } \dd[]{ \tilde{ \varphi} _{\va{k}_1} }  \dots
-  \dd[]{ \tilde{ \varphi} _{\va{k}} }  \dd[]{ \tilde{ \varphi} _{\va{k}'} }
- \tilde{\varphi} _{\va{k}} \tilde{\varphi} _{\va{k}'} \dots
-  e^{- \beta \mathcal{H}_{eff}^G}  \dots
+\frac{\int_{- \infty }^{+ \infty } \dd[]{  \varphi_{\va{k}_1} }  \dots
+  \dd[]{  \varphi_{\va{k}} }  \dd[]{ \varphi_{\va{k}'} }
+   \varphi_{\va{k}} \varphi_{\va{k}'} e^{- \beta \mathcal{H}_{eff}}
  }{
- \int_{- \infty }^{+ \infty } \dd[]{ \tilde{ \varphi} _{\va{k}_1} }  \dots
-   \dd[]{ \tilde{ \varphi} _{\va{k}} }  \dd[]{ \tilde{ \varphi} _{\va{k}'} } \dots
-   \dd[]{ \tilde{ \varphi} _{\va{k}_n} } \dots
+ \int_{- \infty }^{+ \infty } \dd[]{  \varphi_{\va{k}_1} }  \dots
+   \dd[]{  \varphi_{\va{k}} }  \dd[]{ \varphi_{\va{k}'} }
+    e^{- \beta \mathcal{H}_{eff}}
  }
-\end{equation}
-where
+\end{equation*}
+where, as we said,
+\begin{equation*}
+  \beta \mathcal{H}_{eff}^G = V A_0  + \frac{1}{2V} \sum_{\va{k}}^{} \qty(2 a t + c  \abs{\va{k}}^2) \abs{\varphi _{\va{k}}}^2
+\end{equation*}
+It is clear that in \(   \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G  \)  all the integrals factorize since the Fourier modes are all independent (they are decoupled); therefore, all the integrals in the numerator that don't involve \( \va{k} \) or \( \va{k}' \) simplify with the same integrals in the denominator. Taking this into account, it is possible to show
+\begin{equation*}
+  \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G =  \frac{V}{2 a t + c \abs{\va{k}}^2} \delta _{\va{k},-\va{k}'}
+\end{equation*}
+that, in the limit \( V \rightarrow \infty  \) (Eq.\eqref{eq:18_5}) becomes
 \begin{equation}
-  \mathcal{H}_{eff}^G = A_0 V + \frac{1}{2V} \sum_{\va{k}}^{} \qty(2 a t + c \va{k}^2) \abs{\varphi _{\va{k}}}^2
+    \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G \overset{V \rightarrow \infty }{\longrightarrow} \frac{(2 \pi )^d}{2 a t + c \abs{\va{k}}^2} \delta  (\va{k}+ \va{k}')
 \end{equation}
-It is possible to show:
-\begin{equation}
-  \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G = \delta _{\va{k},-\va{k}'} \frac{V}{2 a t + c k^2}
-\end{equation}
-that, in the limit \( V \rightarrow \infty  \) becomes
-\begin{equation}
-    \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G \overset{V \rightarrow \infty }{\longrightarrow} \frac{(2 \pi )^D}{2 a t + c \va{k}^2} \delta ^D (\va{k}+ \va{k}')
-\end{equation}
-By antitrasforming
-\begin{equation}
+Going back to real space, by antitransforming, we have:
+\begin{equation*}
 \begin{split}
-  \expval{\varphi (\va{r}) \varphi (\va{r}')}_G &= \frac{1}{V^2} \sum_{\va{k}, \va{k}'}^{} e^{i (\va{k}\vdot \va{r} + \va{k}' \vdot \va{r}' )} \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G    \\
-  & = \frac{1}{V^2} \sum_{\va{k}, \va{k}'}^{} e^{i (\va{k}\vdot \va{r} + \va{k}' \vdot \va{r}' )}  \delta _{\va{k}, -\va{k}'} \frac{V}{2at+ck^2} \\
-  & = \frac{1}{V} \sum_{\va{k}}^{} \frac{ e^{i \va{k}\vdot ( \va{r} - \va{r}' )}}{2 a t + c k^2}
+  \expval{\varphi (\va{r}) \varphi (\va{r}')}_G &= \frac{1}{V^2} \sum_{\va{k}, \va{k}'}^{} e^{i (\va{k}\vdot \va{r} + \va{k}' \vdot \va{r}' )} \expval{\varphi _{\va{k}} \varphi _{\va{k}'}}_G
+  = \frac{1}{V^2} \sum_{\va{k}, \va{k}'}^{} e^{i (\va{k}\vdot \va{r} + \va{k}' \vdot \va{r}' )}   \frac{V}{2at+c\abs{\va{k}}^2} \delta _{\va{k}, -\va{k}'} \\
+  & = \frac{1}{V} \sum_{\va{k}}^{} \frac{ e^{i \va{k}\vdot ( \va{r} - \va{r}' )}}{2 a t + c \abs{\va{k}}^2}
 \end{split}
-\end{equation}
-Using
-\begin{equation}
-  \xi _> (t) = \qty(\frac{c}{2at})^{1/2}
-\end{equation}
+\end{equation*}
+We see that defining:
+\begin{equation*}
+  \xi  (t) = \qty(\frac{c}{2at})^{1/2}
+\end{equation*}
 we get
 \begin{equation}
-    \expval{\varphi (\va{r}) \varphi (\va{r}')}_G = \frac{1}{V_c} \sum_{\va{k}}^{} \frac{ e^{i \va{k}\vdot ( \va{r} - \va{r}' )} }{k^2 + \xi _>^{-2}}
+    \expval{\varphi (\va{r}) \varphi (\va{r}')}_G = \frac{1}{ V } \sum_{\va{k}}^{} \frac{1}{c} \frac{ e^{i \va{k}\vdot ( \va{r} - \va{r}' )} }{ \abs{\va{k}}^2 + \xi ^{-2}}
     = \frac{1}{V} \sum_{\va{k}}^{} e^{i \va{k} \vdot \va{x}} \hat{G} (\va{k})
 \end{equation}
-where
+where we have defined the correlation function
 \begin{equation}
-  \hat{G} (\va{k}) = \frac{1}{c \qty(k^2 + \xi _>^{-2}) }
+  \hat{G} (\va{k}) = \frac{1}{c} \frac{1}{   \abs{\va{k}}^2 + \xi ^{-2} }
 \end{equation}
-i.e. is of the same form found in mean field.
+this correlation function acquires the same form of the one computed in mean field theory. This means that the critical exponents \( \nu  \) and \( \eta  \)  now have the same values predicted by mean field theory (see Sec.(\ref{sec:17_1}) and Sec.(\ref{sec:18_1})), namely:
 \begin{equation}
 \Rightarrow
   \begin{cases}
-   \nu _G = \frac{1}{2}\\
-   \eta_G = 0
+   \nu _{G} = \frac{1}{2}\\
+   \eta_{G} = 0
   \end{cases}
 \end{equation}
-There are no changes with Gaussian fluctuation! Interactions between \( \varphi _{\va{k}} \) are needed!
+hence, there are no changes with Gaussian fluctuations! Interactions between \( \varphi _{\va{k}} \) are needed!
 
 
 
