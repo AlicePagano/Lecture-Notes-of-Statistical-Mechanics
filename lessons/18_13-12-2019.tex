@@ -362,50 +362,63 @@ Therefore, in the case \( T<T_c \) the free energy of the system is
 
 
 \subsubsection{Specific heat in the Gaussian approximation}
-\begin{equation}
-  c_V^G = - T \pdv[2]{F^G/V}{T} \overset{to do}{=}   \underbrace{\frac{A}{V} \sum_{\abs{\va{k}} < \Lambda  }^{}
+We can now compute the specific heat of the system, and so determine its critical exponent \( \alpha  \). We therefore want to compute:
+\begin{equation*}
+    c_V^{GL} = - T \pdv[2]{}{T} \frac{F_{GL}}{V}
+\end{equation*}
+The derivatives are straightforward, and in the end we get:
+\begin{equation*}
+  c_V^{GL} =   \underbrace{\frac{A}{V} \sum_{\abs{\va{k}} < \Lambda  }^{}
   \frac{1}{ \qty(2 a t + c \abs{\va{k}}^2 )^2}}_{1^{st}}
     - \underbrace{ \frac{B}{V} \sum_{\abs{\va{k}}< \Lambda  }^{} \frac{1}{2 a t + c \abs{\va{k}}^2 }}_{2^{st}}
-\end{equation}
+\end{equation*}
 One can show that
-\begin{equation}
+\begin{equation*}
 1^{st} \propto
   \begin{cases}
-   \xi ^{4-D} \sim t^{-\nu (4-D)}  & D < 4\\
-  < \infty & D > 4
+   \xi ^{4-d} \sim t^{-\nu (4-d)}  & d < 4\\
+  < \infty & d > 4
   \end{cases}
-\end{equation}
-\begin{equation}
+\end{equation*}
+and
+\begin{equation*}
 2^{nd} \propto
   \begin{cases}
-   \xi ^{2-D} \sim t^{-\nu (2-D)}  & D < 2\\
-  < \infty & D > 2
+   \xi ^{2-d} \sim t^{-\nu (2-d)}  & d < 2\\
+  < \infty & d > 2
   \end{cases}
-\end{equation}
-In summary, the behaviour of the specific heat is
+\end{equation*}
+Therefore for \( d<2 \) the \( 2^{nd} \)  contribution to \( c_V^{GL} \) diverges, but in the same range of \( d \) the divergence of the first contribution is more relevant; on the other hand, for \( 2 \leq d < 4  \) only the first contribution diverges. It is therefore the \( 1^{st} \) term that determines the divergence of the specific heat, and in particular for \( d<4 \) we have \( c_V^{GL}  \sim t^{-\nu (4-d)} \); in summary:
 \begin{equation}
   c_V \sim \begin{cases}
-    t^{-\nu (4-D)} & D < 4 \\
-    <\infty & D > 4
+    t^{-\nu (4-d)} & d < 4 \\
+    <\infty & d > 4
 \end{cases}
 \end{equation}
-The introduction of the fluctuations even if only at the Gaussian level changes the behaviour of \( c_V \) at the transition point.
+and so we see that in the Gaussian approximation the inclusion of the fluctuations
+has changed the behaviour of \( c_V \) at the transition point; in particular, has changed the value of the critical exponent \( \alpha  \) (\( c_V \sim t^{- \alpha } \)) to:
+\begin{equation}
+  \alpha = \nu (4-d) \quad \text{for } d < 4
+\end{equation}
+In order to compute it, however, we still must determine \( \nu  \)  so we now proceed to compute the two-point correlation function in order to determine both \( \eta  \) and \( \nu  \).
 
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
-\subfloat[][Description]{ \includegraphics[width=1\textwidth]{../lessons/18_image/2.pdf}  \label{fig:18_2_1} }
+\subfloat[][Case \( d>4 \).]{ \includegraphics[width=1\textwidth]{../lessons/18_image/2.pdf}  \label{fig:18_2_1} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{\includegraphics[width=1\textwidth]{../lessons/18_image/3.pdf}  \label{fig:18_2_2} }
+\subfloat[][Case \( d<4 \).]{\includegraphics[width=1\textwidth]{../lessons/18_image/3.pdf}  \label{fig:18_2_2} }
 \end{minipage}
-\caption{\label{fig:} }
+\caption{\label{fig:} Behaviour of the specific heat \( c_V \) in function of the rescaled temperature \( t \). In blue it is represented its behaviour in the mean field theory, while in red the one with Gaussian approximations.}
 \end{figure}
 
-The introduction of Gaussian fluctuations gives rise to a divergence in \( c_V \sim t^{- \alpha } \) with
-\begin{equation}
-  \alpha = \nu (4-D) \quad \text{for } D < 4
-\end{equation}
+
+
+
+
+
+
 
 \subsection{How about \( \nu  \)?}
 We have to compute the \( 2- \)point correlation function for \( \mathcal{H}_{eff}^G (\varphi ) \) that in Fourier space become
