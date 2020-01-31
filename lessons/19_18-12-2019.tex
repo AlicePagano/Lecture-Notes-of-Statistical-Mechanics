@@ -578,6 +578,7 @@ where the gap exponent is now
 comparing this equation with the alternative expression of the scaling hypothesis (Eq.\eqref{eq:19_13}) we have:
 \begin{equation}
   2 - \alpha = \frac{d}{y_t}
+  \label{eq:19_16}
 \end{equation}
 
 
@@ -616,38 +617,50 @@ Introducing also the dependence on \( h \), we have:
 \begin{equation}
   G_{IJ} \qty(\frac{\va{r}}{l}, t l^{y_t}, h l^{y_h}) = l^{2 (d- y_h)} G_{ij} (\va{r},t,h)
  \end{equation}
-which is an equivalent of Widom's assumption for the correlation function. 
-
-
-By choosing \(   l = t^{-1/Y_t} \) one gets
+ Again, we can remove the dependence on \( t \) by setting \(  l = t^{-1/y_t}  \)  so that:
 \begin{equation}
-  G (\va{r},t,h) = t^{\frac{2(D-Y_h)}{Y_t}} G (\va{r}t^{1/Y_t}, 1 , h t ^{-Y_h/Y_t})
+  G (\va{r},t,h) = t^{\frac{2(d-y_h)}{y_t}} G (\va{r}t^{1/y_t}, 1 , h t ^{-y_h/y_t})
   \label{eq:19_9}
 \end{equation}
-Since we are interested at large length scale in proximiti of \( T=T_c \), we can choose \( \abs{\va{r}}  \) such that
+Now, \( \va{r} \) scales with \( l \) as all the lengths of our system, and since we have set \(  l = t^{-1/y_t}  \)  we have
+\begin{equation*}
+  \abs{\va{r}} t^{1/y_t} = 1  \quad \Rightarrow  t = \abs{\va{r}}^{-y_t}
+\end{equation*}
+Therefore, inserting in \eqref{eq:19_9}:
 \begin{equation}
-  \abs{\va{r}} t^{1/Y_t} = 1  \quad \Rightarrow  t = \abs{\va{r}}^{-Y_t}
+  G (\va{r},t,h) = \abs{\va{r}}^{-2(d-y_h)} F_G \qty(h t^{-y_h/y_t})
 \end{equation}
-Hence, inserting in \eqref{eq:19_9}
+where we have defined
 \begin{equation}
-  G (\va{r},t,h) = \abs{\va{r}}^{-2(D-Y_h)} F_G \qty(h t^{-Y_h/Y_t})
+  F_G \qty(h t^{-y_h/y_t})  \equiv G (1, 1, h t ^{-y_h/y_t})
 \end{equation}
-where
+Let us remember that the power law behaviour of \( G \) in proximity of the critical point is
+\begin{equation*}
+  G \sim \abs{\va{r}}^{2-d - \eta }
+\end{equation*}
+we get
 \begin{equation}
-  F_G \qty(h t^{-Y_h/Y_t})  \equiv G (1, h t ^{-Y_h/Y_t},1)
+  2 (d- y_h) = d - 2 + \eta
+  \label{eq:19_14}
 \end{equation}
-
-Remembering the power law behaviour of \( G \) in proximity of the critical point, i.e.  \( G \sim \abs{\va{r}}^{2-D- \eta }  \) and \( \xi \sim t^{-\nu } \).
-Finally we get
+With the choice \( l = t^{-1/y_t} \) we further have that the correlation length scales as:
+\begin{equation*}
+  \xi = l \xi _l = \xi _l t^{-1/y_t}
+\end{equation*}
+and remembering that the correlation length diverges as
+\begin{equation*}
+  \xi \sim t^{-\nu }
+\end{equation*}
+ we also have:
 \begin{equation}
-  \nu = \frac{1}{Y_t}, \quad 2 (D- Y_h) = D - 2 + \eta
+    \nu = \frac{1}{y_t}
+    \label{eq:19_15}
 \end{equation}
-Hence, we obtain the hyperscaling relation
-\begin{equation}
-      \Rightarrow 2 - \alpha = \nu D
-\end{equation}
-
-
+The Eq.\eqref{eq:19_15} together with Eq.\eqref{eq:19_16} leads to the \emph{hyperscaling relation}:
+\begin{empheq}[box=\myyellowbox]{equation}
+  \Rightarrow 2 - \alpha = \nu d
+\end{empheq}
+Hyperscaling relations are known to be less robust than the normal scaling relations between critical exponents (for example, for Hamiltonians with long-ranged power law interactions hyperscaling relations don't hold).
 
 
 
