@@ -176,6 +176,7 @@ Instead, examples of non-homogeneous functions are:
 As said, the Widom's static scaling hypothesis consists in assuming that the singular part of the free energy, \( f_s \), is a generalized homogeneous function, i.e.:
 \begin{empheq}[box=\myyellowbox]{equation}
   f_s ( \lambda ^{p_1} t, \lambda ^{p_2} h) = \lambda f_s (t,h), \quad \forall \lambda \in \R
+  \label{eq:19_12}
 \end{empheq}
 where \( p_1 \) and \( p_2 \) are the degrees of the homogeneity.
 
@@ -386,6 +387,7 @@ If we set \( \lambda = t ^{-1/p_1} \), then:
 From \( \Delta = \frac{p_2}{p_1} \) and \( \alpha = 2 - \frac{1}{p_1} \), we can rewrite this as:
 \begin{equation}
   f_s (t,h) = t^{2- \alpha } f_s \qty(1, \frac{h}{t^{\Delta }})
+  \label{eq:19_13}
 \end{equation}
 which is the most used form of the scaling hypothesis in statistical mechanics.
 
@@ -434,167 +436,189 @@ As we have seen, Widom's static scaling theory allows us to determine exact rela
 but gives no physical interpretation of it; in other words, it does not tell anything about the physical origin of scaling laws. Furthermore, as we have noticed Widom's theory does not involve correlation lengths, so it tells nothing about the critical exponents \( \nu  \)  and \( \eta  \).
 
 
+We know that one of the characteristic traits of critical phenomena is the divergence of the correlation length \( \xi  \), which becomes the only physically relevant length near a critical point. However, by now we are unable to tell if and how this is related to Widom's scaling hypothesis; everything will become more clear within the framework of the Renormalization Group, in which we will see that Widom's assumption is a consequence of the divergence of correlation length.
 
-We know (see Long range correlations) that one of the characteristic traits of critical phenomena is the divergence of the correlation length \( \xi  \), which becomes the only physically relevant length near a critical point. However, by now we are unable to tell if and how this is related to Widom's scaling hypothesis; everything will become more clear within the framework of The Renormalization Group, in which we will see that Widom's assumption is a consequence of the divergence of correlation length.
+Nonetheless, before the introduction of the Renormalization Group, Kadanoff (1966) proposed a plausibility argument for his assumption applied to the Ising model, which we are now going to analyse. We will see that Kadanoff's argument, which is based upon the intuition that \emph{the divergence of \( \xi  \)  implies a relation between the coupling constants of an effective Hamiltonian \( \mathcal{H}_{eff} \) and the length on which the order parameter \( m \) is defined}, is correct in principle but not in detail because these relations are in reality more complex than what predicted by Kadanoff; furthermore, Kadanoff's argument does not allow an explicit computation of critical exponents. We will have to wait for the Renormalization Group in order to solve these problems.
 
-Widom's theory refers only to the free energy of the system. Moreover it do, not fully explain how the scaling hypothesis derives by \( \xi  \) being the only relevant length of the system.
 
-The first argument on this point was given \( 1966 \) by Kadonoff.
-The Kadonoff's intuition was: the divergence of \( \xi  \) implies a relation between the coupling constants of a \( \mathcal{H}_{eff} \) and the length scales over which \( m \) is defined.
+\subsection{Kadanoff's argument for the Ising model}
+Let us consider a \( d \)-dimensional  Ising model with hypercubic lattice with lattice constant \( a \); assuming nearest-neighbour interactions the Hamiltonian of the system will be:
+\begin{equation}
+  - \beta \mathcal{H}_{\Omega } = K \sum_{\expval{ij}}^{N} \sigma _i \sigma _j + h \sum_{i=1}^{N} \sigma _i
+\end{equation}
+where \( \sigma _i = \pm 1 \), \( K=\beta J \) and \( h=\beta H \), as usual.
 
-We will that Kadanoff's intuition is correct. However, the relation found by Kadanoff is an approximation of the one proposed later by the theory of renormalization.
-\begin{remark}
-How can we relate the coupling costant of the two hamiltonian. This is the idea of the renormalization group. (lesson)
-\end{remark}
-\subsection{Kadanoff's argument}
-It is based on a coarse-grained operation on the system and two basic assumptions.
+The Kadanoff's argument is based on a coarse-grained operation on the system and on two basic assumptions.
+
 \subsubsection{Coarse graining operation}
-Let us start from the Hamiltonian
+Since the values of the spin variables are correlated on lengths of order \( r < \xi (t) \), we partition the system into blocks of size \( la \) (\( l \) is an adimensional scale) such that
+\begin{equation*}
+a \ll l a \ll \xi (t)
+\end{equation*}
+The spins contained in this regions of linear dimension \( la \) will behave, statistically, as a single unit.
+We can therefore imagine to carry out, similarly to what we have seen for the Ginzburg-Landau theory, a coarse graining procedure were we substitute the spins \( \sigma _i \)  inside a "block" of linear dimension \( la \)  (which will therefore contain \( l^d \)  spins) with a single \emph{block spin} (or \emph{superspin}) \( S_I \); the total number of blocks will of course be:
+\begin{equation*}
+  N_l = \frac{N}{l^d}
+\end{equation*}
+ Considering the \( I \)-th block, we can define the block spin \( S_I \) as:
 \begin{equation}
-  - \beta \mathcal{H}_{\Omega } = k \sum_{\expval{ij} }^{} \sigma _i \sigma _j + h \sum_{i}^{} \sigma _i
-\end{equation}
-with
-\begin{equation}
-  \sigma _i = \pm 1, \quad k \equiv \frac{J}{k_B T}, \quad h \equiv \frac{H}{k_B T}
-\end{equation}
-Given \( xi \) we know that, for distances \( r < \xi  \), the spins are correlated.
-
-Let partition the system into blocks of size \( la \) (\( a \) is the lattice unit length while \( l \) is a adimensional scale) such that
-\begin{equation}
-  r \ll \xi  \quad \Rightarrow a \ll l a \ll \xi (t)
-\end{equation}
-The coarse-graining procedure consits in substituting the spins \( \sigma _i \) in a block of length \( la \) with a \emph{superspin} or \emph{block spin} \( S_I \).
-
-The transformation chosen by Kadanoff was the following
-\begin{equation}
-  S_I \equiv \frac{1}{\abs{m_l} } \frac{1}{l^D} \sum_{i \in I}^{}  \sigma _i
+  S_I \equiv \frac{1}{\abs{m_l} } \frac{1}{l^d} \sum_{i \in I}^{}  \sigma _i
   \label{eq:19_7}
 \end{equation}
-where \( m_l \) is the average magnetization of the \( I \)-esim block
+where the mean magnetization of the \( I \)-th block \( m_l \) is:
 \begin{equation}
-  m_l \equiv \frac{1}{l^D} \sum_{i \in I}^{} \sigma _i
+  m_l \equiv \frac{1}{l^d} \sum_{i \in I}^{} \expval{ \sigma _i }
 \end{equation}
-with the sum that is over all the sites with a given cell.
+
 \begin{remark}
-The division by \( \abs{m_l}  \) in equation \eqref{eq:19_7} is crucial because it rescales the new variables \( S_I \) to have the original values \( \pm 1 \) (rescaling of the fields).
+The division by \( \abs{m_l}  \) in equation \eqref{eq:19_7} is crucial because it rescales the new variables \( S_I \) to assume only the values \( \pm 1 \), just like the original ones (rescaling of the fields).
 \end{remark}
 
+In the end we are left with a system of block spins on a hypercubic lattice with lattice constant \( la \). We can therefore rescale the spatial distances between the degrees of freedom of our system:
+\begin{equation*}
+  \va{r}_l = \frac{\va{r}}{l}
+\end{equation*}
+In other words, since \( la \) is now the characteristic length of the system we are measuring the distances in units of \( la \)  (just like in the original one we measured distances in units of \( a \)). The coarse graining procedure we have just seen is described by Figure \ref{fig:19_3} for a two-dimensional Ising model.
+
+\begin{figure}[h!]
+\begin{minipage}[c]{0.32\linewidth}
+\subfloat[][Original system.]{ \includegraphics[width=0.8\textwidth]{../lessons/19_image/2.png}  \label{fig:} }
+\end{minipage}
+\begin{minipage}[]{0.32\linewidth}
+\centering
+\subfloat[][Block spins.]{\includegraphics[width=0.8\textwidth]{../lessons/19_image/3.png}  \label{fig:} }
+\end{minipage}
+\begin{minipage}[]{0.32\linewidth}
+\centering
+\subfloat[][Final rescaled system.]{\includegraphics[width=0.8\textwidth]{../lessons/19_image/4.png}  \label{fig:} }
+\end{minipage}
+\caption{\label{fig:19_3} Coarse graining procedure for a two-dimensional Ising model.}
+\end{figure}
+
+\noindent Kadanoff's argument now proceeds with two assumptions.
+
 \subsubsection{\(  1^{st} \) crucial assumption}
-The frist assumption is that the Hamiltonian of the new system \( \mathcal{H}_l \) is equal in form to \( \mathcal{H}_ \Omega  \), the original one:
+The first assumption states that, in analogy to what happens in the original system, we assume that the block spins interact with the nearest neighbours and an external effective field (just like the original ones do). Hence, the Hamiltonian of the new system \( \mathcal{H}_l \) is equal in form to \( \mathcal{H}_ \Omega  \), the original one, of course provided that the spins, coupling constants and external fields are redefined.  If we call \( K_l \)  and \( h_l \) these new constants, the new effective Hamiltonian is:
 \begin{equation}
-  - \beta \mathcal{H}_l = k_l \sum_{\expval{IJ} }^{N_b} S_I S_J  + h_l \sum_{I=1}^{N_b} S_I
+  - \beta \mathcal{H}_l = K_l \sum_{\expval{IJ} }^{N_b} S_I S_J  + h_l \sum_{I=1}^{N_b} S_I
 \end{equation}
 \begin{remark}
 This assumption is in general wrong!
 \end{remark}
-Only the coupling constants \( k_l \) and \( h_l \) can change by the transformation. Note that the number of block spins \( N_l \) is given by \(   N_l = \frac{N}{l^D} \).
-
-How you measure in the new system the lengths? the correlations lengths. Before we have changed the size of the system. We have increased the ruler, so the number is smaller now. It seems stupid but it is fundamental.
-An important point is: the new system has a lattice length equal to \( la \), hence in the new system all the lengths will be measured in units of \( la \). In particular
-\begin{equation}
+Since in the new system the lengths have been rescaled by a factor \( l \), this
+means that in the new system all the lengths will be measured in units of \( la \).  Hence, also the correlation length  has to be measured in units of \( la \), and in particular we will have:
+\begin{equation*}
   \xi _l = \frac{\xi }{l}
-\end{equation}
-that is \( \xi _l \) has a numerical value smaller than the one measured in the original lattice.
+\end{equation*}
+This means that the new system has a lower correlation length \( \xi _l < \xi  \), and so the system described by \( \mathcal{H}_l \)   is more distant from the critical point than the original one \( \mathcal{H}_{\Omega }\). Hence, we will have a new effective temperature:
+\begin{equation*}
+  t_l > t
+\end{equation*}
+ Similarly, in the coarse grained system the magnetic field \( h_l \) will be rescaled to an effective one:
+\begin{equation*}
+  h \sum_{i}^{} \sigma _i = h \sum_{I}^{} \sum_{i \in I}^{}  \sigma _i = h \sum_{I}^{}    \abs{m_l} l^d S_I
+  = \underbrace{h \abs{m_l} l^d}_{h_l} \sum_{I}^{} S_I = h_l \sum_{I}^{} S_I
+\end{equation*}
+which implies that there is a relation between the new magnetic field and the mean magnetization:
+\begin{equation*}
+  h_l = h \abs{m_l} l^d
+\end{equation*}
 
-What does it mean? Since \( \xi _l < \xi  \) the system described by \( \mathcal{H}_l \)   is more distant from the critical point than the original \( \mathcal{H} (\sigma _i) \)! We should expect \( t_l > t \).
+Since the Hamiltonian of the block spin system \( \mathcal{H}_l \) has the same form of the original one \( \mathcal{H}_ \Omega  \), the same will be true also for the partition function \( Z_l \) and the free energy, provided that \( h,K \) and \( N \) are substituted with \( h_l,K_l \) and \( N/l^d \); in particular, considering the singular part \( f_s \) of the free energy density we will have:
+\begin{equation*}
+  N_l f_s (t_l,h_l)= \frac{N}{l^d} f_s (t_l,h_l) = N f_s (t,h)
+\end{equation*}
+and so
+\begin{equation*}
+  \Rightarrow  f_s (t_l,h_l) = l^d f_s (t,h)
+\end{equation*}
 
-Similarly, \( h_l \) will be such that
-\begin{equation}
-  h \sum_{i}^{} \sigma _i = h \sum_{I}^{} \sum_{i \in \sigma _i}^{}  \sigma _i = h \sum_{I}^{}    \abs{m_l} l^D S_I
-  = \underbrace{h \abs{m_l} l^D}_{h_l} \sum_{I}^{} S_I \equiv  h_l \sum_{I}^{} S_I
-\end{equation}
-giving
-\begin{equation}
-  h_l = \abs{m_l} l^D h
-\end{equation}
-Since \( \mathcal{H}_l \) is equal in form to \( \mathcal{H} \), so it is \( Z_l \) and hence the free energies per spins satisfy the equation
-\begin{equation}
-  N_l f_s (t_l,h_l) = N f_s (t,h)
-\end{equation}
-Hence,
-\begin{equation}
-  \Rightarrow  f_s (t_l,h_l) = l^D f_s (t,h)
-\end{equation}
-Note that the homogeneity condition is recovered with \( \lambda \equiv l^D \).
-We now should ask how \( t \) and \( h \) change under the block spin transformation.
-
-\subsubsection{\(  2^{st} \) crucial assumption}
-The second assumption is
-\begin{equation}
-  \begin{cases}
-     t_l = t l^{Y_t}\\
-  h_l = h l^{Y_h}
-  \end{cases}
-  \label{eq:19_8}
-\end{equation}
-where \( Y_t, \, Y_h \) are scaling exponents and are unknown!
-Inserting \eqref{eq:19_8} in the free energy equation one obtains
-\begin{equation}
-  f_s (t,h) = l^{-D} f_s (t l^{Y_t}, h l^{Y_h})
-\end{equation}
-As the parameter \( \lambda  \), in Widom also \( l \)  can be chosen such that
-\begin{equation}
-  l= \abs{t}^{-1/Y_t}
-\end{equation}
-so
-\begin{equation}
-  f_s (t,h) = \abs{t}^{D/Y_t} f_s (1, h \abs{t}^{-Y_h/Y_t} )
-\end{equation}
-Therefore,
-\begin{equation}
-  \Delta = \frac{Y_h}{Y_t}
-\end{equation}
 \begin{remark}
-By comparing with the Widom's scaling
-\begin{equation}
-  f_s (t,h) \sim t^{2- \alpha } f_s \qty(1, \frac{h}{t^\Delta})
-\end{equation}
-we get the new relation
-\begin{equation}
-  2 - \alpha = \frac{D}{Y_t}
-\end{equation}
+Note that the homogeneity condition is recovered with \( \lambda \equiv l^d \).
 \end{remark}
 
 
-\section{Kadanoff's argument applied to the two-point correlation}
-Let us compute the two-point correlation function for the block spins
+\subsubsection{\(  2^{st} \) crucial assumption}
+In order to proceed, we should ask how \( t \) and \( h \) change under the block spin transformation; hence, we now need the second assumption. We assume that:
+\begin{equation}
+   t_l = t l^{y_t}, \quad   h_l = h l^{y_h}, \quad y_t,y_h >0
+  \label{eq:19_8}
+\end{equation}
+where the \( y_t, \, y_h \) are called \emph{scaling exponents} and are for now unspecified, apart from the fact that they must be positive (so that the coarse grained system is indeed farther from the critical point with respect to the original one).
+
+The justification of this assumption lies in the fact that we are trying to understand the scaling properties of our system near a critical point, and these are the simplest possible relations between \( (t,h) \) and \( (t_l,h_l) \) that satisfy the following symmetry requirements:
+\begin{itemize}
+\item when \( h \rightarrow -h \), then \( h_l \rightarrow -h_l \);
+\item when \( h \rightarrow -h \), then \( t_l \rightarrow t_l \);
+\item when \( t=h=0 \), then \( t_l=h_l=0 \).
+\end{itemize}
+
+\noindent If we use this assumption in the free energy equation
+\begin{equation*}
+  f_s (t_l,h_l) = l^d f_s (t,h)
+\end{equation*}
+we get:
+\begin{equation}
+  f_s (t,h) = l^{-d} f_s (t l^{y_t}, h l^{y_h})
+\end{equation}
+This is very similar to Widom's scaling hypothesis (Eq.\eqref{eq:19_12}), but with the parameter \( \lambda  \)  that is the inverse of the block volume \( l^d \).
+Since \( l \)  has no specified value, we can choose the one we want and again we use the properties of generalized homogeneous functions to eliminate one of the arguments of \( f_s \).
+In particular, setting
+\begin{equation*}
+  l= \abs{t}^{-1/y_t}
+\end{equation*}
+we get:
+\begin{equation}
+  f_s (t,h) = \abs{t}^{d/y_t} f_s (1, h \abs{t}^{-y_h/y_t} )
+\end{equation}
+where the gap exponent is now
+\begin{equation}
+  \Delta = \frac{y_h}{y_t}
+\end{equation}
+comparing this equation with the alternative expression of the scaling hypothesis (Eq.\eqref{eq:19_13}) we have:
+\begin{equation}
+  2 - \alpha = \frac{d}{y_t}
+\end{equation}
+
+
+\subsection{Kadanoff's argument for two-point correlation functions}
+Let us now compute the two-point correlation function of the block spin system:
 \begin{equation}
   G_{IJ} (\va{r}_l, t_l) \equiv \expval{S_I S_J} - \expval{S_I}\expval{S_J}
 \end{equation}
+where \( \va{r}_l \) is the vector of the relative distance between the centers of the \( I \)-th and \( J \)-th block (measured in units of \( la \), as stated before). We want now to see how this correlation length is related to the one of the original system \( G(\va{r},t) \).
+Since from the first assumption we have
+\begin{equation*}
+  h_l = h \abs{m_l} l^d \quad \Rightarrow \abs{m_l} = \frac{h_l l^{-d}}{h}
+\end{equation*}
+Using the second assumption, for which \( h_l = h l^{y_h} \), we obtain:
+\begin{equation*}
+  \abs{m_l} = l^{y_h-d}
+\end{equation*}
 Since
-\begin{equation}
-  h_l = h \abs{m_l} l^D \quad \Rightarrow \abs{m_l} = \frac{h_l l^{-D}}{h}
-\end{equation}
-and using \( h_l = h l^{Y_h} \), we obtain
-\begin{equation}
-  \abs{m_l} = l^{\frac{1}{h}-D}
-\end{equation}
-Since
-\begin{equation}
+\begin{equation*}
   S_I = \frac{1}{\abs{m_l} } \frac{1}{l^D} \sum_{i \in I}^{} \sigma _i
-\end{equation}
-we have
-\begin{equation}
+\end{equation*}
+the two-point correlation function becomes
+\begin{equation*}
 \begin{split}
-  G_{IJ} (\va{r}_l, t_l) &=  \expval{S_I S_J} - \expval{S_I} \expval{S_J}    \\
-  & = \frac{1}{l^{2 (Y_h - D)} l^{2D}} \sum_{i \in I}^{} \sum_{j \in J}^{} \qty[ \underbrace{\expval{\sigma _i \sigma _j} - \expval{\sigma _i} \expval{\sigma _j} }_{ (a) }    ] \\
-  & = \frac{l^D l^D}{l^{2(Y_h-D)}l^{2D}} \qty[ \expval{\sigma _i \sigma _j} - \expval{\sigma _i} \expval{\sigma _j}  ]
+  G_{IJ} (\va{r}_l, t_l) &=  \expval{S_I S_J} - \expval{S_I} \expval{S_J}
+   = \frac{1}{l^{2 (y_h - d)} l^{2d}} \sum_{i \in I}^{} \sum_{j \in J}^{} \qty[ \underbrace{\expval{\sigma _i \sigma _j} - \expval{\sigma _i} \expval{\sigma _j} }_{ G_{ij} }    ] \\
+  & = \frac{l^d l^d}{l^{2(y_h-d)}l^{2d}} \qty[ \expval{\sigma _i \sigma _j} - \expval{\sigma _i} \expval{\sigma _j}  ]
 \end{split}
-\end{equation}
-in fact \( (a) \) we have made the assumption  that since \( la \ll \xi  \), \( G_{ij} \) inside a block is fairly constant
-\begin{remark}
-  \begin{equation}
-    \abs{\va{r}_l} = \frac{\va{r}}{l}
-  \end{equation}
-\end{remark}
-Hence,
+\end{equation*}
+where in the last step we have made the assumption that, since \( la \ll \xi  \), \( G_{ij} \) inside a block is fairly constant, we can bring it outside the sum. Hence, the sum over \( i,j \) becomes \( l^{2d} \).
+Hence, we have:
 \begin{equation}
-  G_{IJ} (\va{r}_l, t_l) = l^{2(D-Y_h)} G_{ij} (\va{r},t)
+  G_{IJ} (\va{r}_l, t_l) = l^{2(d-y_h)} G_{ij} (\va{r},t)
 \end{equation}
-If one includes also the \( h \) dependence:
+Introducing also the dependence on \( h \), we have:
 \begin{equation}
-  G_{IJ} \qty(\frac{\va{r}}{l}, t l^{Y_t}, h l^{Y_h}) = l^{2 (D- Y_h)} G_{ij} (\va{r},t,h)
+  G_{IJ} \qty(\frac{\va{r}}{l}, t l^{y_t}, h l^{y_h}) = l^{2 (d- y_h)} G_{ij} (\va{r},t,h)
  \end{equation}
+which is an equivalent of Widom's assumption for the correlation function. 
+
+
 By choosing \(   l = t^{-1/Y_t} \) one gets
 \begin{equation}
   G (\va{r},t,h) = t^{\frac{2(D-Y_h)}{Y_t}} G (\va{r}t^{1/Y_t}, 1 , h t ^{-Y_h/Y_t})
