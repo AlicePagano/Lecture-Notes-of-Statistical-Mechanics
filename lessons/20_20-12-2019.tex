@@ -9,147 +9,156 @@
 
 \marginpar{ \textbf{Lecture 20.} \\  \displaydate{date}. \\ Compiled:  \today.}
 
-\section{Renormalization group (RG)}
-Kadonoff: the block spin transformations justifies the Widom scaling with \( \lambda \iff l \),
-\begin{equation}
-  \begin{cases}
-   f_s (t,h) = l^{-D} f_s \qty(t l^{Y_t}, h l^{Y_h}) \\
-   G (\va{r},t,h) = l^{-2(D-Y_h)} G \qty(\frac{\va{r}}{l}, t l^{Y_t}, h l^{Y_h}) \\
-   t_l = t l ^{Y_t}, \quad h_l = h^{Y_h}
-  \end{cases}
-\end{equation}
-We do two crucial assumptions:
-\begin{enumerate}
-\item  \begin{equation}
-  \mathcal{H}_l = \mathcal{H}_1
-\end{equation}
-\item \begin{equation}
-  \begin{cases}
-   t_l = t l^{Y}\\
-   h_l = h l^{h}
-  \end{cases}
-\end{equation}
-\end{enumerate}
+\section{Renormalization group theory (RG)}
 
-\begin{remark}
-An open problem is: how an iterative procedure of coarse-graining can produce the second assumption?
-\end{remark}
-How this can gives rise to the singular behaviour of \( f_s \)? How can we explain universality of the critical points?
+Kadanoff's argument for the Ising model allows us to explain the scaling form of the free energy density and of the correlation length near the critical point; in particular, the Kadanoff's block spin transformation justifies the Widom scaling hypothesis and identifies \( \lambda  \) with \( l \). We have obtained the results:
+\begin{equation*}
+  \begin{cases}
+   f_s (t,h) = l^{-d} f_s \qty(t l^{y_t}, h l^{y_h}) \\
+   G (\va{r},t,h) = l^{-2(d-y_h)} G \qty(\frac{\va{r}}{l}, t l^{y_t}, h l^{y_h}) \\
+   t_l = t l ^{y_t}, \quad h_l = h^{y_h}
+  \end{cases}
+\end{equation*}
+where we did two crucial assumptions:
+\begin{enumerate}
+\item \( 1^{st} \) assumption:
+ \begin{equation*}
+  \mathcal{H}_l = \mathcal{H}_\Omega
+\end{equation*}
+\item \( 2^{nd} \) assumption:
+\begin{equation*}
+  \begin{cases}
+   t_l = t l^{y_t}\\
+   h_l = h l^{y_h}
+  \end{cases}
+\end{equation*}
+\end{enumerate}
+ \noindent However, as we have seen, the Kadanoff's theory is unable to predict the values of the scaling exponents \( y_t \) and \( y_h \)  (and thus ultimately of the critical exponents), nor can it explain why universality occurs.
+
+ \begin{remark}
+ Open problems are: how an iterative procedure of coarse-graining can produce the \( 2^{nd} \) assumption? How this can gives rise to the singular behaviour of \( f_s \)? How can we explain universality of the critical points?
+ \end{remark}
+
+
+We will see that these problems are solved with the introduction of the Renormalization Group (done by K. G. Wilson at the beginning of the '70s), which we will call simply "RG" from now on for the sake of simplicity. The RG is based upon the correct "intuition" of Kadanoff's argument that the coupling constants of a Hamiltonian change if we coarse-grain the system (or in other words we "look" at it on different spatial scales); however, this "intuition" strictly speaking is not correct since we have seen that in Kadanoff's procedure we assume that after the coarse-graining procedure the Hamiltonian of the system has exactly the same form: as we will see, this is not true in general because new terms can appear after we coarse-grain the system.
 
 \subsection{Main goals of RG}
+The main goals of the Renormalization Group theory are:
 \begin{enumerate}
 \item To fornish an algorithm way to perform systematically the coarse graining procedure.
 
-Achivede by integrating the degrees of freedom at smaller length scales and obtain a new hamiltonian describing the system at larger length scales.
+More specifically, the realization of a coarse graining procedure, also called decimation, is like the one introduced by Kadanoff for the Ising model; in general, this procedure must integrate the degrees of freedom of the system on scales of linear dimension \( la \)  which must be much larger than the characteristic microscopic scale \( a \) of the system, but also much smaller than the correlation length \( \xi  \):
+\begin{equation*}
+  a \ll la \ll \xi
+\end{equation*}
+ After the decimation, we are left with a new effective Hamiltonian that describes the system at larger length scales. We will see that this is equivalent to find a transformation between the coupling constants \( K \rightarrow K' \).
 
-This will be equivalent to find a transformation between the coupling constants \( k \rightarrow k' \).
+\item Identify the origin of the critical behaviour and explain universality.
 
-\item Identify the origin of the critical behaviour.
+The coarse graining procedure will give rise to a system with \( \xi_l = \xi /l \),
+this means that the new correlation length is smaller than the original one, so our system is farther from criticality after the decimation.
 
-The coarse graining procedure will give rise to a system with
-\begin{equation}
-  \xi _l = \frac{\xi }{l}
-\end{equation}
-more distant from criticality.
 \end{enumerate}
 
-Let us start from a generic hamiltonian \( \mathcal{H} = \mathcal{H} ([k]) \), where \( [k] = \qty(k_1,k_2,\dots k_n)  \). For example, for the standard Ising model \( k \equiv k_1 \) and \( h \equiv k_2 \).
-In general we can have \( n \) coupling constants.
+To make an example, suppose we are given a generic Hamiltonian \( \mathcal{H} = \mathcal{H} ([K]) \) which depends on an arbitrary number of coupling constants
+\( [K] = \va{K} = \qty(K_1,K_2,\dots K_n)  \) (in the case of an Ising model with nearest-neighbour interaction and an external field there are only two coupling constants, \( K = K_1 \) and \( h = K_2 \)).
 
-Suppose we apply a coarse-graining procedure in which we integrate the degree of freedom within distance \( l \) with \( a \le la \le L \).
-
-There are many ways (for example the Kadanoff's block spin)
-\begin{equation}
-  [k'] = \mathcal{R}_l [k], \quad l > 1
+Let us suppose we apply a coarse-graining procedure, in which we integrate the degree of freedom within distance \( l \) with \( a \le la \le L \).
+For what we have just stated, the action of the RG can be expressed as a transformation of the coupling constants:
+\begin{empheq}[box=\myyellowbox]{equation}
+  [K'] = \mathcal{R}_l [K], \quad l > 1
   \label{eq:20_1}
-\end{equation}
-where \( \mathcal{R}_l \) is the transformation of the RG.
-The relation \eqref{eq:20_1} gives rise to a recursive relation.
+\end{empheq}
+where \( \mathcal{R}_l \) is called \emph{RG transformation},  while this last equation is referred to as \emph{recursive relation}.
 
-The properties of \( \mathcal{R}_l \) are:
+
+\subsubsection{Properties of \( \pmb{\mathcal{R}_l} \)}
+
+We suppose that the function \( \mathcal{R}_l \) satisfy the following properties:
+
 \begin{enumerate}
-\item \( \mathcal{R}_l \) is analitic! (Sum of a finite number of degrees of freedom).
+\item \( \mathcal{R}_l \) is \textbf{analytic} (sum of a finite number of degrees of freedom, no matter how complicated it may be).
 
-\item The set of \( \mathcal{R}_l \), labeled by \( l \) forms a semigroup.
 
-Let   \( \mathcal{R}_{l_1}  \) and  \( \mathcal{R}_{l_2}  \) be two transformations
-\begin{equation}
+\item The set of  transformations \( \mathcal{R}_l \) forms a \textbf{semigroup}, because if we subsequently apply two transformations \(\mathcal{R}_{l_1}  \) and \(\mathcal{R}_{l_2}  \) on two different length scales \( l_1 \)  and \( l_2 \) we have:
+\begin{equation*}
   \begin{cases}
-   [k'] = \mathcal{R}_{l_1} [k] \\
-  [k''] = \mathcal{R}_{l_2} [k'] = \mathcal{R}_{l_2} \circ \mathcal{R}_{l_1} [k]
+   [K'] = \mathcal{R}_{l_1} [K] \\
+  [K''] = \mathcal{R}_{l_2} [K'] = \mathcal{R}_{l_2} \circ \mathcal{R}_{l_1} [K]
   \end{cases}
-\end{equation}
-Hence,
+\end{equation*}
+Hence, we have the relation
 \begin{equation}
-  \mathcal{R}_{l_2 l_1} [k] = \mathcal{R}_{l_2} \circ \mathcal{R}_{l_1} [k]
+  \mathcal{R}_{l_2 l_1} [K] = \mathcal{R}_{l_2} \circ \mathcal{R}_{l_1} [K]
 \end{equation}
+
 \begin{remark}
-Is not a group since does not exist the inverse element (\( l>1 \) always!).
-\end{remark}
-\begin{remark}
-There is no a unique way to define  \( \mathcal{R}_{l_1}  \) but all of them result in the integration of the degrees of freedom at smaller length scales.
+Note that it is a \emph{semigroup} and not a \emph{group}, since in general does not exist the inverse transformation; in fact, we should have always \( l>1 \).
 \end{remark}
 
-The procedure can be carried out either in real space or in the momentum space.
- \( \mathcal{R}_{l_1}  \) but all of them result in the integration of the degrees of freedom at smaller negth scales.
+There is no general way to construct the function \(  \mathcal{R}_l  \): depending on the system and on the case considered we can choose different ways to carry out the decimation, and in general (as we will see) for a given system many different RG transformations can be built. In general such procedures can be done either in coordinate space (real space Renormalization Group) or in Fourier space (momentum shell Renormalization Group).
 
-Given \( \mathcal{H} [k]\) we can define
-\begin{equation}
-  Z_N [k] = \Tr e^{-\beta \mathcal{H}[k]}
-\end{equation}
- and
- \begin{equation}
-   f_N [k] = - \frac{k_B T}{N} \log{Z_N [k]}
- \end{equation}
-After the coarse graining between \( a \) and \( la \), the number \( N \) of degrees of freedom is reduced by
-\begin{equation}
-  N_l = \frac{N}{l^D}
-\end{equation}
+In terms of the coupling constants \( [K] \) the partition function of the original system is:
+\begin{equation*}
+  Z_N [K] = \Tr e^{-\beta \mathcal{H}[K]}
+\end{equation*}
+while the free energy density is
+ \begin{equation*}
+   f_N [K] = - \frac{k_B T}{N} \log{Z_N [K]}
+ \end{equation*}
 
-\item The new hamiltonian \( \mathcal{H}_l [k'] \) can be (and in general it is) different from the previous one: \( \mathcal{H} [k] \) (main difference with Kadanoff) but its symmetry cannot change!
+ Now, if the RG transformation integrates the degrees of freedom on the spatial scale \( la \)  then the number of degrees of freedom will decrease by a factor \( l^d \), if \( d \) is the dimensionality of the system; in other words, after the RG transformation \( \mathcal{R}_l \), the number \( N \) of degrees of freedom is reduced by
+\begin{equation*}
+  N_l = \frac{N}{l^d}
+\end{equation*}
+
+\item The new hamiltonian \( \mathcal{H}_l [K'] \) can be (and in general it is) different from the previous one \( \mathcal{H} [K] \) (this is the main difference with the Kadanoff's theory), but the effective Hamiltonian \(  \mathcal{H}_l [K']\)  must have the same symmetry properties of the original one!
+
+This means (and this is the great improvement with respect to Kadanoff's argument) that the decimation can make some new terms appear in the coarse-grained Hamiltonian, as long as they respect the same symmetries of the original system. In other words, if \( K_m=0 \)  in \( \mathcal{H}_N \)  but its relative term is allowed by the symmetry group of \( \mathcal{H}_N \)  itself, then we can have \( K_m' \neq 0 \) in \( \mathcal{H}_{N'}' \).
 
 For example, if we start from
-\begin{equation}
-  \mathcal{H}_N = N k_0 + k_2 \sum_{ij}^{} S_i S_j
-\end{equation}
-we cannot produce
-\begin{equation}
-  \mathcal{H}_{N'} = N' k_0' + k_1' \sum_{I}^{} S_I + k_2' \sum_{IJ}^{} S_I S_J
-  + k_3' \sum_{IJK}^{} S_I S_J S_k
-\end{equation}
-\begin{remark}
-If \( km=0 \), it is possible that \( k'm \neq 0 \) as long as the symmetry of \( \mathcal{H}' \) is equal to the one of \( \mathcal{H} \).
-\end{remark}
+\begin{equation*}
+  \mathcal{H}_N = N K_0 + K_2 \sum_{ij}^{} S_i S_j
+\end{equation*}
+if the term \( K_3 \) is not allowed by the symmetry group of \( \mathcal{H}_N \), we cannot produce
+\begin{equation*}
+  \mathcal{H}_{N'}' = N' K_0' + K_1' \sum_{I}^{} S_I + K_2' \sum_{IJ}^{} S_I S_J
+  + \mathcolorbox{red!20}{ K_3' \sum_{IJK}^{} S_I S_J S_K}
+\end{equation*}
 
-\item The invariance condition is not in \( \mathcal{H} \) (as in Kadanoff) but in \( Z \)!
+\item The invariance condition is not in \( \mathcal{H} \) (as in Kadanoff's theory) but in \( Z \); hence, the coarse-graining procedure (decimation) leaves invariant the partition function instead of the Hamiltonian:
 \begin{equation}
-  Z_{N'} [k'] = Z_N [k]
+  Z_{N'} [K'] = Z_N [K]
   \label{eq:20_2}
 \end{equation}
-  Condition \eqref{eq:20_2} must be satisfied by the coarse-graining procedure. Which is the consequence of \eqref{eq:20_2} on the free-energy?
-
-  \begin{equation}
-  f_N [k]  \simeq \frac{1}{N} \log{Z_N [k]} \simeq \frac{l^D}{l^D N} \log{Z_{N'}[k']} \simeq l^{-D} \frac{1}{N'} \log{Z_{N'}} [k']
-  \end{equation}
+this invariance condition has a consequence on the free-energy:
+  \begin{equation*}
+  f_N [K]  \simeq \frac{1}{N} \log{Z_N [K]} \simeq \frac{l^d}{l^d N} \log{Z_{N'}[K']} \simeq l^{-d} \frac{1}{N'} \log{Z_{N'}} [K']
+\end{equation*}
+where \( N' = N/l^d \).
 Hence,
 \begin{equation}
-  f [k] \propto l^{-D} f [k']
+  f [K] \propto l^{-d} f [K']
 \end{equation}
-\begin{remark}
-Since a single \( \mathcal{R}_l \) involves the integration of a finite number of dregrees of freedom, it cannot develop the singularity behaviour we are looking for.
-\end{remark}
-Question: if \( \mathcal{R}_l \) is analitic, what is the origin of the singular behaviour in the RG approach?
+which is the scaling form of the free energy density as obtained by Kadanoff.
+
 \end{enumerate}
 
+
+
 \subsection{Singular behaviour in RG}
-The point is that, in order to integrate a thermodynamic number of degrees of freedom, one has to apply an infinite number of RG transformations.
 
-After \( n \) iterations we have \( l \rightarrow l^n \) and \( [k] \rightarrow [k^{(n)}] \).  As \( n \) changes, the coupling constants perform a trajectory in the parameter space \( [k] \).
+We have stated that the RG transformations \( \mathcal{R}_l \) are analytic, hence a single \( \mathcal{R}_l \) involves the integration of a finite number of dregrees of freedom and the free energy cannot develop the singularity behaviour we are looking for; so, we might ask: where does the singular behaviour of a system near a critical point come from? This occurs in the thermodynamic limit, which in this case is obtained when we apply the RG transformation an infinite number of times. Indeed, in order to integrate a thermodynamic number of degrees of freedoms, one has to apply an infinite number of RG transformations.
 
-By varying the initial conditions (i.e. either the starting model or the values of the physical parameters) one obtains a \emph{flux of trajectories}.
-A part from some pathological cases (cycle limits, attractors) these trajectories are attracted towards fixed points.
+In general, after the \( n \)-th iteration of the RG, the coarse-graining length of the system will be \( l \rightarrow l^n \) and the coupling constants \( [K] \rightarrow [K^{(n)}] \).
+As \( n \) increases the "vector" of coupling constants describes a "trajectory" in the space of all the possible coupling constants \( [K] \), often called \emph{Hamiltonian space}, or theory space;
+by varying the initial conditions, namely different initial Hamiltonians, one obtains a
+\emph{flux of trajectories} (i.e. the set of all the trajectories that start from different initial conditions).
+In general, these trajectories can form strange attractors or complex limit cycles; however, it is almost always found that they are simply attracted towards or ejected from \emph{fixed points} (cases where this doesn't occur are really exotic), so in the following we will assume that the flux of trajectories only exhibits fixed points.
 
-The scaling behaviour introduced by Widom is related to the behaviour of the trajectories close to same fixed points.
+The study of the properties of the flux of trajectories near these fixed points is crucial, since as we will see it is that that will allow us to actually explain universality and predict the values of the critical exponents (the scaling behaviour introduced by Widom is related to the behaviour of the trajectories close to some fixed points). We therefore proceed to study such points.
+
+
 
  \subsection{Zoology of the fixed points}
  A fixed point \( k^* \) of \( \mathcal{R}_l [k] \) satisfies
@@ -264,7 +273,7 @@ where \( a^{(\sigma )'} \) is the projection of \( \delta \va{k}' \) on \( \va{l
 Same components of \( \delta \va{k} \) grow under the action of \( \bar{\pi }  \) while same others shrink.
 If we order the eigenvalues in descending order
 \begin{equation}
-  \abs{\va{\lambda }_1} \ge \abs{\va{\lambda }_2} \ge \abs{\va{\lambda }_3} \ge \dots \abs{\va{\lambda }_{\sigma}} 
+  \abs{\va{\lambda }_1} \ge \abs{\va{\lambda }_2} \ge \abs{\va{\lambda }_3} \ge \dots \abs{\va{\lambda }_{\sigma}}
 \end{equation}
 threee cases can occur
 \begin{enumerate}
@@ -374,7 +383,7 @@ and, hence, after \( n \) iterations
 \begin{equation}
   \xi (t,h) = l^n \xi \qty(l^{n Y_t} t, l^{n Y_h} h)
 \end{equation}
-Idea (lesson): we are very close to the critical point (infinite) and we want to go a little bit away in order to not to be anymore infinite. In such a way after \emph{n} iterations we obtain the previous result. 
+Idea (lesson): we are very close to the critical point (infinite) and we want to go a little bit away in order to not to be anymore infinite. In such a way after \emph{n} iterations we obtain the previous result.
 Let \( h=0 \) \( (H=H^*) \), hence
 \begin{equation}
   \xi (t,0) = l^n \xi \qty(l^{n Y_t} t , 0)
@@ -432,7 +441,7 @@ with
    \Delta = \frac{Y_h}{Y_t}
   \end{cases}
 \end{equation}
-where \( Y_h \) and \( Y_t \) can be computed as 
+where \( Y_h \) and \( Y_t \) can be computed as
 \begin{equation}
   Y_h = \frac{1}{l} \log{\lambda _l^{(h)}}
 \end{equation}
