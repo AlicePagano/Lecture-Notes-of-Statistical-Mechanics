@@ -275,94 +275,66 @@ which is easily solved to give:
 \end{equation}
 where, as we have defined it, \( y_\sigma \) is a number (to be determined) independent of \( l \)  (is the critical exponent). To see how \( \delta \va{K} \) changes under the action of the linearized transformation  \( \bar{\pi }  \) let us find out how its components along the directions determined by the eigenvectors \( \va{e}^{(\sigma )} \) change.  In other words, let us expand \( \delta \va{K} \) in terms of \( \va{e}^{(\sigma )} \) (that is a complete orthonormal base):
 \begin{equation}
-  \delta \va{k} = \sum_{\sigma }^{} a^{(\sigma )} \va{l}^{(\sigma )}
+  \delta \va{K} = \sum_{\sigma }^{} a^{(\sigma )} \va{e}^{(\sigma )}, \qquad a^{(\sigma )} = \va{e}^{(\sigma )} \vdot \delta \va{K}
 \end{equation}
-
-
-
-
-
-where
+and applying \( \bar{\pi }^{(l)}  \):
 \begin{equation}
-  a^{(\sigma )} = \va{l}^{(\sigma )} \vdot \delta \va{k}
+  \delta \va{K}' = \bar{\pi } \delta \va{K} = \sum_{\sigma }^{} a^{(\sigma )} \bar{\pi } \qty(\va{e}^{(\sigma )})
+  = \sum_{\sigma }^{} a^{(\sigma )} \lambda_l ^{(\sigma )} \va{e}^{(\sigma )}
+  \equiv  \sum_{\sigma }^{} a'^{(\sigma )} \va{e}^{(\sigma )}
 \end{equation}
+where in the last step we have defined the components \( a'^{(\sigma )} \) which is the projection of \( \delta \va{K}' \) along \( \va{e}^{(\sigma )} \).
 \begin{remark}
 Ortonormality is not always true since in general \( \bar{\pi }  \) is not symmetric!
-\begin{equation}
-  \delta \va{k}' = \bar{\pi } \delta \va{k} = \sum_{\sigma }^{} a^{(\sigma )} \bar{\pi } \qty(\va{l}^{(\sigma )})
-  = \sum_{\sigma }^{} a^{(\sigma )} \lambda ^{(\sigma )} \va{l}^{(\sigma )}
-  = \sum_{\sigma }^{} a^{(\sigma )'} \va{l}^{(\sigma )}
-\end{equation}
-where \( a^{(\sigma )'} \) is the projection of \( \delta \va{k}' \) on \( \va{l}^{(\sigma )} \).
   \end{remark}
-Same components of \( \delta \va{k} \) grow under the action of \( \bar{\pi }  \) while same others shrink.
-If we order the eigenvalues in descending order
-\begin{equation}
-  \abs{\va{\lambda }_1} \ge \abs{\va{\lambda }_2} \ge \abs{\va{\lambda }_3} \ge \dots \abs{\va{\lambda }_{\sigma}}
-\end{equation}
-threee cases can occur
+
+We therefore see that the behaviour of \( \delta \va{K} \)  along the eigenvectors \( \va{e}^{(\sigma )} \)  depends on the magnitudes of the eigenvalues \( \lambda_l^{(\sigma )} \): some components of \( \delta \va{K} \) grow under the action of \( \bar{\pi }  \) while some others shrink. In particular, if we order the eigenvalues in descending order
+\begin{equation*}
+  \abs{\va{\lambda }_1} \ge \abs{\va{\lambda }_2} \ge \abs{\va{\lambda }_3} \ge \dots \ge \abs{\va{\lambda }_{\sigma}}
+\end{equation*}
+we can distinguish three cases:
 \begin{enumerate}
-\item Case \( \abs{\lambda ^{(\sigma )}} > 1 \) (i.e. \( y^\sigma > 0\)): implies that \( a^{(\sigma )} \) grows under \( \bar{\pi }  \). There are relevant eigenvalues/eigenvectors.
+\item case \( \abs{\lambda_l ^{(\sigma )}} > 1 \) (i.e. \( y^\sigma > 0\)): implies that \( a^{(\sigma )} \) grows under \( \bar{\pi }  \). These are called \textbf{relevant} eigenvalues/eigenvectors;
 
-\item Case \( \abs{\lambda ^{(\sigma )}} < 1 \) (i.e. \( y^\sigma < 0\)): implies that \( a^{(\sigma )} \) decreases under \( \bar{\pi }  \). There are irrelevant eigenvalues/eigenvectors.
+\item case \( \abs{\lambda_l ^{(\sigma )}} < 1 \) (i.e. \( y^\sigma < 0\)): implies that \( a^{(\sigma )} \) decreases under \( \bar{\pi }  \). These are called \textbf{irrelevant} eigenvalues/eigenvectors;
 
-\item Case \( \abs{\lambda ^{(\sigma )}} = 1 \) (i.e. \( y^\sigma =  0\)): implies that \( a^{(\sigma )} \) remains constant under \( \bar{\pi }  \). There are marginal eigenvalues/eigenvectors.
+\item case \( \abs{\lambda_l ^{(\sigma )}} = 1 \) (i.e. \( y^\sigma =  0\)): implies that \( a^{(\sigma )} \) remains constant under \( \bar{\pi }  \) (its behaviour can depend on the higher orders in the expansion that we have neglected). These are called \textbf{marginal} eigenvalues/eigenvectors.
 \end{enumerate}
 
-Starting from a point close to a critical fixed point \( \va{k}^* \) (but not on the critical manifold), the trajectory will abandau \( [k^*] \) along the relevant directions whereas it will approach \( [k^*] \) along the irrelevant directions.
-
+The above analysis implies that: starting from a point close to a critical fixed point \( [K^*] \) (but not on the critical manifold), the trajectory will abandon \( [K^*] \) along the relevant directions whereas it will approach \( [K^*] \) along the irrelevant directions. Hence, we have that:
 \begin{itemize}
-\item \emph{Irrelevant eigenvectors} form the local basis of the basin of attraction of \( [k^*] \).
-\item \emph{Relevant eigenvectors} codimension \( C \) of the basin of attraction.
+\item The \emph{irrelevant} eigenvectors form the local basis of the basin of attraction of \( [K^*] \). Hence, the number of irrelevant directions of a fixed point is equal to the dimension of its critical manifold.
+\item The \emph{relevant} eigenvectors form a sub-space complementar to the basin of attraction of codimension \( C \). Hence, the number of relevant directions is equal to its codimension.
 \end{itemize}
+
 \begin{remark}
-The eigenvalues and the corresponding eigenvectors depend on the chosen fixed point \( [k^*] \).
+Let us note that the eigenvalues, and their possible relevance, depend on the matrix \( \bar{\pi }  \), which in turn depends on the fixed point considered \( [K^*] \): this means that the terms "relevant", "irrelevant" or "marginal" must always be specified with respect to the particular fixed point considered.
 \end{remark}
 
 
-
-
-
-
-
-
-
-
-\section{RG and scaling}
-Let
-\begin{equation}
-  \begin{cases}
-   k_1 \rightarrow k_1 (T) = T\\
-   k_2 \rightarrow k_2 (H) = H
-  \end{cases}
-\end{equation}
-for simplicity. Suppose to perform a RG transformation \( \mathcal{R}_l \) such that
-\begin{equation}
-  \begin{cases}
-   T' = \mathcal{R}_l ^T (T,H) \\
-   H' = \mathcal{R}_l ^H (T,H)
-  \end{cases}
-\end{equation}
-The critical fixed point is defined as
-\begin{equation}
+\section{The origins of scaling and critical behaviour}
+Let us consider a fixed point of the flux of trajectories of a generic system, and assume that it has two relevant directions corresponding to the coupling constants that for simplicity we defined as
+\begin{equation*}
+  K_1 \rightarrow K_1 (T) = T, \qquad K_2 \rightarrow K_2 (H) = H
+\end{equation*}
+where \( T \) is the temperature and \( H \) is the external field.  We suppose that
+\( T \) and \( H \)  are transformed under the RG such that:
+\begin{equation*}
+  T' = \mathcal{R}_l ^T (T,H), \qquad H' = \mathcal{R}_l ^H (T,H)
+\end{equation*}
+where \( \mathcal{R}_l ^T  \) and \( \mathcal{R}_l ^H  \) are analytic functions given by the coarse graining procedure.  The fixed points \( \va{K}^* = (T^*,H^*) \)  of the flux of trajectories will be given by the solutions of:
+\begin{equation*}
   \begin{cases}
    T^* = \mathcal{R}_l ^T (T^*,H^*)\\
    H^* = \mathcal{R}_l ^H (T^*,H^*)
   \end{cases}
-\end{equation}
-with \( \xi (T^*,H^*) = \infty  \).
-\begin{remark}
-Remember that \( \va{k}^* \equiv (T^*,H^*) \).
-\end{remark}
-For standard magnetic systems \( H^*=0 \). By linearising around the fixed point
-\( \delta \va{k}= (t,h) \)  where
-\begin{equation}
-  \begin{cases}
-   t = \frac{(T-T^*)}{T^*}\\
-   h = \frac{(H-H^*)}{H^*}
-  \end{cases}
-\end{equation}
-we obtain
+\end{equation*}
+with the correlation length that diverges, i.e. \( \xi (T^*,H^*) = \infty  \).
+Linearising the transformation around the fixed point \( (T^*,H^*) \), in terms of the reduced variables (for standard magnetic systems \( H^*=0 \) )
+\begin{equation*}
+  t = \frac{(T-T^*)}{T^*}, \qquad h = \frac{(H-H^*)}{H^*}
+\end{equation*}
+we have:
 \begin{equation}
   \begin{pmatrix}
   t' \\
@@ -374,19 +346,23 @@ we obtain
   h
   \end{pmatrix}
 \end{equation}
-with
+where:
 \begin{equation}
   \bar{\pi } =
   \begin{pmatrix}
-     \pdv{\mathcal{R}_l^T}{T} & \pdv{\mathcal{R}_l^T}{H} \\
-     \pdv{\mathcal{R}_l^H}{T} & \pdv{\mathcal{R}_l^H}{H}
+    \partial{\mathcal{R}_l^T} / \partial{T}  & \partial{\mathcal{R}_l^T} / \partial{H} \\
+     \partial{\mathcal{R}_l^H} / \partial{T}  &\partial{\mathcal{R}_l^H} / \partial{H}
   \end{pmatrix}_{T^*,H^*}
 \end{equation}
-In general the eigenvectors \( \va{l}^{(\sigma )} \) are linear combinations of \( t \) and \( h \). When \( \bar{\pi }  \) can be diagonalized, \( t \) and \( h \) are not mixed. Suppose this is the case and let
+\begin{remark}
+In this case \( \delta \va{K}  = (t,h) \).
+\end{remark}
+
+In general the eigenvectors \( \va{e}^{(\sigma )} \) are linear combinations of \( t \) and \( h \). When \( \bar{\pi }  \) can be diagonalized, \( t \) and \( h \) are not "mixed-up" by the transformation. Hence, as previously stated, we suppose \( \bar{\pi }  \) to be diagonalizable. We therefore write its eigenvalues as:
 \begin{equation}
-  \lambda _l ^{(t)} = l^{Y_t}, \quad \lambda _l^{(h)} = l ^{Y_h}
+  \lambda _l ^{(t)} = l^{y_t}, \quad \lambda _l^{(h)} = l ^{y_h}
 \end{equation}
-A linear transformation is
+This way we can write the linear transformation as:
 \begin{equation}
   \begin{pmatrix}
   t' \\
@@ -400,88 +376,98 @@ A linear transformation is
   \begin{pmatrix}
   t \\
   h
+  \end{pmatrix} \quad \Rightarrow \quad
+  \begin{pmatrix}
+  t' \\
+  h'
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  l^{y_t} t \\
+  l ^{y_h} h
   \end{pmatrix}
 \end{equation}
-After \( n \) iterations, we have
+After \( n \) iterations we will have:
 \begin{equation}
   \begin{cases}
-   t^{(n)} = \qty(l^{Y_t})^n t  \\
-  h^{(n)} = \qty(l^{Y_h})^n h
+   t^{(n)} = \qty(l^{y_t})^n t  \\
+  h^{(n)} = \qty(l^{y_h})^n h
   \end{cases}
 \end{equation}
-On the other hand,
+On the other hand, since in general we know that
+\begin{equation*}
+  \xi' \equiv \xi (t',h') = \frac{\xi (t,h)}{l}
+\end{equation*}
+after \( n \) iterations we have
 \begin{equation}
-  \xi ' \equiv \xi (t',h') = \frac{\xi (t,h)}{l}
+  \xi (t,h) = l^n \xi \qty(l^{n y_t} t, l^{n y_h} h)
 \end{equation}
-and, hence, after \( n \) iterations
+This is the scaling law of the correlation length. From this we can determine the critical exponent \( \nu  \).  In fact, setting \( h=0 \) \( (H=H^*) \) for simplicity, we have
+\begin{equation*}
+  \xi (t,0) = l^n \xi \qty(l^{n y_t} t , 0)
+\end{equation*}
+Since \( l \) is arbitrary, choosing it  so that \( l^{n y_t} t = b \gg 1\), with \( b \)  a positive real number (\( b \in \R^+ \), \( l \) is not an integer any more), we have:
+\begin{equation*}
+  l^n = \qty(\frac{b}{t})^{1/y_t} \quad   \Rightarrow \xi (t) = \qty(\frac{t}{b})^{-1/y_t} \xi (b,0)
+\end{equation*}
+Since for \( t \rightarrow 0 \) in general \( \xi \sim t^{-\nu } \), we get:
 \begin{equation}
-  \xi (t,h) = l^n \xi \qty(l^{n Y_t} t, l^{n Y_h} h)
+  \nu = \frac{1}{y_t}
 \end{equation}
-Idea (lesson): we are very close to the critical point (infinite) and we want to go a little bit away in order to not to be anymore infinite. In such a way after \emph{n} iterations we obtain the previous result.
-Let \( h=0 \) \( (H=H^*) \), hence
+This is an extremely important result! In fact, we see that once the RG transformation \( \mathcal{R_l} \) is known, \( y_t \) is straightforward to compute as:
+\begin{equation*}
+  y_t  = \frac{ \log{\lambda _l^{(t)}}}{\log{l} }
+\end{equation*}
+and so we are actually able to calculate \( \nu  \) and predict its value! We can do even something more (including giving \( y_h \) a meaning) from the scaling law of the free energy density. After \( n \) iterations of the RG we have:
 \begin{equation}
-  \xi (t,0) = l^n \xi \qty(l^{n Y_t} t , 0)
+f_s (t,h)  = l^{-d} f_s (t',h') = l^{-nd} f_s (t^{(n)},h^{(n)})
+ = l^{-nd} f_s \qty(l^{n y_t}t, l^{n y_h}h)
 \end{equation}
-Since \( l \) is arbitrary, we can choose it such that
-\begin{equation}
-  t l ^{n Y_t} = b \gg 1, \quad b \in \R^+
-\end{equation}
-In such a way we go away from the critical point!
-\begin{remark}
-\( l \) is not an integer any more.
-\end{remark}
-\begin{equation}
-  \Rightarrow l^n = \qty(\frac{b}{t})^{1/Y_t}
-\end{equation}
-so, for \( t \rightarrow 0 \)
-\begin{equation}
-  \xi (t) = \qty(\frac{t}{b})^{-1/Y_t} \xi (b)
-\end{equation}
-On the other hand, \( \xi \sim t^{-\nu } \), \( t \rightarrow 0 \)
-\begin{equation}
-  \Rightarrow \nu = \frac{1}{Y_t}
-\end{equation}
-where
-\begin{equation}
-  Y_t  = \frac{1}{l} \ln{\lambda _l^t}
-  \label{eq:20_4}
-\end{equation}
-The equation \eqref{eq:20_4} is an important result since it gives a recipe, based on \( \mathcal{R}_l \), to compute \( Y_t \) explicitely!
-
-Similarly,
-\begin{equation}
-\begin{split}
-f_s (t,h)  &= l^{-D} f_s (t',h') = l^{-nD} f_s (t^{(n)},h^{(n)}) \\
-& = l^{-nD} f_s \qty(l^{n Y_t}t, l^{n Y_h}h)
-\end{split}
-\end{equation}
-Hence, we get the free energy of the original system, by using the renormalization group!
-
-Let \( l \) such that \( l^{n Y_t} t= b \gg 1\), hence
-\begin{equation}
-  l^n = \qty(\frac{b}{t})^{1/Y_t}
-\end{equation}
-\begin{equation}
-  f_s (t,h) = t^{D/Y_t} b^{-D/Y_t} f_s \qty(b, \frac{b^{Y_h/Y_t}h}{t^{Y_h/Y_t}})
-\end{equation}
-that is of the form
-\begin{equation}
-  f_s (t,h) = \bar{b} t^{2- \alpha } f_s \qty(b, \frac{\bar{b} h}{t^{\Delta }})
-\end{equation}
-with
+and choosing again \( l \) so that  \( l^{n y_t} t= b^{y_t} \), then:
+\begin{equation*}
+  f_s (t,h) = t^{d/y_t} b^{-d} f_s \qty(b^{y_t}, \frac{b^{y_h}h}{t^{y_h/y_t}})
+\end{equation*}
+Comparing this to what we have seen in Eq.\eqref{eq:19_13} we get:
 \begin{equation}
   \begin{cases}
-   2 - \alpha = D \nu = \frac{D}{Y_t}\\
-   \Delta = \frac{Y_h}{Y_t}
+   2 - \alpha = d \nu = \frac{d}{y_t}\\
+   \Delta = \frac{y_h}{y_t}
   \end{cases}
 \end{equation}
-where \( Y_h \) and \( Y_t \) can be computed as
+where \( y_h \) and \( y_t \) can be computed as
 \begin{equation}
-  Y_h = \frac{1}{l} \log{\lambda _l^{(h)}}
+  y_t  = \frac{\log{\lambda _l^{(t)}}}{\log{l} }, \qquad y_h = \frac{\log{\lambda _l^{(h)}}}{\log{l} }
 \end{equation}
 Hence, we have all we need for the computation!
 
-\section{Real space renormalization group on 1D Ising model \( (H=0) \)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Real space renormalization}
+Let us start from the most general form of the Ising model where \( \sigma _i = \pm 1 \) and the two body interaction is
+\begin{equation}
+  w (\sigma _i, \sigma _j) = - \hat{g} - \frac{\hat{h} }{z} (\sigma _i + \sigma _j) - \hat{J} \sigma _i \sigma _j 
+\end{equation}
+
+
 \subsection{Decimation procedure for \( D=1 \)}
 Decimation means summing up over all spins.
 \( D=1 \) the procedure is clearly exact. Idea: pass from a \( N- \) spins system to one with \( \frac{N}{b} \) spins by summing the remaining \( N- \frac{N}{b} \) spins.
