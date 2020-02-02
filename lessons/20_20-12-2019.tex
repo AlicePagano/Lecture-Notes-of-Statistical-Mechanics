@@ -442,30 +442,60 @@ Hence, we have all we need for the computation!
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Real space renormalization}
+\section{Real space renormalization group (RSRG)}
 Let us start from the most general form of the Ising model where \( \sigma _i = \pm 1 \) and the two body interaction is
 \begin{equation}
-  w (\sigma _i, \sigma _j) = - \hat{g} - \frac{\hat{h} }{z} (\sigma _i + \sigma _j) - \hat{J} \sigma _i \sigma _j 
+  w (\sigma _i, \sigma _j) = - \hat{g} - \frac{\hat{h} }{z} (\sigma _i + \sigma _j) - \hat{J} \sigma _i \sigma _j
 \end{equation}
+where \( z \) is the coordination number. The Hamiltonian of such a system is:
+\begin{equation}
+  Z = \sum_{\{ \sigma  \}  }^{}  e^{\sum_{\expval{ij} }^{}  w (\sigma _i, \sigma _j)}
+\end{equation}
+Let us consider the one-dimensional case \( d=1 \)  with nearest-neighbour interaction and periodic boundary conditions without any external field \( (H=0) \), as in Figure \ref{fig:20_4}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/20_image/4.pdf}
+\caption{\label{fig:20_4} One-dimensional Ising model.}
+\end{figure}
+
+The idea of the renormalization group is to perform an integration over some degrees of freedom and obtain a new partition function with \( N/b^d \) spins but of the same form of the one describing the original system with \( N \) spins.
+
+There are many ways to perform this partial integration. Here we consider the \emph{decimation} procedure with \( b=2 \).
+
+\subsection{Ising \( \pmb{d=1} \), RSRG with \( \pmb{b=2} \).}
+A coarse graining of \( b=2  \) can be obtained for instance by summing over the spins positioned at the \emph{even} sites. Before doing this sum it is convenient to rename the even spins \( \sigma _{2i} \) as \( S_i \) and the odd spins (the ones that will survive) \( \sigma _{2i+1} \) as \( \sigma _i' \).
+
+In this way the sum \( \sum_{\{ \sigma  \}  }^{}   \) can be partitioned as \( \sum_{\{ \sigma _i' \}  }^{} \sum_{\{ S_i \}  }^{}     \) where now we have \( i=1,\dots,N/2 \). Hence, the partition function becomes
+\begin{equation*}
+  Z(g,k,h) = \sum_{\{ \sigma _i \}_i^N  }^{}  e^{\sum_{i}^{}  w (\sigma _i, \sigma _{i+1})}
+  = \sum_{\{ \sigma _i' \}_1^{N/2}  }^{} \sum_{\{ S_i \}_1^{N/2}  }^{}
+  e^{\sum_{i=1}^{N/2} \qty[w(\sigma _i',S_i) + w(S_i, \sigma _{i+1}')]  }
+\end{equation*}
+Bringing the summation out of the exponential, we obtain:
+\begin{equation}
+  Z = \sum_{\{ \sigma _i' \}_1^{N/2}} \prod_{i=1}^{N/2}  \qty(  \sum_{ \{ S_i=\pm 1 \} }^{}  e^{ \qty[ w(\sigma _i',S_i) + w(S_i, \sigma _{i+1}') ]  }  )
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Real space renormalization group on 1D Ising model (H=0)}
 
 
 \subsection{Decimation procedure for \( D=1 \)}
