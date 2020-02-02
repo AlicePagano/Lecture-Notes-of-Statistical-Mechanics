@@ -443,9 +443,10 @@ Hence, we have all we need for the computation!
 
 
 \section{Real space renormalization group (RSRG)}
+We now want to see how we can build the RG transformation \( \mathcal{R}_l \) from the coarse graining procedure.
 Let us start from the most general form of the Ising model where \( \sigma _i = \pm 1 \) and the two body interaction is
 \begin{equation}
-  w (\sigma _i, \sigma _j) = - \hat{g} - \frac{\hat{h} }{z} (\sigma _i + \sigma _j) - \hat{J} \sigma _i \sigma _j
+  w (\sigma _i, \sigma _j) = - \hat{g} - \frac{\hat{h} }{z} (\sigma _i + \sigma _j) - \hat{K} \sigma _i \sigma _j
 \end{equation}
 where \( z \) is the coordination number. The Hamiltonian of such a system is:
 \begin{equation}
@@ -459,23 +460,276 @@ Let us consider the one-dimensional case \( d=1 \)  with nearest-neighbour inter
 \caption{\label{fig:20_4} One-dimensional Ising model.}
 \end{figure}
 
-The idea of the renormalization group is to perform an integration over some degrees of freedom and obtain a new partition function with \( N/b^d \) spins but of the same form of the one describing the original system with \( N \) spins.
+The idea of the renormalization group is to perform an integration over some degrees of freedom and obtain a new partition function with \( N/l^d \) spins but of the same form of the one describing the original system with \( N \) spins.
 
-There are many ways to perform this partial integration. Here we consider the \emph{decimation} procedure with \( b=2 \).
+There are many ways to perform this partial integration. Here we consider the \emph{decimation} procedure with \( l=2 \).
 
-\subsection{Ising \( \pmb{d=1} \), RSRG with \( \pmb{b=2} \).}
+\subsection{Ising \( \pmb{d=1} \), RSRG with \( \pmb{l=2} \).}
 A coarse graining of \( b=2  \) can be obtained for instance by summing over the spins positioned at the \emph{even} sites. Before doing this sum it is convenient to rename the even spins \( \sigma _{2i} \) as \( S_i \) and the odd spins (the ones that will survive) \( \sigma _{2i+1} \) as \( \sigma _i' \).
 
 In this way the sum \( \sum_{\{ \sigma  \}  }^{}   \) can be partitioned as \( \sum_{\{ \sigma _i' \}  }^{} \sum_{\{ S_i \}  }^{}     \) where now we have \( i=1,\dots,N/2 \). Hence, the partition function becomes
-\begin{equation*}
-  Z(g,k,h) = \sum_{\{ \sigma _i \}_i^N  }^{}  e^{\sum_{i}^{}  w (\sigma _i, \sigma _{i+1})}
+\begin{equation}
+  Z_N(g,k,h) = \sum_{\{ \sigma _i \}_i^N  }^{}  e^{\sum_{i}^{}  w (\sigma _i, \sigma _{i+1})}
   = \sum_{\{ \sigma _i' \}_1^{N/2}  }^{} \sum_{\{ S_i \}_1^{N/2}  }^{}
   e^{\sum_{i=1}^{N/2} \qty[w(\sigma _i',S_i) + w(S_i, \sigma _{i+1}')]  }
-\end{equation*}
-Bringing the summation out of the exponential, we obtain:
-\begin{equation}
-  Z = \sum_{\{ \sigma _i' \}_1^{N/2}} \prod_{i=1}^{N/2}  \qty(  \sum_{ \{ S_i=\pm 1 \} }^{}  e^{ \qty[ w(\sigma _i',S_i) + w(S_i, \sigma _{i+1}') ]  }  )
+  \label{eq:20_6}
 \end{equation}
+Bringing the summation out of the exponential, we obtain:
+\begin{equation*}
+  Z_N = \sum_{\{ \sigma _i' \}_1^{N/2}} \prod_{i=1}^{N/2}  \qty(  \sum_{  S_i=\pm 1  }^{}  e^{ \qty[ w(\sigma _i',S_i) + w(S_i, \sigma _{i+1}') ]  }  )
+\end{equation*}
+Let us note that:
+\begin{equation*}
+   \sum_{  S_i=\pm 1  }^{}  e^{ \qty[ w(\sigma _i',S_i) + w(S_i, \sigma _{i+1}') ]  }
+   = f (\sigma _i', \sigma _{i+1}')
+\end{equation*}
+If we can write \(  f (\sigma _i', \sigma _{i+1}') \) as an exponential
+\( \exp [ w' (\sigma _i', \sigma _{i+1}')]  \), we obtain:
+\begin{equation}
+  Z_N (g,h,k) = \sum_{\{ \sigma _i' \}_1^{N/2}}  e^{\sum_{i=1}^{N/2}  w' (\sigma _i', \sigma _{i+1}') }
+\end{equation}
+It has a similar form as the original one (Eq.\eqref{eq:20_6}) but with \( N/2 \) spins.
+Supposing that also \( w' (\sigma _i', \sigma _{i+1}')  \) can be written as
+\begin{equation*}
+  g' + \frac{h'}{z} (\sigma _i' + \sigma _{i+1}') + K' \sigma _i' \sigma _{i+1}'
+\end{equation*}
+we have
+\begin{equation}
+  Z_N (g,h,K) = Z_{N/2} (g',h',K')
+\end{equation}
+as requested by the renormalization group.
+In order to find \( g',h',K' \) as a function of \( g,h,K \), we should satisfy the relation
+\begin{equation}
+  e^{ g' + \frac{h'}{2} (\sigma _i' + \sigma _{i+1}') + K' \sigma _i' \sigma _{i+1}' }
+  = \sum_{S_i = \pm 1}^{}  e^{ \overbrace{g + \frac{h}{2}(\sigma _i' + S_i) + K \sigma _i' S_i}^{w(\sigma _i',S_i)}  + \overbrace{g + \frac{h}{2} (S_i + \sigma _{i+1}') + K S_i \sigma _{i+1}' }^{w(S_i,\sigma _{i+1}')}  }
+\end{equation}
+for all values of the pair \( (\sigma _i',\sigma _{i+1}') \).
+\begin{remark}
+Remind that the coordination number is \( z=2d \) for an hypercubic lattice; in this case we have \( d=1 \), hence \( z=2 \).
+\end{remark}
+For simplicity let us consider
+\begin{equation}
+  \begin{cases}
+   x \equiv e^K \,\,\,, \quad y \equiv e^h\,\,\,, \quad  z \equiv e^g \\
+   x' \equiv e^{K'}, \quad  y' \equiv e^{h'}, \quad  z' \equiv e^{g'}
+  \end{cases}
+\end{equation}
+Hence, the previous condition becomes
+\begin{equation*}
+  z' {y'}^{\qty(\frac{\sigma _i'+\sigma _{i+1}'}{2}) } {x'}^{\sigma _i'\sigma _{i+1}'}
+  = \sum_{S_i = \pm 1}^{} z^2 y^{\qty(\frac{\sigma _i' +S_i}{2}) } x^{\sigma _i' S_i} y^{ \qty(\frac{S_i + \sigma _{i+1}}{2})} x^{S_i \sigma _{i+1}}
+\end{equation*}
+Let us consider all the cases for different values of \( \sigma _i' \) and \( \sigma _{i+1}' \), we obtain three independent equations and three variables:
+\begin{itemize}
+\item Case \( \sigma _i'=+1 \) and \( \sigma _{i+1}'=+1 \):
+\begin{equation}
+  z'y'x' = z^2 y (x^2y+x^{-2}y^{-1})
+  \label{eq:20_7}
+\end{equation}
+
+\item Case \( \sigma _i'=-1 \) and \( \sigma _{i+1}'=-1 \):
+\begin{equation}
+  z'{y'}^{-1}x' = z^2 y^{-1} (x^{-2} y+x^{2}y^{-1})
+  \label{eq:20_8}
+\end{equation}
+
+\item Case \( \sigma _i'=+1 \) and \( \sigma _{i+1}'=-1 \), or \( \sigma _i'=-1 \) and \( \sigma _{i+1}'=+1 \):
+\begin{equation}
+  z'{x'}^{-1} = z^2 (y+y^{-1})
+  \label{eq:20_9}
+\end{equation}
+in the two cases the relation obtained is the same.
+\end{itemize}
+Now, we rearrange these independent equations in the following way:
+
+\begin{itemize}
+\item By multuplying Eq.\eqref{eq:20_7}\( \times \)\eqref{eq:20_8}\( \times 2 \vdot   \)\eqref{eq:20_9} we obtain:
+\begin{equation*}
+  {z'}^4 = z^8 \qty( y + y^{-1})^2 \qty( x^2y + x^{-2}y^{-1}) \qty( x^{-2}y + x^2 y^{-1})
+\end{equation*}
+\item By dividing Eq.\eqref{eq:20_7}/\eqref{eq:20_8} we obtain:
+\begin{equation*}
+  {y'}^2 = y^2 \frac{x^2y + x^{-2}y^{-1}}{x^{-2}y+x^2y^{-1}}
+\end{equation*}
+
+\item By multiplying and dividing the three equations as (\eqref{eq:20_7}\( \times \)\eqref{eq:20_8})/(\( 2 \vdot \)\eqref{eq:20_9}), we obtain
+\begin{equation*}
+  {x'}^4 = \frac{\qty(x^2 y + x^{-2} y^{-1})\qty(x^{-2} y + x^2 y^{-1})  }{ \qty(y + y^{-1})^2 }
+\end{equation*}
+
+\end{itemize}
+
+Let us note that \( g \) and \( g' \) are constant factors of the partition function \( Z \) and can be absorbed by a shift in the free energies.
+Moreover \( g \) (i.e. \( z \equiv e^g \)) does not enter in the expression of \( h' \) and \( K' \); the two relevant renormalization equations are the ones for \( x' \) and \( y' \):
+\begin{equation*}
+  \begin{cases}
+   {y'}^2 = y^2 \frac{x^2y + x^{-2}y^{-1}}{x^{-2}y+x^2y^{-1}} \\
+   {x'}^4 = \frac{\qty(x^2 y + x^{-2} y^{-1})\qty(x^{-2} y + x^2 y^{-1})  }{ \qty(y + y^{-1})^2 }
+  \end{cases}
+\end{equation*}
+Taking the logarithm of these equations we obtain:
+\begin{equation}
+  \begin{cases}
+   2h' = 2h + \log{\qty(e^{2K+h} + e^{-2K-h}) } - \log{ \qty(e^{-2K+h} e^{2K-h}) }  \\
+  4K' = \log{ \qty(e^{2K+h}+ e^{-2K-h})} + \log{\qty(e^{-2K+h}+e^{2K-h})} - 2 \log{\qty(e^h + e^{-h})}
+  \end{cases}
+  \label{eq:20_10}
+\end{equation}
+Hence, we have obtained the renormalization group transformation
+\begin{equation*}
+  (h',K') \rightarrow \mathcal{R}_l (h,K)
+\end{equation*}
+Now, let us look for fixed points \( (h^*,K^*) \); then will we linearized around \( (h^*,K^*) \) and we will find the relevant eigenvalues.
+
+Let us consider for simplicity \( h=0 \), so that \( y \equiv e^h = 1 \). The equations \eqref{eq:20_10} simplify to
+\begin{equation*}
+  \begin{cases}
+   {y'}^2 = \frac{x^2 + x^{-2}}{x^{-2} + x^2}\\
+   {x'}^4 = \frac{\qty(x^2 + x^{-2})\qty(x^{-2}+ x^2)  }{4}
+  \end{cases}
+\end{equation*}
+Hence, we have:
+\begin{equation}
+  \begin{cases}
+   y'=1\\
+   {x'}^4 = \frac{\qty(x^2 + x^{-2})^2 }{4}
+  \end{cases}
+\end{equation}
+ Therefore, we have that \( K \) is the only variable left because we have obtained \( h'=0 \). By substituting \( x' \equiv e^K \), we have:
+\begin{equation*}
+   {x'}^4 = \frac{\qty(x^2 + x^{-2})^2 }{4} \quad \Rightarrow e^{4K'} = \qty( \frac{e^{2K} + e^{-2K} }{2} )^2 = \cosh^2 (2K)
+\end{equation*}
+In conclusion we obtain the RG equation:
+\begin{empheq}[box=\myyellowbox]{equation}
+  K' = \frac{1}{2} \log{\qty( \cosh (2K)) }
+  \label{eq:20_11}
+\end{empheq}
+By rearranging we have:
+\begin{equation*}
+  e^{2K'} = \cosh (2K) = 2 \cosh^2 (K) - 1 \quad \Rightarrow e^{2K'} - 1  = 2 \qty( \cosh^2(K) - 1) = 2 \sinh^2 (K)
+\end{equation*}
+Similarly,
+\begin{equation*}
+  e^{2K'} + 1 = 2 \cosh^2 (K)
+\end{equation*}
+Hence,
+\begin{equation*}
+  \frac{e^{2K'} - 1}{e^{2K'} + 1} = \tanh (K') = \tanh^2 (K)
+\end{equation*}
+Thus we can rewrite the RG equation \eqref{eq:20_11} as:
+\begin{equation}
+  K' = \tanh^{-1} \qty[ (\tanh (K) )^2 ]
+\end{equation}
+Rewritten in the form
+\begin{equation}
+   y' = y^2
+\end{equation}
+ where  \( y \equiv \tanh K \), its fixed points are given by
+\begin{equation*}
+  y^* = {y^*}^2
+\end{equation*}
+whose solutions are \( y^*=1 \) and \( y^*=0 \). Let us consider the two cases separately:
+
+\begin{itemize}
+\item Case \( y^*=1^- \) (\( K \rightarrow \infty , T \rightarrow 0^+ \)): since \( \tanh K < 1 \, \forall K \in \R \), starting from any initial point \( y_0 <1 \) the recursion relation \( y' = y^2 \) makes \( y \) smaller every time,  moving it towards the fixed point \( y^* = 0 \) (\( \mathcal{R}_l^{(n)} (y_0) \overset{n \rightarrow \infty }{\rightarrow } 0^+ \)). We can thus conclude that \(  \)  \( y^* =1 \) is an unstable fixed point.
+
+\item Case \( y^*=0^+ \) (\( K \rightarrow 0^+ , T \rightarrow \infty  \)): for all \( y_0 <1 \) we have \( \mathcal{R}_l^{(n)} (y_0) \overset{n \rightarrow \infty }{\rightarrow } 0^+ \). Hence,  \( y^* =0 \) is a stable fixed point.
+
+\end{itemize}
+
+As expected for the one-dimensional Ising model, no critical fixed point for \( T \neq 0\) is found (see the flux of trajectories in Figure \ref{fig:20_5}).
+Moreover, note that the fact that the flow converges towards \( T = \infty  \) means that on large spatial scales the system is well described by a Hamiltonian with a high effective temperature, and so the system will always be in the paramagnetic phase (a part when \( T=0 \)).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{../lessons/20_image/5.pdf}
+\caption{\label{fig:20_5} One-dimensional flux of trajectories for Ising model for the recursion relation \( \tanh(K') = \tanh^2 (K) \). }
+\end{figure}
+
+\begin{remark}
+For a generic scaling parameter \( l \) one can see that
+\begin{equation*}
+  \tanh K' = \qty( \tanh K )^l
+\end{equation*}
+Hence, we have
+\begin{equation*}
+  y' = y^l \quad l \ge 2
+\end{equation*}
+Therefore, the analysis for a scaling parameter \( l \ge 2 \) is similar to the \( l=2 \) case.
+\end{remark}
+
+
+\subsection{Decimation procedure for \( d>1 \): proliferation of the interactions}
+As we have stated, in \( d=1 \) the recursion relations can be determined without great problems and they don't introduce new interactions. However, this is not the case if \( d>1 \), and the value of the new coupling constants can't be determined exactly, forcing us to use approximations. Let us see with a generic example how the RG transformation can introduce new interactions in a two-dimensional Ising model with nearest-neighbour interactions.
+
+Suppose we divide our system in blocks containing an odd number of spins and, similarly to what we have seen for \( d=1 \) in the previous sections, we sum over the spins on the boundary of the block and leave unchanged the one at the center.
+
+
+
+
+
+
+
+
+Ioing on a square lattice, block transformation (length \( b \)). There are problems with the spins at the boundaries.
+In order to get \( Z_{N'}' (k') = Z_N (k) \), at least an additional term in the Hamiltonian must be introduced
+\begin{equation}
+  \mathcal{H} \rightarrow \mathcal{H}' = \mathcal{H}' (k',k_2')
+\end{equation}
+This unfortunately occurs at each iteration! There is an uncontrolled proliferation and approximations are necessary.
+\begin{example}{Decimation of Ising on square lattice}{}
+  \( x \): spin to sum over
+\begin{equation}
+  \begin{cases}
+   k' = \frac{1}{4} \ln{\cosh 4 k} \\
+   L' = \frac{1}{8} \ln{\cosh 4 k} \\
+   Q' = \frac{1}{8} \ln{\cosh 4 k} - \frac{1}{2} \ln{\cosh 2 k}\\
+  \end{cases}
+\end{equation}
+(4 spins). The approximations are:
+\begin{enumerate}
+\item Neglect \( Q' \) term.
+\item Omit explicit dependence on \( L' \). Hence, assuming \( k'+L' \rightarrow k' \). 1 recursion
+\begin{equation}
+  k' = \frac{3}{8} \ln{\cosh 4 k}
+\end{equation}
+\begin{equation}
+  \begin{cases}
+   k^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} \infty  & k_0 > k_c \\
+   k^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0  & k_0 < k_c
+  \end{cases}
+\end{equation}
+where \( \infty ,0 \) are stable fixed point.
+\begin{equation}
+  \delta k' = \lambda _t \delta k = l^{Y _t} \delta k
+\end{equation}
+where
+\begin{equation}
+  \lambda _t = \eval{\dv{k'}{k} }_{k=k_c}
+\end{equation}
+For \( l = \sqrt{2}  \),
+\begin{equation}
+\begin{split}
+Y_t  &= \frac{\ln{\lambda _t} }{\ln{l} } = \frac{1}{\ln{\sqrt{2} } } \ln{\qty(\dv{k'}{k})_{k=k_c} }   \\
+& = \frac{1}{\ln{\sqrt{2} } }  \ln{\qty(\dv{}{k} \qty(\frac{3}{8} \ln{(\cosh 4k)} ) ) } = 1.070
+\end{split}
+\end{equation}
+so, this is actual a relevant eigenvalue.
+We have also the critical exponents
+\begin{equation}
+  \nu = \frac{1}{Y_t} = 0.9345, \quad \alpha = 2 - \frac{d}{Y_t} = 0.1313
+\end{equation}
+\end{enumerate}
+
+\end{example}
+
+
+
+
+
+
+
+
 
 
 
@@ -608,58 +862,6 @@ equal to the exact model in \( D=1 \).
 \end{equation}
 finite \( \forall k \neq \infty  \).
 
-\subsection{Decimation procedure for \( D>1 \) (proliferation of interactions)}
-Ioing on a square lattice, block transformation (length \( b \)). There are problems with the spins at the boundaries.
-In order to get \( Z_{N'}' (k') = Z_N (k) \), at least an additional term in the Hamiltonian must be introduced
-\begin{equation}
-  \mathcal{H} \rightarrow \mathcal{H}' = \mathcal{H}' (k',k_2')
-\end{equation}
-This unfortunately occurs at each iteration! There is an uncontrolled proliferation and approximations are necessary.
-\begin{example}{Decimation of Ising on square lattice}{}
-  \( x \): spin to sum over
-\begin{equation}
-  \begin{cases}
-   k' = \frac{1}{4} \ln{\cosh 4 k} \\
-   L' = \frac{1}{8} \ln{\cosh 4 k} \\
-   Q' = \frac{1}{8} \ln{\cosh 4 k} - \frac{1}{2} \ln{\cosh 2 k}\\
-  \end{cases}
-\end{equation}
-(4 spins). The approximations are:
-\begin{enumerate}
-\item Neglect \( Q' \) term.
-\item Omit explicit dependence on \( L' \). Hence, assuming \( k'+L' \rightarrow k' \). 1 recursion
-\begin{equation}
-  k' = \frac{3}{8} \ln{\cosh 4 k}
-\end{equation}
-\begin{equation}
-  \begin{cases}
-   k^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} \infty  & k_0 > k_c \\
-   k^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0  & k_0 < k_c
-  \end{cases}
-\end{equation}
-where \( \infty ,0 \) are stable fixed point.
-\begin{equation}
-  \delta k' = \lambda _t \delta k = l^{Y _t} \delta k
-\end{equation}
-where
-\begin{equation}
-  \lambda _t = \eval{\dv{k'}{k} }_{k=k_c}
-\end{equation}
-For \( l = \sqrt{2}  \),
-\begin{equation}
-\begin{split}
-Y_t  &= \frac{\ln{\lambda _t} }{\ln{l} } = \frac{1}{\ln{\sqrt{2} } } \ln{\qty(\dv{k'}{k})_{k=k_c} }   \\
-& = \frac{1}{\ln{\sqrt{2} } }  \ln{\qty(\dv{}{k} \qty(\frac{3}{8} \ln{(\cosh 4k)} ) ) } = 1.070
-\end{split}
-\end{equation}
-so, this is actual a relevant eigenvalue.
-We have also the critical exponents
-\begin{equation}
-  \nu = \frac{1}{Y_t} = 0.9345, \quad \alpha = 2 - \frac{d}{Y_t} = 0.1313
-\end{equation}
-\end{enumerate}
-
-\end{example}
 
 
 
