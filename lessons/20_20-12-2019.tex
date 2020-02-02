@@ -151,112 +151,137 @@ which is the scaling form of the free energy density as obtained by Kadanoff.
 We have stated that the RG transformations \( \mathcal{R}_l \) are analytic, hence a single \( \mathcal{R}_l \) involves the integration of a finite number of dregrees of freedom and the free energy cannot develop the singularity behaviour we are looking for; so, we might ask: where does the singular behaviour of a system near a critical point come from? This occurs in the thermodynamic limit, which in this case is obtained when we apply the RG transformation an infinite number of times. Indeed, in order to integrate a thermodynamic number of degrees of freedoms, one has to apply an infinite number of RG transformations.
 
 In general, after the \( n \)-th iteration of the RG, the coarse-graining length of the system will be \( l \rightarrow l^n \) and the coupling constants \( [K] \rightarrow [K^{(n)}] \).
-As \( n \) increases the "vector" of coupling constants describes a "trajectory" in the space of all the possible coupling constants \( [K] \), often called \emph{Hamiltonian space}, or theory space;
+As \( n \) increases the "vector" of coupling constants describes a "trajectory" in the space of all the possible coupling constants \( [K] \), often called \textbf{Hamiltonian space}, or theory space;
 by varying the initial conditions, namely different initial Hamiltonians, one obtains a
-\emph{flux of trajectories} (i.e. the set of all the trajectories that start from different initial conditions).
-In general, these trajectories can form strange attractors or complex limit cycles; however, it is almost always found that they are simply attracted towards or ejected from \emph{fixed points} (cases where this doesn't occur are really exotic), so in the following we will assume that the flux of trajectories only exhibits fixed points.
+\textbf{flux of trajectories} (i.e. the set of all the trajectories that start from different initial conditions).
+In general, these trajectories can form strange attractors or complex limit cycles; however, it is almost always found that they are simply attracted towards or ejected from \textbf{fixed points} (cases where this doesn't occur are really exotic), so in the following we will assume that the flux of trajectories only exhibits fixed points.
 
 The study of the properties of the flux of trajectories near these fixed points is crucial, since as we will see it is that that will allow us to actually explain universality and predict the values of the critical exponents (the scaling behaviour introduced by Widom is related to the behaviour of the trajectories close to some fixed points). We therefore proceed to study such points.
 
 
 
+
+
+
+
  \subsection{Zoology of the fixed points}
- A fixed point \( k^* \) of \( \mathcal{R}_l [k] \) satisfies
+ Suppose we know \( \mathcal{R}_{l} \). If \( [K^*] \) is a fixed point of the flux of trajectories, by definition we have:
  \begin{equation}
-   [k^*] = \mathcal{R}_l [k^*]
+    \mathcal{R}_l [K^*] = [K^*]
  \end{equation}
-On the other hand, we know that
+ Then, in general from the Hamiltonian of a system we can determine the correlation length \( \xi  \), and if \( [K'] = \mathcal{R}_l [K] \)  we know that:
+\begin{equation*}
+  \xi [K'] = \frac{\xi [K]}{l} \equiv \xi _l
+\end{equation*}
+Therefore for a fixed point we have:
 \begin{equation}
-  \xi [k'] = \frac{\xi [k]}{l} \equiv \xi _l
- \end{equation}
-At the fixed point
-\begin{equation}
-  \xi [k^*] = \frac{\xi [k^*]}{l}
+  \xi [K^*] = \frac{\xi [K^*]}{l}
 \end{equation}
-There are two cases:
+which implies two cases:
 \begin{equation}
-  \xi [k^*] =
+  \xi [K^*] =
   \begin{cases}
    0 & \text{trivial}\\
    \infty & \text{critical}
   \end{cases}
 \end{equation}
-Each fixed point has its own basin of attraction. This is defined as the set \( \{ [k] \}   \) such that
+A fixed point with \( \xi = \infty  \) is called \emph{critical}, while if \( \xi =0 \) \emph{trivial}. Clearly, every fixed point \( [K^*] \)  can have its own \textbf{basin of attraction}, i.e. a set of points \( \{ [K] \}   \) that under the action of the flux of trajectories tend to \( [K^*] \):
 \begin{equation}
-  \mathcal{R}_l^{(n)} [k] \overset{n \rightarrow \infty }{\longrightarrow} [k^*]
+  \mathcal{R}_l^{(n)} [K] \overset{n \rightarrow \infty }{\longrightarrow} [K^*]
 \end{equation}
+An important result concerning the basin of attraction of critical fixed points is the following:
+
+
 \begin{theorem}{}{}
-All the points \([k]  \) belonging to a basin of attraction of a critical fixed point have their correlation length \( \xi = \infty  \).
+All the points \([K]  \) belonging to a basin of attraction of a critical fixed point have the correlation length \( \xi = \infty  \).
 \end{theorem}
 \begin{proof}
-\begin{equation}
-  \xi [k] = l \xi [k^{(1)}] = \dots l^n \xi [ k^{(n)}]
-\end{equation}
-If \( [k] \) is in basin of attraction of \( [k^*] \), we have
-\begin{equation}
-  [k^{(n)}] \overset{n \rightarrow \infty }{\longrightarrow} [k^*]
-\end{equation}
-On the other hand, \( \xi [k^*] = \infty  \), so
-\begin{equation}
-  \Rightarrow \xi [k] = l^n \xi [k^*] = \infty
-\end{equation}
+  Call \( [K] \) the initial set of coupling constants, after \( n \)  iterations of the RG the correlation length of the system will be such that:
+\begin{equation*}
+  \xi [K] = l \xi [K^{(1)}] = \dots =l^n \xi [ K^{(n)}] \quad \Rightarrow \xi [K] = l^n \xi [ K^{(n)}]
+\end{equation*}
+If we now take the limit \( n \rightarrow \infty  \)  the right hand side diverges if \( K^{(n)} \rightarrow K^* \), i.e. if \( [K] \)  belongs to the basin of attraction of \( [K^*] \).
+Hence, \( \xi [K^*] = \infty  \), implies
+\begin{equation*}
+  \Rightarrow \xi [K] = l^n \xi [K^*] = \infty
+\end{equation*}
+Therefore, we have \( \xi [K] = \infty  \).
+
 \end{proof}
-\begin{definition}{Critical manifold}{}
- Set of \( [k] \) that forms the basin of attraction of a critical fixed point.
-\end{definition}
+
+The set of \( [K] \) that forms the basin of attraction of a critical fixed point is also called \textbf{critical manifold}.
 
 \subsubsection{Universality}
-All the critical models that belong to the critical manifold, have the same critical behaviour of the corresponding critical fixed point. Study the behaviour of \( \mathcal{R}_l \) close to the fixed points.
+
+All the critical models that belong to the critical manifold, have the same critical behaviour of the corresponding critical fixed point. Hence, we want to study the behaviour of \( \mathcal{R}_l \) close to the fixed points.
+
+ We can argue that the fact that all the points of a critical manifold flow towards the same fixed point (i.e. the same Hamiltonian) is the basic mechanism on which universality is based upon, but this is by no means a complete explanation, since universality involves the behaviour of systems near a critical point and we still have said nothing about that. We can however note the following fact: starting from any point in Hamiltonian space, iterating the RG transformation and identifying the fixed point towards which the system flows, the phase of the original point in Hamiltonian space (i.e. in the phase diagram) will be described by this fixed point. Therefore, every phase of the system is "represented" by a fixed point of the flux of trajectories.
+
+
+As we will later see, critical fixed points describe the singular critical behaviour while trivial fixed points are related to the bulk phases of the system: therefore, the knowledge of the location and nature of the fixed points of the flux of trajectories can give us hints on the structure of the phase diagram of the system, and the behaviour of the flow near critical fixed points allows us to calculate the values of the critical exponents.
+
+
+
 
 \subsection{Linearization of RG close to the fixed points and critical exponents}
-Let \( [k^*] \) be a fixed point of \( \mathcal{R}_l \) and consider
+
+In order to study the behaviour of the flux of trajectories near a fixed point \( [K^*] \) of \( \mathcal{R}_l \), let us take a slight perturbation from it, namely we set:
 \begin{equation}
-  \va{k} = \va{k}^* + \delta \va{k}
+  \va{K} = \va{K}^* + \delta \va{K}
 \end{equation}
-In components, the RG transformation is
+where \( \delta \va{K} \) is a small displacement. Applying the RG transformation, in components we will have:
+\begin{equation*}
+  K'_j = (\mathcal{R}_l)_j (\va{K}^*+ \delta \va{K} )_j
+= K^*_j + \sum_{i}^{} \eval{\qty(\pdv{K_j'}{K_i} )}_{\va{K}^*} \delta K_i + O \qty(\delta K_i^2)
+\end{equation*}
+Neglecting all the terms beyond the linear ones, we can write the action of the linearised RG transformation in terms of the displacements \( \delta \va{K} \) and
+\( \delta \va{K}' \) as:
 \begin{equation}
-  k'_j = (\mathcal{R}_l)_j (\va{k}^*+ \delta \va{k} )
-= k^*_j + \sum_{i}^{} \qty(\pdv{k_j'}{k_i} )_{\va{k}^*} \delta k_i + O \qty(\delta k_i^2)
-\end{equation}
-The linearized transformation is
-\begin{equation}
-  \delta \va{k}' = \bar{\pi } \delta \va{k}
+  \delta \va{K}' = \bar{\pi } \delta \va{K}
 \end{equation}
 where
 \begin{equation}
-  \qty(\bar{\pi } )_{ij} = \qty(\pdv{k_j'}{k_i} )_{\va{k}^*}
+  \qty(\bar{\pi } )_{ij} = \eval{\qty(\pdv{K_j'}{K_i} )}_{\va{K}^*}
 \end{equation}
-is a square matrix
+Of course \( \bar{\pi } \) is a square matrix, but:
 \begin{enumerate}
-\item \( \bar{\pi }  \) is in general not symmetric. One has to distinguish between left and right eigenvectors.
-\item \( \bar{\pi }  \) is not always diagonalizible or sometimes the eigenvalues are complete. For most of the physical system, however, \( \bar{\pi }  \) can be diagonalized and the eigenvalues are real.
+\item \( \bar{\pi }  \) is in general not symmetric, one has to distinguish between left and right eigenvectors;
+\item \( \bar{\pi }  \) it is not always diagonalizable or sometimes its eigenvalues can be complex. For most of the physical system, however, \( \bar{\pi }  \) can be diagonalized and the eigenvalues are real.
 \end{enumerate}
-Let \( \lambda _l^{(\sigma)} \) be the \( \sigma  \)-esim eigenvalue and \( \va{l}^{(\sigma )} \) the corresponding eigenvector
+However, we suppose \( \bar{\pi } \) to be symmetric (which, as before, is almost always the case) so that it can be diagonalized. If we call \( \lambda _l^{(\sigma)} \) and \( \va{e}^{(\sigma )} \) the \( \sigma  \)-th  eigenvalue and relative eigenvector of \( \bar{\pi }^{(l)} \)  (where we are explicitly writing the length scale of the decimation), in components the action \(\bar{\pi }^{(l)}  \) will be:
 \begin{equation}
-  \Rightarrow \bar{\pi }^{(l)}_{ij} l^{(\sigma )}_j = \lambda _l^{(\sigma )} l_i ^{(\sigma )}
+  \Rightarrow \bar{\pi }^{(l)}_{ij} \va{e}^{(\sigma )}_j = \lambda _l^{(\sigma )} \va{e}_i ^{(\sigma )}
 \end{equation}
-this is the eigenvalue equation.
-Since the \( \mathcal{R}_l \)'s form a semi-group
-\begin{equation}
+this is the eigenvalue equation. From the semigroup property of the RG transformation \( \mathcal{R}_l \), we have:
+\begin{equation*}
   \bar{\pi }^{(l)} \bar{\pi }^{(l')} = \bar{\pi }^{(ll')}
-\end{equation}
-and
+\end{equation*}
+Hence, we have:
 \begin{equation}
   \lambda _l^{(\sigma )} \lambda _{l'}^{(\sigma )} =  \lambda _{ll'}^{(\sigma )}
   \label{eq:20_3}
 \end{equation}
-By solving \eqref{eq:20_3} one can show
+This is a functional equation which can be solved in the following way:  if we write the eigenvalues explicitly as functions of \( l \), namely \( \lambda _l^{(\sigma )}= \lambda^{(\sigma )}  (l)\), then differentiating with respect to \( l' \):
+\begin{equation*}
+   \lambda ^{(\sigma )}(l )\lambda '^{(\sigma )}(l')=\ell \lambda '^{(\sigma )}(l l ')
+\end{equation*}
+where with \( \lambda ' \)  we mean that \( \lambda  \)  has been differentiated with respect to its argument. Setting now \( l'=1 \)  and defining \( \lambda'^{(\sigma )} (1) = y_\sigma \)  we get:
+\begin{equation*}
+  \frac{\lambda'^{(\sigma )} (l)}{\lambda^\sigma (l)} = \frac{ y_\sigma}{l}
+\end{equation*}
+which is easily solved to give:
 \begin{equation}
-   \lambda _{l}^{(\sigma )} = l^{(Y_\sigma)}
+   \lambda _{l}^{(\sigma )} = l^{y_\sigma}
 \end{equation}
-where \( Y_\sigma \) is the critical exponent to be determined.
-
-How \( \delta \va{k} \) behaves under the linearized transformation \( \bar{\pi }  \)?
-
-Let us expand \( \delta \va{k} \) in terms of \( \va{l}^{(\sigma )} \) (that is a complete orthonormal base)
+where, as we have defined it, \( y_\sigma \) is a number (to be determined) independent of \( l \)  (is the critical exponent). To see how \( \delta \va{K} \) changes under the action of the linearized transformation  \( \bar{\pi }  \) let us find out how its components along the directions determined by the eigenvectors \( \va{e}^{(\sigma )} \) change.  In other words, let us expand \( \delta \va{K} \) in terms of \( \va{e}^{(\sigma )} \) (that is a complete orthonormal base):
 \begin{equation}
   \delta \va{k} = \sum_{\sigma }^{} a^{(\sigma )} \va{l}^{(\sigma )}
 \end{equation}
+
+
+
+
+
 where
 \begin{equation}
   a^{(\sigma )} = \va{l}^{(\sigma )} \vdot \delta \va{k}
@@ -293,6 +318,15 @@ Starting from a point close to a critical fixed point \( \va{k}^* \) (but not on
 \begin{remark}
 The eigenvalues and the corresponding eigenvectors depend on the chosen fixed point \( [k^*] \).
 \end{remark}
+
+
+
+
+
+
+
+
+
 
 \section{RG and scaling}
 Let
