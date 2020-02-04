@@ -465,7 +465,7 @@ The idea of the renormalization group is to perform an integration over some deg
 There are many ways to perform this partial integration. Here we consider the \emph{decimation} procedure with \( l=2 \).
 
 \subsection{Ising \( \pmb{d=1} \), RSRG with \( \pmb{l=2} \).}
-A coarse graining of \( b=2  \) can be obtained for instance by summing over the spins positioned at the \emph{even} sites. Before doing this sum it is convenient to rename the even spins \( \sigma _{2i} \) as \( S_i \) and the odd spins (the ones that will survive) \( \sigma _{2i+1} \) as \( \sigma _i' \).
+A coarse graining of \( l=2  \) can be obtained for instance by summing over the spins positioned at the \emph{even} sites. Before doing this sum it is convenient to rename the even spins \( \sigma _{2i} \) as \( S_i \) and the odd spins (the ones that will survive) \( \sigma _{2i+1} \) as \( \sigma _i' \).
 
 In this way the sum \( \sum_{\{ \sigma  \}  }^{}   \) can be partitioned as \( \sum_{\{ \sigma _i' \}  }^{} \sum_{\{ S_i \}  }^{}     \) where now we have \( i=1,\dots,N/2 \). Hence, the partition function becomes
 \begin{equation}
@@ -695,7 +695,7 @@ Therefore, we understand that the iteration of the RG will introduce increasingl
 \centering
 \subfloat[][New interactions introduced.]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/8.pdf}  \label{fig:20_7_2} }
 \end{minipage}
-\caption{\label{fig:20_7} Decimation for the two-dimensional Ising model.}
+\caption{\label{fig:20_7} Decimation for the two-dimensional Ising model with \( l=2 \).}
 \end{figure}
 
 \begin{example}{Decimation of Ising on square lattice}{}
@@ -784,55 +784,76 @@ Onsager's exact result, as we know, gives \( \alpha =0 \) (since the specific he
 \caption{\label{fig:20_8} RG flux of trajectories of the recursion relation \(   K^* = \frac{3}{8} \ln{\cosh 4 K^*} \). }
 \end{figure}
 
+
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.4\textwidth]{../lessons/20_image/10.pdf}
-\caption{\label{fig:20_9} Square lattice. The red cross are the spins to sum.}
+\includegraphics[width=0.37\textwidth]{../lessons/20_image/10.pdf}
+\caption{\label{fig:20_9} Square lattice for the \( 2 \)-dimensional Ising model with \( l=2 \). The red cross are the spins to sum.}
 \end{figure}
 
+
+\subsubsection{Migdal-Kadanoff bond moving approximation}
+The real-space renormalisation group can be performed exactly on the \( d=1 \)  Ising model by decimating a regular sequence of spins. This yields the following recursion relation for the coupling constant:
+\begin{equation*}
+  K' = \frac{1}{2} \ln \cosh (2K)
+\end{equation*}
+Unfortunately, this decimation can not be carried out exactly in higher dimensions and some truncation approximations are necessary.
+One such scheme, which proved to be quite versatile is the so called Migdal-Kadanoff renormalisation (it is also called potential moving), which we illustrate here on the Ising model on the \( 2 \)-dimensional square lattice with \( l=2 \) defined in Figure \ref{fig:20_9}, where \( x \) are again the spin to sum over.
+
+The idea is to remove the same interactions, i.e. same bonds; however a simple deletion of same bonds is a too strong approximation, therefore what we do is moving some bonds to neighbouring ones. In particular, we decimate every other line or column of spins along each lattice direction but removing the bonds not connected to the retained spins. Obviously, this simple approximation weakens the whole system, making it more “one-dimensional”. This is remedied by using the unwanted bonds to reinforce those that are left behind (see Figure \ref{fig:20_10}): the spins that are retained are now connected by a pair of double bonds of strength \( K \rightarrow 2K \).
 
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
-\subfloat[][Some bonds are moved to neighbouring ones.]{ \includegraphics[width=0.8\textwidth]{../lessons/20_image/11.pdf}  \label{fig:} }
+\subfloat[][The original lattice. Some bonds are moved to neighbouring ones.]{ \includegraphics[width=0.8\textwidth]{../lessons/20_image/11.pdf}  \label{fig:} }
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][The double bonds have coupling constant \( K \rightarrow 2K \). ]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/12.pdf}  \label{fig:} }
+\subfloat[][The lattice after the bonds moving step. The double bonds have coupling constant \( K \rightarrow 2K \). ]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/12.pdf}  \label{fig:} }
 \end{minipage}
-\caption{\label{fig:} Migdal-Kadanoff for the Ising model on the square lattice.}
+\caption{\label{fig:20_10} Migdal-Kadanoff for the Ising model on the square lattice with \( l=2 \).}
 \end{figure}
 
 
-\begin{example}{Migdal-Kadanoff (or Bond-Moving)}{}
-It is also called potential moving. Let us consider again the Ising model on the square lattice as in Figure \ref{fig:20_9}, where \( x \) are again the spin to sum over.
-
-As said, the decimation procedure is exact in \( d=1 \), hence we try to start from a similar topology. The idea is to remove the same interactions, i.e. same bonds; however a simple deletion of same bonds is a too strong approximation, therefore what we do is moving some bonds to neighbouring ones,
-At this point, the double bonds have coupling constant \( K \rightarrow  2 K \).
-
-After we have done this, the sum over \( x \) spins is similar to the Ising \( d=1 \) and gives:
+After we have done this, the sum over \( x \) spins is similar to the Ising \( d=1 \) with \( l=2 \) and gives:
 \begin{equation*}
   K' = \frac{1}{2} \ln \cosh (2 \vdot 2K)
 \end{equation*}
-where yhe crucial difference is the factor \( 2 \) in the \(\cosh (2 \vdot 2K)  \). This gives a third fixed point:
+where the crucial difference is the factor \( 2 \) in the \(\cosh (2 \vdot 2K)  \).
+ The fixed point are given by:
 \begin{equation*}
-  K^* = \frac{1}{2} \ln \cosh (4 K^*) \quad \Rightarrow K^* = 0.3
+  K^* = \frac{1}{2} \ln \cosh (4 K^*)
 \end{equation*}
-that is similar to the solution found by Onsanger \( K_c = 0.44 \). Moreover, we have:
+Again we find \( K=0 \) and \( K= \infty  \)  fixed points:
+\begin{itemize}
+\item For \( K \gg 1 \) (\( T \rightarrow 0 \)):  unlike the \( d=1 \) we have \( K' \approx \frac{1}{2} \ln e^{4K} \approx 2K \) and hence the low temperature fixed point is also stable.
+\item For \( K \ll 1 \) (\( T \rightarrow \infty  \)): we have \( K' \approx \frac{1}{2} \ln (1+16K^2) \approx 8K^2 \) so the high temperature fixed point is stable as it is in \( d=1 \).
+\end{itemize}
+Hence, in between we must have another unstable fixed point, which is given by:
+\begin{equation*}
+  e^{2K^*} = \frac{e^{4K^*} + e^{-4K^*}}{2} \quad \Rightarrow K^* = 0.305
+\end{equation*}
+Moreover, we have:
 \begin{equation*}
   l^{y_t} = \eval{\dv{K'}{K} }_{K=K^*} \quad \Rightarrow y_t = 0.75
 \end{equation*}
-(where we have considered \( l=2 \)) while the extact solution is \( y_t = 1 \).
+(remind that \( l=2 \)) while the exact solution is \( y_t = 1 \).
+
+Comparing to the previous approximation, the Migdal-Kadanoff approximation gives a result further away from the true answer of \( K_c = 0.441 \). On the other hand, it is in a sense a more straightforward as the procedure did not generate any additional interactions.
 
 This procedure is very easy to generalize in \( d \)-dimensions. For instance, if we consider an Ising cubic lattice (\( d=3 \)), we have three bonds to move, hence the coupling constant transforms as \( K \rightarrow 4K \). Generally, in \( d \)-dimensions, the coupling constant becomes:
 \begin{equation*}
-  K \rightarrow 2^{d-1} \vdot 2K
+  K \rightarrow 2^{d-1}  K
 \end{equation*}
-More generally, if \( l  \) is the scaling factor, we have:
-\begin{equation*}
+Hence,
+\begin{equation}
+  K' = \frac{1}{2} \ln \cosh(2^{d-1} \vdot 2K)
+\end{equation}
+In conclusion, for a generic scaling factor \( l \), we have:
+\begin{equation}
   K_l' = \frac{1}{2} \ln \cosh(b^{d-1} \vdot 2K)
-\end{equation*}
+\end{equation}
 In higher dimensions the approximations worsens.
-\end{example}
+
 
 
 

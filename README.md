@@ -1,3 +1,3 @@
 # Lectures-Statistical-Mechanics
 
-Update: lecture notes reviewed up to lesson 19.
+Update: lecture notes reviewed up to lesson 20.
