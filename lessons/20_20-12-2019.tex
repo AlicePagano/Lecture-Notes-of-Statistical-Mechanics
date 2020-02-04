@@ -701,9 +701,10 @@ Hence, we have:
   \sum_{S_3 = \pm 1}^{}   \sum_{S_4 = \pm 1}^{}  e^{ K S_1' S_3 + k S_3 S_4 + k S_4 S_2'}
 \end{equation*}
 From the definitions of \( \cosh \) and \( \sinh \) we can write:
-\begin{equation*}
+\begin{equation}
   e^{K S_3 S_4}  = \cosh K ( 1 + x S_3 S_4)
-\end{equation*}
+  \label{eq:20_13}
+\end{equation}
 where
 \begin{equation*}
   x \equiv \tanh K
@@ -727,54 +728,61 @@ Therefore, the result of the partial sum for the first two blocks is:
 where the term \( 2^2 \) comes from the fact that the constant terms \( 1 \) and \( x^3 S_1' S_2' \)  must be summed \( 2^2 \) times, two for the possible values of \( S_3 \) and two for \( S_4 \).
 Therefore, the partition function of the block spin system will be:
 \begin{equation}
-  Z_{N'}' (k') = \Tr_{ \{ S_I' \}  } \qty[ 2 ^{2N'} \qty( \cosh k)^{3N'} \qty(1 + x^3 S_I' S_{I+1} )  ]
-  \label{eq:20_5}
+  Z_{N'}' (K') = \Tr_{ \{ S_I' \}  } \qty[ 2 ^{2N'} \qty( \cosh K)^{3N'} \qty(1 + x^3 S_I' S_{I+1} )  ]
 \end{equation}
+where \( N'=N/3  \)  is the new number of spin variables.
+This must have the same form of \( Z_N (K) \). We know that in general
+\begin{equation*}
+  Z_{N'}' = \Tr_{\{ S_I' \}  } e^{-\beta \mathcal{H}'}, \quad   - \beta \mathcal{H}' ( \{ S_I' \}  ) = N' g (K,K') + K' \sum_{I}^{} S_I' S_{I+1}'
+\end{equation*}
+ so let us try to write \(  Z_{N'}'[K'] \) in this form.
+Let us note that
 
-
-
-
-This must have the same form of \( Z_N (k) \). Hence, we should rewrite equation \eqref{eq:20_5} as
-\begin{equation}
-  Z_{N'}' (k') = \Tr_{ \{ S_I' \}  } \exp [ - \beta \mathcal{H}' (k')]
-\end{equation}
-with
-\begin{equation}
-  - \beta \mathcal{H}' = N' g (k,k') + k' \sum_{I}^{} S_I' S_{I+1}'
-\end{equation}
-We note that
-\begin{equation}
+\begin{equation*}
 \begin{split}
-2^2 \qty(\cosh k)^3 (1 + x^3 S_I' S_{I+1}')   &=  2^2 \frac{\cosh k'}{\cosh k'}
- \qty(\cosh k)^3  (1 + x^3 S_I' S_{I+1}') \\
- & = 2^2 \frac{(\cosh k)^3}{\cosh k'}
-  \qty(\cosh k')  (1 + x' S_I' S_{I+1}') \\
-  & = 2^2 \frac{(\cosh k)^3}{\cosh k'}
-   \exp (k' S_I' S_{I+1}') \\
-   & = \exp [ 2 \ln{2} + \ln{ \qty[ \frac{(\cosh k)^3}{\cosh k'}] }  + k' S_I' S_{I+1}' ]
+2^2 \qty(\cosh K)^3 (1 + x^3 S_I' S_{I+1}')   &=  2^2 \frac{\cosh K'}{\cosh K'}
+ \qty(\cosh K)^3  (1 + x^3 S_I' S_{I+1}') \\
+ & \overset{(a)}{=}  2^2 \frac{(\cosh K)^3}{\cosh k'}
+  \qty(\cosh K')  (1 + x' S_I' S_{I+1}') \\
+  & \overset{(b)}{=}  2^2 \frac{(\cosh K)^3}{\cosh K'}
+   \exp (K' S_I' S_{I+1}') \\
+   & = e^{ 2 \ln{2} + \ln{ \qty[ \frac{(\cosh K)^3}{\cosh K'}] }  + K' S_I' S_{I+1}' }
 \end{split}
+\end{equation*}
+where in \( (a) \)  we have defined \( x^3 \equiv x' \), so that \(   (\tanh K)^3 = \tanh K' \), and where in \( (b) \) we have used the relation Eq.\eqref{eq:20_13}.
+Hence, we have:
+\begin{equation}
+   g(K,K') = 2 \ln{2} +  \ln{ \qty[ \frac{(\cosh K)^3}{\cosh K'}] }
 \end{equation}
-It is ok with
+The new effective Hamiltonian has therefore the same form of the original one with the redefined coupling constant \( K' \), and exhibits also a new term (\( g(K,K') \))  independent of the block spins.
+
+Let us note that \( \qty(\tanh K)^3 = \tanh K'  \) is the recursion relation we are looking for:
+\begin{equation}
+  K'= \tanh^{-1} \qty[ \tanh^3 K]
+\end{equation}
+Rewritten in the form \( x' = x^3 \), its fixed points are given by:
+\begin{equation*}
+  x^* = {x^*}^3
+\end{equation*}
+whose solutions are:
 \begin{equation}
   \begin{cases}
-   g(k,k') = 2 \ln{2} +  \ln{ \qty[ \frac{(\cosh k)^3}{\cosh k'}] } \\
-   x' = x^3  \iff k'= \tanh^{-1} \qty[ (\tanh k)^3] \Rightarrow k' = R_{b=3} (k)\\
-   N' = \frac{N}{b}
+   x^* = 0 \iff K \rightarrow 0 \iff T \rightarrow \infty \\
+   x^* = 1 \iff K \rightarrow \infty  \iff T \rightarrow 0
   \end{cases}
 \end{equation}
-For \( x' = x^3 \), we have two fixed points
-\begin{equation}
-  \begin{cases}
-   x^* = 0 \iff k \rightarrow 0 \iff T \rightarrow \infty \\
-   x^* = 1^- \iff k \rightarrow \infty  \iff T \rightarrow 0
-  \end{cases}
-\end{equation}
-For \( \forall x_0 < 1 \), we have \( R^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0^+ \), \( x=1 \) is an unstable fixed point, as shown in Figure  \ref{fig:20_3}.
+Since \( \tanh K < 1 \forall K \in R \), starting from any initial point  \( x_0 < 1 \) the recursion relation \(  x' = x^3 \) makes \( x \) smaller every time, moving it towards the fixed point \( x^*=0 \). We can thus conclude that \( x^*=1 \) is an unstable fixed point while \( x^*=0 \) is stable, as graphically represented in Figure \ref{fig:20_3}.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/20_image/3.pdf}
-\caption{\label{fig:20_3} Description.}
+\caption{\label{fig:20_3} RG flux of trajectories for the recursion relation \( (\tanh K)^{3}=\tanh K' \).}
 \end{figure}
+
+
+
+
+
 We have
 \begin{equation}
   \xi (x') = \frac{\xi (x)}{b}, \quad \text{with } x' = x^b
