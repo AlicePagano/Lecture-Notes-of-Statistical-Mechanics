@@ -854,8 +854,16 @@ In conclusion, for a generic scaling factor \( l \), we have:
 \end{equation}
 In higher dimensions the approximations worsens.
 
-
-
+\subsection{Decimation procedure and transfer matrix method}
+Let us consider the partition function
+\begin{equation*}
+  Z_N = \sum_{\{ S \}  }^{} \prod_{i=1}^{N} \overbrace{e^{w (S_i,S_{i+1})} }^{\bra{S_i} \mathbb{T} \ket{S_{i+1}}  }
+  = \Tr(\mathbb{T}^N) =   \Tr(\mathbb{T}^2)^{N/2} = \Tr(\mathbb{T}^l)^{N/l}
+\end{equation*}
+Hence, after the renormalization procedure the transfer matrix transforms as:
+\begin{equation}
+  \mathbb{T}_l' = T^l \quad \Rightarrow   \mathbb{T}_l' \qty( \{ K' \}  )  =   \mathbb{T} \qty(\{ K \}  )^l
+\end{equation}
 
 
 
