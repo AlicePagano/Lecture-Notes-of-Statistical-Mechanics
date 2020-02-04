@@ -819,10 +819,19 @@ where yhe crucial difference is the factor \( 2 \) in the \(\cosh (2 \vdot 2K)  
 \end{equation*}
 that is similar to the solution found by Onsanger \( K_c = 0.44 \). Moreover, we have:
 \begin{equation*}
-  2^{y_t} = \eval{\dv{K'}{K} }_{K=K^*} \quad \Rightarrow y_t = 0.75
+  l^{y_t} = \eval{\dv{K'}{K} }_{K=K^*} \quad \Rightarrow y_t = 0.75
 \end{equation*}
-while the extact solution is \( y_t = 1 \).
+(where we have considered \( l=2 \)) while the extact solution is \( y_t = 1 \).
 
+This procedure is very easy to generalize in \( d \)-dimensions. For instance, if we consider an Ising cubic lattice (\( d=3 \)), we have three bonds to move, hence the coupling constant transforms as \( K \rightarrow 4K \). Generally, in \( d \)-dimensions, the coupling constant becomes:
+\begin{equation*}
+  K \rightarrow 2^{d-1} \vdot 2K
+\end{equation*}
+More generally, if \( l  \) is the scaling factor, we have:
+\begin{equation*}
+  K_l' = \frac{1}{2} \ln \cosh(b^{d-1} \vdot 2K)
+\end{equation*}
+In higher dimensions the approximations worsens.
 \end{example}
 
 
