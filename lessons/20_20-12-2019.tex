@@ -786,27 +786,28 @@ Let us now see how the correlation length transforms. We know that in general, i
   \xi (x') = \frac{\xi (x)}{l}
 \end{equation*}
 where in general \(  x' = x^l \).
-Since \( l \) is in general arbitrary, we can choose \( l = c / \ln{x} \)  and thus:
-\begin{equation}
-  \xi (x^b) = \xi  \qty(e ^{b \ln{x} }) = \xi (e^c) = \frac{\xi (x)}{b}
+Since \( l \) is in general arbitrary, we can choose
+\begin{equation*}
+  l = c / \ln{x}
+\end{equation*}
+and thus:
+\begin{equation*}
+  \xi (x') = \xi (x^l) = \xi  \qty(e ^{l \ln{x} }) = \xi (e^c) = \frac{\xi (x)}{l}
   = \qty(\frac{c}{\ln{x} })^{-1} \xi (x)
-\end{equation}
-
-
-
-
-Finally,
-\begin{equation}
+\end{equation*}
+Therefore:
+\begin{equation*}
   \xi (e^c) = \frac{\ln{x} }{c} \xi (x) \quad \Rightarrow \xi (x) = \frac{c \xi (e^c)}{\ln{x} } = \frac{const}{\ln{x} }
-\end{equation}
+\end{equation*}
+Finally, substituting \( x= \tanh K \), we obtain:
 \begin{equation}
-  \xi (k) = \frac{const}{\ln{\qty(\tanh k) } }
+  \xi (K) = \frac{const}{\ln{\qty(\tanh K) } }
 \end{equation}
-equal to the exact model in \( D=1 \).
-\( k \rightarrow \infty  \) \( (x \rightarrow 1) \), we have
-\begin{equation}
+which is the exact result we have found at the end of the transfer matrix method for \( d=1 \).
+Let us note that for \( K \rightarrow \infty  \) (i.e. \( x \rightarrow 1 \)), we have
+\begin{equation*}
   \xi \sim e^{const/T}
-\end{equation}
+\end{equation*}
 finite \( \forall k \neq \infty  \).
 
 
