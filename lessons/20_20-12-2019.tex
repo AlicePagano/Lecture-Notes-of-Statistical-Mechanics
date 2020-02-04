@@ -903,7 +903,7 @@ We proceed in the following way:
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][The lattice after the vertical bonds moving step and after the sum of the spin represented in red.]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/15.pdf}  \label{fig:20_12_2} }
+\subfloat[][The lattice after the vertical bonds moving step and after the sum of the spin along \( x \).]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/15.pdf}  \label{fig:20_12_2} }
 \end{minipage}
 \caption{\label{fig:20_12} }
 \end{figure}
@@ -913,6 +913,7 @@ This gives
 \begin{equation*}
   K_x' = \frac{1}{2} \ln \cosh (2K_x)
 \end{equation*}
+The lattice after this step is shown in Figure \ref{fig:20_12_2}.
 
 \item We now perform the moving of the renormalized bonds \( K_x' \).
 The bonds along \( x \) that survive will have weight
@@ -929,11 +930,21 @@ This step is illustrated in Figure \ref{fig:20_13}
 
 
 
-\item We finally perform the sum of the red cross spins along the \( y \) direction.
+\item We finally perform the sum of the spins along the \( y \) direction as for the case \( d=1 \).
 We obtain:
 \begin{equation*}
   K_y'' = \frac{1}{2} \ln \cosh (2K_y') = \frac{1}{2} \cosh (4K_y)
 \end{equation*}
+The lattice after this step is shown in Figure \ref{fig:20_14}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{../lessons/20_image/17.pdf}
+\caption{\label{fig:20_14} The lattice after the sum of the spin along \( x \).}
+\end{figure}
+
+
+
 
 \end{enumerate}
 The final recursion equations are:
