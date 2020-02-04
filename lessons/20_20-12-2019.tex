@@ -702,24 +702,38 @@ Hence, we have:
 \end{equation*}
 From the definitions of \( \cosh \) and \( \sinh \) we can write:
 \begin{equation*}
-  e^{K S_3 S_4}  = \cosh (k) ( 1 + x S_3 S_4)
+  e^{K S_3 S_4}  = \cosh K ( 1 + x S_3 S_4)
 \end{equation*}
-
-
-
-with
-\begin{equation}
-  x \equiv \tanh k
-\end{equation}
-we have
-\begin{equation}
-  \sum_{S_3,S_4}^{} \qty(\cosh k)^3 \qty(1 + x S_1' S_3) \qty(1 + x S_3 S_4) \qty(1 + x S_4 S_2')
-\end{equation}
-Performing the expansion and summing over \( S_3, S_4 \)  it is easy to show that (to do)
+where
+\begin{equation*}
+  x \equiv \tanh K
+\end{equation*}
+so that the sum over \( S_3 \) and \( S_4 \)  becomes:
+\begin{equation*}
+  \sum_{S_3,S_4}^{} \qty(\cosh K)^3 \qty(1 + x S_1' S_3) \qty(1 + x S_3 S_4) \qty(1 + x S_4 S_2')
+\end{equation*}
+Expanding the product and keeping in mind that \( S_i^2 = +1 \), we get:
+\begin{equation*}
+  \begin{aligned}
+    (1+xS_{1}'S_{3})(1+xS_{3}S_{4})(1+xS_{4}S_{2}')=\\
+    =1+xS_{1}'S_{3}+xS_{3}S_{4}+tS_{4}S_{2}'+x^{2}S_{1}'S_{4}+x^{2}S_{1}'S_{3}S_{4}S_{2}'+x^{2}S_{3}S_{2}'+x^{3}S_{1}'S_{2}'
+  \end{aligned}
+\end{equation*}
+and clearly all the terms containing \( S_3 \)  or \( S_4 \)  (or both) vanish when we perform the sum \( \sum _{S_{3},S_{4}=\pm 1} \).
+Therefore, the result of the partial sum for the first two blocks is:
+\begin{equation*}
+   2^{2}(\cosh K)^{3}\prod _{I}(1+x^{3}S_{1}'S_{2}')
+\end{equation*}
+where the term \( 2^2 \) comes from the fact that the constant terms \( 1 \) and \( x^3 S_1' S_2' \)  must be summed \( 2^2 \) times, two for the possible values of \( S_3 \) and two for \( S_4 \).
+Therefore, the partition function of the block spin system will be:
 \begin{equation}
   Z_{N'}' (k') = \Tr_{ \{ S_I' \}  } \qty[ 2 ^{2N'} \qty( \cosh k)^{3N'} \qty(1 + x^3 S_I' S_{I+1} )  ]
   \label{eq:20_5}
 \end{equation}
+
+
+
+
 This must have the same form of \( Z_N (k) \). Hence, we should rewrite equation \eqref{eq:20_5} as
 \begin{equation}
   Z_{N'}' (k') = \Tr_{ \{ S_I' \}  } \exp [ - \beta \mathcal{H}' (k')]
