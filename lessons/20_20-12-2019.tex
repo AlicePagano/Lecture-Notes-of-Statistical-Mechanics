@@ -940,13 +940,11 @@ The lattice after this step is shown in Figure \ref{fig:20_14}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{../lessons/20_image/17.pdf}
-\caption{\label{fig:20_14} The lattice after the sum of the spin along \( x \).}
+\caption{\label{fig:20_14} The lattice after the sum of the spin along \( y \).}
 \end{figure}
 
-
-
-
 \end{enumerate}
+
 The final recursion equations are:
 \begin{equation}
   \begin{cases}
@@ -957,15 +955,25 @@ The final recursion equations are:
 Hence, the fixed points are given by:
 \begin{equation}
   \begin{cases}
-     K_x^* = 2 K_x' = \ln \cosh (2K_x^*) \\
+     K_x^* = \ln \cosh (2K_x^*) \\
        K_y^* = \frac{1}{2} \cosh (4K_y^*)
   \end{cases}
 \end{equation}
+The couplings \( K_x \) and \( K_y \) at the fixed point are related by
+\begin{equation}
+  K_x^* = 2 K_y^*
+\end{equation}
+Hence, the value of \( K^* \) is \( (0.62,0.31) \). Moreover, we have:
+\begin{subequations}
+\begin{align*}
+  \qty(\pdv{K_x''}{K_x} )_{K_x=K_x^*}  &=  2 \tanh 2K_x^* = 2^{y_t} \\
+  \qty(\pdv{K_y''}{K_y} )_{K_y=K_y^*}  &=  2 \tanh 4K_y^* =  2 \tanh (2K_x^*) =2^{y_t}
+\end{align*}
+\end{subequations}
+This gives \( y_t = 0.75 \). Let us note that \( y_t \) is the same as the one for the symmetric case.
 
 
-
-
-
+All points on the critical surface are critical with a given choice of \( K_x/K_y \). All these \( T_c (K_x/K_y) \) flow to the Ising model fixed point (same universality class).  
 
 
 
