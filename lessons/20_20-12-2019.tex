@@ -891,7 +891,10 @@ Now, let us consider an anysotropic Ising model on a square lattice, as in Figur
 
 We proceed in the following way:
 \begin{enumerate}
-\item Firstly, we move the vertical bonds and double the ones that will survive, as in Figure \ref{fig:20_12_1}.
+\item Firstly, we move the vertical bonds and double the ones that will survive, as in Figure \ref{fig:20_12_1}. The vertical bonds weight becomes:
+\begin{equation*}
+  K_y' = 2 K_y
+\end{equation*}
 
 
 \begin{figure}[h!]
@@ -900,25 +903,31 @@ We proceed in the following way:
 \end{minipage}
 \begin{minipage}[]{0.5\linewidth}
 \centering
-\subfloat[][Description]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/15.pdf}  \label{fig:20_12_2} }
+\subfloat[][The lattice after the vertical bonds moving step and after the sum of the spin represented in red.]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/15.pdf}  \label{fig:20_12_2} }
 \end{minipage}
-\caption{\label{fig:20_12} Description}
+\caption{\label{fig:20_12} }
 \end{figure}
 
-
-
- We can now perform the sum of the spins, represented as a red cross in the figure, along the \( x \) direction as for the case \( d=1 \).
+ We can now perform the sum of the spins, represented as a red cross in Fig.\ref{fig:20_12_1}, along the \( x \) direction as for the case \( d=1 \).
 This gives
 \begin{equation*}
   K_x' = \frac{1}{2} \ln \cosh (2K_x)
 \end{equation*}
 
 \item We now perform the moving of the renormalized bonds \( K_x' \).
-
 The bonds along \( x \) that survive will have weight
 \begin{equation*}
   K_x'' = 2 K_x' = \ln \cosh (2K_x)
 \end{equation*}
+This step is illustrated in Figure \ref{fig:20_13}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{../lessons/20_image/16.pdf}
+\caption{\label{fig:20_13} The lattice after the renormalized horizontal bonds \( K_x' \)  moving step.}
+\end{figure}
+
+
 
 \item We finally perform the sum of the red cross spins along the \( y \) direction.
 We obtain:
