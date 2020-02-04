@@ -784,8 +784,46 @@ Onsager's exact result, as we know, gives \( \alpha =0 \) (since the specific he
 \caption{\label{fig:20_8} RG flux of trajectories of the recursion relation \(   K^* = \frac{3}{8} \ln{\cosh 4 K^*} \). }
 \end{figure}
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{../lessons/20_image/10.pdf}
+\caption{\label{fig:20_9} Square lattice. The red cross are the spins to sum.}
+\end{figure}
 
 
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][Some bonds are moved to neighbouring ones.]{ \includegraphics[width=0.8\textwidth]{../lessons/20_image/11.pdf}  \label{fig:} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][The double bonds have coupling constant \( K \rightarrow 2K \). ]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/12.pdf}  \label{fig:} }
+\end{minipage}
+\caption{\label{fig:} Migdal-Kadanoff for the Ising model on the square lattice.}
+\end{figure}
+
+
+\begin{example}{Migdal-Kadanoff (or Bond-Moving)}{}
+It is also called potential moving. Let us consider again the Ising model on the square lattice as in Figure \ref{fig:20_9}, where \( x \) are again the spin to sum over.
+
+As said, the decimation procedure is exact in \( d=1 \), hence we try to start from a similar topology. The idea is to remove the same interactions, i.e. same bonds; however a simple deletion of same bonds is a too strong approximation, therefore what we do is moving some bonds to neighbouring ones,
+At this point, the double bonds have coupling constant \( K \rightarrow  2 K \).
+
+After we have done this, the sum over \( x \) spins is similar to the Ising \( d=1 \) and gives:
+\begin{equation*}
+  K' = \frac{1}{2} \ln \cosh (2 \vdot 2K)
+\end{equation*}
+where yhe crucial difference is the factor \( 2 \) in the \(\cosh (2 \vdot 2K)  \). This gives a third fixed point:
+\begin{equation*}
+  K^* = \frac{1}{2} \ln \cosh (4 K^*) \quad \Rightarrow K^* = 0.3
+\end{equation*}
+that is similar to the solution found by Onsanger \( K_c = 0.44 \). Moreover, we have:
+\begin{equation*}
+  2^{y_t} = \eval{\dv{K'}{K} }_{K=K^*} \quad \Rightarrow y_t = 0.75
+\end{equation*}
+while the extact solution is \( y_t = 1 \).
+
+\end{example}
 
 
 
