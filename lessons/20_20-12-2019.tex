@@ -850,7 +850,7 @@ Hence,
 \end{equation}
 In conclusion, for a generic scaling factor \( l \), we have:
 \begin{equation}
-  K_l' = \frac{1}{2} \ln \cosh(b^{d-1} \vdot 2K)
+  K_l' = \frac{1}{2} \ln \cosh(l^{d-1} \vdot 2K)
 \end{equation}
 In higher dimensions the approximations worsens.
 
@@ -862,16 +862,85 @@ Let us consider the partition function
 \end{equation*}
 Hence, after the renormalization procedure the transfer matrix transforms as:
 \begin{equation}
-  \mathbb{T}_l' = T^l \quad \Rightarrow   \mathbb{T}_l' \qty( \{ K' \}  )  =   \mathbb{T} \qty(\{ K \}  )^l
+  \mathbb{T}_l' = \mathbb{T}^l \quad \Rightarrow   \mathbb{T}_l' \qty( \{ K' \}  )  =   \mathbb{T} \qty(\{ K \}  )^l
+  \label{eq:20_12}
+\end{equation}
+In the case in which the Migdal-Kadanoff approximation is considered, Eq.\eqref{eq:20_12} becomes
+\begin{equation}
+   \mathbb{T}_l' \qty( \{ K' \}  )  =   \mathbb{T} \qty(\{ l^{d-1} K \}  )^l
 \end{equation}
 
 
 
+\clearpage
+
+\subsection{Migdal-Kadanoff for anysotropic Ising model on a square lattice}
+
+Now, let us consider an anysotropic Ising model on a square lattice, as in Figure \ref{fig:20_11}. First of all, let us suppose that vertical bonds have \( K_y \equiv J_y/K_B T \), while horizontal ones \( K_x \equiv J_x/k_B T \). Hence, we have:
+\begin{equation*}
+  \frac{K_x}{K_y} = \frac{J_x}{J_y}
+\end{equation*}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.35\textwidth]{../lessons/20_image/13.pdf}
+\caption{\label{fig:20_11} Anysotropic Ising model on a square lattice, with coupling constants \( K_x \) and \( K_y \).}
+\end{figure}
 
 
 
+We proceed in the following way:
+\begin{enumerate}
+\item Firstly, we move the vertical bonds and double the ones that will survive, as in Figure \ref{fig:20_12_1}.
 
 
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][The lattice after the vertical bonds moving step.]{ \includegraphics[width=0.8\textwidth]{../lessons/20_image/14.pdf}  \label{fig:20_12_1} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][Description]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/15.pdf}  \label{fig:20_12_2} }
+\end{minipage}
+\caption{\label{fig:20_12} Description}
+\end{figure}
+
+
+
+ We can now perform the sum of the spins, represented as a red cross in the figure, along the \( x \) direction as for the case \( d=1 \).
+This gives
+\begin{equation*}
+  K_x' = \frac{1}{2} \ln \cosh (2K_x)
+\end{equation*}
+
+\item We now perform the moving of the renormalized bonds \( K_x' \).
+
+The bonds along \( x \) that survive will have weight
+\begin{equation*}
+  K_x'' = 2 K_x' = \ln \cosh (2K_x)
+\end{equation*}
+
+\item We finally perform the sum of the red cross spins along the \( y \) direction.
+We obtain:
+\begin{equation*}
+  K_y'' = \frac{1}{2} \ln \cosh (2K_y') = \frac{1}{2} \cosh (4K_y)
+\end{equation*}
+
+\end{enumerate}
+The final recursion equations are:
+\begin{equation}
+  \begin{cases}
+     K_x'' = 2 K_x' = \ln \cosh (2K_x) \\
+       K_y'' = \frac{1}{2} \cosh (4K_y)
+  \end{cases}
+\end{equation}
+Hence, the fixed points are given by:
+\begin{equation}
+  \begin{cases}
+     K_x^* = 2 K_x' = \ln \cosh (2K_x^*) \\
+       K_y^* = \frac{1}{2} \cosh (4K_y^*)
+  \end{cases}
+\end{equation}
 
 
 
