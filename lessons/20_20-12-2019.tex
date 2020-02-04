@@ -982,6 +982,59 @@ This gives \( y_t = 0.75 \). Let us note that \( y_t \) is the same as the one f
 Let us consider the plot in Figure \ref{fig:20_15}. We note that all points on the critical surface are critical with a given choice of \( K_x/K_y \). All these \( T_c (K_x/K_y) \) flow to the Ising model fixed point (same universality class).
 
 
+\section{RG transformation: general approach}
+A RG transformation reduces the number of degrees of freedom by \( l^d \), i.e. going from \( N \) to \( N' = N/l^d \).
+This is achieved by performing a "partial trace" over the degrees of freedom, say, \( \{ S_i \}_1^N   \), and keeping the coarse grained degrees of freedom \( \{ S_I' \}_1^{N'}   \).
+Formally, we can write (we call \( -\beta \mathcal{H} \rightarrow \mathcal{H}[K] \)):
+\begin{equation}
+  e^{\mathcal{H}_{N'}' \{ [K'],S_I' \}  } = \Tr_{\{ S_i \}  }' e^{ \mathcal{H}_N \{ [K],S_i \}  }  =
+  \Tr_{\{ S_i \}  } P (S_i,S_I') e^{ \mathcal{H}_N \{ [K],S_i \}  }
+\end{equation}
+where \( \Tr'  \) is the constrained trace, while \( P (S_i,S_I')  \) is the \textbf{projection operator}, which "incorporates" the constraints and allows us to write an unconstrained trace. This operator must satisfy the following properties:
+\begin{enumerate}
+
+\item It must be built such that \( S_I' \) have the same range of values of \( S_i \) (i.e. if \( S_i = \pm 1 \), we should have \( S_I' = \pm1 \)).
+
+\item \( P (S_i,S_I')\ge 0 \). This garantees that \( e^{\mathcal{H}_N' \{ [K'], S_I' \}  } \ge 0 \).
+
+\item \( P (S_i, S_I') \) should preserve the symmetries of the original Hamiltonian.
+
+\item \( \Tr_{\{ S_I' \}  } P (S_i,S_I') = \sum_{S_I'}^{}  P (S_i,S_I') = 1  \). This condition is necessary to satisfy
+\begin{equation*}
+  Z_{N'} [K'] = Z_N [K]
+\end{equation*}
+Indeed,
+\begin{equation*}
+\begin{split}
+  Z_{N'} [K'] &= \Tr_{\{ S_I' \}  } e^{\mathcal{H}_{N'}' \{ [K'],S_I' \}  }
+  = \Tr_{\{ S_I' \}  } \Tr_{\{ S_i \}  } P (S_i,S_{I}') e^{\mathcal{H}_N \{ [K],S_i \}  } \\
+  & =  \Tr_{\{ S_i \}  }  \qty[ \Tr_{\{ S_I' \}  } P (S_i,S_I') ]   e^{\mathcal{H}_N \{ [K],S_i \}  }
+   =  \Tr_{\{ S_i \}  }  e^{\mathcal{H}_N \{ [K],S_i \}  } \\ & = Z_N [K]
+\end{split}
+\end{equation*}
+
+\end{enumerate}
+
+In general this operator must be built "by hand". Let us see some examples.
+
+\begin{example}{Block-Kadanoff transformation for \( \pmb{l=2} \)}{}
+  For example, in the case of Kadanoff's block transformation we can assign the block spins \( S_I' \)  their values with the "majority rule", i.e. we build (hyper)cubic blocks of side \( (2l+1)a \) (so that each one contains an odd number of spins) and set:
+\begin{equation*}
+  S_I' = \text{sign} \qty(\sum_{i \in I}^{} S_i ) = \pm 1
+\end{equation*}
+and the projection operator can be written as:
+\begin{equation*}
+  P (S_i, S_I') = \prod_{I}^{}  \delta \qty(S_I' - \text{sign} \qty(\sum_{i \in I}^{} S_i  ) )
+\end{equation*}
+As we can see, doing an unconstrained trace with this operator is equivalent to performing the constrained trace.
+
+\end{example}
+
+\begin{example}{Decimation in \( \pmb{d=1} \) with \( \pmb{l=2} \)}{}
+
+\end{example}
+
+
 
 
 
