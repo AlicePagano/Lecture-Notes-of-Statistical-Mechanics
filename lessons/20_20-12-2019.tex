@@ -1031,9 +1031,40 @@ As we can see, doing an unconstrained trace with this operator is equivalent to 
 \end{example}
 
 \begin{example}{Decimation in \( \pmb{d=1} \) with \( \pmb{l=2} \)}{}
+Let us do decimation in \( d=1 \) with \( l=2 \). In this case, \( S_I' \) are the even sites \( I=2i \). Hence, we have:
+\begin{equation*}
+  P (S_i, S_I') = \prod_{I=1}^{N/2} \delta \qty( S_I' - S_{2i})
+\end{equation*}
+The partition function is:
+\begin{equation*}
+\begin{split}
+  Z_{N/2}' &= \Tr_{\{ S_i \}  } P (S_i, S_I') e^{\sum_{i}^{} w (S_{2i}, S_{2i+1}) }   \\
+  &= \Tr_{\{ S_i \}  } \qty[ \prod_{I=1}^{N/2} \delta \qty( S_I' - S_{2i}) ]  e^{\sum_{i}^{} w (S_{2i}, S_{2i+1}) }  \\
+  &= \Tr_{S_I'}   \prod_{I=1}^{N/2} \qty( \sum_{S_{2i+1} = \pm1}^{} e^{ w (S_I',S_{2i+1} ) + w (S_{2i+1}, S_{I+1}' )}   )
+\end{split}
+\end{equation*}
+
 
 \end{example}
 
+\subsection{Variational RG}
+In this scheme the projection operator \( P(S_i,S_I') \) depends on a set of parameters \( \{ \lambda  \}   \) and the RG transformation is formally
+\begin{equation*}
+  e^{\mathcal{H}_{N'}' \{ [K'], \{ \lambda  \}, S_I'   \}  } = \Tr_{\{ S_i \}  } P (S_i,S_I', \{ \lambda  \}  ) e^{\mathcal{H}_N \{ [K], S_i \}  }
+\end{equation*}
+After choosing a certain form of \(  P (S_i,S_I', \{ \lambda  \}  ) \), one can minimize, over the space of \( \{ \lambda  \}   \), the expression:
+\begin{equation*}
+  \underbrace{ \log \qty(  \Tr_{\{ S_i \}  }   e^{\mathcal{H}_N \{ [K], S_i \}  } )  }_{\propto F_N}
+  - \underbrace{\log \qty(  \Tr_{\{ S_I' \}  }   e^{\mathcal{H}_{N'}' \{ [K'], \{ \lambda  \}, S_I'   \}  }   )    }_{\propto F_{N'}}
+\end{equation*}
+Notice that, when
+\begin{equation*}
+   \Tr_{\{ S_I' \}  }  P (S_i,S_I', \{ \lambda  \}  ) = 1
+\end{equation*}
+the RG transformation is exact. In general, it is not possible to choose the parameters \(  \{ \lambda  \} \) to satisfy this condition and various schemes have been introduced to minimize
+\begin{equation*}
+  \Delta F = F_N - F_{N'}
+\end{equation*}
 
 
 
