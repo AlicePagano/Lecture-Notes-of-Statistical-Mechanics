@@ -779,19 +779,22 @@ Since \( \tanh K < 1 \forall K \in R \), starting from any initial point  \( x_0
 \caption{\label{fig:20_3} RG flux of trajectories for the recursion relation \( (\tanh K)^{3}=\tanh K' \).}
 \end{figure}
 
+Note that the fact that the flow converges towards \( T = \infty  \)  means that on large spatial scales the system is well described by a Hamiltonian with a high effective temperature, and so the system will always be in the paramagnetic phase (a part when \( T=0 \)).
 
-
-
-
-We have
-\begin{equation}
-  \xi (x') = \frac{\xi (x)}{b}, \quad \text{with } x' = x^b
-\end{equation}
-where \( b \) is arbitrary. Let us choose \( b = c / \ln{x}  \):
+Let us now see how the correlation length transforms. We know that in general, if the decimation reduces the number of spins by a factor \( l \) (in the case we were considering above, \( l=3 \)) we have to rescale distances accordingly, and in particular:
+\begin{equation*}
+  \xi (x') = \frac{\xi (x)}{l}
+\end{equation*}
+where in general \(  x' = x^l \).
+Since \( l \) is in general arbitrary, we can choose \( l = c / \ln{x} \)  and thus:
 \begin{equation}
   \xi (x^b) = \xi  \qty(e ^{b \ln{x} }) = \xi (e^c) = \frac{\xi (x)}{b}
   = \qty(\frac{c}{\ln{x} })^{-1} \xi (x)
 \end{equation}
+
+
+
+
 Finally,
 \begin{equation}
   \xi (e^c) = \frac{\ln{x} }{c} \xi (x) \quad \Rightarrow \xi (x) = \frac{c \xi (e^c)}{\ln{x} } = \frac{const}{\ln{x} }
@@ -805,7 +808,6 @@ equal to the exact model in \( D=1 \).
   \xi \sim e^{const/T}
 \end{equation}
 finite \( \forall k \neq \infty  \).
-
 
 
 
