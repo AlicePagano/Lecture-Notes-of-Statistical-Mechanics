@@ -462,7 +462,7 @@ Let us consider the one-dimensional case \( d=1 \)  with nearest-neighbour inter
 
 The idea of the renormalization group is to perform an integration over some degrees of freedom and obtain a new partition function with \( N/l^d \) spins but of the same form of the one describing the original system with \( N \) spins.
 
-There are many ways to perform this partial integration. Here we consider the \emph{decimation} procedure with \( l=2 \).
+There are many ways to perform this partial integration. Here we consider the \emph{decimation} procedure with \( l=2 \) and with \( l=3 \). We will see that in the case \( d=1 \) the procedure is clearly exact. 
 
 \subsection{Ising \( \pmb{d=1} \), RSRG with \( \pmb{l=2} \).}
 A coarse graining of \( l=2  \) can be obtained for instance by summing over the spins positioned at the \emph{even} sites. Before doing this sum it is convenient to rename the even spins \( \sigma _{2i} \) as \( S_i \) and the odd spins (the ones that will survive) \( \sigma _{2i+1} \) as \( \sigma _i' \).
@@ -657,6 +657,144 @@ Hence, we have
 \end{equation*}
 Therefore, the analysis for a scaling parameter \( l \ge 2 \) is similar to the \( l=2 \) case.
 \end{remark}
+
+
+\subsection{Ising \( \pmb{d=1} \), RSRG with \( \pmb{l=3} \) }
+Let us consider again a one-dimensional Ising model with nearest-neighbour interaction and periodic boundary conditions, without any external field (\( H=0 \)). We choose to apply the coarse-graining procedure to our system by grouping spins in blocks of three;
+
+Decimation means summing up over all spins.
+ Idea: pass from a \( N- \) spins system to one with \( \frac{N}{b} \) spins by summing the remaining \( N- \frac{N}{b} \) spins.
+
+
+Case b=3 (see Figure \ref{fig:20_1}).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/20_image/1.pdf}
+\caption{\label{fig:20_1} Description.}
+\end{figure}
+
+Sum over the spins with the empty circle at the border of each clok, keeping the spins full circle untouched.
+We obtain Figure \ref{fig:20_2}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/20_image/2.pdf}
+\caption{\label{fig:20_2} Description.}
+\end{figure}
+
+Let us see how it works for the two blocks \( [S_1,S_2,S_3] \) and \( [S_4,S_5,S_6] \). Let us call
+\begin{equation}
+  S_2 \equiv S_1', \quad S_5 = S_2' \quad \text{fixed}
+\end{equation}
+\begin{equation}
+  \sum_{S_3 = \pm 1}^{}   \sum_{S_4 = \pm 1}^{}  \exp [ k S_1' S_3 + k S_3 S_4 + k S_4 S_2']
+\end{equation}
+Since
+\begin{equation}
+  e^{k S_3 S_4}  = \cosh (k) ( 1 + x S_3 S_4)
+\end{equation}
+with
+\begin{equation}
+  x \equiv \tanh k
+\end{equation}
+we have
+\begin{equation}
+  \sum_{S_3,S_4}^{} \qty(\cosh k)^3 \qty(1 + x S_1' S_3) \qty(1 + x S_3 S_4) \qty(1 + x S_4 S_2')
+\end{equation}
+Performing the expansion and summing over \( S_3, S_4 \)  it is easy to show that (to do)
+\begin{equation}
+  Z_{N'}' (k') = \Tr_{ \{ S_I' \}  } \qty[ 2 ^{2N'} \qty( \cosh k)^{3N'} \qty(1 + x^3 S_I' S_{I+1} )  ]
+  \label{eq:20_5}
+\end{equation}
+This must have the same form of \( Z_N (k) \). Hence, we should rewrite equation \eqref{eq:20_5} as
+\begin{equation}
+  Z_{N'}' (k') = \Tr_{ \{ S_I' \}  } \exp [ - \beta \mathcal{H}' (k')]
+\end{equation}
+with
+\begin{equation}
+  - \beta \mathcal{H}' = N' g (k,k') + k' \sum_{I}^{} S_I' S_{I+1}'
+\end{equation}
+We note that
+\begin{equation}
+\begin{split}
+2^2 \qty(\cosh k)^3 (1 + x^3 S_I' S_{I+1}')   &=  2^2 \frac{\cosh k'}{\cosh k'}
+ \qty(\cosh k)^3  (1 + x^3 S_I' S_{I+1}') \\
+ & = 2^2 \frac{(\cosh k)^3}{\cosh k'}
+  \qty(\cosh k')  (1 + x' S_I' S_{I+1}') \\
+  & = 2^2 \frac{(\cosh k)^3}{\cosh k'}
+   \exp (k' S_I' S_{I+1}') \\
+   & = \exp [ 2 \ln{2} + \ln{ \qty[ \frac{(\cosh k)^3}{\cosh k'}] }  + k' S_I' S_{I+1}' ]
+\end{split}
+\end{equation}
+It is ok with
+\begin{equation}
+  \begin{cases}
+   g(k,k') = 2 \ln{2} +  \ln{ \qty[ \frac{(\cosh k)^3}{\cosh k'}] } \\
+   x' = x^3  \iff k'= \tanh^{-1} \qty[ (\tanh k)^3] \Rightarrow k' = R_{b=3} (k)\\
+   N' = \frac{N}{b}
+  \end{cases}
+\end{equation}
+For \( x' = x^3 \), we have two fixed points
+\begin{equation}
+  \begin{cases}
+   x^* = 0 \iff k \rightarrow 0 \iff T \rightarrow \infty \\
+   x^* = 1^- \iff k \rightarrow \infty  \iff T \rightarrow 0
+  \end{cases}
+\end{equation}
+For \( \forall x_0 < 1 \), we have \( R^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0^+ \), \( x=1 \) is an unstable fixed point, as shown in Figure  \ref{fig:20_3}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/20_image/3.pdf}
+\caption{\label{fig:20_3} Description.}
+\end{figure}
+We have
+\begin{equation}
+  \xi (x') = \frac{\xi (x)}{b}, \quad \text{with } x' = x^b
+\end{equation}
+where \( b \) is arbitrary. Let us choose \( b = c / \ln{x}  \):
+\begin{equation}
+  \xi (x^b) = \xi  \qty(e ^{b \ln{x} }) = \xi (e^c) = \frac{\xi (x)}{b}
+  = \qty(\frac{c}{\ln{x} })^{-1} \xi (x)
+\end{equation}
+Finally,
+\begin{equation}
+  \xi (e^c) = \frac{\ln{x} }{c} \xi (x) \quad \Rightarrow \xi (x) = \frac{c \xi (e^c)}{\ln{x} } = \frac{const}{\ln{x} }
+\end{equation}
+\begin{equation}
+  \xi (k) = \frac{const}{\ln{\qty(\tanh k) } }
+\end{equation}
+equal to the exact model in \( D=1 \).
+\( k \rightarrow \infty  \) \( (x \rightarrow 1) \), we have
+\begin{equation}
+  \xi \sim e^{const/T}
+\end{equation}
+finite \( \forall k \neq \infty  \).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Decimation procedure for \( \pmb{d>1} \): proliferation of the interactions}
@@ -1071,119 +1209,6 @@ the RG transformation is exact. In general, it is not possible to choose the par
 
 
 
-
-\section{Real space renormalization group on 1D Ising model (H=0)}
-
-
-\subsection{Decimation procedure for \( D=1 \)}
-Decimation means summing up over all spins.
-\( D=1 \) the procedure is clearly exact. Idea: pass from a \( N- \) spins system to one with \( \frac{N}{b} \) spins by summing the remaining \( N- \frac{N}{b} \) spins.
-
-
-Case b=3 (see Figure \ref{fig:20_1}).
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/20_image/1.pdf}
-\caption{\label{fig:20_1} Description.}
-\end{figure}
-
-Sum over the spins with the empty circle at the border of each clok, keeping the spins full circle untouched.
-We obtain Figure \ref{fig:20_2}.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/20_image/2.pdf}
-\caption{\label{fig:20_2} Description.}
-\end{figure}
-
-Let us see how it works for the two blocks \( [S_1,S_2,S_3] \) and \( [S_4,S_5,S_6] \). Let us call
-\begin{equation}
-  S_2 \equiv S_1', \quad S_5 = S_2' \quad \text{fixed}
-\end{equation}
-\begin{equation}
-  \sum_{S_3 = \pm 1}^{}   \sum_{S_4 = \pm 1}^{}  \exp [ k S_1' S_3 + k S_3 S_4 + k S_4 S_2']
-\end{equation}
-Since
-\begin{equation}
-  e^{k S_3 S_4}  = \cosh (k) ( 1 + x S_3 S_4)
-\end{equation}
-with
-\begin{equation}
-  x \equiv \tanh k
-\end{equation}
-we have
-\begin{equation}
-  \sum_{S_3,S_4}^{} \qty(\cosh k)^3 \qty(1 + x S_1' S_3) \qty(1 + x S_3 S_4) \qty(1 + x S_4 S_2')
-\end{equation}
-Performing the expansion and summing over \( S_3, S_4 \)  it is easy to show that (to do)
-\begin{equation}
-  Z_{N'}' (k') = \Tr_{ \{ S_I' \}  } \qty[ 2 ^{2N'} \qty( \cosh k)^{3N'} \qty(1 + x^3 S_I' S_{I+1} )  ]
-  \label{eq:20_5}
-\end{equation}
-This must have the same form of \( Z_N (k) \). Hence, we should rewrite equation \eqref{eq:20_5} as
-\begin{equation}
-  Z_{N'}' (k') = \Tr_{ \{ S_I' \}  } \exp [ - \beta \mathcal{H}' (k')]
-\end{equation}
-with
-\begin{equation}
-  - \beta \mathcal{H}' = N' g (k,k') + k' \sum_{I}^{} S_I' S_{I+1}'
-\end{equation}
-We note that
-\begin{equation}
-\begin{split}
-2^2 \qty(\cosh k)^3 (1 + x^3 S_I' S_{I+1}')   &=  2^2 \frac{\cosh k'}{\cosh k'}
- \qty(\cosh k)^3  (1 + x^3 S_I' S_{I+1}') \\
- & = 2^2 \frac{(\cosh k)^3}{\cosh k'}
-  \qty(\cosh k')  (1 + x' S_I' S_{I+1}') \\
-  & = 2^2 \frac{(\cosh k)^3}{\cosh k'}
-   \exp (k' S_I' S_{I+1}') \\
-   & = \exp [ 2 \ln{2} + \ln{ \qty[ \frac{(\cosh k)^3}{\cosh k'}] }  + k' S_I' S_{I+1}' ]
-\end{split}
-\end{equation}
-It is ok with
-\begin{equation}
-  \begin{cases}
-   g(k,k') = 2 \ln{2} +  \ln{ \qty[ \frac{(\cosh k)^3}{\cosh k'}] } \\
-   x' = x^3  \iff k'= \tanh^{-1} \qty[ (\tanh k)^3] \Rightarrow k' = R_{b=3} (k)\\
-   N' = \frac{N}{b}
-  \end{cases}
-\end{equation}
-For \( x' = x^3 \), we have two fixed points
-\begin{equation}
-  \begin{cases}
-   x^* = 0 \iff k \rightarrow 0 \iff T \rightarrow \infty \\
-   x^* = 1^- \iff k \rightarrow \infty  \iff T \rightarrow 0
-  \end{cases}
-\end{equation}
-For \( \forall x_0 < 1 \), we have \( R^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0^+ \), \( x=1 \) is an unstable fixed point, as shown in Figure  \ref{fig:20_3}.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/20_image/3.pdf}
-\caption{\label{fig:20_3} Description.}
-\end{figure}
-We have
-\begin{equation}
-  \xi (x') = \frac{\xi (x)}{b}, \quad \text{with } x' = x^b
-\end{equation}
-where \( b \) is arbitrary. Let us choose \( b = c / \ln{x}  \):
-\begin{equation}
-  \xi (x^b) = \xi  \qty(e ^{b \ln{x} }) = \xi (e^c) = \frac{\xi (x)}{b}
-  = \qty(\frac{c}{\ln{x} })^{-1} \xi (x)
-\end{equation}
-Finally,
-\begin{equation}
-  \xi (e^c) = \frac{\ln{x} }{c} \xi (x) \quad \Rightarrow \xi (x) = \frac{c \xi (e^c)}{\ln{x} } = \frac{const}{\ln{x} }
-\end{equation}
-\begin{equation}
-  \xi (k) = \frac{const}{\ln{\qty(\tanh k) } }
-\end{equation}
-equal to the exact model in \( D=1 \).
-\( k \rightarrow \infty  \) \( (x \rightarrow 1) \), we have
-\begin{equation}
-  \xi \sim e^{const/T}
-\end{equation}
-finite \( \forall k \neq \infty  \).
 
 
 
