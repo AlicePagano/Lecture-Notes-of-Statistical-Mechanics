@@ -659,70 +659,130 @@ Therefore, the analysis for a scaling parameter \( l \ge 2 \) is similar to the 
 \end{remark}
 
 
-\subsection{Decimation procedure for \( d>1 \): proliferation of the interactions}
+\subsection{Decimation procedure for \( \pmb{d>1} \): proliferation of the interactions}
 As we have stated, in \( d=1 \) the recursion relations can be determined without great problems and they don't introduce new interactions. However, this is not the case if \( d>1 \), and the value of the new coupling constants can't be determined exactly, forcing us to use approximations. Let us see with a generic example how the RG transformation can introduce new interactions in a two-dimensional Ising model with nearest-neighbour interactions.
 
 Suppose we divide our system in blocks containing an odd number of spins and, similarly to what we have seen for \( d=1 \) in the previous sections, we sum over the spins on the boundary of the block and leave unchanged the one at the center.
 
+We have problems with the spins at the boundaries. One can see that, in order to satisfy the condition
+\begin{equation*}
+  Z_N = Z_{N/l}
+\end{equation*}
+in addition to the parameters \( g' \) and \( K' \) at least one more interacting coupling must be considered
 
+\begin{minipage}[c]{0.6\linewidth}
+  \vspace{0.3cm}
+Looking at the figure \ref{fig:20_6}, we see that the spin on the corder of the block 2 is coupled to one spin in bock 1 and one in block 3. When we sum over the spin in block 2 an effective coupling between blocks 1 and 3 will be established: we therefore see that the coarse-graining procedure introduces next-nearest-neighbour interactions between the blocks, so new terms are appearing in the Hamiltonian (which of course, as already stated, respect the symmetries of the original one):
+\begin{equation*}
+  \mathcal{H} \rightarrow \mathcal{H}' = \mathcal{H}' (K',K_2')
+\end{equation*}
+This unfortunately occurs at each iteration.
+  \vspace{0.3cm}
+\end{minipage}
+\hspace{0.02\linewidth}
+\begin{minipage}[]{0.35\linewidth}
+\centering
+\includegraphics[width=1\textwidth]{../lessons/20_image/6.pdf}
+\captionof{figure}{\label{fig:20_6}Introduction of a new effective interaction.}
+\end{minipage}
+Therefore, we understand that the iteration of the RG will introduce increasingly complicated couplings: this is the so called proliferation of interactions. In order to solve it, approximations are necessary.
 
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][Square lattice. We sum over the red cross spins.]{ \includegraphics[width=0.8\textwidth]{../lessons/20_image/7.pdf}  \label{fig:20_7_1} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][New interactions introduced.]{\includegraphics[width=0.8\textwidth]{../lessons/20_image/8.pdf}  \label{fig:20_7_2} }
+\end{minipage}
+\caption{\label{fig:20_7} Decimation for the two-dimensional Ising model.}
+\end{figure}
 
-
-
-
-
-Ioing on a square lattice, block transformation (length \( b \)). There are problems with the spins at the boundaries.
-In order to get \( Z_{N'}' (k') = Z_N (k) \), at least an additional term in the Hamiltonian must be introduced
-\begin{equation}
-  \mathcal{H} \rightarrow \mathcal{H}' = \mathcal{H}' (k',k_2')
-\end{equation}
-This unfortunately occurs at each iteration! There is an uncontrolled proliferation and approximations are necessary.
 \begin{example}{Decimation of Ising on square lattice}{}
-  \( x \): spin to sum over
-\begin{equation}
+
+  Let us now see in detail how to face the problem of the proliferation for a two-dimensional Ising model with nearest-neighbour interaction and \( H=0 \). We choose to coarse-grain the system summing over a "chessboard" of spins, as shown in Figure \ref{fig:20_7}. We call \( x \) the spin to sum over (red cross), while with \( o \) the other one (black circle).
+
+The partition function in this case is:
+\begin{equation*}
+  Z_N (K,g) = \sum_{\{ o \}  }^{} \sum_{\{ x \}  }^{}   e^{\sum_{\expval{ij}
+  }^{} w (S_i,S_j)  } = \sum_{\{ o \}  }^{} \sum_{\{ x \}  }^{}   e^{K \sum_{\expval{ij}}^{} S_i,S_j }
+  =Z_{N/2} (K',L',Q',g')
+\end{equation*}
+By performing the sum and imposing the constraint \( Z_N  (K,g) = Z_{N/2} (K',L',Q',g') \), it is possible to show:
+\begin{equation*}
   \begin{cases}
-   k' = \frac{1}{4} \ln{\cosh 4 k} \\
-   L' = \frac{1}{8} \ln{\cosh 4 k} \\
-   Q' = \frac{1}{8} \ln{\cosh 4 k} - \frac{1}{2} \ln{\cosh 2 k}\\
+   k' = \frac{1}{4} \ln{\cosh 4 K} \\
+   L' = \frac{1}{8} \ln{\cosh 4 K} \\
+   Q' = \frac{1}{8} \ln{\cosh 4 K} - \frac{1}{2} \ln{\cosh 2 K}\\
   \end{cases}
-\end{equation}
-(4 spins). The approximations are:
+\end{equation*}
+This way, besides nearest-neighbour interactions (\( K \)) we are introducing also next-nearest-neighbour ones (\( K' \)  and \( L' \)) and also four-spin cluster interactions (\( Q' \)).
+Note also that the final set of spins resides on a square whose side is \( \sqrt{2}  \)  times the original one, so we have that the scaling factor is \( l = \sqrt{2}  \).
+
+If we now reiterate the procedure, more complicated interactions will appear and the problem becomes rapidly intractable. We therefore must do some approximations:
+
 \begin{enumerate}
-\item Neglect \( Q' \) term.
-\item Omit explicit dependence on \( L' \). Hence, assuming \( k'+L' \rightarrow k' \). 1 recursion
-\begin{equation}
-  k' = \frac{3}{8} \ln{\cosh 4 k}
-\end{equation}
-\begin{equation}
-  \begin{cases}
-   k^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} \infty  & k_0 > k_c \\
-   k^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0  & k_0 < k_c
-  \end{cases}
-\end{equation}
-where \( \infty ,0 \) are stable fixed point.
-\begin{equation}
-  \delta k' = \lambda _t \delta k = l^{Y _t} \delta k
-\end{equation}
-where
-\begin{equation}
-  \lambda _t = \eval{\dv{k'}{k} }_{k=k_c}
-\end{equation}
-For \( l = \sqrt{2}  \),
-\begin{equation}
-\begin{split}
-Y_t  &= \frac{\ln{\lambda _t} }{\ln{l} } = \frac{1}{\ln{\sqrt{2} } } \ln{\qty(\dv{k'}{k})_{k=k_c} }   \\
-& = \frac{1}{\ln{\sqrt{2} } }  \ln{\qty(\dv{}{k} \qty(\frac{3}{8} \ln{(\cosh 4k)} ) ) } = 1.070
-\end{split}
-\end{equation}
-so, this is actual a relevant eigenvalue.
-We have also the critical exponents
-\begin{equation}
-  \nu = \frac{1}{Y_t} = 0.9345, \quad \alpha = 2 - \frac{d}{Y_t} = 0.1313
-\end{equation}
+
+\item  We choose to neglect \( Q' \) (also because it is the only coupling that can become negative and thus prevent the spins from aligning).
+
+\item Omit explicit dependence on \( L' \) defining a new constant \( K' \):
+\begin{equation*}
+   K'+L' \rightarrow K'
+\end{equation*}
+This way the recursion relation involves only \( K \).
 \end{enumerate}
+We end up with only one recursion:
+\begin{equation*}
+  K' = \frac{3}{8} \ln{\cosh 4 K}
+\end{equation*}
+Let us therefore see to which conclusions does this lead. The fixed points are given by:
+\begin{equation*}
+  K^* = \frac{3}{8} \ln{\cosh 4 K^*}
+\end{equation*}
+and the non-trivial (\( K^* \neq 0 \)) numerical solution of this equation is \( K_c=0.50698\dots \); the exact value found by Onsager is \( K_{exact}=
+0.44069\dots \), so our approximation is good enough.
+If we now set the initial value \( K_0 \), the we have:
+\begin{equation*}
+  \begin{cases}
+   K^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} \infty  & K_0 > K_c \\
+   K^{(n)} \overset{n \rightarrow \infty }{\longrightarrow} 0  & K_0 < K_c
+  \end{cases}
+\end{equation*}
+Thus, the fixed points \( K^*=0 \) and  \( K^* = \infty \)  are stable, while \( K^* = K_c \) is unstable; this can be visually represented as in Figure \ref{fig:20_8}
+
+
+Let us now linearise the recursion relation near \( K_c \) and compute a couple of critical exponents.
+On the base of what we have previously seen, if we call \( \delta K = K - K_c \) and \( \delta K' = K' - K_c \), we have:
+\begin{equation*}
+  \delta K' = \lambda _t \delta K = l^{y _t} \delta K
+\end{equation*}
+where
+\begin{equation*}
+  \lambda _t = \eval{\dv{K'}{K} }_{K=K_c}
+\end{equation*}
+Therefore, since also \( l = \sqrt{2}  \), we get:
+\begin{equation*}
+\begin{split}
+y_t  &= \frac{\ln{\lambda _t} }{\ln{l} } = \frac{1}{\ln{\sqrt{2} } } \ln{\qty(\dv{K'}{K})_{K=K_c} }   \\
+& = \frac{1}{\ln{\sqrt{2} } }  \ln{\qty(\dv{}{K} \qty(\frac{3}{8} \ln{(\cosh 4K)} ) ) } = 1.070\dots
+\end{split}
+\end{equation*}
+it is positive, hence \( \lambda _t \)  is a relevant eigenvalue.
+We have also the critical exponents:
+\begin{equation*}
+  \nu = \frac{1}{y_t} = 0.9345\dots, \qquad \alpha = 2 - \frac{d}{y_t} = 0.1313\dots
+\end{equation*}
+Onsager's exact result, as we know, gives \( \alpha =0 \) (since the specific heat diverges logarithmically, \( c_V = \ln t \)) and thus \( \nu =1 \). We therefore see that our approximation is sufficiently accurate (even if still improvable).
 
 \end{example}
 
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{../lessons/20_image/9.pdf}
+\caption{\label{fig:20_8} RG flux of trajectories of the recursion relation \(   K^* = \frac{3}{8} \ln{\cosh 4 K^*} \). }
+\end{figure}
 
 
 
