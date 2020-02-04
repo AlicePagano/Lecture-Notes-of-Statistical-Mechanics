@@ -462,7 +462,7 @@ Let us consider the one-dimensional case \( d=1 \)  with nearest-neighbour inter
 
 The idea of the renormalization group is to perform an integration over some degrees of freedom and obtain a new partition function with \( N/l^d \) spins but of the same form of the one describing the original system with \( N \) spins.
 
-There are many ways to perform this partial integration. Here we consider the \emph{decimation} procedure with \( l=2 \) and with \( l=3 \). We will see that in the case \( d=1 \) the procedure is clearly exact. 
+There are many ways to perform this partial integration. Here we consider the \emph{decimation} procedure with \( l=2 \) and with \( l=3 \). We will see that in the case \( d=1 \) the procedure is clearly exact.
 
 \subsection{Ising \( \pmb{d=1} \), RSRG with \( \pmb{l=2} \).}
 A coarse graining of \( l=2  \) can be obtained for instance by summing over the spins positioned at the \emph{even} sites. Before doing this sum it is convenient to rename the even spins \( \sigma _{2i} \) as \( S_i \) and the odd spins (the ones that will survive) \( \sigma _{2i+1} \) as \( \sigma _i' \).
@@ -660,40 +660,53 @@ Therefore, the analysis for a scaling parameter \( l \ge 2 \) is similar to the 
 
 
 \subsection{Ising \( \pmb{d=1} \), RSRG with \( \pmb{l=3} \) }
-Let us consider again a one-dimensional Ising model with nearest-neighbour interaction and periodic boundary conditions, without any external field (\( H=0 \)). We choose to apply the coarse-graining procedure to our system by grouping spins in blocks of three;
-
-Decimation means summing up over all spins.
- Idea: pass from a \( N- \) spins system to one with \( \frac{N}{b} \) spins by summing the remaining \( N- \frac{N}{b} \) spins.
-
-
-Case b=3 (see Figure \ref{fig:20_1}).
+Let us consider again a one-dimensional Ising model with nearest-neighbour interaction and periodic boundary conditions, without any external field (\( H=0 \)). We choose to apply the coarse-graining procedure to our system by grouping spins in blocks of three (\( l=3 \)); this way the \( (i+1) \)-th  block (with \( i=0,1,2\dots \)) will be constituted by the spins \( S_{1+3i}, S_{2+3i} \) and \( S_{3+3i} \) (for example, the first block is \( [S_1,S_2,S_3] \), the second one \( [S_4,S_5,S_6] \) and so on).
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/20_image/1.pdf}
-\caption{\label{fig:20_1} Description.}
+\caption{\label{fig:20_1} One-dimensional lattice for the \( d=1 \) Ising model. We group spins in block of three.}
 \end{figure}
 
-Sum over the spins with the empty circle at the border of each clok, keeping the spins full circle untouched.
-We obtain Figure \ref{fig:20_2}.
+In order to define the new block spin we could use the majority rule, but we further simplify the problem requiring that the new block spin \( S_I' \) coincides with the central spin \(  S_{2+3i} \) of the block.  In other words, for every block we set:
+\begin{equation*}
+  P(S_{I}';S_{1+3i},S_{2+3i},S_{3+3i})=\delta _{S_{I}',S_{2+3i}}
+\end{equation*}
+(for example for the first block we have \( P(S_{1}';S_{1},S_{2},S_{3})=\delta _{S_{1}',S_{2}} \)). We will see later in Sec.\ref{sec:20_1} the meaning of the projector \( P \).
+
+Therefore, the coarse-graining procedure consists in summing over the spins at the boundaries of the blocks and leaving untouched the central ones . In Figure \ref{fig:20_1} we represent the situation, where the spins over which we sum are indicated by a cross empty circle and the ones leaved untouched by a full red circle.
+We obtain a new lattice as represented in Figure \ref{fig:20_2}.
+
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/20_image/2.pdf}
-\caption{\label{fig:20_2} Description.}
+\caption{\label{fig:20_2} The lattice after the sum of the spins represented by an empty circle.}
 \end{figure}
 
-Let us see how it works for the two blocks \( [S_1,S_2,S_3] \) and \( [S_4,S_5,S_6] \). Let us call
+Now, using the notation that will be introduced later in Sec.\ref{sec:20_1} for the general theory, we have:
 \begin{equation}
+\begin{split}
+  e^{-\beta \mathcal{H}' }&= \Tr_{\{ S_i \}  } P(S_{I}',S_{i})e^{-\beta {\mathcal {H}}} =  Tr_{\{ S_i \}  } \prod_{I}^{}  \delta _{S_{I}',S_{2+3i}} e^{K \sum_{j}^{} S_j S_{j+1} }  \\
+  & = \sum_{\{ S_i = \pm1 \}  }^{}  \delta _{S_{1}',S_{2}}\delta _{S_{2}',S_{5}}\cdots e^{KS_{1}S_{2}}e^{KS_{2}S_{3}}e^{KS_{3}S_{4}}e^{KS_{4}S_{5}}\,\cdots \\
+  & = \sum_{\{ S_i = \pm1 \}  }^{} e^{KS_{1}S_{1}'}e^{KS_{1}'S_{3}}e^{KS_{3}S_{4}}e^{KS_{4}S_{2}'} \,\cdots
+\end{split}
+\end{equation}
+Let us see how it works for the two blocks \( [S_1,S_2,S_3] \) and \( [S_4,S_5,S_6] \). First of all, we call
+\begin{equation*}
   S_2 \equiv S_1', \quad S_5 = S_2' \quad \text{fixed}
-\end{equation}
-\begin{equation}
-  \sum_{S_3 = \pm 1}^{}   \sum_{S_4 = \pm 1}^{}  \exp [ k S_1' S_3 + k S_3 S_4 + k S_4 S_2']
-\end{equation}
-Since
-\begin{equation}
-  e^{k S_3 S_4}  = \cosh (k) ( 1 + x S_3 S_4)
-\end{equation}
+\end{equation*}
+Hence, we have:
+\begin{equation*}
+  \sum_{S_3 = \pm 1}^{}   \sum_{S_4 = \pm 1}^{}  e^{ K S_1' S_3 + k S_3 S_4 + k S_4 S_2'}
+\end{equation*}
+From the definitions of \( \cosh \) and \( \sinh \) we can write:
+\begin{equation*}
+  e^{K S_3 S_4}  = \cosh (k) ( 1 + x S_3 S_4)
+\end{equation*}
+
+
+
 with
 \begin{equation}
   x \equiv \tanh k
@@ -1121,6 +1134,7 @@ Let us consider the plot in Figure \ref{fig:20_15}. We note that all points on t
 
 
 \section{RG transformation: general approach}
+\label{sec:20_1}
 A RG transformation reduces the number of degrees of freedom by \( l^d \), i.e. going from \( N \) to \( N' = N/l^d \).
 This is achieved by performing a "partial trace" over the degrees of freedom, say, \( \{ S_i \}_1^N   \), and keeping the coarse grained degrees of freedom \( \{ S_I' \}_1^{N'}   \).
 Formally, we can write (we call \( -\beta \mathcal{H} \rightarrow \mathcal{H}[K] \)):
