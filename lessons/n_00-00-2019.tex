@@ -385,6 +385,7 @@ By inserting it in the Lagrangian and by keeping in mind that \(  m^2 = -v^2 \la
   \mathcal{L} = & - \frac{1}{4} F_ {\mu \nu }F ^{\mu \nu } + \frac{1}{2} \qty(\partial_ \mu \delta \Phi _1 )^2 + \frac{1}{2} \qty(\partial _ \mu \delta \Phi _2 )^2    \\
   & -\mathcolorbox{yellow!40}{\frac{2}{2} \lambda v^2 \delta \Phi _1 ^2} + \mathcolorbox{green!20}{q^2 v^2 A_{\mu } A ^{\mu }} - \mathcolorbox{red!20}{q v A ^{\mu } \partial_ \mu \delta \Phi _2} + \text{higher order terms}
 \end{split}
+\label{eq:n_9}
 \end{equation}
 Let us give a physical interpretation of the emphasized terms:
 \begin{itemize}
@@ -402,43 +403,45 @@ Note that since now \( A _ \mu  \) is massive, it has three indipendent polariza
 
 
 Since \( \delta \Phi _2 \) does not seem to be a physical field it should be eliminated by a Gauge transformation.
-Indeed a gauge transformation is also characterized  by the transformation
+Indeed a Gauge transformation is also characterized  by the transformation
+\begin{equation*}
+  A _ \mu (\va{x}) \rightarrow A _ \mu (\va{x}) - \frac{1}{q} \partial_ \mu \alpha (\va{x})
+\end{equation*}
+We can choose \( \alpha (\va{x}) = - \frac{1}{v} \delta \Phi _2 (\va{x}) \)
+\begin{equation*}
+  A _ \mu (\va{x}) \rightarrow A _ \mu (\va{x}) + \frac{1}{qv} \partial_ \mu \delta \Phi _2 (\va{x})
+\end{equation*}
+By inserting it in the Lagrangian Eq.\eqref{eq:n_9}, we eliminate the mixed term \( q v A ^ \mu  \partial_ \mu  \delta \Phi _2  \), in red, and the term \( \frac{1}{2} \qty(\partial _ \mu  \delta \Phi _2 )^2  \). Thus we obtain:
 \begin{equation}
-  A _ \mu (\va{x}) \rightarrow A _ \mu (\va{x}) + \frac{1}{qv} \partial_ \mu \delta \Phi _2 (x)
-  \label{eq:n_2}
-\end{equation}
-Inserting \eqref{eq:n_2} in the Lagrangian, we eliminate the mixed term \( q v A ^ \mu  \partial_ \mu  \delta \Phi _2  \) and \( \frac{1}{2} \qty(\partial _ \mu  \delta \Phi _2 )^2  \).
-\begin{equation}
-  \mathcal{L} = - \frac{1}{4} F _{\mu \nu } F ^ {\mu \nu } + \frac{1}{2} \qty(\partial _ \mu  \delta \Phi _1 )^2 - \lambda v^2 \delta \Phi _1
+  \mathcal{L} = - \frac{1}{4} F _{\mu \nu } F ^ {\mu \nu } + \frac{1}{2} \qty(\partial _ \mu  \delta \Phi _1 )^2 - \lambda v^2 \delta \Phi _1^2
   + q^2 v^2 A_ \mu A ^ \mu  + \text{higher order terms}
+  \label{eq:n_10}
 \end{equation}
+
+\begin{figure}[h!]
+\begin{minipage}[c]{0.5\linewidth}
+\subfloat[][Feyman diagram of the term \( \propto \delta \Phi _1 A_ \mu A ^ \mu  \). ]{ \includegraphics[width=0.8\textwidth]{../lessons/n_image/5.pdf}  \label{fig:n_7} }
+\end{minipage}
+\begin{minipage}[]{0.5\linewidth}
+\centering
+\subfloat[][Feyman diagram of the term \( \propto \delta \Phi _1 ^2 A _ \mu A ^ \mu  \).]{\includegraphics[width=0.8\textwidth]{../lessons/n_image/6.pdf}  \label{fig:n_8} }
+\end{minipage}
+\caption{\label{fig:} }
+\end{figure}
+
+
 \begin{remark}
-Among the higher order terms there are
+  Let us note that among the higher order terms we have neglected, there are
 \begin{itemize}
-\item \( \propto \delta \Phi _1 A_ \mu A ^ \mu  \).
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/n_image/5.pdf}
-\caption{\label{fig:} Description.}
-\end{figure}
-
-\item \( \propto \delta \Phi _1 ^2 A _ \mu A ^ \mu  \).
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.6\textwidth]{../lessons/n_image/6.pdf}
-\caption{\label{fig:} Description.}
-\end{figure}
-
+\item A term proportional to \( \propto \delta \Phi _1 A_ \mu A ^ \mu  \), shown in Figure \ref{fig:n_7}.
+\item A term proportional to \( \propto \delta \Phi _1 ^2 A _ \mu A ^ \mu  \), shown in Figure \ref{fig:n_8}.
 \end{itemize}
-
-
-
 \end{remark}
-The new Lagrangian contains two fields: one is a massive photon with spin 1 and the second field \( \delta \Phi _1 \) is massive too, but has spin 0 (scalar).
 
-The Goldstone boson has been "laten" by the Gauge boson that now is massive!
 
-The mechanics trough which the gauge boson becomes massive is the so called \emph{Higgs mechanism}.
+\noindent Now, let us consider the new Lagrangian Eq.\eqref{eq:n_10}. It contains two fields: one is a massive photon with spin 1 and the second field \( \delta \Phi _1 \) is massive too, but has spin 0 (scalar).
+Hence, the Goldstone boson has been "eaten" by the Gauge boson, the photon, that now is massive!
+The mechanics trough which the Gauge boson becomes massive is the so called \textbf{Higgs mechanism}.
 
 In summary: (according to the degrees of freedom)
 \begin{itemize}
@@ -459,6 +462,16 @@ inside the system.
 \item Symmetry breaking occurs at the level of the vacuum state.
 \item A gauge symmetry that is explicitely broken is not renormalizable.
 \end{itemize}
+
+
+
+
+
+
+
+
+
+
 \subsection{Non abelian gauge theories}
 \begin{example}{}{}
 Electro-weak interactions theory (Glashow-Weinberg-Solam) (theory of leptons). Lagrangian has \( \underbrace{S U (2)}_{\substack{ \text{weak} \\  \text{interactions} } }  \times \underbrace{U(1)}_{\text{electromagnetian}}  \)
