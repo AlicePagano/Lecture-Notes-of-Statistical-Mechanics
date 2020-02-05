@@ -494,11 +494,11 @@ Now, let us do some considerations:
 
 
 
-\subsection{Non abelian gauge theories}
+\subsection{Non-abelian gauge theories}
 Let us illustrate some examples of non abelian gauge theories.
 
 \begin{example}{}{}
-The electro-weak interactions theory (Glashow-Weinberg-Solam) (theory of leptons) is a non abelian gauge theories: the Lagrangian is invariant under the group \( \underbrace{S U (2)}_{\substack{ \text{weak} \\  \text{interactions} } }  \times \underbrace{U(1)}_{\text{electromagnetism}}  \), that is not an abelian group because of \( S U(2) \).
+An example of non abelian gauge theory is the gauge theory that contains the combined electromagnetic and weak interactions, which is generally referred to as the electroweak unification, or electroweak interactions theory (Glashow-Weinberg-Solam, or GWS). It is non abelian because the Lagrangian is invariant under the group \( \underbrace{S U (2)}_{\substack{ \text{weak} \\  \text{interactions} } }  \times \underbrace{U(1)}_{\text{electromagnetism}}  \), that is not an abelian group because of \( S U(2) \).
 \end{example}
 
 \begin{example}{Quantum chromodynamic (quarks+gluons)}{}
@@ -510,10 +510,9 @@ Because of the groups \( SU(2) \) and \( SU(3) \) the symmetries above ar not ab
 \end{example}
 
 
-\subsection{Extension of Higgs mechanism to non abelian theories}
-
-\subsection{GWS model}
-Complex field \( SU(2) \)
+\subsection{Extension of Higgs mechanism to non-abelian theories}
+The abelian example of Higgs mechanism can now be generalized in a straightforward way to a non-abelian gauge theory. In particular, we discuss an electroweak interactions gauge theory.
+To spontaneously break the symmetry, consider a complex scalar field of \( SU(2) \):
 \begin{equation}
   \Phi = \frac{1}{\sqrt{2} } \begin{pmatrix}
   \Phi _1 + i \Phi _2 \\
@@ -525,10 +524,8 @@ Complex field \( SU(2) \)
   \Phi _b (\va{x})
   \end{pmatrix}
 \end{equation}
-where \( \Phi _a, \Phi _b \) are complex fields.
-
-Gauge transformation \( SU(2) \times U(1) \):
-\begin{equation}
+where \( \Phi _a, \Phi _b \) are complex fields. The Lagrangian of the system is invariant under the gauge transformation \( SU(2) \times U(1) \):
+\begin{equation*}
   \begin{pmatrix}
   \Phi _a (\va{x}) \\
   \Phi _b (\va{x})
@@ -539,37 +536,33 @@ Gauge transformation \( SU(2) \times U(1) \):
   \Phi _a (\va{x}) \\
   \Phi _b (\va{x})
   \end{pmatrix}
-\end{equation}
-where \( \va{\tau } \) are Pauli matrices, \( \alpha _0, \alpha _1, \alpha _2, \alpha 3 \) are four real functions (4 vectorial mesons).
-\begin{equation}
-  \va{\alpha } (\va{x}) \rightarrow W _ \mu ^ a (\va{x}) = \qty( W_ \mu ^{(1)} (\va{x}),  W_ \mu ^{(2)} (\va{x}),  W_ \mu ^{(3)} (\va{x}) )
-\end{equation}
-The scalar gauge field is
-\begin{equation}
-  \alpha _0 (\va{x}) \rightarrow B _ \mu (\va{x})
-\end{equation}
-with \( B _ \mu  \) is a linear combination of \( A_ \mu  \) and \(  W_ \mu ^{(3)}  \).
-
-Lagrangian:
+\end{equation*}
+where \( \va{\tau } \) are Pauli matrices, \( \alpha _0, \alpha _1, \alpha _2, \alpha_3 \) are four real functions (4 vectorial mesons). In particular,
+\begin{subequations}
+\begin{align*}
+  \alpha _0 (\va{x}) & \rightarrow B _ \mu (\va{x}) \\
+   \va{\alpha } (\va{x}) & \rightarrow W _ \mu ^ a (\va{x}) = \qty( W_ \mu ^{(1)} (\va{x}),  W_ \mu ^{(2)} (\va{x}),  W_ \mu ^{(3)} (\va{x}) )
+\end{align*}
+\end{subequations}
+where \( \alpha _0 \) is the scalar gauge field and \( B _ \mu  \) is a linear combination of \( A_ \mu  \) and \(  W_ \mu ^{(3)}  \).
+The  Lagrangian is given by
 \begin{equation}
   \mathcal{L} = \qty(D_ \mu \Phi )^\dagger \qty(D ^ \mu \Phi ) - \mu ^2 \Phi ^* \Phi - \lambda \qty(\Phi ^* \Phi )^2
   - \frac{1}{4} b^{\mu \nu } b_{\mu \nu } - \frac{1}{4} f_a^{\mu \nu } f_{\mu \nu }^a
 \end{equation}
-\begin{equation}
-  D_ \mu  \rightarrow \partial_ \mu \frac{1}{2} i g \tau ^a W_ \mu ^a - \frac{i}{2} g' B _ \mu
-\end{equation}
-\begin{equation}
-  f_ {\mu \nu }^a = \partial_ \mu W_ \nu ^a - \partial_ \nu W _ \mu ^a - g \varepsilon ^{abc} W _ \mu ^b  W_ \nu ^a
-\end{equation}
-\begin{equation}
-  b_ {\mu \nu } = \partial_ \mu B _ \nu - \partial_ \nu  B _ \mu
-\end{equation}
+where
 \begin{subequations}
-\begin{align}
+\begin{align*}
+     D_ \mu  &\rightarrow \partial_ \mu \frac{1}{2} i g \tau ^a W_ \mu ^a + \frac{i}{2} g' B _ \mu \\
+  f_ {\mu \nu }^a &= \partial_ \mu W_ \nu ^a - \partial_ \nu W _ \mu ^a - g \varepsilon ^{abc} W _ \mu ^b  W_ \nu ^a \\
+  b_ {\mu \nu } &= \partial_ \mu B _ \nu - \partial_ \nu  B _ \mu \\
   W_ \mu ^a & \rightarrow W_ \mu ^a - \varepsilon ^{abc} \alpha _b (\va{x}) W_ \mu ^c (\va{x}) + \frac{1}{g} \partial_ \mu \alpha ^a (\va{x})    \\
   B _ \mu  & \rightarrow  B _ \mu + \frac{1}{g'} \pdv{\alpha _0}{x_ \mu }
-\end{align}
+\end{align*}
 \end{subequations}
+Now, let us define \( \nu \sim \Phi _1^2 + \Phi _2^2 + \Phi _3^2 +\Phi _4^2 = v^2 \) 
+
+
 \begin{equation}
   \nu \sim \Phi _1^2 + \Phi _2^2 + \Phi _3^2 +\Phi _4^2 = v^2
 \end{equation}
