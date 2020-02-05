@@ -143,9 +143,9 @@ where
 The Lagrangian \( \mathcal{L} (\Phi ) \) describes a scalar complex (i.e. charged) \emph{muonic field} with mass \( m \equiv \sqrt{r_0} \); we note that, if  \( \mathcal{L} (\Phi ) \) describes a muonic field, we should have \( r_0>0 \) to have the mass \( m \) well defined. Moreover, the term \( (\Phi \Phi ^*)^2 \) means self-interaction with strenght \( \lambda \equiv u_0 \).
 
 In all cases (\( r_0 > 0 \) or \( r_0 < 0 \)), the original symmetry is \( U(1) \); it means that both the Hamiltonian \( \mathcal{H} \) and the Lagrangian \( \mathcal{L} \) are invariant with respect to the transformation
-\begin{equation*}
+\begin{equation}
   \Phi \rightarrow e^{i \theta } \Phi , \quad \Phi ^* \rightarrow e^{-i \theta } \Phi ^*
-\end{equation*}
+\end{equation}
 where the phase \( \theta  \) does not depend on \( \va{x} \) (global symmetry).
 In components the transformation becomes
 \begin{equation*}
@@ -227,7 +227,7 @@ In this case, however, there is an infinite number of empty states!
 
 \end{enumerate}
 
-In summary, the starting Hamiltonian \( \mathcal{H} \) (or Lagrangian \( \mathcal{L} \)) is invariant with respect to \( U(1) \), but the one that describes the fluctuation dynamics around one of the chosen minimum state is not invariant with respect to \( U(1) \). Let us see in more details why the Hamiltonian, or Lagrangian, it is not invariant anymore.
+In summary, the starting Hamiltonian \( \mathcal{H} \) (or Lagrangian \( \mathcal{L} \)) is invariant with respect to \( U(1) \), but the one that describes the fluctuation dynamics around one of the chosen minimum state is not invariant with respect to \( U(1) \). Let us see in more details why the Hamiltonian, or Lagrangian, it is not invariant anymore in the case \( r_0 <0 \).
 
 First of all, let us write the Lagrangian with respect to the fluctuations of \( \Phi _1  \)  and \( \Phi _2 \) around the chosen state \( (v,0) \) (Eq.\eqref{eq:n_7}), we obtain:
 \begin{equation*}
@@ -252,6 +252,7 @@ Now, for the quantum relativistic Lagrangian \( \mathcal{L} \), let us define
 \begin{equation*}
   r_0 \rightarrow m^2, \quad u_0 \rightarrow \lambda , \quad v^2 = - \frac{m^2}{\lambda }
 \end{equation*}
+(recall that we are still in the case \( r_0<0 \)!).
 Hence, the Lagrangian Eq.\eqref{eq:n_8} becomes
 
 \begin{equation*}
@@ -279,29 +280,33 @@ Neglecting the constant terms in \( v \) (in green), finally we obtain
 \begin{equation}
 \begin{split}
 \mathcal{L} \qty(\delta \Phi _1, \delta \Phi _2)   = &  - \frac{1}{2} \qty(\partial_ \mu  \delta \Phi _1 )^2 - \frac{1}{2} \qty(\partial_ \mu \delta \Phi _2 )^2   \\
-& - \lambda v^2 \delta \Phi _1^2 - v \lambda \delta \Phi _1 \qty( \qty(\delta \Phi _1)^2 + \qty(\delta \Phi _2 )^2  ) \\
+& \mathcolorbox{yellow!40}{- \frac{2}{2} \lambda v^2 \delta \Phi _1^2} - v \lambda \delta \Phi _1 \qty( \qty(\delta \Phi _1)^2 + \qty(\delta \Phi _2 )^2  ) \\
 & - \frac{\lambda }{4} \qty( \qty(\delta \Phi _1)^2 + \qty(\delta \Phi _2)^2  )^2
 \end{split}
 \end{equation}
-\begin{remark}
-The term \( - \lambda v^2 \delta \Phi _1^2 \) indicates that the field \( \delta \Phi _1 \) (related to the transversal fluctuations) has a null empty state \( ( \expval{\delta \Phi _1}= 0 ) \) and a mass \( M \) such that:
-\begin{equation}
-  M^2 = 2 \lambda v^2 = - 2 r_0
-\end{equation}
-Therefore, it represents a real, massive, mesonic scalar field that is physically accettable.
+Comparing it with Eq.\eqref{eq:n_8}, we note that the yellow term \( - \lambda v^2 \delta \Phi _1^2 \) indicates that the field \( \delta \Phi _1 \) (related to the transversal fluctuations) has a null empty state \( ( \expval{\delta \Phi _1}= 0 ) \) and a mass \( M \) such that (recall that \( m^2 = - \lambda v^2 = r_0 \)):
+\begin{equation*}
+  M^2 = 2 \lambda v^2 =  -2 r_0 = - 2m^2
+\end{equation*}
+Therefore, it represents a real, massive, mesonic scalar field that is physically accettable (indeed we have \( r_0<0 \)!).
+However, \( \mathcal{L} \) is not any more invariant under the transformation \( \delta \Phi _1 \rightarrow - \delta \Phi _1 \), as we wanted to show! The symmetry is broken.
 
-However, \( \mathcal{L} \) is not any more invariant under the transformation \( \delta \Phi _1 \rightarrow - \delta \Phi _1 \).
-\end{remark}
+
 \begin{remark}
-The field \( \delta \Phi _2 \) has no mass! It describes the fluctuations along the circle where the potential \( V \) is in its minimum  which imples no dynamical inertia, that implies no mass!
+  Note that the field \( \delta \Phi _2 \) has no mass! Indeed, it describes the fluctuations along the circle where the potential \( V \) is in its minimum  which imples no dynamical inertia, that implies no mass!
 \end{remark}
-So, starting with one complex scalar field \( \Phi (\va{x}) \) having mass \( m \), when \( m^2 < 0 \)one gets a real scalar field \( \delta \Phi _1 \) with mass \( M = \sqrt{- 2 m^2}  \)  and a second scalar field \( \delta \Phi _2 \) that is massless. This is called the \emph{Goldstone boson}.
+
+In summary, starting with one complex scalar field \( \Phi (\va{x}) \) having mass \( m \), when \( m^2 < 0 \) one gets a real scalar field \( \delta \Phi _1 \) with mass \( M = \sqrt{- 2 m^2}  \)  and a second scalar field \( \delta \Phi _2 \) that is massless. This is called the \textbf{Goldstone boson}. Hence, we have the following theorem:
+
 \begin{theorem}{}{}
-If a continuous symmetry is spontaneously broken and there are no long range interactions, exists an elementary excitation with zero momentum or particle of zero mass called Goldstone boson.
-\end{theorem}
-More generally, let \( \mathcal{P} \) be a subgroup of \( \mathcal{G} \). If \( \mathcal{G} \) has \( N \) indipendent generators and \( \mathcal{P} \)  has \( M \) indipendent generators, if \( \mathcal{P} \) is the new (lower) symmetry, therefore \( N-M \)  Goldstone bosons exist.
+If a continuous symmetry is spontaneously broken and there are no long range interactions, exists an elementary excitation with zero momentum, or particle of zero mass, called Goldstone boson.
 
-In the previous case \( \mathcal{G} = U (1)  \Rightarrow  N=1\) whereas \( M=0 \) (we have chosen a specific minimum).
+More generally, let \( \mathcal{P} \) be a subgroup of \( \mathcal{G} \) (\( \mathcal{P} \subset \mathcal{G} \)). If \( \mathcal{G} \) has \( N \) indipendent generators and \( \mathcal{P} \)  has \( M \) indipendent generators, hence, if \( \mathcal{P} \) is the new (lower) symmetry, therefore \( N-M \)  Goldstone bosons exist.
+\end{theorem}
+
+In the previous case the symmetry group was \( \mathcal{G} = U (1) \), hence \( \mathcal{G} \) as \( N=1 \) indipendent generators, whereas we have \( M=0 \) (we have chosen a specific minimum). Therefore, we have only one Goldstone boson.
+
+
 \begin{example}{}{}
 XY model in statistical mechanics:
 \begin{itemize}
@@ -316,6 +321,19 @@ In particle physics the presence of Goldstone bosons brings a serious problem in
 \subsubsection{Higgs-Englert-Brout (1964)}
 Higgs mechanism gives back the mass to the Goldstone particles.
 The basic idea is that the Goldstone theorem that works for a continuous global symmetry it can fail for loacl gauge theories!
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Spontaneous symmetry breaking in Gauge symmetries}
 Statistical mechanics, Gl model for superconductors in presence of a magnetic field (\emph{Meissner effect}, i.e. the magnetic induction \( \va{B} = 0 \) inside the superconductor).
