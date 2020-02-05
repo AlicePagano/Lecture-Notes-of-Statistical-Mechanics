@@ -139,27 +139,20 @@ where
   \mathcal{L} (\Phi ) = - \frac{1}{2} \partial_\mu \Phi \partial^\mu \Phi ^*
   - \frac{r_0}{2} \Phi \Phi ^* - \frac{u_0}{4} \qty(\Phi \Phi ^*)^2
 \end{equation*}
-The \( \mathcal{L} (\Phi ) \) describes a scalar complex (i.e. charged) \emph{muonic field} with mass \( m \). Let us note that in this case we have \( r_0>0 \) and the mass \( m \) is given by \( m \equiv \sqrt{r_0}  \). Moreover, the term \( (\Phi \Phi ^*)^2 \) means self-interaction with strenght \( \lambda \equiv u_0 \).
+The \( \mathcal{L} (\Phi ) \) describes a scalar complex (i.e. charged) \emph{muonic field} with mass \( m \equiv \sqrt{r_0} \); we note that, if  \( \mathcal{L} (\Phi ) \) describes a muonic field, we should have \( r_0>0 \) to have the mass \( m \) well defined. Moreover, the term \( (\Phi \Phi ^*)^2 \) means self-interaction with strenght \( \lambda \equiv u_0 \).
 
-In all cases, the original symmetry is \( U(1) \); it means that both the Hamiltonian \( \mathcal{H} \) and \( \mathcal{L} \) are invariant with respect to the transformations
+In all cases (\( r_0 > 0 \) or \( r_0 < 0 \)), the original symmetry is \( U(1) \); it means that both the Hamiltonian \( \mathcal{H} \) and \( \mathcal{L} \) are invariant with respect to the transformation
 \begin{equation*}
   \Phi \rightarrow e^{i \theta } \Phi , \quad \Phi ^* \rightarrow e^{-i \theta } \Phi ^*
 \end{equation*}
-
-
-
-
-\begin{remark}
-The phase \( \theta  \) does not depend on \( \va{x} \) (global symmetry).
-\end{remark}
-In components \eqref{eq:n_1} become
-\begin{equation}
+where the phase \( \theta  \) does not depend on \( \va{x} \) (global symmetry).
+In components the transformation becomes
+\begin{equation*}
   \begin{cases}
    \Phi _1 \rightarrow  \Phi _1 \cos \theta - \Phi _2 \sin \theta \\
   \Phi _2 \rightarrow  \Phi _2 \cos \theta + \Phi _1 \sin \theta
   \end{cases}
-\end{equation}
-\begin{equation}
+  \quad \Rightarrow
   (\Phi _1', \Phi _2') = \begin{pmatrix}
   \cos \theta    & - \sin \theta   \\
     \sin \theta  & \cos \theta
@@ -168,53 +161,64 @@ In components \eqref{eq:n_1} become
   \Phi _1 \\
   \Phi _2
   \end{pmatrix}
-\end{equation}
-Let us focus first on the statistical mechanics model and to the most interesting case of \( r_0 <0 \).
+\end{equation*}
 
-In components \( \mathcal{H} \) becomes
+Now, let us focus first on the statistical mechanics model and to the most interesting case of \( r_0 <0 \).
+In components, \( \mathcal{H} \) can be expressed as
+
 \begin{equation}
-  \mathcal{H} = \int_{}^{} \dd[D]{\va{x}} \qty[\qty(\grad \Phi _1)^2 + \qty(\grad \Phi _2)^2  ] + \int_{}^{} \dd[D]{\va{x}} V (\Phi _1, \Phi _2)
+  \beta \mathcal{H} = \int_{}^{} \dd[d]{\va{x}} \qty[\qty(\grad \Phi _1)^2 + \qty(\grad \Phi _2)^2  ] + \int_{}^{} \dd[d]{\va{x}} V (\Phi _1, \Phi _2)
 \end{equation}
-where
+where the potential is
 \begin{equation}
   V (\Phi _1, \Phi _2) = \frac{r_0}{2} \qty(\Phi _1^2 + \Phi _2^2) + \frac{u_0}{4} \qty( \Phi _1^2 + \Phi _2^2)^2
+  \label{eq:n_6}
 \end{equation}
-It is the mexican hat potential, shown in Figure \ref{fig:n_1}
+In the case \( r_0 < 0 \), it is called \emph{mexican hat potential} and it is shown in Figure \ref{fig:n_1}.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{../lessons/n_image/3.pdf}
-\caption{\label{fig:n_1} Case \( r_0 < 0 \).}
+\caption{\label{fig:n_1} Case \( r_0 < 0 \). The potential \( V(\Phi ) \) is a mexican hat potential.}
 \end{figure}
 
-For \( r_0 < 0 \), there is a uniform solution \( (\grad \Phi _1 = \grad \Phi _2 = 0) \). Let \( S = \sqrt{\Phi _1^2 + \Phi _2^2}  \),
-\begin{equation}
+In the uniform case we have \( (\grad \Phi _1 = \grad \Phi _2 = 0) \). Let us define
+\( S = \sqrt{\Phi _1^2 + \Phi _2^2}  \), the potential in Eq.\eqref{eq:n_6} can be rewritten as:
+\begin{equation*}
   V (S) = \frac{r_0}{2} S^2 + \frac{u_0}{4} S^4
-\end{equation}
-\begin{equation}
+\end{equation*}
+In the uniform case, the solution is given by the minima of the potential \( V(S) \); hence, in order to find the extrema points, we derive the potential with respect to \( S \) and we impose the condition \( V'=0 \):
+\begin{equation*}
   \dv{V(S)}{S} = r_0 S + u_0 S^3 = 0
-\end{equation}
-There is 1 maximum at \( S=0 \) and minima for \( S^2 = - \frac{r_0}{u_0} \)
-
-For \( r_0 < 0 \), \( \mathcal{H} \) displays minima when
-\begin{equation}
+\end{equation*}
+We have a maximum at \( S=0 \) and a minimum at  \( S^2 \equiv v^2 = -  r_0/u_0 \). Hence, for \( r_0 < 0 \), the Hamiltonian \( \mathcal{H} \) displays a minimum when
+\begin{equation*}
   \Phi _1^2 + \Phi _2^2 \equiv v^2 = - \frac{r_0}{u_0}
-\end{equation}
-On the \( 2D \) plane \( (\Phi _1, \Phi _2) \) the minima lie on the circle of radius
-\begin{equation}
+\end{equation*}
+It could be represented in the \( 2d \) plane \( (\Phi _1, \Phi _2) \), where the minimum lies on a circle of radius
+\begin{equation*}
   v = \sqrt{- \frac{r_0}{u_0}}
-\end{equation}
+\end{equation*}
+as show in Figure \ref{fig:n_4}.
 The spontaneous symmetry breaking occurs when the system "chooses" one of the infinite available minima.
-
-In our example, suppose that the chosen minimum is
-\begin{equation}
+In our example, let us suppose that the chosen minimum is
+\begin{equation*}
   \Phi _1 = v = \sqrt{- \frac{r_0}{u_0}}, \quad \Phi _2 = 0
-\end{equation}
+\end{equation*}
+
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{../lessons/n_image/4.pdf}
-\caption{\label{fig:n_4} Description.}
+\includegraphics[width=0.55\textwidth]{../lessons/n_image/4.pdf}
+\caption{\label{fig:n_4} Plane \( (\Phi _1, \Phi _2) \). The minimum lies on a circle of radius \( v = \sqrt{- \frac{r_0}{u_0}} \). }
 \end{figure}
+
+
+
+
+
+
+
+
 
 \section{Interpretation in relativistic quantum mechanics}
 \begin{enumerate}
