@@ -131,14 +131,15 @@ The physical meaning of \( \Phi  \) depends on the case considered. If we have:
 
 \subsection{Quantum relativistic case (field theory)}
 In quantum mechanics the analog of the Hamiltonian \( \mathcal{H} \) is the action
-\begin{equation*}
+\begin{equation}
   S(\Phi ) = \int_{}^{} \dd[4]{\va{x}}   \mathcal{L} ( \Phi )
-\end{equation*}
+\end{equation}
 where
-\begin{equation*}
+\begin{equation}
   \mathcal{L} (\Phi ) = - \frac{1}{2} \partial_\mu \Phi \partial^\mu \Phi ^*
   - \frac{r_0}{2} \Phi \Phi ^* - \frac{u_0}{4} \qty(\Phi \Phi ^*)^2
-\end{equation*}
+  \label{eq:n_8}
+\end{equation}
 The Lagrangian \( \mathcal{L} (\Phi ) \) describes a scalar complex (i.e. charged) \emph{muonic field} with mass \( m \equiv \sqrt{r_0} \); we note that, if  \( \mathcal{L} (\Phi ) \) describes a muonic field, we should have \( r_0>0 \) to have the mass \( m \) well defined. Moreover, the term \( (\Phi \Phi ^*)^2 \) means self-interaction with strenght \( \lambda \equiv u_0 \).
 
 In all cases (\( r_0 > 0 \) or \( r_0 < 0 \)), the original symmetry is \( U(1) \); it means that both the Hamiltonian \( \mathcal{H} \) and the Lagrangian \( \mathcal{L} \) are invariant with respect to the transformation
@@ -245,16 +246,17 @@ where we omit the factor \( 1/\sqrt{2}  \) for simplicity. Let us note that
   \quad \Rightarrow
   \expval{\delta \Phi _1} _{\Phi _0 } = \expval{\delta \Phi _2}_{\Phi _0} = 0
 \end{equation*}
-indeed, as expected, the expectation of the empty state is back to be zero.
+indeed, as expected, the expectation value of the empty state is back to be zero.
 
-For the quantum relativistic Lagrangian, let us write
-\begin{equation}
+Now, for the quantum relativistic Lagrangian \( \mathcal{L} \), let us define
+\begin{equation*}
   r_0 \rightarrow m^2, \quad u_0 \rightarrow \lambda , \quad v^2 = - \frac{m^2}{\lambda }
-\end{equation}
+\end{equation*}
+Hence, the Lagrangian Eq.\eqref{eq:n_8} becomes
 
-\begin{equation}
+\begin{equation*}
 \begin{split}
-\mathcal{L}  = & - \frac{1}{2} \partial _ \mu \qty(\delta \Phi _1 + i \delta \Phi _2)   \partial _ \mu \qty(\delta \Phi _1 - i \delta \Phi _2)  \\
+\mathcal{L}  = & - \frac{1}{2} \partial _ \mu \qty(v+\delta \Phi _1 + i \delta \Phi _2)   \partial ^\mu \qty(v+\delta \Phi _1 - i \delta \Phi _2)  \\
  & - \frac{m^2}{2} \qty(v + \delta \Phi _1 + i \delta \Phi _2) \qty(v + \delta \Phi _1 - i \delta \Phi _2) \\
  & - \frac{\lambda }{4} \qty[ \qty(v + \delta \Phi _1 + i \delta \Phi _2) \qty(v + \delta \Phi _1 - i \delta \Phi _2) ] ^2 \\
  =& - \frac{1}{2} \qty(\partial_ \mu  \delta \Phi _1 \partial^ \mu \delta \Phi _1  )
@@ -262,21 +264,21 @@ For the quantum relativistic Lagrangian, let us write
  & - \frac{m^2}{2} \qty(v^2 + 2 v \delta \Phi _1 + \delta \Phi _1^2 + \delta \Phi _2^2) \\
  &- \frac{\lambda }{4} \qty(v^2 + 2 v \delta \Phi _1 + \delta \Phi _1^2 + \delta \Phi _2 ^2)^2
 \end{split}
-\end{equation}
-Since \( m^2 = - v^2 \lambda  \),
-\begin{equation}
+\end{equation*}
+Since we have defined \( m^2 = - v^2 \lambda  \), we can rewrite it as
+\begin{equation*}
 \begin{split}
 \mathcal{L}   = &  - \frac{1}{2} \qty(\partial_ \mu  \delta \Phi _1 \partial^ \mu \delta \Phi _1  )
-- \frac{1}{2} \qty( \partial_ \mu  \delta \Phi _2 \partial^ \mu \delta \Phi _2  ) \\
-& + \frac{\lambda v^2}{2} \qty(v^2 + 2 v \delta \Phi _1 + \delta \Phi _1^2 + \delta \Phi _2^2)  \\
-& - \frac{\lambda }{4} \qty(v^4 + 4 v^2 \delta \Phi _1^2 + \qty(\delta \Phi _1^2 + \delta \Phi _2^2)^2
-    4 v^3 \delta \Phi _1 + 2 v^2 \qty(\delta \Phi _1^2 + \delta \Phi _2^2) + 4 v \delta \Phi _1 \qty(\delta \Phi _1^2 + \delta \Phi _2^2)   )
+- \frac{1}{2} \qty( \partial_ \mu  \delta \Phi _2 \partial^ \mu \delta \Phi _2  )
+ + \frac{\lambda v^2}{2} \qty( \mathcolorbox{green!20}{v^2} + \cancel{2 v \delta \Phi _1}  +  \bcancel{\delta \Phi _1^2 + \delta \Phi _2^2})  \\
+& - \frac{\lambda }{4} \qty( \mathcolorbox{green!20}{v^4} + 4 v^2 \delta \Phi _1^2
+  +   \cancel{4 v^3 \delta \Phi _1}  +  \qty(\delta \Phi _1^2 + \delta \Phi _2^2)^2 + \bcancel{2 v^2 \qty(\delta \Phi _1^2 + \delta \Phi _2^2)} + 4 v \delta \Phi _1 \qty(\delta \Phi _1^2 + \delta \Phi _2^2)   )
 \end{split}
-\end{equation}
-Neglecting the constant terms in \( v \)
+\end{equation*}
+Neglecting the constant terms in \( v \) (in green), finally we obtain
 \begin{equation}
 \begin{split}
-\mathcal{L} \qty(\delta \Phi _1, \delta \Phi _2)   = &  - \frac{1}{2} \qty(\partial_ \mu  \delta \Phi _1 )^2 - \frac{1}{2} \qty(\partial_ \mu \delta \Phi _2 )^2    \\
+\mathcal{L} \qty(\delta \Phi _1, \delta \Phi _2)   = &  - \frac{1}{2} \qty(\partial_ \mu  \delta \Phi _1 )^2 - \frac{1}{2} \qty(\partial_ \mu \delta \Phi _2 )^2   \\
 & - \lambda v^2 \delta \Phi _1^2 - v \lambda \delta \Phi _1 \qty( \qty(\delta \Phi _1)^2 + \qty(\delta \Phi _2 )^2  ) \\
 & - \frac{\lambda }{4} \qty( \qty(\delta \Phi _1)^2 + \qty(\delta \Phi _2)^2  )^2
 \end{split}
