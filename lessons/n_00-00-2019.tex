@@ -139,9 +139,9 @@ where
   \mathcal{L} (\Phi ) = - \frac{1}{2} \partial_\mu \Phi \partial^\mu \Phi ^*
   - \frac{r_0}{2} \Phi \Phi ^* - \frac{u_0}{4} \qty(\Phi \Phi ^*)^2
 \end{equation*}
-The \( \mathcal{L} (\Phi ) \) describes a scalar complex (i.e. charged) \emph{muonic field} with mass \( m \equiv \sqrt{r_0} \); we note that, if  \( \mathcal{L} (\Phi ) \) describes a muonic field, we should have \( r_0>0 \) to have the mass \( m \) well defined. Moreover, the term \( (\Phi \Phi ^*)^2 \) means self-interaction with strenght \( \lambda \equiv u_0 \).
+The Lagrangian \( \mathcal{L} (\Phi ) \) describes a scalar complex (i.e. charged) \emph{muonic field} with mass \( m \equiv \sqrt{r_0} \); we note that, if  \( \mathcal{L} (\Phi ) \) describes a muonic field, we should have \( r_0>0 \) to have the mass \( m \) well defined. Moreover, the term \( (\Phi \Phi ^*)^2 \) means self-interaction with strenght \( \lambda \equiv u_0 \).
 
-In all cases (\( r_0 > 0 \) or \( r_0 < 0 \)), the original symmetry is \( U(1) \); it means that both the Hamiltonian \( \mathcal{H} \) and \( \mathcal{L} \) are invariant with respect to the transformation
+In all cases (\( r_0 > 0 \) or \( r_0 < 0 \)), the original symmetry is \( U(1) \); it means that both the Hamiltonian \( \mathcal{H} \) and the Lagrangian \( \mathcal{L} \) are invariant with respect to the transformation
 \begin{equation*}
   \Phi \rightarrow e^{i \theta } \Phi , \quad \Phi ^* \rightarrow e^{-i \theta } \Phi ^*
 \end{equation*}
@@ -202,9 +202,10 @@ It could be represented in the \( 2d \) plane \( (\Phi _1, \Phi _2) \), where th
 as show in Figure \ref{fig:n_4}.
 The spontaneous symmetry breaking occurs when the system "chooses" one of the infinite available minima.
 In our example, let us suppose that the chosen minimum is
-\begin{equation*}
+\begin{equation}
   \Phi _1 = v = \sqrt{- \frac{r_0}{u_0}}, \quad \Phi _2 = 0
-\end{equation*}
+  \label{eq:n_7}
+\end{equation}
 
 \begin{figure}[h!]
 \centering
@@ -213,45 +214,38 @@ In our example, let us suppose that the chosen minimum is
 \end{figure}
 
 
+\subsubsection{Interpretation in relativistic quantum mechanics}
 
+Now, let us give a physical interpretation of the results previously obtained and of the considerations we have done in order to obtain them. In particular:
 
-
-
-
-
-
-\section{Interpretation in relativistic quantum mechanics}
 \begin{enumerate}
-\item \( r_0 <0 \) corresponds to an imaginary mass. This is because to move away from \( \Phi =0 \), the system experiences a negative resistence in both directions, being \( \Phi =0 \) a relative local minimum.
+\item Choosing \( r_0 <0 \) corresponds to an \emph{imaginary mass}. This is because moving away from \( \Phi =0 \), the system experiences a \emph{negative resistence} in both directions, being \( \Phi =0 \) a relative local maximum.
 
-\item The minimum has the lowest energy and therefore it must correspond to the empty state.
+\item The minimum has the lowest energy and therefore it must correspond to the \emph{empty state}.
 In this case, however, there is an infinite number of empty states!
-\end{enumerate}
-Summarizing: the starting Hamiltonian (or Lagrangian) is invariant with respect to \( U(1) \) but the one that describes the fluctuation dynamics around one of the chosen minimum state is not invariant with respect to \( U(1) \).
 
-Let us now write the Lagrangian with respect to the fluctuations of \( \Phi _1  \)  and \( \Phi _2 \) around the chosen state
-\begin{equation}
+\end{enumerate}
+
+In summary, the starting Hamiltonian \( \mathcal{H} \) (or Lagrangian \( \mathcal{L} \)) is invariant with respect to \( U(1) \), but the one that describes the fluctuation dynamics around one of the chosen minimum state is not invariant with respect to \( U(1) \). Let us see in more details why the Hamiltonian, or Lagrangian, it is not invariant anymore.
+
+First of all, let us write the Lagrangian with respect to the fluctuations of \( \Phi _1  \)  and \( \Phi _2 \) around the chosen state \( (v,0) \) (Eq.\eqref{eq:n_7}), we obtain:
+\begin{equation*}
   \begin{cases}
    \Phi _1 = v + \delta \Phi _1\\
    \Phi _2 = 0 + \delta \Phi _2
   \end{cases}
-\end{equation}
-or
-\begin{equation}
-  \Phi = v + \qty(\delta \Phi _1 + i \delta \Phi _2)
-\end{equation}
-Note that, since
-\begin{equation}
+  \quad \Rightarrow \Phi = \Phi _1 + i\Phi _2 = v + \qty(\delta \Phi _1 + i \delta \Phi _2)
+\end{equation*}
+where we omit the factor \( 1/\sqrt{2}  \) for simplicity. Let us note that
+\begin{equation*}
   \begin{cases}
    \delta \Phi _1 = \Phi _1 - v\\
    \delta \Phi _2 = \Phi _2
   \end{cases}
-\end{equation}
-we have
-\begin{equation}
+  \quad \Rightarrow
   \expval{\delta \Phi _1} _{\Phi _0 } = \expval{\delta \Phi _2}_{\Phi _0} = 0
-\end{equation}
-As expected the expectation of the empty state is back to be zero.
+\end{equation*}
+indeed, as expected, the expectation of the empty state is back to be zero.
 
 For the quantum relativistic Lagrangian, let us write
 \begin{equation}
