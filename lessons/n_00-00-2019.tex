@@ -321,26 +321,26 @@ In particle physics the presence of Goldstone bosons brings a serious problem in
 
 
 
-
-
-
 \section{Spontaneous symmetry breaking in Gauge symmetries}
-Statistical mechanics, Gl model for superconductors in presence of a magnetic field (\emph{Meissner effect}, i.e. the magnetic induction \( \va{B} = 0 \) inside the superconductor).
 
+\subsubsection{Statistical mechanics}
+
+In statistical mechanics, let us consider a Ginzburg-Landau model for superconductors in presence of a magnetic field (\emph{Meissner effect}, i.e. the magnetic induction \( \va{B} = 0 \) inside the superconductor). The Hamiltonian of such a system is:
 \begin{equation}
-  \mathcal{H} (\Phi ) = \int_{}^{} \dd[D]{\va{x}} \qty[\frac{1}{2}B^2 + \abs{\qty(\va{\grad }- 2 i \va{A})\Phi  }^2 ] + \frac{r_0}{2} \Phi ^* \Phi
-  + \frac{u_0}{4} \qty(\Phi ^* \Phi )^2 - \va{B} \vdot \va{H}
+  \beta \mathcal{H} (\Phi ) = \int_{}^{} \dd[d]{\va{x}} \qty[\frac{1}{2}B^2 + \abs{\qty(\va{\grad }- 2 i \va{A})\Phi  }^2 + \frac{r_0}{2} \Phi ^* \Phi
+  + \frac{u_0}{4} \qty(\Phi ^* \Phi )^2 - \va{B} \vdot \va{H}]
 \end{equation}
 where \( \frac{B^2}{2} \) is the energy of the magnetic field \( \va{B} \) and \( \va{\grad } \rightarrow \qty[\va{\grad } + i q \va{A}]  \) is the minimal coupling.
-Consider \( \va{H} \) the external magnetic field
-\begin{equation}
+If we have an external magnetic field \( \va{H} \), the induction field is:
+\begin{equation*}
   \va{B} = \va{H} + \va{M}
-\end{equation}
-is the induction field.
+\end{equation*}
 
 Normal conductor corresponding to \( \Phi _0 = 0 \), that implies \( \va{B} = \va{H} \). For a superconfuctor we have \( \Phi \neq 0 \), a spontaneous symmetry breaking.
 
-\section{Fiedl theory analog}
+\subsubsection{Field theory analog}
+
+
 Scalar charged mesonic fields selfinteracting and in presence of an electromagnetic field with potential quadrivector \( A_ \mu  ( \va{x}) \).
 \begin{equation}
   \partial_ \mu  \rightarrow  D _ \mu = \qty[ \partial_ \mu  + i q A _ \mu  ]
