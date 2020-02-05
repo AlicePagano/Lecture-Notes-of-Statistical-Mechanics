@@ -116,7 +116,7 @@ Let us start with a simple model in which the order parameter is a scalar comple
 \end{equation*}
 and with an Hamiltonian \( \mathcal{H} \) that is invariant with respect to a global continuous transformation. For instance, the simplest model in statistical mechanics that is invariant with respect to a continuous symmetry is the XY model with \( O(2) \) symmetry, or a Ginzburg-Landau model for a superfluid or a superconductor (with no magnetic field). Hence, we suppose that the Hamiltonian as the following form:
 \begin{equation*}
-  \beta \mathcal{H}_{eff} = \int_{}^{} \dd[d]{\va{x}} \qty[ \frac{1}{2} \va{\grad }\Phi \vdot \va{\grad } \Phi ^* + \frac{r_0}{2} \Phi ^* \Phi + \frac{u_0}{4} \qty(\Phi ^* \Phi )^2 ]
+  \beta \mathcal{H}_{eff} = \int_{}^{} \dd[d]{\va{x}} \qty[ \frac{1}{2} \va{\grad }\Phi \vdot \va{\grad } \Phi ^* + \frac{r_0}{2} \Phi  \Phi^* + \frac{u_0}{4} \qty(\Phi \Phi^* )^2 ]
 \end{equation*}
 where
 \begin{equation*}
@@ -350,23 +350,8 @@ In this case, because of the presence of \( A _ \mu (\va{x}) \), we should consi
 \begin{equation}
   \Phi  ( \va{x} ) \rightarrow e^{i \alpha (\va{x})} \Phi (\va{x}), \quad \Phi^*  ( \va{x} ) \rightarrow e^{-i \alpha (\va{x})} \Phi (\va{x})
 \end{equation}
-
-
-
-
-
-\begin{remark}
-Because of the presence of \( A _ \mu (\va{x}) \), we should consider a theory that satisfies symmetry \( U(1) \) locally!
-The transformations are
-\begin{equation}
-  \begin{cases}
-   \Phi  ( \va{x} ) \rightarrow e^{i \alpha (\va{x})} \Phi (\va{x}) \\
-  \Phi^*  ( \va{x} ) \rightarrow e^{-i \alpha (\va{x})} \Phi (\va{x})
-  \end{cases}
-\end{equation}
-hence, exists \( A _ \mu (\va{x}) \) interacting with \( \Phi (\va{x}) \).
-
-The Lagrangian is
+and exists \( A _ \mu (\va{x}) \) interacting with \( \Phi (\va{x}) \).
+Hence, the Lagrangian is
 \begin{equation}
   \mathcal{L} = - \frac{1}{4} F_ {\mu  \nu } (\va{x}) F ^{ \mu \nu } (\va{x})
   + \qty(D _ \mu  \Phi (\va{x}))^* \qty(D _ \mu \Phi (\va{x}))
@@ -374,36 +359,36 @@ The Lagrangian is
 \end{equation}
 where
 \begin{subequations}
-\begin{align}
+\begin{align*}
   D_ \mu \Phi  &= \qty(\partial_ \mu  + i q A _ \mu  ) \Phi   & \text{Gauge-covariant derivative}\\
-  F_ { \mu \nu } &= \partial_ \mu  A _ \nu  - \partial _ \nu  A _ \mu & \text{field strength tensor}
-\end{align}
+  F_ { \mu \nu } &= \partial_ \mu  A _ \nu  - \partial _ \nu  A _ \mu & \text{Field strength tensor} \\
+    V (\Phi , \Phi ^*) &= \frac{m^2}{2} \Phi \Phi ^* + \frac{\lambda }{4} \qty(\Phi \Phi ^*)^2 & \text{Potential}
+\end{align*}
 \end{subequations}
-\begin{equation}
-  V (\Phi , \Phi ^*) = \frac{m^2}{2} \Phi \Phi ^* + \frac{\lambda }{4} \qty(\Phi \Phi ^*)^2
-\end{equation}
+
+Let us consider again two different cases:
 \begin{itemize}
-\item Case \( m^2 >0 \): the minimum is in \( \Phi =0 \).
-\item Case \( m^2 < 0 \): the minimum is in \( \Phi = \sqrt{- \frac{m^2}{\lambda }} \equiv v  \)    (circle of radius \( \abs{\Phi } = v \) ).
+\item If \( m^2 >0 \): there is a minimum at \( \Phi =0 \).
+\item If \( m^2 <0 \): there is a minimum at \( \Phi = \sqrt{- \frac{m^2}{\lambda }} \equiv v  \)    (circle of radius \( \abs{\Phi } = v \)).
 \end{itemize}
-\end{remark}
-Let us choose the state
-\begin{equation}
+Now, we consider the case \( m^2<0 \). Let us choose the state
+\begin{equation*}
   \bar{\Phi }_1 = v , \quad \bar{\Phi _2} = 0
-\end{equation}
-and consider
-\begin{equation}
+\end{equation*}
+Hence, we have:
+\begin{equation*}
   \Phi (x) = \qty(v + \delta \Phi _1) + i \delta \Phi _2
-\end{equation}
-Inserting in the Lagrangian and keeping in mind \( - m^2 = v^2 \lambda  \)
+\end{equation*}
+By inserting it in the Lagrangian and by keeping in mind that \( - m^2 = v^2 \lambda  \), the Lagrangian transforms as
 \begin{equation}
 \begin{split}
   \mathcal{L} = & - \frac{1}{4} F_ {\mu \nu }F ^{\mu \nu } + \frac{1}{2} \qty(\partial_ \mu \delta \Phi _1 )^2 + \frac{1}{2} \qty(\partial _ \mu \delta \Phi _2 )^2    \\
-  & - \lambda v^2 \delta \Phi _1 ^2 + q^2 v^2 A_{\mu } A ^{\mu } - q v A ^{\mu } \partial_ \mu \delta \Phi _2 + \text{higher order terms}
+  & -\mathcolorbox{yellow!40}{ \lambda v^2 \delta \Phi _1 ^2} + \mathcolorbox{green!20}{q^2 v^2 A_{\mu } A ^{\mu }} - \mathcolorbox{red!20}{q v A ^{\mu } \partial_ \mu \delta \Phi _2} + \text{higher order terms}
 \end{split}
 \end{equation}
-\begin{enumerate}
-\item Term \( \lambda v^2 \delta \Phi _1^2 \): the field \( \delta \Phi _1 \) is massive with mass \( m= v \sqrt{2 \label{} }  \)  (Higgs boson).
+Let us give a physical interpretation of the emphasized terms:
+\begin{itemize}
+\item term \( \lambda v^2 \delta \Phi _1^2 \): the field \( \delta \Phi _1 \) is massive with mass \( m= v \sqrt{2 \label{} }  \)  (Higgs boson).
 \item Term \( q^2 v^2 A_ \mu A ^\mu  \): this terms means that the Gause boson \( A _ \mu  \), the photon, has got a mass
 \begin{equation}
   M_A = 2 q v
@@ -411,9 +396,12 @@ Inserting in the Lagrangian and keeping in mind \( - m^2 = v^2 \lambda  \)
 \begin{remark}
 Since now \( A _ \mu  \) is massive, it has three indipendent polarization states.
 \end{remark}
-
 \item Term \( q v A ^ \mu  \partial _ \mu  \delta \Phi _2  \): the field \( \delta \Phi _2 \) is not massive (no term \( \propto \delta \Phi _2^2 \)) and is mixed with \( A_ \mu  \). Dynamically this means that a propagating photon can transform itself into a field \( \delta \Phi _2 \) (photon \( r \) Goldstone boson).
-\end{enumerate}
+\end{itemize}
+
+
+
+
 Since \( \delta \Phi _2 \) does not seem to be a physical field it should be eliminated by a Gauge transformation.
 
 Indeed a gauge transformation is also characterized  by the transformation
@@ -444,6 +432,9 @@ Among the higher order terms there are
 \end{figure}
 
 \end{itemize}
+
+
+
 \end{remark}
 The new Lagrangian contains two fields: one is a massive photon with spin 1 and the second field \( \delta \Phi _1 \) is massive too, but has spin 0 (scalar).
 
