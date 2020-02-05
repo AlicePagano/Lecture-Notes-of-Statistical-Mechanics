@@ -323,7 +323,7 @@ In particle physics the presence of Goldstone bosons brings a serious problem in
 
 \section{Spontaneous symmetry breaking in gauge symmetries}
 
-\subsubsection{Statistical mechanics}
+\subsection{Statistical mechanics}
 
 In statistical mechanics, let us consider a Ginzburg-Landau model for superconductors in presence of a magnetic field (\emph{Meissner effect}, i.e. the magnetic induction \( \va{B} = 0 \) inside the superconductor). The Hamiltonian of such a system is:
 \begin{equation}
@@ -337,21 +337,21 @@ If we have an external magnetic field \( \va{H} \), the induction field is:
 \end{equation*}
 For normal conductors we have \( \Phi _0 = 0 \), which implies \( \va{B} = \va{H} \), while for superconductors \( \Phi \neq 0 \) and we have a spontaneous symmetry breaking.
 
-\subsubsection{Field theory analog}
-Let us consider the analog of the previous system in field theory: a scalar charged mesonic fields selfinteracting and in presence of an electromagnetic field with potential quadrivector \( A_ \mu  ( \va{x}) \). In particular, we have:
+\subsection{Field theory analog: the Higgs mechanism for an abelian group}
+Let us consider the analog of the previous system in field theory: a scalar charged mesonic fields selfinteracting and in presence of an electromagnetic field with potential quadrivector \( A_ \mu  ( \va{x}) \). We begin by applying the Higgs mechanism to an abelian\footnote{In abstract algebra, an abelian group, also called a commutative group, is a group in which the result of applying the group operation to two group elements does not depend on the order in which they are written.}, \( U(1) \)  gauge theory, to demonstrate how the mass of the corresponding gauge boson (the photon) comes about.
+
+The \( U(1) \) gauge invariant kinetic term of the photon is given by
 \begin{equation*}
-  \partial_ \mu  \rightarrow  D _ \mu = \qty[ \partial_ \mu  + i q A _ \mu  ]
+  \mathcal{L}_{photon} = - \frac{1}{4} F_ {\mu  \nu } (\va{x}) F ^{ \mu \nu } (\va{x}), \qquad F_ { \mu \nu } = \partial_ \mu  A _ \nu  - \partial _ \nu  A _ \mu
 \end{equation*}
-The order parameter we are considering is defined again as a scalar complex variable:
+That is, \( \mathcal{L}_{photon}  \)  is invariant under the transformation: \( A_\mu (\va{x}) \rightarrow A_\mu (\va{x}) - \partial_ \nu \alpha  (\va{x})  \) for any \( \alpha  \) and \( x \).
+If we naively add a mass term for the photon to the Lagrangian, we have
 \begin{equation*}
-  \Phi = \frac{1}{\sqrt{2} } \qty(\Phi _1 + i \Phi _2), \quad \Phi ^* = \frac{1}{\sqrt{2} } \qty(\Phi _1 - i \Phi _2)
+    \mathcal{L}_{photon} = - \frac{1}{4} F_ {\mu  \nu } (\va{x}) F ^{ \mu \nu } (\va{x}) + \frac{1}{2} m_A^2 A_\mu A^\mu
 \end{equation*}
-In this case, because of the presence of \( A _ \mu (\va{x}) \), we should consider a theory that satisfies symmetry \( U(1) \) locally! Thus, the transformation is
-\begin{equation}
-  \Phi  ( \va{x} ) \rightarrow e^{i \alpha (\va{x})} \Phi (\va{x}), \quad \Phi^*  ( \va{x} ) \rightarrow e^{-i \alpha (\va{x})} \Phi (\va{x})
-\end{equation}
-and exists \( A _ \mu (\va{x}) \) interacting with \( \Phi (\va{x}) \).
-Hence, the Lagrangian is
+ the mass term violates the local gauge symmetry; hence, the \( U(1) \)  gauge symmetry requires the photon to be massless.
+
+Now extend the model by introducing a complex scalar field, with charge \( q \),  that couples both to itself and to the photon. In this case, because of the presence of \( A _ \mu (\va{x}) \), we should consider a theory that satisfies symmetry \( U(1) \) locally! The Lagrangian of this model is:
 \begin{equation}
   \mathcal{L} = - \frac{1}{4} F_ {\mu  \nu } (\va{x}) F ^{ \mu \nu } (\va{x})
   + \qty(D _ \mu  \Phi (\va{x}))^* \qty(D _ \mu \Phi (\va{x}))
@@ -365,13 +365,27 @@ where
     V (\Phi , \Phi ^*) &= \frac{m^2}{2} \Phi \Phi ^* + \frac{\lambda }{4} \qty(\Phi \Phi ^*)^2 & \text{Potential}
 \end{align*}
 \end{subequations}
+The complex scalar field we are considering is defined again as:
+\begin{equation*}
+  \Phi = \frac{1}{\sqrt{2} } \qty(\Phi _1 + i \Phi _2), \quad \Phi ^* = \frac{1}{\sqrt{2} } \qty(\Phi _1 - i \Phi _2)
+\end{equation*}
+Hence, it is easily discerned that this Lagrangian is invariant under the gauge transformations
+\begin{subequations}
+\begin{align*}
+     \Phi  ( \va{x} ) &\rightarrow e^{i \alpha (\va{x})} \Phi (\va{x}), \quad \Phi^*  ( \va{x} ) \rightarrow e^{-i \alpha (\va{x})} \Phi (\va{x})   \\
+      A_\mu (\va{x}) &\rightarrow A_\mu (\va{x}) - \partial_ \nu \alpha  (\va{x})
+\end{align*}
+\end{subequations}
+
 
 Let us consider again two different cases:
 \begin{itemize}
-\item If \( m^2 >0 \): there is a minimum at \( \Phi =0 \).
-\item If \( m^2 <0 \): there is a minimum at \( \Phi = \sqrt{- \frac{m^2}{\lambda }} \equiv v  \)    (circle of radius \( \abs{\Phi } = v \)).
+\item If \( m^2 >0 \): the state of minimum energy will be that with \( \Phi =0 \) and the potential will preserve the symmetries of the Lagrangian. Then the theory is simply QED with a massless photon and a charged scalar field \( \Phi  \) with mass \( m \).
+
+\item If \( m^2 <0 \):  the field \( \Phi  \)  will acquire a vacuum expectation value. The state of minimum energy will be that with  \( \Phi = \sqrt{- \frac{m^2}{\lambda }} \equiv v  \)    (circle of radius \( \abs{\Phi } = v \)) and the global \( U(1) \)  gauge symmetry will be spontaneously broken.
 \end{itemize}
-Now, we consider the case \( m^2<0 \). Let us choose the state
+
+Now, let us focus on  the case \( m^2<0 \). In particular, it is convenient to parametrize \( \Phi  \) by choosing
 \begin{equation*}
   \bar{\Phi }_1 = v , \quad \bar{\Phi _2} = 0
 \end{equation*}
@@ -379,6 +393,7 @@ Hence, we have:
 \begin{equation*}
   \Phi (x) = \qty(v + \delta \Phi _1) + i \delta \Phi _2
 \end{equation*}
+where \( \Phi _1 \) is referred to as the Higgs boson and \( \Phi _2 \) as the Goldstone boson. As said, they are real scalar fields which have no vacuum expecation value (\( \expval{\Phi _1}_{\Phi _0} = \expval{\Phi _2}_{\Phi _0} = 0   \)).
 By inserting it in the Lagrangian and by keeping in mind that \(  m^2 = -v^2 \lambda  \), the Lagrangian transforms as
 \begin{equation}
 \begin{split}
@@ -389,7 +404,7 @@ By inserting it in the Lagrangian and by keeping in mind that \(  m^2 = -v^2 \la
 \end{equation}
 Let us give a physical interpretation of the emphasized terms:
 \begin{itemize}
-\item \( \lambda v^2 \delta \Phi _1^2 \) means that the field \( \delta \Phi _1 \) is massive with mass \( M = v \sqrt{2 \lambda }  \)  (Higgs boson).
+\item \( \lambda v^2 \delta \Phi _1^2 \) means that the field \( \delta \Phi _1 \) is massive with mass \( M = v \sqrt{2 \lambda }  \)  (\emph{Higgs boson}).
 
 \item \( q^2 v^2 A_ \mu A ^\mu  \) means that the \emph{gauge boson}  \( A _ \mu  \), the photon, has got a mass
 \begin{equation*}
@@ -397,13 +412,14 @@ Let us give a physical interpretation of the emphasized terms:
 \end{equation*}
 Note that since now \( A _ \mu  \) is massive, it has three indipendent polarization states.
 
-\item \( q v A ^ \mu  \partial _ \mu  \delta \Phi _2  \) means that the field \( \delta \Phi _2 \) is not massive (indeed there is no term \( \propto \delta \Phi _2^2 \)) and that it is mixed with \( A_ \mu  \). Dynamically, this means that a propagating photon can transform itself into a field \( \delta \Phi _2 \) (the photon becomes a Goldstone boson).
+\item \( q v A ^ \mu  \partial _ \mu  \delta \Phi _2  \) means that the field \( \delta \Phi _2 \) is not massive (indeed there is no term \( \propto \delta \Phi _2^2 \)) and that it is mixed with \( A_ \mu  \) (\emph{Goldstone boson}). Dynamically, this means that a propagating photon can transform itself into a field \( \delta \Phi _2 \) (the photon becomes a Goldstone boson).
 
 \end{itemize}
 
+Summarizing, this Lagrangian now describes a theory with a Higgs boson \( \delta \Phi _1 \) with mass \( M= v \sqrt{2 \lambda }  \), a photon of mass \( M_A = qv \sqrt{2}  \) and a massless Goldstone \( \delta \Phi _2 \).
 
-Since \( \delta \Phi _2 \) does not seem to be a physical field it should be eliminated by a gauge transformation.
-Indeed a gauge transformation is also characterized  by the transformation
+
+Moreover, since \( \delta \Phi _2 \) does not seem to be a physical field it should be eliminated by a gauge transformation. Hence, the strange \( \delta \Phi _2 A^\mu  \) mixing can be removed by making the following gauge transformation:
 \begin{equation*}
   A _ \mu (\va{x}) \rightarrow A _ \mu (\va{x}) - \frac{1}{q} \partial_ \mu \alpha (\va{x})
 \end{equation*}
@@ -411,12 +427,39 @@ We can choose \( \alpha (\va{x}) = - \frac{1}{v} \delta \Phi _2 (\va{x}) \)
 \begin{equation*}
   A _ \mu (\va{x}) \rightarrow A _ \mu (\va{x}) + \frac{1}{qv} \partial_ \mu \delta \Phi _2 (\va{x})
 \end{equation*}
+and the gauge choice with the transformation above is called the unitary gauge.
 By inserting it in the Lagrangian Eq.\eqref{eq:n_9}, we eliminate the mixed term \( q v A ^ \mu  \partial_ \mu  \delta \Phi _2  \), in red, and the term \( \frac{1}{2} \qty(\partial _ \mu  \delta \Phi _2 )^2  \). Thus we obtain:
 \begin{equation}
   \mathcal{L} = - \frac{1}{4} F _{\mu \nu } F ^ {\mu \nu } + \frac{1}{2} \qty(\partial _ \mu  \delta \Phi _1 )^2 - \lambda v^2 \delta \Phi _1^2
   + q^2 v^2 A_ \mu A ^ \mu  + \text{higher order terms}
   \label{eq:n_10}
 \end{equation}
+The Goldstone \( \delta \Phi _2 \)  will then completely disappear from the theory and one says that the Goldstone has been "eaten" to give the photon mass.
+Therefore, the new Lagrangian in Eq.\eqref{eq:n_10} contains two fields: one is a massive photon with spin 1 and the second field \( \delta \Phi _1 \) is massive too, but has spin 0 (scalar).
+The mechanics trough which the gauge boson becomes massive is the so called \textbf{Higgs mechanism}.
+
+It is instructive to count the degrees of freedom (dof) before and after spontaneous symmetry broken has occurred. In particular, we have:
+
+\begin{itemize}
+\item For a global \( U(1) \)  symmetry, we have \( 2 \) massive scalar fields, hence there are \( 1+1 \) degrees of freedom.
+
+After symmetry breaking, we have \( 1 \)  scalar field massive and \( 1 \) scalar field not massive. Hence, there are again \( 1+1 \) degrees of freedom.
+
+\item For a local gauge \( U(1) \) symmetry, we have \( 2 \) massive scalar fields and one massless photon. Hence, there are \( 2 + 2 \) degrees of freedom (the massless photon has \( 2 \) polarizations).
+
+After symmetry breaking, we have \( 1 \) massive scalar field  and \( 1 \) massive photon. Hence, there are  \( 1+3 \) degrees of freedom (the massive photon has \( 3 \) polarizations).
+
+\end{itemize}
+
+
+
+\begin{remark}
+  Let us note that in Eq.\eqref{eq:n_10} among the higher order terms we have neglected, there are
+\begin{itemize}
+\item A term proportional to \( \propto \delta \Phi _1 A_ \mu A ^ \mu  \), shown in Figure \ref{fig:n_7}.
+\item A term proportional to \( \propto \delta \Phi _1 ^2 A _ \mu A ^ \mu  \), shown in Figure \ref{fig:n_8}.
+\end{itemize}
+\end{remark}
 
 \begin{figure}[h!]
 \begin{minipage}[c]{0.5\linewidth}
@@ -431,32 +474,6 @@ By inserting it in the Lagrangian Eq.\eqref{eq:n_9}, we eliminate the mixed term
 
 
 \begin{remark}
-  Let us note that among the higher order terms we have neglected, there are
-\begin{itemize}
-\item A term proportional to \( \propto \delta \Phi _1 A_ \mu A ^ \mu  \), shown in Figure \ref{fig:n_7}.
-\item A term proportional to \( \propto \delta \Phi _1 ^2 A _ \mu A ^ \mu  \), shown in Figure \ref{fig:n_8}.
-\end{itemize}
-\end{remark}
-
-
-\noindent Now, let us consider the new Lagrangian Eq.\eqref{eq:n_10}. It contains two fields: one is a massive photon with spin 1 and the second field \( \delta \Phi _1 \) is massive too, but has spin 0 (scalar).
-Hence, the Goldstone boson has been "eaten" by the gauge boson, the photon, that now is massive!
-The mechanics trough which the gauge boson becomes massive is the so called \textbf{Higgs mechanism}.
-
-In summary, according to the degrees of freedom, we have
-\begin{itemize}
-\item For a global \( U(1) \)  symmetry, we have \( 2 \) massive scalar fields, hence there are \( 1+1 \) degrees of freedom.
-
-After symmetry breaking, we have \( 1 \)  scalar field massive and \( 1 \) scalar field not massive. Hence, there are again \( 1+1 \) degrees of freedom.
-
-\item For a local gauge \( U(1) \) symmetry, we have \( 2 \) massive scalar fields and one photon. Hence, there are \( 2 + 2 \) degrees of freedom (the photon has \( 2 \) polarizations).
-
-After symmetry breaking, we have \( 1 \) massive scalar field  and \( 1 \) massive photon. Hence, there are  \( 1+3 \) degrees of freedom (the massive photon has \( 3 \) polarizations).
-
-\end{itemize}
-
-
-\begin{remark}
 Note that the  presence of the massive photon \( M^2_A = 2 q^2 v^2 \), with \( q = 2 l \) in superconductivity, gives rise to the exponential drop
 \begin{equation*}
   B (x) = B(0) e^ {- x/l}
@@ -467,7 +484,7 @@ inside the system.
 Now, let us do some considerations:
 
 \begin{itemize}
-\item We cannot introduce by hand a massive photon i.e. a term like \( \frac{1}{2} M_A^2 A_ \mu A ^\mu  \) in the Lagrangian because we would violate explicitely the gauge symmetry!
+\item As said, we cannot introduce by hand a massive photon i.e. a term like \( \frac{1}{2} M_A^2 A_ \mu A ^\mu  \) in the Lagrangian because we would violate explicitely the gauge symmetry!
 \item The Lagrangian is gauge invariant.
 \item Symmetry breaking occurs at the level of the vacuum state.
 \item A gauge symmetry that is explicitely broken is not renormalizable.
@@ -477,25 +494,23 @@ Now, let us do some considerations:
 
 
 
-
-
-
-
-
 \subsection{Non abelian gauge theories}
-\begin{example}{}{}
-Electro-weak interactions theory (Glashow-Weinberg-Solam) (theory of leptons). Lagrangian has \( \underbrace{S U (2)}_{\substack{ \text{weak} \\  \text{interactions} } }  \times \underbrace{U(1)}_{\text{electromagnetian}}  \)
-\end{example}
-\begin{example}{Quantum chromodynamic (quarks+gluons)}{}
-\end{example}
-In this case, one has a term that is \( SU(3) \) invariant + the GWS lagrangian with symmetry \( SU(2) \times U(1) \), implies
-\begin{equation}
-  SU(3) \times SU(2) \times U(1)
-\end{equation}
-Because of the groups \( SU(2) \) and \( SU(3) \) the symmetries above ar not abelian.
-(For example in \( SU(2) \) two matrices \( U (\alpha ) \) and \( U(\beta ) \) do not commute in general).
+Let us illustrate some examples of non abelian gauge theories.
 
-\section{Extension of Higgs mechanism to non abelian theories}
+\begin{example}{}{}
+The electro-weak interactions theory (Glashow-Weinberg-Solam) (theory of leptons) is a non abelian gauge theories: the Lagrangian is invariant under the group \( \underbrace{S U (2)}_{\substack{ \text{weak} \\  \text{interactions} } }  \times \underbrace{U(1)}_{\text{electromagnetism}}  \), that is not an abelian group because of \( S U(2) \).
+\end{example}
+
+\begin{example}{Quantum chromodynamic (quarks+gluons)}{}
+In the case of quantum chromodynamic, one has a term that is \( SU(3) \) invariant and the GWS Lagrangian that has symmetry \( SU(2) \times U(1) \). It implies that the Lagrangian of this theory is invariant under
+  \begin{equation}
+    SU(3) \times SU(2) \times U(1)
+  \end{equation}
+Because of the groups \( SU(2) \) and \( SU(3) \) the symmetries above ar not abelian (for example in \( SU(2) \) two matrices \( U (\alpha ) \) and \( U(\beta ) \) do not commute in general).
+\end{example}
+
+
+\subsection{Extension of Higgs mechanism to non abelian theories}
 
 \subsection{GWS model}
 Complex field \( SU(2) \)
