@@ -1,4 +1,4 @@
-# Lecture Notes of Statistical-Mechanics
+# Lecture Notes of Statistical Mechanics
 
 Lectures notes of the Master degree course "Statistical Mechanics" in Physics of professor Enzo Orlandini at the University of Padova (a.y. 2019/2020).
 
