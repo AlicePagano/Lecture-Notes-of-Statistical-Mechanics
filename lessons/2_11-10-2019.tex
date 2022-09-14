@@ -116,50 +116,72 @@ In this case the \emph{3 Maxweel relations} (\( [T,V,N] \)) are
 \section{Response functions}
 Response functions are quantities that express how a system reacts when some external parameters are changed.
 
-In fact, aim of most experiments is to measure the response of a thermodynamic system write respect to controlled variatious of thermodynamic variables. Any osservation is just the pertubation of a system and looking for the response.
+In fact, aim of most experiments is to measure the response of a thermodynamic system with respect to controlled variations of thermodynamic variables. Any observation is just the perturbation of a system and looking for the response.
 A list of the commonly used response functions is the following:
-\begin{itemize}
-\item \emph{Thermal expansion coefficient at constant pressure}.
-\begin{equation}
-  \alpha _P \equiv \frac{1}{V} \qty(\pdv{V}{T} )_{P,N}
-  \label{eq:}
-\end{equation}
-\item \emph{Adiabatic compressibility}.
-\begin{equation}
-  k_S = -\frac{1}{V} \qty(\pdv{V}{P} )_{S,N} \underset{V=\qty(\pdv{H}{P} )_{S,N} }{=} - \frac{1}{V} \qty(\pdv[2]{H}{P} )_{S,N}
-    \label{eq:}
-\end{equation}
-\item \emph{Isothermal compressibility}.
-\begin{equation}
-  k_T = -\frac{1}{V} \qty(\pdv{V}{P} )_{T,N} \underset{V=\qty(\pdv{G}{P} )_{T,N} }{=} - \frac{1}{V} \qty(\pdv[2]{G}{P} )_{T,N}
-  \label{eq:}
-\end{equation}
-\begin{remark}
-Remember that \( k_T \) it is the second derivative of the Gibbs potential write respect to pressure.
-\end{remark}
-\item \emph{Molar heat capacity at constant pressure}.
-\begin{equation}
-  c_P = \qty(\frac{\delta Q}{\dd[]{T} } )_{P,N} = T \qty(\pdv{S}{T} )_{P,N} \underset{-S=\qty(\pdv{G}{T} )_{P,N} }{=}  - T \qty(\pdv[2]{G}{T} )_{P,N}
-  \label{eq:}
-\end{equation}
-\item \emph{Specific heat at constant volume}. Consider a quasi static transformation.
-\begin{equation}
-  c_V =  \qty(\frac{\delta Q}{\dd[]{T} } )_{V,N} = T \qty(\pdv{S}{T} )_{V,N}
-      = \qty( \frac{\partial{(-\partial{A}/\partial{T} )_{V,N}} }{\partial{T} })_{V,N}
-      = - T \qty(\pdv[2]{A}{T} )_{V,N}
-  \label{eq:}
-\end{equation}
-\item \emph{Magnetic susceptibility (d=1)} for a magnetic system \( (\va{M},\va{H},T  ) \).
-\begin{equation}
-  \chi_T = \qty(\pdv{M}{H} )_T \underset{M = -\eval{\pdv{G}{H}}_T }{=}  - \qty(\pdv[2]{G}{H} )_T
-  \label{eq:}
-\end{equation}
-More generals, \( \va{M},\va{H}   \) we have
-\begin{equation}
-  \chi _{\alpha \beta } = \qty(\pdv{M_ \alpha }{H_ \beta } )_T , \quad M_ \alpha = -\eval{\pdv{G}{H_ \alpha }}_T \Rightarrow \chi _{\alpha \beta } = \eval{\pdv{G}{H_ \beta }{H_ \alpha }}_T
-  \label{eq:}
-\end{equation}
 
+\begin{itemize}
+    \item Thermal response functions (heat capacities):
+    \begin{itemize}
+        \item \emph{Heat capacity at constant pressure}
+            \begin{equation}
+            C_P \equiv \qty(\frac{\delta Q}{\dd[]{T} } )_{P,N}
+                \underset{\delta Q = T \dd[]{S} }{=} T \qty(\pdv{S}{T} )_{P,N}
+                \underset{-S=\qty(\pdv{G}{T} )_{P,N} }{=} - T \qty(\pdv[2]{G}{T} )_{P,N}
+            \label{eq:}
+            \end{equation}
+        \item \emph{Heat capacity at constant volume}
+            \begin{equation}
+            C_V \equiv \qty(\frac{\delta Q}{\dd[]{T} } )_{V,N}
+                \underset{\delta Q = T \dd[]{S} }{=} T \qty(\pdv{S}{T} )_{V,N}
+                \underset{-S=\qty(\pdv{A}{T} )_{V,N} }{=} - T \qty(\pdv[2]{A}{T} )_{V,N}
+            \label{eq:}
+            \end{equation}
+    \end{itemize}
+    \begin{remark}
+    Heat capacity \( C_P \) is an extensive property. The associated intensive property is the specific heat capacity \( c_P \), which is obtained by dividing the heat capacity of an object by its mass. However, hereinafter these quantities will be used interchangeably.
+    \end{remark}
+\end{itemize}
+
+
+
+\begin{itemize}
+    \item Mechanical response functions:
+    \begin{itemize}
+        \item \emph{Thermal expansion coefficient at constant pressure}
+            \begin{equation}
+             \alpha _P \equiv \frac{1}{V} \qty(\pdv{V}{T} )_{P,N}
+            \label{eq:}
+            \end{equation}
+        \item \emph{Adiabatic compressibility}
+            \begin{equation}
+            k_S \equiv -\frac{1}{V} \qty(\pdv{V}{P} )_{S,N} \underset{V=\qty(\pdv{H}{P} )_{S,N} }{=} - \frac{1}{V} \qty(\pdv[2]{H}{P} )_{S,N}
+            \label{eq:}
+            \end{equation}
+        \item \emph{Isothermal compressibility}
+            \begin{equation}
+              k_T \equiv -\frac{1}{V} \qty(\pdv{V}{P} )_{T,N} \underset{V=\qty(\pdv{G}{P} )_{T,N} }{=} - \frac{1}{V} \qty(\pdv[2]{G}{P} )_{T,N}
+              \label{eq:}
+            \end{equation}
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item  Magnetic response functions:
+    \begin{itemize}
+        \item \emph{Isothermal susceptibility (d=1)} 
+        \begin{equation}
+        \chi_T \equiv \qty(\pdv{M}{H} )_T
+        \underset{M = -\eval{\pdv{G}{H}}_T }{=} - \qty(\pdv[2]{G}{H} )_T
+        \label{eq:}
+        \end{equation}
+    More generally, if \( \va{M}, \va{H}\) we have a second order tensor
+        \begin{equation}
+        \chi _{\alpha \beta } = \qty(\pdv{M_ \alpha }{H_ \beta } )_T ,
+        \quad M_ \alpha = -\eval{\pdv{G}{H_ \alpha }}_T \Rightarrow
+        \chi _{\alpha \beta } = \eval{\pdv{G}{H_ \beta }{H_ \alpha }}_T
+        \label{eq:}
+        \end{equation}
+    \end{itemize}
 \end{itemize}
 
 \begin{remark}
@@ -291,7 +313,7 @@ It can be shown similarly for magnetic systems.
 \end{equation}
 \end{exercise}
 
-For resuming, we have seen the thermodynamic of a phase, where the equilibrium state can be described by the maximum of the entropy. If we have a given phase, we can look for the Gibbs function. If we have more phases, we want to change between these phases.
+For resuming, we have seen the thermodynamics of a phase, where the equilibrium state can be described by the maximum of the entropy. If we have a given phase, we can look for the Gibbs function. If we have more phases, we want to change between these phases.
 
 
 
