@@ -131,14 +131,14 @@ What is a \emph{domain wall} in \emph{d} dimensions? The domain walls is an hype
 Computing the entropy it is a very difficult problem. Indeed, the entropy of a fluctuating hypersurface is difficult to estimate. 
 For a single domain wall, we can say
 \begin{equation}
-  S \ge k_B \ln{L}
+  S \propto k_B \ln{\mu^L} = k_B L \ln{\mu}
 \end{equation}
-where  \emph{L} is the number of ways to place a straight wall within a system of linear size \emph{L}.
+where  \( \mu^{\emph{L}} \) is the number of ways to place a straight wall within a system of linear size \emph{L}.
 The \( \Delta S \)  is just \emph{S}  because the entropy of the ground state is again zero.
 \begin{remark}
 If we underestimate \emph{S}, we obtain
 \begin{equation}
-  \Delta F = 2JL^{d-1}-k_B T \ln{L}
+  \Delta F = 2JL^{d-1}-k_B T L \ln{\mu}
 \end{equation}
 it means that now energy can win if the temperature is different from zero. Therefore, for \( d=2 \),  or greater (\( d>1 \)), that long range order can survive  thermal fluctuations and the system could present an ordered phase!
 \end{remark}
@@ -399,7 +399,7 @@ Note that there is no variation along the other \( d-1 \) dimensions, therefore 
 
 We consider only the term \emph{E} (Stifness energy) of the Hamiltonian 
  \begin{equation}
-   E = \frac{J}{2} L^{d-1} \int_{0}^{L} \dd[]{x} \qty(\dv{}{x} \qty(\frac{2 \pi n x}{L})  )^2 = \frac{J}{2} L^{d-1} \int_{0}^{L} \dd[]{x} \qty(\frac{2 \pi n}{L})^2 \approx 2 \pi ^2 n^2 J L^{d-2}
+   E = \frac{J}{2} L^{d-1} \int_{0}^{L} \dd[]{x} \qty(\dv{}{x} \qty(\frac{2 \pi n x}{L})  )^2 = \frac{J}{2} L^{d-1} \int_{0}^{L} \dd[]{x} \qty(\frac{2 \pi n}{L})^2 = 2 \pi ^2 n^2 J L^{d-2}
  \end{equation}
 \begin{remark}
 Unlike the Ising model where \( E \sim L^{d-1} \), here \( E \sim L^{d-2} \)! Hence, if \( S \ge k_B \ln{L}  \) for a single domain wall, \emph{S} should dominate if \( d \le 2 \), the ordered phase is always unstable and no phase transition is expected for \( T \neq 0 \)!

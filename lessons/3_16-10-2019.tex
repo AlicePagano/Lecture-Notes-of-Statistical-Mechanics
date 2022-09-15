@@ -151,7 +151,7 @@ whence, the Clapeyron equation is
 \end{equation*}
 
 The Clapeyron equation embodies the \emph{Le Chatelier principle}\footnote{"When a settled system is disturbed, it will adjust to diminish the change that has been made to it".}.
- Consider a liquid-gas transition (the coexistence curves are shown in Figure \ref{fig:3_16}):
+ Consider a liquid-gas transition (the coexistence curves, from which the inequality sign is derived, are shown in Figure \ref{fig:3_16}):
 \begin{equation*}
   \qty(\dv{P}{T} )_{coex} > 0 \quad \Rightarrow \frac{s_2 - s_1}{v_2 - v_1} > 0
 \end{equation*}
@@ -254,6 +254,8 @@ Clearly \( M \neq 0 \) if \( H \neq 0 \). Recall that \emph{M} is the order para
 \caption{\label{fig:3_3} Magnetization of a ferromagnet. In red: zero-field magnetization. Below the critical temperature there is a spontaneous magnetization.}
 \end{figure}
 
+
+It can be either a scalar ($\Delta \rho$), a vector ($\Vec{M}$) or even tensor ($Q_{\alpha \beta}$).
 \subsubsection{Variable conjugate to \( O_P \)}
 \begin{itemize}
 \item \emph{Ferromagnetic system}: \( \va{M} \rightarrow \va{H}   \) (magnetic field).
@@ -384,7 +386,7 @@ where all other terms are less important.
 \begin{definition}{Thermodynamic Critical Exponents}{}
 \begin{itemize}
 \item \textbf{Exponent \( \pmb{\beta} \)}: tells how the order parameter goes to zero.
-Consider Figure \ref{fig:3_4_1}, we have \( M \overset{t \rightarrow  0^-}{\sim} (-t)^{\beta }  \). No sense in going from above \( (t \rightarrow 0^+) \) where it stays 0.
+Consider Figure \ref{fig:3_4_1}, we have \( \abs{M} \overset{t \rightarrow  0^-}{\sim} (-t)^{\beta }  \). No sense in going from above \( (t \rightarrow 0^+) \) where it stays 0.
 
 \item \textbf{Exponent \(\pmb{ \gamma _{\pm} } \)} (susceptibility): related to the response function. Consider Figure \ref{fig:3_4_2}, we have \( \chi _T \overset{t \rightarrow 0^{\pm}}{\sim} \abs{t}^{-\gamma _{\pm} }   \). In principle, the value of \( \gamma   \) can depend on the sign of \emph{t} i.e.   \( \gamma ^+ \neq \gamma ^-  \), but they are the same in reality and we have \( \gamma ^+ = \gamma ^- = \gamma     \).
 
@@ -464,6 +466,11 @@ Isothermal compressibility & \( k _T \sim \abs{t}^{-\gamma  }  \) \\
 In compiling Table \ref{tab:3_1} and \ref{tab:3_2} we have made the as yet totally unjustified assumption that the critical exponent associated with a given thermodynamic variable is the same as \( T \rightarrow T_c \) from above or below.
 \end{remark}
 
+Critical exponents depend on very few parameters and are not system-specific:
+1 - symmetries of the system
+2 - dimension of the system
+3 - range of interaction
+$T_c$ instead does depend on specific chemistry, is not as universal as critical exponent.
 
 
 \subsection{Law of the corresponding states}
@@ -512,7 +519,7 @@ It is possible to obtain several rigorous inequalities between the critical expo
 \subsubsection{Rushbrocke inequality}
 It follows from the well known thermodynamic relation between the specific heats at constant field and constant magnetization.
 Remember the relation between response functions:
-
+For a fluid:
 \begin{equation*}
    k_T (c_p-c_v)=T v \alpha ^2 = T v \frac{1}{v^2} \qty(\pdv{v}{T} )^2_P = T \frac{1}{v} \qty(\pdv{v}{T} )^2_P
 \end{equation*}
@@ -557,7 +564,7 @@ Since the left hand side must be strictly greater than zero, we have the \textit
 \end{empheq}
 
 \subsubsection{Griffith inequality}
-The \emph{Griffith inequality} is obtained from the convexity property (in \emph{T} and \emph{V}) of the Helmolds free energy and from \( A \sim t^{2- \alpha } \):
+The \emph{Griffith inequality} is obtained from the convexity property (in \emph{T} and \emph{V}) of the Helmolds free energy and from \( A \sim t^{2- \alpha } \) (as $t \rightarrow 0^-$ deduced from $c_P = t^{-\alpha}$):
 
 \begin{empheq}[box=\myyellowbox]{equation}
   \Rightarrow \alpha + \beta (1+\delta ) \ge 2

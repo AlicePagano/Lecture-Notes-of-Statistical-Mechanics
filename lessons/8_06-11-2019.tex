@@ -355,7 +355,7 @@ Note that \( \lambda _i \) does not depend on \emph{m}!
 
 If \( l=0 \), the largest eigenvalue is:
 \begin{equation*}
-  \lambda _+ = \lambda _0 (K) = 4 \pi j_0 (-iK) = 4 \pi \frac{\sin K }{K}
+  \lambda _+ = \lambda _0 (K) = 4 \pi j_0 (-iK) = 4 \pi \frac{\sinh K }{K}
 \end{equation*}
 and
 \begin{equation*}
@@ -365,22 +365,21 @@ and
 \begin{exercise}{}{}
 Given the largest eigenvalue \( \lambda _+ \),
 \begin{equation*}
-  \lambda _+ = 4 \pi \frac{\sin K }{K}
+  \lambda _+ = 4 \pi \frac{\sinh K }{K}
 \end{equation*}
 find the bulk free energy density of the model and discuss its behaviour in the limits of low (\( T \rightarrow 0 \)) and high (\( T \rightarrow \infty  \)) temperatures.
 \begin{solution}
 The bulk free energy is 
 \begin{equation*}
-    f_b = -k_B T \log \lambda_+ = -k_B T \log \qty(  4 \pi \frac{\sin K }{K} )
+    f_b = -k_B T \log \lambda_+ = -k_B T \log \qty(  4 \pi \frac{\sinh K }{K} )
 \end{equation*}
 Remind that \( K \equiv \beta J \) and consider the limits
 \begin{itemize}
     \item Case: \( T \rightarrow 0 \Rightarrow K \rightarrow \infty \).
     \begin{equation*}
-       f_b = - \frac{J}{K} \log \qty(  4 \pi \frac{\sin K }{K} )
+       f_b = - \frac{J}{K} \log \qty(  4 \pi \frac{\sinh K }{K} )
         \overset{K \rightarrow \infty}{\sim}
-        - \frac{J}{K}   \log \qty(  \frac{1}{K} )
-        = \frac{J}{K}   \log \qty(  K )
+        \frac{J}{K}   \log \qty(  \frac{K}{\sinh K} )
     \end{equation*}    
     Hence,
     \begin{equation*}
@@ -388,7 +387,7 @@ Remind that \( K \equiv \beta J \) and consider the limits
     \end{equation*}      
     \item Case: \( T \rightarrow \infty \Rightarrow K \rightarrow 0 \).
     \begin{equation*}
-        \sin K \overset{K \rightarrow 0}{\sim} K
+        \sinh K \overset{K \rightarrow 0}{\sim} K
     \end{equation*}
     \begin{equation*}
         \Rightarrow f_b = - k_B T \log \qty(  4 \pi \frac{ \cancel{K} }{\cancel{K}} ) = - k_B T \log (4 \pi)
