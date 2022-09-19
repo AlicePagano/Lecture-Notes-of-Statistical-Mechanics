@@ -10,7 +10,7 @@ Using the constraints
 \begin{equation*}
   \begin{cases}
     \Tr^{(i)}(\rho _i) = 1  &\rightarrow  a+b=1\\
-    \Tr^{(i)}(\rho _i S_i) = m_i  & \rightarrow a-b = m_i
+    \Tr^{(i)}(\rho _i S_i) = m_i  & \rightarrow b-a = m_i
   \end{cases}
 \end{equation*}
 where \( a,b \) are the functions of the order parameter.
@@ -307,11 +307,11 @@ The \( \Delta N \) term is a typical term for a gas in gran canonical ensemble.
 \subsubsection{Variational mean field approach to BEG}
 Since we want to apply the second variational method that we have seen, we write the mean field probability density as:
 \begin{equation*}
-  \rho _{MF} = \prod_{i}^{} \rho _i   =  \prod_{i}^{} \rho (S_i)
+  \rho _{MF} = \prod_{i}^{} \rho _i   =  \prod_{i}^{} \rho^{(1)} (S_i)
 \end{equation*}
 and the free energy:
 \begin{equation}
-  G(T,J,\Delta ) = \expval{\mathcal{H}}_{\rho _{MF}} + k_B T \sum_{i}^{} \Tr(\rho _i \ln{\rho _i } )
+  G(T,J,\Delta ) = \expval{\mathcal{H}}_{\rho _{MF}} + k_B T \sum_{i}^{} \Tr^{(i)}(\rho _i \ln{\rho _i } )
 \end{equation}
 The mean value of the Hamiltonian is:
 \begin{equation*}
@@ -548,11 +548,11 @@ Within this approach, the  mean field approximation is still given by
 \end{equation*}
 that in this case becomes
 \begin{equation}
-  \prod_{i=1}^{N} \rho _{TR}^{(1)} (\Phi _i) = \frac{1}{Z_{TR}^{MF}} e^{-\beta \sum_{i}^{} b_i \Phi _i  }
+  \prod_{i=1}^{N} \rho _{TR}^{(1)} (\Phi _i) = \frac{1}{Z_{TR}^{MF}} e^{\beta \sum_{i}^{} b_i \Phi _i  }
 \end{equation}
 and
 \begin{equation}
-  Z_{TR} = \sum_{\{ \Phi  \}  }^{}  e^{-\beta \sum_{i}^{} b_i \Phi _i  }
+  Z_{TR} = \sum_{\{ \Phi  \}  }^{}  e^{\beta \sum_{i}^{} b_i \Phi _i  }
 \end{equation}
 where \( b_i \) are the variational parameters. The Hamiltonian is 
 \begin{equation}
@@ -585,7 +585,7 @@ Let us minimize the last equation, we consider the condition:
 \end{equation*}
 which gives
 \begin{equation*}
-  0 = \pdv{F_{var}}{b_i} = \qty[-J \sum_{j \in \, n.n. \, i}^{} \expval{S_i}_{\rho _{TR}}  + b_i - H  ] \pdv{\expval{S_i} }{b_i}
+  0 = \pdv{F_{var}}{b_i} = \qty[-J \sum_{j \in \, n.n. \, i}^{} \expval{S_j}_{\rho _{TR}}  + b_i - H  ] \pdv{\expval{S_i} }{b_i}
 \end{equation*}
 The variational parameters are equal to
 \begin{equation*}

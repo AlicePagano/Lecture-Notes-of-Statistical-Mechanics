@@ -45,10 +45,15 @@ Suppose that the system is \emph{finite}. Formally, we can write
 \end{equation}
 where
 \begin{itemize}
-  \item \( k_n \): are the coupling constants. In general, but not always, they are  \emph{intensive thermodynamic variables}.
+  \item \( k_n \): are the coupling constants. In general, but not always, they are proportional to the  \emph{intensive thermodynamic variables}.
   \item \( \Theta _n \): is a linear, or higher order, combination of the dynamical microscopic degrees of freedom (local operators in quantum statistical mechanics).
   \item \( k_n \Theta _n \): must obey the symmetry of the system. It is important that in principle the term satisfies the symmetry of the system. This is a master rule!
 \end{itemize}
+
+\begin{remark}
+The symmetry of the system is related to the space of degrees of freedom, which in general is different from the embedding space \( \Omega  \).
+\end{remark}
+
 To fix the idea, let us consider two classical examples: the magnetic system and the fluid system.
 
 \subsection{Magnetic system (canonical)}
@@ -177,6 +182,7 @@ We can relate the above expression with the correlation of the microscopic by pe
 \begin{equation}
   M (\mathcal{C}) = \int_{}^{} \dd[3]{\va{r}}   m (\va{r})
 \end{equation}
+where $m (\va{r}$ is defined through a coarse graining approach as the local average on a block of an infinitesimal subsystem.
 Hence,
 \begin{equation}
   k_B T \chi _T = \int_{}^{} \dd[]{\va{r}}  \dd[]{\va{r'}}   \qty[\expval{m (\va{r}) m (\va{r'})} - \expval{m(\va{r}) } \expval{m (\va{r'})}  ]
@@ -239,7 +245,7 @@ In particular, one can see that for \( H=0 \) and \( T \rightarrow T_c^\pm \):
 \end{equation}
 where \( \nu _+ = \nu _- = \nu  \) is the correlation length critical exponent.
 \begin{remark}
-It does not derive from thermodynamic considerations.
+It does not derive from thermodynamic considerations, as it is due to the collective behaviour of the units.
 \end{remark}
 \noindent Scaling \eqref{eq:5_2} is often used as the most general definition of a critical point. 
 
@@ -251,6 +257,9 @@ where \( \eta  \) is the correlation critical exponent.
 \begin{remark}
 The formula is a power law decay instead than exponential.
 \end{remark}
+
+\subsection{Critical opalescence: experimental evidence of correlation length divergence}
+Microscopic correlations can be proved by \textit{scattering experiments}. For instance, near the critical liquid-gas mixture, the fluid appears "milky", while away from $T_c$ it is transparent. This means that the system is diffusing light, which has $\lambda=500nm$ though, which is much larger than typical atomic distances ($a \approx 1nm$). The scattering of light is caused by density fluctuations, that need to be correlated over long distance to make $\xi$ comparable to $\lambda$.
 
 \section{Finite size effects and phase transitions}
 Actually, the thermodynamic limit is a mathematical trick and in real systems it is never reached. Is it then physically relevant?
@@ -271,15 +280,15 @@ As \( T \rightarrow T_c \), where \( \xi  \) should be larger than the system si
 \end{equation*}
 Let us assume that the lattice distance is \( \xi _0 = \SI{10}{\angstrom}  \). Hence,
  \begin{equation}
-   t \sim \qty(\frac{\xi }{\xi _0})^{-1/\nu } \sim \qty(\frac{L}{\SI{10}{\angstrom} })^{-1/\nu } \sim (10^{10})^{-1/\nu }
+   t \sim \qty(\frac{\xi }{\xi _0})^{-1/\nu } \sim \qty(\frac{L}{\SI{10}{\angstrom} })^{-1/\nu } \sim (10^{7})^{-1/\nu }
  \end{equation}
 In the next chapters, we will see that \( \nu < 1 \) and close to \( 1/2 \), hence:
 \begin{equation*}
-  t \sim (10^{10})^{-2 } = 10^{-20}
+  t \sim (10^{7})^{-2 } = 10^{-14}
 \end{equation*}
-Therefore we have \( t \approx 10^{-20} \)  as a distance from \( T_c \).
+Therefore we have \( t \approx 10^{-14} \)  as a distance from \( T_c \).
 
-This estimate suggests that the experimental instrument that measures temperature must have a precision of \( 10^{-20} \)  to see deviations from the results obtained in the thermodynamic limit.
+This estimate suggests that the experimental instrument that measures temperature must have a precision of \( 10^{-14} \)  to see deviations from the results obtained in the thermodynamic limit.
 
 
 \clearpage

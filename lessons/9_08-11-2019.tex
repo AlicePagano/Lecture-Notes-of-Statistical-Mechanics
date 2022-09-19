@@ -278,39 +278,64 @@ We consider a set of spin arranged on a square lattice, interacting only with ne
 \end{equation*}
 This can be rewritten as follows:
 \begin{equation}
-  -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) = \sum_{m=1}^{M} \qty[E[\mu _m, \mu _{m+1}] + E[\mu _m]]
+  -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) = \sum_{m=1}^{M} \qty[E_2(\mu _m, \mu _{m+1}) + E_1(\mu _m)]
 \end{equation}
 where 
 \begin{subequations}
 \begin{align}
-E [ \mu _m,h] &= K \sum_{n=1}^{N} S_{m,n} S_{m,n+1} + h \sum_{n=1}^{N} S_{m,n} \\
-  E [\mu _m, \mu _{m+1},h] & = K \sum_{n=1}^{N} S_{m,n} S_{m+1,n}
+E_1 (\mu _m,h) &= K \sum_{n=1}^{N} S_{m,n} S_{m,n+1} + h \sum_{n=1}^{N} S_{m,n} \\
+  E_2 (\mu _m, \mu _{m+1},h) & = K \sum_{n=1}^{N} S_{m,n} S_{m+1,n}
 \end{align}
 \end{subequations}
 the first equation is the one body interaction, while the second equation represents the interaction between nearest neighbours columns (two body interaction).
 
-Moreover, \( \mu  \)  is a \emph{m} dimensional vector; in particular, each \( \mu _m \) represents the set of \emph{N} spins along column \emph{m}:
+Moreover, \( \mu  \)  is a \emph{N} dimensional vector; in particular, each \( \mu _m \) represents the set of \emph{N} spins along column \emph{m}:
 \begin{equation}
   \mu _m = \{ S_{m,1}, S_{m,2}, \dots, S_{m,N} \}
   \label{eq:9_1}
 \end{equation}
 
-We can write a transfer matrix between columns, permitting to transfer along the \emph{m}. To make it simpler, suppose \( h=0 \) (so the energy does not depend on h):
+We can write a transfer matrix between columns, permitting to transfer along the \emph{m}. As for the \( d=1 \) case we can make the Hamiltonian symmetric:
 \begin{equation}
-  \bra{\mu _m} \mathbb{T} \ket{\mu _{m+1}} = \exp [ k(E [\mu _m, \mu _{m+1}] + E [ \mu _m])]
+  -\beta \mathcal{H}_ \Omega  ( \{ S \}  ) = \sum_{m=1}^{M} \qty[E_2(\mu _m, \mu _{m+1}) + \frac{1}{2}(E_1(\mu _m) + E_1(\mu _{m+1}))]
+\end{equation}
+
+We have
+
+\begin{equation}
+\begin{split}
+Z_{N,M}  &= \sum_{\mu_1}^{} \dots \sum_{\mu_M}^{} \exp \qty[ \sum_{m=1}^{M} \qty[E_2(\mu _m, \mu _{m+1}) + \frac{1}{2}(E_1(\mu _m) + E_1(\mu _{m+1}))]] \\
+&= \sum_{\mu_1}^{} \dots \sum_{\mu_M}^{}  \qty[ \prod_{m=1}^{M} \exp  \qty[E_2(\mu _m, \mu _{m+1}) + \frac{1}{2}(E_1(\mu _m) + E_1(\mu _{m+1}))]] \\
+& =  \sum_{\mu_1}^{} \dots \sum_{\mu_M}^{} \bra{\mu_1} \mathbb{T} \ket{\mu_2} \bra{\mu_2}  \mathbb{T} \ket{\mu_3} \dots \bra{\mu_N}  \mathbb{T} \ket{\mu_1}
+\end{split}
+\end{equation}
+
+where
+
+\begin{equation}
+  \bra{\mu _m} \mathbb{T} \ket{\mu _{m+1}} = \exp \qty[E_2(\mu _m, \mu _{m+1}) + \frac{1}{2}(E_1(\mu _m) + E_1(\mu _{m+1}))]
   \label{eq:9_2}
 \end{equation}
-Now, we have to diagonalize. 
+
+
 \begin{remark}
-In the 2x2 transfer matrix in the 2-dim we have two possible values. Now, we have to do the same in principle, but we have to do for all of the \eqref{eq:9_1}.
+In the 2x2 transfer matrix in the 1-dim case we have two possible values. Now, we have to do the same in principle, but we have to do for all of the \eqref{eq:9_1}.
 \end{remark}
 \begin{remark}
 \( \mathbb{T} \) is a matrix of dimension \( 2^N \times 2^N \), hence, in the thermodynamic limit is an infinite matrix (violation of Perron-Frobenius).
 \end{remark}
-According to the formalism
-\begin{equation*}
-  Z_{N} (K,h) = \Tr(\mathbb{T}^N)
-\end{equation*}
+
+
+
+
+ If we can find the set of eigenvalues \( \lambda _+ > \lambda _- \ge \lambda _1 \ge \dots \ge \lambda _{2^N-2} \) of the  \( 2^N \times 2^N \) matrix, we have
+
+\begin{equation}
+      Z_{N,M}  = \Tr(\mathbb{T}^M) = \sum_{i= \pm, 1}^{ 2^N-2} \lambda _i^{M}(N)
+\end{equation}
+
+%%%%%%%%%%%%%
+
 To find the eigenvalues of \( \mathbb{T} \) given by  \eqref{eq:9_2} is highly non trivial. The big problem it is that in the thermodynamic limit is that the dimension of the transfer matrix goes to infinity, then it is difficult to be diagonalized. This was first achieved by Onsanger in 1944, as said, for the case \( H=0 \) and in the \( N \rightarrow \infty  \) limit. Onsanger has shown that the free energy of the system is given by
 \begin{equation}
   f_b (T) = -k_B T \log{\qty(2 \cosh(2 \beta J))- \frac{k_B T}{2 \pi} \int_{0}^{2\pi} \log{\qty[\frac{1}{2}\qty(1+ \sqrt{1-g^2 \sin^2(\Phi) } )] } \dd[]{\Phi }  }

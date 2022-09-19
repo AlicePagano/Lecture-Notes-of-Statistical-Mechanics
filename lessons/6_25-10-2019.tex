@@ -618,12 +618,12 @@ by rearranging,
 \begin{equation}
   Z_N (K)= (\cosh K)^{N-1} \sum_{\{S\}}^{}  \prod_{i=1}^{N-1} ( 1 + S_i S_{i+1} \tanh K )
 \end{equation}
-If we now expand the products, we get terms of the following form:
+If we now expand the products, we get \( 2^{N-1} \) terms of the following form:
 \begin{equation}
-  \sum_{ \substack{ S_{i_e} = \pm 1\\ e= 1, \dots, M} }^{}  (\tanh K )^M S_{i_1} S_{i_{1+1}} S_{i_2} S_{i_{2+1}} \dots S_{i_M} S_{i_{M+1}} = 0
+  \sum_{ \substack{ S_{i_e} = \pm 1\\ e= 1, \dots, M} }^{}  (\tanh K )^M S_{i_1} S_{i_{1}+1} S_{i_2} S_{i_{2}+1} \dots S_{i_M} S_{i_{M}+1} = 0
   \label{eq:6_3}
 \end{equation}
-where \( i_1 \dots i_m \) is a set of \emph{M} sites of the lattice.
+where \( i_1 \dots i_M \) is a set of \emph{M} sites of the lattice.
 \begin{remark}
 The terms above, when summed over \( \{ S \}   \) are zero, except the term with \( M=0 \) that is equal to 1 and, when summed over \( \{ S \}   \), gives \( 2^N \).
 \end{remark}
