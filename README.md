@@ -1,8 +1,11 @@
 # Lecture Notes of Statistical Mechanics
 
-Lectures notes of the Master degree course "Statistical Mechanics" in Physics of professor Enzo Orlandini at the University of Padova (a.y. 2019/2020).
 
-**Author:** Alice Pagano (University of Padova)
+Updated lecture notes of f the Master degree course "Statistical Mechanics" in Physics of professor Enzo Orlandini at the University of Padova for the "Physics of Data" master (a.y. 2023/2024).
+
+**Original Author:** Alice Pagano (University of Padova)
+**Updater for a.y. 2023/2024:** Jacopo Carotenuto
+
 
 ## Table of Contents
 
@@ -25,8 +28,8 @@ Lectures notes of the Master degree course "Statistical Mechanics" in Physics of
 
 The code of the notes is organized in multiple directories as:
 
-* bibliography: in this directory I stored the .Tex subfile for the bibliography.
-* frontespizio: .Tex subfile for the cover of the notes.
-* lessons: each lesson is organized in subfile.
-* macro: contains .Tex files for packages, settings and new commands.
-* main: .Tex file for the full document.
+* Bibliography: in this directory I stored the `.tex` subfile for the bibliography.
+* Frontpage: `.tex` subfile for the frontpage of the notes.
+* Arguments: each arguments has it's own chapter and `.tex` subfile.
+* Utility: contains `.tex` files for packages, settings and new commands.
+* Main: `.tex` file for the full document.
