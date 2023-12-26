@@ -1,0 +1,85 @@
+%Geometry
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
+
+%Atom Latex
+%\pgfplotsset{compat=1.15}
+
+%%
+\captionsetup[table]{font=small,labelfont={bf},skip=10pt}
+\captionsetup[figure]{font=small,labelfont={bf},skip=10pt}
+
+%intestazione pagina
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE]{\ifnum\value{chapter}>0\nouppercase{\leftmark}\fi}
+\fancyhead[LE]{\small\textbf{\thepage}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\fancyhead[RO]{\small\textbf{\thepage}}
+
+%link ipertestuale per indice
+\hypersetup{
+	colorlinks=false,
+	linkcolor=black,
+	filecolor=blue,
+	citecolor = blue,
+	urlcolor=blue,
+	}
+
+%%%%%indent%%%
+\setlength{\parindent}{15pt}
+\setlength{\parskip}{0pt}
+
+
+%boh
+\renewcommand{\chaptermark}[1]{%
+ \markboth{\MakeUppercase{%
+ \chaptername}\ \thechapter.%
+ \ #1}{}}
+
+
+ %Python in latex
+ \definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{commentcolour}{rgb}{0.43,0.63,0.65}
+
+\definecolor{shadecolor}{rgb}{0.93, 0.93, 0.93}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{darkred}{rgb}{0.8, 0.0, 0.0}
+\definecolor{violet}{rgb}{0.55, 0.0, 0.55}
+
+\lstdefinestyle{mystyle}{ %Stile python code
+    backgroundcolor=\color{shadecolor},
+    commentstyle=\color{commentcolour},
+    keywordstyle=\color{darkgreen},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{darkred},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}

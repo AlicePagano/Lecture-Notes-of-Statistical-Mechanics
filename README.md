@@ -4,6 +4,7 @@
 Updated lecture notes of f the Master degree course "Statistical Mechanics" in Physics of professor Enzo Orlandini at the University of Padova for the "Physics of Data" master (a.y. 2023/2024).
 
 **Original Author:** Alice Pagano (University of Padova)
+
 **Updater for a.y. 2023/2024:** Jacopo Carotenuto
 
 
