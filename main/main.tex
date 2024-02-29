@@ -1,93 +1,116 @@
 \documentclass[11pt, a4paper, twoside, openright]{book}
 \usepackage{subfiles}
+\usepackage{float}
+\usepackage[pdfa]{hyperref}
+\usepackage[utf8]{inputenc}   %per riuscire a scrivere gli accenti
+\usepackage[english]{babel}   %per riuscire a scrivere gli accenti
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\input{../Utility/packages.tex}
+\input{../Utility/settings.tex}
+\input{../Utility/new_commands.tex}
 
-\input{../macro/packages.tex}
-\input{../macro/settings.tex}
-\input{../macro/new_commands.tex}
 
 
 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\urlstyle{same}
+
+
+\geometry{
+left=2.5cm,
+right=2.5cm,
+top=2.5cm,
+bottom=2.5cm
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%JACOPO
 \begin{document}
 
 %%%%%%FRONTESPIZIO%%%%%%
 
 \frontmatter
-\input{../frontespizio/frontespizio.tex}
-
-
-%%%ABSTRACT%%%%%%%%%
-
-\chapter*{\centering {\normalsize Abstract}}
-%\chapter*{\centering {Abstract}}
-\noindent In this document I have tried to reorder the notes of the statistical mechanics course held by Professor Enzo Orlandini at the Department
-of Physics of the University of Padua during the first semester of the 2019-20 academic year of the master's degree.
-
-The notes are \textbf{fully} integrated with the material provided by the professor in the Moodle platform. 
-In addition, I will integrate them, as best as possible, with the books recommended by the professor.
-
-There may be formatting errors, wrong marks, missing exponents etc. If you find errors, let me know (alice.pagano@studenti.unipd.it) and I will correct them, so that this document can be a good study support.
-
-\vspace{1cm}
-\noindent \textit{Padova, \today}  \hspace{4cm} Alice Pagano
+\input{../FrontPage/FrontPage.tex}
 
 \tableofcontents
 
 
 \pagestyle{plain}
 
+\subsubsection*{Disclaimer}
+
+Check all the formulas against the professor-supplied material. Care has been taken to be as accurate as possible, but errors are possible.
+
+
 \chapter{Introduction}
 
-The goal of statistical mechanics \cite{introduction} is to predict the macroscopic properties of bodies, most especially their thermodynamic properties, on the basis of their microscopic structure.
-
+The goal of statistical mechanics is to predict the macroscopic properties of bodies, most especially their thermodynamic properties, on the basis of their microscopic structure.
 The macroscopic properties of greatest interest to statistical mechanics are those relating to thermodynamic equilibrium. As a consequence, the concept of thermodynamic equilibrium occupies a central position in the field. 
 
 The microscopic structure of systems examined by statistical mechanics can be described by means of mechanical models: for example, gases can be represented as systems of particles that interact by means of a phenomenologically determined potential. Other examples of mechanical models are those that represent polymers as a chain of interconnected particles, or the classical model of crystalline systems, in which particles are arranged in space according to a regular pattern, and oscillate around the minimum of the potential energy due to their mutual interaction. The models to be examined can be, and recently increasingly are, more abstract, however, and exhibit only a faint resemblance to the basic mechanical description (more specifically, to the quantum nature of matter). The explanation of the success of such abstract models is itself the topic of one of the more interesting chapters of statistical mechanics: the theory of universality and its foundation in the renormalization group.
 
 The models of systems dealt with by statistical mechanics have some common characteristics. We are in any case dealing with systems with a large number of degrees of freedom:  the reason lies in the corpuscular (atomic) nature of matter.
- The degrees of freedom that one considers should have more or less comparable effects on the global behavior of the system.  This state of affairs excludes the application of the methods of statistical mechanics to cases in which a restricted number of degrees of freedom “dominates” the others—for example, in celestial mechanics, although the number of degrees of freedom of the planetary system is immense, an approximation in which each planet is considered as a particle is a good start. In this case, we can state that the translational degrees of freedom (three per planet)—possibly with the addition of the rotational degrees of freedom, also a finite number—dominate all others.
- These considerations also make attempts to apply statistical concepts to the human sciences problematic because, for instance, it is clear that, even if the behavior of a nation’s political system includes a very high number of degrees of freedom, it is possible to identify some degrees of freedom that are disproportionately important compared to the rest.
-  On the other hand, statistical methods can also be applied to systems that are not strictly speaking mechanical—for example, neural networks (understood as models of the brain’s components), urban thoroughfares (traffic models), or problems of a geometric nature (percolation).
- 
- The simplest statistical mechanical model is that of a large number of identical particles, free of mutual interaction, inside a container with impenetrable and perfectly elastic walls. This is the model of the ideal gas, which describes the behavior of real gases quite well at low densities, and more specifically allows one to derive the well-known equation of state.
+The degrees of freedom that one considers should have more or less comparable effects on the global behaviour of the system.  This state of affairs excludes the application of the methods of statistical mechanics to cases in which a restricted number of degrees of freedom “dominates” the others—for example, in celestial mechanics, although the number of degrees of freedom of the planetary system is immense, an approximation in which each planet is considered as a particle is a good start. In this case, we can state that the translational degrees of freedom (three per planet)—possibly with the addition of the rotational degrees of freedom, also a finite number—dominate all others.
+These considerations also make attempts to apply statistical concepts to the human sciences problematic because, for instance, it is clear that, even if the behaviour of a nation’s political system includes a very high number of degrees of freedom, it is possible to identify some degrees of freedom that are disproportionately important compared to the rest.
 
-The introduction of pair interactions between the particles of the ideal gas allows us to obtain the standard model for simple fluids. Generally speaking, this model cannot be resolved exactly and is studied by means of perturbation or numerical techniques. It allows one to describe the behavior of real gases (especially noble gases), and the liquid–vapor transition (boiling and condensation).
+On the other hand, statistical methods can also be applied to systems that are not strictly speaking mechanical—for example, neural networks (understood as models of the brain’s components), urban thoroughfares (traffic models), or problems of a geometric nature (percolation).
 
-The preceding models are of a classical (nonquantum) nature and can be applied only when the temperatures are not too low. The quantum effects that follow from the inability to distinguish particles are very important for phenomenology, and they can be dealt with at the introductory level if one omits interactions between particles. 
+The simplest statistical mechanical model is that of a large number of identical particles, free of mutual interaction, inside a container with impenetrable and perfectly elastic walls. This is the model of the ideal gas, which describes the behaviour of real gases quite well at low densities, and more specifically allows one to derive the well-known equation of state.
 
-In many of the statistical models we will describe, however, the system’s fundamental elements will not be “particles,” and the fundamental degrees of freedom will not be mechanical (position and velocity or impulse). If we want to understand the origin of ferromagnetism, for example, we should isolate only those degrees of freedom that are relevant to the phenomenon being examined (the orientation of the electrons’ magnetic moment) from all those that are otherwise pertinent to the material in question.
+The introduction of pair interactions between the particles of the ideal gas allows us to obtain the standard model for simple fluids. Generally speaking, this model cannot be resolved exactly and is studied by means of perturbation or numerical techniques. It allows one to describe the behaviour of real gases (especially noble gases), and the liquid–vapor transition (boiling and condensation).
+
+The preceding models are of a classical (non-quantum) nature and can be applied only when the temperatures are not too low. The quantum effects that follow from the inability to distinguish particles are very important for phenomenology, and they can be dealt with at the introductory level if one omits interactions between particles. 
+
+In many of the statistical models we will describe, however, the system's fundamental elements will not be “particles,” and the fundamental degrees of freedom will not be mechanical (position and velocity or impulse). If we want to understand the origin of ferromagnetism, for example, we should isolate only those degrees of freedom that are relevant to the phenomenon being examined (the orientation of the electrons’ magnetic moment) from all those that are otherwise pertinent to the material in question.
 
 The simplest case is that in which there are only two values—in this fashion, we obtain a simple model of ferromagnetism, known as the Ising model, which is by far the most studied model in statistical mechanics. The ferromagnetic solid is therefore represented as a regular lattice in space, each point of which is associated with a degree of freedom, called spin, which can assume the values +1 and -1. This model allows one to describe the paramagnet-ferromagnet transition, as well as other similar transitions.
 
 In this course, classical statistical mechanics of system at equilibrium is treated. 
-The exam is divided into two parts: first, common oral exam (same exercise and question for everyone, it is a written part), second part, oral.
 
-\clearpage
-\LARGE{ \textbf{Outline of the course} }
+% \clearpage
+% \LARGE{ \textbf{Outline of the course} }
 
-\normalsize
-\begin{enumerate}
-\item Brief recap of thermodinamics.
-\item Equilibrium phases and thermodynamics of the phase transitions.
-\item Statistical mechanics and theory of ensambles.
-\item Thermodinamic limit and phase transitions in statistical mechanics.
-\item Order parameter and critical point.
-\item The role of modelling in the physics of phase transitions.
-\item The Ising model.
-\item Exact solutions of the Ising model.
-\item Transfer matrix method.
-\item Role of dimension and range of interactions in critical phenomena (lower critical dimension).
-\item Approximations: \emph{Meanfield theory Weiss} and \emph{variational mean field}.
-\item Landau theory of phase transitions: the role of symmetries.
-\item Relevance of fluctuations: the \emph{Geinzburg criterium} and the notion of the \emph{upper critical dimension}.
-\item The Ginzburg-Landau model.
-\item Landau theory for non-homogeneous system. The \( \nu  \) exponent.
-\item Gaussian fluctuations in the G-L theory.
-\item Widom's scaling theory.
-\item Kadauoff's theory of scaling.
-\item The theory of renormalisations group and the origin of \emph{universality} in critical phenomena.
-\item Spontaneous symmetry breaking.
-
-\end{enumerate}
+% \normalsize
+% \begin{enumerate}
+% \item Brief recap of thermodinamics.
+% \item Equilibrium phases and thermodynamics of the phase transitions.
+% \item Statistical mechanics and theory of ensambles.
+% \item Thermodinamic limit and phase transitions in statistical mechanics.
+% \item Order parameter and critical point.
+% \item The role of modelling in the physics of phase transitions.
+% \item The Ising model.
+% \item Exact solutions of the Ising model.
+% \item Transfer matrix method.
+% \item Role of dimension and range of interactions in critical phenomena (lower critical dimension).
+% \item Approximations: \emph{Meanfield theory Weiss} and \emph{variational mean field}.
+% \item Landau theory of phase transitions: the role of symmetries.
+% \item Relevance of fluctuations: the \emph{Geinzburg criterium} and the notion of the \emph{upper critical dimension}.
+% \item The Ginzburg-Landau model.
+% \item Landau theory for non-homogeneous system. The \( \nu  \) exponent.
+% \item Gaussian fluctuations in the G-L theory.
+% \item Widom's scaling theory.
+% \item Kadauoff's theory of scaling.
+% \item The theory of renormalisations group and the origin of \emph{universality} in critical phenomena.
+% \item Spontaneous symmetry breaking.
+% \end{enumerate}
 
 
 
@@ -97,34 +120,22 @@ The exam is divided into two parts: first, common oral exam (same exercise and q
 \mainmatter
 \pagestyle{fancy}
 
-
-\subfile{../lessons/1_09-10-2019.tex}
-\subfile{../lessons/2_11-10-2019.tex}
-\subfile{../lessons/3_16-10-2019.tex}
-\subfile{../lessons/4_18-10-2019.tex}
-\subfile{../lessons/5_23-10-2019.tex}
-
-\subfile{../lessons/6_25-10-2019.tex}
-\subfile{../lessons/7_30-10-2019.tex}
-\subfile{../lessons/8_06-11-2019.tex}
-\subfile{../lessons/9_08-11-2019.tex}
-\subfile{../lessons/10_13-11-2019.tex}
-\subfile{../lessons/11_20-11-2019.tex}
-\subfile{../lessons/12_22-11-2019.tex}
-\subfile{../lessons/13_27-11-2019.tex}
-\subfile{../lessons/14_29-11-2019.tex}
-\subfile{../lessons/15_04-12-2019.tex}
-\subfile{../lessons/16_06-12-2019.tex}
-\subfile{../lessons/17_11-12-2019.tex}
-\subfile{../lessons/18_13-12-2019.tex}
-\subfile{../lessons/19_18-12-2019.tex}
-\subfile{../lessons/20_20-12-2019.tex}
-\subfile{../lessons/n_00-00-2019.tex}
-\backmatter
-\pagestyle{plain}
-
-\chapter{Conclusions}
-%Ti voglio un mondo di bene <3
-\input{../bibliography/bibliography.tex}
+\subfile{../Arguments/Chapter1/Chapter1_ThermoRecap.tex}
+\subfile{../Arguments/Chapter2/Chapter2_Phases.tex}
+\subfile{../Arguments/Chapter3/Chapter3_Ensembles.tex}
+\subfile{../Arguments/Chapter4/Chapter4_PhasesTransition.tex}
+\subfile{../Arguments/Chapter5/Chapter5_RoleOfModels.tex}
+\subfile{../Arguments/Chapter6/Chapter6_ExactModels.tex}
+\subfile{../Arguments/Chapter7/Chapter7_DimensionSimmetryRange.tex}
+\subfile{../Arguments/Chapter8/Chapter8_MeanFieldTheory.tex}
+\subfile{../Arguments/Chapter9/Chapter9_NonIdealFluids.tex}
+\subfile{../Arguments/Chapter10/Chapter10_LandauTheory.tex}
+\subfile{../Arguments/Chapter11/Chapter11_Fluctuations.tex}
+\subfile{../Arguments/Chapter12/Chapter12_WidomTheory.tex}
+\subfile{../Arguments/Chapter13/Chapter13_Renormalitazion.tex}
+\subfile{../Arguments/Chapter14/Chapter14_SimmetryBreaking.tex}
+%\backmatter
+%\pagestyle{plain}
+%\input{../bibliography/bibliography.tex}
 
 \end{document}

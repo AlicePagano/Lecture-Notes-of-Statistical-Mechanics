@@ -1,0 +1,701 @@
+\documentclass[../../Main/Main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Recall of Thermodynamics}
+
+\section{A short recap of thermodynamics definitions}
+\noindent The systems we are considering are
+
+\begin{enumerate}
+\item In equilibrium with an external bath at fixed temperature \emph{T}.
+\item Made by a (large) number \emph{N} of degrees of freedom. For instance, we remind that \( \SI{1}{\mole} \approx N_A \sim 10^{23}\) elementary units.
+\end{enumerate}
+
+\noindent Thermodynamic is a macroscopic theory of matter at equilibrium.
+It starts either from experimental observations or from \emph{assiomatic assumptions} and establishes rigorous relations between macroscopic variables (\textbf{observables}) to describe systems at equilibrium.
+One of the first important concepts is the one of \textbf{extensive variables}. For instance, the  \emph{extensive variables} that characterize the system at equilibrium are the internal energy \emph{U}, volume \emph{V}, number of particles \emph{N} and magnetization \( \va{M} \) that "scale with the system".
+In general, the extensive variable are \emph{additive}.
+
+In thermodynamics, it is important the concept of \textbf{walls and thermodynamic constrains} that are necessary for a complete definition of a thermodynamic system. With their presence or absence it is possible to control and redistribute the thermodynamic variables for changing the system.
+The typical walls are:
+\begin{itemize}
+\item \textit{Adiabatic walls}: no heat flux. If it is removed we obtain a \textit{diathermic walls}.
+\item \textit{Rigid walls}: no mechanical work. If it is removed we obtain a \textit{flexible or mobile walls}.
+\item \textit{Impermeable walls}: no flux of particles (the number of particles remain constant). If it is removed we obtain a \textit{permeable walls}.
+\end{itemize}
+
+\section{Equilibrium states}
+
+Consider a system in an equilibrium state, if the system changes our aim is to study the next equilibrium state of the system. Therefore, we move from a system in equilibrium to another. The fundamental problem of thermodynamics is how to characterize the new system.
+
+Now, we define the concept of \textbf{equilibrium states}. Consider macroscopic states that are fully described by extensive variables such as the internal energy \emph{U}, the volume \emph{V}, the number of particles \emph{N}, the magnetization \( \va{M} \), etc \( \dots \).
+If these variables are time independent, the system is in a \textit{steady state}.
+Moreover, if  there are no macroscopic currents, the system is at \textit{equilibrium}.
+Therefore, we describe a system by characterizing all the extensive variables at equilibrium.
+
+Suppose that the system changes slow in time, it goes from an equilibrium state to another one and the transformation is so slow that in each $\Delta t$ the system is at equilibrium. Hence, considering a sequence of equilibrium states, the \textbf{quasi-static transformation} are described by the  \textit{\( 1^{st} \) Law of Thermodynamic}:
+
+\begin{empheq}[box=\myyellowbox]{equation}
+  \dd[]{U} = \delta Q - \delta W
+  \label{eq:}
+\end{empheq}
+
+
+  \noindent The variation of the internal energy of the systems depends by two factors: \( \delta w \) that is the work done by the system during a \emph{quasi-static process} (infinitive slow), and \( \delta Q \) that is the heat absorbed by the system during the process. Remember that we write \( \dd[]{U}  \) because it is a differential quantity, while the other quantities with the \( \delta  \) are only small quantities. Therefore, \( \dd[]{U}  \) is a function of state, the other are not.
+\begin{remark}
+The convention is \( \delta Q > 0 \) if the heat is absorbed by the system, and \( \delta W > 0 \) if the work is done by the system.
+\end{remark}
+
+For example, considering a simple fluid with a given pressure, if we change the volume, the work done by the systems is \( \delta W = P \dd[]{V}  \). For a magnetized system, we have \( \delta W = -\va{H} \vdot  \dd[]{\va{M} }  \).
+
+In conclusion, starting from an equilibrium state and removing some constraints (i.e. wall properties), we want to find the new equilibrium state compatible with the new constrains.
+
+Suppose a system with adiabatic rigid impermeable constraints. The system on the left is characterized by \( V_1,N_1,U_1 \), the one on the right by \( V_2,N_2,U_2 \). There are many ways for solving this problem.
+We use the most general way, that is by using the \textit{maximum entropy principle}.
+If there exists a function \emph{S} of the extensive variables of the system that is defined for all equilibrium states, we call it \textbf{entropy} and the \emph{\( 1^{st} \) fundamental relation} is
+
+
+\begin{empheq}[box=\myyellowbox]{equation}
+  S = S (U,V,N)
+  \label{eq:}
+\end{empheq}
+The new values taken by the extensive parameters when a constraint has been removed are the ones that \emph{maximize} S. It means \( \dd[]{S} = 0 \) and \( \dd[2]{S} < 0  \), given the remaining constraint.
+
+
+The properties of \emph{S} are:
+\begin{enumerate}
+\item \emph{S} is an \emph{additive function} with respect to the subsystems in which the system is partitioned:
+\begin{equation}
+  S = \sum_{\alpha }^{} S ^{(\alpha )}
+\end{equation}
+\item \emph{S} is \emph{differentiable} and \emph{monotonically increasing} with respect to the internal energy \emph{U}. It means that \( \qty(\pdv{S}{U})_{V,N} > 0 \).
+\item For each subsystem \( (\alpha ) \) we have:
+\begin{equation}
+  S ^{(\alpha )} = S ^{(\alpha) } ( U ^{(\alpha) }, V ^{(\alpha) }, N ^{(\alpha) }   )
+\end{equation}
+This fundamental relation holds for each subsystem.
+\item \emph{S} is an \emph{homogeneous function} of \( 1^{st} \) order with respect to the extensive parameters, namely:
+\begin{equation}
+  S ( \lambda  U, \lambda V, \lambda N) = \lambda S (U,V,N), \quad \forall \lambda > 0
+\end{equation}
+It means that \emph{S} is an extensive quantity.
+\end{enumerate}
+
+
+\begin{remark}
+  Since \emph{S} is monotonically increasing in \emph{U}, the following inequality holds:
+  \begin{equation*}
+    \qty(\pdv{S}{U})_{V,N} > 0
+  \end{equation*}
+  Therefore, we have \( \qty(\pdv{S}{U})_{V,N} \neq 0 \) and it can be inverted locally.
+\end{remark}
+
+ Afterwards, \( S=S(U,V,N) \) inverted in \emph{U} gives the \emph{\( 2^{st} \) fundamental relation}
+
+ \begin{empheq}[box=\myyellowbox]{equation}
+   U=U(S,V,N)
+   \label{eq:}
+ \end{empheq}
+It means that, we can look or \emph{S} or \emph{U} and, when this quantities are known, all the informations about the system can be obtained.
+
+By taking the differential of the fundamental relation
+\begin{equation*}
+  U=U(S,V,N_1,\dots , N_r)
+  \label{eq:}
+\end{equation*}
+one gets
+\begin{equation}
+  \dd[]{U} = \underbrace{ \qty(\pdv{U}{S})_{V,N_j}}_{\underset{ \substack{ \text{absolute} \\ \text{temperature}} }{T} } \dd[]{S} +
+\underbrace{   \qty(\pdv{U}{V})_{S,N_j} }_{\underset{\text{pressure}}{-P} }\dd[]{V} + \sum_{j=1}^{r} \underbrace{ \qty(\pdv{U}{N_j} )_{S,V}}_{\underset{ \substack{ \text{electrochemical} \\ \text{potential}} }{\mu _j} } \dd[]{N_j}
+  \label{eq:1_1}
+\end{equation}
+
+\section{Equations of states}
+Now, we define another set of variables that are called \textbf{intensive variables}. The term \emph{intensive} means that it is independent of the size of the system, namely that the value of the variable relative to a subsystem is equal to that of the whole system.  The intensive variables are themselves functions of \emph{S,V,N}, and examples of intensive variables are the pressure, \emph{P}, and the temperature of the system, \emph{T}.
+
+ The \textbf{state equations} are defined as:
+\begin{subequations}
+\begin{align}
+  T &= T (S,V,N_1,\dots,N_r) \\
+  P &= P (S,V,N_1,\dots,N_r) \\
+  \mu _j &= \mu _j (S,V,N_1,\dots,N_r)
+\end{align}
+\label{}
+\end{subequations}
+\begin{remark}
+If all the state equations are known, the fundamental relation is determined a part from a constant. It means that the coefficients of the differential \eqref{eq:1_1} are known.
+\end{remark}
+\begin{example}{}{}
+Let us see some examples of equations of state:
+\begin{itemize}
+\item For an \emph{ideal gas}:
+\begin{equation}
+  P V = N K_b T
+\end{equation}
+\item \emph{Van-Der Walls} equation of the state:
+\begin{equation}
+  \qty(P+\frac{\alpha N^2}{V^2})\qty(V-Nb) = N k_b T
+\end{equation}
+\item For magnetic systems, another equation of state is the \emph{Curie Law}:
+\begin{equation}
+M=\frac{C H}{T}
+\end{equation}
+\begin{remark}
+We compute \( \qty(\pdv{U}{M} )_{S,N}=H  \).
+\end{remark}
+\end{itemize}
+\end{example}
+
+The equations of state are homogeneous functions of \emph{zero} degree. For example, considering the temperature \( T \):
+\begin{equation*}
+  T (\lambda S, \lambda V, \lambda N) \overset{0}{=} T (S,V,N)
+\end{equation*}
+It means that at equilibrium the temperature of a subsystem is equal to the one of the whole system.
+Similarly,
+\begin{equation*}
+  P (\lambda S, \lambda V, \lambda N) = P (S,V,N)
+\end{equation*}
+
+Now, we keep the \emph{S} parameter separates from the other that are substituted by \emph{generalized displacements}, as \( (V,N_1,\dots,N_r) \rightarrow X_j \). The fundamental relation becomes
+\begin{equation}
+  U=U(S,X_1,\dots,X_{r+1})
+\end{equation}
+ and we define:
+\begin{subequations}
+\begin{align}
+  \qty(\pdv{U}{S}) & \equiv   T  \\
+  \qty(\pdv{U}{X_j}) & \equiv  P_j
+\end{align}
+\end{subequations}
+The differential is written as the following:
+\begin{equation}
+  \dd[]{U} = T \dd[]{S} + \sum_{j=1}^{r+1} P_j \dd[]{X_j}
+  \label{eq:}
+\end{equation}
+where \( X_1 = V \) is the volume and \( P_1 = -P \) is the pressure.
+
+From the equilibrium condition,
+\begin{equation*}
+\dd[]{U} = 0
+\end{equation*}
+one can get a relation between intensive variables in differential form as the \textbf{Gibbs-Duhem relation}:
+\begin{empheq}[box=\myyellowbox]{equation}
+  S \dd[]{T} + \sum_{j=1}^{r+1} X_j \dd[]{P_j} = 0
+  \label{eq:1_2}
+\end{empheq}
+For a one-component simple fluid system, the equation \eqref{eq:1_2} simplifies into
+\begin{equation*}
+  S \dd[]{T} - V \dd[]{P} + N \dd[]{\mu } = 0
+  \label{eq:}
+\end{equation*}
+and dividing by the number of moles \emph{N}
+\begin{equation}
+  \dd[]{\mu } = - s \dd[]{T} + v \dd[]{P}
+  \label{eq:}
+\end{equation}
+that is the Gibbs-Duhem relation in a \emph{molar form}.
+
+ \noindent For a magnetic system, we have  
+ \begin{equation}
+ \dd[]{U}  = T \dd[]{S}  + \va{H}  \vdot \dd[]{\va{M} }+ \mu \dd[]{N}
+ \end{equation}
+\begin{remark}
+Note that \( \mu = \mu (T,P) \) is a relation between intensive variables.
+\end{remark}
+
+
+To summarize, the fundamental relations are \( S=S(U,V,N_1,\dots,N_r) \) or \( S=S(U,\va{M},N_1,\dots,N_r ) \) for magnetic systems.
+In the energy representation we have \( U=U(S,V,N_1,\dots,N_r) \) or \( U=U(S,\va{M},N_1,\dots,N_r ) \).
+
+\section{Legendre transform and thermodynamic potentials}
+
+In many situations, it is convenient to change some extensive variables with their conjugate intensive ones that became independent and free to vary. We have new thermodynamic potentials.
+It works as following; suppose we have a function as
+\begin{equation}
+  Y=Y(X_0,X_1,\dots,X_k,\dots,X_{r+1})
+\end{equation}
+such that \emph{Y} is \emph{strictly convex} in say, \( X_k \) (\( \pdv[2]{Y}{X_k} > 0 \)) and smooth\footnote{A smooth function is a function that has continuous derivatives up to some desired order over some domain.}.
+The idea is to find a transformation such that 
+\begin{equation}
+Y=Y(X_0,X_1,\dots,P_k,\dots,X_{r+1}) 
+\end{equation}
+where
+\begin{equation}
+  X_k \rightarrow P_k \equiv \pdv{Y}{X_k}
+\end{equation}
+i.e. \( P_k \) substitutes \( X_k \) as a new independent variable.
+In mathematics this is called \textit{Legendre transform}.
+
+
+The \textbf{thermodynamic potentials} are extremely useful tools, whose name derives from an analogy with mechanical potential energy: as we will later see, in certain circumstances the work obtainable from a macroscopic system is related to the change of an appropriately defined function, the thermodynamic potential. They are useful because they allow one to define quantities which are experimentally more easy to control and to rewrite the fundamental thermodynamic relations in terms of them.
+
+Mathematically, \emph{all the thermodynamic potentials are the result of a Legendre transformation of the internal energy}, namely they are a rewriting of the internal energy so that a variable has been substituted with another.
+
+\begin{example}{How to calculate thermodynamic potentials}{}
+Suppose we want to replace the entropy \emph{S} with its conjugate derivative
+\begin{equation*}
+  T = \pdv{U}{S}
+\end{equation*}
+One starts form the fundamental relation
+\begin{equation*}
+  U=U(S,V,N_1,\dots)
+\end{equation*}
+and transforms \emph{U} such that \emph{S} is replaced by \emph{T} as a new independent variable. Let us consider the transformation
+\begin{equation*}
+  A \equiv U - S \pdv{U}{S} = U- T S
+\end{equation*}
+By differentiating \emph{A} we get
+\begin{equation*}
+  \dd[]{A} = \dd[]{U} - T \dd[]{S}  - S \dd[]{T}
+\end{equation*}
+On the other hand
+\begin{equation*}
+  \dd[]{U} = T \dd[]{S} + \sum_{j}^{} P_j \dd[]{X_j}
+\end{equation*}
+It implies that
+\begin{equation*}
+  \dd[]{A} = - S \dd[]{T} + \sum_{j}^{} P_j \dd[]{X_j}
+\end{equation*}
+For such a system we have \( A=A(T,V,N_1,\dots,N_r) \). It is a function of \emph{T} instead of \emph{S}, as wanted.  Similarly for a magnetic system \( A=A(T,\va{M},N_1,\dots,N_r ) \).
+\end{example}
+
+\subsubsection{Helmholtz free energy}
+
+The \textbf{Helmholtz free energy} is defined as:
+\begin{empheq}[box=\myyellowbox]{equation}
+  A \equiv U-T S
+\end{empheq}
+In terms of heat and mechanical work, since \(   \dd[]{U} = \delta Q - \delta W  \):
+\begin{equation*}
+  \dd[]{A} = \dd[]{U} - \dd[]{(TS)} = \delta Q - T \dd[]{S} - S \dd[]{T} - \delta W
+\end{equation*}
+Hence,
+\begin{equation}
+  \delta W = (\delta Q - T \dd[]{S} ) - S \dd[]{T} - \dd[]{A}
+\end{equation}
+On the other hand, for a \emph{reversible transformation} we have
+\begin{equation*}
+\delta Q =  T \dd[]{S}
+\end{equation*} 
+which implies
+\begin{equation}
+    \delta W = - S \dd[]{T} - \dd[]{A}
+\end{equation}
+If the reversible transformation is also \emph{isothermal}, \( \dd[]{T} = 0  \) and we obtain \( \dd[]{A} = \dd[]{W}  \). It is reminiscent of a potential energy.
+\begin{remark}
+For an isothermal but \emph{not reversible} (spontaneous) process we know the  \emph{\(2^{nd}\) Law of Thermodynamics}
+\begin{equation*}
+  \delta Q \le T \dd[]{S}
+\end{equation*}
+which implies
+\begin{equation}
+  (\delta W)_{irr} = \delta Q - T \dd[]{S} - \dd[]{A} \le - \dd[]{A}.
+\end{equation}
+Hence, if \( \delta W = 0 \) and \( \dd[]{T}=0  \), we have \( \dd[]{A} \le 0  \).
+Therefore, in a spontaneous (irreversible) process, the thermodynamic system, as a function of \emph{T,V,N} etc, evolves towards a \emph{minimum} of the Helmoltz free energy \( A=A(T,V,N_1,\dots,N_r) \).
+\end{remark}
+In the case of a system with \( (P,V,T) \),  we have:
+\begin{equation}
+  \dd[]{A} = -S \dd[]{T} - P \dd[]{V} + \sum_{j}^{} \mu _j \dd[]{N_j}
+  \label{eq:}
+\end{equation}
+where
+\begin{subequations}
+\begin{align}
+  -S &= \qty(\pdv{A}{T} )_{V,N_j}  \\
+  -P &= \qty(\pdv{A}{V} )_{T,N_j}  \\
+  \mu _j &= \qty(\pdv{A}{N_j} )_{T,V}
+\end{align}
+\label{}
+\end{subequations}
+For a magnetic system \( (\va{H} , \va{M} , T) \):
+\begin{equation}
+  \dd[]{A} = - S \dd[]{T} + \va{H} \vdot \dd[]{\va{M} } + \sum_{j}^{} \mu _j \dd[]{N_j}
+  \label{eq:}
+\end{equation}
+with
+\begin{equation}
+  H_\alpha = \qty(\pdv{A}{M_\alpha} )_{T,\{N_j\}}
+\end{equation}
+
+
+\subsubsection{Heltalpy}
+The \textbf{Hentalpy} is the partial Legendre transform of \emph{U} that replaces the volume \emph{V} with the pressure \emph{P} as independent variable.
+
+Consider \( U=U(S,V,N_1,\dots,N_r) \) and \( -P = \pdv{U}{V}  \), we define the hentalpy as
+\begin{empheq}[box=\myyellowbox]{equation}
+  H = U + P V
+\end{empheq}
+\begin{remark}
+Note that the plus sign in the definition of the hentalpy is just because the minus of the \emph{P}.
+\end{remark}
+We have:
+\begin{equation}
+  \begin{split}
+    \dd[]{H} & = \mathcolorbox{green!10}{\dd[]{U}} + P \dd[]{V} + V \dd[]{P}  \\
+    & = \mathcolorbox{green!10}{T \dd[]{S} - \cancel{P \dd[]{V}} + \sum_{j}^{} \mu _j \dd[]{N_j}} + \cancel{P \dd[]{V}} + V \dd[]{P} \\
+    & = T \dd[]{S} + V \dd[]{P} + \sum_{j}^{} \mu _j \dd[]{N_j}
+  \end{split}
+\end{equation}
+Finally, we obtain the relation \( H = H ( S, P, N_1 , \dots, N_r ) \).
+
+\subsubsection{Gibbs potential}
+The \textbf{Gibss potential} is obtained by performing the Legendre transform of \emph{U} to replace \emph{S} and \emph{V} with \emph{T} and \emph{P}.
+
+Consider again \( U=U(S,V,N_1,\dots,N_r) \) and \( T=\pdv{U}{S}, -P = \pdv{U}{V}  \), then we have:
+\begin{empheq}[box=\myyellowbox]{equation}
+  G = U - T S + P V = A + P V
+\end{empheq}
+For a simple fluid system
+\begin{equation}
+\begin{split}
+\dd[]{G}   &= \mathcolorbox{green!10}{\dd[]{U}} - T \dd[]{S} - S \dd[]{T} + P \dd[]{V} + V \dd[]{P}    \\
+& = \mathcolorbox{green!10}{ \cancel{T \dd[]{S}} - \cancel{P \dd[]{V}} + \sum_{j}^{} \mu _j \dd[]{N_j}  }  - \cancel{T \dd[]{S}} - S \dd[]{T} + \cancel{P \dd[]{V}} + V \dd[]{P}  \\
+& = - S \dd[]{T} + V \dd[]{P} + \sum_{j}^{} \mu _j \dd[]{N_j}
+\end{split}
+  \label{eq:}
+\end{equation}
+Hence, \( G = G (T,P,N_1,\dots,N_r) \).
+
+For a magnetic system, the Gibbs potential is defined as
+\begin{empheq}[box=\myyellowbox]{equation}
+  G = A - \va{M} \vdot \va{H}
+\end{empheq}
+and
+\begin{equation}
+\begin{split}
+\dd[]{G} &= \dd[]{A} - \dd[]{\va{M} \vdot \va{H}  }  = \dd[]{(U-T S)} - \dd[]{(-\va{M} \vdot \va{H})  } \\
+  & = \mathcolorbox{green!10}{\dd[]{U} } - T \dd[]{S} - S \dd[]{T} - \dd[]{\va{M} } \vdot \va{H} - \va{M} \vdot \dd[]{\va{H} }  \\
+& = \mathcolorbox{green!10}{ \cancel{T \dd[]{S}} + \cancel{\va{H} \vdot \dd[]{\va{M} }} } - \cancel{T \dd[]{S}} - S \dd[]{T} - \cancel{\dd[]{\va{M} } \vdot \va{H} }- \va{M} \vdot \dd[]{\va{H} }  \\
+ & = - S \dd[]{T} - \va{M}\vdot \dd[]{\va{H} }
+\end{split}
+  \label{eq:}
+\end{equation}
+and finally \( G=G(T,\va{H} ) \) and also
+\begin{subequations}
+\begin{align}
+  S &= - \qty(\pdv{G}{T} )_{\va{H} } \\
+  \va{M}  &= - \qty(\pdv{G}{ \va{H} } )_{T}
+\end{align}
+\label{}
+\end{subequations}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\subsubsection{Grand canonical potential}
+The \textbf{grand canonical potential} is obtained by performing the Legendre transform of \emph{U} to replace \emph{S} and \emph{N} with \emph{T} and \( \mu  \).
+%The two intensive variables to became independent are \emph{T} %and \( \mu  \).
+The corresponding Legendre transform is
+\begin{empheq}[box=\myyellowbox]{equation}
+  \Omega = U -T S - \sum_{i=1}^{r} \mu _i N _i = A - \sum_{i=1}^{r}  \mu _i N _ i
+\end{empheq}
+Differentiating this relation we obtain:
+\begin{equation}
+\begin{split}
+\dd[]{\Omega }   &=  \dd[]{U} - S \dd[]{T} - T \dd[]{S} - \sum_{ij}^{} \dd[]{\mu _j} N_j - \sum_{i=1}^{r} \mu _i \dd[]{N_i}           \\
+& = (\delta Q - T \dd[]{S}) - \delta W - S \dd[]{T} - \sum_{j=1}^{r} \dd[]{\mu _j} N_j - \sum_{j=1}^{r} \mu _j \dd[]{N_j}
+\end{split}
+  \label{eq:}
+\end{equation}
+Hence, \( \Omega = \Omega (T,P,\{\mu _j\}) \).
+
+\section{Maxwell relations}
+
+Internal energy $U$ and entropy $S$ are homogeneus function of the first order. A consequence of this fact is the relation called \textbf{Euler equation}:
+\begin{empheq}[box=\myyellowbox]{equation}
+  U = T S - P V + \sum_{j}^{} \mu _j N_j
+\end{empheq}
+
+\begin{example}{How to derive the Euler equation}{}
+Using the additive property of the internal energy \emph{U}, we can derive a useful thermodynamic relation, the Euler equation.
+\begin{equation*}
+  U (\lambda S, \lambda V, \lambda N_1, \dots, \lambda N_m) = \lambda U (S,V,N_1,\dots N_m)
+\end{equation*}
+Let us differentiate this “extensivity condition” with respect to \( \lambda  \):
+\begin{equation*}
+\pdv{U (\lambda S, \dots)}{(\lambda S)} S + \pdv{U (\lambda S, \dots)}{(\lambda V)} V
++ \sum_{i = 1}^{m}  \pdv{U (\lambda S, \dots)}{(\lambda N_i)} N_i =
+U (S,V,N_1,\dots,N_m)
+\end{equation*}
+Setting \( \lambda =1 \)  in the above equation, we obtain:
+\begin{equation*}
+  \pdv{U}{S} S + \pdv{U}{V} V + \pdv{U}{N_1}N_1 + \dots + \pdv{U}{N_m} N_m = U
+\end{equation*}
+Using the definition of the intensive parameters, we arrive at the Euler equation:
+\begin{equation*}
+  U = T S - P V + \sum_{i=1}^{m} \mu _i N_i
+\end{equation*}
+\end{example}
+
+
+Instead, the \textbf{Maxwell relations} are relations between the mixed derivatives of the thermodynamic potentials. They can be obtained from the expressions of \( \dd[]{U},\dd[]{H} ,\dd[]{A}, \dd[]{G}    \)  and \( \dd[]{\Omega }  \) and from the Schwarz theorem on mixed partial derivatives.
+
+Due to Schwarz theorem, if a thermodynamic potential depends on \( t+1 \) variables there will be \( \frac{t(t+1)}{2} \)  independent mixed derivatives.
+\begin{example}{Internal energy \( U=U(S,V,N)\)}{}
+\begin{equation}
+  \dd[]{U} = T \dd[]{S} - P \dd[]{V} + \mu \dd[]{N}
+  \label{eq:2_1}
+\end{equation}
+where
+\begin{equation*}
+  T = \qty(\pdv{U}{S} )_{V,N} \quad  -P = \qty(\pdv{U}{V} )_{S,N}
+\end{equation*}
+ It implies that
+\begin{equation*}
+        \pdv{U}{V}{S} = \qty(\pdv{T}{V} )_{S,N} \underset{\substack{ \text{from } \\  \text{Schwarz inequality} } }{=} \pdv{U}{S}{V}  =-\qty(\pdv{P}{S} )_{V,N}
+\end{equation*}
+therefore, we have the \emph{1° Maxwell relation} :
+\begin{equation*}
+  \qty(\pdv{T}{V} )_{S,N} = -\qty(\pdv{P}{S} )_{V,N}
+\end{equation*}
+All the \emph{3 Maxweel relations} obtained by the differential \eqref{eq:2_1}
+with \( t=2 \), for which we have \( t+1=3 \) and \( \frac{t(t+1)}{2}=3 \) (\( [S,V,N] \)), are
+
+\begin{subequations}
+\begin{align}
+  (S,V) &:& \qty(\pdv{T}{V} )_{S,N} =& - \qty(\pdv{P}{S} )_{V,N} & \\
+  (S,N) &:& \qty(\pdv{T}{N} )_{V,S} =& \qty(\pdv{\mu }{S} )_{V,N} &\\
+  (V,N) &:& -\qty(\pdv{P}{N} )_{S,V} =& \qty(\pdv{\mu }{V} )_{S,N} &
+ \end{align}
+\label{}
+\end{subequations}
+\end{example}
+
+\begin{example}{Helmholz \( A=A(T,V,N) \)}{}
+\begin{equation}
+  \dd[]{A} = - S \dd[]{T} - P \dd[]{V} + \mu \dd[]{N}
+\end{equation}
+In this case the \emph{3 Maxweel relations} (\( [T,V,N] \)) are
+\begin{subequations}
+\begin{align}
+  (T,V) &:& \qty(\pdv{S}{V} )_{T,N} =&  \qty(\pdv{P}{T} )_{V,N} & \\
+  (T,N) &:& -\qty(\pdv{S}{N} )_{T,V} =& \qty(\pdv{\mu }{T} )_{V,N} &\\
+  (V,N) &:& -\qty(\pdv{P}{N} )_{V,T} =& \qty(\pdv{\mu }{V} )_{T,N} &
+ \end{align}
+\label{}
+\end{subequations}
+\end{example}
+\begin{example}{Gibbs \( G=G(T,P,N) \) }{}
+  \begin{equation}
+    \dd[]{G} = - S \dd[]{T} + V \dd[]{P} + \mu \dd[]{N}
+  \end{equation}
+  In this case the \emph{3 Maxweel relations} (\( [T,P,N] \)) are
+  \begin{subequations}
+  \begin{align}
+    (T,P) &:& -\qty(\pdv{S}{P} )_{T,N} =&  \qty(\pdv{V}{T} )_{P,N} & \\
+    (T,N) &:& -\qty(\pdv{S}{N} )_{T,P} =& \qty(\pdv{\mu }{T} )_{P,N} &\\
+    (P,N) &:& \qty(\pdv{V}{N} )_{P,T} =& \qty(\pdv{\mu }{P} )_{T,N} &
+   \end{align}
+  \label{}
+  \end{subequations}
+\end{example}
+
+\section{Response functions}
+Response functions are quantities that express how a system reacts when some external parameters are changed.
+
+In fact, aim of most experiments is to measure the response of a thermodynamic system with respect to controlled variations of thermodynamic variables. Any observation is just the perturbation of a system and looking for the response.
+A list of the commonly used response functions is the following:
+
+\begin{itemize}
+    \item Thermal response functions (heat capacities):
+    \begin{itemize}
+        \item \emph{Heat capacity at constant pressure}
+            \begin{equation}
+            C_P \equiv \qty(\frac{\delta Q}{\dd[]{T} } )_{P,N}
+                \underset{\delta Q = T \dd[]{S} }{=} T \qty(\pdv{S}{T} )_{P,N}
+                \underset{-S=\qty(\pdv{G}{T} )_{P,N} }{=} - T \qty(\pdv[2]{G}{T} )_{P,N}
+            \label{eq:}
+            \end{equation}
+        \item \emph{Heat capacity at constant volume}
+            \begin{equation}
+            C_V \equiv \qty(\frac{\delta Q}{\dd[]{T} } )_{V,N}
+                \underset{\delta Q = T \dd[]{S} }{=} T \qty(\pdv{S}{T} )_{V,N}
+                \underset{-S=\qty(\pdv{A}{T} )_{V,N} }{=} - T \qty(\pdv[2]{A}{T} )_{V,N}
+            \label{eq:}
+            \end{equation}
+    \end{itemize}
+    \begin{remark}
+    Heat capacity \( C_P \) is an extensive property. The associated intensive property is the specific heat capacity \( c_P \), which is obtained by dividing the heat capacity of an object by its mass. However, hereinafter these quantities will be used interchangeably.
+    \end{remark}
+\end{itemize}
+
+
+
+\begin{itemize}
+    \item Mechanical response functions:
+    \begin{itemize}
+        \item \emph{Thermal expansion coefficient at constant pressure}
+            \begin{equation}
+             \alpha _P \equiv \frac{1}{V} \qty(\pdv{V}{T} )_{P,N}
+            \label{eq:}
+            \end{equation}
+        \item \emph{Adiabatic compressibility}
+            \begin{equation}
+            k_S \equiv -\frac{1}{V} \qty(\pdv{V}{P} )_{S,N} \underset{V=\qty(\pdv{H}{P} )_{S,N} }{=} - \frac{1}{V} \qty(\pdv[2]{H}{P} )_{S,N}
+            \label{eq:}
+            \end{equation}
+        \item \emph{Isothermal compressibility}
+            \begin{equation}
+              k_T \equiv -\frac{1}{V} \qty(\pdv{V}{P} )_{T,N} \underset{V=\qty(\pdv{G}{P} )_{T,N} }{=} - \frac{1}{V} \qty(\pdv[2]{G}{P} )_{T,N}
+              \label{eq:}
+            \end{equation}
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item  Magnetic response functions:
+    \begin{itemize}
+        \item \emph{Isothermal susceptibility (d=1)} 
+        \begin{equation}
+        \chi_T \equiv \qty(\pdv{M}{H} )_T
+        \underset{M = -\eval{\pdv{G}{H}}_T }{=} - \qty(\pdv[2]{G}{H} )_T
+        \label{eq:}
+        \end{equation}
+    More generally, if \( \va{M}, \va{H}\) we have a second order tensor
+        \begin{equation}
+        \chi _{\alpha \beta } = \qty(\pdv{M_ \alpha }{H_ \beta } )_T ,
+        \quad M_ \alpha = -\eval{\pdv{G}{H_ \alpha }}_T \Rightarrow
+        \chi _{\alpha \beta } = \eval{\pdv{G}{H_ \beta }{H_ \alpha }}_T
+        \label{eq:}
+        \end{equation}
+    \end{itemize}
+\end{itemize}
+
+\begin{remark}
+Note that the response functions, when used with the Maxwell relations, allow to express observables usually inaccessible to experiments with measurable quantities.
+\end{remark}
+
+
+Let us illustrate a lemma useful for calculation:
+
+\begin{lemma}{}{}
+  \label{th:2_1}
+Let \(x,y,z  \)  be quantities that satisfy the relation \( f(x,y,z)=0 \). If \( w \)  is a function of  two any variables chosen between  \(x,y,z  \), then:
+\begin{enumerate}
+\item \( \qty(\pdv{x}{y} )_w \qty(\pdv{y}{z} )_w = \qty(\pdv{x}{z} )_w   \)
+\item \( \qty(\pdv{x}{y} )_z = \frac{1}{\qty(\pdv{y}{x} )_z }  \)
+\item \( \qty(\pdv{x}{y} )_z \qty(\pdv{y}{z} )_x  \qty(\pdv{z}{x} )_y = -1    \)  (concatenation relation or triple product rule).
+\end{enumerate}
+\end{lemma}
+
+
+\begin{example}{}{}
+  The Maxwell relation
+  \begin{equation*}
+    \qty(\pdv{S}{P} )_{T,N} = - \qty(\pdv{V}{T} )_{P,N}
+  \end{equation*}
+  obtained from
+  \begin{equation*}
+\dd[]{G} = - S \dd[]{T} + V \dd[]{P}
+  \end{equation*}
+  (\( (T,P) \) equation) used with the response function \( \alpha _P \), permits to write
+\begin{equation}
+  \underbrace{\qty(\pdv{S}{P} )_{T,N}}_{\substack{ \text{inaccessible} \\  \text{to experiments} } }  = \underbrace{- V \alpha _P}_{\text{measurable}}
+  \label{eq:}
+\end{equation}
+\end{example}
+\begin{example}{}{}
+Let us start with the Maxwell relation
+\begin{equation*}
+  \qty(\pdv{S}{V} )_{T,N} =  \qty(\pdv{P}{T} )_{V,N}
+\end{equation*}
+obtained from   (\( (T,V) \) equation)
+\begin{equation*}
+    \dd[]{A} = - S \dd[]{T} - P \dd[]{V}
+\end{equation*}
+From some property of multi-variable differential calculus one has the \textit{triple product rule}:
+\begin{equation*}
+    \qty(\pdv{P}{T} )_{V,N}  \qty(\pdv{V}{P} )_{T,N}   \qty(\pdv{T}{V} )_{P,N} =-1
+\end{equation*}
+Hence
+\begin{equation}
+\begin{split}
+    \qty(\pdv{P}{T} )_{V,N} &= \frac{-1}{ \qty(\pdv{V}{P} )_{T,N}   \qty(\pdv{T}{V} )_{P,N} }  = - \frac{  \qty(\pdv{V}{T} )_{P,N} }{   \qty(\pdv{V}{P} )_{T,N} } \\
+    &= \frac{-V \alpha _P}{-V k_T} = \frac{\alpha _P}{k _T}
+\end{split}
+  \label{eq:}
+\end{equation}
+\end{example}
+
+
+\subsection{Response functions and thermodynamic stability}
+Now, we analyze the concept of \textit{thermal stability}. If one injects heat in a system either at constant volume or at constant pressure, its temperature will inevitably increase
+\begin{equation}
+  \begin{cases}
+   c_V \equiv \qty(\frac{\delta Q}{\dd[]{T} })_V \ge 0  \\
+   c_P \equiv \qty(\frac{\delta Q}{\dd[]{T} })_P \ge 0
+  \end{cases}
+\label{eq:}
+\end{equation}
+\begin{remark}
+The thermal capacities are \emph{non-negative functions}!
+\end{remark}
+It is useful also the concept of \textit{mechanical stability}. If one compress a system by keeping \emph{T} constant, we would expect that it shrinks
+\begin{equation}
+  k_T = - \frac{1}{V} \qty(\pdv{V}{P} )_T \ge 0
+  \label{eq:}
+\end{equation}
+Similar considerations for a magnetic system, gives
+\begin{equation}
+  c_H \ge 0, \quad c_M \ge 0, \quad \chi_T \ge 0
+  \label{eq:}
+\end{equation}
+\begin{remark}
+In diamangetic systems \( \chi_M \) can also be negative.
+\end{remark}
+
+
+
+\begin{exercise}{}{}
+By using Maxwell relations show that
+\begin{subequations}
+\begin{align}
+  c_P - c_V &= \frac{T V \alpha_P ^2}{k_T} = \frac{1}{V k_T} T \qty(\pdv{V}{T} )_P^2 \\
+  c_H - c_M &= \frac{T}{\chi _T} \qty(\pdv{M}{T} )_H^2
+\end{align}
+\end{subequations}
+\begin{solution}
+Let us start considering a system with a fixed number of particles (namely \( \dd[]{N} =0  \)) and such that \emph{S}  is explicitly expressed in terms of \emph{T}  and \emph{V}.
+Then:
+
+\begin{equation*}
+  \dd[]{S} = \qty(\pdv{S}{T})_V \dd[]{T} + \qty(\pdv{S}{V} )_T \dd[]{V}
+\end{equation*}
+Dividing by \( \dd[]{T}  \) both sides keeping the pressure constant, and then multiplying by \emph{T}:
+\begin{equation*}
+  T \qty(\pdv{S}{T} )_P - T \qty(\pdv{S}{T} )_V = T \qty(\pdv{S}{V} )_T \qty(\pdv{V}{T} )_P
+\end{equation*}
+it implies
+\begin{equation*}
+  c_P - c_V = T \qty(\pdv{S}{V} )_T \qty(\pdv{V}{T} )_P
+\end{equation*}
+Now, using the Maxwell relation \( \qty(\pdv{S}{V} )_T = \qty(\pdv{P}{T} )_V   \) and using the triple product rule we obtain
+\begin{equation*}
+  \qty(\pdv{P}{T} )_V = - \qty(\pdv{P}{V} )_T \qty(\pdv{V}{T} )_P
+\end{equation*}
+we get:
+\begin{equation*}
+  c_P-c_V = - T \qty(\pdv{P}{V} )_T \qty(\pdv{V}{T} )_P^2 =
+  -T  \alpha_P^2 V^2 \qty(\pdv{P}{V} )_T
+  =\frac{T V}{k_T} \alpha_P^2
+\end{equation*}
+It can be shown similarly for magnetic systems.
+\end{solution}
+ A consequence is that, since the right hand terms are non negative,  it follows that
+\begin{equation}
+  \begin{cases}
+   c_P \ge c_V \ge 0  \\
+   c_H \ge c_M \ge 0
+  \end{cases}
+\end{equation}
+\end{exercise}
+
+For resuming, we have seen the thermodynamics of a phase, where the equilibrium state can be described by the maximum of the entropy. If we have a given phase, we can look for the Gibbs function. If we have more phases, we want to change between these phases.
+
+
+\end{document}
