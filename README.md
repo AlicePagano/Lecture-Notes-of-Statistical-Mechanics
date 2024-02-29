@@ -5,7 +5,9 @@ The notes are updated for the "Physics of Data" master course a.y. 2023/2024.
 
 **Author:** Alice Pagano (University of Padova)
 
-**Contributors:** Jacopo Carotenuto (2023/2024), Carlo Sgorlon Gaiatto (2022/2023)
+**Contributors:**
+- Jacopo Carotenuto (2023/2024)
+- Carlo Sgorlon Gaiatto and Noemi Manara (2022/2023)
 
 ## Table of Contents
 
