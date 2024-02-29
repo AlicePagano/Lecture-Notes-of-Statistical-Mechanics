@@ -95,6 +95,21 @@ Assuming that the thermodynamic limit exists, we now look at some additional rig
 
 \subsection{Thermodynamic Limit}
 
+For simplicity, let us consider the case in which the external magnetic field is homogeneous, i.e. \( H_i \equiv H \), and the spin-spin interaction is only between spins that are nearest-neighbours (n.n.) on the lattice:
+\begin{equation}
+J_{ij} =
+  \begin{cases}
+  J & \text{if } i \text{ and } j \text{ are n.n.} \\
+  0 & \text{otherwise}
+  \end{cases}
+\end{equation}
+Now, the model is very simple:
+\begin{equation}
+  - \mathcal{H}_ \Omega ( \{ S \}  ) = J \sum_{\expval{ij} }^{N (\Omega )} S_i S_j + H \sum_{i}^{N(\Omega )} S_i
+  \label{eq:6_0}
+\end{equation}
+where the notation \( \expval{ij}  \) means a double sum over \emph{i} and \emph{j}, with the constraint that \emph{i} and \emph{j} are nearest-neighbours.
+
 To prove the existence of the thermodynamic limit of the Ising Model let us consider the case in which $H_{i} = H = 0$ for all nodes.
 So our Hamiltonian becomes:
 $$\mathcal{H}_{N}(\{ s \}) = -J \sum_{\avg{{ij}}} s_{i}s_{j}$$
@@ -109,10 +124,10 @@ Given a square lattice with $N= 4n^{2}$ spins let us partition it into $4$ ident
 \end{figure}
 
 
-If we neglect the surface interaction between the 4 subsystems we make an error in the estimate of the total energy ranging betwwn $-4Jn$ (boundary spins are all parallel) and $4Jn$ (boundary spins are all anti-parallel).
+If we neglect the surface interaction between the 4 subsystems we make an error in the estimate of the total energy ranging between $-4Jn$ (boundary spins are all parallel) and $4Jn$ (boundary spins are all anti-parallel).
 Since the number of configurations is not modified by this partition if we assume that the subsystems are independent:
 $$
-(Z_{n^{2}})^{4} e^{-4\beta J_{n}} \leq Z_{(2n)^{2}} \leq (Z_{n^{2}})^{4}e^{4\beta J_{n}}
+(Z_{n^{2}})^{4} e^{-4\beta J{n}} \leq Z_{(2n)^{2}} \leq (Z_{n^{2}})^{4}e^{4\beta J{n}}
 $$
 
 With a free-energy density of a single subsystem:
@@ -154,44 +169,20 @@ If $\mathcal{H}(\{ s \}) = -\frac{J}{2} \sum_{{i,j}} s_{i}s_{j}$ where the sum i
 
 
 \subsection{Order Parameter of the Ising Model}
-For simplicity, let us consider the case in which the external magnetic field is homogeneous, i.e. \( H_i \equiv H \), and the spin-spin interaction is only between spins that are nearest-neighbours (n.n.) on the lattice:
-\begin{equation}
-J_{ij} =
-  \begin{cases}
-  J & \text{if } i \text{ and } j \text{ are n.n.} \\
-  0 & \text{otherwise}
-  \end{cases}
-\end{equation}
-Now, the model is very simple:
-\begin{equation}
-  - \mathcal{H}_ \Omega ( \{ S \}  ) = J \sum_{\expval{ij} }^{N (\Omega )} S_i S_j + H \sum_{i}^{N(\Omega )} S_i
-  \label{eq:6_0}
-\end{equation}
-where the notation \( \expval{ij}  \) means a double sum over \emph{i} and \emph{j}, with the constraint that \emph{i} and \emph{j} are nearest-neighbours.
-
-Since \emph{H} is uniform, the average magnetization per spin is
-\begin{equation}
-  \expval{m} = \frac{1}{N (\Omega )} \sum_{i=1}^{N (\Omega )} \expval{S_i}
-\end{equation}
-where \( \expval{\dots}  \)  means average over the chosen ensemble.
-
-\begin{remark}
-For \( J=0 \), \eqref{eq:6_0}  is the Hamiltonian of a paramagnet. The only influence ordering the spins is the field \( H \). They do not interact, there are no cooperative effects and hence no phase transition.
-\end{remark}
-
-
-
 %%%%%%%%%%%%%%% ADDED IN 2023 %%%%%%%%%%%%%%
-
+Let us start again from the Hamiltonian: 
+$$  - \mathcal{H} ( \{ S \}  ) = J \sum_{\expval{ij} }^{N} S_i S_j + H \sum_{i}^{N} S_i $$
+One can formally express the Average Total Magnetization as
+$$M = \avg{\sum_{i=1}^N S_i}$$
 In the case in which $H$ is uniform we have
-$$M(\beta) = \avg{\sum_{i=1}^{N}s_{i}}  \frac{1}{Z_{N}}\Tr{\{ s \}}\left( \sum_{i}s_{i} \right)e^{-\beta \mathcal{H}_{N}} = \frac{1}{\beta} \frac{ \partial \ln(Z_{N}) }{ \partial H  }\bigg\rvert_{\beta} $$
+$$M(\beta) = \avg{\sum_{i=1}^{N}s_{i}} =   \frac{1}{Z_{N}}\Tr_{\{ s \}}\left( \sum_{i}s_{i} \right)e^{-\beta \mathcal{H}_{N}} = \frac{1}{\beta} \frac{ \partial \ln(Z_{N}) }{ \partial H  }\bigg\rvert_{\beta} $$
 
 With $Z_{N}$ the generating function.
 In general one is interested in the magnetisation density or per spins, so
 $$m(\beta,H) = \frac{M(\beta,H)}{N} = \frac{1}{N\beta} \frac{ \partial \ln(Z_{N}) }{ \partial H  }\bigg\rvert_{\beta} = -\frac{1}{N} \frac{ \partial F_{N} }{ \partial H  }\bigg\rvert_{\beta} = -\frac{ \partial f_{N} }{ \partial H  }\bigg\rvert_{\beta} $$
 With $m(\beta,H)$ being the \textbf{Order Parameter} of the Ising Model.
 
-Note that for $H_{i} = H$, $m$ does not depend on $i$ (it's homogeneous) and, since $M = \sum_{i}s_{i}$ the partition function $$Z_{N}(\beta,J,H) = \Tr{\{ s \}} \exp\left( \beta J \sum_{\avg{ {ij}}}s_{i}s_{j} + \beta HM \right)$$
+Note that for $H_{i} = H$, $m$ does not depend on $i$ (it's homogeneous) and, since $M = \sum_{i}s_{i}$ the partition function $$Z_{N}(\beta,J,H) = \Tr_{\{ s \}} \exp\left( \beta J \sum_{\avg{ {ij}}}s_{i}s_{j} + \beta HM \right)$$
 coincides with the Gibbs partition function (and $f_{n}$ with the finite size Gibbs free-energy density $g_N$).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
